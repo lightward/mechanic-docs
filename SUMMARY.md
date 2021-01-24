@@ -10,6 +10,7 @@
 ## Core Concepts
 
 * [Tasks](core-concepts/tasks/README.md)
+  * [Introduction](core-concepts/tasks/introduction.md)
   * [Previews](core-concepts/tasks/previews.md)
   * [Logging](core-concepts/tasks/logging.md)
   * [Automatic Options](core-concepts/tasks/automatic-options.md)
@@ -57,4 +58,8 @@
 * [Trigger a Task From Your Store](developer-tutorials/working-with-inbound-webhooks.md)
 * [Tag Orders Using GraphQL](developer-tutorials/tag-orders-using-graphql.md)
 * [Trigger a Task From a Contact Form](developer-tutorials/trigger-a-task-from-a-contact-form.md)
+
+## FAQ
+
+* [Can I query external APIs?](faq/can-i-query-external-apis.md)
 
