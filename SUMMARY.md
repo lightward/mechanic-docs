@@ -1,11 +1,11 @@
 # Table of contents
 
-* [Welcome](README.md)
+* [Welcome!](README.md)
 
 ## Getting Started
 
-* [Overview](getting-started/overview.md)
-* [Slack Community](getting-started/slack-community.md)
+* [Introduction](getting-started/overview.md)
+* [Resources](getting-started/slack-community.md)
 
 ## Core Concepts
 
