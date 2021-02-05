@@ -9,6 +9,15 @@
 
 ## Core Concepts
 
+* [Events](core-concepts/events/README.md)
+  * [Event topics](core-concepts/events/event-topic-reference/README.md)
+    * [Mechanic](core-concepts/events/event-topic-reference/mechanic.md)
+    * [Shopify](core-concepts/events/event-topic-reference/shopify.md)
+    * [User](core-concepts/events/event-topic-reference/user.md)
+    * [Third-party](core-concepts/events/event-topic-reference/third-party.md)
+  * [Parent and child events](core-concepts/events/parent-and-child-events.md)
+  * [Event filters](core-concepts/events/event-filters/README.md)
+    * [Debouncing events](core-concepts/events/event-filters/debouncing-events.md)
 * [Tasks](core-concepts/tasks/README.md)
   * [Introduction](core-concepts/tasks/introduction.md)
   * [Previews](core-concepts/tasks/previews.md)
@@ -16,7 +25,6 @@
   * [Automatic Options](core-concepts/tasks/automatic-options.md)
   * [Subscriptions](core-concepts/tasks/subscriptions.md)
   * [Documentation](core-concepts/tasks/documentation.md)
-* [Events](core-concepts/events.md)
 * [Actions](core-concepts/actions/README.md)
   * [Echo](core-concepts/actions/echo.md)
   * [Cache](core-concepts/actions/cache.md)
