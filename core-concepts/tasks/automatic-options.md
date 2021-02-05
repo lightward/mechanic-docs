@@ -1,2 +1,2 @@
-# Automatic Options
+# Automatic options
 
