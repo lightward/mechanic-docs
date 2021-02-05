@@ -8,31 +8,31 @@ description: An index of event topics in the Shopify domain
 Shopify events are received from Shopify, directly, and contain event data provided by Shopify. For a reference on what each event contains, see [Shopify's Webhook documentation](https://shopify.dev/docs/admin-api/rest/reference/events/webhook).
 {% endhint %}
 
-### Cart
+## Cart
 
 * shopify/carts/create
 * shopify/carts/update
 
-### Checkout
+## Checkout
 
 * shopify/checkouts/create
 * shopify/checkouts/update
 * shopify/checkouts/paid
 * shopify/checkouts/delete
 
-### Collections
+## Collections
 
 * shopify/collections/create
 * shopify/collections/update
 * shopify/collections/delete
 
-### Customer saved searches
+## Customer saved searches
 
 * shopify/customer\_groups/create 
 * shopify/customer\_groups/update 
 * shopify/customer\_groups/delete 
 
-### Customers
+## Customers
 
 * shopify/customers/create
 * shopify/customers/delete
@@ -40,50 +40,50 @@ Shopify events are received from Shopify, directly, and contain event data provi
 * shopify/customers/enable
 * shopify/customers/update
 
-### Disputes
+## Disputes
 
 * shopify/disputes/create
 * shopify/disputes/update
 
-### Draft orders
+## Draft orders
 
 * shopify/draft\_orders/create
 * shopify/draft\_orders/delete
 * shopify/draft\_orders/update
 
-### Fulfillment events
+## Fulfillment events
 
 * shopify/fulfillment\_events/create
 * shopify/fulfillment\_events/delete
 
-### Fulfillments
+## Fulfillments
 
 * shopify/fulfillments/create
 * shopify/fulfillments/update
 
-### Inventory Items
+## Inventory Items
 
 * shopify/inventory\_items/create
 * shopify/inventory\_items/update
 * shopify/inventory\_items/delete
 
-### Inventory Levels
+## Inventory Levels
 
 * shopify/inventory\_levels/connect
 * shopify/inventory\_levels/update
 * shopify/inventory\_levels/disconnect
 
-### Locations
+## Locations
 
 * shopify/locations/create
 * shopify/locations/update
 * shopify/locations/delete
 
-### Order transactions
+## Order transactions
 
 * shopify/order\_transactions/create
 
-### Orders
+## Orders
 
 * shopify/orders/cancelled
 * shopify/orders/create
@@ -94,21 +94,21 @@ Shopify events are received from Shopify, directly, and contain event data provi
 * shopify/orders/updated
 * shopify/orders/edited
 
-### Products
+## Products
 
 * shopify/products/create
 * shopify/products/delete
 * shopify/products/update
 
-### Refunds
+## Refunds
 
 * shopify/refunds/create
 
-### Shop
+## Shop
 
 * shopify/shop/update
 
-### Themes
+## Themes
 
 * shopify/themes/create
 * shopify/themes/delete
