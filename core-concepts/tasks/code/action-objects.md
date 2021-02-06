@@ -1,6 +1,6 @@
 # Action objects
 
-An action object defines work to be performed, after the task is fully finished rendering.
+An action object defines work to be performed by an [action](../../actions/), after the task is fully finished rendering.
 
 An action object is a plain JSON object, having the following structure:
 
