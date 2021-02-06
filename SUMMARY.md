@@ -24,7 +24,7 @@
     * [Error objects](core-concepts/tasks/code/error-objects.md)
     * [Log objects](core-concepts/tasks/code/logging.md)
   * [Subscriptions](core-concepts/tasks/subscriptions.md)
-  * [Automatic options](core-concepts/tasks/automatic-options.md)
+  * [Options](core-concepts/tasks/automatic-options.md)
   * [Previews](core-concepts/tasks/previews.md)
   * [Documentation](core-concepts/tasks/documentation.md)
 * [Actions](core-concepts/actions/README.md)

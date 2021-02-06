@@ -1,5 +1,7 @@
 # Action objects
 
+An action object defines work to be performed, after the task is fully finished rendering.
+
 An action object is a plain JSON object, having the following structure:
 
 ```javascript
@@ -80,13 +82,13 @@ This tag has several usage styles, each style resulting in a valid action object
 ### Tag syntax, mapped arguments
 
 {% tabs %}
-{% tab title="First Tab" %}
+{% tab title="Liquid" %}
 ```javascript
 {% action "echo", foo: "bar", baz: "qux" %}
 ```
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="JSON" %}
 ```javascript
 {
   "action": {
