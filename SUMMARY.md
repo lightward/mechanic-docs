@@ -46,7 +46,6 @@
 ## Advanced Topics
 
 * [Contributing to the Task Library](advanced-topics/contributing-to-the-task-library.md)
-* [How to Create a Pull Request](advanced-topics/how-to-create-a-pull-request.md)
 * [Custom Email Domain](advanced-topics/custom-email-domain.md)
 * [Email Templates](advanced-topics/email-templates.md)
 * [Advanced Liquid](advanced-topics/untitled.md)
