@@ -10,9 +10,9 @@ Mechanic is accompanied by an open-source library, with 280+ automation tasks re
 
 ### Tasks, events, and actions
 
-A developer writes **tasks** – Mechanic's term for a piece of automation. These tasks can respond to many different **events**, like a Shopify webhook, a manual trigger, a regular interval \(e.g. hourly, daily\), or an incoming email.
+A developer writes [**tasks**](../core-concepts/tasks/) – Mechanic's term for a piece of automation. These tasks can respond to many different [**events**](../core-concepts/events/), like a Shopify webhook, a manual trigger, a regular interval \(e.g. hourly, daily\), or an incoming email.
 
-When a task responds to an incoming event, it can choose to generate an **action** – an operation that has an effect.
+When a task responds to an incoming event, it can choose to generate an [**action**](../core-concepts/actions/) – an operation that has an effect.
 
 * The Shopify action makes changes to a Shopify store, like tagging, publishing, creating or deleting resource. It provides direct and complete access to Shopify's admin API, with support for both REST and GraphQL.
 * The Email action action is for sending email. It supports custom templates, and attachments.
@@ -22,7 +22,7 @@ When a task responds to an incoming event, it can choose to generate an **action
 
 ### Liquid
 
-Task code is written in Liquid – a template language created by Shopify. In the same way that a Liquid theme receives browser requests and renders HTML, Mechanic tasks receive events, and render actions.
+Mechanic makes heavy use of Liquid – a template language created by Shopify. Its primary use is in [**task code**](../core-concepts/tasks/code/). In the same way that a Liquid theme receives browser requests and renders HTML, Mechanic tasks receive events, and render actions.
 
 Mechanic's implementation of Liquid includes additional support for constructing arrays and hashes, and includes many useful filters, making data processing more efficient.
 

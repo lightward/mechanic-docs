@@ -1,6 +1,6 @@
 # Error objects
 
-When a task renders an error object, the task run will be marked as failed. This is a good way to communicate an intentional failure to the user, when your Liquid code detects a certain condition. A task that renders an error object [during preview](../previews.md) will prevent the user from saving it in that state, which means that error objects are a good way to enforce additional validation on [task options](../automatic-options.md).
+When a task renders an error object, the task run will be marked as failed. This is a good way to communicate an intentional failure to the user, when your Liquid code detects a certain condition. A task that renders an error object [during preview](../previews.md) will prevent the user from saving it in that state, which means that error objects are a good way to enforce additional validation on [task options](../options.md).
 
 An error object is a plain JSON object, having the following structure:
 
