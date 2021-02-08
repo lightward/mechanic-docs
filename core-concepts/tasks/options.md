@@ -51,6 +51,10 @@ If no flags are used for an option, an option will be made available as a plain 
 | keyval | Renders a compound form element, allowing the user to provide zero or more key-value pairs; the option value is a hash, containing these key-value pairs |
 | array | Renders a compound form element, allowing the user to provide zero or more values; the option value is an array, containing these values |
 
+{% hint style="info" %}
+Array options have a hidden feature: once the user-configured array reaches 5 elements in size, a new "Manage in bulk" button will appear for that option. Clicking it will open a modal which allows the user to manage the array's input using a single multiline text field, in which each line represents an array element. This is a convenient way to configure larger arrays.
+{% endhint %}
+
 ## Liquid
 
 Options that allow text input are evaluated for Liquid when a task processes an event. Liquid evaluation for options occurs before it occurs for task code, which means that any Liquid variables created by task code are not available to task options.

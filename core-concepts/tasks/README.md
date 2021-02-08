@@ -2,7 +2,7 @@
 
 In Mechanic, a **task** is a bundle of logic and configuration, that responds to and interprets [**events**](../events/). The result of a task can include [**actions**](../actions/), which are the task's opportunities to have an effect on the world.
 
-A task responds to events based on its [**subscriptions**](subscriptions.md). When an event is received that matches a subscription, the task processes the event using its [**code**](code/). The code has access to the event data, and also has access to the user's task configuration, through [**automatic options**](options.md).
+A task responds to events based on its [**subscriptions**](subscriptions.md). When an event is received that matches a subscription, the task processes the event using its [**code**](code/). The code has access to the event data, and also has access to the user's task configuration, through [**options**](options.md). A task communicates what actions it intends to run, ahead of time, using its [**preview**](previews/).
 
 Tasks may be written from scratch, or installed from the Mechanic library \(available in-app and [on GitHub](https://github.com/lightward/mechanic-tasks)\). Once installed, a task's code may be modified at any time.
 

@@ -26,7 +26,8 @@
     * [Log objects](core-concepts/tasks/code/logging.md)
   * [Subscriptions](core-concepts/tasks/subscriptions.md)
   * [Options](core-concepts/tasks/options.md)
-  * [Previews](core-concepts/tasks/previews.md)
+  * [Previews](core-concepts/tasks/previews/README.md)
+    * [Stub data](core-concepts/tasks/previews/stub-data.md)
   * [Documentation](core-concepts/tasks/documentation.md)
   * [Importing/Exporting Tasks](core-concepts/tasks/importing-exporting-tasks.md)
 * [Actions](core-concepts/actions/README.md)
@@ -48,6 +49,14 @@
 * [GraphQL](core-concepts/graphql.md)
 * [REST](core-concepts/rest.md)
 * [Integrations](core-concepts/integrations.md)
+
+## Liquid
+
+* [Filters](liquid/filters/README.md)
+  * [parse\_json](liquid/filters/parse_json.md)
+  * [shopify](liquid/filters/shopify.md)
+* [Tags](liquid/tags/README.md)
+  * [assign](liquid/tags/assign.md)
 
 ## Advanced Topics
 

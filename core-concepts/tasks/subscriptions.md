@@ -21,7 +21,7 @@ To reload the data in a Shopify variable, use something like this:
 {% endunless %}
 ```
 
-Remember, Mechanic does not permit access to the Shopify API during [event preview](previews.md). Using `{% unless event.preview %}`ensures that reloading only happens during a live event.
+Remember, Mechanic does not permit access to the Shopify API during [event preview](previews/). Using `{% unless event.preview %}`ensures that reloading only happens during a live event.
 {% endhint %}
 
 ## Using Liquid
