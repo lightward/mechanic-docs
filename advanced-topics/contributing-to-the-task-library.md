@@ -30,7 +30,7 @@ We follow the same process any open-source project does when it comes to code ma
 1. You'll need a GitHub account, you can signup for one [here](https://github.com/join). 
 2. Visit the [task library repository](https://github.com/lightward/mechanic-tasks) and fork it as shown below. You'll make your changes to this copy of the repository.
 
-![](../.gitbook/assets/fork.gif)
+   ![](../.gitbook/assets/fork.gif)
 
 3. The task library is made up of the [tasks](https://github.com/lightward/mechanic-tasks/tree/master/tasks) and the supporting documentation.  In these next few steps, you'll ensure you can build the [docs](https://github.com/lightward/mechanic-tasks/tree/master/docs), so that you can complete this step when you are ready to submit your contribution.
 
