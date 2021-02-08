@@ -21,7 +21,7 @@ We follow the same process any open-source project does when it comes to code ma
 ### The process
 
 * You'll [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the task library [repository](https://github.com/lightward/mechanic-tasks).
-  * Forking is taking a copy of our repository, so that you can make changes to your copy.
+  * Forking means taking a copy of our repository, so that you can make your changes and additions.
 * Make your changes in your forked repository.
 * Make a [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests), which will trigger a review of your proposed changes and the merging of them into the main repository, making your task available to everyone using the app.
 
@@ -32,7 +32,7 @@ We follow the same process any open-source project does when it comes to code ma
 
    ![](../.gitbook/assets/fork.gif)
 
-3. The task library is made up of the [tasks](https://github.com/lightward/mechanic-tasks/tree/master/tasks) and the supporting documentation.  In these next few steps, you'll ensure you can build the [docs](https://github.com/lightward/mechanic-tasks/tree/master/docs), so that you can complete this step when you are ready to submit your contribution.
+3. The task library is made up of the [tasks](https://github.com/lightward/mechanic-tasks/tree/master/tasks) and the supporting documentation. In these next few steps, you'll ensure you can build the [docs](https://github.com/lightward/mechanic-tasks/tree/master/docs), so that you can complete this step when you are ready to submit your contribution.
 
    1. Building the docs requires npm, node &gt;=12.10.0, and yarn. 
       1. Install npm and node here: [https://www.npmjs.com/get-npm](https://www.npmjs.com/get-npm)
@@ -45,10 +45,10 @@ We follow the same process any open-source project does when it comes to code ma
    npm run test  # apply sanity checks
    ```
 
-4. Now that you can build the docs you're are ready to [contribute](https://github.com/lightward/mechanic-tasks/blob/master/CONTRIBUTING.md)! 
+4. Now that you can build the docs you're are ready to [contribute](https://github.com/lightward/mechanic-tasks/blob/master/CONTRIBUTING.md)!
 5. Your task documentation, options, subscriptions, code, are done in Mechanic. If you choose to use an external editor that's great, you still need to transfer it into Mechanic, so that you can export the task in the JSON format you need for the library. Importing/Exporting tasks from Mechanic is covered [here](../core-concepts/tasks/importing-exporting-tasks.md).
 6. If you're changing an existing task you export the JSON, and replace the contents of the `task/task_file_name.json` and then run the commands `npm run build` and `npm run test.`
-7. If you are contributing a new task, you'll [export](../core-concepts/tasks/importing-exporting-tasks.md) the JSON from Mechanic, and save the JSON file in the `tasks/directory` of your forked repoistory, named with an appropriate handle for the task. \(For example, a task named "Hide out-of-stock products" should have its JSON export stored in `"tasks/hide-out-of-stock-products.json"`.\) And, then you'll execute the commands: 
+7. If you are contributing a new task, you'll [export](../core-concepts/tasks/importing-exporting-tasks.md) the JSON from Mechanic, and save the JSON file in the `tasks/directory` of your forked repoistory, named with an appropriate handle for the task. \(For example, a task named "Hide out-of-stock products" should have its JSON export stored in `"tasks/hide-out-of-stock-products.json"`.\) And, then you'll execute the commands:
 
    `npm run build` and `npm run test`.
 
