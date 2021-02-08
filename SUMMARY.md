@@ -28,6 +28,7 @@
   * [Options](core-concepts/tasks/options.md)
   * [Previews](core-concepts/tasks/previews.md)
   * [Documentation](core-concepts/tasks/documentation.md)
+  * [Importing/Exporting Tasks](core-concepts/tasks/importing-exporting-tasks.md)
 * [Actions](core-concepts/actions/README.md)
   * [Echo](core-concepts/actions/echo.md)
   * [Cache](core-concepts/actions/cache.md)
@@ -56,7 +57,6 @@
 * [Mechanic Cache](advanced-topics/mechanic-cache.md)
 * [Cache Endpoints](advanced-topics/cache-endpoints.md)
 * [CORS](advanced-topics/cors.md)
-* [Importing/Exporting Tasks](advanced-topics/importing-exporting-tasks.md)
 * [Parent and Child Events](advanced-topics/parent-and-child-events.md)
 * [Option Ordering](advanced-topics/option-ordering.md)
 
