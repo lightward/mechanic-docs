@@ -29,7 +29,7 @@
   * [Previews](core-concepts/tasks/previews/README.md)
     * [Stub data](core-concepts/tasks/previews/stub-data.md)
   * [Documentation](core-concepts/tasks/documentation.md)
-  * [Importing/Exporting Tasks](core-concepts/tasks/importing-exporting-tasks.md)
+  * [Import and export](core-concepts/tasks/import-and-export.md)
 * [Actions](core-concepts/actions/README.md)
   * [Echo](core-concepts/actions/echo.md)
   * [Cache](core-concepts/actions/cache.md)
