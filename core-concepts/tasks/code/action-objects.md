@@ -1,6 +1,6 @@
 # Action objects
 
-An action object defines work to be performed by an [action](../../actions/), after the task is fully finished rendering.
+An action object defines work to be performed by an [**action**](../../actions/), after the task is fully finished rendering.
 
 An action object is a plain JSON object, having the following structure:
 
@@ -54,7 +54,7 @@ This tag has several usage styles, each style resulting in a valid action object
 {% endtab %}
 {% endtabs %}
 
-### Tag syntax, ordered arguments
+### Tag syntax, positional options
 
 {% tabs %}
 {% tab title="Liquid" %}
@@ -79,7 +79,7 @@ This tag has several usage styles, each style resulting in a valid action object
 {% endtab %}
 {% endtabs %}
 
-### Tag syntax, mapped arguments
+### Tag syntax, mapped options
 
 {% tabs %}
 {% tab title="Liquid" %}
@@ -97,6 +97,27 @@ This tag has several usage styles, each style resulting in a valid action object
       "foo": "bar",
       "baz": "qux"
     }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Tag syntax, single option
+
+{% tabs %}
+{% tab title="Liquid" %}
+```javascript
+{% action "echo", "foo" %}
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+  "action": {
+    "type": "echo",
+    "options": "foo"
   }
 }
 ```
