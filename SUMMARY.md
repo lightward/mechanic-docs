@@ -42,7 +42,6 @@
   * [Shopify](core-concepts/actions/shopify.md)
 * [Runs](core-concepts/runs/README.md)
   * [Retries](core-concepts/runs/retries.md)
-* [GraphQL](core-concepts/graphql.md)
 * [REST](core-concepts/rest.md)
 * [Integrations](core-concepts/integrations.md)
 
@@ -62,6 +61,13 @@
 * [Tags](liquid/tags/README.md)
   * [assign](liquid/tags/assign.md)
 
+## GraphQL
+
+* [Basics](graphql/basics/README.md)
+  * [Queries](graphql/basics/queries.md)
+  * [Mutations](graphql/basics/mutations.md)
+* [Bulk Operations](graphql/bulk-operations.md)
+
 ## Advanced Topics
 
 * [Contributing to the Task Library](advanced-topics/contributing-to-the-task-library.md)
@@ -69,12 +75,9 @@
 * [Custom Email Domain](advanced-topics/custom-email-domain.md)
 * [Mechanic Webhooks](advanced-topics/webhooks.md)
 * [External APIs](advanced-topics/external-apis.md)
-* [Bulk Operations](advanced-topics/bulk-operations.md)
 * [Mechanic Cache](advanced-topics/mechanic-cache.md)
 * [Cache Endpoints](advanced-topics/cache-endpoints.md)
 * [CORS](advanced-topics/cors.md)
-* [Parent and Child Events](advanced-topics/parent-and-child-events.md)
-* [Option Ordering](advanced-topics/option-ordering.md)
 
 ## Tutorials <a id="developer-tutorials"></a>
 
