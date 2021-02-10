@@ -37,7 +37,8 @@
   * [Files](core-concepts/actions/files.md)
   * [FTP](core-concepts/actions/ftp.md)
   * [HTTP](core-concepts/actions/http.md)
-  * [Email](core-concepts/actions/email.md)
+  * [Email](core-concepts/actions/email/README.md)
+    * [Custom Email Domain](core-concepts/actions/email/custom-email-domain.md)
   * [Event](core-concepts/actions/event.md)
   * [Shopify](core-concepts/actions/shopify.md)
 * [Runs](core-concepts/runs/README.md)
@@ -65,7 +66,6 @@
 ## Advanced Topics
 
 * [Contributing to the Task Library](advanced-topics/contributing-to-the-task-library.md)
-* [Custom Email Domain](advanced-topics/custom-email-domain.md)
 * [Email Templates](advanced-topics/email-templates.md)
 * [Advanced Liquid](advanced-topics/untitled.md)
 * [Advanced GraphQL](advanced-topics/advanced-graphql.md)
