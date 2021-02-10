@@ -50,6 +50,7 @@
 * [Basics](liquid/basics/README.md)
   * [Comments](liquid/basics/comments.md)
   * [Variables](liquid/basics/variables.md)
+  * [Types](liquid/basics/types.md)
   * [Comparisons](liquid/basics/comparison-operators.md)
   * [Conditionals](liquid/basics/conditional-statements.md)
   * [Iteration](liquid/basics/iteration.md)
