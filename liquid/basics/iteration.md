@@ -33,7 +33,7 @@ The loop skips its current iteration when it encounters the `continue`tag.
 
 ## break tag
 
-The loop stops iterarting when it encounters the `break`tag.
+The loop stops iterating when it encounters the `break`tag.
 
 ```javascript
 {% for line_item in order.line_items %}
@@ -46,7 +46,7 @@ The loop stops iterarting when it encounters the `break`tag.
 
 ## forloop object
 
-The `forloop`object contains information about its parent loop.  This object is handy when work with Mechanic tasks. Leare more [here](https://shopify.dev/docs/themes/liquid/reference/objects/for-loops).
+The `forloop`object contains information about its parent loop.  This object is handy when work with Mechanic tasks. Learn more [here](https://shopify.dev/docs/themes/liquid/reference/objects/for-loops).
 
 ```javascript
 {% for lookup in options.product_property_lookups__array_required %}
