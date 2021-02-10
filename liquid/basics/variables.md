@@ -14,7 +14,7 @@ The assign tag creates a new variable.
 
 ## Capture tag
 
-The capture tag is a useful tool for creating strings of multiple variables.  This proves to be very useful in Mechanic. We use this tag extensively in our task code for capturing GraphQL queries, email bodies, and more.
+The capture tag is a useful tool for creating strings of multiple variables, which is very useful in Mechanic. We use this tag extensively in our task code for capturing GraphQL queries, email bodies, and more.
 
 {% hint style="info" %}
 In this example, the string is captured into a variable named query.

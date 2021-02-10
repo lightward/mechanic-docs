@@ -53,7 +53,7 @@
   * [Comparisons](liquid/basics/comparison-operators.md)
   * [Conditionals](liquid/basics/conditional-statements.md)
   * [Iteration](liquid/basics/iteration.md)
-  * [Filters](liquid/basics/untitled.md)
+  * [Filters](liquid/basics/basic-liquid-filters.md)
   * [Whitespace](liquid/basics/whitespace.md)
 * [Filters](liquid/filters/README.md)
   * [parse\_json](liquid/filters/parse_json.md)

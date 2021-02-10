@@ -52,7 +52,7 @@ The `contains` operator is used to check for the existence of a substring in a s
 
 ## Logical operators
 
-If `b = 3` and `c = 6`, the table below illustrates the logical operators in liquid:
+If `b = 3` and `c = 6`, the table below illustrates the logical operators in Liquid:
 
 | Operator | Example | Result |
 | :--- | :--- | :--- |
