@@ -1,4 +1,4 @@
-# Shopify API versions
+# Shopify API version
 
 Each task is configured with a [**Shopify API version**](https://shopify.dev/concepts/about-apis/versioning), defaulting to the latest version at the time of the task's creation.
 

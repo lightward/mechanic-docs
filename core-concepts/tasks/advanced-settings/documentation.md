@@ -2,13 +2,13 @@
 
 Individual tasks may be optionally configured with their own **documentation**, formatted with Markdown, providing the user with anything they should know about the task's usage and operation.
 
-Task documentation is shown to the user below the task's [**options**](options.md). Documentation is also shown in the confirmation prompt a user sees when they trigger a task that subscribes to either mechanic/user/trigger or mechanic/user/text.
+Task documentation is shown to the user below the task's [**options**](../options.md). Documentation is also shown in the confirmation prompt a user sees when they trigger a task that subscribes to either mechanic/user/trigger or mechanic/user/text.
 
 ## Adding documentation
 
 The option to add documentation is found at the very end of a task's advanced settings. Once documentation is in place, it is displayed at the very end of a task's options.
 
-![](../../.gitbook/assets/2021-02-09-16.30.00%20%281%29.gif)
+![](../../../.gitbook/assets/2021-02-09-16.30.00%20%281%29.gif)
 
 ## Markdown
 
