@@ -8,8 +8,8 @@ If you have worked with Shopify themes, you've worked with Liquid. If you are ne
 
 * [Comments](comments.md)
 * [Variables](variables.md)
-* [Logical Operators](logical-operators.md)
-* [Conditional Statements](conditional-statements/)
+* [Logical Operators](comparison-operators.md)
+* [Conditional Statements](conditional-statements.md)
 
 In the later sections, we cover our additions to the Liquid language.  To make our lives easier here, we've introduced several new Liquid tags: [action](https://docs.usemechanic.com/article/359-the-action-tag), [log](https://docs.usemechanic.com/article/320-the-log-tag), and [error](https://docs.usemechanic.com/article/319-the-error-tag). We've also enhanced [the assign tag](https://docs.usemechanic.com/article/357-the-assign-tag) to support creating arrays and hashes.
 
