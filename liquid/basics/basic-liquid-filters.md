@@ -94,23 +94,103 @@ Hi ! Nice to meet everyone!
 {% endtab %}
 {% endtabs %}
 
-### replace filter
+### replace and replace\_first filter
 
-### slice filter
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{{ "Matt and Megan love to travel and travel." | replace: 'travel', 'party' }}
+{{ "Matt and Megan love to travel and travel | replace_first : 'travel', 'party' }}
+
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+Matt and Megan love to party and party.
+Matt and Megan love to party and travel.
+```
+{% endtab %}
+{% endtabs %}
 
 ### split filter
 
+The `split` filter takes a substring and uses it split an string into an array.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% assign quote = "love,is,all,you,need!" | split: ',' %}
+
+{% for word in quote %}
+  {{ quorte }}
+{% endfor %}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+love
+is
+all
+you
+need!
+```
+{% endtab %}
+{% endtabs %}
+
 ### strip filter
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{{ '   why do we have so many spaces?      ' | strip }}
+
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+why do we have so many spaces? 
+```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 Remember to check out the full collection of string filters [here](https://shopify.dev/docs/themes/liquid/reference/filters/string-filters).
+
+`append, camelcase, capitalize, downcase, upcase, escape, handle/handleize, md5, sha1, sha256, hmac_sha1, hmac_sha256, newline_to_br, pluralize, prepend, remove, remove_all, replace, replace_first, slice, split, strip, lstip, rstrip, strip_html, strip_newlines, truncate, truncatewords, url_encode, url_escape, url_param_escape, reverse.`
 {% endhint %}
 
 ## Math filters
 
-## Array filters
+### minus, plus, times filters
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+aaaa
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+{% hint style="info" %}
+Remember to check out the full collection of math filters filters [here](https://shopify.dev/docs/themes/liquid/reference/filters/math-filters).
+
+`abs, at_most, at_least, ceil, divided_by, floor, minus, plus, round, times, modulo.`
+{% endhint %}
 
 ## Date filter
 
 
+
+## Array filters
 
