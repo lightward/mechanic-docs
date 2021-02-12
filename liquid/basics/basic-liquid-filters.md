@@ -164,32 +164,43 @@ Remember to check out the full collection of string filters [here](https://shopi
 
 ## Math filters
 
-### minus, plus, times filters
+### minus, plus, times, divided\_by, modulo filters
 
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-aaaa
+{{ 25 | minus: 15 }}
+{{ 25 | plus: 15 }}
+{{ 25 | times: 2 }}
+{{ 25 | divided_by: 5 }}
+{{ 11 | modulo: 5 }}
+
 ```
 {% endtab %}
 
 {% tab title="Output" %}
 ```
+10
+40
+50
+5
+1
 
 ```
 {% endtab %}
 {% endtabs %}
 
-
-
 {% hint style="info" %}
-Remember to check out the full collection of math filters filters [here](https://shopify.dev/docs/themes/liquid/reference/filters/math-filters).
+Remember to check out the full collection of math filters [here](https://shopify.dev/docs/themes/liquid/reference/filters/math-filters).
 
 `abs, at_most, at_least, ceil, divided_by, floor, minus, plus, round, times, modulo.`
 {% endhint %}
 
 ## Date filter
 
+Mechanic has a more powerful date filter based on Shopify's date filter \(see  [Shopify / Liquid reference / Additional filters](https://shopify.dev/docs/liquid/reference/filters/additional-filters#date)\).  Aside from converting a timestamp 
+
+  
 
 
 ## Array filters
