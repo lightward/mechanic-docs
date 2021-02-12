@@ -198,10 +198,79 @@ Remember to check out the full collection of math filters [here](https://shopify
 
 ## Date filter
 
-Mechanic has a more powerful date filter based on Shopify's date filter \(see  [Shopify / Liquid reference / Additional filters](https://shopify.dev/docs/liquid/reference/filters/additional-filters#date)\).  Aside from converting a timestamp 
+Mechanic has a [date filter](../filters/date.md) based on Shopify's date filter \(see  [Shopify / Liquid reference / Additional filters](https://shopify.dev/docs/liquid/reference/filters/additional-filters#date)\).  In addition to taking a timestamp and outputting it in the desired format. It adds a single additional argument: providing a tz value will result in the rendered date being returned in the provided timezone. If this argument is not provided, the store's local timezone will be used instead.
 
-  
-
+Check out the Mechanic [date filter](../filters/date.md).
 
 ## Array filters
+
+### join filter
+
+Creates a string from the elements of an array using a character passed as an argument.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% comment %} 
+  product.tags = "VIP", "New", "Canada"
+{% endcomment %}
+
+{{ customer.tags | join: ', ' }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+VIP, New, Canada
+```
+{% endtab %}
+{% endtabs %}
+
+### first and last filters
+
+Returns the first or last element of an array. You can use `first` or `last` in dot notation inside of tags.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% comment %} 
+  product.tags = "VIP", "New", "Canada"
+{% endcomment %}
+
+{{ custom.tags | first }}
+{{ customer.tags | last }}
+
+{% if customer.tags.first == "VIP" %}
+  This customer is a VIP!
+{% endif %
+
+{% if customer.tags.last == "Canada" %}
+  Eh!
+{% endif %
+
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+VIP
+Canada
+This customer is a VIP!
+Eh!
+
+```
+{% endtab %}
+{% endtabs %}
+
+## concat filter
+
+Concatenates two arrays into a single array
+
+
+
+## map filter
+
+## where filter
+
+## uniq filter
 
