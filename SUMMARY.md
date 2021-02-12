@@ -61,6 +61,7 @@
   * [Filters](liquid/basics/basic-liquid-filters.md)
   * [Whitespace](liquid/basics/whitespace.md)
 * [Filters](liquid/filters/README.md)
+  * [decode\_base64](liquid/filters/decode_base64.md)
   * [parse\_json](liquid/filters/parse_json.md)
   * [shopify](liquid/filters/shopify.md)
 * [Tags](liquid/tags/README.md)
