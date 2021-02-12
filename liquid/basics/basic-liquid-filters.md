@@ -123,7 +123,7 @@ The `split` filter takes a substring and uses it split an string into an array.
 {% assign quote = "love,is,all,you,need!" | split: ',' %}
 
 {% for word in quote %}
-  {{ quorte }}
+  {{ quote }}
 {% endfor %}
 ```
 {% endtab %}
