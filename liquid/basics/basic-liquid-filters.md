@@ -198,9 +198,9 @@ Remember to check out the full collection of math filters [here](https://shopify
 
 ## Date filter
 
-Mechanic has a [date filter](../filters/date.md) based on Shopify's date filter \(see  [Shopify / Liquid reference / Additional filters](https://shopify.dev/docs/liquid/reference/filters/additional-filters#date)\).  In addition to taking a timestamp and outputting it in the desired format. It adds a single additional argument: providing a tz value will result in the rendered date being returned in the provided timezone. If this argument is not provided, the store's local timezone will be used instead.
+Mechanic has a [date filter](../mechanic-liquid-wd40/filters/date.md) based on Shopify's date filter \(see  [Shopify / Liquid reference / Additional filters](https://shopify.dev/docs/liquid/reference/filters/additional-filters#date)\).  In addition to taking a timestamp and outputting it in the desired format. It adds a single additional argument: providing a tz value will result in the rendered date being returned in the provided timezone. If this argument is not provided, the store's local timezone will be used instead.
 
-Check out the Mechanic [date filter](../filters/date.md).
+Check out the Mechanic [date filter](../mechanic-liquid-wd40/filters/date.md).
 
 ## Array filters
 

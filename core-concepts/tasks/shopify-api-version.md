@@ -5,7 +5,7 @@ Each task is configured with a [**Shopify API version**](https://shopify.dev/con
 This version is used in all activity related to the current task, including:
 
 * REST API calls performed to support Liquid lookups
-* GraphQL calls performed by [the shopify Liquid filter](../../liquid/filters/shopify.md)
+* GraphQL calls performed by [the shopify Liquid filter](../../liquid/mechanic-liquid-wd40/filters/shopify.md)
 * All Shopify API calls performed by [the Shopify action](../actions/action-types/shopify.md), including [bulk operations]()
 
 ## Changing versions
