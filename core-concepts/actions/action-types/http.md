@@ -57,6 +57,16 @@ This action returns an object containing the following keys:
 | `body` | The interpreted value of the response body; see below |
 | `body_base64` | The original response body, encoded using base64 |
 
+### Response headers
+
+Because HTTP allows for the same header name to be present multiple times, this action's result specifies an array for each response header – even if the header was only present once.
+
+To retrieve a specific header in a task responding to [mechanic/actions/perform](../), use something like this:
+
+```javascript
+{% log response_type_header: action.run.result.headers['content-type'][0] %}
+```
+
 ### Response body
 
 If the response contained a Content-Type header set to `application/json`, the `body` result value will be the result of parsing the response body for JSON.
@@ -73,7 +83,7 @@ As with all runs, HTTP action errors are subject to [Mechanic's retry policy](..
 
 ## Example
 
-This task prompts the user for text input, and submits it to a public API that returns everything submitted to it. The task then re-invokes itself, using the [Echo](echo.md) action to display the response status and body.
+This task prompts the user for text input, and submits it to a public API that returns everything submitted to it. The task then re-invokes itself, using the [Echo](echo.md) action to display the response status, content type, and body.
 
 {% tabs %}
 {% tab title="Subscriptions" %}
@@ -93,7 +103,10 @@ mechanic/user/text
     }
   {% endaction %}
 {% else %}
-  {% action "echo", response_status: action.run.result.status, response_body: action.run.result.body %}
+  {% action "echo",
+    response_status: action.run.result.status,
+    response_content_type: action.run.result.headers['content-type'][0],
+    response_body: action.run.result.body %}
 {% endif %}
 ```
 {% endtab %}
