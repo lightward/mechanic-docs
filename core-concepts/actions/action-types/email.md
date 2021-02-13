@@ -1,6 +1,6 @@
 # Email
 
-The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../../advanced-topics/email-templates.md), and supports attachments constructed by [**file generators**](../file-generators.md).
+The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../../advanced-topics/email-templates.md), and supports attachments constructed by [**file generators**](../file-generators/).
 
 ## Usage restrictions
 
@@ -18,7 +18,7 @@ Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provide
 | `reply_to` | Optional; a single reply-to address |
 | `from_display_name` | Optional; a string controlling the name \(but not the address\) of the sender |
 | `template` | Optional; a string naming an email template from the current Mechanic account |
-| `attachments` | Optional; an object specifying files to attach, using [file generators](../file-generators.md) |
+| `attachments` | Optional; an object specifying files to attach, using [file generators](../file-generators/) |
 
 ## Changing the sender address
 
@@ -34,7 +34,7 @@ For more on this, see [Custom email domain](../../../advanced-topics/custom-emai
 
 This action supports attachments given in Mechanic's file generator format. This structure allows the sender to construct a variety of files, including ad-hoc text-based files, PDFs rendered from HTML, files dynamically downloaded from external locations, and ZIP files containing any other files.
 
-For more on this, see [File generators](../file-generators.md).
+For more on this, see [File generators](../file-generators/).
 
 ## Examples
 

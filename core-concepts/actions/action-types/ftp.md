@@ -1,6 +1,6 @@
 # FTP
 
-The **FTP** action uploads files to an FTP/SFTP server. The files to be uploaded are evaluated using [**file generators**](../file-generators.md).
+The **FTP** action uploads files to an FTP/SFTP server. The files to be uploaded are evaluated using [**file generators**](../file-generators/).
 
 A connecting service like [Couchdrop](https://couchdrop.io/) can be used to relay these uploads on to other cloud locations, like Dropbox, Google Drive, and Amazon S3.
 
@@ -10,7 +10,7 @@ A connecting service like [Couchdrop](https://couchdrop.io/) can be used to rela
 | :--- | :--- |
 | `host` | Required; the hostname of the destination server |
 | `user` | Required; a string |
-| `uploads` | Required; an object whose keys are file paths \(relative or absolute\), and whose values are [file generators](../file-generators.md) |
+| `uploads` | Required; an object whose keys are file paths \(relative or absolute\), and whose values are [file generators](../file-generators/) |
 | `mode` | Optional; only available for FTP; can be set to `"ascii"` |
 | `password` | Optional; a string |
 | `port` | Optional; an integer specifying the server port on which FTP or SFTP is available |

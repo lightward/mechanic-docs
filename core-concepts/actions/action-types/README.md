@@ -1,8 +1,8 @@
 # Action types
 
-An **action type** determines the class of operation to be performed. While actions may vary greatly in their options, there are only a few action types:
+An **action type** determines the class of operation to be performed. While actions may vary greatly, there are only a few action types:
 
-| Action type | Purpose |
+| Action | Purpose |
 | :--- | :--- |
 | [Cache](cache.md) | Performing operations on the store's Mechanic cache |
 | [Echo](echo.md) | Debugging; displays the options that it is provided, with no side-effects |
