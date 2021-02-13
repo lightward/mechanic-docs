@@ -65,6 +65,7 @@
   * [Filters](liquid/basics/basic-liquid-filters.md)
   * [Whitespace](liquid/basics/whitespace.md)
 * [Mechanic Liquid](liquid/mechanic-liquid/README.md)
+  * [Arrays and Hashes](liquid/mechanic-liquid/arrays-and-hashes.md)
   * [Filters](liquid/mechanic-liquid/filters/README.md)
     * [add\_tag, add\_tags, remove\_tag, remove\_tags](liquid/mechanic-liquid/filters/add_tag-add_tags-remove_tag-remove_tags.md)
     * [base64, decode\_base64](liquid/mechanic-liquid/filters/decode_base64.md)

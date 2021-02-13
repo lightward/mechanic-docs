@@ -8,13 +8,25 @@ We can change the output of a Liquid object by applying a filter. Filters are se
 {{ order.billing_address.zip | upcase }}
 ```
 
-## Default filter
+## General filters
+
+### Default filter
 
 This filter set a default value when a variable is either `nil`, `false`, or an empty string `""`.
 
 ```javascript
 Howdy {{ order.shipping_address.first_name | default: "partner" }}
 ```
+
+### JSON filter
+
+WIP
+
+### Date filter
+
+Mechanic has a [date filter](../mechanic-liquid/filters/date.md) based on Shopify's date filter \(see  [Shopify / Liquid reference / Additional filters](https://shopify.dev/docs/liquid/reference/filters/additional-filters#date)\).  In addition to taking a timestamp and outputting it in the desired format. It adds a single additional argument: providing a tz value will result in the rendered date being returned in the provided timezone. If this argument is not provided, the store's local timezone will be used instead.
+
+Check out the Mechanic [date filter](../mechanic-liquid/filters/date.md).
 
 ## String filters
 
@@ -195,12 +207,6 @@ Remember to check out the full collection of math filters [here](https://shopify
 
 `abs, at_most, at_least, ceil, divided_by, floor, minus, plus, round, times, modulo.`
 {% endhint %}
-
-## Date filter
-
-Mechanic has a [date filter](../mechanic-liquid/filters/date.md) based on Shopify's date filter \(see  [Shopify / Liquid reference / Additional filters](https://shopify.dev/docs/liquid/reference/filters/additional-filters#date)\).  In addition to taking a timestamp and outputting it in the desired format. It adds a single additional argument: providing a tz value will result in the rendered date being returned in the provided timezone. If this argument is not provided, the store's local timezone will be used instead.
-
-Check out the Mechanic [date filter](../mechanic-liquid/filters/date.md).
 
 ## Array filters
 
