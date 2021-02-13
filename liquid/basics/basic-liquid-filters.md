@@ -395,6 +395,12 @@ Sorts an array by a given attribute.
 {% endtabs %}
 
 {% hint style="info" %}
-List all array filters and where to look find them.
+Remember to check out the full collection of array filters [here](https://shopify.dev/docs/themes/liquid/reference/filters/array-filters).
+
+`join, first, last, concat, index, map, reverse, size, sort,where, uniq.`
 {% endhint %}
+
+## Shopify Documentation
+
+Eventually you'll want to dig deeper into Liquid.  Make sure to review the [Shopify Liquid language ](https://shopify.github.io/liquid/)and the S[hopify Liquid theme documentation.](https://shopify.dev/docs/themes/liquid/reference)
 
