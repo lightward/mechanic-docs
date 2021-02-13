@@ -198,9 +198,9 @@ Remember to check out the full collection of math filters [here](https://shopify
 
 ## Date filter
 
-Mechanic has a [date filter](../mechanic-liquid-wd40/filters/date.md) based on Shopify's date filter \(see  [Shopify / Liquid reference / Additional filters](https://shopify.dev/docs/liquid/reference/filters/additional-filters#date)\).  In addition to taking a timestamp and outputting it in the desired format. It adds a single additional argument: providing a tz value will result in the rendered date being returned in the provided timezone. If this argument is not provided, the store's local timezone will be used instead.
+Mechanic has a [date filter](../mechanic-liquid/filters/date.md) based on Shopify's date filter \(see  [Shopify / Liquid reference / Additional filters](https://shopify.dev/docs/liquid/reference/filters/additional-filters#date)\).  In addition to taking a timestamp and outputting it in the desired format. It adds a single additional argument: providing a tz value will result in the rendered date being returned in the provided timezone. If this argument is not provided, the store's local timezone will be used instead.
 
-Check out the Mechanic [date filter](../mechanic-liquid-wd40/filters/date.md).
+Check out the Mechanic [date filter](../mechanic-liquid/filters/date.md).
 
 ## Array filters
 
@@ -264,11 +264,57 @@ Eh!
 
 ## concat filter
 
-Concatenates two arrays into a single array
+Concatenates two arrays into a single array.
 
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% assign lunch = "sandwich, apple, soup" | split: ", " %}
+{% assign dinner = "pasta, pizza, salad" | split: ", " %}
 
+{% assign meals = lunch | concat: dinner %}
+
+{{ meals | join: ", " }}
+
+{% assign breakfast = "eggs, oatmeal, toast" | split: ", " %}
+
+{% assign meals = breakfast | concat: lunch | concat: dinner %}
+
+{{ meals | join: ", " }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+sandwich, apple, soup, pasta, pizza, salad
+eggs, oatmeal, toast, sandwich, apple, soup, pasta, pizza, salad
+```
+{% endtab %}
+{% endtabs %}
 
 ## map filter
+
+Given an array of objects that contain attributes \(e.g. Name\) and values \(e.g. Matt\), we can use `map` to get a new array of values for a specific attribute of the objects in the array. In the below example, we have an array of products, and each product has a title. Using `map` we can create a new array of only product titles.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% comment %} 
+  product.titles = "Apple", "Orange", "Pepper", "Cheese"
+{% endcomment %}
+
+{% assign product_titles = products | map: 'title' %}
+
+{{ product_titles }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+AppleOrangePepperCheese
+```
+{% endtab %}
+{% endtabs %}
 
 ## where filter
 

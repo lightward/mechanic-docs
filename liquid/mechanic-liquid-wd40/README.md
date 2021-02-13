@@ -1,2 +1,0 @@
-# Mechanic Liquid \(wd40\)
-

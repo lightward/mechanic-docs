@@ -64,14 +64,14 @@
   * [Iteration](liquid/basics/iteration.md)
   * [Filters](liquid/basics/basic-liquid-filters.md)
   * [Whitespace](liquid/basics/whitespace.md)
-* [Mechanic Liquid \(wd40\)](liquid/mechanic-liquid-wd40/README.md)
-  * [Filters](liquid/mechanic-liquid-wd40/filters/README.md)
-    * [date](liquid/mechanic-liquid-wd40/filters/date.md)
-    * [decode\_base64](liquid/mechanic-liquid-wd40/filters/decode_base64.md)
-    * [parse\_json](liquid/mechanic-liquid-wd40/filters/parse_json.md)
-    * [shopify](liquid/mechanic-liquid-wd40/filters/shopify.md)
-  * [Tags](liquid/mechanic-liquid-wd40/tags/README.md)
-    * [assign](liquid/mechanic-liquid-wd40/tags/assign.md)
+* [Mechanic Liquid](liquid/mechanic-liquid/README.md)
+  * [Filters](liquid/mechanic-liquid/filters/README.md)
+    * [date](liquid/mechanic-liquid/filters/date.md)
+    * [decode\_base64](liquid/mechanic-liquid/filters/decode_base64.md)
+    * [parse\_json](liquid/mechanic-liquid/filters/parse_json.md)
+    * [shopify](liquid/mechanic-liquid/filters/shopify.md)
+  * [Tags](liquid/mechanic-liquid/tags/README.md)
+    * [assign](liquid/mechanic-liquid/tags/assign.md)
 
 ## GraphQL
 
