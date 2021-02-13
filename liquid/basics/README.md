@@ -23,7 +23,7 @@ In later sections, we cover our additions to the Liquid language. To make our li
 
 Shopify has created an awesome [cheat sheet for Liquid developers.](https://www.shopify.com/partners/shopify-cheat-sheet) The coverage of Liquid basics, tags, and filters is excellent, the only caveat is that the Liquid objects won't match up to the objects in Mechanic Liquid. The moral of the story is to use this cheat sheet, ingore the objects section unless you're developing Shopify themes, and you can learn more about the difference between Shopify Theme Liquid objects and Mechanic objects here: [Why aren't my Liquid variables giving me the Shopify data I expect?](https://docs.usemechanic.com/article/477-why-arent-my-liquid-variables-giving-me-the-shopify-data-i-expect)
 
-### Introduction to Liquid Video
+### Introduction to Liquid video
 
 {% embed url="https://www.youtube.com/watch?v=tZLTExLukSg&feature=youtu.be" %}
 
