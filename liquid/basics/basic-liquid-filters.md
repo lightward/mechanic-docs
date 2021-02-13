@@ -262,7 +262,7 @@ Eh!
 {% endtab %}
 {% endtabs %}
 
-## concat filter
+### concat filter
 
 Concatenates two arrays into a single array.
 
@@ -292,7 +292,7 @@ eggs, oatmeal, toast, sandwich, apple, soup, pasta, pizza, salad
 {% endtab %}
 {% endtabs %}
 
-## map filter
+### map filter
 
 Given an array of objects that contain attributes \(e.g. Name\) and values \(e.g. Matt\), we can use `map` to get a new array of values for a specific attribute of the objects in the array. In the below example, we have an array of products, and each product has a title. Using `map` we can create a new array of only product titles.
 
@@ -316,7 +316,85 @@ AppleOrangePepperCheese
 {% endtab %}
 {% endtabs %}
 
-## where filter
+### where filter
 
-## uniq filter
+Take an array of objects and create a new array with only those that have a  given property value  
+
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+All products:
+{% for product in collection.products %}
+- {{ product.title }}
+{% endfor %}
+
+{% assign sports_products = collection.products | where: "type", "sports" %}
+
+sports products:
+{% for product in sports_products %}
+- {{ product.title }}
+{% endfor %}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+All products:
+- Ball
+- Car
+- Cheese
+- Bat
+
+Sports products:
+- Ball
+- Batt
+```
+{% endtab %}
+{% endtabs %}
+
+### uniq filter
+
+Removes any duplicate in an array.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% assign cars = "Honda Ford Toyota Jeep VW Honda VW" %}
+{{ cars | split: ' ' | uniq | join: ' ' }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+Honda Ford Toyota Jeep VW
+```
+{% endtab %}
+{% endtabs %}
+
+### sort filter
+
+Sorts an array by a given attribute.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% assign big_spenders = customers | sort: 'total_spent' %}
+{% for customer in big_spenders %}
+  <h4>{{ customer.email }}</h4>
+{% endfor %}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+<h4>jim@joe.com</h4>
+<h4>jack@joe.com</h4>
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+List all array filters and where to look find them.
+{% endhint %}
 
