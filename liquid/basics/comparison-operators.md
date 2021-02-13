@@ -57,7 +57,7 @@ If `b = 3` and `c = 6`, the table below illustrates the logical operators in Liq
 | Operator | Example | Result |
 | :--- | :--- | :--- |
 | and | b &lt; 2 and c &lt; 6 | false |
-| or | b &lt; 2 and c &lt; 6 | true |
+| or | b &lt; 2 or c &lt; 6 | true |
 
 ### Check if both the shipping address and billing are blank
 
