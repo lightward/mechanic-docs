@@ -120,6 +120,10 @@
 * [Email a report of customers who haven't ordered in X days](videos-tutorials/email-a-report-of-customers-who-havent-ordered-in-x-days.md)
 * [Auto-publish new products](videos-tutorials/auto-publish-new-products.md)
 * [Auto-tag products when their SKU\(s\) change](videos-tutorials/auto-tag-products-when-their-sku-s-change.md)
+* [Sync inventory for shared SKUs](videos-tutorials/sync-inventory-for-shared-skus.md)
+* [Auto-tag orders with their tracking numbers](videos-tutorials/auto-tag-orders-with-their-tracking-numbers.md)
+* [Maintain a tag for orders processed today](videos-tutorials/maintain-a-tag-for-orders-processed-today.md)
+* [Auto-tag orders by originating staff member](videos-tutorials/auto-tag-orders-by-originating-staff-member.md)
 
 ---
 
