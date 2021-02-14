@@ -94,18 +94,23 @@
 * [Cache Endpoints](advanced-topics/cache-endpoints.md)
 * [CORS](advanced-topics/cors.md)
 
+## FAQ
+
+* [Can I query external APIs?](faq/can-i-query-external-apis.md)
+
 ## Tutorials <a id="developer-tutorials"></a>
 
 * [How to Write a Custom Task](developer-tutorials/how-to-write-a-custom-task.md)
 * [Working with Bulk Operations](developer-tutorials/working-with-bulk-operations.md)
 * [Working with Metafields](developer-tutorials/untitled-1.md)
-* [Trigger a Task From Your Store](developer-tutorials/working-with-inbound-webhooks.md)
 * [Tag Orders Using GraphQL](developer-tutorials/tag-orders-using-graphql.md)
 * [Trigger a Task From a Contact Form](developer-tutorials/trigger-a-task-from-a-contact-form.md)
 
-## FAQ
+## Videos Tutorials
 
-* [Can I query external APIs?](faq/can-i-query-external-apis.md)
+* [Creating products in bulk](videos-tutorials/creating-products-in-bulk.md)
+* [Auto-tag customers by sales channel](videos-tutorials/auto-tag-customers-by-sales-channel.md)
+* [Send an email when a product's price goes below its cost](videos-tutorials/send-an-email-when-a-products-price-goes-below-its-cost.md)
 
 ---
 
