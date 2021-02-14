@@ -114,6 +114,12 @@
 * [Send recurring reminders about unpaid orders](videos-tutorials/send-recurring-reminders-about-unpaid-orders.md)
 * [Send an email when a specific product is shipped](videos-tutorials/send-an-email-when-a-specific-product-is-shipped.md)
 * [Delete all orders](videos-tutorials/delete-all-orders.md)
+* [Adding an optional time delay to your Mechanic task](videos-tutorials/adding-an-optional-time-delay-to-your-mechanic-task.md)
+* [Email the customer when tracking numbers are added to their order](videos-tutorials/email-the-customer-when-tracking-numbers-are-added-to-their-order.md)
+* [Upgrading a Mechanic task: Adding a time delay](videos-tutorials/upgrading-a-mechanic-task-adding-a-time-delay.md)
+* [Email a report of customers who haven't ordered in X days](videos-tutorials/email-a-report-of-customers-who-havent-ordered-in-x-days.md)
+* [Auto-publish new products](videos-tutorials/auto-publish-new-products.md)
+* [Auto-tag products when their SKU\(s\) change](videos-tutorials/auto-tag-products-when-their-sku-s-change.md)
 
 ---
 
