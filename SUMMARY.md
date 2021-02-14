@@ -111,6 +111,9 @@
 * [Creating products in bulk](videos-tutorials/creating-products-in-bulk.md)
 * [Auto-tag customers by sales channel](videos-tutorials/auto-tag-customers-by-sales-channel.md)
 * [Send an email when a product's price goes below its cost](videos-tutorials/send-an-email-when-a-products-price-goes-below-its-cost.md)
+* [Send recurring reminders about unpaid orders](videos-tutorials/send-recurring-reminders-about-unpaid-orders.md)
+* [Send an email when a specific product is shipped](videos-tutorials/send-an-email-when-a-specific-product-is-shipped.md)
+* [Delete all orders](videos-tutorials/delete-all-orders.md)
 
 ---
 
