@@ -1,2 +1,47 @@
 # URL
 
+The **URL** file generator accepts a string as its options, containing a valid URL. This generator downloads the file at that URL, returning the results.
+
+## Options
+
+This file generator accepts a string containing a valid HTTP or HTTPS URL. It does not support any other options.
+
+```javascript
+{
+  "url": URL
+}
+```
+
+## Example
+
+{% tabs %}
+{% tab title="Liquid" %}
+```javascript
+{% action "files" %}
+  {
+    "image_from_url.png": {
+      "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    }
+  }
+{% endaction %}
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+  "action": {
+    "type": "files",
+    "options": {
+      "image_from_url.png": {
+        "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+

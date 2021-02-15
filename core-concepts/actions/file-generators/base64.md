@@ -6,7 +6,7 @@ This generator is useful when producing images, or other binary content that can
 
 ## Options
 
-This file generator accepts a string.
+This file generator accepts a base64-encoded string. It does not support any other options.
 
 ```javascript
 {
