@@ -106,24 +106,24 @@
 * [Tag Orders Using GraphQL](developer-tutorials/tag-orders-using-graphql.md)
 * [Trigger a Task From a Contact Form](developer-tutorials/trigger-a-task-from-a-contact-form.md)
 
-## Videos Tutorials
+## Video Tutorials
 
-* [Creating products in bulk](videos-tutorials/creating-products-in-bulk.md)
-* [Auto-tag customers by sales channel](videos-tutorials/auto-tag-customers-by-sales-channel.md)
-* [Send an email when a product's price goes below its cost](videos-tutorials/send-an-email-when-a-products-price-goes-below-its-cost.md)
-* [Send recurring reminders about unpaid orders](videos-tutorials/send-recurring-reminders-about-unpaid-orders.md)
-* [Send an email when a specific product is shipped](videos-tutorials/send-an-email-when-a-specific-product-is-shipped.md)
-* [Delete all orders](videos-tutorials/delete-all-orders.md)
-* [Adding an optional time delay to your Mechanic task](videos-tutorials/adding-an-optional-time-delay-to-your-mechanic-task.md)
-* [Email the customer when tracking numbers are added to their order](videos-tutorials/email-the-customer-when-tracking-numbers-are-added-to-their-order.md)
-* [Upgrading a Mechanic task: Adding a time delay](videos-tutorials/upgrading-a-mechanic-task-adding-a-time-delay.md)
-* [Email a report of customers who haven't ordered in X days](videos-tutorials/email-a-report-of-customers-who-havent-ordered-in-x-days.md)
-* [Auto-publish new products](videos-tutorials/auto-publish-new-products.md)
-* [Auto-tag products when their SKU\(s\) change](videos-tutorials/auto-tag-products-when-their-sku-s-change.md)
-* [Sync inventory for shared SKUs](videos-tutorials/sync-inventory-for-shared-skus.md)
-* [Auto-tag orders with their tracking numbers](videos-tutorials/auto-tag-orders-with-their-tracking-numbers.md)
-* [Maintain a tag for orders processed today](videos-tutorials/maintain-a-tag-for-orders-processed-today.md)
-* [Auto-tag orders by originating staff member](videos-tutorials/auto-tag-orders-by-originating-staff-member.md)
+* [Creating products in bulk](video-tutorials/creating-products-in-bulk.md)
+* [Auto-tag customers by sales channel](video-tutorials/auto-tag-customers-by-sales-channel.md)
+* [Send an email when a product's price goes below its cost](video-tutorials/send-an-email-when-a-products-price-goes-below-its-cost.md)
+* [Send recurring reminders about unpaid orders](video-tutorials/send-recurring-reminders-about-unpaid-orders.md)
+* [Send an email when a specific product is shipped](video-tutorials/send-an-email-when-a-specific-product-is-shipped.md)
+* [Delete all orders](video-tutorials/delete-all-orders.md)
+* [Adding an optional time delay to your Mechanic task](video-tutorials/adding-an-optional-time-delay-to-your-mechanic-task.md)
+* [Email the customer when tracking numbers are added to their order](video-tutorials/email-the-customer-when-tracking-numbers-are-added-to-their-order.md)
+* [Upgrading a Mechanic task: Adding a time delay](video-tutorials/upgrading-a-mechanic-task-adding-a-time-delay.md)
+* [Email a report of customers who haven't ordered in X days](video-tutorials/email-a-report-of-customers-who-havent-ordered-in-x-days.md)
+* [Auto-publish new products](video-tutorials/auto-publish-new-products.md)
+* [Auto-tag products when their SKU\(s\) change](video-tutorials/auto-tag-products-when-their-sku-s-change.md)
+* [Sync inventory for shared SKUs](video-tutorials/sync-inventory-for-shared-skus.md)
+* [Auto-tag orders with their tracking numbers](video-tutorials/auto-tag-orders-with-their-tracking-numbers.md)
+* [Maintain a tag for orders processed today](video-tutorials/maintain-a-tag-for-orders-processed-today.md)
+* [Auto-tag orders by originating staff member](video-tutorials/auto-tag-orders-by-originating-staff-member.md)
 
 ---
 
