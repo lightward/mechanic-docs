@@ -32,6 +32,7 @@
   * [Advanced settings](core-concepts/tasks/advanced-settings/README.md)
     * [Documentation](core-concepts/tasks/advanced-settings/documentation.md)
     * [JavaScript](core-concepts/tasks/advanced-settings/javascript.md)
+    * [Perform action runs in sequence](core-concepts/tasks/advanced-settings/perform-action-runs-in-sequence.md)
   * [Import and export](core-concepts/tasks/import-and-export.md)
 * [Actions](core-concepts/actions/README.md)
   * [Action types](core-concepts/actions/action-types/README.md)
@@ -50,6 +51,7 @@
     * [ZIP](core-concepts/actions/file-generators/zip.md)
 * [Runs](core-concepts/runs/README.md)
   * [Retries](core-concepts/runs/retries.md)
+  * [Pauses](core-concepts/runs/pauses.md)
 * [REST](core-concepts/rest.md)
 * [Integrations](core-concepts/integrations.md)
 
