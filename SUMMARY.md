@@ -1,11 +1,34 @@
 # Table of contents
 
-* [Welcome!](README.md)
+* [Introduction](README.md)
 
-## Getting Started
+## Resources
 
-* [Introduction](getting-started/overview.md)
-* [Resources](getting-started/slack-community.md)
+* [Task library](resources/task-library.md)
+* [Slack community](resources/slack-community-1.md)
+* [Tutorials](resources/tutorials/README.md)
+  * [Trigger a Task From a Contact Form](resources/tutorials/trigger-a-task-from-a-contact-form.md)
+  * [Tag Orders Using GraphQL](resources/tutorials/tag-orders-using-graphql.md)
+  * [Working with Metafields](resources/tutorials/untitled-1.md)
+  * [Working with Bulk Operations](resources/tutorials/working-with-bulk-operations.md)
+  * [How to Write a Custom Task](resources/tutorials/how-to-write-a-custom-task.md)
+* [Video walkthroughs](resources/video-walkthroughs/README.md)
+  * [Auto-tag orders by originating staff member](resources/video-walkthroughs/auto-tag-orders-by-originating-staff-member.md)
+  * [Maintain a tag for orders processed today](resources/video-walkthroughs/maintain-a-tag-for-orders-processed-today.md)
+  * [Auto-tag orders with their tracking numbers](resources/video-walkthroughs/auto-tag-orders-with-their-tracking-numbers.md)
+  * [Sync inventory for shared SKUs](resources/video-walkthroughs/sync-inventory-for-shared-skus.md)
+  * [Auto-tag products when their SKU\(s\) change](resources/video-walkthroughs/auto-tag-products-when-their-sku-s-change.md)
+  * [Auto-publish new products](resources/video-walkthroughs/auto-publish-new-products.md)
+  * [Email a report of customers who haven't ordered in X days](resources/video-walkthroughs/email-a-report-of-customers-who-havent-ordered-in-x-days.md)
+  * [Upgrading a Mechanic task: Adding a time delay](resources/video-walkthroughs/upgrading-a-mechanic-task-adding-a-time-delay.md)
+  * [Email the customer when tracking numbers are added to their order](resources/video-walkthroughs/email-the-customer-when-tracking-numbers-are-added-to-their-order.md)
+  * [Adding an optional time delay to your Mechanic task](resources/video-walkthroughs/adding-an-optional-time-delay-to-your-mechanic-task.md)
+  * [Delete all orders](resources/video-walkthroughs/delete-all-orders.md)
+  * [Send an email when a specific product is shipped](resources/video-walkthroughs/send-an-email-when-a-specific-product-is-shipped.md)
+  * [Send recurring reminders about unpaid orders](resources/video-walkthroughs/send-recurring-reminders-about-unpaid-orders.md)
+  * [Send an email when a product's price goes below its cost](resources/video-walkthroughs/send-an-email-when-a-products-price-goes-below-its-cost.md)
+  * [Auto-tag customers by sales channel](resources/video-walkthroughs/auto-tag-customers-by-sales-channel.md)
+  * [Creating products in bulk](resources/video-walkthroughs/creating-products-in-bulk.md)
 
 ## Core Concepts
 
@@ -99,33 +122,6 @@
 ## FAQ
 
 * [Can I query external APIs?](faq/can-i-query-external-apis.md)
-
-## Tutorials <a id="developer-tutorials"></a>
-
-* [How to Write a Custom Task](developer-tutorials/how-to-write-a-custom-task.md)
-* [Working with Bulk Operations](developer-tutorials/working-with-bulk-operations.md)
-* [Working with Metafields](developer-tutorials/untitled-1.md)
-* [Tag Orders Using GraphQL](developer-tutorials/tag-orders-using-graphql.md)
-* [Trigger a Task From a Contact Form](developer-tutorials/trigger-a-task-from-a-contact-form.md)
-
-## Video Tutorials
-
-* [Creating products in bulk](video-tutorials/creating-products-in-bulk.md)
-* [Auto-tag customers by sales channel](video-tutorials/auto-tag-customers-by-sales-channel.md)
-* [Send an email when a product's price goes below its cost](video-tutorials/send-an-email-when-a-products-price-goes-below-its-cost.md)
-* [Send recurring reminders about unpaid orders](video-tutorials/send-recurring-reminders-about-unpaid-orders.md)
-* [Send an email when a specific product is shipped](video-tutorials/send-an-email-when-a-specific-product-is-shipped.md)
-* [Delete all orders](video-tutorials/delete-all-orders.md)
-* [Adding an optional time delay to your Mechanic task](video-tutorials/adding-an-optional-time-delay-to-your-mechanic-task.md)
-* [Email the customer when tracking numbers are added to their order](video-tutorials/email-the-customer-when-tracking-numbers-are-added-to-their-order.md)
-* [Upgrading a Mechanic task: Adding a time delay](video-tutorials/upgrading-a-mechanic-task-adding-a-time-delay.md)
-* [Email a report of customers who haven't ordered in X days](video-tutorials/email-a-report-of-customers-who-havent-ordered-in-x-days.md)
-* [Auto-publish new products](video-tutorials/auto-publish-new-products.md)
-* [Auto-tag products when their SKU\(s\) change](video-tutorials/auto-tag-products-when-their-sku-s-change.md)
-* [Sync inventory for shared SKUs](video-tutorials/sync-inventory-for-shared-skus.md)
-* [Auto-tag orders with their tracking numbers](video-tutorials/auto-tag-orders-with-their-tracking-numbers.md)
-* [Maintain a tag for orders processed today](video-tutorials/maintain-a-tag-for-orders-processed-today.md)
-* [Auto-tag orders by originating staff member](video-tutorials/auto-tag-orders-by-originating-staff-member.md)
 
 ---
 

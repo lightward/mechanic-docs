@@ -8,7 +8,7 @@ This tutorial will walk you through the process of setting up a custom task in M
 
 * A Shopify store
 * The Mechanic app installed. You can install it [here](https://apps.shopify.com/mechanic?ref=lightward)
-* Basic knowledge of Liquid. [Need a refresher?](../liquid/basics/)
+* Basic knowledge of Liquid. [Need a refresher?](../../liquid/basics/)
 * Basic knowledge of JavaScript. [Need a refresher?](https://www.w3schools.com/js/default.asp)
 
 ### The Situation
