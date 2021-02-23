@@ -62,7 +62,7 @@ An array is a value that itself contains an ordered list of other values. Each v
 
 ### Creating an array
 
-Liquid supports creating arrays of strings using the [split](../../basic-liquid-filters.md#split) filter. In Mechanic, arrays can be created using the [array](../../mechanic-liquid/arrays-and-hashes.md#arrays) literal.
+Liquid supports creating arrays of strings using the [split](../../filters.md#split) filter. In Mechanic, arrays can be created using the [array](../../mechanic-liquid/arrays-and-hashes.md#arrays) literal.
 
 ### Iterating through arrays
 
@@ -81,7 +81,7 @@ Liquid supports creating arrays of strings using the [split](../../basic-liquid-
 
 ### Array filters
 
-Mechanic includes a variety of [array filters](../../basic-liquid-filters.md#array-filters), useful for transforming arrays or retrieving specific values.
+Mechanic includes a variety of [array filters](../../filters.md#array-filters), useful for transforming arrays or retrieving specific values.
 
 ## Object
 
@@ -124,7 +124,7 @@ In Mechanic, a **hash** is a simple type of object that has no additional intell
 
 ### Creating a hash
 
-In Mechanic, hashes can be created using the [hash](../../mechanic-liquid/arrays-and-hashes.md#hashes) literal, or by using any of the "parse" [filters](../../basic-liquid-filters.md).
+In Mechanic, hashes can be created using the [hash](../../mechanic-liquid/arrays-and-hashes.md#hashes) literal, or by using any of the "parse" [filters](../../filters.md).
 
 {% hint style="info" %}
 This only applies to Mechanic. Liquid objects and hashes cannot be created in Shopify.
@@ -132,7 +132,7 @@ This only applies to Mechanic. Liquid objects and hashes cannot be created in Sh
 
 ### Iterating through hashes
 
-Hashes may be traversed using [for loops](../control-flow/iteration.md), like other objects. For convenience, Mechanic also supports extract an array of hash keys using the [keys](../../basic-liquid-filters.md#keys) filter, or object values using the [values](../../basic-liquid-filters.md#values) filter. The resulting arrays may also be used with a for loop, like any array.
+Hashes may be traversed using [for loops](../control-flow/iteration.md), like other objects. For convenience, Mechanic also supports extract an array of hash keys using the [keys](../../filters.md#keys) filter, or object values using the [values](../../filters.md#values) filter. The resulting arrays may also be used with a for loop, like any array.
 
 ```javascript
 {% assign object = hash %}

@@ -21,7 +21,7 @@ When reading Liquid code, you will notice two types of tags:
 * [Comparisons](operators.md)
 * [Conditionals](control-flow/)
 * [Iteration](control-flow/iteration.md)
-* [Filters](../basic-liquid-filters.md)
+* [Filters](../filters.md)
 * [Whitespace](whitespace.md)
 
 ## Shopify Liquid cheat sheet

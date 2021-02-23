@@ -90,7 +90,7 @@
     * [Condition](liquid/basics/control-flow/condition.md)
     * [Iteration](liquid/basics/control-flow/iteration.md)
   * [Whitespace](liquid/basics/whitespace.md)
-* [Filters](liquid/basic-liquid-filters.md)
+* [Filters](liquid/filters.md)
 * [Mechanic Liquid](liquid/mechanic-liquid/README.md)
   * [Arrays and hashes](liquid/mechanic-liquid/arrays-and-hashes.md)
   * [Tags](liquid/mechanic-liquid/tags/README.md)
