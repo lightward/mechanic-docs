@@ -26,7 +26,7 @@ In simple cases, it may be easiest to construct replacement hashes using the [as
 {% endif %}
 ```
 
-It's also possible to construct this data using [parse\_json](../../../liquid/mechanic-liquid/filters/parse_json.md).
+It's also possible to construct this data using [parse\_json]().
 
 ```javascript
 {% if event.preview %}
@@ -53,11 +53,11 @@ It's also possible to construct this data using [parse\_json](../../../liquid/me
 
 ## Stubbing GraphQL data
 
-Mechanic makes GraphQL data available to tasks via the [shopify](../../../liquid/mechanic-liquid/filters/shopify.md) filter. Mechanic observes the shopify filter in action during preview mode, using its inputs to inform Mechanic's knowledge of what permissions the task needs.
+Mechanic makes GraphQL data available to tasks via the [shopify]() filter. Mechanic observes the shopify filter in action during preview mode, using its inputs to inform Mechanic's knowledge of what permissions the task needs.
 
 For this reason, it's important to allow the shopify filter to run normally, and construct stub data afterwards.
 
-It can be useful to specify stub data using JSON, fed through the [parse\_json](../../../liquid/mechanic-liquid/filters/parse_json.md) filter. Sample JSON is easy to generate using [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/).
+It can be useful to specify stub data using JSON, fed through the [parse\_json]() filter. Sample JSON is easy to generate using [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/).
 
 {% tabs %}
 {% tab title="GraphQL with stub data" %}

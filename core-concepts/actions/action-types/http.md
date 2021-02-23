@@ -71,7 +71,7 @@ To retrieve a specific header in a task responding to [mechanic/actions/perform]
 
 If the response contained a Content-Type header set to `application/json`, the `body` result value will be the result of parsing the response body for JSON.
 
-For all other cases, the `body` result value will be an UTF8 string, regardless of the response body's original encoding. To access the response body in its original encoding, use the `body_base64` result value, passing it through the [decode\_base64](../../../liquid/mechanic-liquid/filters/decode_base64.md) Liquid filter if necessary.
+For all other cases, the `body` result value will be an UTF8 string, regardless of the response body's original encoding. To access the response body in its original encoding, use the `body_base64` result value, passing it through the [decode\_base64]() Liquid filter if necessary.
 
 ### Handling errors
 
