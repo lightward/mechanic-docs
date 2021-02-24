@@ -9,7 +9,7 @@ Because a complete Webkit browser is used for rendering, PDFs may be generated w
 | Option | Description |
 | :--- | :--- |
 | `html` | Required; a string containing the HTML, CSS and JavaScript to be rendered |
-|  |  |
+| ... | Additional wkhtmltopdf options supported; see below |
 
 ```javascript
 {
