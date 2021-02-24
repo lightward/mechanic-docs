@@ -2,9 +2,13 @@
 
 [Events](../events/), [tasks](../tasks/), and [actions](../actions/) are all processed using queues, in which a piece of work is enqueued, and performed in its turn. Each piece of work is called a **run**. Thus, Mechanic performs work using event runs, task runs, and action runs.
 
-When performed, a run has a **result**. Depending on the type of run, this result may define additional work to be performed.
+When performed, a run has a **result**. Depending on the type of run, this result may define additional work to be performed:
 
-Most runs are scheduled to be performed immediately. Some runs may be scheduled for the future. Some runs may be [paused](pauses.md); some runs may be [retried](retries.md), once performed.
+* **Event runs**, when performed, result in a set of task runs.
+* **Task runs**, when performed, result in a set of action runs.
+* **Action runs**, when performed, have results that vary by [action type](../actions/action-types/).
+
+Most runs are scheduled to be performed immediately. Some runs may be [scheduled](scheduling.md) for the future. Some runs may be [paused](pauses.md); some runs may be [retried](retries.md), once performed.
 
 ## Standard run flow
 
