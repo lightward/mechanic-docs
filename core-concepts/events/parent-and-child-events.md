@@ -5,7 +5,7 @@ In specific cases, events may be triggered by activity associated with an earlie
 * The [Event action](../actions/action-types/event.md) generates a new child event, when performed
 * A subscription to the [mechanic/actions/perform](event-topic-reference/mechanic.md#actions) topic generates new child events as actions are performed
 
-Tasks responding to child events may reference to the parent's event using `{{ event.parent }}`.
+Tasks responding to child events may reference to the parent's event using `{{ event.parent }}`. Parent events are recursively available \(as in `{{ event.parent.parent.parent }}`\), to a limit of 5 generations back.
 
 When viewing any given event in Mechanic, look in the event details to find any parent or child relationships that apply:
 
