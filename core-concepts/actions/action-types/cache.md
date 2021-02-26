@@ -79,35 +79,43 @@ A cache command will always reset the entry's TTL value upon execution, regardle
 
 The required arguments for each command are given below, in the order in which they are supported for [positional options](cache.md#positional-options).
 
-When a command is given using [verbose options](cache.md#verbose-options), the `"ttl"` value \(in seconds\) is always supported.
+When a command is given using [verbose options](cache.md#verbose-options), the `ttl` value \(in seconds\) is always supported.
 
 ### set
 
-Stores a value. Requires `"key"` and `"value"`. The stored value may be any JSON object.
+Stores a value. Requires `key` and `value`. The stored value may be any JSON object.
 
 ### setex
 
-Using a defined TTL \(an expiration interval\) given in seconds, stores a value. Requires `"key"`, `"ttl"`, and `"value"`. The stored value may be any JSON object.
+Using a defined TTL \(an expiration interval\) given in seconds, stores a value. Requires `key`, `ttl`, and `value`. The stored value may be any JSON object.
+
+{% hint style="info" %}
+The "setex" command has the same net functionality as "set", but it does have one difference: because "setex" requires an explicit `ttl` value, it's possible to use "setex" to express an expiring value using a single line of Liquid. The same result could be achieved with "set", but it would require using verbose options.
+
+```text
+{% action "cache", "setex", "foo", 5, "bar" %}
+```
+{% endhint %}
 
 ### del
 
-Deletes a stored key. Requires `"key"`.
+Deletes a stored key. Requires `key`.
 
 ### incr
 
-Increments a numeric key by 1. Requires `"key"`. If the key is not already set, the value before incrementing will be assumed to be 0.
+Increments a numeric key by 1. Requires `key`. If the key is not already set, the value before incrementing will be assumed to be 0.
 
 ### incrby
 
-Increments a numeric key by the value of your choice. Requires `"key"`, and an integer `"increment"`. If the key is not already set, the value before incrementing will be assumed to be 0.
+Increments a numeric key by the value of your choice. Requires `key`, and an integer `increment`. If the key is not already set, the value before incrementing will be assumed to be 0.
 
 ### decr
 
-Decrements a numeric key by 1. Requires `"key"`. If the key is not already set, the value before incrementing will be assumed to be 0.
+Decrements a numeric key by 1. Requires `key`. If the key is not already set, the value before incrementing will be assumed to be 0.
 
 ### decrby
 
-Decrements a numeric key by the value of your choice. Requires `"key"`, and an integer `"decrement"`. If the key is not already set, the value before incrementing will be assumed to be 0.
+Decrements a numeric key by the value of your choice. Requires `key`, and an integer `decrement`. If the key is not already set, the value before incrementing will be assumed to be 0.
 
 ## Examples
 
