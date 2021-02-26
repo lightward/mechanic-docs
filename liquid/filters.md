@@ -302,6 +302,8 @@ This filter returns the entire matched string \(i.e. [MatchData\#to\_s](https://
 => "a lovely day"
 ```
 
+### md5
+
 ### newline\_to\_br
 
 ### prepend
@@ -362,13 +364,42 @@ Matt and Megan love to party and travel.
 {% endtab %}
 {% endtabs %}
 
+### sha256, hmac\_sha1, hmac\_sha256
+
+Generates SHA checksums of strings.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% assign signature = "mechanic" | sha256 %}
+sha256: {{ signature }}
+
+{% assign signature = "mechanic" | hmac_sha1: "sincerely" %}
+hmac_sha1: {{ signature }}
+
+{% assign signature = "mechanic" | hmac_sha256: "sincerely" %}
+hmac_sha256: {{ signature }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+sha256: 6c8a739536961bcf34dccc343908406d48139344da4754d4cfe43dcf8d662607
+
+hmac_sha1: 0425a4dbbe0588be87fb51b5706c2244401bc73a
+
+hmac_sha256: 4b8e2bcf66f95b21f74f491eacc1459b0c9ea6723355174af52ded391f9326ea
+```
+{% endtab %}
+{% endtabs %}
+
 ### size
 
 ### slice
 
 ### split
 
-Takes a substring, and uses it to split an string into an array.
+Takes a substring, and uses it to split a string into an array.
 
 {% tabs %}
 {% tab title="Code" %}
