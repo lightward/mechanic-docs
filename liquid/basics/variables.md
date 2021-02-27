@@ -1,8 +1,10 @@
 # Variables
 
-## Assign tag
+Like other language, Liquid stores information in **variables**. There are two Liquid tags that facilitate creating variables: **assign**, and **capture**.
 
-The assign tag creates a new variable. 
+## Assign
+
+The assign tag creates a new variable.
 
 ```javascript
 {% assign my_name = "Matt" %}
@@ -12,13 +14,15 @@ The assign tag creates a new variable.
 {% assign favorite_number = 8 %}
 ```
 
-## Capture tag
+{% hint style="info" %}
+In Mechanic, the assign tag can also create [arrays and hashes](). This isn't possible in other versions of Liquid – this feature is unique to Mechanic.
+{% endhint %}
+
+## Capture
 
 The capture tag is a useful tool for creating strings of multiple variables, which is very useful in Mechanic. We use this tag extensively in our task code for capturing GraphQL queries, email bodies, and more.
 
-{% hint style="info" %}
-In this example, the string is captured into a variable named query.
-{% endhint %}
+In the following example, the string is captured into a variable named `query`.
 
 ```javascript
 {% capture query %}

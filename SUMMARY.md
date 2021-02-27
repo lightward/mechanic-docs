@@ -82,8 +82,9 @@
 ## Liquid
 
 * [Basics](liquid/basics/README.md)
-  * [Variables](liquid/basics/variables/README.md)
-    * [Types](liquid/basics/variables/types.md)
+  * [Syntax](liquid/basics/syntax.md)
+  * [Data types](liquid/basics/types.md)
+  * [Variables](liquid/basics/variables.md)
   * [Comments](liquid/basics/comments.md)
   * [Filters](liquid/basics/filters.md)
   * [Operators](liquid/basics/operators.md)
@@ -92,10 +93,16 @@
     * [Iteration](liquid/basics/control-flow/iteration.md)
   * [Whitespace](liquid/basics/whitespace.md)
 * [Filters](liquid/filters.md)
-* [Mechanic Liquid](liquid/mechanic-liquid/README.md)
-  * [Arrays and hashes](liquid/mechanic-liquid/arrays-and-hashes.md)
-  * [Tags](liquid/mechanic-liquid/tags/README.md)
-    * [assign](liquid/mechanic-liquid/tags/assign.md)
+* [Mechanic-flavored Liquid](liquid/mechanic/README.md)
+  * [Keyword literals](liquid/mechanic/keyword-literals/README.md)
+    * [array](liquid/mechanic/keyword-literals/array.md)
+    * [hash](liquid/mechanic/keyword-literals/hash.md)
+    * [newline](liquid/mechanic/keyword-literals/newline.md)
+  * [Tags](liquid/mechanic/tags/README.md)
+    * [action](liquid/mechanic/tags/action.md)
+    * [assign](liquid/mechanic/tags/assign.md)
+    * [error](liquid/mechanic/tags/error.md)
+    * [log](liquid/mechanic/tags/log.md)
 
 ## GraphQL
 

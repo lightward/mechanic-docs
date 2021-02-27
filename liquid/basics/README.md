@@ -1,41 +1,27 @@
 # Basics
 
-If you have worked with Shopify themes, you've worked with [**Liquid**](https://shopify.github.io/liquid/), a template language created by Shopify.
-
-Mechanic inherits all of Liquid's features, and adds some of its own. For more on Mechanic-only Liquid features, see [Mechanic Liquid](../mechanic-liquid/).
+Mechanic uses [**Liquid**](https://shopify.github.io/liquid/), a template language created by Shopify. If you have worked with the code behind Shopify themes, you've worked with Liquid.
 
 If you are new to Liquid or need a refresher, the next few sections will cover the basics of the language.
 
-## Recognizing Liquid syntax
-
-When reading Liquid code, you will notice two types of tags:
-
-* `{{ order }}` – When code is wrapped in double curly braces, like this, the code inside the braces generate output.
-* `{% assign is_mechanic_awesome = true %}` – When code is wrapped in single curly braces with percentage signs, like this, the code inside identifies logic and control flow. 
-
-## Topics Covered
-
-* [Comments](comments.md)
-* [Variables](variables/)
-* [Types](variables/types.md)
-* [Comparisons](operators.md)
-* [Conditionals](control-flow/)
-* [Iteration](control-flow/iteration.md)
-* [Filters](../filters.md)
-* [Whitespace](whitespace.md)
+{% hint style="info" %}
+Mechanic uses its own variant of Liquid, which we call [Mechanic-flavored Liquid](../mechanic/). It has all the features of Liquid itself, and adds a few that specifically facilitate Mechanic development.
+{% endhint %}
 
 ## Shopify Liquid cheat sheet
 
-Shopify has created an awesome [cheat sheet for Liquid developers.](https://www.shopify.com/partners/shopify-cheat-sheet) The coverage of Liquid basics, tags, and filters is excellent, the only caveat is that the Liquid objects won't match up to the objects in Mechanic Liquid. The moral of the story is to use this cheat sheet, ingore the objects section unless you're developing Shopify themes, and you can learn more about the difference between Shopify Theme Liquid objects and Mechanic objects here: [Why aren't my Liquid variables giving me the Shopify data I expect?](https://docs.usemechanic.com/article/477-why-arent-my-liquid-variables-giving-me-the-shopify-data-i-expect)
+Shopify offers an excellent [Liquid cheat sheet](https://www.shopify.com/partners/shopify-cheat-sheet), a quick reference for the fundamentals. Note, however, that Liquid objects documented here do not mirror the objects offered in Mechanic-flavored Liquid. When using this cheat sheet for Mechanic work, ignore the "Objects" section entirely. :\)
+
+Learn more about the difference between Shopify Theme Liquid objects and Mechanic objects here: [Why aren't my Liquid variables giving me the Shopify data I expect?](https://docs.usemechanic.com/article/477-why-arent-my-liquid-variables-giving-me-the-shopify-data-i-expect)
 
 ## Shopify's introduction to Liquid
 
 {% embed url="https://www.youtube.com/watch?v=tZLTExLukSg&feature=youtu.be" %}
 
-{% hint style="info" %}
-This content was compiled from the following Shopify resources.  If you want to dig deeper, make sure to visit them:
+## Sources
 
-1. [https://shopify.github.io/liquid/](https://shopify.github.io/liquid/)
-2. [https://shopify.dev/docs/themes/liquid/reference/basics](https://shopify.dev/docs/themes/liquid/reference/basics)
-{% endhint %}
+Content in this section was compiled from the following Shopify resources:
+
+* [https://shopify.github.io/liquid/](https://shopify.github.io/liquid/)
+* [https://shopify.dev/docs/themes/liquid/reference/basics](https://shopify.dev/docs/themes/liquid/reference/basics)
 

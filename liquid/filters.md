@@ -1,6 +1,8 @@
 # Filters
 
-This page contains definitions for all Mechanic-supported filters. Filters that are unique to Mechanic \(and not available in Shopify or on other platforms\) are noted with an asterisk.
+This page contains definitions for all Mechanic-supported Liquid filters.
+
+Filters that are unique to Mechanic \(and not available in Shopify or on other platforms\) are noted with an asterisk.
 
 {% hint style="info" %}
 This page is a developer reference for Liquid filters supported by Mechanic. For an introduction to the concept of filters, see [Filters](basics/filters.md).
