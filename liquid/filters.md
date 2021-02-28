@@ -481,7 +481,31 @@ It's a mighty fine day!
 
 ### url\_decode, url\_encode
 
-## Math filters
+## Number filters
+
+### currency \*
+
+Formats a number \(as either an [integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)\) as currency. Called with no arguments, this filter uses the store's primary currency and primary locale. The currency may be specified as the first argument; the locale may be overridden as a named option.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{{ "100000.0" | currency }}
+{{ 100000.0 | currency: "EUR" }}
+{{ 100000 | currency: "EUR", locale: "fr" }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+$100,000.00
+€100,000.00
+€100 000,00
+```
+{% endtab %}
+{% endtabs %}
+
+### Math filters
 
 Mechanic supports [the same set of math filters as Shopify](https://shopify.dev/docs/themes/liquid/reference/filters/math-filters#modulo).
 
