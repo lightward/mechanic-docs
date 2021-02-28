@@ -14,7 +14,7 @@ A preview has three critical purposes:
 
 Core to the design of Mechanic is the idea that we can make it easy to make it easy – in this case, making it easy for developers to show their users what a Mechanic task can be expected to do.
 
-By rendering preview actions, a task can prove to the user that it is interpreting their configuration as they intended. For example, by rendering a preview Email action, a task can show the user that their configured email content is appearing as expected inside the email body. This increases trust in the task, and allows users confidence in the task's outcome, even before the task processes a live event.
+By rendering preview actions, a task can prove to the user that it is interpreting their configuration as they intended. For example, by rendering a preview [Email](../../actions/action-types/email.md) action, a task can show the user that their configured email content is appearing as expected inside the email body. This increases trust in the task, and allows users confidence in the task's outcome, even before the task processes a live event.
 
 ### For developers
 
@@ -26,11 +26,11 @@ At the platform level, Mechanic uses previews to determine what permissions a ta
 
 Mechanic gets this information from the actions that a task generates during preview, as well as from analysis of the Liquid lookups and GraphQL queries that a task uses during runtime.
 
-For example, if a task renders a [Shopify action](../../actions/action-types/shopify.md) containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using `{% for customer in shop.customers %}`, or observes the [shopify]() filter receiving a customer-related GraphQL query, it will prompt for the `read_customers` scope.
+For example, if a task renders a [Shopify](../../actions/action-types/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using `{% for customer in shop.customers %}`, or observes the [shopify](../../../liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the `read_customers` scope.
 
 ## Detecting preview events
 
-A preview event is identical to live events in all respects but one: it contains a "preview" attribute, set to `true`, identifying it as a preview event.
+A preview event is identical to a live event in all respects but one: it contains a `preview` attribute, set to `true`, identifying it as a preview event.
 
 {% tabs %}
 {% tab title="Task code" %}
@@ -52,7 +52,7 @@ A developer can choose between rendering static and dynamic preview actions. Sta
 
 ### Static preview actions
 
-A static preview action is rendered in direct response to `event.preview`.
+A static preview action is rendered in direct response to `event.preview`. In general, it's better to use [dynamic preview actions](./#dynamic-preview-actions), but an understanding of both techniques is useful.
 
 In the following example, a static preview action demonstrates that the task intends to tag incoming orders with "web". In actuality, the task's intent is to only tag orders that arrive via the Online Store channel; because the task can't be sure whether or not the preview event will contain such an order, a static preview action is used to ensure that a preview event always results in a tagging action.
 
@@ -93,9 +93,9 @@ shopify/orders/create
 
 ### Dynamic preview actions
 
-A dynamic preview action is the result of exercising a task's code as completely as possible.
+A dynamic preview action is the natural result of exercising a task's code as completely as possible.
 
-In the following example, the task code uses `event.preview` to construct a brand new `order` variable, one that is guaranteed to resemble an order from the Online Store sales channel. This synthetic variable is called [**stub data**](stub-data.md).
+In the following example, the task code uses `event.preview` to construct a brand new `order` variable, one that is guaranteed to resemble an order from the Online Store sales channel. This synthetic variable is an example of [**stub data**](stub-data.md).
 
 This technique has several advantages:
 
