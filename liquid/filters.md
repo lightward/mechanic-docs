@@ -493,6 +493,7 @@ Formats a number \(as either an [integer](basics/types.md#integer-float), [float
 {{ "100000.0" | currency }}
 {{ 100000.0 | currency: "EUR" }}
 {{ 100000 | currency: "EUR", locale: "fr" }}
+{{ 100000 | currency: locale: "fr" }}
 ```
 {% endtab %}
 
@@ -501,6 +502,7 @@ Formats a number \(as either an [integer](basics/types.md#integer-float), [float
 $100,000.00
 €100,000.00
 €100 000,00
+$100 000,00
 ```
 {% endtab %}
 {% endtabs %}
