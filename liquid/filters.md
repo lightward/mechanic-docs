@@ -485,7 +485,7 @@ It's a mighty fine day!
 
 ### currency \*
 
-Formats a number \(as either an [integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)\) as currency. Called with no arguments, this filter uses the store's primary currency and primary locale. The currency may be specified as the first argument; the locale may be overridden as a named option.
+Formats a number \([integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)\) as currency. Called with no arguments, this filter uses the store's primary currency and primary locale. The currency may be specified as the first argument; the locale may be overridden as a named option.
 
 {% tabs %}
 {% tab title="Code" %}
