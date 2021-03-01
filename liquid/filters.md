@@ -485,7 +485,7 @@ It's a mighty fine day!
 
 ### currency \*
 
-Formats a number \([integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)\) as currency. Called with no arguments, this filter uses the store's primary currency and primary locale.
+Formats a number \([integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)\) as currency. Called with no arguments, this filter uses the store's primary currency and default locale.
 
 A three-character ISO currency code may be specified as the first argument; currency support is drawn from the [money](https://github.com/RubyMoney/money/blob/main/config/currency_iso.json) project. The locale may be overridden as a named option; locale support is drawn from [rails-i18n](https://github.com/svenfuchs/rails-i18n#available-locales).
 
