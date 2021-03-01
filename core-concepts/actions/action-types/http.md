@@ -11,6 +11,7 @@ All HTTP methods are supported; the results of HTTP requests may be reused by a 
 | `method` | Required; must be one of `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"` |
 | `url` | Required; must be a string beginning with `https://` or `http://` |
 | `body` | Required unless `method` is `"get"`; format varies, see below |
+| `headers` | Optional; may be set to a JSON object, mapping header names to header values |
 | `verify` | Optional; may be set to `false` to disable SSL certificate verification |
 | `error_on_5xx` | Optional; may be set to `true` to have 5xx HTTP response codes be considered action errors |
 
