@@ -70,6 +70,7 @@
   * [File generators](core-concepts/actions/file-generators/README.md)
     * [Base64](core-concepts/actions/file-generators/base64.md)
     * [PDF](core-concepts/actions/file-generators/pdf.md)
+    * [Plaintext](core-concepts/actions/file-generators/plaintext.md)
     * [URL](core-concepts/actions/file-generators/url.md)
     * [ZIP](core-concepts/actions/file-generators/zip.md)
 * [Runs](core-concepts/runs/README.md)
