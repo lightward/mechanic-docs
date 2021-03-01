@@ -23,7 +23,7 @@ File generator objects, like [action objects](../../tasks/code/action-objects.md
 In practice, file generator objects are given as values in a larger JSON object, in which filenames are mapped to file generators.
 
 {% hint style="info" %}
-The [plaintext](plaintext.md) file generator is invoked by supplying a string, instead of supplying the usual file generator object.
+The [plaintext](plaintext.md) file generator is invoked implicitly by supplying a string, instead of supplying the usual file generator object.
 {% endhint %}
 
 In the following example, a [Files](../action-types/files.md) action is defined, mapping filenames \(`"invoice.pdf"`, `"external.jpg"`, and `plain.txt`\) to file generators \(a PDF generator, a URL generator, and the default plaintext generator\). Note how the file generator invocation varies, based on the specific file generator in play.
