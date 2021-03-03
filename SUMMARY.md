@@ -110,6 +110,7 @@
 * [Basics](graphql/basics/README.md)
   * [Queries](graphql/basics/queries.md)
   * [Mutations](graphql/basics/mutations.md)
+  * [GraphQL and Mechanic](graphql/basics/graphql-and-mechanic.md)
 * [Bulk Operations](graphql/bulk-operations.md)
 
 ## Advanced Topics
