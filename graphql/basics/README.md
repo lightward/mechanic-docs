@@ -3,7 +3,7 @@
 GraphQL is a query language used to query APIs and a runtime for fulfilling those queries.  You'll use [queries](queries.md) and [mutations](mutations.md) written in GraphQL to query a GraphQL server, in this case, Shopify and responses will come back in JSON format. GraphQL is the future of Shopify APIs and Shopify has said: "You should expect that there absolutely will be more features that will be only on GraphQL in the future".
 
 {% hint style="info" %}
-This section summarizes Shopify's documentation: [GraphQL and its benefits](https://shopify.dev/concepts/graphql/benefits), [https://graphql.org/](https://graphql.org/), and [https://www.howtographql.com/basics/1-graphql-is-the-better-rest/](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/) visit to get more in-depth information.
+This section summarizes Shopify's documentation: [GraphQL and its benefits](https://shopify.dev/concepts/graphql/benefits), [https://graphql.org/](https://graphql.org/), and [https://www.howtographql.com](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/), visit to get more in-depth information.
 {% endhint %}
 
 ### Ask for what you need, receive only what you need
@@ -25,10 +25,6 @@ In the example below, three HTTP request are required to collect the same inform
 #### GraphQL API: single HTTP request
 
 ![Source: https://www.howtographql.com/basics/1-graphql-is-the-better-rest/](../../.gitbook/assets/image%20%284%29.png)
-
-
-
-
 
 
 

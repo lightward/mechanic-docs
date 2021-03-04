@@ -108,6 +108,7 @@
 ## GraphQL
 
 * [Basics](graphql/basics/README.md)
+  * [Shopify Admin API GraphiQL explorer](graphql/basics/shopify-admin-api-graphiql-explorer.md)
   * [Queries](graphql/basics/queries.md)
   * [Mutations](graphql/basics/mutations.md)
   * [GraphQL and Mechanic](graphql/basics/graphql-and-mechanic.md)
