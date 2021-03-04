@@ -8,8 +8,6 @@
 * [Slack community](resources/slack-community-1.md)
 * [Tutorials](resources/tutorials/README.md)
   * [Trigger a Task From a Contact Form](resources/tutorials/trigger-a-task-from-a-contact-form.md)
-  * [Tag Orders Using GraphQL](resources/tutorials/tag-orders-using-graphql.md)
-  * [Working with Metafields](resources/tutorials/untitled-1.md)
   * [Working with Bulk Operations](resources/tutorials/working-with-bulk-operations.md)
   * [How to Write a Custom Task](resources/tutorials/how-to-write-a-custom-task.md)
 * [Video walkthroughs](resources/video-walkthroughs/README.md)
@@ -78,6 +76,7 @@
   * [Retries](core-concepts/runs/retries.md)
   * [Pauses](core-concepts/runs/pauses.md)
 * [REST](core-concepts/rest.md)
+* [GraphQL](core-concepts/graphql.md)
 * [Integrations](core-concepts/integrations.md)
 
 ## Liquid
@@ -111,7 +110,7 @@
   * [Shopify Admin API GraphiQL explorer](graphql/basics/shopify-admin-api-graphiql-explorer.md)
   * [Queries](graphql/basics/queries.md)
   * [Mutations](graphql/basics/mutations.md)
-  * [GraphQL and Mechanic](graphql/basics/graphql-and-mechanic.md)
+  * [Pagination](graphql/basics/pagination.md)
 * [Bulk Operations](graphql/bulk-operations.md)
 
 ## Advanced Topics
