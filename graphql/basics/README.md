@@ -1,14 +1,14 @@
 # Basics
 
-GraphQL is a query language used to query APIs and a runtime for fulfilling those queries.  You'll use [queries](queries.md) and [mutations](mutations.md) written in GraphQL to query a GraphQL server, in this case, Shopify and responses will come back in JSON format. GraphQL is the future of Shopify APIs and Shopify has said: "You should expect that there absolutely will be more features that will be only on GraphQL in the future".
+GraphQL is a query language used to request data from APIs and it is also a runtime for fulfilling these requests. When working with GraphQL, you'll use [queries](/@lightward/s/mechanic/~/drafts/-MV-OYSE8kOiQkCgnIKN/graphql/basics/queries) and [mutations](/@lightward/s/mechanic/~/drafts/-MV-OYSE8kOiQkCgnIKN/graphql/basics/mutations) to query a GraphQL serve and responses will come back in JSON format. GraphQL is the future of Shopify APIs, and Shopify has said: "You should expect that there absolutely will be more features that will be only on GraphQL in the future."
 
 {% hint style="info" %}
-This section summarizes Shopify's documentation: [GraphQL and its benefits](https://shopify.dev/concepts/graphql/benefits), [https://graphql.org/](https://graphql.org/), and [https://www.howtographql.com](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/), visit to get more in-depth information.
+This section summarizes Shopify's documentation: [GraphQL and its benefits](https://shopify.dev/concepts/graphql/benefits),  [https://graphql.org/](https://graphql.org/), and [https://www.howtographql.com](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/), visit these links for more in-depth information.
 {% endhint %}
 
 ### Ask for what you need, receive only what you need
 
-In REST, we get all the attributes associated with a resource, when we may only need a field or two from a resource. This extra data can add up, particularly if we are getting many records in our resultset. In the example below, you can see the difference in JSON response based on the fields we ask for in the GraphQL query.
+In REST, we get all the attributes associated with a resource, when we may only need a field or two from a resource. This extra data can add up, particularly if we are getting many records in our result set. In the example below, you can see the difference in the JSON response based on the fields we ask for in the GraphQL query.
 
 ![Source: https://graphql.org/](../../.gitbook/assets/graphql.gif)
 
@@ -20,11 +20,11 @@ In the example below, three HTTP request are required to collect the same inform
 
 #### REST API: multiple HTTP requests
 
-![Source: https://www.howtographql.com/basics/1-graphql-is-the-better-rest/](../../.gitbook/assets/image%20%283%29.png)
+![](../../.gitbook/assets/image_rest.png)
 
 #### GraphQL API: single HTTP request
 
-![Source: https://www.howtographql.com/basics/1-graphql-is-the-better-rest/](../../.gitbook/assets/image%20%284%29.png)
+![](../../.gitbook/assets/image_graphl.png)
 
 
 
