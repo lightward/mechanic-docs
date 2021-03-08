@@ -75,8 +75,7 @@
   * [Scheduling](core-concepts/runs/scheduling.md)
   * [Retries](core-concepts/runs/retries.md)
   * [Pauses](core-concepts/runs/pauses.md)
-* [REST](core-concepts/rest.md)
-* [GraphQL](core-concepts/graphql.md)
+* [Interacting with Shopify](core-concepts/interacting-with-shopify.md)
 * [Integrations](core-concepts/integrations.md)
 
 ## Liquid
