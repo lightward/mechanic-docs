@@ -15,8 +15,8 @@ This page is a developer reference for Liquid filters supported by Mechanic. For
 Allows for converting between strings and their base64-encoded representations.
 
 ```javascript
-{% assign json_safe_image = image | base64 }}
-{% assign original_image = json_safe_image | decode_base64 }}
+{% assign json_safe_image = image | base64 %}
+{% assign original_image = json_safe_image | decode_base64 %}
 ```
 
 ### browser \*

@@ -14,7 +14,7 @@ This action has several usage styles, each with a different set of constraints o
 
 ### GraphQL
 
-This usage style invokes Shopify's [GraphQL admin API](https://shopify.dev/docs/admin-api/graphql). In this style, a single GraphQL query string is supplied as the action options. The [action](../../../liquid/mechanic/tags/action.md) tag has specific support for this action type, allowing this string to be provided as the contents of an action block.
+This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). In this style, a single GraphQL query string is supplied as the action options. The [action](../../../liquid/mechanic/tags/action.md) tag has specific support for this action type, allowing this string to be provided as the contents of an action block.
 
 {% tabs %}
 {% tab title="Liquid" %}
@@ -53,7 +53,7 @@ This usage style invokes Shopify's [GraphQL admin API](https://shopify.dev/docs/
 
 ### GraphQL with variables
 
-This usage style invokes Shopify's [GraphQL admin API](https://shopify.dev/docs/admin-api/graphql), and supports combining GraphQL queries with [GraphQL variables](https://graphql.org/learn/queries/#variables). This can be useful for re-using queries with multiple inputs, and is critical when dealing with very large pieces of input. Because GraphQL queries \(excluding whitespace\) are limited in length to 50k characters, GraphQL variables can be used in cases when large inputs \(like Base64-encoded images\) need to be submitted.
+This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql), and supports combining GraphQL queries with [GraphQL variables](https://graphql.org/learn/queries/#variables). This can be useful for re-using queries with multiple inputs, and is critical when dealing with very large pieces of input. Because GraphQL queries \(excluding whitespace\) are limited in length to 50k characters, GraphQL variables can be used in cases when large inputs \(like Base64-encoded images\) need to be submitted.
 
 | Option | Description |
 | :--- | :--- |
@@ -191,7 +191,7 @@ This example shows how the query and variables may be built up separately, and p
 
 ### Resourceful REST
 
-This usage style invokes Shopify's [REST admin API](https://shopify.dev/docs/admin-api/rest). It accepts an array of option values, containing these elements in order:
+This usage style invokes the [Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest). It accepts an array of option values, containing these elements in order:
 
 1. **Operation** Must be one of `"create"` , `"update"` , or `"delete"` .
 2. **Resource specification** When creating, use a single string \(e.g. `"customer"` \). When updating or deleting, use an array \(e.g. `["customer", 123]` \).
@@ -313,7 +313,7 @@ This example deletes a product, having a certain ID.
 
 ### Explicit REST
 
-This usage style invokes Shopify's [REST admin API](https://shopify.dev/docs/admin-api/rest). It accepts an array of option values, containing these elements in order:
+This usage style invokes [Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest). It accepts an array of option values, containing these elements in order:
 
 1. **Operation** Must be one of `"post"` , `"put"` , or `"delete"` 
 2. **Request path** The entire, literal request path to use, including the requested [API version](https://shopify.dev/concepts/about-apis/versioning#calling-an-api-version) — e.g. `"/admin/api/2020-01/orders.json"`
