@@ -10,6 +10,7 @@
   * [Trigger a Task From a Contact Form](resources/tutorials/trigger-a-task-from-a-contact-form.md)
   * [Working with Bulk Operations](resources/tutorials/working-with-bulk-operations.md)
   * [How to Write a Custom Task](resources/tutorials/how-to-write-a-custom-task.md)
+  * [Share files with a custom domain](resources/tutorials/share-files-with-a-custom-domain.md)
 * [Video walkthroughs](resources/video-walkthroughs/README.md)
   * [Auto-tag orders by originating staff member](resources/video-walkthroughs/auto-tag-orders-by-originating-staff-member.md)
   * [Maintain a tag for orders processed today](resources/video-walkthroughs/maintain-a-tag-for-orders-processed-today.md)
