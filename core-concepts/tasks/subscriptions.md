@@ -26,7 +26,7 @@ Remember, Mechanic does not permit access to the Shopify API during [event previ
 
 ## Using Liquid
 
-A task's subscriptions are parsed for Liquid, at the time the task is saved. Combined with [**task options**](options.md), this is an opportunity to generate subscriptions based on user configuration, adding or removing subscriptions based on the user's choice, or adjusting subscription offset based on a user-entered value.
+A task's subscriptions are parsed for Liquid, at the time the task is saved. Combined with [**task options**](options/), this is an opportunity to generate subscriptions based on user configuration, adding or removing subscriptions based on the user's choice, or adjusting subscription offset based on a user-entered value.
 
 One subscription is permitted per line. Blank lines and leading/trailing whitespace is permitted.
 

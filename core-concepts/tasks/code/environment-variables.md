@@ -12,7 +12,7 @@ Environment variables may be overwritten as needed. \(When preparing a task prev
 | `{{ event }}` | An object containing information about the current event |
 | `{{ cache }}` | The current store's Mechanic cache, supporting lookups for cached values |
 | `{{ task }}` | An object containing information about the current task |
-| `{{ options }}` | An object containing task [**options**](../options.md), configured by the user |
+| `{{ options }}` | An object containing task [**options**](../options/), configured by the user |
 
 ## Event subject variables
 

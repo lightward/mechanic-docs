@@ -21,7 +21,7 @@ Task runs may be retried...
 * ... if the task run itself failed \(due to a Liquid error, an API error while reading data, or something else\)
 * ... or, if the task run did not generate any actions
 
-Retried task runs will always use a task's latest configuration, including the task's [options](../tasks/options.md), [code](../tasks/code/), and [Shopify API version](../tasks/shopify-api-version.md).
+Retried task runs will always use a task's latest configuration, including the task's [options](../tasks/options/), [code](../tasks/code/), and [Shopify API version](../tasks/shopify-api-version.md).
 
 During task development, it can be useful to set up a task to only render [log objects](../tasks/code/logging.md). A task run which only rendered log objects can be retried, and this ability to retry can be convenient when rapidly iterating on task code.
 

@@ -1,6 +1,8 @@
 # Options
 
-\*\*\*\*[**Tasks**](./) accept user configuration via **options**. Options are created dynamically, by reference: each option referenced in a task's [**code**](code/) results in that option being added to the task's configuration form. In the option reference `{{ options.foo_bar__required }}`, the option **key** is `foo_bar__required`. The appearance and behavior of the option's form element is based on **flags** in in the option key – in this example, only the "required" flag is in use.
+\*\*\*\*[**Tasks**](../) accept user configuration via **options**. Options are created dynamically, by reference: each option referenced in a task's [**code**](../code/) results in that option being added to the task's configuration form. In the option reference `{{ options.foo_bar__required }}`, the option **key** is `foo_bar__required`. The appearance and behavior of the option's form element is based on **flags** in in the option key – in this example, only the "required" flag is in use.
+
+Mechanic flags provide only limited option validation. A task may define [**custom validation**](custom-validation.md), by rendering error objects according to the task's its own validation logic.
 
 ## Keys
 
@@ -59,5 +61,5 @@ Array options have a hidden feature: once the user-configured array reaches 5 el
 
 Options that allow text input are evaluated for Liquid when a task processes an event. Liquid evaluation for options occurs before it occurs for task code, which means that any Liquid variables created by task code are not available to task options.
 
-Liquid code in task options have access to the same set of [Liquid variables](code/environment-variables.md) that are made available to the task code, including `event`, `shop`, `cache`, and any event subject variables.
+Liquid code in task options have access to the same set of [Liquid variables](../code/environment-variables.md) that are made available to the task code, including `event`, `shop`, `cache`, and any event subject variables.
 
