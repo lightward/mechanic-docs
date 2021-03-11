@@ -118,5 +118,132 @@ if(contactForm) {
 
 #### Step 4: Capture our form submission on the Mechanic side, convert it to a CSV, and email it
 
+When we submit the contact form from our Shop frontend the event data looks like this:
 
+![](../../.gitbook/assets/image%20%2815%29.png)
+
+The data we are interested in the contact object in the event data.
+
+The first step is to extract this data and get it into a format that we can pass to the`csv`filter. Which takes a two-dimensional array and converts it to a CSV-formatted string.
+
+{% tabs %}
+{% tab title="Task Code" %}
+```csharp
+{% assign rows = array %}
+{% assign header = array %}
+{% assign header[0] = "Name" %}
+{% assign header[1] = "email" %}
+{% assign header[2] = "Phone Number" %}
+{% assign header[3] = "Message" %}
+{% assign rows[0] = header %}
+
+{% assign row = array %}
+{% assign row[0] = event.data.contact.Name %}
+{% assign row[1] = event.data.contact.email %}
+{% assign row[2] = event.data.contact["Phone Number"] %}
+{% assign row[3] = event.data.contact.Message %}
+{% assign rows[rows.size] = row %}
+```
+{% endtab %}
+{% endtabs %}
+
+The next step is to convert this array to a CSV and attach it to an email and sent it off.
+
+{% tabs %}
+{% tab title="Task Code" %}
+```csharp
+{% action "email" %}
+  {
+    "to": {{ options.recipient_email_address__email_required | json }},
+    "subject": {{ options.email_subject__required | json }},
+    "body": {{ options.email_body__required_multiline | strip | newline_to_br | json }},
+    "reply_to": {{ shop.customer_email | json }},
+    "from_display_name": {{ shop.name | json }},
+    "attachments": {
+       {{ options.csv_attachment_filename__required | replace: ".csv", "" | append: ".csv" | json }}: {{ rows | csv | json }}
+     }
+   }
+{% endaction %}
+```
+{% endtab %}
+{% endtabs %}
+
+As responsible developers, we also want to ensure we have a functioning event preview. At the top of our task code, we add in the stub data for the`event.preview`case
+
+{% tabs %}
+{% tab title="Task Code" %}
+```csharp
+{% if event.preview %}
+  {% capture event_data_json %}
+    {
+      "contact": {
+        "Name": "Matt Jake",
+        "email": "email@email.com",
+        "Phone Number": "555-555-5555",
+        "Message": "Walking through a dream I see you"
+       }
+    }
+  {% endcapture %}
+
+  {% assign event = hash %}
+  {% assign event["data"] = event_data_json | parse_json %}
+{% endif %}
+```
+{% endtab %}
+{% endtabs %}
+
+### The Final Result
+
+{% tabs %}
+{% tab title="Task Code" %}
+```csharp
+{% if event.preview %}
+  {% capture event_data_json %}
+    {
+      "contact": {
+        "Name": "Matt Jake",
+        "email": "email@email.com",
+        "Phone Number": "555-555-5555",
+        "Message": "Walking through a dream I see you"
+       }
+    }
+  {% endcapture %}
+
+  {% assign event = hash %}
+  {% assign event["data"] = event_data_json | parse_json %}
+{% endif %}
+    
+    
+{% assign rows = array %}
+{% assign header = array %}
+{% assign header[0] = "Name" %}
+{% assign header[1] = "email" %}
+{% assign header[2] = "Phone Number" %}
+{% assign header[3] = "Message" %}
+{% assign rows[0] = header %}
+
+{% assign row = array %}
+{% assign row[0] = event.data.contact.Name %}
+{% assign row[1] = event.data.contact.email %}
+{% assign row[2] = event.data.contact["Phone Number"] %}
+{% assign row[3] = event.data.contact.Message %}
+{% assign rows[rows.size] = row %}
+
+{% action "email" %}
+  {
+    "to": {{ options.recipient_email_address__email_required | json }},
+    "subject": {{ options.email_subject__required | json }},
+    "body": {{ options.email_body__required_multiline | strip | newline_to_br | json }},
+    "reply_to": {{ shop.customer_email | json }},
+    "from_display_name": {{ shop.name | json }},
+    "attachments": {
+       {{ options.csv_attachment_filename__required | replace: ".csv", "" | append: ".csv" | json }}: {{ rows | csv | json }}
+     }
+   }
+{% endaction %}
+```
+{% endtab %}
+{% endtabs %}
+
+![](../../.gitbook/assets/image%20%2816%29.png)
 
