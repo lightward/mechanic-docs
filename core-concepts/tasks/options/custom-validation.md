@@ -15,6 +15,6 @@ Once the option is filled in, the task preview will be rendered. If the user has
   {% error "The option 'A positive number' must be greater than zero." %}
 {% endif %}
 
-{% action "cache", "set", "a_positive_number_to_remember", options.a_positive_number__required %}
+{% action "cache", "set", "a_positive_number_to_remember", options.a_positive_number__required_number %}
 ```
 
