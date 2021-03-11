@@ -25,13 +25,98 @@ Once we have our task created, we need to figure out how to get our contact form
 
 #### Our requirements
 
-* Respond to a contact form submissions from our shop's frontend.
-* Tak the data, convert it to a CSV.
+* Respond to contact form submissions from our shop's frontend.
+* Take the submitted data and convert it to a CSV.
 * Email the CSV to a given email address.
 
-```javascript
+#### Step 1: Create a new task and subscribe to a custom event topic
+
+![](../../.gitbook/assets/image%20%2812%29.png)
+
+{% hint style="info" %}
+Webhooks should be named after the service that will be sending you data, with an event topic that makes sense, using the format`user/subject/verb`
+
+In this instance, we chose`user/webhook/form`
+{% endhint %}
+
+#### Step 2: Create a Mechanic webhook that points to our custom event topic
+
+Start by opening Mechanic, from the "Apps" section of Shopify. Once in Mechanic, scroll down to the "Your account" section, and click the "Manage settings" link.
+
+![](../../.gitbook/assets/image%20%2810%29.png)
+
+Next, click the "+ Add a webhook" button, towards the end of the settings page.
+
+![](../../.gitbook/assets/image%20%2813%29.png)
+
+We give our webhook a name of Contact Form, we point it at our custom event topic`user/webhook/form`and click save, and a webhook URL is generated. Make note of the webhook URL so that we can use in the next steps.
+
+![](../../.gitbook/assets/image%20%289%29.png)
+
+The webhook URL will look something like this:
 
 ```
+https://usemechanic.com/webhook/00000000-0000-0000-0000-000000000000
+```
+
+#### Step 3: Wire up the shop front-end to post data to our webhook
+
+We have options here, the only requirement is that we POST to data to our webhook.  This can be done using pure JavaScript, jQuery, or even the action attribute of a form tag.  With other tools this would mean you need to start editing your theme, but with Mechanic we have the ability to add JavaScript to the online store front directly in the task editor. Mechanic leverages Shopify's [ScriptTag](https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag) API.  
+  
+For this tutorial, I created a development store and installed the [Debut theme](https://themes.shopify.com/themes/debut/styles/default). Next, I use the contact form that comes with the theme as the form that submits to our webook.  
+
+
+![Note the id of this form is \#ContactForm](../../.gitbook/assets/image%20%2811%29.png)
+
+This form has an HTML id of \#ContactForm. We are going to add an `EventListener` to listen for the `submit` event of this form. When the form is submitted, the data will first be posted to our webhook \(kicking off our Mechanic task\) and then the form will continue to submit like normal.
+
+In your Mechanic task scroll down and click the "JavaScript for online storefront" link.
+
+![](../../.gitbook/assets/image%20%2814%29.png)
+
+Next, you'll see the code editor open where we can code the JavaScript that will be inserted in our shop frontend.
+
+![](../../.gitbook/assets/image%20%288%29.png)
+
+Copy and paste the JavaScript below into the JavaScript for online storefront.  Read the comments below for an explanation of the code.
+
+{% tabs %}
+{% tab title="JavaScript for online storefront" %}
+```javascript
+// This code gets inserted on all pages of your store
+// So we need to ensure the ContactForm exists before we reference it below
+// or we'll end up with an undefined error on some pages
+
+const contactForm = document.querySelector('#ContactForm');
+
+// if the contact form exists on the page that the script loaded
+if(contactForm) {
+  // listen for submit events for contact form
+  contactForm.addEventListener("submit",function(e){
+  // fetch is used to make POST request
+  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+  // we take our webhook url as a task option 
+  fetch({{ options.mechanic_webhook_url__required | json }}, {
+    method: 'POST', 
+    body: new FormData(contactForm),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Sending data to Mechanic: Success!', data);
+  })
+  .catch((error) => {
+    console.error('Sending data to Mechanic: Error!', error);
+  });  
+   // return true, which allows the regular form submit to continue
+   return true;
+  },false);
+}
+
+```
+{% endtab %}
+{% endtabs %}
+
+#### Step 4: Capture our form submission on the Mechanic side, convert it to a CSV, and email it
 
 
 
