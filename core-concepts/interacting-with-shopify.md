@@ -28,7 +28,7 @@ Note that this Liquid filter does not support running mutations \(i.e. writing S
 
 Mechanic-flavored Liquid comes with a complement of [Liquid objects](../liquid/mechanic/objects/), each of which is tied to a resource in the [Shopify Admin REST API](https://shopify.dev/docs/admin-api/rest). Many objects support access to related objects via lookups \(e.g. `{{ shop.customers[customer_id].orders.first }}`\); in this way, the REST API can be traversed by resource.
 
-Access to these Liquid objects varies, based on the context in which Liquid is rendered. For example, a task that subscribes to shopify/customers/create will have access to the [Customer](../liquid/mechanic/objects/customer.md) object in its code, via a variable called `customer`. To learn more about how these objects are made available to task code, see [Liquid variables](tasks/code/liquid-variables.md).
+Access to these Liquid objects varies, based on the context in which Liquid is rendered. For example, a task that subscribes to shopify/customers/create will have access to the [Customer](../liquid/mechanic/objects/customer.md) object in its code, via a variable called `customer`. To learn more about how these objects are made available to task code, see [Liquid variables](tasks/code/environment-variables.md).
 
 ### GraphQL or REST via the Shopify action
 

@@ -59,5 +59,5 @@ Array options have a hidden feature: once the user-configured array reaches 5 el
 
 Options that allow text input are evaluated for Liquid when a task processes an event. Liquid evaluation for options occurs before it occurs for task code, which means that any Liquid variables created by task code are not available to task options.
 
-Liquid code in task options have access to the same set of [Liquid variables](code/liquid-variables.md) that are made available to the task code, including `event`, `shop`, `cache`, and any event subject variables.
+Liquid code in task options have access to the same set of [Liquid variables](code/environment-variables.md) that are made available to the task code, including `event`, `shop`, `cache`, and any event subject variables.
 

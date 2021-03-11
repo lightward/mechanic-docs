@@ -1,10 +1,10 @@
 # Stub data
 
-**Stub data** is hard-coded into a task, providing an unchanging source of data for [**previews**](./). It is an important tool when generating [**dynamic preview actions**](./#dynamic-preview-actions).
+**Stub data** is hard-coded into a task, providing an unchanging source of data for [**previews**](./). It is an important tool when generating [**dynamic preview actions**](./#dynamic-preview-actions). Stub data may be used for user-defined variables, but may also override [environment variables](../code/environment-variables.md) as needed.
 
 ## Stubbing Liquid variables
 
-Most tasks make decisions based on the [Liquid variables](../code/liquid-variables.md) automatically provided, making it a common practice to stub them during preview mode. Any and all Liquid variables may be replaced by stub data, including `event` and any [event subject variables](../code/liquid-variables.md#event-subject-variables).
+Most tasks make decisions based on the [Liquid variables](../code/environment-variables.md) automatically provided, making it a common practice to stub them during preview mode. Any and all Liquid variables may be replaced by stub data, including `event` and any [event subject variables](../code/environment-variables.md#event-subject-variables).
 
 In simple cases, replacement objects may be constructed using the [assign](../../../liquid/mechanic/tags/assign.md) tag.
 

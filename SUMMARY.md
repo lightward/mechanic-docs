@@ -43,7 +43,7 @@
 * [Tasks](core-concepts/tasks/README.md)
   * [Subscriptions](core-concepts/tasks/subscriptions.md)
   * [Code](core-concepts/tasks/code/README.md)
-    * [Liquid variables](core-concepts/tasks/code/liquid-variables.md)
+    * [Environment variables](core-concepts/tasks/code/environment-variables.md)
     * [Action objects](core-concepts/tasks/code/action-objects.md)
     * [Error objects](core-concepts/tasks/code/error-objects.md)
     * [Log objects](core-concepts/tasks/code/logging.md)
