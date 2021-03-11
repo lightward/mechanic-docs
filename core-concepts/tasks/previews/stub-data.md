@@ -4,9 +4,9 @@
 
 ## Stubbing Liquid variables
 
-Most tasks make decisions based on the [Liquid variables](../code/liquid-variables.md) automatically provided, making it a common practice to stub them during preview mode.
+Most tasks make decisions based on the [Liquid variables](../code/liquid-variables.md) automatically provided, making it a common practice to stub them during preview mode. Any and all Liquid variables may be replaced by stub data, including `event` and any [event subject variables](../code/liquid-variables.md#event-subject-variables).
 
-In simple cases, it may be easiest to construct replacement hashes using the [assign](../../../liquid/mechanic/tags/assign.md) tag.
+In simple cases, replacement objects may be constructed using the [assign](../../../liquid/mechanic/tags/assign.md) tag.
 
 ```javascript
 {% if event.preview %}
@@ -26,7 +26,7 @@ In simple cases, it may be easiest to construct replacement hashes using the [as
 {% endif %}
 ```
 
-It's also possible to construct this data using [parse\_json]().
+It's also possible to construct this data using [parse\_json](../../../liquid/filters.md#json-parse_json-parse_jsonl).
 
 ```javascript
 {% if event.preview %}
@@ -53,11 +53,11 @@ It's also possible to construct this data using [parse\_json]().
 
 ## Stubbing GraphQL data
 
-Mechanic makes GraphQL data available to tasks via the [shopify]() filter. Mechanic observes the shopify filter in action during preview mode, using its inputs to inform Mechanic's knowledge of what permissions the task needs.
+Mechanic makes GraphQL data available to tasks via the [shopify](../../../liquid/filters.md#shopify) filter. Mechanic observes the shopify filter in action during preview mode, using its inputs to inform Mechanic's knowledge of what permissions the task needs.
 
 For this reason, it's important to allow the shopify filter to run normally, and construct stub data afterwards.
 
-It can be useful to specify stub data using JSON, fed through the [parse\_json]() filter. Sample JSON is easy to generate using [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/).
+It can be useful to specify stub data using JSON, fed through the [parse\_json](../../../liquid/filters.md#json-parse_json-parse_jsonl) filter. Sample JSON is easy to generate using [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/).
 
 {% tabs %}
 {% tab title="GraphQL with stub data" %}
