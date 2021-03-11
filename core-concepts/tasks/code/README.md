@@ -6,3 +6,5 @@ In the same way that a Shopify storefront might use a Liquid template to receive
 
 Task code always has access to a set of [**environment variables**](environment-variables.md), which can be used to make decisions about what JSON objects to render.
 
+A task must purposefully consider its [**preview**](../previews/), so as to accurately communicate its intent to users and to the Mechanic platform.
+
