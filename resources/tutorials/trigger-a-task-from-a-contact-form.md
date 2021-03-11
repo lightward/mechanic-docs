@@ -2,7 +2,7 @@
 
 ## Tasks and Webhooks and Contact Forms, Oh My!
 
-This tutorial will walk you through the process of setting up a custom task in Mechanic, which is called on Contact Form submission on your Shopify store, the contents of the form are passed to the task and which emails the contents of the contact form in CSV format.
+This tutorial walks you through setting up a custom task in Mechanic, which is called on Contact Form submission on your Shopify frontend, the contents of the form are passed to the task, which emails the contents in CSV format.
 
 ### Requirements
 
@@ -17,13 +17,13 @@ We have an online store called Mario's Mushrooms hosted on Shopify. Business is 
 
 ### The Plan
 
-We are going to make a task in this cool Shopify app called Mechanic.  We'll code in Liquid! This task's job will be to take the contents of the contact form, convert it to CSV format, and attach it to an email, and send the mail to our CRM system. 
+We are going to make a task in this cool Shopify app called [Mechani](https://apps.shopify.com/mechanic?ref=lightward)c.
 
-Once we have our task created, we need to figure out how to get our contact form to call our Mechanic task and provide the task with the contents of the contact form.
+We'll code in [Liquid](../../liquid/basics/)! This task's job will be to take the contents of the contact form, convert it to CSV format, and attach it to an email, and send the mail to our CRM system. We'll use the [webhook](../../advanced-topics/webhooks.md) feature in Mechanic to trigger our task from the contact form.
 
 ### The Mechanic Task
 
-#### Our requirements
+#### Task requirements
 
 * Respond to contact form submissions from our shop's frontend.
 * Take the submitted data and convert it to a CSV.
@@ -36,7 +36,7 @@ Once we have our task created, we need to figure out how to get our contact form
 {% hint style="info" %}
 Webhooks should be named after the service that will be sending you data, with an event topic that makes sense, using the format`user/subject/verb`
 
-In this instance, we chose`user/webhook/form`
+In this instance, we choose`user/webhook/form`
 {% endhint %}
 
 #### Step 2: Create a Mechanic webhook that points to our custom event topic
@@ -49,7 +49,7 @@ Next, click the "+ Add a webhook" button, towards the end of the settings page.
 
 ![](../../.gitbook/assets/image%20%2813%29.png)
 
-We give our webhook a name of Contact Form, we point it at our custom event topic`user/webhook/form`and click save, and a webhook URL is generated. Make note of the webhook URL so that we can use in the next steps.
+We give our webhook a name of Contact Form, we point it at our custom event topic`user/webhook/form`and click save, and a webhook URL is generated. Make note of the webhook URL so that we can use it in the next steps.
 
 ![](../../.gitbook/assets/image%20%289%29.png)
 
@@ -61,16 +61,15 @@ https://usemechanic.com/webhook/00000000-0000-0000-0000-000000000000
 
 #### Step 3: Wire up the shop front-end to post data to our webhook
 
-We have options here, the only requirement is that we POST to data to our webhook.  This can be done using pure JavaScript, jQuery, or even the action attribute of a form tag.  With other tools this would mean you need to start editing your theme, but with Mechanic we have the ability to add JavaScript to the online store front directly in the task editor. Mechanic leverages Shopify's [ScriptTag](https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag) API.  
+We have options here, the only requirement is that we POST data to our webhook.  This can be done using pure JavaScript, jQuery, or even the action attribute of a form tag.  With other tools, this would mean editing your theme directly, but with Mechanic, we have the ability to add JavaScript to the online storefront directly in the task editor. Mechanic leverages Shopify's [ScriptTag](https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag) API.  
   
-For this tutorial, I created a development store and installed the [Debut theme](https://themes.shopify.com/themes/debut/styles/default). Next, I use the contact form that comes with the theme as the form that submits to our webook.  
-
+For this tutorial, I created a development store and installed the [Debut theme](https://themes.shopify.com/themes/debut/styles/default).  I use the contact form that comes with the theme as the form that submits to our webook. You can use any contact form on your theme or create a form specifically for the purpose of submitting to our webhook. You'll need to make sure the id of the contact form is \#ContactForm or you update the sample code to match the id of your form.
 
 ![Note the id of this form is \#ContactForm](../../.gitbook/assets/image%20%2811%29.png)
 
-This form has an HTML id of \#ContactForm. We are going to add an `EventListener` to listen for the `submit` event of this form. When the form is submitted, the data will first be posted to our webhook \(kicking off our Mechanic task\) and then the form will continue to submit like normal.
+We are going to add an `EventListener` to listen for the `submit` event of this form. When the form is submitted, the data will first be posted to our webhook, triggering our Mechanic task, and then the form will continue to submit as normal.
 
-In your Mechanic task scroll down and click the "JavaScript for online storefront" link.
+Let's get started on our JavaScript. In your Mechanic task scroll down and click the "JavaScript for online storefront" link.
 
 ![](../../.gitbook/assets/image%20%2814%29.png)
 
@@ -93,7 +92,7 @@ const contactForm = document.querySelector('#ContactForm');
 if(contactForm) {
   // listen for submit events for contact form
   contactForm.addEventListener("submit",function(e){
-  // fetch is used to make POST request
+  // fetch is used to make POST requests
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
   // we take our webhook url as a task option 
   fetch({{ options.mechanic_webhook_url__required | json }}, {
@@ -147,7 +146,7 @@ The first step is to extract this data and get it into a format that we can pass
 {% endtab %}
 {% endtabs %}
 
-The next step is to convert this array to a CSV and attach it to an email and sent it off.
+The next step is to convert this array to a CSV and attach it to an email and send it off.
 
 {% tabs %}
 {% tab title="Task Code" %}
@@ -168,7 +167,7 @@ The next step is to convert this array to a CSV and attach it to an email and se
 {% endtab %}
 {% endtabs %}
 
-As responsible developers, we also want to ensure we have a functioning event preview. At the top of our task code, we add in the stub data for the`event.preview`case
+As responsible developers, we also want to ensure we have a functioning [event preview](../../core-concepts/tasks/previews/). At the top of our task code, we add in the stub data for the`event.preview`case.
 
 {% tabs %}
 {% tab title="Task Code" %}
@@ -246,4 +245,8 @@ As responsible developers, we also want to ensure we have a functioning event pr
 {% endtabs %}
 
 ![](../../.gitbook/assets/image%20%2816%29.png)
+
+### The End
+
+Thanks for reading! Please feel free to submit a pull request with updates or suggestions you have.  Get in touch with us at [team@usemechanic.com](mailto:team@usemechanic.com) or on the [Mechanic Slack workspace](https://join.slack.com/t/usemechanic/shared_invite/zt-cq84nrs7-ggYbYTbf~CrCjTg8nmHP2A).
 
