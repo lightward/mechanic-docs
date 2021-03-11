@@ -1,6 +1,6 @@
 # Stub data
 
-**Stub data** is hard-coded into a task, providing an unchanging source of data for [**previews**](./). It is an important tool when generating [**dynamic preview actions**](./#dynamic-preview-actions). Stub data may be used for user-defined variables, but may also override [environment variables](../code/environment-variables.md) as needed.
+**Stub data** is hard-coded into a task, providing an unchanging source of data for [**previews**](./). It is an important tool when generating [**dynamic preview actions**](./#dynamic-preview-actions). Stub data may be used for user-defined variables, but may also override [**environment variables**](../code/environment-variables.md) as needed.
 
 ## Stubbing Liquid variables
 
