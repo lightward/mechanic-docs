@@ -6,12 +6,12 @@ A modification to a task option will always result in a new [**preview**](../pre
 
 ## Example
 
-In this example, a task begins by validating an option called "A positive number". The only flag on this option is "required", meaning that Mechanic's involvement is limited to making sure the user fills in this task option.
+In this example, a task begins by validating an option called "A positive number". The only flags on this option are "required" and "number", meaning that Mechanic's involvement is limited to making sure the user fills in this task option with a number.
 
 Once the option is filled in, the task preview will be rendered. If the user has entered a zero, or a negative number, the [error tag](../../../liquid/mechanic/tags/error.md) is used to generate an [error object](../code/error-objects.md). The error message will then be shown to the user, and they will be prevented from saving the task until they provide valid input.
 
 ```javascript
-{% if options.a_positive_number__required <= 0 %}
+{% if options.a_positive_number__required_number <= 0 %}
   {% error "The option 'A positive number' must be greater than zero." %}
 {% endif %}
 
