@@ -35,7 +35,7 @@ For example, if a task renders a [Shopify](../../actions/action-types/shopify.md
 A preview event is identical to a live event in all respects but one: it contains a `preview` attribute, set to `true`, identifying it as a preview event.
 
 {% hint style="warning" %}
-For live events, the `preview` attribute does not exist. This means that `event.preview == false` is not a valid way to detect a live event. Instead, use `event.preview != true`.
+For live events, the `preview` attribute does not exist. This means that `event.preview == false` is not a valid way to detect a live event. Instead, use `event.preview != true`, or `event.preview == nil`.
 {% endhint %}
 
 {% tabs %}
