@@ -1,163 +1,202 @@
-# Trigger a Task From a Contact Form
-
-## Tasks and Webhooks and Contact Forms, Oh My!
+# Triggering tasks from a contact form
 
 This tutorial walks you through setting up a custom task in Mechanic, which is called on Contact Form submission on your Shopify frontend, the contents of the form are passed to the task, which emails the contents in CSV format.
 
-### Requirements
+Before beginning this tutorial, here's what you'll need:
 
-* A Shopify store
-* The Mechanic app installed. You can install it [here](https://apps.shopify.com/mechanic?ref=lightward)
-* Basic knowledge of Liquid. [Need a refresher?](../../liquid/basics/)
-* Basic knowledge of JavaScript. [Need a refresher?](https://www.w3schools.com/js/default.asp)
+* A Shopify store, which has Mechanic installed \(see [Mechanic's app store page](https://apps.shopify.com/mechanic?ref=lightward)\)
+* A basic knowledge of Liquid \([need a refresher?](../../liquid/basics/)\)
+* A basic knowledge of JavaScript \([need a refresher?](https://www.w3schools.com/js/default.asp)\)
 
-### The Situation
+## The situation
 
-We have an online store called Mario's Mushrooms hosted on Shopify. Business is booming, and our mushrooms are being shipped all over the world. Our CEO, Mario, asks us to connect our Shopify Contact Form to our legacy Custom Relationshipment Management \(CRM\) system. We are eager to help, but the CRM doesn't have an API for us to integrate with. However, it can receive an email with a CSV attachment, which it will then import into its database. Perfect, we now have a path forward!
+We have an online store called Mario's Mushrooms, hosted on Shopify. Business is booming, and our mushrooms are being shipped all over the world. Our CEO, Mario, asks us to connect our default Shopify contact form to our legacy customer relationship management \(or CRM\) system. We are eager to help! While the CRM doesn't have an HTTP API, it can receive CSV imports via email, which it will then import into its database. This gives us our path forward!
 
-### The Plan
+## The plan
 
-We are going to make a task in this cool Shopify app called [Mechani](https://apps.shopify.com/mechanic?ref=lightward)c.
+We are going to make a task in this cool Shopify app called Mechanic. ;\) Here's what the task will do:
 
-We'll code in [Liquid](../../liquid/basics/)! This task's job will be to take the contents of the contact form, convert it to CSV format, and attach it to an email, and send the mail to our CRM system. We'll use the [webhook](../../advanced-topics/webhooks.md) feature in Mechanic to trigger our task from the contact form.
+1. The task will add some JavaScript to the online Shopify store, which will capture the contents of the contact form when submitted, and then send those contents over to Mechanic via [webhook](../../advanced-topics/webhooks.md)
+2. Over on the Mechanic side, the task will receive the form contents, and format them as a CSV file
+3. The task will then send an [email](../../core-concepts/actions/action-types/email.md) to our CRM system, containing the CSV file as an attachment
 
-### The Mechanic Task
+## The Mechanic task
 
-#### Task requirements
+Time to build the task! Out of Mechanic's entire toolkit, here's what we'll use:
 
-* Respond to contact form submissions from our shop's frontend.
-* Take the submitted data and convert it to a CSV.
-* Email the CSV to a given email address.
+* [Online storefront JavaScript](../../core-concepts/tasks/advanced-settings/javascript.md)
+* [Mechanic webhooks](../../advanced-topics/webhooks.md)
+* [The csv Liquid filter](../../liquid/filters.md#csv)
+* [The Email action](../../core-concepts/actions/action-types/email.md)
 
-#### Step 1: Create a new task and subscribe to a custom event topic
+### Step 1: Create a new task, and subscribe to a custom event topic
 
-![](../../.gitbook/assets/image%20%2812%29.png)
+Mechanic tasks use [subscriptions](../../core-concepts/tasks/subscriptions.md) to express their interest in different [events](../../core-concepts/events/). We know we'll be using [Mechanic webhooks](../../advanced-topics/webhooks.md), and we know that each webhook gets to choose its own event topic. So, even before configuring the webhook, we choose the event topic "user/webhook/form".
 
 {% hint style="info" %}
-Webhooks should be named after the service that will be sending you data, with an event topic that makes sense, using the format`user/subject/verb`
-
-In this instance, we choose`user/webhook/form`
+Webhooks should be named after the service that will be sending in data. Webhook event topics must follow the form "user/x/y", making choices for "x" and "y" that describe the expected event.
 {% endhint %}
 
-#### Step 2: Create a Mechanic webhook that points to our custom event topic
+![](../../.gitbook/assets/screen-shot-2021-03-12-at-5.16.23-pm.png)
 
-Start by opening Mechanic, from the "Apps" section of Shopify. Once in Mechanic, scroll down to the "Your account" section, and click the "Manage settings" link.
+### Step 2: Create a Mechanic webhook that uses our custom event topic
 
-![](../../.gitbook/assets/image%20%2810%29.png)
+Start by opening Mechanic itself, from the "Apps" section of your Shopify admin area.
 
-Next, click the "+ Add a webhook" button, towards the end of the settings page.
+Once in Mechanic, scroll down to the "Your account" section, and click the "Manage settings" link.
 
-![](../../.gitbook/assets/image%20%2813%29.png)
+![](../../.gitbook/assets/screen-shot-2021-03-12-at-5.24.19-pm.png)
 
-We give our webhook a name of Contact Form, we point it at our custom event topic`user/webhook/form`and click save, and a webhook URL is generated. Make note of the webhook URL so that we can use it in the next steps.
+On the next page, scroll down to the "Webhooks" section. Click the "+ Add a webhook" button.
 
-![](../../.gitbook/assets/image%20%289%29.png)
+![](../../.gitbook/assets/2021-03-12-17.25.45.mov.gif)
 
-The webhook URL will look something like this:
+We name our webhook "Contact Form", which will make it easy to identify events that come in from this source. We configure this webhook with the event topic "user/webhook/form", lining up with the task subscription from earlier.
 
-```
+Upon saving, Mechanic generates a webhook URL for us to use. We'll keep a copy of this for the next step.
+
+![](../../.gitbook/assets/screen-shot-2021-03-13-at-1.01.08-pm.png)
+
+{% hint style="info" %}
+Webhook URLs follow this format:
+
+```text
 https://usemechanic.com/webhook/00000000-0000-0000-0000-000000000000
 ```
+{% endhint %}
 
-#### Step 3: Wire up the shop front-end to post data to our webhook
+### Step 3: Wire up the shop frontend to send form data to our webhook
 
-We have options here, the only requirement is that we POST data to our webhook.  This can be done using pure JavaScript, jQuery, or even the action attribute of a form tag.  With other tools, this would mean editing your theme directly, but with Mechanic, we have the ability to add JavaScript to the online storefront directly in the task editor. Mechanic leverages Shopify's [ScriptTag](https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag) API.  
-  
-For this tutorial, I created a development store and installed the [Debut theme](https://themes.shopify.com/themes/debut/styles/default).  I use the contact form that comes with the theme as the form that submits to our webook. You can use any contact form on your theme or create a form specifically for the purpose of submitting to our webhook. You'll need to make sure the id of the contact form is \#ContactForm or you update the sample code to match the id of your form.
+We have options here! The only hard requirement is that we use a POST request to send form data to our webhook. This can be done using pure JavaScript, or using a library like jQuery, or even by using plain HTML to set the form tag's `action` attribute to our webhook URL.
 
-![Note the id of this form is \#ContactForm](../../.gitbook/assets/image%20%2811%29.png)
+For this tutorial, we'll use JavaScript. And because we're using Mechanic, we don't even have to edit the theme directly to add in our code – instead, we can use the task editor's [JavaScript](../../core-concepts/tasks/advanced-settings/javascript.md) feature to have our code automatically loaded into the online storefront. \(Under the hood, Mechanic leverages Shopify's [ScriptTag](https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag) API.\)
 
-We are going to add an `EventListener` to listen for the `submit` event of this form. When the form is submitted, the data will first be posted to our webhook, triggering our Mechanic task, and then the form will continue to submit as normal.
+For this tutorial, I created a development store and installed the [Debut theme](https://themes.shopify.com/themes/debut/styles/default). I use the contact form that comes with the theme as the form that submits to our webook. You can use any contact form on any theme, or create a form specifically for the purpose of submitting to our webhook.
 
-Let's get started on our JavaScript. In your Mechanic task scroll down and click the "JavaScript for online storefront" link.
+![](../../.gitbook/assets/image%20%2811%29.png)
 
-![](../../.gitbook/assets/image%20%2814%29.png)
+First things first: we're going to make sure of the element ID, for our contact form. This will be important for writing JavaScript that addresses this form. After investigating, we discover that the form ID is "ContactForm". Easy enough!
 
-Next, you'll see the code editor open where we can code the JavaScript that will be inserted in our shop frontend.
+![Here, we use Chrome&apos;s developer tools to verify the form&apos;s ID attribute.](../../.gitbook/assets/2021-03-13-13.18.06.gif)
 
-![](../../.gitbook/assets/image%20%288%29.png)
+Next, we're going to write some JavaScript that listens for the`submit` event of this form – functionally, this means that we're going to wire up some code to run when the form is submitted. The goal: to jump in when the form is submitted, send the form data to our webhook \(which will then trigger our Mechanic task\), and then allow the form to submit as usual. This way, we add Mechanic functionality without disabling the form's existing behavior.
 
-Copy and paste the JavaScript below into the JavaScript for online storefront.  Read the comments below for an explanation of the code.
+Let's get started on our JavaScript. In your Mechanic task editor, scroll down and click the "JavaScript for online storefront" link. This will add this feature to our task, and we'll be given a place to add in our JavaScript, which will be automatically loaded into our shop frontend.
+
+![](../../.gitbook/assets/2021-03-13-13.24.14.gif)
+
+Copy in the JavaScript below, reading the comments for details on what's going on. Remember the "ContactForm" ID? Here's where we get to use it!
 
 {% tabs %}
 {% tab title="JavaScript for online storefront" %}
 ```javascript
-// This code gets inserted on all pages of your store
-// So we need to ensure the ContactForm exists before we reference it below
-// or we'll end up with an undefined error on some pages
+// This code will be loaded on all pages of our store. So, we'll need
+// to begin by seeing if the current page has a contact form on it,
+// to make sure we're not causing errors by trying to modify a form
+// that doesn't exist.
 
+// The `contactForm` variable will either be our form (if it's present
+// on this page), or will be null (if it isn't).
 const contactForm = document.querySelector('#ContactForm');
 
-// if the contact form exists on the page that the script loaded
-if(contactForm) {
-  // listen for submit events for contact form
-  contactForm.addEventListener("submit",function(e){
-  // fetch is used to make POST requests
-  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-  // we take our webhook url as a task option 
-  fetch({{ options.mechanic_webhook_url__required | json }}, {
-    method: 'POST', 
-    body: new FormData(contactForm),
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Sending data to Mechanic: Success!', data);
-  })
-  .catch((error) => {
-    console.error('Sending data to Mechanic: Error!', error);
-  });  
-   // return true, which allows the regular form submit to continue
-   return true;
-  },false);
+// Before Mechanic delivers this JavaScript to the storefront, it first
+// evaluates it for Liquid. This means that we get to use the `options`
+// object. By using {{ options.mechanic_webhook_url__required }}, we can
+// make the webhook URL configurable.
+const mechanicWebhookUrl = {{ options.mechanic_webhook_url__required | json }};
+
+// We only want to run all of this if there's a contact form on the page.
+if (contactForm) {
+
+  // Setting up a flag for later - keep reading!
+  let submittedToMechanic = false;
+  
+  contactForm.addEventListener(
+    'submit',
+    (event) => {
+      // We're going to prevent the form submit from doing its normal
+      // normal. We'll re-submit the form in a second, after we've
+      // submitted data to Mechanic.
+      event.preventDefault();
+
+      // We'll use fetch to make our POST request:
+      // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+      fetch(
+        mechanicWebhookUrl,
+        {
+          method: 'POST', 
+          body: new FormData(contactForm),
+        }
+      ).then((response) => {
+        console.log('Sending data to Mechanic: Success!', response);
+      }).catch((error) => {
+        console.error('Sending data to Mechanic: Error!', error);
+      }).finally(() => {
+        // Now that we're done with sending our data to Mechanic,
+        // we're going to manually submit the contact form. This won't
+        // trigger the "submit" event again; it'll just run the form's
+        // usual submit behavior.
+        contactForm.submit();
+      });
+    },
+  );
 }
-
 ```
 {% endtab %}
 {% endtabs %}
 
-#### Step 4: Capture our form submission on the Mechanic side, convert it to a CSV, and email it
+When pasting in this code, a new task option will appear, allowing the user \(that's us, for now\) to configure the webhook URL. Here's where we use the Mechanic-generated webhook URL from earlier.
 
-When we submit the contact form from our Shop frontend the event data looks like this:
+![](../../.gitbook/assets/screen-shot-2021-03-13-at-1.56.25-pm.png)
 
-![](../../.gitbook/assets/image%20%2815%29.png)
+With all that in place, save the task. We're leaving the task script blank for right now, and that's okay!
 
-The data we are interested in the contact object in the event data.
+### Step 4: Receive our form submission on the Mechanic side, convert it to a CSV, and send it as an email attachment
 
-The first step is to extract this data and get it into a format that we can pass to the`csv`filter. Which takes a two-dimensional array and converts it to a CSV-formatted string.
+To make sure what data we're working with, let's submit the contact form, and then examine the resulting event data in Mechanic. \(It's okay that we hit the captcha prompt; the important part is making sure that we're sending data to Mechanic.\)
+
+![We&apos;ve got the Chrome developer tools open so we can see our console.log messages.](../../.gitbook/assets/2021-03-13-14.08.28.gif)
+
+Keeping an eye on the "Recent activity" section, below the task editor, we can see our data coming in. \(If you don't see this on your end, click the "Add filters" button, above the activity list, and make sure "Hide events that did nothing" is turned off.\)
+
+![](../../.gitbook/assets/2021-03-13-14.12.03.gif)
+
+Clicking through to that new event, we can see the event data on the right, reflecting what was in the form at the time of submission. \(Depending on the nature of your specific contact form HTML, you might see something slightly different.\)
+
+![](../../.gitbook/assets/screen-shot-2021-03-13-at-2.13.33-pm.png)
+
+This is perfect! The data we are interested in is inside of an event data property called `"contact"`. This means that, in Liquid, we can access the contact data using `{{ event.data.contact }}`.
+
+Moving back to the task editor, the first step is to extract this data, and assemble it into something we can format using the [csv](../../liquid/filters.md#csv) filter. Because that filter is made to handle tables of data, this means that we'll create an array of "rows", and fill it with arrays of "columns", and then pass the result into the csv filter.
+
+After that, we'll add an [Email](../../core-concepts/actions/action-types/email.md) action, configuring it with our CSV data as an attachment. We'll also add a few more task options that will make it easy to reconfigure this task in the future, without having to touch the task code.
 
 {% tabs %}
-{% tab title="Task Code" %}
+{% tab title="Task code" %}
 ```csharp
 {% assign rows = array %}
+
 {% assign header = array %}
 {% assign header[0] = "Name" %}
-{% assign header[1] = "email" %}
+{% assign header[1] = "Email" %}
 {% assign header[2] = "Phone Number" %}
 {% assign header[3] = "Message" %}
-{% assign rows[0] = header %}
+{% assign rows[rows.size] = header %}
 
 {% assign row = array %}
-{% assign row[0] = event.data.contact.Name %}
+{% assign row[0] = event.data.contact.name %}
 {% assign row[1] = event.data.contact.email %}
-{% assign row[2] = event.data.contact["Phone Number"] %}
-{% assign row[3] = event.data.contact.Message %}
+{% assign row[2] = event.data.contact.phone %}
+{% assign row[3] = event.data.contact.body %}
 {% assign rows[rows.size] = row %}
-```
-{% endtab %}
-{% endtabs %}
 
-The next step is to convert this array to a CSV and attach it to an email and send it off.
+{% assign csv_data = rows | csv %}
 
-{% tabs %}
-{% tab title="Task Code" %}
-```csharp
 {% action "email" %}
   {
     "to": {{ options.recipient_email_address__email_required | json }},
     "subject": {{ options.email_subject__required | json }},
     "body": {{ options.email_body__required_multiline | strip | newline_to_br | json }},
-    "reply_to": {{ shop.customer_email | json }},
-    "from_display_name": {{ shop.name | json }},
     "attachments": {
        {{ options.csv_attachment_filename__required | replace: ".csv", "" | append: ".csv" | json }}: {{ rows | csv | json }}
      }
@@ -167,86 +206,35 @@ The next step is to convert this array to a CSV and attach it to an email and se
 {% endtab %}
 {% endtabs %}
 
-As responsible developers, we also want to ensure we have a functioning [event preview](../../core-concepts/tasks/previews/). At the top of our task code, we add in the stub data for the`event.preview`case.
+{% hint style="info" %}
+When writing a task, it's important to think about [previews](../../core-concepts/tasks/previews/), and how they appear to the user \(and to Mechanic itself\). This task always sends a simple email for every event it receives, and doesn't require any special permissions, so we don't need to do any preview work here. If the task only sent an email under limited conditions, or if it needed to access the Shopify API, we'd need to do more work to make sure the task generates an intentional preview.
 
-{% tabs %}
-{% tab title="Task Code" %}
-```csharp
-{% if event.preview %}
-  {% capture event_data_json %}
-    {
-      "contact": {
-        "Name": "Matt Jake",
-        "email": "email@email.com",
-        "Phone Number": "555-555-5555",
-        "Message": "Walking through a dream I see you"
-       }
-    }
-  {% endcapture %}
+To learn more about this, see [Previews](../../core-concepts/tasks/previews/).
+{% endhint %}
 
-  {% assign event = hash %}
-  {% assign event["data"] = event_data_json | parse_json %}
-{% endif %}
+Here's how we'll configure the task, using the task option fields that automatically appear based on our task code:
+
+![](../../.gitbook/assets/screen-shot-2021-03-13-at-2.31.49-pm.png)
+
+### Step 5: Testing
+
+With everything assembled, we head back to the contact form, and make a submission. Back in the task editor, we see a new event appear in "Recent activity", with a green checkmark indicating that the task generated and performed an action.
+
+![](../../.gitbook/assets/2021-03-13-14.47.19.gif)
+
+## The end!
+
+We did it! We augmented our existing contact form with the ability to send submission data to our new Mechanic task, which relays the data to our CRM system using a CSV email attachment. 🎉
+
+Thanks for reading! If you've got questions or suggestions, join the [Mechanic Slack workspace](https://join.slack.com/t/usemechanic/shared_invite/zt-cq84nrs7-ggYbYTbf~CrCjTg8nmHP2A). :\)
+
+### Import the final task
+
+If you'd like to quickly pull in all of the task code and configuration we used here, use this task export:
+
+```javascript
+{"name":"Receive contact form for CRM","options":{"recipient_email_address__email_required":"crm_imports@example.com","email_subject__required":"Contact form submission for CRM: {{ \"now\" | date: \"%Y-%m-%d %H:%M\" }}","email_body__required_multiline":"Hello,\n\nPlease find the attached CSV. Thanks!\n\n-Mechanic, for {{ shop.name }}","csv_attachment_filename__required":"contact-form-for-crm-{{ \"now\" | date: \"%s\" }}","mechanic_webhook_url__required":"https://usemechanic.com/webhook/00000000-0000-0000-0000-000000000000"},"subscriptions":["user/webhook/form"],"subscriptions_template":null,"script":"{% assign rows = array %}\n\n{% assign header = array %}\n{% assign header[0] = \"Name\" %}\n{% assign header[1] = \"Email\" %}\n{% assign header[2] = \"Phone Number\" %}\n{% assign header[3] = \"Message\" %}\n{% assign rows[rows.size] = header %}\n\n{% assign row = array %}\n{% assign row[0] = event.data.contact.name %}\n{% assign row[1] = event.data.contact.email %}\n{% assign row[2] = event.data.contact.phone %}\n{% assign row[3] = event.data.contact.body %}\n{% assign rows[rows.size] = row %}\n\n{% assign csv_data = rows | csv %}\n\n{% action \"email\" %}\n  {\n    \"to\": {{ options.recipient_email_address__email_required | json }},\n    \"subject\": {{ options.email_subject__required | json }},\n    \"body\": {{ options.email_body__required_multiline | strip | newline_to_br | json }},\n    \"attachments\": {\n       {{ options.csv_attachment_filename__required | replace: \".csv\", \"\" | append: \".csv\" | json }}: {{ rows | csv | json }}\n     }\n   }\n{% endaction %}","docs":null,"halt_action_run_sequence_on_error":false,"liquid_profiling":false,"online_store_javascript":"// This code will be loaded on all pages of our store. So, we'll need\n// to begin by seeing if the current page has a contact form on it,\n// to make sure we're not causing errors by trying to modify a form\n// that doesn't exist.\n\n// The `contactForm` variable will either be our form (if it's present\n// on this page), or will be null (if it isn't).\nconst contactForm = document.querySelector('#ContactForm');\n\n// Before Mechanic delivers this JavaScript to the storefront, it first\n// evaluates it for Liquid. This means that we get to use the `options`\n// object. By using {{ options.mechanic_webhook_url__required }}, we can\n// make the webhook URL configurable.\nconst mechanicWebhookUrl = {{ options.mechanic_webhook_url__required | json }};\n\n// We only want to run all of this if there's a contact form on the page.\nif (contactForm) {\n\n  // Setting up a flag for later - keep reading!\n  let submittedToMechanic = false;\n  \n  contactForm.addEventListener(\n    'submit',\n    (event) => {\n      // We're going to prevent the form submit from doing its normal\n      // normal. We'll re-submit the form in a second, after we've\n      // submitted data to Mechanic.\n      event.preventDefault();\n\n      // We'll use fetch to make our POST request:\n      // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API\n      fetch(\n        mechanicWebhookUrl,\n        {\n          method: 'POST', \n          body: new FormData(contactForm),\n        }\n      ).then((response) => {\n        console.log('Sending data to Mechanic: Success!', response);\n      }).catch((error) => {\n        console.error('Sending data to Mechanic: Error!', error);\n      }).finally(() => {\n        // Now that we're done with sending our data to Mechanic,\n        // we're going to manually submit the contact form. This won't\n        // trigger the \"submit\" event again; it'll just run the form's\n        // usual submit behavior.\n        contactForm.submit();\n      });\n    },\n  );\n}","order_status_javascript":null,"perform_action_runs_in_sequence":false,"shopify_api_version":"2021-01"}
 ```
-{% endtab %}
-{% endtabs %}
 
-### The Final Result
-
-{% tabs %}
-{% tab title="Task Code" %}
-```csharp
-{% if event.preview %}
-  {% capture event_data_json %}
-    {
-      "contact": {
-        "Name": "Matt Jake",
-        "email": "email@email.com",
-        "Phone Number": "555-555-5555",
-        "Message": "Walking through a dream I see you"
-       }
-    }
-  {% endcapture %}
-
-  {% assign event = hash %}
-  {% assign event["data"] = event_data_json | parse_json %}
-{% endif %}
-    
-    
-{% assign rows = array %}
-{% assign header = array %}
-{% assign header[0] = "Name" %}
-{% assign header[1] = "email" %}
-{% assign header[2] = "Phone Number" %}
-{% assign header[3] = "Message" %}
-{% assign rows[0] = header %}
-
-{% assign row = array %}
-{% assign row[0] = event.data.contact.Name %}
-{% assign row[1] = event.data.contact.email %}
-{% assign row[2] = event.data.contact["Phone Number"] %}
-{% assign row[3] = event.data.contact.Message %}
-{% assign rows[rows.size] = row %}
-
-{% action "email" %}
-  {
-    "to": {{ options.recipient_email_address__email_required | json }},
-    "subject": {{ options.email_subject__required | json }},
-    "body": {{ options.email_body__required_multiline | strip | newline_to_br | json }},
-    "reply_to": {{ shop.customer_email | json }},
-    "from_display_name": {{ shop.name | json }},
-    "attachments": {
-       {{ options.csv_attachment_filename__required | replace: ".csv", "" | append: ".csv" | json }}: {{ rows | csv | json }}
-     }
-   }
-{% endaction %}
-```
-{% endtab %}
-{% endtabs %}
-
-![](../../.gitbook/assets/image%20%2816%29.png)
-
-### The End
-
-Thanks for reading! Please feel free to submit a pull request with updates or suggestions you have.  Get in touch with us at [team@usemechanic.com](mailto:team@usemechanic.com) or on the [Mechanic Slack workspace](https://join.slack.com/t/usemechanic/shared_invite/zt-cq84nrs7-ggYbYTbf~CrCjTg8nmHP2A).
+You can also install this task immediately from the task library: \[...\]
 
