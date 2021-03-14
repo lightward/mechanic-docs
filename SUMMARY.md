@@ -7,7 +7,7 @@
 * [Task library](resources/task-library.md)
 * [Slack community](resources/slack-community-1.md)
 * [Tutorials](resources/tutorials/README.md)
-  * [Triggering tasks from a contact form](resources/tutorials/trigger-a-task-from-a-contact-form.md)
+  * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)
   * [Working with Bulk Operations](resources/tutorials/working-with-bulk-operations.md)
   * [How to Write a Custom Task](resources/tutorials/how-to-write-a-custom-task.md)
   * [Share files with a custom domain](resources/tutorials/share-files-with-a-custom-domain.md)
