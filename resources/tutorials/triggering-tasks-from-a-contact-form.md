@@ -167,6 +167,12 @@ Clicking through to that new event, we can see the event data on the right, refl
 
 This is perfect! The data we are interested in is inside of an event data property called `"contact"`. This means that, in Liquid, we can access the contact data using `{{ event.data.contact }}`.
 
+{% hint style="info" %}
+In the code sample below, we reference individual input values according to the keys we see above, in the `contact` object. We see that the phone number is stored in the `"phone"` key, so we use `event.data.contact.phone` to reference it.
+
+When you're assembling your version of this task, make sure to update the task code to reflect the data keys you see in the incoming event.
+{% endhint %}
+
 Moving back to the task editor, the first step is to extract this data, and assemble it into something we can format using the [csv](../../liquid/filters.md#csv) filter. Because that filter is made to handle tables of data, this means that we'll create an array of "rows", and fill it with arrays of "columns", and then pass the result into the csv filter.
 
 After that, we'll add an [Email](../../core-concepts/actions/action-types/email.md) action, configuring it with our CSV data as an attachment. We'll also add a few more task options that will make it easy to reconfigure this task in the future, without having to touch the task code.
