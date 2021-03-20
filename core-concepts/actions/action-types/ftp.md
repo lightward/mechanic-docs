@@ -1,6 +1,6 @@
 # FTP
 
-The **FTP** action uploads files to an FTP/SFTP server. The files to be uploaded are evaluated using [**file generators**](../file-generators/).
+The **FTP** action uploads files to server via [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol), [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol), or [FTPS](https://en.wikipedia.org/wiki/FTPS). The files to be uploaded are evaluated using [**file generators**](../file-generators/).
 
 A connecting service like [Couchdrop](https://couchdrop.io/) can be used to relay these uploads on to other cloud locations, like Dropbox, Google Drive, and Amazon S3.
 
@@ -15,13 +15,13 @@ A connecting service like [Couchdrop](https://couchdrop.io/) can be used to rela
 | `password` | Optional; a string |
 | `port` | Optional; an integer specifying the server port on which FTP or SFTP is available |
 | `private_key_pem` | Optional; only available for SFTP; a PEM-formatted certificate for authentication |
-| `protocol` | Optional; can be `"ftp"` or `"sftp"` |
+| `protocol` | Optional; can be `"ftp"`, `"sftp"`, or `"ftps"` |
 
 ### Authentication
 
 The `user` option is always required.
 
-When connecting to an FTP server, authenticate with the `password` option.
+When connecting to an FTP or FTPS server, authenticate with the `password` option.
 
 When connecting to an SFTP server, authenticate using either `password` or `private_key_pem`. PEM certificates may be given directly in the task code:
 
@@ -70,7 +70,7 @@ This example action results in \(a\) an upload to an absolute path, starting fro
 
 ## Testing
 
-If an FTP/SFTP server is unavailable for testing, consider using [Couchdrop](https://couchdrop.io/), with [their hosted storage service](https://couchdrop.io/features/hosted-storage). This is a \(nearly\) configuration-free avenue for testing, using the hosts ftp.couchdrop.io or sftp.couchdrop.io.
+If a server is unavailable for testing, consider using [Couchdrop](https://couchdrop.io/), with [their hosted storage service](https://couchdrop.io/features/hosted-storage). This is a \(nearly\) configuration-free avenue for testing, using the hosts ftp.couchdrop.io or sftp.couchdrop.io.
 
 Alternatively, [ngrok](https://ngrok.com/) can be used to create a public tunnel to a local FTP or SSH server. By running `ngrok tcp 22` \(adjusting for the appropriate local port\), ngrok will generate a temporary public host and port that's appropriate for use while testing.
 
