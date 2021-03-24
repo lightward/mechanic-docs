@@ -74,6 +74,7 @@
     * [URL](core-concepts/actions/file-generators/url.md)
     * [ZIP](core-concepts/actions/file-generators/zip.md)
 * [Runs](core-concepts/runs/README.md)
+  * [States](core-concepts/runs/states.md)
   * [Scheduling](core-concepts/runs/scheduling.md)
   * [Retries](core-concepts/runs/retries.md)
   * [Pauses](core-concepts/runs/pauses.md)

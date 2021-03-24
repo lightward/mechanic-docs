@@ -64,12 +64,27 @@ device: iPhone<br>device name: iPhone<br>device brand: Apple<br>device model: iP
 {% endtab %}
 {% endtabs %}
 
-### csv \*
+### csv, parse\_csv \*
 
-Returns a CSV string representing the input.
+Supports converting a two-dimensional array to a CSV string, and back again.
 
 ```javascript
-{% assign order_as_csv = order | csv }}
+{% assign rows = array %}
+
+{% assign row = array %}
+{% assign row[0] = "ID" %}
+{% assign row[1] = "Name/Number" %}
+{% assign rows[0] = row %}
+
+{% for order in shop.orders %}
+  {% assign row = array %}
+  {% assign row[0] = order.id %}
+  {% assign row[1] = order.name %}
+  {% assign rows[rows.size] = row %}
+{% endfor %}
+
+{% assign csv_formatted_orders = rows | csv %}
+{% assign order_data_from_csv = csv_formatted_orders | parse_csv %}
 ```
 
 ### date, parse\_date \*
