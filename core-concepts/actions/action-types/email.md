@@ -44,7 +44,7 @@ Note that custom options, like all task options, must be provided using standard
 
 For example, consider this action:
 
-```text
+```javascript
 {% action "email" %}
   {
     "to": "customer@example.com",
@@ -57,13 +57,13 @@ For example, consider this action:
 
 The template named "order\_acknowledgement" could include the following Liquid, and get the expected results:
 
-```text
-This is the first item in your order: {{ order_data.line_items.first.title }}
+```javascript
+This is the first item: {{ order_data.line_items.first.title }}
 ```
 
 But, because `order_data` is a plain [hash](../../../liquid/mechanic/keyword-literals/hash.md) based entirely on JSON data, instead of being an enhanced order object \(see [Environment variables](../../tasks/code/environment-variables.md)\), the following Liquid usage would fail:
 
-```text
+```javascript
 Remember order {{ order_data.customer.orders.any.first.number }}, your first ever?
 ```
 {% endhint %}
