@@ -33,7 +33,7 @@ For more on this, see [Custom email domain](../../../advanced-topics/custom-emai
 
 ## Template
 
-To achieve easily reusable headers and footers, Mechanic can be configured with one or more email templates, available in the Mechanic account settings.
+To achieve easily reusable headers and footers, Mechanic can be configured with one or more email templates, available in the Mechanic account settings. To learn more about configuring email templates, see [Email templates](../../../advanced-topics/email-templates.md).
 
 To use a specific email template with the Email action, use the `template` option to specify the name of the desired email template.
 

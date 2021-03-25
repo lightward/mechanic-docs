@@ -1,4 +1,4 @@
-# Email Templates
+# Email templates
 
 Sending email with Mechanic, using [the "email" action](../core-concepts/actions/action-types/email.md)? Use templates to make sure your emails match your brand.
 

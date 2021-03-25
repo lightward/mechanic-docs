@@ -120,7 +120,7 @@
 ## Advanced Topics
 
 * [Contributing to the Task Library](advanced-topics/contributing-to-the-task-library.md)
-* [Email Templates](advanced-topics/email-templates.md)
+* [Email templates](advanced-topics/email-templates.md)
 * [Custom Email Domain](advanced-topics/custom-email-domain.md)
 * [Mechanic Webhooks](advanced-topics/webhooks.md)
 * [External APIs](advanced-topics/external-apis.md)
