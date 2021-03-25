@@ -68,24 +68,74 @@ device: iPhone<br>device name: iPhone<br>device brand: Apple<br>device model: iP
 
 Supports converting a two-dimensional array to a CSV string, and back again.
 
+{% tabs %}
+{% tab title="csv" %}
 ```javascript
-{% assign rows = array %}
+{% capture two_dimensional_array_json %}
+  [
+    [
+      "Order Name",
+      "Order ID",
+      "Order Date"
+    ],
+    [
+      "#1234",
+      1234567890,
+      "2021/03/23"
+    ],
+    [
+      "#1235",
+      1234567891,
+      "2021/03/24"
+    ]
+  ]
+{% endcapture %}
 
-{% assign row = array %}
-{% assign row[0] = "ID" %}
-{% assign row[1] = "Name/Number" %}
-{% assign rows[0] = row %}
+{% assign two_dimensional_array = two_dimensional_array_json | parse_json %}
 
-{% for order in shop.orders %}
-  {% assign row = array %}
-  {% assign row[0] = order.id %}
-  {% assign row[1] = order.name %}
-  {% assign rows[rows.size] = row %}
+{% assign csv_string = two_dimensional_array | csv %}
+```
+{% endtab %}
+
+{% tab title="parse\_csv" %}
+```javascript
+{% comment %}
+  Note the dashes used in the capture/endcapture tags!
+  They make sure that we don't end up with blank lines
+  at the beginning and end of our CSV string.
+{% endcomment %}
+{% capture csv_string -%}
+Order Name,Order ID,Order Date
+#1234,1234567890,2021/03/23
+#1235,1234567891,2021/03/24
+{%- endcapture %}
+
+{% assign csv_rows = csv_string | parse_csv %}
+
+{% assign orders = array %}
+{% for row in csv_rows %}
+  {% comment %}
+    Skip the header row
+  {% endcomment %}
+  {% if forloop.first %}
+    {% continue %}
+  {% endif %}
+  
+  {% assign order = hash %}
+  {% assign order["name"] = row[0] %}
+  {% comment %}
+    We're using `times: 1` to convert our string ID to an integer
+  {% endcomment %}
+  {% assign order["id"] = row[1] | times: 1 %}
+  {% assign order["date"] = row[2] %}
+  
+  {% assign orders[orders.size] = order %}
 {% endfor %}
 
-{% assign csv_formatted_orders = rows | csv %}
-{% assign order_data_from_csv = csv_formatted_orders | parse_csv %}
+{{ orders | json }}
 ```
+{% endtab %}
+{% endtabs %}
 
 ### date, parse\_date \*
 
@@ -500,7 +550,7 @@ It's a mighty fine day!
 
 ### currency \*
 
-Formats a number \([integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)\) as currency. Called with no arguments, this filter uses the store's primary currency and default locale.
+Formats a number \(given as an [integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)\) as currency. Called with no arguments, this filter uses the store's primary currency and default locale.
 
 A three-character ISO currency code may be specified as the first argument; currency support is drawn from the [money](https://github.com/RubyMoney/money/blob/main/config/currency_iso.json) project. The locale may be overridden as a named option; locale support is drawn from [rails-i18n](https://github.com/svenfuchs/rails-i18n#available-locales).
 
@@ -523,6 +573,13 @@ $100 000,00
 ```
 {% endtab %}
 {% endtabs %}
+
+Note that this filter does not automatically append the currency ISO code \(e.g. it will not generate output resembling "€100,000.00 EUR"\). To add the ISO code manually, use one of these examples:
+
+```javascript
+{{ price | currency }} {{ shop.currency }}
+{{ price | currency | append: " " | append: shop.currency }}
+```
 
 ### Math filters
 
