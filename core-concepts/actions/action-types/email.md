@@ -19,6 +19,7 @@ Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provide
 | `from_display_name` | Optional; a string controlling the name \(but not the address\) of the sender |
 | `template` | Optional; a string naming an email template from the current Mechanic account |
 | `attachments` | Optional; an object specifying files to attach, using [file generators](../file-generators/) |
+| `...` | Additional options may be provided, and will be made available to email templates as variables, named after each option |
 
 ## Changing the sender address
 
@@ -29,6 +30,43 @@ By default, the sender address is a Mechanic address based on the store's myshop
 Changing the sender address involves adding it to the store's Mechanic account, and then configuring the email domain name with some DNS records for verification.
 
 For more on this, see [Custom email domain](../../../advanced-topics/custom-email-domain.md).
+
+## Template
+
+To achieve easily reusable headers and footers, Mechanic can be configured with one or more email templates, available in the Mechanic account settings.
+
+To use a specific email template with the Email action, use the `template` option to specify the name of the desired email template.
+
+All options used with the Email action will be made available as Liquid variables for the email template. This means that standard options may be used, like `{{ subject }}` and `{{ body }}`, and also custom options: passing in an `order` option, containing order data, may allow the email template to show the order name via `{{ order.name }}`.
+
+{% hint style="warning" %}
+Note that custom options, like all task options, must be provided using standard JSON. This means that the data made available to email templates will be derived from plain JSON values.
+
+For example, consider this action:
+
+```text
+{% action "email" %}
+  {
+    "to": "customer@example.com",
+    "subject": "Thanks for your order!",
+    "template": "order_acknowledgement",
+    "order_data": {{ order | json }}
+  }
+{% endaction %}
+```
+
+The template named "order\_acknowledgement" could include the following Liquid, and get the expected results:
+
+```text
+This is the first item in your order: {{ order_data.line_items.first.title }}
+```
+
+But, because `order_data` is a plain [hash](../../../liquid/mechanic/keyword-literals/hash.md) based entirely on JSON data, instead of being an enhanced order object \(see [Environment variables](../../tasks/code/environment-variables.md)\), the following Liquid usage would fail:
+
+```text
+Remember order {{ order_data.customer.orders.any.first.number }}, your first ever?
+```
+{% endhint %}
 
 ## Attachments
 
