@@ -6,7 +6,7 @@
 
 * [Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
-* [Slack community](resources/slack.md)
+* [🚀 Slack community](resources/slack.md)
 * [Tutorials](resources/tutorials/README.md)
   * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)
   * [Working with Bulk Operations](resources/tutorials/working-with-bulk-operations.md)
