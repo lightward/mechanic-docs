@@ -6,3 +6,7 @@ An event always has a [**topic**](event-topic-reference/), and usually contains 
 
 Events are fed into Mechanic by the responsible party – for events that are about things in Shopify, for example, the events come to Mechanic from Shopify itself.
 
+{% hint style="info" %}
+Incoming events may be selectively filtered out using [event filters](../../platform/event-filters.md).
+{% endhint %}
+
