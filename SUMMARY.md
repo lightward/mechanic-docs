@@ -100,6 +100,7 @@
 * [Debouncing events](techniques/debouncing-events.md)
 * [Responding to action results](techniques/responding-to-action-results.md)
 * [Working with external APIs](techniques/working-with-external-apis.md)
+* [Finding a resource ID](techniques/finding-a-resource-id.md)
 
 ## Liquid
 
