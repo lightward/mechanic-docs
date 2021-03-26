@@ -16,7 +16,7 @@ We have an online store called Mario's Mushrooms, hosted on Shopify. Business is
 
 We are going to make a task in this cool Shopify app called Mechanic. ;\) Here's what the task will do:
 
-1. The task will add some JavaScript to the online Shopify store, which will capture the contents of the contact form when submitted, and then send those contents over to Mechanic via [webhook](../../advanced-topics/webhooks.md)
+1. The task will add some JavaScript to the online Shopify store, which will capture the contents of the contact form when submitted, and then send those contents over to Mechanic via [webhook](../../platform/webhooks.md)
 2. Over on the Mechanic side, the task will receive the form contents, and format them as a CSV file
 3. The task will then send an [email](../../core-concepts/actions/action-types/email.md) to our CRM system, containing the CSV file as an attachment
 
@@ -25,13 +25,13 @@ We are going to make a task in this cool Shopify app called Mechanic. ;\) Here's
 Time to build the task! Out of Mechanic's entire toolkit, here's what we'll use:
 
 * [Online storefront JavaScript](../../core-concepts/tasks/advanced-settings/javascript.md)
-* [Mechanic webhooks](../../advanced-topics/webhooks.md)
+* [Mechanic webhooks](../../platform/webhooks.md)
 * [The csv Liquid filter](../../liquid/filters.md#csv)
 * [The Email action](../../core-concepts/actions/action-types/email.md)
 
 ### Step 1: Create a new task, and subscribe to a custom event topic
 
-Mechanic tasks use [subscriptions](../../core-concepts/tasks/subscriptions.md) to express their interest in different [events](../../core-concepts/events/). We know we'll be using [Mechanic webhooks](../../advanced-topics/webhooks.md), and we know that each webhook gets to choose its own event topic. So, even before configuring the webhook, we choose the event topic "user/webhook/form".
+Mechanic tasks use [subscriptions](../../core-concepts/tasks/subscriptions.md) to express their interest in different [events](../../core-concepts/events/). We know we'll be using [Mechanic webhooks](../../platform/webhooks.md), and we know that each webhook gets to choose its own event topic. So, even before configuring the webhook, we choose the event topic "user/webhook/form".
 
 {% hint style="info" %}
 Webhooks should be named after the service that will be sending in data. Webhook event topics must follow the form "user/x/y", making choices for "x" and "y" that describe the expected event.

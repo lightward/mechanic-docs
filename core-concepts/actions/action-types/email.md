@@ -1,6 +1,6 @@
 # Email
 
-The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../../advanced-topics/email-templates.md), and supports attachments constructed by [**file generators**](../file-generators/).
+The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../../platform/email-templates.md), and supports attachments constructed by [**file generators**](../file-generators/).
 
 ## Usage restrictions
 
@@ -21,6 +21,20 @@ Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provide
 | `attachments` | Optional; an object specifying files to attach, using [file generators](../file-generators/) |
 | `...` | Additional options may be provided, and will be made available to email templates as variables, named after each option |
 
+## Message formatting
+
+### HTML and CSS
+
+Mechanic parses each email body for HTML and CSS, allowing authors to use `<style>` tags without having to think about email client compatibility.
+
+{% hint style="info" %}
+If you're simply trying to add formatted text and aren't ready to dig into the code yourself, try using a tool like [wordtohtml.net](https://wordtohtml.net/) to quickly generate usable HTML.
+{% endhint %}
+
+### Embedded images
+
+Images may be embedded using the `<img>` tag, but must be hosted independently. Shopify provides basic file hosting, appropriate for uploading images for use with Mechanic emails. To learn more, see [Uploading files to your website](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/file-uploads).
+
 ## Changing the sender address
 
 This action only supports sending from a single address \(regardless of the sender name, as controlled by the `from_display_name` option\).
@@ -29,13 +43,15 @@ By default, the sender address is a Mechanic address based on the store's myshop
 
 Changing the sender address involves adding it to the store's Mechanic account, and then configuring the email domain name with some DNS records for verification.
 
-For more on this, see [Custom email domain](../../../advanced-topics/custom-email-domain.md).
+For more on this, see [Custom email domain](../../../platform/custom-email-domain.md).
 
 ## Template
 
-To achieve easily reusable headers and footers, Mechanic can be configured with one or more email templates, available in the Mechanic account settings. To learn more about configuring email templates, see [Email templates](../../../advanced-topics/email-templates.md).
+To achieve easily reusable headers and footers, Mechanic can be configured with one or more email templates, available in the Mechanic account settings. To learn more about configuring email templates, see [Email templates](../../../platform/email-templates.md).
 
 To use a specific email template with the Email action, use the `template` option to specify the name of the desired email template.
+
+### Creating template variables
 
 All options used with the Email action will be made available as Liquid variables for the email template. This means that standard options may be used, like `{{ subject }}` and `{{ body }}`, and also custom options: passing in an `order` option, containing order data, may allow the email template to show the order name via `{{ order.name }}`.
 

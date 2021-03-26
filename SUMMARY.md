@@ -4,7 +4,8 @@
 
 ## Resources
 
-* [Task library](resources/task-library.md)
+* [Task library](resources/task-library/README.md)
+  * [Contributing](resources/task-library/contributing.md)
 * [Slack community](resources/slack-community-1.md)
 * [Tutorials](resources/tutorials/README.md)
   * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)
@@ -38,8 +39,6 @@
     * [User](core-concepts/events/event-topic-reference/user.md)
     * [Third-party](core-concepts/events/event-topic-reference/third-party.md)
   * [Parent and child events](core-concepts/events/parent-and-child-events.md)
-  * [Event filters](core-concepts/events/event-filters/README.md)
-    * [Debouncing events](core-concepts/events/event-filters/debouncing-events.md)
 * [Tasks](core-concepts/tasks/README.md)
   * [Subscriptions](core-concepts/tasks/subscriptions.md)
   * [Code](core-concepts/tasks/code/README.md)
@@ -74,12 +73,29 @@
     * [URL](core-concepts/actions/file-generators/url.md)
     * [ZIP](core-concepts/actions/file-generators/zip.md)
 * [Runs](core-concepts/runs/README.md)
-  * [States](core-concepts/runs/states.md)
   * [Scheduling](core-concepts/runs/scheduling.md)
+  * [Concurrency](core-concepts/runs/concurrency.md)
+  * [Ordering](core-concepts/runs/ordering.md)
   * [Retries](core-concepts/runs/retries.md)
   * [Pauses](core-concepts/runs/pauses.md)
 * [Interacting with Shopify](core-concepts/interacting-with-shopify.md)
 * [Integrations](core-concepts/integrations.md)
+
+## Platform
+
+* [Event filters](platform/event-filters.md)
+* [Email templates](platform/email-templates.md)
+* [Custom email addresses](platform/custom-email-domain.md)
+* [Webhooks](platform/webhooks.md)
+* [Cache](platform/mechanic-cache.md)
+* [Cache endpoints](platform/cache-endpoints.md)
+* [CORS](platform/cors.md)
+
+## Techniques
+
+* [Debouncing events](techniques/debouncing-events.md)
+* [Responding to action results](techniques/responding-to-action-results.md)
+* [Working with external APIs](techniques/working-with-external-apis.md)
 
 ## Liquid
 
@@ -116,21 +132,6 @@
   * [Mutations](graphql/basics/mutations.md)
   * [Pagination](graphql/basics/pagination.md)
 * [Bulk Operations](graphql/bulk-operations.md)
-
-## Advanced Topics
-
-* [Contributing to the Task Library](advanced-topics/contributing-to-the-task-library.md)
-* [Email templates](advanced-topics/email-templates.md)
-* [Custom Email Domain](advanced-topics/custom-email-domain.md)
-* [Mechanic Webhooks](advanced-topics/webhooks.md)
-* [External APIs](advanced-topics/external-apis.md)
-* [Mechanic Cache](advanced-topics/mechanic-cache.md)
-* [Cache Endpoints](advanced-topics/cache-endpoints.md)
-* [CORS](advanced-topics/cors.md)
-
-## FAQ
-
-* [Can I query external APIs?](faq/can-i-query-external-apis.md)
 
 ---
 

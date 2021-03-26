@@ -1,4 +1,4 @@
-# Custom Email Domain
+# Custom email addresses
 
 By default, Mechanic sends your mail from an address built from your Shopify account name. If your store is located at fantastic.myshopify.com, for example, Mechanic will send mail from [fantastic@mail.usemechanic.com](mailto:fantastic@mail.usemechanic.com). However, we do support sending from a custom email address, using your store's domain.
 

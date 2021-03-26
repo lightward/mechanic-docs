@@ -1,6 +1,6 @@
 # Import and export
 
-Mechanic tasks may be imported and exported as JSON, using the "Import" or "Export" button below the task editor. The JSON schema used for representing tasks is identical to that used by the **task library**, making it suitable for [contributing to the task library](../../advanced-topics/contributing-to-the-task-library.md).
+Mechanic tasks may be imported and exported as JSON, using the "Import" or "Export" button below the task editor. The JSON schema used for representing tasks is identical to that used by the **task library**, making it suitable for [contributing to the task library](../../resources/task-library/contributing.md).
 
 ## Importing
 
@@ -24,7 +24,7 @@ When working with an existing task, find the "Export" button at the end of the t
 
 ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5f9f134fcff47e0017d2d667/file-NcVn8hh62H.png)
 
-On the next screen, copy the JSON found in the export box. This JSON is a complete representation of the entire task \(including all documentation and configured options\), and may be used for task imports, or for [contributing to the task library](../../advanced-topics/contributing-to-the-task-library.md).
+On the next screen, copy the JSON found in the export box. This JSON is a complete representation of the entire task \(including all documentation and configured options\), and may be used for task imports, or for [contributing to the task library](../../resources/task-library/contributing.md).
 
 ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5f9f14bacff47e0017d2d669/file-mFPoGAKq68.png)
 

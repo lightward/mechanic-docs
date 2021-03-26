@@ -1,2 +1,0 @@
-# Mechanic Webhooks
-

@@ -1,12 +1,6 @@
-# Contributing to the Task Library
+# Contributing
 
-## What is the Mechanic task library?
-
-Our open-source task library contains 280+ ecommerce automation tasks that are ready to use out of the box or serve as excellent starting points for custom tasks. The task library consists of the task code as well as the task documentation. It's important to note that the documentation is part of the task library because building the docs will be part of the steps covered in this section.
-
-{% hint style="info" %}
-Check out the Task Library on GitHub: [github.com/lightward/mechanic-tasks](https://github.com/lightward/mechanic-tasks)
-{% endhint %}
+Mechanic's [**task library**](./) is a central resource for the entire community, and is continually enriched through **contributions**, via pull requests [on GitHub](https://github.com/lightward/mechanic-tasks).
 
 ## Contributing your work to the task library
 
@@ -30,7 +24,7 @@ We follow the same process any open-source project does when it comes to code ma
 1. You'll need a GitHub account, you can signup for one [here](https://github.com/join). 
 2. Visit the [task library repository](https://github.com/lightward/mechanic-tasks) and fork it as shown below. You'll make your changes to this copy of the repository.
 
-   ![](../.gitbook/assets/fork.gif)
+   ![](../../.gitbook/assets/fork.gif)
 
 3. The task library is made up of the [tasks](https://github.com/lightward/mechanic-tasks/tree/master/tasks) and the supporting documentation. In these next few steps, you'll ensure you can build the [docs](https://github.com/lightward/mechanic-tasks/tree/master/docs), so that you can complete this step when you are ready to submit your contribution.
 
@@ -46,9 +40,9 @@ We follow the same process any open-source project does when it comes to code ma
    ```
 
 4. Now that you can build the docs you are ready to [contribute](https://github.com/lightward/mechanic-tasks/blob/master/CONTRIBUTING.md)!
-5. Your task documentation, options, subscriptions, code, are done in Mechanic. If you choose to use an external editor that's great, you still need to transfer it into Mechanic, so that you can export the task in the JSON format you need for the library. Importing/Exporting tasks from Mechanic is covered [here](../core-concepts/tasks/import-and-export.md).
+5. Your task documentation, options, subscriptions, code, are done in Mechanic. If you choose to use an external editor that's great, you still need to transfer it into Mechanic, so that you can export the task in the JSON format you need for the library. Importing/Exporting tasks from Mechanic is covered [here](../../core-concepts/tasks/import-and-export.md).
 6. If you're changing an existing task you [export](https://github.com/lightward/mechanic-tasks/blob/master/CONTRIBUTING.md) the JSON, and replace the contents of the `task/task_file_name.json` and then run the commands `npm run build` and `npm run test.`
-7. If you are contributing a new task, you'll [export](../core-concepts/tasks/import-and-export.md) the JSON from Mechanic, and save the JSON file in the `tasks/directory` of your forked repository, named with an appropriate handle for the task. \(For example, a task named "Hide out-of-stock products" should have its JSON export stored in `"tasks/hide-out-of-stock-products.json"`.\) And, then you'll execute the commands:
+7. If you are contributing a new task, you'll [export](../../core-concepts/tasks/import-and-export.md) the JSON from Mechanic, and save the JSON file in the `tasks/directory` of your forked repository, named with an appropriate handle for the task. \(For example, a task named "Hide out-of-stock products" should have its JSON export stored in `"tasks/hide-out-of-stock-products.json"`.\) And, then you'll execute the commands:
 
    `npm run build` and `npm run test`.
 
