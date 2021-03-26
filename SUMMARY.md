@@ -83,6 +83,10 @@
 
 ## Platform
 
+* [Policies](platform/policies/README.md)
+  * [Data](platform/policies/data.md)
+  * [Plans](platform/policies/plans.md)
+  * [Pricing](platform/policies/pricing.md)
 * [Event filters](platform/event-filters.md)
 * [Email templates](platform/email-templates.md)
 * [Custom email addresses](platform/custom-email-domain.md)
