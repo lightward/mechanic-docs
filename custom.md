@@ -16,7 +16,7 @@ If you already have a developer on your team, or have an existing connection to 
 
 ## If you are a developer…
 
-If you're familiar with Liquid and Shopify's APIs, start by picking something from our [task library](resources/task-library/) that's close to what you're looking for, then modify it as needed.
+If you're familiar with Liquid, and Shopify's Admin APIs, start by picking something from our [task library](resources/task-library/) that's close to what you're looking for, then modify it as needed.
 
 Make sure to take advantage of the documentation found here, beginning with the Core Concepts section. Mechanic is a powerful system, and grounding yourself in the fundamentals is a good way to begin.
 
