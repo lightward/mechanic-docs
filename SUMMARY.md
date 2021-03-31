@@ -122,13 +122,13 @@
     * [array](liquid/mechanic/keyword-literals/array.md)
     * [hash](liquid/mechanic/keyword-literals/hash.md)
     * [newline](liquid/mechanic/keyword-literals/newline.md)
-  * [Objects](liquid/mechanic/objects/README.md)
-    * [Customer](liquid/mechanic/objects/customer.md)
   * [Tags](liquid/mechanic/tags/README.md)
     * [action](liquid/mechanic/tags/action.md)
     * [assign](liquid/mechanic/tags/assign.md)
     * [error](liquid/mechanic/tags/error.md)
     * [log](liquid/mechanic/tags/log.md)
+* [Objects](liquid/objects/README.md)
+  * [Order object](liquid/objects/order-object.md)
 
 ## GraphQL
 
