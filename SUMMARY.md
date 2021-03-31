@@ -129,6 +129,8 @@
     * [log](liquid/mechanic/tags/log.md)
 * [Objects](liquid/objects/README.md)
   * [Order object](liquid/objects/order-object.md)
+  * [Product object](liquid/objects/product-object.md)
+  * [The customer object](liquid/objects/customer-object.md)
 
 ## GraphQL
 
