@@ -135,6 +135,8 @@
   * [Options object](liquid/mechanic-liquid-objects/options-object.md)
   * [Line Item object](liquid/mechanic-liquid-objects/line-item-object.md)
   * [Variant object](liquid/mechanic-liquid-objects/variant-object.md)
+  * [Metafields object](liquid/mechanic-liquid-objects/metafields-object.md)
+  * [Untitled](liquid/mechanic-liquid-objects/untitled.md)
 
 ## GraphQL
 
