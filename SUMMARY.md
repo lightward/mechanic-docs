@@ -145,7 +145,7 @@
     * [Fulfillment\_event object](liquid/mechanic-liquid-objects/rest-admin-api/fulfillment_event-object.md)
     * [Gift card object](liquid/mechanic-liquid-objects/rest-admin-api/gift-card-object.md)
     * [Inventory item object](liquid/mechanic-liquid-objects/rest-admin-api/inventory-item-object.md)
-  * [Inventory level object](liquid/mechanic-liquid-objects/inventory-level-object.md)
+    * [Inventory level object](liquid/mechanic-liquid-objects/rest-admin-api/inventory-level-object.md)
   * [Line item object](liquid/mechanic-liquid-objects/line-item-object.md)
   * [Location object](liquid/mechanic-liquid-objects/location-object.md)
   * [Metafields object](liquid/mechanic-liquid-objects/metafields-object.md)
