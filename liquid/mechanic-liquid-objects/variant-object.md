@@ -13,5 +13,3 @@
 * The related [product object](http://help.usemechanic.com/liquid/the-product-object): `{{ variant.product }}` 
 * The related [metafields object](http://help.usemechanic.com/en/articles/3347736-the-metafields-object): `{{ variant.metafields }}` 
 
-Did this answer your question?  Thanks for the feedback There was a problem submitting your feedback. Please try again later. Last updated on January 22, 2020
-

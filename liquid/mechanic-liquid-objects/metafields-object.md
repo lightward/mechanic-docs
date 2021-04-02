@@ -13,5 +13,3 @@ This object allows you to iterate through a resource's metafields, or to access 
 * Each metafield object contains [every property from the Shopify API](https://help.shopify.com/en/api/reference/metafield)
 * Metafield values retrieved via `{{ resource.metafields.namespace.key }}` are automatically parsed and typed according to their `"value_type"`. This is the only time that this happens – in every other usage, metafield values are returned exactly as they are found in the Shopify API.
 
-Did this answer your question?  Thanks for the feedback There was a problem submitting your feedback. Please try again later. Last updated on January 22, 2020
-

@@ -1,4 +1,4 @@
-# Line Item object
+# Line item object
 
 ## How to access it
 

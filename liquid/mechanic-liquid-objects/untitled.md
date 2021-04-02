@@ -16,5 +16,3 @@
 
  In preview mode, this object _also_ contains a "preview" attribute, as in `event.preview`, set to `true`. \(In all other modes, event objects do _not_ have this property.\) When this attribute is present, the task should render actions that are indicative of what the merchant should expect the task to do – and these "preview" actions will be shown to the merchant. These actions will also be used to determine what Shopify permissions Mechanic will request from the merchant. [Learn more about preview actions](https://docs.usemechanic.com/article/335-preview-actions)
 
-Did this answer your question?  Thanks for the feedback There was a problem submitting your feedback. Please try again later. Last updated on March 15, 2021
-

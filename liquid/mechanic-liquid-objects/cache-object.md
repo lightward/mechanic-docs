@@ -7,8 +7,6 @@
 * Use `{{ cache["some_key"] }}` or  `{{ cache.some_key }}` in any task script
 * Use `{% for keyval in cache %}` to iterate through the keys and values in your account's cache
 
-Did this answer your question?  Thanks for the feedback There was a problem submitting your feedback. Please try again later. Last updated on December 2, 2020
-
 ### Related articles
 
 * [The "cache" action](https://docs.usemechanic.com/article/407-the-cache-action)

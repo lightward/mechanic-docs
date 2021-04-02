@@ -133,11 +133,20 @@
   * [Customer object](liquid/mechanic-liquid-objects/customer-object.md)
   * [Shop object](liquid/mechanic-liquid-objects/shop-object.md)
   * [Options object](liquid/mechanic-liquid-objects/options-object.md)
-  * [Line Item object](liquid/mechanic-liquid-objects/line-item-object.md)
+  * [Line item object](liquid/mechanic-liquid-objects/line-item-object.md)
   * [Variant object](liquid/mechanic-liquid-objects/variant-object.md)
   * [Metafields object](liquid/mechanic-liquid-objects/metafields-object.md)
   * [Event object](liquid/mechanic-liquid-objects/untitled.md)
   * [Cache object](liquid/mechanic-liquid-objects/cache-object.md)
+  * [Fulfillment object](liquid/mechanic-liquid-objects/fulfillment-object.md)
+  * [Inventory level object](liquid/mechanic-liquid-objects/inventory-level-object.md)
+  * [Location object](liquid/mechanic-liquid-objects/location-object.md)
+  * [Inventory item object](liquid/mechanic-liquid-objects/inventory-item-object.md)
+  * [Product image object](liquid/mechanic-liquid-objects/product-image-object.md)
+  * [Draft order object](liquid/mechanic-liquid-objects/draft-order-object.md)
+  * [Task object](liquid/mechanic-liquid-objects/task-object.md)
+  * [Refund object](liquid/mechanic-liquid-objects/refund-object.md)
+  * [Collection object](liquid/mechanic-liquid-objects/collection-object.md)
 
 ## GraphQL
 
