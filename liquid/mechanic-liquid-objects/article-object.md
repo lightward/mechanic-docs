@@ -9,7 +9,9 @@
 
 ## What it contains
 
-* [Every property from the Shopify API](https://help.shopify.com/en/api/reference/online-store/article)
-* The related [blog object](https://help.usemechanic.com/en/articles/3637716-the-blog-object): `{{ article.blog }}`
-* The related [metafields object](https://help.usemechanic.com/en/articles/3347736-the-metafields-object): `{{ article.metafields }}`  
+* [Every property from the Shopify API](https://shopify.dev/docs/admin-api/rest/reference/online-store/article)
+* The related [blog object](blog-object.md): `{{ article.blog }}`
+* The related [metafields object](metafields-object.md): `{{ article.metafields }}`  
+
+
 
