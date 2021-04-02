@@ -37,7 +37,7 @@ Or, combine to be even more selective:
 * The related [customer object](customer-object.md): `{{ order.customer }}`
 * An array of [line item objects](line-item-object.md): `{{ order.line_items }}` 
 * An array of [refund objects](../refund-object.md): `{{ order.refunds }}` 
-* An array of [order risk objects](../order-risk-object.md): `{{ order.risks }}` 
+* An array of [order risk objects](order-risk-object.md): `{{ order.risks }}` 
 * An array of [transaction objects](../transaction-object.md): `{{ order.transactions }}`
 * An array of [fulfillment objects](fulfillment-object.md): `{{ order.fulfillments }}` 
 * An array of note attributes, that also supports lookups by attribute name: `{% for attr in order.note_attributes %}{% if attr.name == "color" %}{{ attr.value }}{% endif %}{% endfor %}`, or `{{ order.note_attributes.color }}` 

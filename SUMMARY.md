@@ -150,7 +150,7 @@
     * [Location object](liquid/mechanic-liquid-objects/rest-admin-api/location-object.md)
     * [Metafields object](liquid/mechanic-liquid-objects/rest-admin-api/metafields-object.md)
     * [Order object](liquid/mechanic-liquid-objects/rest-admin-api/order-object.md)
-  * [Order risk object](liquid/mechanic-liquid-objects/order-risk-object.md)
+    * [Order risk object](liquid/mechanic-liquid-objects/rest-admin-api/order-risk-object.md)
   * [Price rule object](liquid/mechanic-liquid-objects/price-rule-object.md)
   * [Product object](liquid/mechanic-liquid-objects/product-object.md)
   * [Product image object](liquid/mechanic-liquid-objects/product-image-object.md)
