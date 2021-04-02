@@ -127,10 +127,14 @@
     * [assign](liquid/mechanic/tags/assign.md)
     * [error](liquid/mechanic/tags/error.md)
     * [log](liquid/mechanic/tags/log.md)
-* [Objects](liquid/objects/README.md)
-  * [Order object](liquid/objects/order-object.md)
-  * [Product object](liquid/objects/product-object.md)
-  * [The customer object](liquid/objects/customer-object.md)
+* [Mechanic Liquid Objects](liquid/mechanic-liquid-objects/README.md)
+  * [Order object](liquid/mechanic-liquid-objects/order-object.md)
+  * [Product object](liquid/mechanic-liquid-objects/product-object.md)
+  * [Customer object](liquid/mechanic-liquid-objects/customer-object.md)
+  * [Shop object](liquid/mechanic-liquid-objects/shop-object.md)
+  * [Options object](liquid/mechanic-liquid-objects/options-object.md)
+  * [Line Item object](liquid/mechanic-liquid-objects/line-item-object.md)
+  * [Variant object](liquid/mechanic-liquid-objects/variant-object.md)
 
 ## GraphQL
 
