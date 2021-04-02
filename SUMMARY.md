@@ -146,10 +146,10 @@
     * [Gift card object](liquid/mechanic-liquid-objects/rest-admin-api/gift-card-object.md)
     * [Inventory item object](liquid/mechanic-liquid-objects/rest-admin-api/inventory-item-object.md)
     * [Inventory level object](liquid/mechanic-liquid-objects/rest-admin-api/inventory-level-object.md)
-  * [Line item object](liquid/mechanic-liquid-objects/line-item-object.md)
-  * [Location object](liquid/mechanic-liquid-objects/location-object.md)
-  * [Metafields object](liquid/mechanic-liquid-objects/metafields-object.md)
-  * [Order object](liquid/mechanic-liquid-objects/order-object.md)
+    * [Line item object](liquid/mechanic-liquid-objects/rest-admin-api/line-item-object.md)
+    * [Location object](liquid/mechanic-liquid-objects/rest-admin-api/location-object.md)
+    * [Metafields object](liquid/mechanic-liquid-objects/rest-admin-api/metafields-object.md)
+    * [Order object](liquid/mechanic-liquid-objects/rest-admin-api/order-object.md)
   * [Order risk object](liquid/mechanic-liquid-objects/order-risk-object.md)
   * [Price rule object](liquid/mechanic-liquid-objects/price-rule-object.md)
   * [Product object](liquid/mechanic-liquid-objects/product-object.md)
@@ -159,6 +159,7 @@
   * [Shop object](liquid/mechanic-liquid-objects/shop-object.md)
   * [Theme object](liquid/mechanic-liquid-objects/theme-object.md)
   * [Theme asset object](liquid/mechanic-liquid-objects/theme-asset-object.md)
+  * [Transaction object](liquid/mechanic-liquid-objects/transaction-object.md)
   * [Variant object](liquid/mechanic-liquid-objects/variant-object.md)
 
 ## GraphQL

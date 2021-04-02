@@ -9,7 +9,7 @@
 
 * [Every property from the Blog resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/online-store/blog)
 * An array of related [article objects](article-object.md): `{{ blog.articles }}` 
-* The related [metafields object](../metafields-object.md): `{{ blog.metafields }}` 
+* The related [metafields object](metafields-object.md): `{{ blog.metafields }}` 
 
 
 

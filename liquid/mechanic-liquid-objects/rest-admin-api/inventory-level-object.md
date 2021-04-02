@@ -10,5 +10,5 @@
 * [Every property from the InventoryLevel resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/inventory/inventorylevel#properties)
 * The related [inventory item object](http://help.usemechanic.com/liquid/the-inventory-item-object): `{{ inventory_level.inventory_item }}`
 * The related [variant object](../variant-object.md): `{{ inventory_level.variant }}` 
-* The related [location object](../location-object.md): `{{ inventory_level.location }}` 
+* The related [location object](location-object.md): `{{ inventory_level.location }}` 
 
