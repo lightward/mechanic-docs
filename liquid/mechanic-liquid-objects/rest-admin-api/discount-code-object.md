@@ -13,6 +13,6 @@
 
 ### Related articles
 
-* [The shop object](../shop-object.md)
+* [The shop object](shop-object.md)
 * [The price rule object](price-rule-object.md)
 

@@ -12,7 +12,7 @@
 
 ### Related articles
 
-* [The shop object](../shop-object.md)
+* [The shop object](shop-object.md)
 * [The discount code object](discount-code-object.md)
 
 
