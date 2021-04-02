@@ -159,8 +159,8 @@
     * [💪 Shop object](liquid/mechanic-liquid-objects/rest-admin-api/shop-object.md)
     * [Theme object](liquid/mechanic-liquid-objects/rest-admin-api/theme-object.md)
     * [Theme asset object](liquid/mechanic-liquid-objects/rest-admin-api/theme-asset-object.md)
-  * [Transaction object](liquid/mechanic-liquid-objects/transaction-object.md)
-  * [Variant object](liquid/mechanic-liquid-objects/variant-object.md)
+    * [Transaction object](liquid/mechanic-liquid-objects/rest-admin-api/transaction-object.md)
+    * [Variant object](liquid/mechanic-liquid-objects/rest-admin-api/variant-object.md)
 
 ## GraphQL
 

@@ -7,7 +7,7 @@
 
 ## What it contains
 
-* Every property from PriceRule resource in the Shopify REST Admin API
+* [Every property from PriceRule resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/discounts/pricerule)
 * An index of related [discount code objects](https://shopify.dev/docs/admin-api/rest/reference/discounts/pricerule): `{{ price_rule.discount_codes }}`
 
 ### Related articles

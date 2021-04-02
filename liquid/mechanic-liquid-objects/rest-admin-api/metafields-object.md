@@ -10,6 +10,6 @@ This object allows you to iterate through a resource's metafields, or to access 
 
 ## What it contains
 
-* [Every property from Metafield resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/metafield)
+* [Every property from the Metafield resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/metafield)
 * Metafield values retrieved via `{{ resource.metafields.namespace.key }}` are automatically parsed and typed according to their `"value_type"`. This is the only time that this happens – in every other usage, metafield values are returned exactly as they are found in the Shopify API.
 

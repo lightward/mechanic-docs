@@ -6,7 +6,7 @@
 
 ## What it contains
 
-* [Every property from Shop resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/store-properties/shop#properties)
+* [Every property from the Shop resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/store-properties/shop#properties)
 * An index of [collection objects](collection-object.md): `{{ shop.collections[1234567890] }}`, `{% for collection in shop.collections %}`, or use `shop.custom_collections` or `shop.smart_collections` to only return custom/smart collections
 * An index of [product objects](product-object.md): `{{ shop.products[1234567890] }}`, `{% for product in shop.products.published %}`
 *  An index of [order objects](order-object.md): `{{ shop.orders[1234567890] }}`, `{% for order in shop.orders.paid %}`

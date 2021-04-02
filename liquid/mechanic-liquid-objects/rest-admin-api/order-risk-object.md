@@ -7,5 +7,5 @@
 
 ## What it contains
 
-* [Every property from Order Risk resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/orders/order-risk#properties)
+* [Every property from the Order Risk resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/orders/order-risk#properties)
 

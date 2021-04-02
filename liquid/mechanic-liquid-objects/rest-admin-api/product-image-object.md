@@ -6,5 +6,5 @@
 
 ## What it contains
 
-* [Every property from Product Image resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/products/product-image)
+* [Every property from the Product Image resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/products/product-image)
 

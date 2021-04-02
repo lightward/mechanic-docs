@@ -6,5 +6,5 @@ How to access it
 
 ## What it contains
 
-* [Every property from ShippingZone resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/store-properties/shippingzone)
+* [Every property from the ShippingZone resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/store-properties/shippingzone)
 

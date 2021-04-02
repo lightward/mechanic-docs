@@ -9,8 +9,8 @@
 
 ## What it contains
 
-* [Every property from Product resource in the Shopify REST Admin AP](https://shopify.dev/docs/admin-api/rest/reference/products/product#properties)I **\(warning: Shopify delivers product.tags as a comma-delimited string,** _**not**_ **an array of strings!\)**
-* An array of related [variant objects](../variant-object.md): `{{ product.variants }}` 
+* [Every property from the Product resource in the Shopify REST Admin AP](https://shopify.dev/docs/admin-api/rest/reference/products/product#properties)I **\(warning: Shopify delivers product.tags as a comma-delimited string,** _**not**_ **an array of strings!\)**
+* An array of related [variant objects](variant-object.md): `{{ product.variants }}` 
 * An array of related [collection objects](collection-object.md): `{{ product.collections }}`
 * An array of related [product image objects](product-image-object.md): `{{ product.images }}`  
 * The related [metafields object](metafields-object.md): `{{ product.metafields }}`

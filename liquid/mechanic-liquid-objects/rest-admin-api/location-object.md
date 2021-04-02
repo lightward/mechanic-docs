@@ -9,5 +9,5 @@
 
 ## What it contains
 
-* [Every property from Location resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/inventory/location#properties)
+* [Every property from the Location resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/inventory/location#properties)
 
