@@ -157,8 +157,8 @@
     * [Refund object](liquid/mechanic-liquid-objects/rest-admin-api/refund-object.md)
     * [Shipping zone object](liquid/mechanic-liquid-objects/rest-admin-api/shipping-zone-object.md)
     * [💪 Shop object](liquid/mechanic-liquid-objects/rest-admin-api/shop-object.md)
-  * [Theme object](liquid/mechanic-liquid-objects/theme-object.md)
-  * [Theme asset object](liquid/mechanic-liquid-objects/theme-asset-object.md)
+    * [Theme object](liquid/mechanic-liquid-objects/rest-admin-api/theme-object.md)
+    * [Theme asset object](liquid/mechanic-liquid-objects/rest-admin-api/theme-asset-object.md)
   * [Transaction object](liquid/mechanic-liquid-objects/transaction-object.md)
   * [Variant object](liquid/mechanic-liquid-objects/variant-object.md)
 
