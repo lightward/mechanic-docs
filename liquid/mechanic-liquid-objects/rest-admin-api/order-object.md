@@ -36,7 +36,7 @@ Or, combine to be even more selective:
 * [Every property from Order resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/orders/order#properties) **\(warning: Shopify delivers order.tags as a comma-delimited string,** _**not**_ **an array of strings!\)**
 * The related [customer object](customer-object.md): `{{ order.customer }}`
 * An array of [line item objects](line-item-object.md): `{{ order.line_items }}` 
-* An array of [refund objects](../refund-object.md): `{{ order.refunds }}` 
+* An array of [refund objects](refund-object.md): `{{ order.refunds }}` 
 * An array of [order risk objects](order-risk-object.md): `{{ order.risks }}` 
 * An array of [transaction objects](../transaction-object.md): `{{ order.transactions }}`
 * An array of [fulfillment objects](fulfillment-object.md): `{{ order.fulfillments }}` 

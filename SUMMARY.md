@@ -154,7 +154,7 @@
     * [Price rule object](liquid/mechanic-liquid-objects/rest-admin-api/price-rule-object.md)
     * [Product object](liquid/mechanic-liquid-objects/rest-admin-api/product-object.md)
     * [Product image object](liquid/mechanic-liquid-objects/rest-admin-api/product-image-object.md)
-  * [Refund object](liquid/mechanic-liquid-objects/refund-object.md)
+    * [Refund object](liquid/mechanic-liquid-objects/rest-admin-api/refund-object.md)
   * [Shipping zone object](liquid/mechanic-liquid-objects/shipping-zone-object.md)
   * [Shop object](liquid/mechanic-liquid-objects/shop-object.md)
   * [Theme object](liquid/mechanic-liquid-objects/theme-object.md)
