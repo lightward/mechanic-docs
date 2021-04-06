@@ -24,7 +24,7 @@ In Mechanic's Liquid implementation, a hash can only have string keys.
 {% for keyval in sizes %}
   {% assign size_abbreviation = keyval[0] %}
   {% assign size_label = keyval[1] %}
-  
+
   {{ size_abbreviation }}: {{ size_label }}
 {% endfor %}
 ```

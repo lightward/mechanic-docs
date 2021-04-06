@@ -16,7 +16,7 @@ Learn more about the difference between Shopify Theme Liquid objects and Mechani
 
 ## Shopify's introduction to Liquid
 
-{% embed url="https://www.youtube.com/watch?v=tZLTExLukSg&feature=youtu.be" %}
+{% embed url="https://www.youtube.com/watch?v=tZLTExLukSg&feature=youtu.be" caption="" %}
 
 ## Sources
 

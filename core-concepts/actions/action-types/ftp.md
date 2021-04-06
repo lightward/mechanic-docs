@@ -126,5 +126,3 @@ mechanic/user/trigger
 {% endtab %}
 {% endtabs %}
 
-
-

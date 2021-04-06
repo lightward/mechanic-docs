@@ -6,7 +6,7 @@ Mechanic inherits [all filters from Liquid itself](https://shopify.github.io/liq
 
 For a complete list of filters supported by Mechanic, see [Filters](../filters.md).
 
-### Example syntax
+## Example syntax
 
 ```javascript
 {{ order.billing_address.zip | upcase }}

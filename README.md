@@ -1,6 +1,6 @@
 # Introduction
 
-{% embed url="https://www.youtube.com/watch?v=QitSqzfBovg" %}
+{% embed url="https://www.youtube.com/watch?v=QitSqzfBovg" caption="" %}
 
 I'm glad you're here. :\) I'm Isaac, and I built Mechanic. My intent is to make Shopify better for everyone. We do this, here, in two parts: \(1\) by making it as easy as possible for developers to solve merchant problems, and \(2\) by making it as easy as possible to use \(and re-use\) those solutions. Mechanic is very, very good at both.
 
@@ -41,6 +41,4 @@ Mechanic makes heavy use of [**Liquid**](liquid/basics/) – a template language
 ### Run queues
 
 Mechanic performs work using queues, with no limit on how large each queue can become. If there is a sudden surge of incoming events for a Shopify store, the store's dedicated Mechanic queue could become delayed. This is an important difference between Mechanic and many other systems: in a high-traffic period, Mechanic will never refuse incoming events for a store; instead, it will process each one as soon as possible, by putting them into a run queue.
-
-
 

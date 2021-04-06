@@ -12,5 +12,3 @@ An **action type** determines the class of operation to be performed. While acti
 | [HTTP](http.md) | Performing HTTP requests |
 | [Shopify](shopify.md) | Sending requests to the Shopify Admin API, supporting both REST and GraphQL |
 
-
-

@@ -436,5 +436,3 @@ This example deletes a product, having a certain ID.
 {% endtab %}
 {% endtabs %}
 
-
-

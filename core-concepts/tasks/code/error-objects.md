@@ -20,5 +20,3 @@ The error details can be any JSON value. This value will be represented to the u
 
 Error objects are most easily generated using the [**error tag**](../../../liquid/mechanic/tags/error.md).
 
-
-

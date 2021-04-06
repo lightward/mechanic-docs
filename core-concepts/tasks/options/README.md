@@ -27,7 +27,7 @@ Because this may not result in a natural sequence, it can be useful to prefix ta
 ```javascript
 {% comment %}
   Preferred option order:
-  
+
   {{ options.foo }}
   {{ options.bar__required }}
   {{ options.baz__boolean }}

@@ -4,7 +4,7 @@ In general, Mechanic's [**run**](./) system does not guarantee the execution ord
 
 For tasks, the simplest way to manage this is by using subscription delays, offsetting the time at which each task is run. For example, if you have two tasks that subscribe to shopify/customers/create, you might adjust one so that it it subscribes to shopify/customers/create+10.minutes instead. This way, your first task has a chance to execute and run before the other.
 
-This is not a perfect solution: naturally, if the first task takes more than 10 minutes to run, there will still be overlap. So, Mechanic makes 
+This is not a perfect solution: naturally, if the first task takes more than 10 minutes to run, there will still be overlap. So, Mechanic makes
 
 ## Guaranteeing run order for actions
 

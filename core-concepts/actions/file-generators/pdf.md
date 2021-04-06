@@ -77,5 +77,3 @@ To use additional options from the list above, add them alongside the `html` opt
 {% endtab %}
 {% endtabs %}
 
-
-

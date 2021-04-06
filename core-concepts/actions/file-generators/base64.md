@@ -45,5 +45,3 @@ This file generator accepts a base64-encoded string. It does not support any oth
 {% endtab %}
 {% endtabs %}
 
-
-

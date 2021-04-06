@@ -1,12 +1,12 @@
 # Action object
 
- The action object describes an _action_ that was defined \(see [An introduction to actions](../../core-concepts/actions/)\), and the _run_ that was performed for that action \(see [An introduction to runs](../../core-concepts/runs/)\).
+The action object describes an _action_ that was defined \(see [An introduction to actions](../../core-concepts/actions/)\), and the _run_ that was performed for that action \(see [An introduction to runs](../../core-concepts/runs/)\).
 
- As such, the action object _only_ comes into play with tasks that subscribe to mechanic/actions/perform, analyzing the results of action runs, for the purpose of performing follow-up work. Learn more about this technique: [Responding to action results](../../techniques/responding-to-action-results.md).
+As such, the action object _only_ comes into play with tasks that subscribe to mechanic/actions/perform, analyzing the results of action runs, for the purpose of performing follow-up work. Learn more about this technique: [Responding to action results](../../techniques/responding-to-action-results.md).
 
-##  How to access it
+## How to access it
 
-*  Use `{{ action }}` in tasks responding to mechanic/actions/perform
+* Use `{{ action }}` in tasks responding to mechanic/actions/perform
 
 ## What it contains
 

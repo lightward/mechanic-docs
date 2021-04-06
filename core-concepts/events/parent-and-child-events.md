@@ -48,5 +48,3 @@ As written, this task will "fan out": it will generate 1 child event, which will
 
 Importantly, note the `"task_id"` option, applied to the Event action. This option ensures that only this task, and no other, will respond to the new event. While it's unlikely that any other task will subscribe to "user/fan/out" events, this option is important for ensuring expected behavior.
 
-
-

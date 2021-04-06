@@ -1,6 +1,6 @@
 # Theme asset object
 
-##  How to access it
+## How to access it
 
 * Look up specific a specific asset by its ID, using `{{ shop.themes[12345].assets[67890] }}` 
 * Loop through all assets in a theme: `{% for asset in shop.themes[12345]assets %}`

@@ -46,7 +46,7 @@ Used within a `for`/`endfor` block, the `continue` tag instructs Liquid to skip 
     {% endcomment %}
     {% continue %}
   {% endif %}
- 
+
   {% assign tag_to_add = "not cancelled" %}
 {% endfor %}
 ```

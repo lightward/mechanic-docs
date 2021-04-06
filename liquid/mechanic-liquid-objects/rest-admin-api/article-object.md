@@ -13,5 +13,3 @@
 * The related [blog object](blog-object.md): `{{ article.blog }}`
 * The related [metafields object](metafields-object.md): `{{ article.metafields }}`  
 
-
-

@@ -188,5 +188,3 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 {% endtab %}
 {% endtabs %}
 
-## 
-

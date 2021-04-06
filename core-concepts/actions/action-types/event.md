@@ -87,7 +87,6 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
     }
   }
 }
-
 ```
 {% endtab %}
 {% endtabs %}

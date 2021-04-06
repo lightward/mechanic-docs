@@ -35,5 +35,3 @@ Because this file generator is used implicitly, when a string is given instead o
 {% endtab %}
 {% endtabs %}
 
-
-

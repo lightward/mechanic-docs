@@ -1,6 +1,6 @@
 # Discount code object
 
- How to access it
+How to access it
 
 * Look up specific discount codes by price rule ID and discount code ID, using `{{ shop.price_rules[12345].discount_codes[67890] }}`
 * Look up a single discount code by its code, using `{{ shop.discount_codes["DISCOUNTABC123"] }}`

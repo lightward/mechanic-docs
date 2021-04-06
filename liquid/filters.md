@@ -50,7 +50,7 @@ device model: {{ browser.device.model }}
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 Google 79.0.259819395
 
 name: Google
@@ -120,7 +120,7 @@ Order Name,Order ID,Order Date
   {% if forloop.first %}
     {% continue %}
   {% endif %}
-  
+
   {% assign order = hash %}
   {% assign order["name"] = row[0] %}
   {% comment %}
@@ -128,7 +128,7 @@ Order Name,Order ID,Order Date
   {% endcomment %}
   {% assign order["id"] = row[1] | times: 1 %}
   {% assign order["date"] = row[2] %}
-  
+
   {% assign orders[orders.size] = order %}
 {% endfor %}
 
@@ -276,7 +276,7 @@ Use this filter to parse an XML string. \(Under the hood, this filter calls [Has
 
 ## String filters
 
-Mechanic supports 
+Mechanic supports
 
 ### append
 
@@ -288,7 +288,7 @@ Mechanic supports
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 report.pdf
 ```
 {% endtab %}
@@ -304,7 +304,7 @@ report.pdf
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 Mechanic
 ```
 {% endtab %}
@@ -317,12 +317,11 @@ Mechanic
 ```javascript
 {{ 'stop yelling it at me' | upcase }}
 {{ 'STOP YELLING AT ME' | downcase }}
-
 ```
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 STOP YELLING AT ME
 stop yelling at me
 ```
@@ -379,12 +378,11 @@ This filter returns the entire matched string \(i.e. [MatchData\#to\_s](https://
 {% tab title="Code" %}
 ```javascript
 {{ 'great to meet you.' | prepend: 'It was ' }}
-
 ```
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 It was geat to meet you
 ```
 {% endtab %}
@@ -403,7 +401,7 @@ Removes a substring from a string.
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 Hi ! Nice to meet !
 Hi ! Nice to meet everyone!
 ```
@@ -419,12 +417,11 @@ Replaces a substring with something else.
 ```javascript
 {{ "Matt and Megan love to travel and travel." | replace: 'travel', 'party' }}
 {{ "Matt and Megan love to travel and travel | replace_first : 'travel', 'party' }}
-
 ```
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 Matt and Megan love to party and party.
 Matt and Megan love to party and travel.
 ```
@@ -450,7 +447,7 @@ hmac_sha256: {{ signature }}
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 sha256: 6c8a739536961bcf34dccc343908406d48139344da4754d4cfe43dcf8d662607
 
 hmac_sha1: 0425a4dbbe0588be87fb51b5706c2244401bc73a
@@ -480,7 +477,7 @@ Takes a substring, and uses it to split a string into an array.
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 love
 is
 all
@@ -498,13 +495,12 @@ The strip filter removes whitespace from both sides of a string. The lstrip filt
 {% tab title="Code" %}
 ```javascript
 {{ '   why do we have so many spaces?      ' | strip }}
-
 ```
 {% endtab %}
 
 {% tab title="Output" %}
-```
-why do we have so many spaces? 
+```text
+why do we have so many spaces?
 ```
 {% endtab %}
 {% endtabs %}
@@ -533,7 +529,7 @@ Use this filter on strings to remove indentation from strings.
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
   Hello, friend!
   It's a mighty fine day!
 
@@ -565,7 +561,7 @@ A three-character ISO currency code may be specified as the first argument; curr
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 $100,000.00
 €100,000.00
 €100 000,00
@@ -622,7 +618,7 @@ Concatenates two arrays into a single array.
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 sandwich, apple, soup, pasta, pizza, salad
 eggs, oatmeal, toast, sandwich, apple, soup, pasta, pizza, salad
 ```
@@ -654,7 +650,7 @@ Returns the first or last element of an array. You can use `first` or `last` in 
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 VIP
 Canada
 This customer is a VIP!
@@ -723,7 +719,7 @@ This filter is particularly useful when performing work in batches, by making it
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 [["1","2"],["3","4"],["5"]]
 ```
 {% endtab %}
@@ -745,7 +741,7 @@ Creates a string from the elements of an array using a character passed as an ar
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 VIP, New, Canada
 ```
 {% endtab %}
@@ -769,7 +765,7 @@ Given an array of objects that contain attributes \(e.g. `name`\) and values \(e
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 AppleOrangePepperCheese
 ```
 {% endtab %}
@@ -811,7 +807,7 @@ Sorts an array by a given attribute.
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 <h4>jim@joe.com</h4>
 <h4>jack@joe.com</h4>
 ```
@@ -840,7 +836,7 @@ Removes any duplicates in an array, resulting in a new array of distinct values.
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 Honda Ford Toyota Jeep VW
 ```
 {% endtab %}
@@ -868,7 +864,7 @@ sports products:
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 All products:
 - Ball
 - Car

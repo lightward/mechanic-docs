@@ -110,7 +110,7 @@ if (contactForm) {
 
   // Setting up a flag for later - keep reading!
   let submittedToMechanic = false;
-  
+
   contactForm.addEventListener(
     'submit',
     (event) => {

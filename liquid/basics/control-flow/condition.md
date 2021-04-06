@@ -75,7 +75,7 @@ Any number of `elsif` tags may be added within `if` or `unless` blocks.
 The `case` and `endcase` tag pair contain a series of `when` tags, and optionally an `else` tag. The value specified in the `case` tag is inspected, and Liquid then looks for a `when` tag that has a matching value. If one is found, that `when` tag gets to run its code. If no match is found, the code for the `else` tag \(if given\) is run.
 
 ```javascript
-{% case order.cancel_reason	%}
+{% case order.cancel_reason    %}
   {% when "customer" %}
     {% assign cancel_reason = "It was the customer." %}
   {% when "fraud" %}

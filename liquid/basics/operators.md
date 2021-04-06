@@ -10,7 +10,7 @@ If `b = 6`, the table below illustrates the comparison operators and the way the
 | :--- | :--- | :--- | :--- |
 | `==` | equal to | `b == 6` | `true` |
 | `!=` | not equal | `b != 6` | `false` |
-| `>` | greater than  | `b > 5` | `true` |
+| `>` | greater than | `b > 5` | `true` |
 | `<` | less than | `b < 6` | `false` |
 | `>=` | greater than or equal to | `b >= 6` | `true` |
 | `<=` | less than or equal to | `b <= 6` | `true` |
@@ -44,7 +44,7 @@ The `contains` operator is used to check for the existence of a substring in a s
 {% endif %}
 ```
 
-### Array element containment 
+### Array element containment
 
 ```javascript
 {% assign product_tags = "foo, bar, baz" | split: ", " %}

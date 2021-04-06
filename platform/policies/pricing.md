@@ -17,6 +17,5 @@ We believe \(a\) that the financial side of this is as important to get right as
 
 A note about “what feels good”: when talking about numbers, it’s that sweet spot where you feel you’re appropriately investing in something. Only you know what that number is for you, where you’re neither straining yourself to afford the thing, nor paying a number that represents undervaluing what you receive. If that gives you pause, it’s okay. Take a minute and feel it out. :\)
 
-To learn more about why we work this way, see [lightward.com/pricing](https://lightward.com/pricing). If you have questions, hit that chat button in the corner. :\)  
-
+To learn more about why we work this way, see [lightward.com/pricing](https://lightward.com/pricing). If you have questions, hit that chat button in the corner. :\)
 

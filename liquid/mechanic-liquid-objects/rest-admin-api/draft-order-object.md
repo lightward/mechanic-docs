@@ -13,5 +13,3 @@
 * An array of [line item objects](line-item-object.md): `{{ draft_order.line_items }}` 
 * An array of note\_attributes, that also supports lookups by attribute name: `{% for attr in draft_order.note_attributes %}{% if attr.name == "color" %}{{ attr.value }}{% endif %}{% endfor %}` , or `{{ draft_order.note_attributes.color }}`
 
-
-

@@ -8,8 +8,10 @@
 * Loop through all open orders: `{% for order in shop.orders %}`
 
 Or, loop through all orders, not just open orders:  
-`{% for order in shop.orders.any %}`  
-  
+\`
+
+\`
+
 Or, use these sub-objects to loop through certain subsets of orders:  
 `shop.orders.open`  
 `shop.orders.closed`  
@@ -24,12 +26,12 @@ Or, use these sub-objects to loop through certain subsets of orders:
 `shop.orders.unpaid`  
 `shop.orders.shipped`  
 `shop.orders.partial`  
-`shop.orders.unshipped`  
-  
+`shop.orders.unshipped`
+
 Or, combine to be even more selective:  
 `shop.orders.any.paid.unshipped`  
 `shop.orders.refunded.shipped`  
-`shop.orders.open.pending.unshipped` 
+`shop.orders.open.pending.unshipped`
 
 ## What it contains
 
@@ -44,6 +46,5 @@ Or, combine to be even more selective:
 
 ## Notes
 
-Out of the box, only orders from the last 60 days are accessible. To give Mechanic access to your complete order history, [enable "read all orders"](https://help.usemechanic.com/tutorials/enabling-read_all_orders).  
-
+Out of the box, only orders from the last 60 days are accessible. To give Mechanic access to your complete order history, [enable "read all orders"](https://help.usemechanic.com/tutorials/enabling-read_all_orders).
 

@@ -1,6 +1,6 @@
 # Price rule object
 
-##  How to access it
+## How to access it
 
 * Look up specific price rules by ID, using `{{ shop.price_rules[12345] }}`
 * Loop through all price rules: `{% for price_rule in shop.price_rules %}`
@@ -14,6 +14,4 @@
 
 * [The shop object](shop-object.md)
 * [The discount code object](discount-code-object.md)
-
-
 

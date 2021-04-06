@@ -99,5 +99,3 @@ This action accepts any and all options, restricted only in that they must be va
 {% endtab %}
 {% endtabs %}
 
-
-

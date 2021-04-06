@@ -1,6 +1,6 @@
 # Interacting with Shopify
 
-Most Mechanic tasks respond to Shopify events, read 
+Most Mechanic tasks respond to Shopify events, read
 
 ## Responding to Shopify events
 
@@ -28,7 +28,7 @@ Note that this Liquid filter does not support running mutations \(i.e. writing S
 
 Mechanic-flavored Liquid comes with a complement of [Liquid objects](../liquid/mechanic-liquid-objects/), each of which is tied to a resource in the [Shopify Admin REST API](https://shopify.dev/docs/admin-api/rest). Many objects support access to related objects via lookups \(e.g. `{{ shop.customers[customer_id].orders.first }}`\); in this way, the REST API can be traversed by resource.
 
-Access to these Liquid objects varies, based on the context in which Liquid is rendered. For example, a task that subscribes to shopify/customers/create will have access to the [Customer]() object in its code, via a variable called `customer`. To learn more about how these objects are made available to task code, see [Liquid variables](tasks/code/environment-variables.md).
+Access to these Liquid objects varies, based on the context in which Liquid is rendered. For example, a task that subscribes to shopify/customers/create will have access to the [Customer](interacting-with-shopify.md) object in its code, via a variable called `customer`. To learn more about how these objects are made available to task code, see [Liquid variables](tasks/code/environment-variables.md).
 
 {% hint style="warning" %}
 **Shopify variables in Mechanic do not necessarily contain the same attributes as Liquid variables used in Shopify \(in places like themes or email templates\) – even if they share the same name.**
@@ -40,11 +40,7 @@ For example, while Shopify themes support `{{ customer.name }}`, Mechanic does n
 
 ### GraphQL or REST via the Shopify action
 
-In rare cases, it may be necessary to make a call to the Shopify API that cannot be expressed via the [shopify](../liquid/filters.md#shopify) Liquid filter, or via Liquid object lookups. In these cases, the [Shopify](actions/action-types/shopify.md) action can be used 
+In rare cases, it may be necessary to make a call to the Shopify API that cannot be expressed via the [shopify](../liquid/filters.md#shopify) Liquid filter, or via Liquid object lookups. In these cases, the [Shopify](actions/action-types/shopify.md) action can be used
 
 ## Writing Shopify data
-
-
-
-
 

@@ -16,7 +16,15 @@ Hello, {{ "world" }}
 
 ## Liquid without output
 
-When using the `{% code %}` syntax, the Liquid code inside is given the opportunity to perform work without generating output. This syntax is for preparing and modifying [variables](variables.md) \(using tags like [assign](../mechanic/tags/assign.md)\), or for specifying [control flow](control-flow/) \(using [conditions](control-flow/condition.md) or [iteration](control-flow/iteration.md)\).
+When using the \`
+
+{% code title="" %}
+```
+
+```
+{% endcode %}
+
+\` syntax, the Liquid code inside is given the opportunity to perform work without generating output. This syntax is for preparing and modifying [variables](variables.md) \(using tags like [assign](../mechanic/tags/assign.md)\), or for specifying [control flow](control-flow/) \(using [conditions](control-flow/condition.md) or [iteration](control-flow/iteration.md)\).
 
 In the following example, a variable is assigned, modified with a new variable, and is finally rendered as output.
 

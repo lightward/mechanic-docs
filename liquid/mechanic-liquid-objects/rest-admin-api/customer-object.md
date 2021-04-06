@@ -13,5 +13,3 @@
 * `{{ customer.unsubscribe_url }}`, containing the Mechanic-hosted URL where the customer can mark their own customer account as not accepting marketing; see [Adding an unsubscribe link to emails](https://docs.usemechanic.com/article/502-adding-an-unsubscribe-link-to-emails)
 * The related [metafields object](metafields-object.md): `{{ customer.metafields }}`
 
-
-

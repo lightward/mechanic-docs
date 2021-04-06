@@ -4,5 +4,3 @@ In Mechanic, an **action** is an instruction for performing work that has an eff
 
 Actions are defined by tasks using [**action objects**](../tasks/code/action-objects.md), which are simple JSON objects specifying an action's type and options. Action objects can be constructed using the [**action tag**](../../liquid/mechanic/tags/action.md).
 
-
-

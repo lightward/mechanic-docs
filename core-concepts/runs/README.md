@@ -21,7 +21,7 @@ A normal flow in Mechanic looks like this:
 
 Understanding this sequence of events is important. Task runs do not come into existence until the event run has been performed, and action runs are only performed after their task run has fully concluded.
 
-Importantly, this means that tasks do not __have direct access to the effects of the actions they generate. Actions are performed later in the sequence, and their effects will only be seen by subsequent task runs.
+Importantly, this means that tasks do not \_\_have direct access to the effects of the actions they generate. Actions are performed later in the sequence, and their effects will only be seen by subsequent task runs.
 
 ## Run states
 
@@ -35,6 +35,4 @@ Importantly, this means that tasks do not __have direct access to the effects of
 | Paused | The run has been [paused](pauses.md) indefinitely, by a user or by the system |
 | Failed | The run has been performed, and an error has been recorded |
 | Succeeded | The run has been performed, without errors |
-
-## 
 

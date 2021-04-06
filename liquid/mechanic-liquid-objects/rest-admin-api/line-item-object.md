@@ -11,5 +11,3 @@
 * The related [variant object](variant-object.md): `{{ line_item.variant }}` 
 * An array of properties, that also supports lookups by attribute name: `{% for prop in line_item.properties %}{% if prop.name == "Delivery window" %}{{ prop.value }}{% endif %}{% endfor %}`, or `{{ line_item.properties["Delivery window"] }}` 
 
-
-

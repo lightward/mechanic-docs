@@ -201,10 +201,7 @@ For more on this, see [File generators](../file-generators/).
     }
   }
 }
-
 ```
 {% endtab %}
 {% endtabs %}
-
-### 
 

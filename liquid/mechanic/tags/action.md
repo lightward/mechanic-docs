@@ -96,5 +96,3 @@ This tag has several usage styles, each style resulting in a valid action object
 {% endtab %}
 {% endtabs %}
 
-
-

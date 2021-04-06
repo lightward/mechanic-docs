@@ -15,7 +15,7 @@ The assign tag creates a new variable.
 ```
 
 {% hint style="info" %}
-In Mechanic, the assign tag can also create [arrays and hashes](). This isn't possible in other versions of Liquid – this feature is unique to Mechanic.
+In Mechanic, the assign tag can also create [arrays and hashes](variables.md). This isn't possible in other versions of Liquid – this feature is unique to Mechanic.
 {% endhint %}
 
 ## Capture

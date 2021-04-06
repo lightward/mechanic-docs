@@ -1,6 +1,6 @@
 # Theme object
 
-##  How to access it
+## How to access it
 
 * Use `{{ theme }}` in tasks responding to shopify/themes events
 * Look up specific themes by their ID, using `{{ shop.themes[12345678900] }}` 

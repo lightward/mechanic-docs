@@ -1,6 +1,6 @@
 # Fulfillment\_event object
 
-##  How to access it
+## How to access it
 
 * Use `{{ fulfillment_event }}` in tasks responding to shopify/fulfillment\_events events
 

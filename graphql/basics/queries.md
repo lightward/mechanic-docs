@@ -4,11 +4,11 @@ GraphQL is a powerful query language that allows you to request data from a Grap
 
 > A GraphQL API models data as nodes connected by edges. A node is an object that has a global ID, such as an Order object or Product object. You can fetch data about an individual node, or you can follow the edges to fetch data about a collection of related nodes. At each node, you specify the fields that you want to retrieve. - [https://shopify.dev/concepts/graphql/queries](https://shopify.dev/concepts/graphql/queries)
 
-### Visualizing edges and nodes
+## Visualizing edges and nodes
 
 ![Source: https://www.shopify.com/partners/blog/getting-started-with-graphql](../../.gitbook/assets/getting-started-with-graphql-roots-and-nodes-diagram.gif)
 
-### Request three fields from a specific product
+## Request three fields from a specific product
 
 {% tabs %}
 {% tab title="GraphQL Query" %}
@@ -38,7 +38,7 @@ query {
 {% endtab %}
 {% endtabs %}
 
-###  Request the first three products in our store, including their first three variants
+## Request the first three products in our store, including their first three variants
 
 {% tabs %}
 {% tab title="GraphQL Query" %}
@@ -94,7 +94,7 @@ query {
 {% endtab %}
 {% endtabs %}
 
-### Filtering results using search queries <a id="filtering-connections-using-a-search-query"></a>
+## Filtering results using search queries <a id="filtering-connections-using-a-search-query"></a>
 
 {% tabs %}
 {% tab title="GraphQL Query" %}
@@ -141,9 +141,9 @@ query {
 {% endtab %}
 {% endtabs %}
 
-### Great resources for learning GraphQL queries
+## Great resources for learning GraphQL queries
 
-#### Key concepts to read up on
+### Key concepts to read up on
 
 * [ ] QueryRoot
 * [ ] Fields

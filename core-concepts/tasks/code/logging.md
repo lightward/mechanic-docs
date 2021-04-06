@@ -14,5 +14,3 @@ The log details can be any JSON value.
 
 Log objects are most easily generated using the [**log tag**](../../../liquid/mechanic/tags/log.md).
 
-
-

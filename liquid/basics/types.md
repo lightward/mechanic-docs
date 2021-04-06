@@ -44,13 +44,13 @@ email address: {{ order.email }}
 {% endtab %}
 
 {% tab title="Output when not nil" %}
-```
+```text
 email address: joe@joegmail.com
 ```
 {% endtab %}
 
 {% tab title="Output when nil" %}
-```
+```text
 email address:
 ```
 {% endtab %}
@@ -62,7 +62,7 @@ An array is a value that itself contains an ordered list of other values. Each v
 
 ### Creating an array
 
-Liquid supports creating arrays of strings using the [split](../filters.md#split) filter. In Mechanic, arrays can be created using the [array]() literal.
+Liquid supports creating arrays of strings using the [split](../filters.md#split) filter. In Mechanic, arrays can be created using the [array](types.md) literal.
 
 ### Iterating through arrays
 
@@ -99,7 +99,7 @@ Objects may be traversed using [for loops](control-flow/iteration.md).
 {% for keyval in object %}
   {% assign key = keyval[0] %}
   {% assign value = keyval[1] %}
-  
+
   {{ key }}: {{ value }}
 {% endfor %}
 ```
@@ -124,7 +124,7 @@ In Mechanic, a **hash** is a simple type of object that has no additional intell
 
 ### Creating a hash
 
-In Mechanic, hashes can be created using the [hash]() literal, or by using any of the "parse" [filters](../filters.md).
+In Mechanic, hashes can be created using the [hash](types.md) literal, or by using any of the "parse" [filters](../filters.md).
 
 {% hint style="info" %}
 This only applies to Mechanic. Liquid objects and hashes cannot be created in Shopify.
@@ -142,7 +142,7 @@ Hashes may be traversed using [for loops](control-flow/iteration.md), like other
 {% for keyval in object %}
   {% assign key = keyval[0] %}
   {% assign value = keyval[1] %}
-  
+
   {{ key }}: {{ value }}
 {% endfor %}
 

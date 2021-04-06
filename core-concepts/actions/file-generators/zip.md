@@ -75,5 +75,3 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
 {% endtab %}
 {% endtabs %}
 
-
-

@@ -45,5 +45,3 @@ This file generator accepts a string containing a valid HTTP or HTTPS URL. It do
 {% endtab %}
 {% endtabs %}
 
-
-

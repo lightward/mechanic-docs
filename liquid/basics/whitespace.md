@@ -31,5 +31,3 @@ Learn more from Shopify: see [Whitespace control](https://shopify.dev/docs/theme
 {{- customer.name }}
 ```
 
-
-

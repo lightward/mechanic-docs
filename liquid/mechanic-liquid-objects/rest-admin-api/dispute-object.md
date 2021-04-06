@@ -1,6 +1,6 @@
 # Dispute object
 
-##  How to access it
+## How to access it
 
 * Use `{{ dispute }}` in tasks responding to shopify/disputes events 
 
