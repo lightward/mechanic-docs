@@ -10,3 +10,7 @@ Mechanic does not have different plans. The following details apply to every Mec
   * Mechanic exclusively uses monthly billing.
 * Every account is subject to our [data policy](data.md).
 
+## Development stores
+
+Mechanic is Partner-friendly! If you have a Mechanic account used exclusively for development or testing, receiving no customer traffic, send the core team an email at [team@usemechanic.com](mailto:team@usemechanic.com). We can usually help out by granting a super-extended trial period. :\)
+
