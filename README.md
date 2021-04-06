@@ -40,5 +40,5 @@ Mechanic makes heavy use of [**Liquid**](liquid/basics/) – a template language
 
 ### Run queues
 
-Mechanic performs work using queues, with no limit on how large each queue can become. If there is a sudden surge of incoming events for a Shopify store, the store's dedicated Mechanic queue could become delayed. This is an important difference between Mechanic and many other systems: in a high-traffic period, Mechanic will never refuse incoming events for a store; instead, it will process each one as soon as possible, by putting them into a run queue.
+Mechanic performs work using queues, with no limit on how large each queue can become. If there is a sudden surge of incoming events for a Shopify store, the store's dedicated Mechanic queue could become delayed. This is an important difference between Mechanic and many other systems: in a high-traffic period, Mechanic will never refuse incoming events for a store; instead, it will process each one as soon as possible, by putting them into a run queue. 
 
