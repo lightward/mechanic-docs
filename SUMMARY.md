@@ -95,6 +95,9 @@
 * [Cache](platform/mechanic-cache.md)
 * [Cache endpoints](platform/cache-endpoints.md)
 * [CORS](platform/cors.md)
+* [Shopify](platform/shopify/README.md)
+  * [Custom authentication](platform/shopify/custom-authentication.md)
+  * ["Read all orders"](platform/shopify/read-all-orders.md)
 
 ## Techniques
 
