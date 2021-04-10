@@ -2,7 +2,7 @@
 
 In high-volume scenarios for Shopify Plus accounts, Mechanic's performance can be improved by creating [a private Shopify app](https://help.shopify.com/en/manual/apps/private-apps), configured for the permissions Mechanic requires. Because this private app represents the store owner's explicit control and intent, Shopify can – at the owner's request – grant it a higher API usage limit. By providing Mechanic with this private app's API password \(also known as the API secret key, or token\), you can extend this higher limit to Mechanic.
 
-This feature is also useful for accessing Plus-only APIs, which are only available to private Shopify apps. Notably, this includes gift cards \(using [the gift card object](../../liquid/mechanic-liquid-objects/rest-admin-api/gift-card-object.md)\).
+This feature is also useful for accessing Plus-only APIs, which are only available to private Shopify apps. Notably, this includes gift cards \(using [the gift card object](../../liquid/mechanic/objects/rest-admin-api/gift-card-object.md)\).
 
 ## Configuration
 
