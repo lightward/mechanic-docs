@@ -1,6 +1,6 @@
 # Email
 
-The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../../platform/email-templates.md), and supports attachments constructed by [**file generators**](../file-generators/).
+The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../../platform/email/email-templates.md), and supports attachments constructed by [**file generators**](../file-generators/).
 
 ## Usage restrictions
 
@@ -43,11 +43,11 @@ By default, the sender address is a Mechanic address based on the store's myshop
 
 Changing the sender address involves adding it to the store's Mechanic account, and then configuring the email domain name with some DNS records for verification.
 
-For more on this, see [Custom email domain](../../../platform/custom-email-domain.md).
+For more on this, see [Custom email domain](../../../platform/email/custom-email-domain.md).
 
 ## Template
 
-To achieve easily reusable headers and footers, Mechanic can be configured with one or more email templates, available in the Mechanic account settings. To learn more about configuring email templates, see [Email templates](../../../platform/email-templates.md).
+To achieve easily reusable headers and footers, Mechanic can be configured with one or more email templates, available in the Mechanic account settings. To learn more about configuring email templates, see [Email templates](../../../platform/email/email-templates.md).
 
 To use a specific email template with the Email action, use the `template` option to specify the name of the desired email template.
 
