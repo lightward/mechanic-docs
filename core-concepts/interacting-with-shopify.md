@@ -1,7 +1,5 @@
 # Interacting with Shopify
 
-Most Mechanic tasks respond to Shopify events, read
-
 ## Responding to Shopify events
 
 Shopify uses webhooks to notify apps like Mechanic about new activity. Mechanic supports every type of Shopify webhook in its set of [Shopify event topics](events/topics/shopify.md). By setting up [subscriptions](tasks/subscriptions.md) to these topics, a task may respond to any supported type of Shopify activity.
@@ -43,4 +41,6 @@ For example, while Shopify themes support `{{ customer.name }}`, Mechanic does n
 In rare cases, it may be necessary to make a call to the Shopify API that cannot be expressed via the [shopify](../platform/liquid/filters.md#shopify) Liquid filter, or via Liquid object lookups. In these cases, the [Shopify](actions/action-types/shopify.md) action can be used
 
 ## Writing Shopify data
+
+todo
 
