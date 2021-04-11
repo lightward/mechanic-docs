@@ -10,7 +10,7 @@ This section summarizes Shopify's documentation: [GraphQL and its benefits](http
 
 In REST, we get all the attributes associated with a resource, when we may only need a field or two from a resource. This extra data can add up, particularly if we are getting many records in our result set. In the example below, you can see the difference in the JSON response based on the fields we ask for in the GraphQL query.
 
-![Source: https://graphql.org/](../../.gitbook/assets/graphql.gif)
+![Source: https://graphql.org/](../../../.gitbook/assets/graphql.gif)
 
 ## Get multiple resources in a single HTTP request
 
@@ -20,9 +20,9 @@ In the example below, three HTTP request are required to collect the same inform
 
 ### REST API: multiple HTTP requests
 
-![](../../.gitbook/assets/image_rest.png)
+![](../../../.gitbook/assets/image_rest.png)
 
 ### GraphQL API: single HTTP request
 
-![](../../.gitbook/assets/image_graphl.png)
+![](../../../.gitbook/assets/image_graphl.png)
 

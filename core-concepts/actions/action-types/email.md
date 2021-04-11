@@ -77,7 +77,7 @@ The template named "order\_acknowledgement" could include the following Liquid, 
 This is the first item: {{ order_data.line_items.first.title }}
 ```
 
-But, because `order_data` is a plain [hash](../../../liquid/mechanic/keyword-literals/hash.md) based entirely on JSON data, instead of being an enhanced order object \(see [Environment variables](../../tasks/code/environment-variables.md)\), the following Liquid usage would fail:
+But, because `order_data` is a plain [hash](../../../platform/liquid/keyword-literals/hash.md) based entirely on JSON data, instead of being an enhanced order object \(see [Environment variables](../../tasks/code/environment-variables.md)\), the following Liquid usage would fail:
 
 ```javascript
 Remember order {{ order_data.customer.orders.any.first.number }}, your first ever?

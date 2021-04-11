@@ -5,7 +5,7 @@ This tutorial walks you through setting up a custom task in Mechanic, which is c
 Before beginning this tutorial, here's what you'll need:
 
 * A Shopify store, which has Mechanic installed \(see [Mechanic's app store page](https://apps.shopify.com/mechanic?ref=lightward)\)
-* A basic knowledge of Liquid \([need a refresher?](../../liquid/basics/)\)
+* A basic knowledge of Liquid \([need a refresher?](../../platform/liquid/basics/)\)
 * A basic knowledge of JavaScript \([need a refresher?](https://www.w3schools.com/js/default.asp)\)
 
 ## The situation
@@ -26,7 +26,7 @@ Time to build the task! Out of Mechanic's entire toolkit, here's what we'll use:
 
 * [Online storefront JavaScript](../../core-concepts/tasks/advanced-settings/javascript.md)
 * [Mechanic webhooks](../../platform/webhooks.md)
-* [The csv Liquid filter](../../liquid/filters.md#csv)
+* [The csv Liquid filter](../../platform/liquid/filters.md#csv)
 * [The Email action](../../core-concepts/actions/action-types/email.md)
 
 ### Step 1: Create a new task, and subscribe to a custom event topic
@@ -173,7 +173,7 @@ In the code sample below, we reference individual input values according to the 
 When you're assembling your version of this task, make sure to update the task code to reflect the data keys you see in the incoming event.
 {% endhint %}
 
-Moving back to the task editor, the first step is to extract this data, and assemble it into something we can format using the [csv](../../liquid/filters.md#csv) filter. Because that filter is made to handle tables of data, this means that we'll create an array of "rows", and fill it with arrays of "columns", and then pass the result into the csv filter.
+Moving back to the task editor, the first step is to extract this data, and assemble it into something we can format using the [csv](../../platform/liquid/filters.md#csv) filter. Because that filter is made to handle tables of data, this means that we'll create an array of "rows", and fill it with arrays of "columns", and then pass the result into the csv filter.
 
 After that, we'll add an [Email](../../core-concepts/actions/action-types/email.md) action, configuring it with our CSV data as an attachment. We'll also add a few more task options that will make it easy to reconfigure this task in the future, without having to touch the task code.
 

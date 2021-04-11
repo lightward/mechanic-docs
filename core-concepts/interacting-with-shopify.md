@@ -20,13 +20,13 @@ Mechanic supports three methods of reading from the Shopify Admin API.
 
 ### GraphQL via Liquid filter
 
-Tasks may use the [shopify](../liquid/filters.md#shopify) Liquid filter to convert GraphQL query strings into simple result objects, by sending the query to the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). The easiest way to build these queries is via the [Shopify Admin API GraphiQL explorer](https://shopify.dev/tools/graphiql-admin-api), which allows queries to be interactively constructed.
+Tasks may use the [shopify](../platform/liquid/filters.md#shopify) Liquid filter to convert GraphQL query strings into simple result objects, by sending the query to the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). The easiest way to build these queries is via the [Shopify Admin API GraphiQL explorer](https://shopify.dev/tools/graphiql-admin-api), which allows queries to be interactively constructed.
 
 Note that this Liquid filter does not support running mutations \(i.e. writing Shopify data via GraphQL\).
 
 ### REST via Liquid objects
 
-Mechanic-flavored Liquid comes with a complement of [Liquid objects](../liquid/mechanic/objects/), each of which is tied to a resource in the [Shopify Admin REST API](https://shopify.dev/docs/admin-api/rest). Many objects support access to related objects via lookups \(e.g. `{{ shop.customers[customer_id].orders.first }}`\); in this way, the REST API can be traversed by resource.
+Mechanic-flavored Liquid comes with a complement of [Liquid objects](../platform/liquid/objects/), each of which is tied to a resource in the [Shopify Admin REST API](https://shopify.dev/docs/admin-api/rest). Many objects support access to related objects via lookups \(e.g. `{{ shop.customers[customer_id].orders.first }}`\); in this way, the REST API can be traversed by resource.
 
 Access to these Liquid objects varies, based on the context in which Liquid is rendered. For example, a task that subscribes to shopify/customers/create will have access to the [Customer](interacting-with-shopify.md) object in its code, via a variable called `customer`. To learn more about how these objects are made available to task code, see [Liquid variables](tasks/code/environment-variables.md).
 
@@ -40,7 +40,7 @@ For example, while Shopify themes support `{{ customer.name }}`, Mechanic does n
 
 ### GraphQL or REST via the Shopify action
 
-In rare cases, it may be necessary to make a call to the Shopify API that cannot be expressed via the [shopify](../liquid/filters.md#shopify) Liquid filter, or via Liquid object lookups. In these cases, the [Shopify](actions/action-types/shopify.md) action can be used
+In rare cases, it may be necessary to make a call to the Shopify API that cannot be expressed via the [shopify](../platform/liquid/filters.md#shopify) Liquid filter, or via Liquid object lookups. In these cases, the [Shopify](actions/action-types/shopify.md) action can be used
 
 ## Writing Shopify data
 

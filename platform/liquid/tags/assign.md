@@ -1,6 +1,6 @@
 # assign
 
-The **assign** tag is a native feature of Liquid. In Mechanic-flavored Liquid, the assign tag is extended to support assigning within [**arrays**](../../basics/types.md#array) and [**hashes**](../../basics/types.md#hash).
+The **assign** tag is a native feature of Liquid. In Mechanic-flavored Liquid, the assign tag is extended to support assigning within [**arrays**](../basics/types.md#array) and [**hashes**](../basics/types.md#hash).
 
 Assignment into arrays and hashes is always by value, never by reference.
 

@@ -12,5 +12,5 @@ An log object is a plain JSON object, having the following structure:
 
 The log details can be any JSON value.
 
-Log objects are most easily generated using the [**log tag**](../../../liquid/mechanic/tags/log.md).
+Log objects are most easily generated using the [**log tag**](../../../platform/liquid/tags/log.md).
 

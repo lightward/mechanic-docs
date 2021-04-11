@@ -6,7 +6,7 @@ GraphQL is a powerful query language that allows you to request data from a Grap
 
 ## Visualizing edges and nodes
 
-![Source: https://www.shopify.com/partners/blog/getting-started-with-graphql](../../.gitbook/assets/getting-started-with-graphql-roots-and-nodes-diagram.gif)
+![Source: https://www.shopify.com/partners/blog/getting-started-with-graphql](../../../.gitbook/assets/getting-started-with-graphql-roots-and-nodes-diagram.gif)
 
 ## Request three fields from a specific product
 

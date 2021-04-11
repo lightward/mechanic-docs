@@ -11,7 +11,7 @@ Specifically, you'll have access to these attributes, all available in the `emai
 * `"attachments"` – an array, containing objects with the keys `"name"`, `"content"`, `"content_type"`, `"content_length"`, and `"content_id"`
 * `"cc"` – a string containing the full "CC" list, including names and email addresses
 * `"cc_full"` – an array, containing objects with the keys `"email"`, `"name"`, and `"mailbox_hash"`
-* `"date"` – an ISO8601 string indicating when the email was received by Postmark; use this with the [date ](../../liquid/filters.md#date-parse_date)filter
+* `"date"` – an ISO8601 string indicating when the email was received by Postmark; use this with the [date ](../liquid/filters.md#date-parse_date)filter
 * `"from"` – a string containing the email address of the sender
 * `"from_full"` – an object with the keys `"email"`, `"name"`, and `"mailbox_hash"`
 * `"from_name"` – a string containing the name of the sender

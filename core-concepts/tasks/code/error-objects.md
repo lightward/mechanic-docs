@@ -18,5 +18,5 @@ An error object is a plain JSON object, having the following structure:
 
 The error details can be any JSON value. This value will be represented to the user as the reason for the task failing.
 
-Error objects are most easily generated using the [**error tag**](../../../liquid/mechanic/tags/error.md).
+Error objects are most easily generated using the [**error tag**](../../../platform/liquid/tags/error.md).
 

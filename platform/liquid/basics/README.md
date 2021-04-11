@@ -1,11 +1,11 @@
 # Basics
 
-Mechanic uses [**Liquid**](https://shopify.github.io/liquid/), a template language created by Shopify. If you have worked with the code behind Shopify themes, you've worked with Liquid.
+Mechanic uses [**Liquid**](../), a template language created by Shopify. If you have worked with the code behind Shopify themes, you've worked with Liquid.
 
 If you are new to Liquid or need a refresher, the next few sections will cover the basics of the language.
 
 {% hint style="info" %}
-Mechanic uses its own variant of Liquid, which we call [Mechanic-flavored Liquid](../mechanic/). It has all the features of Liquid itself, and adds a few that specifically facilitate Mechanic development.
+Mechanic's use of Liquid comes with a few extra features. It has all the core features of Liquid itself, and adds a few that specifically facilitate Mechanic development.
 {% endhint %}
 
 ## Shopify Liquid cheat sheet

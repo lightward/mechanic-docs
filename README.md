@@ -34,9 +34,9 @@ When a task responds to an incoming event, it can choose to generate an [**actio
 
 ### Liquid
 
-Mechanic makes heavy use of [**Liquid**](liquid/basics/) – a template language created by Shopify. Its primary use is in [**task code**](core-concepts/tasks/code/). In the same way that a Liquid theme receives browser requests and renders HTML, Mechanic tasks receive events, and render actions \(defined using JSON\).
+Mechanic makes heavy use of [**Liquid**](platform/liquid/basics/) – a template language created by Shopify. Its primary use is in [**task code**](core-concepts/tasks/code/). In the same way that a Liquid theme receives browser requests and renders HTML, Mechanic tasks receive events, and render actions \(defined using JSON\).
 
-[**Mechanic-flavored Liquid**](liquid/mechanic/) includes additional support for constructing arrays and hashes, and includes many useful filters, making data processing more efficient.
+[**Mechanic-flavored Liquid**]() includes additional support for constructing arrays and hashes, and includes many useful filters, making data processing more efficient.
 
 ### Run queues
 
