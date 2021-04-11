@@ -2,7 +2,7 @@
 
 There are cases when events unavoidably come in more often than is strictly useful. \(We've seen this happen when used with [**webhooks**](../platform/webhooks.md), called by a vendor – the vendor may call that webhook far more often than desired.\)
 
-To work around this, we can **debounce** events by combining [**event filters**](../platform/event-filters.md) with the [**cache**](../platform/mechanic-cache/).
+To work around this, we can **debounce** events by combining [**event filters**](../platform/events/filters.md) with the [**cache**](../platform/mechanic-cache/).
 
 {% hint style="info" %}
 If you're new to the concept of debouncing: usually encountered in UI implementation, debouncing is the practice of only accepting a single call to a function in a fixed time interval. This is different than throttling, which can develop a backlog by only processing calls at a certain rate – with debouncing, any calls above the rate limit are ignored. Or, in Mechanic's case, they're filtered out.

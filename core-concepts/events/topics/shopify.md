@@ -6,6 +6,8 @@ description: An index of event topics in the Shopify domain
 
 {% hint style="info" %}
 Shopify events are received from Shopify, directly, and contain event data provided by Shopify. For a reference on what each event contains, see [Shopify's Webhook documentation](https://shopify.dev/docs/admin-api/rest/reference/events/webhook).
+
+Tasks subscribing to Shopify events receive [Liquid environment variables](../../tasks/code/environment-variables.md), containing data from the webhook.
 {% endhint %}
 
 ## Cart

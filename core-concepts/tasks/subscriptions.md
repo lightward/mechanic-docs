@@ -1,6 +1,6 @@
 # Subscriptions
 
-A task **subscription** is the expression of a task's intent to receive certain [**events**](../events/), filtering by [**topic**](../events/event-topic-reference/). A subscription consists of an event topic, optionally combined with an **offset**. A task may have any number of subscriptions.
+A task **subscription** is the expression of a task's intent to receive certain [**events**](../events/), filtering by [**topic**](../events/topics/). A subscription consists of an event topic, optionally combined with an **offset**. A task may have any number of subscriptions.
 
 ![A task&apos;s subscription configuration, within the task&apos;s advanced settings.](../../.gitbook/assets/screen-shot-2021-04-05-at-7.50.17-pm.png)
 
