@@ -32,6 +32,58 @@ If `b = 6`, the table below illustrates the comparison operators and the way the
 {% endif %}
 ```
 
+### Testing for blank, empty
+
+Liquid supports equality/inequality testing a value against `blank` or `empty`. In this way, Liquid allows the author to ask, "is this value blank?", or "is this value empty?"
+
+#### Blank
+
+Quoting from the [Rails API](https://api.rubyonrails.org/classes/Object.html#method-i-blank-3F):
+
+> An object is blank if it's false, empty, or a whitespace string. For example, `nil`, '', ' ', \[\], {}, and `false` are all blank.
+
+```javascript
+{% assign empty_string = "" %}
+{% assign whitespace_string = "  " %}
+{% assign non_blank_string = "  !!  " %}
+{% assign non_empty_array = "1,2,3" | split: "," %}
+{% assign empty_hash = hash %}
+
+{% comment %}
+  The following `if` statements all pass.
+{% endcomment %}
+{% if empty_string == blank %}
+{% if whitespace_string == blank %}
+{% if non_blank_string != blank %}
+{% if non_empty_array != blank %}
+{% if empty_hash == blank %}
+```
+
+#### Empty
+
+An array, hash, or string can be tested for emptiness. An array is empty if it has no elements; a hash is empty if it has no key-value pairs; a string is empty if its length is zero.
+
+{% hint style="info" %}
+A string that only contains whitespace is not empty, but it _is_ blank!
+{% endhint %}
+
+```javascript
+{% assign empty_string = "" %}
+{% assign whitespace_string = "  " %}
+{% assign non_blank_string = "  !!  " %}
+{% assign non_empty_array = "1,2,3" | split: "," %}
+{% assign empty_hash = hash %}
+
+{% comment %}
+  The following `if` statements all pass.
+{% endcomment %}
+{% if empty_string == empty %}
+{% if whitespace_string != empty %}
+{% if non_blank_string != empty %}
+{% if non_empty_array != empty %}
+{% if empty_hash == empty %}
+```
+
 ## Contains operator
 
 The `contains` operator is used to check for the existence of a substring in a string, or for a specific element in an array.
