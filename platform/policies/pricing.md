@@ -1,9 +1,5 @@
 # Pricing
 
-{% hint style="info" %}
-\(2020-03-20\) A note, in light of COVID-19: This has been our official pricing policy since January 2020. It took us a while to distill what we know/feel down to this specific policy; but, this is the heart of how we've operated from the beginning, and it's how we handle pricing for all of our offerings \(see [lightward.com](https://lightward.com/)\). While this way of doing business has proved integral for many of our existing customers, it's all the more important as the world finds its way forward.
-{% endhint %}
-
 Our top priority is to create health for ourselves, and to give you the best tools we can for creating health for you. \(We interpret "health" broadly: healthy transactions created in healthy business can enable health in a million other areas.\)
 
 We believe \(a\) that the financial side of this is as important to get right as the technical side, and \(b\) that the best way to guarantee healthy financial movement is through clear and invitingly open conversation.
@@ -17,5 +13,11 @@ We believe \(a\) that the financial side of this is as important to get right as
 
 A note about “what feels good”: when talking about numbers, it’s that sweet spot where you feel you’re appropriately investing in something. Only you know what that number is for you, where you’re neither straining yourself to afford the thing, nor paying a number that represents undervaluing what you receive. If that gives you pause, it’s okay. Take a minute and feel it out. :\)
 
-To learn more about why we work this way, see [lightward.com/pricing](https://lightward.com/pricing). If you have questions, hit that chat button in the corner. :\)
+To learn more about why we work this way, see [lightward.com/pricing](https://lightward.com/pricing).
+
+## "Why am I seeing a different price in-app, than in the app store?"
+
+The Shopify app store isn't designed for this pricing policy; instead, it's designed for clear pricing tiers. So, we use that tier structure in the app store to present the suggested prices available for each Shopify plan. This has the side-effect of having Shopify present the smallest suggested figure as the "starting at" price for Mechanic, which is not an accurate description of how any of this works. :\)
+
+The price you see in-app is a suggestion, per step \#1 of the policy above. To learn what to do with that figure, see the policy above. If you've got questions, please always feel free to reach out, at [team@usemechanic.com](mailto:team@usemechanic.com).
 
