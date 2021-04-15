@@ -2,9 +2,23 @@
 
 By default, Mechanic sends mail from an address built from the Shopify store's domain. \(A store located at fantastic.myshopify.com, for example, will have mail sent from [fantastic@mail.usemechanic.com](mailto:fantastic@mail.usemechanic.com).\) Mechanic also supports sending from a custom email address.
 
+Configuration for a custom email address always involves adding DNS records to the email address domain. This means that Mechanic's custom email address feature can only be used on an email domain that the store owner controls.
+
 {% hint style="info" %}
 Remember, Mechanic only allows transactional mail – that means messages that do not require an unsubscribe link.
 {% endhint %}
+
+## Approval
+
+Mechanic validates custom email addresses, before allowing them to be used for outgoing mail.
+
+The address will be auto-approved if one of the following is true:
+
+* If the custom address matches the store owner's email address
+* If the custom address has the same domain name as the store's primary domain name
+* If the custom address is on a subdomain of the store's primary domain name
+
+In all other cases, custom email addresses must be manually approved by Mechanic staff. Contact [team@usemechanic.com](mailto:team@usemechanic.com) to have your address approved.
 
 ## Configuration
 
