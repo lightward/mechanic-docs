@@ -7,6 +7,15 @@ To make events easy to identify, each event has a **topic**. A topic looks like 
 * The **verb** describes what has just occurred. Events that are about creating resources generally have "create" as their verb, and events that are about deleting resources generally have "delete".
 
 {% hint style="info" %}
-[Looking for an index of event topics? Start here.](../../platform/events/topics/)
+[Looking for an index of event topics? Start here.](../../platform/events/topics.md)
 {% endhint %}
+
+## User-defined topics
+
+The User event domain is for custom, user-generated events, having any subject and verb \(e.g. "user/foo/bar"\). As with all events, a User event topic must use the standard three-part topic form, but only the "user/" prefix is mandatory.
+
+Mechanic allows developers several ways to generate custom User events:
+
+* The [Event action](../actions/action-types/event.md) can be used with any User event topic
+* [Webhooks](../../platform/webhooks.md) may be configured to generate events using any User event topic
 
