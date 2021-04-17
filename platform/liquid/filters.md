@@ -911,3 +911,42 @@ Returns an array of keys found in the supplied hash.
 
 Returns an array of values found in the supplied hash.
 
+## Deprecated filters
+
+We'll keep support for these filters, but we don't recommend using them.
+
+### add\_tag, add\_tags, remove\_tag, remove\_tags
+
+First things first: we don't recommend using Shopify's REST API for tagging. Because this API requires you to specify the _entire_ set of tags all at once, it's very easy to accidentally overwrite the work of another user or system. Instead, we strongly recommend using GraphQL.
+
+Read more: [How do I add or remove tags for Shopify resources?](https://docs.usemechanic.com/article/387-how-do-i-add-or-remove-tags-for-shopify-resources)
+
+If you _must_ use REST, you can use these filters to make your life a little easier, and manipulate tag strings and arrays more naturally. \(All four of these tag filters are case-sensitive.\)
+
+```text
+{{ "a, b" | add_tag: "c" }}
+=> a, b, c
+
+{{ "a, b, e" | add_tags: "c", "d" }}
+=> a, b, c, d, e
+
+{{ "a, b, e" | add_tags: "c", "d", sort: false }}
+=> a, b, e, c, d
+
+{{ "a, b, c" | remove_tag: "b" }}
+=> a, b
+
+{{ "a, b, c" | remove_tags: "a", "c" }}
+=> b
+```
+
+If supplied an array, these filters will return an array as well:
+
+```text
+{{ "a,b,e" | split: "," | add_tags: "c", "d" | join: "-" }}
+=> a-b-c-d-e
+
+{{ "a,b,c,d,e" | split: "," | remove_tags: "c", "d" | join: "-" }}
+=> a-b-e
+```
+
