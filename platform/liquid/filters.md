@@ -917,13 +917,13 @@ We'll keep support for these filters, but we don't recommend using them.
 
 ### add\_tag, add\_tags, remove\_tag, remove\_tags
 
-First things first: we don't recommend using Shopify's REST API for tagging. Because this API requires you to specify the _entire_ set of tags all at once, it's very easy to accidentally overwrite the work of another user or system. Instead, we strongly recommend using GraphQL.
+First things first: we don't recommend using Shopify's REST API for tagging. Because this API requires you to specify the _entire_ set of tags all at once, it's very easy to accidentally overwrite the work of another user or system. Instead, we strongly recommend using GraphQL for tagging.
 
-Read more: [How do I add or remove tags for Shopify resources?](https://docs.usemechanic.com/article/387-how-do-i-add-or-remove-tags-for-shopify-resources)
+{% page-ref page="../../techniques/tagging-shopify-resources.md" %}
 
 If you _must_ use REST, you can use these filters to make your life a little easier, and manipulate tag strings and arrays more naturally. \(All four of these tag filters are case-sensitive.\)
 
-```text
+```javascript
 {{ "a, b" | add_tag: "c" }}
 => a, b, c
 
@@ -942,7 +942,7 @@ If you _must_ use REST, you can use these filters to make your life a little eas
 
 If supplied an array, these filters will return an array as well:
 
-```text
+```javascript
 {{ "a,b,e" | split: "," | add_tags: "c", "d" | join: "-" }}
 => a-b-c-d-e
 
