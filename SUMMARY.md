@@ -34,7 +34,7 @@
 ## Core Concepts
 
 * [Events](core-concepts/events/README.md)
-  * [Topics](core-concepts/events/topics/README.md)
+  * [Event topics](core-concepts/events/topics/README.md)
     * [Mechanic](core-concepts/events/topics/mechanic.md)
     * [Shopify](core-concepts/events/topics/shopify.md)
     * [User](core-concepts/events/topics/user.md)
