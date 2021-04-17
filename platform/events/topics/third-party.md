@@ -1,3 +1,7 @@
+---
+description: An introduction to event topics from third-party sources
+---
+
 # Third-party
 
 ## Judge.me
