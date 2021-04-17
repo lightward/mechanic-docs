@@ -9,6 +9,6 @@
 Mechanic invites third-party app developers to develop Mechanic integrations, making it easy for developers to use our services together. If you're an app developer interested in this, email [team@usemechanic.com](mailto:team@usemechanic.com).
 
 {% hint style="info" %}
-Third-party services can often be connected to Mechanic using [webhooks](../../../platform/webhooks.md).
+Third-party services can often be connected to Mechanic using [webhooks](../../webhooks.md).
 {% endhint %}
 

@@ -22,7 +22,7 @@ description: An index of event topics in the Mechanic domain
 * **mechanic/scheduler/daily** Runs at midnight, in the store's local timezone.
 
 {% hint style="info" %}
-More specific times can be achieved by subscribing to an event topic with a delay \(e.g. "mechanic/scheduler/daily+5.hours"\). To learn more, see [Subscriptions](../../tasks/subscriptions.md).
+More specific times can be achieved by subscribing to an event topic with a delay \(e.g. "mechanic/scheduler/daily+5.hours"\). To learn more, see [Subscriptions](../../../core-concepts/tasks/subscriptions.md).
 {% endhint %}
 
 ## User

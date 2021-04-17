@@ -1,4 +1,4 @@
-# Event topics
+# Topics
 
 To make events easy to identify, each event has a **topic**. A topic looks like "shopify/customers/create", and it has three parts:
 
@@ -6,19 +6,7 @@ To make events easy to identify, each event has a **topic**. A topic looks like 
 * The **subject** describes the type of resource the event describes. Events that are about customers have "customers" as their subject, and events that are about orders have "orders".
 * The **verb** describes what has just occurred. Events that are about creating resources generally have "create" as their verb, and events that are about deleting resources generally have "delete".
 
-## Index of event topics
-
-To find event topics, begin by choosing an event domain:
-
-{% page-ref page="mechanic.md" %}
-
-{% page-ref page="shopify.md" %}
-
-{% page-ref page="user.md" %}
-
-{% page-ref page="third-party.md" %}
-
-
-
-
+{% hint style="info" %}
+[Looking for an index of event topics? Start here.](../../platform/events/topics/)
+{% endhint %}
 
