@@ -165,6 +165,7 @@
 
 ## Techniques
 
+* [Querying Shopify](techniques/querying-shopify.md)
 * [Tagging Shopify resources](techniques/tagging-shopify-resources.md)
 * [Debouncing events](techniques/debouncing-events.md)
 * [Responding to action results](techniques/responding-to-action-results.md)
