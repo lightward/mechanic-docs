@@ -13,5 +13,5 @@ This object is always a hash, containing the following keys:
 * `"id"` – string
 * `"created_at"` – string
 
-This object is most useful for scheduling follow-up work for itself, using the "task\_ids" option in [the "event" action](../../../core-concepts/actions/action-types/event.md).
+This object is most useful for scheduling follow-up work for itself, using the "task\_ids" option in [the "event" action](../../../core-concepts/actions/types/event.md).
 

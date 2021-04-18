@@ -4,10 +4,10 @@ In writing a Mechanic task, it may be necessary to do more than a single round o
 
 To achieve this flow, subscribe to the mechanic/actions/perform event topic. When a task includes this subscription, Mechanic will generate an event with that topic for every action that the task completes.
 
-This strategy is commonly used with the [HTTP action](../core-concepts/actions/action-types/http.md), for reading data from third-party APIs \(see [Working with external APIs](working-with-external-apis.md)\).
+This strategy is commonly used with the [HTTP action](../core-concepts/actions/types/http.md), for reading data from third-party APIs \(see [Working with external APIs](working-with-external-apis.md)\).
 
 {% hint style="info" %}
-The [Echo action](../core-concepts/actions/action-types/echo.md) does not generate mechanic/actions/perform events.
+The [Echo action](../core-concepts/actions/types/echo.md) does not generate mechanic/actions/perform events.
 {% endhint %}
 
 ## Inspecting the action
@@ -24,7 +24,7 @@ Mechanic will step in and forcibly fail subsequent task runs that contain result
 
 ## Example task
 
-This example prompts the Mechanic user to enter a chunk of JSON, which will be used to create a customer record via a [Shopify action](../core-concepts/actions/action-types/shopify.md). If Shopify reports back that the customer creation was successful, the task will render an [Echo action](../core-concepts/actions/action-types/echo.md), reporting the success. If not, another Echo action will be rendered, reporting the specific error message from Shopify.
+This example prompts the Mechanic user to enter a chunk of JSON, which will be used to create a customer record via a [Shopify action](../core-concepts/actions/types/shopify.md). If Shopify reports back that the customer creation was successful, the task will render an [Echo action](../core-concepts/actions/types/echo.md), reporting the success. If not, another Echo action will be rendered, reporting the specific error message from Shopify.
 
 Note: This script is written to specifically support [previews](../core-concepts/tasks/previews/), using stub data during event preview to ensure that appropriate preview actions are generated.
 

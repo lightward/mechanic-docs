@@ -1,11 +1,11 @@
 # Email templates
 
-A Mechanic account may be configured with one or more **email templates**, used by the [**Email action**](../../core-concepts/actions/action-types/email.md) to render email content using a Liquid that can be shared across tasks. Email templates have access to Liquid [**template variables**](../../core-concepts/actions/action-types/email.md#creating-template-variables) named after each option in the Email action, including any custom options added by the task author.
+A Mechanic account may be configured with one or more **email templates**, used by the [**Email action**](../../core-concepts/actions/types/email.md) to render email content using a Liquid that can be shared across tasks. Email templates have access to Liquid [**template variables**](../../core-concepts/actions/types/email.md#creating-template-variables) named after each option in the Email action, including any custom options added by the task author.
 
 Unless configured otherwise, each email will use the email template named "default", if it exists.
 
 {% hint style="info" %}
-To learn more about formatting messages with HTML, CSS, and images, see [Message formatting](../../core-concepts/actions/action-types/email.md#message-formatting).
+To learn more about formatting messages with HTML, CSS, and images, see [Message formatting](../../core-concepts/actions/types/email.md#message-formatting).
 {% endhint %}
 
 ## Configuration
@@ -24,7 +24,7 @@ From the main Mechanic screen, scroll down to your account summary to find this 
 
 ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1e804286364bc9443fc/5e28a1e7eaaba.png)
 
-Use [email template variables](../../core-concepts/actions/action-types/email.md#creating-template-variables) to pull in values from the Email action. Learn about adapting existing templates below.
+Use [email template variables](../../core-concepts/actions/types/email.md#creating-template-variables) to pull in values from the Email action. Learn about adapting existing templates below.
 
 ## Using multiple templates
 

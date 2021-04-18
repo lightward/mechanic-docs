@@ -2,7 +2,7 @@
 
 In specific cases, events may be triggered by activity associated with an earlier event. In these scenarios, we describe the subsequent event as a **child event**, and the preceding event as a **parent event**.
 
-* The [Event action](../actions/action-types/event.md) generates a new child event, when performed
+* The [Event action](../actions/types/event.md) generates a new child event, when performed
 * A subscription to the [mechanic/actions/perform]() topic generates new child events as actions are performed
 
 Tasks responding to child events may reference to the parent's event using `{{ event.parent }}`. Parent events are recursively available \(as in `{{ event.parent.parent.parent }}`\), to a limit of 5 generations back.

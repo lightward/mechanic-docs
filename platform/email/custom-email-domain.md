@@ -34,5 +34,5 @@ Once the address is approved, Mechanic will show you information for two new DNS
 
 Add these to your domain, verify them, and Mechanic will start sending mail from your selected address. For more help with this, see Postmark's documentation: [Resources for adding DKIM and Return-Path records to DNS for common hosts and DNS providers](https://postmarkapp.com/support/article/1090-resources-for-adding-dkim-and-return-path-records-to-dns-for-common-hosts-and-dns-providers).
 
-P.S. Changing the sender _name_ doesn't require any of these steps – for that, you can use the `"from_display_name"` option of the [Email action](../../core-concepts/actions/action-types/email.md). The steps above are only required if you want to change the sender's email address.
+P.S. Changing the sender _name_ doesn't require any of these steps – for that, you can use the `"from_display_name"` option of the [Email action](../../core-concepts/actions/types/email.md). The steps above are only required if you want to change the sender's email address.
 
