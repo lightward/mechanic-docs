@@ -234,7 +234,7 @@ Allows converting objects to their JSON representations, and parsing that JSON i
 {% assign plain_order = order_as_json | parse_json %}
 ```
 
-The parse\_jsonl filter can be used to parse a series of JSON strings, each on their own line, into an array of hashes. Useful when preparing [stub data](../../core-concepts/tasks/previews/stub-data.md) for [bulk operations](../graphql/bulk-operations.md).
+The parse\_jsonl filter can be used to parse a series of JSON strings, each on their own line, into an array of hashes. Useful when preparing [stub data](../../core/tasks/previews/stub-data.md) for [bulk operations](../graphql/bulk-operations.md).
 
 ```javascript
 {% capture jsonl_string %}

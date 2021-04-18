@@ -40,9 +40,9 @@ We follow the same process any open-source project does when it comes to code ma
    ```
 
 4. Now that you can build the docs you are ready to [contribute](https://github.com/lightward/mechanic-tasks/blob/master/CONTRIBUTING.md)!
-5. Your task documentation, options, subscriptions, code, are done in Mechanic. If you choose to use an external editor that's great, you still need to transfer it into Mechanic, so that you can export the task in the JSON format you need for the library. Importing/Exporting tasks from Mechanic is covered [here](../../core-concepts/tasks/import-and-export.md).
+5. Your task documentation, options, subscriptions, code, are done in Mechanic. If you choose to use an external editor that's great, you still need to transfer it into Mechanic, so that you can export the task in the JSON format you need for the library. Importing/Exporting tasks from Mechanic is covered [here](../../core/tasks/import-and-export.md).
 6. If you're changing an existing task you [export](https://github.com/lightward/mechanic-tasks/blob/master/CONTRIBUTING.md) the JSON, and replace the contents of the `task/task_file_name.json` and then run the commands `npm run build` and `npm run test.`
-7. If you are contributing a new task, you'll [export](../../core-concepts/tasks/import-and-export.md) the JSON from Mechanic, and save the JSON file in the `tasks/directory` of your forked repository, named with an appropriate handle for the task. \(For example, a task named "Hide out-of-stock products" should have its JSON export stored in `"tasks/hide-out-of-stock-products.json"`.\) And, then you'll execute the commands:
+7. If you are contributing a new task, you'll [export](../../core/tasks/import-and-export.md) the JSON from Mechanic, and save the JSON file in the `tasks/directory` of your forked repository, named with an appropriate handle for the task. \(For example, a task named "Hide out-of-stock products" should have its JSON export stored in `"tasks/hide-out-of-stock-products.json"`.\) And, then you'll execute the commands:
 
    `npm run build` and `npm run test`.
 

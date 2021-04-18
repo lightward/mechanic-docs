@@ -1,6 +1,6 @@
 # error
 
-The **error tag** generates an [**error object**](../../../core-concepts/tasks/code/error-objects.md).
+The **error tag** generates an [**error object**](../../../core/tasks/code/error-objects.md).
 
 ## Syntax
 

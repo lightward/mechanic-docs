@@ -1,6 +1,6 @@
 # Topics
 
-Mechanic supports a variety of [**event topics**](../../core-concepts/events/topics.md). This page is a complete index of pre-defined topics, organized by **domain** and **subject**.
+Mechanic supports a variety of [**event topics**](../../core/events/topics.md). This page is a complete index of pre-defined topics, organized by **domain** and **subject**.
 
 ## Mechanic
 
@@ -22,7 +22,7 @@ Mechanic supports a variety of [**event topics**](../../core-concepts/events/top
 * **mechanic/scheduler/daily** Runs at midnight, in the store's local timezone.
 
 {% hint style="info" %}
-More specific times can be achieved by subscribing to an event topic with a delay \(e.g. "mechanic/scheduler/daily+5.hours"\). To learn more, see [Subscriptions](../../core-concepts/tasks/subscriptions.md).
+More specific times can be achieved by subscribing to an event topic with a delay \(e.g. "mechanic/scheduler/daily+5.hours"\). To learn more, see [Subscriptions](../../core/tasks/subscriptions.md).
 {% endhint %}
 
 ### User
@@ -37,7 +37,7 @@ Not to be confused with events in the User domain, the mechanic/user event subje
 {% hint style="info" %}
 Shopify events are received from Shopify, directly, and contain event data provided by Shopify. For a reference on what each event contains, see [Shopify's Webhook documentation](https://shopify.dev/docs/admin-api/rest/reference/events/webhook).
 
-Tasks subscribing to Shopify events receive [Liquid environment variables](../../core-concepts/tasks/code/environment-variables.md), containing data from the webhook.
+Tasks subscribing to Shopify events receive [Liquid environment variables](../../core/tasks/code/environment-variables.md), containing data from the webhook.
 {% endhint %}
 
 ## Shopify
@@ -155,7 +155,7 @@ The User event domain is for custom, user-generated events, having any subject a
 
 Mechanic allows developers several ways to generate custom User events:
 
-* The [Event action](../../core-concepts/actions/types/event.md) can be used with any User event topic
+* The [Event action](../../core/actions/types/event.md) can be used with any User event topic
 * [Webhooks](../webhooks.md) may be configured to generate events using any User event topic
 
 ## Third-party

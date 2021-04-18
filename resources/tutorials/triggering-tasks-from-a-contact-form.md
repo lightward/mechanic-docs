@@ -18,20 +18,20 @@ We are going to make a task in this cool Shopify app called Mechanic. ;\) Here's
 
 1. The task will add some JavaScript to the online Shopify store, which will capture the contents of the contact form when submitted, and then send those contents over to Mechanic via [webhook](../../platform/webhooks.md)
 2. Over on the Mechanic side, the task will receive the form contents, and format them as a CSV file
-3. The task will then send an [email](../../core-concepts/actions/types/email.md) to our CRM system, containing the CSV file as an attachment
+3. The task will then send an [email](../../core/actions/types/email.md) to our CRM system, containing the CSV file as an attachment
 
 ## The Mechanic task
 
 Time to build the task! Out of Mechanic's entire toolkit, here's what we'll use:
 
-* [Online storefront JavaScript](../../core-concepts/tasks/advanced-settings/javascript.md)
+* [Online storefront JavaScript](../../core/tasks/advanced-settings/javascript.md)
 * [Mechanic webhooks](../../platform/webhooks.md)
 * [The csv Liquid filter](../../platform/liquid/filters.md#csv)
-* [The Email action](../../core-concepts/actions/types/email.md)
+* [The Email action](../../core/actions/types/email.md)
 
 ### Step 1: Create a new task, and subscribe to a custom event topic
 
-Mechanic tasks use [subscriptions](../../core-concepts/tasks/subscriptions.md) to express their interest in different [events](../../core-concepts/events/). We know we'll be using [Mechanic webhooks](../../platform/webhooks.md), and we know that each webhook gets to choose its own event topic. So, even before configuring the webhook, we choose the event topic "user/webhook/form".
+Mechanic tasks use [subscriptions](../../core/tasks/subscriptions.md) to express their interest in different [events](../../core/events/). We know we'll be using [Mechanic webhooks](../../platform/webhooks.md), and we know that each webhook gets to choose its own event topic. So, even before configuring the webhook, we choose the event topic "user/webhook/form".
 
 {% hint style="info" %}
 Webhooks should be named after the service that will be sending in data. Webhook event topics must follow the form "user/x/y", making choices for "x" and "y" that describe the expected event.
@@ -69,7 +69,7 @@ https://usemechanic.com/webhook/00000000-0000-0000-0000-000000000000
 
 We have options here! The only hard requirement is that we use a POST request to send form data to our webhook. This can be done using pure JavaScript, or using a library like jQuery, or even by using plain HTML to set the form tag's `action` attribute to our webhook URL.
 
-For this tutorial, we'll use JavaScript. And because we're using Mechanic, we don't even have to edit the theme directly to add in our code – instead, we can use the task editor's [JavaScript](../../core-concepts/tasks/advanced-settings/javascript.md) feature to have our code automatically loaded into the online storefront. \(Under the hood, Mechanic leverages Shopify's [ScriptTag](https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag) API.\)
+For this tutorial, we'll use JavaScript. And because we're using Mechanic, we don't even have to edit the theme directly to add in our code – instead, we can use the task editor's [JavaScript](../../core/tasks/advanced-settings/javascript.md) feature to have our code automatically loaded into the online storefront. \(Under the hood, Mechanic leverages Shopify's [ScriptTag](https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag) API.\)
 
 For this tutorial, I created a development store and installed the [Debut theme](https://themes.shopify.com/themes/debut/styles/default). I use the contact form that comes with the theme as the form that submits to our webook. You can use any contact form on any theme, or create a form specifically for the purpose of submitting to our webhook.
 
@@ -175,7 +175,7 @@ When you're assembling your version of this task, make sure to update the task c
 
 Moving back to the task editor, the first step is to extract this data, and assemble it into something we can format using the [csv](../../platform/liquid/filters.md#csv) filter. Because that filter is made to handle tables of data, this means that we'll create an array of "rows", and fill it with arrays of "columns", and then pass the result into the csv filter.
 
-After that, we'll add an [Email](../../core-concepts/actions/types/email.md) action, configuring it with our CSV data as an attachment. We'll also add a few more task options that will make it easy to reconfigure this task in the future, without having to touch the task code.
+After that, we'll add an [Email](../../core/actions/types/email.md) action, configuring it with our CSV data as an attachment. We'll also add a few more task options that will make it easy to reconfigure this task in the future, without having to touch the task code.
 
 {% tabs %}
 {% tab title="Task code" %}
@@ -213,9 +213,9 @@ After that, we'll add an [Email](../../core-concepts/actions/types/email.md) act
 {% endtabs %}
 
 {% hint style="info" %}
-When writing a task, it's important to think about [previews](../../core-concepts/tasks/previews/), and how they appear to the user \(and to Mechanic itself\). This task always sends a simple email for every event it receives, and doesn't require any special permissions, so we don't need to do any preview work here. If the task only sent an email under limited conditions, or if it needed to access the Shopify API, we'd need to do more work to make sure the task generates an intentional preview.
+When writing a task, it's important to think about [previews](../../core/tasks/previews/), and how they appear to the user \(and to Mechanic itself\). This task always sends a simple email for every event it receives, and doesn't require any special permissions, so we don't need to do any preview work here. If the task only sent an email under limited conditions, or if it needed to access the Shopify API, we'd need to do more work to make sure the task generates an intentional preview.
 
-To learn more about this, see [Previews](../../core-concepts/tasks/previews/).
+To learn more about this, see [Previews](../../core/tasks/previews/).
 {% endhint %}
 
 Here's how we'll configure the task, using the task option fields that automatically appear based on our task code:

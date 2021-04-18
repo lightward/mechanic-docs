@@ -1,8 +1,8 @@
 # Liquid
 
-Everything in Mechanic is about [**tasks**](../../core-concepts/tasks/), and tasks are written in **Liquid** – the same template language that Shopify uses for their online store themes, and for many other purposes.
+Everything in Mechanic is about [**tasks**](../../core/tasks/), and tasks are written in **Liquid** – the same template language that Shopify uses for their online store themes, and for many other purposes.
 
-Fundamentally, [**task code**](../../core-concepts/tasks/code/) is a Liquid template for rendering JSON instructions for [**actions**](../../core-concepts/actions/). In the same way that a Liquid theme might take Shopify store data and render HTML for a web browser, Mechanic task code takes incoming [**events**](../../core-concepts/events/), and uses them as variables to render JSON objects, defining work to be performed.
+Fundamentally, [**task code**](../../core/tasks/code/) is a Liquid template for rendering JSON instructions for [**actions**](../../core/actions/). In the same way that a Liquid theme might take Shopify store data and render HTML for a web browser, Mechanic task code takes incoming [**events**](../../core/events/), and uses them as variables to render JSON objects, defining work to be performed.
 
 ## Liquid basics
 

@@ -1,6 +1,6 @@
 # action
 
-The **action tag** generates an [**action object**](../../../core-concepts/tasks/code/action-objects.md).
+The **action tag** generates an [**action object**](../../../core/tasks/code/action-objects.md).
 
 ## Syntax
 

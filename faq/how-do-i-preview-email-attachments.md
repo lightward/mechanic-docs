@@ -2,22 +2,22 @@
 
 ### What won't work
 
-For tasks that use [the Email action](../core-concepts/actions/types/email.md), you'll see a preview of the email itself in the task preview area.
+For tasks that use [the Email action](../core/actions/types/email.md), you'll see a preview of the email itself in the task preview area.
 
 ![](https://s3.amazonaws.com/helpscout.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/600f41e32e764327f87c22a8/file-PldK5WTNBy.png)
 
 This preview includes an "Expand preview" button, which _then_ allows you to send a copy of the message to the email address of your choice.
 
-Importantly, _this feature does not include attachments_. \(Under the hood, this is because compiling attachments can take an unpredictable amount of system resources, making this job best served by [Mechanic's run system](../core-concepts/runs/).\)
+Importantly, _this feature does not include attachments_. \(Under the hood, this is because compiling attachments can take an unpredictable amount of system resources, making this job best served by [Mechanic's run system](../core/runs/).\)
 
 ### What will work
 
 The best way to approach this is by creating a brand new task, which...
 
 * ... subscribes to mechanic/user/trigger, allowing you to run the task on demand
-* ... uses [the Files action](../core-concepts/actions/types/files.md), using the same data that you're using in your "email" action's attachments
+* ... uses [the Files action](../core/actions/types/files.md), using the same data that you're using in your "email" action's attachments
 
-\(This technique leverages the fact that Mechanic generates files in the same way, across the "email" and "files" actions; see [File generators](../core-concepts/actions/file-generators/) for more on this.\)
+\(This technique leverages the fact that Mechanic generates files in the same way, across the "email" and "files" actions; see [File generators](../core/actions/file-generators/) for more on this.\)
 
 In order to make this work, you may need to pull in data needed for your files. For example, if you're working on an email attachment based on order data, you may need to pull in a sample order object, like this:
 
