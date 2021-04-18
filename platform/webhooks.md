@@ -71,7 +71,7 @@ The webhook ingress API is solely for ingesting data to form a new event. Becaus
 
 This means that the caller must use another avenue for retrieving the results of any generated runs. In general, there are three options for this:
 
-* For a consistently re-occurring call with a single caller, the task responding to the webhook event may write its results to the Mechanic cache, allowing the caller to retrieve results using a [cache endpoint](mechanic-cache/cache-endpoints.md).
+* For a consistently re-occurring call with a single caller, the task responding to the webhook event may write its results to the Mechanic cache, allowing the caller to retrieve results using a [cache endpoint](mechanic-cache/endpoints.md).
 * For calls with variable or multiple callers, consider generating [a UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier), and submitting it to the webhook along with the other submitted data. Tasks responding to the webhook event should store their results keyed by that UUID, using an external storage mechanism \(possibly via the [HTTP](../core/actions/http.md) or [FTP](../core/actions/ftp.md) actions\).
 * For calls triggered by customer activity on an online Shopify storefront, consider \(a\) requiring the customer to be logged in, \(b\) sending the customer ID in the webhook request data, \(c\) storing task results in a customer metafield \(using the [Shopify](../core/actions/shopify.md) action\), and \(d\) using storefront Liquid to render the content of that metafield, polling until a value is present.
 

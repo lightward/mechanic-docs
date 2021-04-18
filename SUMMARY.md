@@ -83,7 +83,7 @@
   * [Plans](platform/policies/plans.md)
   * [Pricing](platform/policies/pricing.md)
 * [Cache](platform/mechanic-cache/README.md)
-  * [Cache endpoints](platform/mechanic-cache/cache-endpoints.md)
+  * [Cache endpoints](platform/mechanic-cache/endpoints.md)
 * [CORS](platform/cors.md)
 * [Email](platform/email/README.md)
   * [Receiving email](platform/email/receiving-email.md)
