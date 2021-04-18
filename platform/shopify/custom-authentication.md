@@ -16,5 +16,5 @@ This setting is only available, and is only shown, for Shopify Plus accounts.
 
 Before adding your API password, you must ensure that the private app has every access scope that Mechanic requires. A list of current required access scopes is provided just below the password field.
 
-Once configured, Mechanic will use your custom API password for every [Shopify interaction](../../core/interacting-with-shopify/), except for Admin API calls that require permissions that private apps cannot access \(i.e. calls to Publication resources\).
+Once configured, Mechanic will use your custom API password for every [Shopify interaction](../../core/shopify/), except for Admin API calls that require permissions that private apps cannot access \(i.e. calls to Publication resources\).
 

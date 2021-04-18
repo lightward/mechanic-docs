@@ -12,6 +12,6 @@ To protect the health of the system and to ensure performance for every store on
 ## Tips
 
 * To ensure that your tasks are working with up-to-date information, consider reloading your resources at the beginning of the task script. For example, a task responding to a customer event might include `{% assign customer = customer.reload %}` at the very beginning, to ensure that any changes to the customer \(since the original event\) are reflected in the `customer` variable.
-* Use GraphQL to query Shopify, to keep your data usage efficient. \(To learn more, see [Interacting with Shopify](../interacting-with-shopify/).\)
+* Use GraphQL to query Shopify, to keep your data usage efficient. \(To learn more, see [Interacting with Shopify](../shopify/).\)
 * For options for ordering execution of runs, see [How can I control run order?](https://docs.usemechanic.com/article/444-how-can-i-control-run-order).
 
