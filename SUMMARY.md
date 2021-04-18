@@ -172,6 +172,10 @@
 * [Working with external APIs](techniques/working-with-external-apis.md)
 * [Finding a resource ID](techniques/finding-a-resource-id.md)
 
+## Frequently Asked Questions
+
+* [How do I preview email attachments?](frequently-asked-questions/how-do-i-preview-email-attachments.md)
+
 ---
 
 * [Under construction](under-construction.md)
