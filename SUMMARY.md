@@ -100,7 +100,7 @@
     * [Pagination](platform/graphql/basics/pagination.md)
   * [Bulk operations](platform/graphql/bulk-operations.md)
 * [Integrations](platform/integrations/README.md)
-  * [Smile.io](platform/integrations/smile.io.md)
+  * [Smile.io](platform/integrations/smile-io.md)
 * [Liquid](platform/liquid/README.md)
   * [Basics](platform/liquid/basics/README.md)
     * [Syntax](platform/liquid/basics/syntax.md)
