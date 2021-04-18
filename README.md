@@ -1,7 +1,5 @@
 # Introduction
 
-{% embed url="https://www.youtube.com/watch?v=QitSqzfBovg" caption="" %}
-
 I'm glad you're here. :\) I'm Isaac, and I built Mechanic. My intent is to make Shopify better for everyone. We do this, here, in two parts: \(1\) by making it as easy as possible for developers to solve merchant problems, and \(2\) by making it as easy as possible to use \(and re-use\) those solutions. Mechanic is very, very good at both.
 
 Mechanic is a powerful platform, and I made it to empower everyone who uses it. You are invited. :\)
@@ -11,6 +9,8 @@ Got a question you need answered now? [Join our Slack workspace.](https://join.s
 {% endhint %}
 
 ## What is Mechanic?
+
+{% embed url="https://www.youtube.com/watch?v=QitSqzfBovg" caption="" %}
 
 Mechanic is an automation and development platform, for Shopify. :\) Mechanic is a replacement for custom apps, allowing developers to solve a similar set of problems without having to host the infrastructure, or think about scaffolding. Developers can get more projects completed faster and more sustainably, by leveraging Mechanic's toolkit.
 
