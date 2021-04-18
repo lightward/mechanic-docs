@@ -2,7 +2,7 @@
 
 ## Loading data into Mechanic
 
-Mechanic is an event-driven platform. This means that all data _used_ by Mechanic needs to arrive in the form of an event. \(The only exception here is Shopify itself: see [Interacting with Shopify](../core-concepts/interacting-with-shopify.md)\).
+Mechanic is an event-driven platform. This means that all data _used_ by Mechanic needs to arrive in the form of an event. \(The only exception here is Shopify itself: see [Interacting with Shopify](../core-concepts/interacting-with-shopify/)\).
 
 To create events using third-party data, use one of these techniques:
 

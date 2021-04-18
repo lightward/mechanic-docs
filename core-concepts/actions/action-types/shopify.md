@@ -5,7 +5,7 @@ The **Shopify** action sends requests to the [Shopify admin API](https://shopify
 {% hint style="info" %}
 In Mechanic, writing data to Shopify must happen using an action. While the Shopify action is usually the right choice, the [HTTP](http.md) action can also be used for this purpose, by manually configuring authentication headers.
 
-To learn more, see [Interacting with Shopify](../../interacting-with-shopify.md).
+To learn more, see [Interacting with Shopify](../../interacting-with-shopify/).
 {% endhint %}
 
 ## Options

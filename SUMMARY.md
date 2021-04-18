@@ -75,7 +75,8 @@
   * [Ordering](core-concepts/runs/ordering.md)
   * [Retries](core-concepts/runs/retries.md)
   * [Pauses](core-concepts/runs/pauses.md)
-* [Interacting with Shopify](core-concepts/interacting-with-shopify.md)
+* [Interacting with Shopify](core-concepts/interacting-with-shopify/README.md)
+  * [API versions](core-concepts/interacting-with-shopify/api-versions.md)
 * [Integrations](core-concepts/integrations.md)
 
 ## Platform
