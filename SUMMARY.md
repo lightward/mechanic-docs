@@ -82,6 +82,7 @@
   * [Data](platform/policies/data.md)
   * [Plans](platform/policies/plans.md)
   * [Pricing](platform/policies/pricing.md)
+  * [Privacy](platform/policies/privacy.md)
 * [Cache](platform/cache/README.md)
   * [Cache endpoints](platform/cache/endpoints.md)
 * [CORS](platform/cors.md)
