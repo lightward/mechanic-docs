@@ -8,3 +8,7 @@ Task code always has access to a set of [**environment variables**](environment-
 
 A task must purposefully consider its [**preview**](../previews/), so as to accurately communicate its intent to users and to the Mechanic platform.
 
+{% hint style="info" %}
+To find many examples of task code, browse [https://github.com/lightward/mechanic-tasks](https://github.com/lightward/mechanic-tasks).
+{% endhint %}
+
