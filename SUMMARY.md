@@ -183,6 +183,7 @@
 * [My task is failing because of a permissions problem. Why?](faq/my-task-is-failing-because-of-a-permissions-problem.md)
 * [Can I query external APIs?](faq/can-i-query-external-apis.md)
 * [Why can't I access the Shopify API during preview mode?](faq/why-cant-i-access-the-shopify-api-during-preview-mode.md)
+* [How do marketing preferences work with Mechanic?](faq/how-do-marketing-preferences-work-with-mechanic.md)
 
 ---
 
