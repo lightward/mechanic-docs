@@ -1,0 +1,84 @@
+# Creating a Mechanic webhook
+
+Webhooks are the nearly ubiquitous carriers of information to and from services across the internet - services like IFTTT, Zapier, Stripe, PayPal, JotForm, and countlessly more. You can use webhooks to send information from these services into Mechanic, where you can then perform any [logic](../../core/tasks/code/) and [actions](../../core/actions/) you need.
+
+{% hint style="info" %}
+This is a tutorial for getting started quickly. To learn more about webhooks themselves, see [Mechanic webhooks](../../platform/webhooks.md).
+{% endhint %}
+
+When Mechanic receives data via a webhook, it fires off an event with the user topic of your choice. \(For example, if you've set up an IFTTT webhook that sends you tweets, you might choose the Mechanic topic `user/ifttt/tweet`.\) To make use of these events, create one or more tasks that subscribe to this topic. That's it!
+
+Let's review a detailed example.
+
+### 1. Create a Mechanic webhook.
+
+Start by opening Mechanic, from the "Apps" section of Shopify. Once in Mechanic, scroll down to the "Your account" section, and click the "Manage settings" link.
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1eb04286364bc944403/5e28a1eb6f5e7.png)
+
+Next, click the "+ Add a webhook" button, towards the end of the settings pag.
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39a89d2c7d3a7e9ae7384c/file-SfcKTlfshg.png)
+
+Webhooks should be named after the service that will be sending you data, with an event topic that makes sense, using the format `user/subject/verb`.
+
+For this example, we'll simply call ours "Example", with an event topic of "use/webhook/test".
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39a8db04286364bc94d8aa/file-IydtRZ3CcY.png)
+
+Click the submit button to save the webhook, and copy the resulting webhook URL.
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39a9502c7d3a7e9ae73854/file-RjoxMqLWMo.png)
+
+The URL will look something like this:
+
+```text
+https://usemechanic.com/webhook/00000000-0000-0000-0000-000000000000
+```
+
+### 2. Optional: Add an additional CORS origin.
+
+Mechanic's webhooks are configured for CORS, with automatic support for your Shopify account's online storefront. This means that you can call the webhook using a JavaScript POST request, without any additional configuration.
+
+However, if you wish to call your webhook from another origin \(say, a third-party iframe within your storefront\), you'll need to add its origin to your Mechanic account. Add the origin \(comprised of the scheme, usually "https://", and the hostname\) here:
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39aa9304286364bc94d8c1/file-BNFaSBq1rz.png)
+
+... and save your settings.
+
+### 3. Create a task that subscribes to your webhook event.
+
+Back on the Mechanic homepage, click the "Start a custom task" link.
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ec04286364bc944406/5e28a1ec93588.png)
+
+Keeping things simple for this example, we'll title the task "Webhook test", fill in the subscription field with "user/webhook/text" \(to match the webhook\), and click the "Echo" button beneath the script editor to quickly fill in a simple ["echo" action](https://help.usemechanic.com/actions/echo).
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39a9c82c7d3a7e9ae7385e/file-NWZw6pzVGj.png)
+
+Lastly, save the task. Note the action preview that's generated: "When user/webhook/test is triggered…".
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ed2c7d3a7e9ae69bee/5e28a1ed374ae.png)
+
+### 4. Test your webhook.
+
+Open [https://reqbin.com/](https://reqbin.com/), and construct a request to our webhook. Here, we'll select "POST", paste in the webhook URL, and fill in a simple piece of content. \(Webhooks support plain text, form-encoded content, _and_ JSON; for this example, we'll use JSON.\)
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ed2c7d3a7e9ae69bef/5e28a1ed874a6.png)
+
+Click the "Send" button, and you'll see a 204 response returned within ReqBin.
+
+Over in Mechanic, watch the "Recent activity" list on the app homepage to see the incoming event.
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ee2c7d3a7e9ae69bf0/5e28a1edd2328.png)
+
+Click on that event to see the results of our task and its echo action.
+
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ee04286364bc944408/5e28a1ee17e5b.png)
+
+### 5. Connect your webhook URL to another service.
+
+This last part is up to you! Provide the webhook URL, generated by Mechanic, to whatever service you'd like to use. When provided with this URL, the service will start sending your data over to Mechanic for processing.
+
+That's it! :\) Modify to taste.
+
