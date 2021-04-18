@@ -24,7 +24,7 @@ In all other cases, custom email addresses must be manually approved by Mechanic
 
 To change your Mechanic account's "From" address, open the Mechanic settings area. Look for the "Email" section, and add the email address that you'd like to use for your outgoing mail.
 
-[![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e3c2f1a04286364bc94f42e/file-DqoBFym1FO.png)](https://docs.usemechanic.com/article/348-what-kind-of-email-can-i-send-with-mechanic)
+![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e3c2f1a04286364bc94f42e/file-DqoBFym1FO.png)
 
 Only email addresses that share a domain name with your Shopify store are pre-approved. \(For example, if your store has the domain name "example.com", you're pre-approved to use email addresses like "support@example.com", or "ops@example.com", etc.\) For all other domains, your email address will need to be approved by a Mechanic admin. Use the support button in the corner to request approval.
 

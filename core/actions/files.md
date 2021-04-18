@@ -2,7 +2,7 @@
 
 The **Files** action evaluates its options using [**file generators**](file-generators/), temporarily storing the resulting files and making them available via a randomized Mechanic URL.
 
-This action is most useful in concert with [mechanic/actions/perform](), by which a task may take the resulting file URLs and pass them on to another service. Used by itself, this action can also be useful for quickly testing file generators.
+This action is most useful in concert with [mechanic/actions/perform](../../techniques/responding-to-action-results.md), by which a task may take the resulting file URLs and pass them on to another service. Used by itself, this action can also be useful for quickly testing file generators.
 
 ## Options
 

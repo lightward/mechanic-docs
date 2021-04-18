@@ -31,7 +31,7 @@ As with all things in Mechanic, receiving email starts with an event. Here, you'
 
 To start experimenting with receiving emails, create a task that subscribes to mechanic/emails/received, and that has this single line for its script:
 
-```text
+```javascript
 {% action "echo" email %}
 ```
 
@@ -39,7 +39,7 @@ Then, send an email to your Mechanic account.
 
 Once the first email is received, your task preview \(the right-hand column of the task editor\) will start generating previews based on that most recent email event. This frees you to start experimenting with using different email values. For example, try something like this:
 
-```text
+```javascript
 {% assign body = email.text_body | strip %}
 {% action "echo" email_body: body %}
 ```

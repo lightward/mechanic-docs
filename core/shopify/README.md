@@ -38,9 +38,9 @@ For example, while Shopify themes support `{{ customer.name }}`, Mechanic does n
 
 ### GraphQL or REST via the Shopify action
 
-In rare cases, it may be necessary to make a call to the Shopify API that cannot be expressed via the [shopify](../../platform/liquid/filters.md#shopify) Liquid filter, or via Liquid object lookups. In these cases, the [Shopify](../actions/shopify.md) action can be used
+In rare cases, it may be necessary to make a call to the Shopify API that cannot be expressed via the [shopify](../../platform/liquid/filters.md#shopify) Liquid filter, or via Liquid object lookups. In these cases, the [Shopify](../actions/shopify.md) action can be used, and the task may retrieve the results of that action by subscribing to [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
 
 ## Writing Shopify data
 
-todo
+Mechanic supports writing Shopify data using the [Shopify](../actions/shopify.md) action, which facilitates both Shopify's REST and GraphQL Admin APIs.
 

@@ -1,4 +1,8 @@
-# Topics
+---
+description: A complete index
+---
+
+# Event topics
 
 Mechanic supports a variety of [**event topics**](../../core/events/topics.md). This page is a complete index of pre-defined topics, organized by **domain** and **subject**.
 

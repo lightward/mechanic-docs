@@ -91,7 +91,7 @@
   * [Custom email addresses](platform/email/custom-email-domain.md)
   * [Email templates](platform/email/email-templates.md)
 * [Events](platform/events/README.md)
-  * [Topics](platform/events/topics.md)
+  * [Event topics](platform/events/topics.md)
   * [Event filters](platform/events/filters.md)
   * [Hiding events](platform/events/hiding.md)
 * [GraphQL](platform/graphql/README.md)
