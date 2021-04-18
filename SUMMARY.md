@@ -50,6 +50,7 @@
   * [Advanced settings](core/tasks/advanced-settings/README.md)
     * [Documentation](core/tasks/advanced-settings/documentation.md)
     * [JavaScript](core/tasks/advanced-settings/javascript.md)
+    * [Liquid profiling](core/tasks/advanced-settings/liquid-profiling.md)
     * [Perform action runs in sequence](core/tasks/advanced-settings/perform-action-runs-in-sequence.md)
   * [Import and export](core/tasks/import-and-export.md)
 * [Actions](core/actions/README.md)
