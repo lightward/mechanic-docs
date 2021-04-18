@@ -173,6 +173,7 @@
 ## Frequently Asked Questions <a id="faq"></a>
 
 * [How do I preview email attachments?](faq/how-do-i-preview-email-attachments.md)
+* [How can I update existing metafields?](faq/how-can-i-update-existing-metafields.md)
 
 ---
 
