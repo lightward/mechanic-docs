@@ -10,6 +10,7 @@
 * [🚀 Slack community](resources/slack.md)
 * [Tutorials](resources/tutorials/README.md)
   * [Creating a Mechanic webhook](resources/tutorials/creating-a-mechanic-webhook.md)
+  * [Practicing writing tasks](resources/tutorials/practicing-writing-tasks.md)
   * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)
 * [Video walkthroughs](resources/video-walkthroughs/README.md)
   * [Auto-tag orders by originating staff member](resources/video-walkthroughs/auto-tag-orders-by-originating-staff-member.md)
@@ -40,7 +41,7 @@
     * [Environment variables](core/tasks/code/environment-variables.md)
     * [Action objects](core/tasks/code/action-objects.md)
     * [Error objects](core/tasks/code/error-objects.md)
-    * [Log objects](core/tasks/code/logging.md)
+    * [Log objects](core/tasks/code/log-objects.md)
   * [Options](core/tasks/options/README.md)
     * [Custom validation](core/tasks/options/custom-validation.md)
   * [Previews](core/tasks/previews/README.md)
@@ -164,6 +165,7 @@
 
 ## Techniques
 
+* [Writing a high-quality task](techniques/writing-a-high-quality-task.md)
 * [Querying Shopify](techniques/querying-shopify.md)
 * [Tagging Shopify resources](techniques/tagging-shopify-resources.md)
 * [Debouncing events](techniques/debouncing-events.md)

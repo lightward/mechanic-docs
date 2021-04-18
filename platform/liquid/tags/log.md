@@ -1,6 +1,6 @@
 # log
 
-The **log tag** generates a [**log object**](../../../core/tasks/code/logging.md).
+The **log tag** generates a [**log object**](../../../core/tasks/code/log-objects.md).
 
 ## Syntax
 
