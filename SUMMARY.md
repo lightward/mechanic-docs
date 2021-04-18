@@ -174,7 +174,7 @@
 
 * [How do I preview email attachments?](faq/how-do-i-preview-email-attachments.md)
 * [How can I update existing metafields?](faq/how-can-i-update-existing-metafields.md)
-* [My task is failing because of a permissions problem. Why?](faq/my-task-is-failing-because-of-a-permissions-problem.-why.md)
+* [My task is failing because of a permissions problem. Why?](faq/my-task-is-failing-because-of-a-permissions-problem.md)
 
 ---
 
