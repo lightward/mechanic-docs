@@ -2,7 +2,7 @@
 
 The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../platform/email/email-templates.md), and supports attachments constructed by [**file generators**](file-generators/).
 
-## Usage restrictions
+## Restrictions
 
 Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provider. Currently, Mechanic only supports Postmark's transactional message stream, which means that marketing and other bulk mail may not be sent. To learn more about what is and isn't a transactional message, see Postmark's article: ["What are Transactional emails?"](https://postmarkapp.com/support/article/804-what-are-transactional-emails).
 
