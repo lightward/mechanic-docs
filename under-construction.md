@@ -1,6 +1,4 @@
 # Under construction
 
-You're looking at the future home of Mechanic's documentation. :\) It is a work actively in progress.
-
-Until this work is complete, the official source of documentation is still [**docs.usemechanic.com**](https://docs.usemechanic.com/).
+You're looking at the new home of Mechanic's documentation. :\) If you can't find something you need, check [**docs.usemechanic.com**](https://docs.usemechanic.com/), or head to [**Slack**](resources/slack.md).
 
