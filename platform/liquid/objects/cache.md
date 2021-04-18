@@ -1,6 +1,6 @@
 # Cache object
 
-The `cache` object is used for retrieving values stored in the shop's Mechanic cache. For more on this, see [Using the cache](../../mechanic-cache/).
+The `cache` object is used for retrieving values stored in the shop's Mechanic cache. For more on this, see [Using the cache](../../cache/).
 
 ## How to access it
 
@@ -10,6 +10,6 @@ The `cache` object is used for retrieving values stored in the shop's Mechanic c
 ### Related articles
 
 * [The "cache" action](../../../core/actions/cache.md)
-* [Using cache endpoints to share data](../../mechanic-cache/endpoints.md)
-* [Using the cache](../../mechanic-cache/)
+* [Using cache endpoints to share data](../../cache/endpoints.md)
+* [Using the cache](../../cache/)
 
