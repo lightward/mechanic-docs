@@ -74,8 +74,6 @@
   * [Pauses](core/runs/pauses.md)
 * [Interacting with Shopify](core/shopify/README.md)
   * [API versions](core/shopify/api-versions.md)
-* [Integrations](core/integrations/README.md)
-  * [Smile.io](core/integrations/smile.io.md)
 
 ## Platform
 
@@ -101,6 +99,8 @@
     * [Mutations](platform/graphql/basics/mutations.md)
     * [Pagination](platform/graphql/basics/pagination.md)
   * [Bulk operations](platform/graphql/bulk-operations.md)
+* [Integrations](platform/integrations/README.md)
+  * [Smile.io](platform/integrations/smile.io.md)
 * [Liquid](platform/liquid/README.md)
   * [Basics](platform/liquid/basics/README.md)
     * [Syntax](platform/liquid/basics/syntax.md)
