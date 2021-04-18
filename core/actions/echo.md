@@ -4,7 +4,7 @@ The **Echo** action has no effects: it returns the options that are given. This 
 
 ## Options
 
-This action accepts any and all options, restricted only in that they must be valid JSON values \(as with all results of [task code](../../tasks/code/)\).
+This action accepts any and all options, restricted only in that they must be valid JSON values \(as with all results of [task code](../tasks/code/)\).
 
 ## Examples
 

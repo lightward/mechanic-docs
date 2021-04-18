@@ -26,7 +26,7 @@ In practice, file generator objects are given as values in a larger JSON object,
 The [plaintext](plaintext.md) file generator is invoked implicitly by supplying a string, instead of supplying the usual file generator object.
 {% endhint %}
 
-In the following example, a [Files](../types/files.md) action is defined, mapping filenames \(`"invoice.pdf"`, `"external.jpg"`, and `plain.txt`\) to file generators \(a PDF generator, a URL generator, and – implicitly – a plaintext generator\). Note how the file generator invocation varies, based on the specific file generator in play.
+In the following example, a [Files](../files.md) action is defined, mapping filenames \(`"invoice.pdf"`, `"external.jpg"`, and `plain.txt`\) to file generators \(a PDF generator, a URL generator, and – implicitly – a plaintext generator\). Note how the file generator invocation varies, based on the specific file generator in play.
 
 ```javascript
 {% action "files" %}
@@ -48,7 +48,7 @@ In the following example, a [Files](../types/files.md) action is defined, mappin
 
 | Action | Usage |
 | :--- | :--- |
-| [Email](../types/email.md) | Uses file generators to prepare email attachments |
-| [Files](../types/files.md) | Uses file generators to prepare temporary URLs, from which the generated files can be downloaded |
-| [FTP](../types/ftp.md) | Uses file generators to prepare FTP uploads |
+| [Email](../email.md) | Uses file generators to prepare email attachments |
+| [Files](../files.md) | Uses file generators to prepare temporary URLs, from which the generated files can be downloaded |
+| [FTP](../ftp.md) | Uses file generators to prepare FTP uploads |
 

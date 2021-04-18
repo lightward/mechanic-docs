@@ -6,7 +6,7 @@ When a run is retried, any and all previous results for that specific run are lo
 
 ## Automatic retries
 
-When non-permanent errors are encountered, Mechanic will automatically retry a run. For [HTTP actions](../actions/types/http.md), this might be a connection error. For [Email actions](../actions/types/email.md), this might be a temporary outage with our email provider.
+When non-permanent errors are encountered, Mechanic will automatically retry a run. For [HTTP actions](../actions/http.md), this might be a connection error. For [Email actions](../actions/email.md), this might be a temporary outage with our email provider.
 
 Mechanic will automatically retry these runs up to 4 times, for a total of 5 attempts. Retries are subject to a variable backoff delay, of approximately 0:30, 1:16, 2:32, and 5:08 respectively, for each of the 4 retries.
 

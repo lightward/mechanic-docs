@@ -16,7 +16,7 @@ A preview has three critical purposes:
 
 Core to the design of Mechanic is the idea that we can make it easy to make it easy – in this case, making it easy for developers to show their users what a Mechanic task can be expected to do.
 
-By rendering preview actions, a task can prove to the user that it is interpreting their configuration as they intended. For example, by rendering a preview [Email](../../actions/types/email.md) action, a task can show the user that their configured email content is appearing as expected inside the email body. This increases trust in the task, and allows users confidence in the task's outcome, even before the task processes a live event.
+By rendering preview actions, a task can prove to the user that it is interpreting their configuration as they intended. For example, by rendering a preview [Email](../../actions/email.md) action, a task can show the user that their configured email content is appearing as expected inside the email body. This increases trust in the task, and allows users confidence in the task's outcome, even before the task processes a live event.
 
 ### For developers
 
@@ -28,7 +28,7 @@ At the platform level, Mechanic uses previews to determine what permissions a ta
 
 Mechanic gets this information from the actions that a task generates during preview, as well as from analysis of the Liquid lookups and GraphQL queries that a task uses during runtime.
 
-For example, if a task renders a [Shopify](../../actions/types/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using \`
+For example, if a task renders a [Shopify](../../actions/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using \`
 
 `, or observes the [shopify](../../../liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the`read\_customers\` scope.
 

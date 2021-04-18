@@ -1,6 +1,6 @@
 # Email
 
-The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../../platform/email/email-templates.md), and supports attachments constructed by [**file generators**](../file-generators/).
+The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../platform/email/email-templates.md), and supports attachments constructed by [**file generators**](file-generators/).
 
 ## Usage restrictions
 
@@ -18,7 +18,7 @@ Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provide
 | `reply_to` | Optional; a single reply-to address |
 | `from_display_name` | Optional; a string controlling the name \(but not the address\) of the sender |
 | `template` | Optional; a string naming an email template from the current Mechanic account |
-| `attachments` | Optional; an object specifying files to attach, using [file generators](../file-generators/) |
+| `attachments` | Optional; an object specifying files to attach, using [file generators](file-generators/) |
 | `...` | Additional options may be provided, and will be made available to email templates as variables, named after each option |
 
 ## Message formatting
@@ -43,11 +43,11 @@ By default, the sender address is a Mechanic address based on the store's myshop
 
 Changing the sender address involves adding it to the store's Mechanic account, and then configuring the email domain name with some DNS records for verification.
 
-For more on this, see [Custom email domain](../../../platform/email/custom-email-domain.md).
+For more on this, see [Custom email domain](../../platform/email/custom-email-domain.md).
 
 ## Template
 
-To achieve easily reusable headers and footers, Mechanic can be configured with one or more email templates, available in the Mechanic account settings. To learn more about configuring email templates, see [Email templates](../../../platform/email/email-templates.md).
+To achieve easily reusable headers and footers, Mechanic can be configured with one or more email templates, available in the Mechanic account settings. To learn more about configuring email templates, see [Email templates](../../platform/email/email-templates.md).
 
 To use a specific email template with the Email action, use the `template` option to specify the name of the desired email template.
 
@@ -77,7 +77,7 @@ The template named "order\_acknowledgement" could include the following Liquid, 
 This is the first item: {{ order_data.line_items.first.title }}
 ```
 
-But, because `order_data` is a plain [hash](../../../platform/liquid/keyword-literals/hash.md) based entirely on JSON data, instead of being an enhanced order object \(see [Environment variables](../../tasks/code/environment-variables.md)\), the following Liquid usage would fail:
+But, because `order_data` is a plain [hash](../../platform/liquid/keyword-literals/hash.md) based entirely on JSON data, instead of being an enhanced order object \(see [Environment variables](../tasks/code/environment-variables.md)\), the following Liquid usage would fail:
 
 ```javascript
 Remember order {{ order_data.customer.orders.any.first.number }}, your first ever?
@@ -88,7 +88,7 @@ Remember order {{ order_data.customer.orders.any.first.number }}, your first eve
 
 This action supports attachments given in Mechanic's file generator format. This structure allows the sender to construct a variety of files, including ad-hoc text-based files, PDFs rendered from HTML, files dynamically downloaded from external locations, and ZIP files containing any other files.
 
-For more on this, see [File generators](../file-generators/).
+For more on this, see [File generators](file-generators/).
 
 ## Examples
 

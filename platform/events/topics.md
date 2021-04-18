@@ -155,7 +155,7 @@ The User event domain is for custom, user-generated events, having any subject a
 
 Mechanic allows developers several ways to generate custom User events:
 
-* The [Event action](../../core/actions/types/event.md) can be used with any User event topic
+* The [Event action](../../core/actions/event.md) can be used with any User event topic
 * [Webhooks](../webhooks.md) may be configured to generate events using any User event topic
 
 ## Third-party

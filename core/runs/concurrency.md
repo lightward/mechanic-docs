@@ -7,7 +7,7 @@ To protect the health of the system and to ensure performance for every store on
 ## Limits
 
 * Each store's Mechanic account has a fixed run queue size, currently defaulting 5. \(This default is subject to change. Request a different limit by emailing team@usemechanic.com.\) This limit controls how many runs Mechanic will perform simultaneously for your store. With a limit of 5, this could mean 5 events, or 5 tasks, or 1 event and 2 tasks and 2 actions, or any other combination of runs. Additional runs will be performed as the preceding runs complete.
-* Mechanic will wait to perform a [Shopify action](../actions/types/shopify.md) until it is allowed to do so by the Shopify API rate limit for your store. [Read more about this, from Shopify.](https://help.shopify.com/en/api/getting-started/understanding-api-rate-limits)
+* Mechanic will wait to perform a [Shopify action](../actions/shopify.md) until it is allowed to do so by the Shopify API rate limit for your store. [Read more about this, from Shopify.](https://help.shopify.com/en/api/getting-started/understanding-api-rate-limits)
 
 ## Tips
 

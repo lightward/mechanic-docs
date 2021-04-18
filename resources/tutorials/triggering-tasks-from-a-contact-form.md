@@ -18,7 +18,7 @@ We are going to make a task in this cool Shopify app called Mechanic. ;\) Here's
 
 1. The task will add some JavaScript to the online Shopify store, which will capture the contents of the contact form when submitted, and then send those contents over to Mechanic via [webhook](../../platform/webhooks.md)
 2. Over on the Mechanic side, the task will receive the form contents, and format them as a CSV file
-3. The task will then send an [email](../../core/actions/types/email.md) to our CRM system, containing the CSV file as an attachment
+3. The task will then send an [email](../../core/actions/email.md) to our CRM system, containing the CSV file as an attachment
 
 ## The Mechanic task
 
@@ -27,7 +27,7 @@ Time to build the task! Out of Mechanic's entire toolkit, here's what we'll use:
 * [Online storefront JavaScript](../../core/tasks/advanced-settings/javascript.md)
 * [Mechanic webhooks](../../platform/webhooks.md)
 * [The csv Liquid filter](../../platform/liquid/filters.md#csv)
-* [The Email action](../../core/actions/types/email.md)
+* [The Email action](../../core/actions/email.md)
 
 ### Step 1: Create a new task, and subscribe to a custom event topic
 
@@ -175,7 +175,7 @@ When you're assembling your version of this task, make sure to update the task c
 
 Moving back to the task editor, the first step is to extract this data, and assemble it into something we can format using the [csv](../../platform/liquid/filters.md#csv) filter. Because that filter is made to handle tables of data, this means that we'll create an array of "rows", and fill it with arrays of "columns", and then pass the result into the csv filter.
 
-After that, we'll add an [Email](../../core/actions/types/email.md) action, configuring it with our CSV data as an attachment. We'll also add a few more task options that will make it easy to reconfigure this task in the future, without having to touch the task code.
+After that, we'll add an [Email](../../core/actions/email.md) action, configuring it with our CSV data as an attachment. We'll also add a few more task options that will make it easy to reconfigure this task in the future, without having to touch the task code.
 
 {% tabs %}
 {% tab title="Task code" %}

@@ -2,7 +2,7 @@
 
 ### What won't work
 
-For tasks that use [the Email action](../core/actions/types/email.md), you'll see a preview of the email itself in the task preview area.
+For tasks that use [the Email action](../core/actions/email.md), you'll see a preview of the email itself in the task preview area.
 
 ![](https://s3.amazonaws.com/helpscout.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/600f41e32e764327f87c22a8/file-PldK5WTNBy.png)
 
@@ -15,7 +15,7 @@ Importantly, _this feature does not include attachments_. \(Under the hood, this
 The best way to approach this is by creating a brand new task, which...
 
 * ... subscribes to mechanic/user/trigger, allowing you to run the task on demand
-* ... uses [the Files action](../core/actions/types/files.md), using the same data that you're using in your "email" action's attachments
+* ... uses [the Files action](../core/actions/files.md), using the same data that you're using in your "email" action's attachments
 
 \(This technique leverages the fact that Mechanic generates files in the same way, across the "email" and "files" actions; see [File generators](../core/actions/file-generators/) for more on this.\)
 

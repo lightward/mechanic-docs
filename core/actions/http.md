@@ -62,7 +62,7 @@ This action returns an object containing the following keys:
 
 Because HTTP allows for the same header name to be present multiple times, this action's result specifies an array for each response header – even if the header was only present once.
 
-To retrieve a specific header in a task responding to [mechanic/actions/perform](../), use something like this:
+To retrieve a specific header in a task responding to [mechanic/actions/perform](./), use something like this:
 
 ```javascript
 {% log response_type_header: action.run.result.headers['content-type'][0] %}
@@ -80,7 +80,7 @@ By default, this action will consider any valid HTTP response to be a success, r
 
 However, because 5xx responses should often be considered a retryable error, this action supports the `error_on_5xx` option. When set to `true`, this action will interpret any 5xx responses as an action error.
 
-As with all runs, HTTP action errors are subject to [Mechanic's retry policy](../../runs/retries.md).
+As with all runs, HTTP action errors are subject to [Mechanic's retry policy](../runs/retries.md).
 
 ## Example
 

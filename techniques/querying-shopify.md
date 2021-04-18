@@ -7,7 +7,7 @@ Mechanic supports three methods for fetching data from Shopify:
 * [GraphQL with bulk operations](https://secure.helpscout.net/docs/5e28a1c704286364bc9443ab/article/5e28a1e104286364bc9443ea/#graphql-with-bulk-operations)
 
 {% hint style="info" %}
-This article is about reading data from Shopify. Use the [Shopify](../core/actions/types/shopify.md) action to write data.
+This article is about reading data from Shopify. Use the [Shopify](../core/actions/shopify.md) action to write data.
 {% endhint %}
 
 ## Liquid objects <a id="liquid-objects"></a>
@@ -119,7 +119,7 @@ Or, if you're working with multiple pages of data, you might use set up a forloo
 You'll note that this code includes stub data when running during a preview event. This technique is extremely useful for generating [dynamic preview actions](../core/tasks/previews/), by allowing you to exercise your entire task script.
 {% endhint %}
 
-Writing data back to Shopify is also possible, using [the Shopify action](../core/actions/types/shopify.md):
+Writing data back to Shopify is also possible, using [the Shopify action](../core/actions/shopify.md):
 
 ```javascript
 {% action "shopify" %}
@@ -139,7 +139,7 @@ Writing data back to Shopify is also possible, using [the Shopify action](../cor
 
 This also means that the hardest part of using GraphQL in Mechanic is writing the query itself. :\) For help with this, we recommend installing [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/). It provides an environment where, using auto-complete and built-in documentation, you can rapidly build the right query for your task.
 
-Note: GraphQL queries \(excluding whitespace\) are limited to 50,000 characters. That's a hard limit, enforced on Shopify's end – if you bump up against it, you'll need to adjust your query strategy to always stay under that limit. If you're saving large values to a metafield, for example, consider separating those values using GraphQL variables, keeping the query itself trim \(see [GraphQL with variables](../core/actions/types/shopify.md#graphql-with-variables).\)
+Note: GraphQL queries \(excluding whitespace\) are limited to 50,000 characters. That's a hard limit, enforced on Shopify's end – if you bump up against it, you'll need to adjust your query strategy to always stay under that limit. If you're saving large values to a metafield, for example, consider separating those values using GraphQL variables, keeping the query itself trim \(see [GraphQL with variables](../core/actions/shopify.md#graphql-with-variables).\)
 
 ### Use GraphQL when...
 

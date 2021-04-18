@@ -12,7 +12,7 @@ Each task has an advanced option called "[Perform action runs in sequence](../ta
 
 ## Guaranteeing run order for tasks
 
-The best tool to leverage here is the [Event action](../actions/types/event.md), coupled with action sequences \(see above\).
+The best tool to leverage here is the [Event action](../actions/event.md), coupled with action sequences \(see above\).
 
 1. Begin by making a list of the tasks for which you need to guarantee run order, sorted by the desired run order. For these purposes, all of these tasks should subscribe to the same event topic.
 2. Beginning with the task that should run first, \(a\) enable "Perform action runs in sequence", and \(b\) add an "event" action at the very end of your task script. The intent here is for this action to kick off a unique event topic that the _second_ task should the subscribe to.

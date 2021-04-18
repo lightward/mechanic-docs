@@ -6,8 +6,8 @@ Mechanic is an event-driven platform. This means that all data _used_ by Mechani
 
 To create events using third-party data, use one of these techniques:
 
-* Use [the HTTP action](../core/actions/types/http.md) to request the data you require, subscribing to mechanic/actions/perform to actually _use_ the downloaded data.
-* Use [Couchdrop's Shared Links](https://couchdrop.io/features/shared-links) feature with an external FTP server or other cloud storage provider, to make any file available via a secret URL. Then, use [the HTTP action](../core/actions/types/http.md) to request that data.
+* Use [the HTTP action](../core/actions/http.md) to request the data you require, subscribing to mechanic/actions/perform to actually _use_ the downloaded data.
+* Use [Couchdrop's Shared Links](https://couchdrop.io/features/shared-links) feature with an external FTP server or other cloud storage provider, to make any file available via a secret URL. Then, use [the HTTP action](../core/actions/http.md) to request that data.
 * Use Mechanic's [webhooks](../platform/webhooks.md) to POST your data directly to Mechanic.
 * Use inbound email to deliver your data to Mechanic, either in the message body or as an attachment. See [Receiving email](https://docs.usemechanic.com/article/445-receiving-email).
 * If you only need to move files around, without actually using the file _contents_, use [the "files" action](https://docs.usemechanic.com/article/449-the-files-action) with [the "url" generator](https://docs.usemechanic.com/article/338-generating-files#url) to download external files to a temporary Mechanic URL.

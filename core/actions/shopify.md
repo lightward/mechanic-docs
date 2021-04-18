@@ -5,7 +5,7 @@ The **Shopify** action sends requests to the [Shopify admin API](https://shopify
 {% hint style="info" %}
 In Mechanic, writing data to Shopify must happen using an action. While the Shopify action is usually the right choice, the [HTTP](http.md) action can also be used for this purpose, by manually configuring authentication headers.
 
-To learn more, see [Interacting with Shopify](../../interacting-with-shopify/).
+To learn more, see [Interacting with Shopify](../interacting-with-shopify/).
 {% endhint %}
 
 ## Options
@@ -14,7 +14,7 @@ This action has several usage styles, each with a different set of constraints o
 
 ### GraphQL
 
-This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). In this style, a single GraphQL query string is supplied as the action options. The [action](../../../platform/liquid/tags/action.md) tag has specific support for this action type, allowing this string to be provided as the contents of an action block.
+This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). In this style, a single GraphQL query string is supplied as the action options. The [action](../../platform/liquid/tags/action.md) tag has specific support for this action type, allowing this string to be provided as the contents of an action block.
 
 {% tabs %}
 {% tab title="Liquid" %}

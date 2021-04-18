@@ -2,7 +2,7 @@
 
 Merchants commonly use Mechanic for adding or removing tags from customers, orders, products, and other Shopify resources.
 
-When writing your task scripts, use [a Shopify action](../core/actions/types/shopify.md) to add or remove tags via the Shopify API. There are two usages available: one using GraphQL, and one using the REST API.
+When writing your task scripts, use [a Shopify action](../core/actions/shopify.md) to add or remove tags via the Shopify API. There are two usages available: one using GraphQL, and one using the REST API.
 
 ## GraphQL
 
