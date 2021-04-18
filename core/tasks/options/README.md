@@ -1,6 +1,6 @@
 # Options
 
-\*\*\*\*[**Tasks**](../) accept user configuration via **options**. Options are created dynamically, by reference: each option referenced in a task's [**code**](../code/) results in that option being added to the task's configuration form. In the option reference `{{ options.foo_bar__required }}`, the option **key** is `foo_bar__required`. The appearance and behavior of the option's form element is based on **flags** in in the option key – in this example, only the "required" flag is in use.
+[**Tasks**](../) accept user configuration via **options**. Options are created dynamically, by reference: each option referenced in a task's [**code**](../code/) results in that option being added to the task's configuration form. In the option reference `{{ options.foo_bar__required }}`, the option **key** is `foo_bar__required`. The appearance and behavior of the option's form element is based on **flags** in in the option key – in this example, only the "required" flag is in use.
 
 Mechanic flags provide only limited option validation. A task may define [**custom validation**](custom-validation.md), by rendering error objects according to the task's its own validation logic.
 
