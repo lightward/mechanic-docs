@@ -74,7 +74,8 @@
   * [Pauses](core/runs/pauses.md)
 * [Interacting with Shopify](core/shopify/README.md)
   * [API versions](core/shopify/api-versions.md)
-* [Integrations](core/integrations.md)
+* [Integrations](core/integrations/README.md)
+  * [Smile.io](core/integrations/smile.io.md)
 
 ## Platform
 
