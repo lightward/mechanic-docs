@@ -10,6 +10,6 @@
 ## What it contains
 
 * [Every property from the Article resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/online-store/article)
-* The related [blog object](blog-object.md): `{{ article.blog }}`
-* The related [metafields object](metafields-object.md): `{{ article.metafields }}`  
+* The related [blog object](blog.md): `{{ article.blog }}`
+* The related [metafields object](metafields.md): `{{ article.metafields }}`  
 

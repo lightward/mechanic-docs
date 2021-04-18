@@ -2,7 +2,7 @@
 
 ## How to access it
 
-* Use `{% for image in product.images %}` in tasks responding to shopify/products events, or any time you have [a product object](product-object.md)
+* Use `{% for image in product.images %}` in tasks responding to shopify/products events, or any time you have [a product object](product.md)
 
 ## What it contains
 

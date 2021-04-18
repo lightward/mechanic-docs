@@ -9,5 +9,5 @@
 ## What it contains
 
 * Every property from the Collection resource in the Shopify REST Admin API — see documentation for [custom collections](https://shopify.dev/docs/admin-api/rest/reference/products/customcollection), and for [automatic/smart collections](https://shopify.dev/docs/admin-api/rest/reference/products/smartcollection)
-* An array of related [product objects](product-object.md), ordered by their position in the collection: `{{ collection.products }}` 
+* An array of related [product objects](product.md), ordered by their position in the collection: `{{ collection.products }}` 
 

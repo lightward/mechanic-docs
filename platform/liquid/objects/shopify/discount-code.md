@@ -9,10 +9,10 @@ How to access it
 ## What it contains
 
 * [Every property from the DiscountCode resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode)
-* The related [price rule object](price-rule-object.md): `{{ price_rule.discount_codes }}`
+* The related [price rule object](price-rule.md): `{{ price_rule.discount_codes }}`
 
 ### Related articles
 
-* [The shop object](shop-object.md)
-* [The price rule object](price-rule-object.md)
+* [The shop object](shop.md)
+* [The price rule object](price-rule.md)
 

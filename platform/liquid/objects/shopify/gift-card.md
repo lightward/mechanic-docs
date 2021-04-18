@@ -12,6 +12,6 @@ Note: This API is only available to Shopify Plus stores, who have configured the
 ## What it contains
 
 * [Every property from the Gift Card resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/plus/giftcard)
-* The related [order object](order-object.md): `{{ gift_card.order }}` 
+* The related [order object](order.md): `{{ gift_card.order }}` 
 * The related [customer object](customer-object.md): `{{ gift_card.customer }}`
 

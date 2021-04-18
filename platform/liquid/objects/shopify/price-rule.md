@@ -12,6 +12,6 @@
 
 ### Related articles
 
-* [The shop object](shop-object.md)
-* [The discount code object](discount-code-object.md)
+* [The shop object](shop.md)
+* [The discount code object](discount-code.md)
 

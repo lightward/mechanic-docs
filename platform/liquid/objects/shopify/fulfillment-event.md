@@ -1,4 +1,4 @@
-# Fulfillment\_event object
+# Fulfillment event object
 
 ## How to access it
 
@@ -7,6 +7,6 @@
 ## What it contains
 
 * [Every property from the FulfillmentEvent resource in the Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentevent)
-* The related [order object](order-object.md): `{{ fulfillment_event.order }}`
-* The related [fulfillment object](fulfillment-object.md): `{{ fulfillment_event.fulfillment }}`
+* The related [order object](order.md): `{{ fulfillment_event.order }}`
+* The related [fulfillment object](fulfillment.md): `{{ fulfillment_event.fulfillment }}`
 

@@ -2,7 +2,7 @@
 
 ## How to access it
 
-* Use `{% for risk in order.risks %}` in tasks responding to `shopify/orders`  events, or in any other scenario with an [order object](order-object.md)
+* Use `{% for risk in order.risks %}` in tasks responding to `shopify/orders`  events, or in any other scenario with an [order object](order.md)
 * Use `{{ order.risks[12345].message }}` to retrieve a specific order risk, given an order object
 
 ## What it contains
