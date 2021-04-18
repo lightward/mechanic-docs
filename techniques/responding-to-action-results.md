@@ -2,7 +2,7 @@
 
 In writing a Mechanic task, it may be necessary to do more than a single round of generating actions. The task may need to act based on the results of an action, possibly performing additional actions depending on those results.
 
-To achieve this flow, subscribe to the mechanic/actions/perform event topic. When a task includes this subscription, Mechanic will generate an event with that topic for every action that the task completes.
+To achieve this flow, subscribe to the **mechanic/actions/perform** event topic. When a task includes this subscription, Mechanic will generate an event with that topic for every action that the task completes.
 
 This strategy is commonly used with the [HTTP action](../core/actions/http.md), for reading data from third-party APIs \(see [Working with external APIs](working-with-external-apis.md)\).
 

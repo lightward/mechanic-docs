@@ -2,7 +2,7 @@
 
 The **HTTP** action performs HTTP requests. It is commonly used to invoke third-party APIs.
 
-All HTTP methods are supported; the results of HTTP requests may be reused by a task via [mechanic/actions/perform]().
+All HTTP methods are supported; the results of HTTP requests may be reused by a task via [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
 
 ## Options
 
