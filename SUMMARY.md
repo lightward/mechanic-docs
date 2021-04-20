@@ -184,6 +184,7 @@
 * [Can I query external APIs?](faq/can-i-query-external-apis.md)
 * [Why can't I access the Shopify API during preview mode?](faq/why-cant-i-access-the-shopify-api-during-preview-mode.md)
 * [How do marketing preferences work with Mechanic?](faq/how-do-marketing-preferences-work-with-mechanic.md)
+* [What's possible with timeline comments?](faq/whats-possible-with-timeline-comments.md)
 
 ---
 
