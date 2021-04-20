@@ -500,7 +500,28 @@ hmac_sha256: 4b8e2bcf66f95b21f74f491eacc1459b0c9ea6723355174af52ded391f9326ea
 
 ### size
 
+Returns the integer length of the input string.
+
 ### slice
+
+{% hint style="info" %}
+This filter also works for arrays!
+{% endhint %}
+
+This filter accepts an integer offset, and an optional integer length \(defaulting to 1\). It returns a substring, beginning at the provided index, having the provided length.
+
+Negative offsets begin counting from the end of the string.
+
+```javascript
+{{ "12345" | slice: 3 }}
+=> "4"
+
+{{ "12345" | slice: 3, 2 }}
+=> "45"
+
+{{ "12345" | slice: -3, 2 }}
+=> "34"
+```
 
 ### split
 
@@ -894,6 +915,27 @@ This filter can be used on any array. Used without any arguments, it returns a s
 
 {{ "1,2,3" | split: "," | sample: 2 | join: "," }}
 => "3,1"
+```
+
+### slice
+
+{% hint style="info" %}
+This filter also works for strings!
+{% endhint %}
+
+This filter accepts an integer offset, and an optional integer length \(defaulting to 1\). If the length is 1, it returns the single element found at that index of the input array. Otherwise, it returns a slice of the array, beginning at the provided index, having the provided length.
+
+Negative offsets begin counting from the end of the array.
+
+```javascript
+{{ "1,2,3,4,5" | split: "," | slice: 3 }}
+=> "4"
+
+{{ "1,2,3,4,5" | split: "," | slice: 3, 2 | join: "," }}
+=> "4,5"
+
+{{ "1,2,3,4,5" | split: "," | slice: -3, 2 | join: "," }}
+=> "3,4"
 ```
 
 ### size
