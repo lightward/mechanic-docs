@@ -68,6 +68,8 @@ device: iPhone<br>device name: iPhone<br>device brand: Apple<br>device model: iP
 
 Supports converting a two-dimensional array to a CSV string, and back again.
 
+The parse\_csv filter accepts a "headers" option; when set to `true`, this filter will interpret the first line of input as containing headers for the CSV table, and will return an array of hashes whose keys map to items in that header row.
+
 {% tabs %}
 {% tab title="csv" %}
 ```javascript
@@ -133,6 +135,45 @@ Order Name,Order ID,Order Date
 {% endfor %}
 
 {{ orders | json }}
+```
+{% endtab %}
+
+{% tab title="parse\_csv with headers" %}
+```javascript
+{% comment %}
+  Note the dashes used in the capture/endcapture tags!
+  They make sure that we don't end up with blank lines
+  at the beginning and end of our CSV string.
+{% endcomment %}
+{% capture csv_string -%}
+Order Name,Order ID,Order Date
+#1234,1234567890,2021/03/23
+#1235,1234567891,2021/03/24
+{%- endcapture %}
+
+{% comment %}
+  Note: the order ID is a string, in this resulting set of
+  hashes, not an integer!
+{% endcomment %}
+{% assign orders = csv_string | parse_csv: headers: true %}
+
+{{ orders | json }}
+{% comment %}
+  The result:
+
+  [
+    {
+      "Order Name": "#1234",
+      "Order ID": "1234567890",
+      "Order Date": "2021/03/23"
+    },
+    {
+      "Order Name": "#1235",
+      "Order ID": "1234567891",
+      "Order Date": "2021/03/24"
+    }
+  ]
+{% endcomment %}
 ```
 {% endtab %}
 {% endtabs %}
@@ -725,6 +766,48 @@ This filter is particularly useful when performing work in batches, by making it
 {% endtab %}
 {% endtabs %}
 
+### index\_by \*
+
+This filter accepts the name of an object property or attribute, and returns a hash that whose values are every element in the array, keyed by every element's corresponding property or attribute.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% capture variants_json %}
+  [
+    {
+      "id": 12345,
+      "sku": "ONE"
+    },
+    {
+      "id": 67890,
+      "sku": "TWO"
+    }
+  ]
+{% endcapture %}
+
+{% assign variants = variants_json | parse_json %}
+
+{{ variants | index_by: "sku" | json }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```javascript
+{
+  "ONE": {
+    "id": 12345,
+    "sku": "ONE"
+  },
+  "TWO": {
+    "id": 67890,
+    "sku": "TWO"
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ### join
 
 Creates a string from the elements of an array using a character passed as an argument.
@@ -767,6 +850,32 @@ Given an array of objects that contain attributes \(e.g. `name`\) and values \(e
 {% tab title="Output" %}
 ```text
 AppleOrangePepperCheese
+```
+{% endtab %}
+{% endtabs %}
+
+### push \* <a id="sample"></a>
+
+This filter appends any number of arguments onto the provided array, returning a new array, leaving the original unmodified.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% assign count_to_three = "one,two,three" | split: "," %}
+
+{% assign count_to_five = count_to_three | push: "four", "five" %}
+
+{{ count_to_five | join: newline }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+one
+two
+three
+four
+five
 ```
 {% endtab %}
 {% endtabs %}
@@ -838,6 +947,31 @@ Removes any duplicates in an array, resulting in a new array of distinct values.
 {% tab title="Output" %}
 ```text
 Honda Ford Toyota Jeep VW
+```
+{% endtab %}
+{% endtabs %}
+
+### unshift
+
+This filter prepends any number of arguments onto the provided array, returning a new array, leaving the original unmodified.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% assign count_two_three = "two,three" | split: "," %}
+
+{% assign count_to_three_and_start_at_zero = count_two_three | unshift: "zero", "one" %}
+
+{{ count_to_three_and_start_at_zero | join: newline }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+zero
+one
+two
+three
 ```
 {% endtab %}
 {% endtabs %}
