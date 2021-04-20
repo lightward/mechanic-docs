@@ -2,7 +2,7 @@
 
 ## What's possible
 
-* Reading timeline [comments](https://help.shopify.com/en/api/graphql-admin-api/reference/object/commentevent), and [other events](https://help.shopify.com/en/api/graphql-admin-api/reference/object/basicevent), for orders, draft orders, customers, and inventory transfers.
+* Reading timeline [comments](https://shopify.dev/docs/admin-api/graphql/reference/events/commentevent), and [other events](https://shopify.dev/docs/admin-api/graphql/reference/events/basicevent), for orders, draft orders, customers, and inventory transfers.
 * Writing order and customer _notes_. This is _not the same_ as the timeline comments. We mention it here because this frequently makes for an acceptable fallback approach.
 
 ## What's not possible
