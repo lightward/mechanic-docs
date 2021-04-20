@@ -4,6 +4,8 @@ The **FTP** action can upload and download files via [FTP](https://en.wikipedia.
 
 A connecting service like [Couchdrop](https://couchdrop.io/) can be used to relay these uploads on to other cloud locations, like Dropbox, Google Drive, and Amazon S3.
 
+A single FTP action may download a maximum of 20MB of data, across all downloaded files.
+
 ## Options
 
 | Option | Description |
@@ -50,7 +52,7 @@ pZ/WFoT82brhooSfJDue14C0Y=
 
 ### File paths
 
-The `uploads` option is an object whose keys are file paths. If only the filename is given \(e.g. `"sample.pdf"`\), the generated file will be uploaded to the home directory of the user. If a relative path \(e.g. `"subdirectory/sample.pdf"`\) or absolute path \(e.g. `"/tmp/sample.pdf"`\) is given, it will be respected.
+Both `uploads` and `downloads` allow the task author to define file paths. If only the filename is given \(e.g. `"sample.pdf"`\), the file will be resolved in the home directory of the user. If a relative path \(e.g. `"subdirectory/sample.pdf"`\) or absolute path \(e.g. `"/tmp/sample.pdf"`\) is given, it will be respected accordingly.
 
 #### Example
 
