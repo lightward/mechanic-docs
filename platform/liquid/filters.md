@@ -854,7 +854,7 @@ AppleOrangePepperCheese
 {% endtab %}
 {% endtabs %}
 
-### push \* <a id="sample"></a>
+### push \*
 
 This filter appends any number of arguments onto the provided array, returning a new array, leaving the original unmodified.
 
@@ -880,11 +880,11 @@ five
 {% endtab %}
 {% endtabs %}
 
-### reverse <a id="sample"></a>
+### reverse
 
 This filter returns a new array, containing the contents of the original in reverse order.
 
-### sample \* <a id="sample"></a>
+### sample \*
 
 This filter can be used on any array. Used without any arguments, it returns a single random element from the array. Provide an integer argument to return another array of that size, containing a random subset of the input array.
 
