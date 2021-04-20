@@ -1,6 +1,14 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [FAQ](faq/README.md)
+  * [My task is failing because of a permissions problem. Why?](faq/my-task-is-failing-because-of-a-permissions-problem.md)
+  * [How do I preview email attachments?](faq/how-do-i-preview-email-attachments.md)
+  * [How can I update existing metafields?](faq/how-can-i-update-existing-metafields.md)
+  * [Can I query external APIs?](faq/can-i-query-external-apis.md)
+  * [Why can't I access the Shopify API during preview mode?](faq/why-cant-i-access-the-shopify-api-during-preview-mode.md)
+  * [How do marketing preferences work with Mechanic?](faq/how-do-marketing-preferences-work-with-mechanic.md)
+  * [What's possible with timeline comments?](faq/whats-possible-with-timeline-comments.md)
 * [🙋 "I need something custom!"](custom.md)
 
 ## Resources
@@ -175,20 +183,6 @@
 * [Working with external APIs](techniques/working-with-external-apis.md)
 * [Finding a resource ID](techniques/finding-a-resource-id.md)
 * [Securing Mechanic webhooks](techniques/securing-mechanic-webhooks.md)
-
----
-
-* [FAQ](faq/README.md)
-  * [My task is failing because of a permissions problem. Why?](faq/my-task-is-failing-because-of-a-permissions-problem.md)
-
-## Frequently Asked Questions <a id="faq-old"></a>
-
-* [How do I preview email attachments?](faq-old/how-do-i-preview-email-attachments.md)
-* [How can I update existing metafields?](faq-old/how-can-i-update-existing-metafields.md)
-* [Can I query external APIs?](faq-old/can-i-query-external-apis.md)
-* [Why can't I access the Shopify API during preview mode?](faq-old/why-cant-i-access-the-shopify-api-during-preview-mode.md)
-* [How do marketing preferences work with Mechanic?](faq-old/how-do-marketing-preferences-work-with-mechanic.md)
-* [What's possible with timeline comments?](faq-old/whats-possible-with-timeline-comments.md)
 
 ---
 
