@@ -951,7 +951,7 @@ Honda Ford Toyota Jeep VW
 {% endtab %}
 {% endtabs %}
 
-### unshift
+### unshift \*
 
 This filter prepends any number of arguments onto the provided array, returning a new array, leaving the original unmodified.
 
