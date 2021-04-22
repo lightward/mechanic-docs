@@ -48,7 +48,7 @@ mutation {
 ```
 {% endtab %}
 
-{% tab title="" %}
+{% tab title="Response" %}
 ```cpp
 {
   "data": {
@@ -67,7 +67,7 @@ mutation {
 ## Great resources for learning GraphQL mutations
 
 {% hint style="success" %}
-[https://shopify.dev/concepts/gra](https://shopify.dev/concepts/graphql/mutations)[hql/mutations](https://shopify.dev/concepts/graphql/mutations)
+[https://shopify.dev/concepts/graphql/mutations](https://shopify.dev/concepts/graphql/mutations)
 {% endhint %}
 
 {% hint style="success" %}
