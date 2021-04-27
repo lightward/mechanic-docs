@@ -90,9 +90,12 @@ This task prompts the user for text input, and submits it to a public API that r
 {% tab title="Subscriptions" %}
 ```text
 mechanic/user/text
+mechanic/actions/perform
 ```
 {% endtab %}
+{% endtabs %}
 
+{% tabs %}
 {% tab title="Code" %}
 ```javascript
 {% if event.topic == "mechanic/user/text" %}
