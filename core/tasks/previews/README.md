@@ -28,9 +28,7 @@ At the platform level, Mechanic uses previews to determine what permissions a ta
 
 Mechanic gets this information from the actions that a task generates during preview, as well as from analysis of the Liquid lookups and GraphQL queries that a task uses during runtime.
 
-For example, if a task renders a [Shopify](../../actions/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using \`
-
-`, or observes the [shopify](../../../liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the`read\_customers\` scope.
+For example, if a task renders a [Shopify](../../actions/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using `shop.customers`, or observes the [shopify](../../../platform/liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the `read_customers` scope.
 
 ## Detecting preview events
 
