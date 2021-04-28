@@ -15,6 +15,7 @@ An **action type** determines the class of operation to be performed. While acti
 | [Email](email.md) | Sending transactional email |
 | [Event](event.md) | Generating custom user events |
 | [Files](files.md) | Generating files of various types, storing them at a temporary Mechanic-provided URL |
+| [FTP](ftp.md) | Performing FTP file uploads and downloads |
 | [HTTP](http.md) | Performing HTTP requests |
 | [Shopify](shopify.md) | Sending requests to the Shopify Admin API, supporting both REST and GraphQL |
 
