@@ -124,7 +124,7 @@ In Mechanic, a **hash** is a simple type of object that has no additional intell
 
 ### Creating a hash
 
-In Mechanic, hashes can be created using the [hash](types.md) literal, or by using any of the "parse" [filters](../filters.md).
+In Mechanic, hashes can be created using the [hash](../keyword-literals/hash.md) literal, or by using any of the "parse" [filters](../filters.md).
 
 {% hint style="info" %}
 This only applies to Mechanic. Liquid objects and hashes cannot be created in Shopify.
