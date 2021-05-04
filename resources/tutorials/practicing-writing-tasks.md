@@ -43,7 +43,7 @@ Working on getting better at task-writing? See [Writing a high-quality task](../
 
 ### 9. Move to GraphQL for scanning customers
 
-* See [Querying Shopify](../../techniques/querying-shopify.md) to learn about looping through results using cursors
+* See [Querying Shopify](../../core/shopify/read/) to learn about looping through results using cursors
 
 ### 10. Move to GraphQL bulk operations for scanning customers
 

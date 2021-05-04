@@ -75,6 +75,13 @@
   * [Retries](core/runs/retries.md)
   * [Pauses](core/runs/pauses.md)
 * [Interacting with Shopify](core/shopify/README.md)
+  * [Responding to events](core/shopify/events.md)
+  * [Reading data](core/shopify/read/README.md)
+    * [Liquid objects](core/shopify/read/liquid-objects.md)
+    * [GraphQL in Liquid](core/shopify/read/graphql-in-liquid.md)
+    * [Bulk operations](core/shopify/read/bulk-operations.md)
+    * [The Shopify action](core/shopify/read/the-shopify-action.md)
+  * [Writing data](core/shopify/write.md)
   * [API versions](core/shopify/api-versions.md)
 
 ## Platform
@@ -168,7 +175,6 @@
 ## Techniques
 
 * [Writing a high-quality task](techniques/writing-a-high-quality-task.md)
-* [Querying Shopify](techniques/querying-shopify.md)
 * [Tagging Shopify resources](techniques/tagging-shopify-resources.md)
 * [Debouncing events](techniques/debouncing-events.md)
 * [Responding to action results](techniques/responding-to-action-results.md)

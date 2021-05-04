@@ -4,9 +4,13 @@ Fetching large amounts of data can exhaust the Shopify API limit for your Mechan
 
 To solve this general problem, Shopify offers [the bulk operations GraphQL API](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api). This API allows you to submit a query to Shopify for processing, the results to be stored elsewhere to be retrieved once the query is complete.
 
+{% hint style="info" %}
+For a review of how Mechanic uses bulk operations, start here: [Reading data / Bulk operations](../../core/shopify/read/bulk-operations.md).
+{% endhint %}
+
 ## Great resources for learning Shopify GraphQL bulk operations
 
-### Key concepts to read up on
+### Key concepts
 
 * [ ] bulkOperationRunQuery
 * [ ] Polling your operation's status \(don't worry Mechanic takes care of this for you\)
