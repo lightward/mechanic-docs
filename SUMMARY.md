@@ -185,6 +185,7 @@
 ---
 
 * [FAQ](faq/README.md)
+  * [Why are my tasks delayed or not running?](faq/why-are-my-tasks-delayed-or-not-running.md)
   * [My task is failing because of a permissions problem. Why?](faq/my-task-is-failing-because-of-a-permissions-problem.md)
   * [How do I preview email attachments?](faq/how-do-i-preview-email-attachments.md)
   * [How can I update existing metafields?](faq/how-can-i-update-existing-metafields.md)
