@@ -185,6 +185,7 @@
 ---
 
 * [FAQ](faq/README.md)
+  * [Why am I seeing a different price than on the app store?](faq/why-am-i-seeing-a-different-price-than-on-the-app-store.md)
   * [Do you have a partner-friendly plan?](faq/do-you-have-a-partner-friendly-plan.md)
   * [Why are my tasks delayed or not running?](faq/why-are-my-tasks-delayed-or-not-running.md)
   * [My task is failing because of a permissions problem. Why?](faq/my-task-is-failing-because-of-a-permissions-problem.md)
