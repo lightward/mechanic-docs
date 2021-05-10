@@ -1,11 +1,17 @@
 # Bulk operations
 
-Mechanic supports Shopify's [bulk operations GraphQL API](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api), allows developers to submit a query to Shopify for asynchronous processing, and making the results available to the task once complete.
+Mechanic supports Shopify's bulk operations GraphQL API, allows developers to submit a query to Shopify for asynchronous processing, and making the results available to the task once complete.
 
 This approach dodges the issues inherent in synchronous methods of reading data \(like GraphQL via the shopify filter, or REST via Liquid objects\). Unlike these methods, the bulk operations API does not exhaust Shopify API limit for your Mechanic account, and therefore does not slow down other tasks. It also does not require any special logic for pagination, since Shopify handles all data collection.
 
+{% hint style="info" %}
+This article reviews Mechanic's support for bulk operations. If this feature is new to you, start by reading Shopify's tutorial on the bulk operations API: [https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api)
+{% endhint %}
+
 {% hint style="warning" %}
-Shopify only permits apps to run a single bulk operation at a time, per store. Requests to create another bulk operation, while one is already running, will result in an error.
+Shopify only permits apps to run a single bulk operation at a time, per store. Actions that create another bulk operation, while one is already running, will return an error.
+
+This area deserves improvement! To discuss the future of this behavior, visit the related feature request: [https://mechanic.canny.io/futures/p/bulk-operation-retries](https://mechanic.canny.io/futures/p/bulk-operation-retries)
 {% endhint %}
 
 ## Usage
@@ -14,15 +20,11 @@ Shopify only permits apps to run a single bulk operation at a time, per store. R
 
 Use the [Shopify](../../actions/shopify.md) action to execute a bulkOperationRunQuery mutation \(see [Shopify's tutorial](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api#bulk-query-overview)\). Mechanic will detect this mutation, and will begin monitoring the bulk operation in progress.
 
-{% hint style="info" %}
-We've found that processing objects is easiest when you can identify each object by its type. To that end, try including `__typename` in the list of selections for each node, right alongside `id`.
-{% endhint %}
-
 ### Subscribing to the results
 
-Add a [subscription](../../tasks/subscriptions.md) to the `mechanic/shopify/bulk_operation` event topic.
+Add a [subscription](../../tasks/subscriptions.md) to mechanic/shopify/bulk\_operation.
 
-Once Mechanic detects that the bulk operation has been completed, the platform will automatically re-invoked the same task with a `mechanic/shopify/bulk_operation` event, containing the bulk operation's data, when the bulk operation is complete.
+Once Mechanic detects that the bulk operation has been completed, the platform will automatically re-invoked the same task with an event having the topic "mechanic/shopify/bulk\_operation", containing the bulk operation's data, when the bulk operation is complete. \(As with [mechanic/actions/perform](../../../techniques/responding-to-action-results.md), Mechanic will only invoke the current task when the bulk operation completes; no other task will be notified.\)
 
 ### Accessing the results
 
@@ -30,10 +32,18 @@ When processing a mechanic/shopify/bulk\_operation event, the task will have acc
 
 The set of objects returned by the bulk operation is made available as `bulkOperation.objects`, allowing you to scan returned data immediately, using an expression like `{% for object in bulkOperation.objects %}`.
 
+In most cases, every object that has an ID will appear as a separate object, in the same set of objects. For example, if a product and five variants are returned, there will be six objects returned – the variants are not nested inside of the product object.
+
 The JSON objects returned from bulk operation queries each include a `"__parentId"` attribute for connected objects, containing the parent object's ID. To make managing task scripts easier, Mechanic allows you to simply call `{{ object.__parent }}` to look up an object's parent.
 
 {% hint style="info" %}
-We've found that processing objects is easiest when you can identify each object by its type. To that end, try updating your bulk operation query to include `__typename` in the list of selections for each node, right alongside `id`.
+Because all objects are returned as peers in a flat set, we've found that processing objects is easiest when you can easily identify each object by its type. To that end, try including `__typename` in the list of selections for each node, right alongside `id`.
+
+This technique allows the array of objects to be quickly filtered by type:
+
+```javascript
+{% assign customers = bulkOperation.objects | where: "__typename", "Customer" %}
+```
 {% endhint %}
 
 ## Example
