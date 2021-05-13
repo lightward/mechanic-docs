@@ -505,7 +505,7 @@ Returns the integer length of the input string.
 ### slice
 
 {% hint style="info" %}
-This filter also works for arrays!
+This filter also works for arrays! And there's a different behavior available for hashes.
 {% endhint %}
 
 This filter accepts an integer offset, and an optional integer length \(defaulting to 1\). It returns a substring, beginning at the provided index, having the provided length.
@@ -920,7 +920,7 @@ This filter can be used on any array. Used without any arguments, it returns a s
 ### slice
 
 {% hint style="info" %}
-This filter also works for strings!
+This filter also works for strings! And there's a different behavior available for hashes.
 {% endhint %}
 
 This filter accepts an integer offset, and an optional integer length \(defaulting to 1\). If the length is 1, it returns the single element found at that index of the input array. Otherwise, it returns a slice of the array, beginning at the provided index, having the provided length.
@@ -1079,9 +1079,59 @@ The compact filter is [a long-standing part of Liquid itself](http://shopify.git
 {% endtab %}
 {% endtabs %}
 
+### except \*
+
+This filter accepts one or more string arguments, corresponding to keys that should be left out of the output. The filter returns a new hash, containing all the key/value pairs of the original hash _except_ those keys named as arguments.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% assign foo = hash %}
+{% assign foo["bar"] = "bar" %}
+{% assign foo["baz"] = "baz" %}
+{% assign foo["qux"] = "qux" %}
+
+{{ foo | except: "bar", "baz" | json }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```javascript
+{"bar":"bar","baz":"baz"}
+```
+{% endtab %}
+{% endtabs %}
+
 ### keys \*
 
 Returns an array of keys found in the supplied hash.
+
+### slice \*
+
+{% hint style="info" %}
+This filter has alternate behavior for arrays and strings!
+{% endhint %}
+
+When applied to a hash, the slice filter accepts one or more string arguments, corresponding to keys that the hash may contain. This filter will then return a new hash, containing only matching key/value pairs from the original hash.
+
+{% tabs %}
+{% tab title="Code" %}
+```javascript
+{% assign foo = hash %}
+{% assign foo["bar"] = "bar" %}
+{% assign foo["baz"] = "baz" %}
+{% assign foo["qux"] = "qux" %}
+
+{{ foo | slice: "bar", "baz" | json }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```javascript
+{"bar":"bar","baz":"baz"}
+```
+{% endtab %}
+{% endtabs %}
 
 ### values \*
 
