@@ -5,12 +5,9 @@
 * Use `{{ order }}` in tasks responding to shopify/orders events
 * Use `{{ refund.order }}` in tasks responding to shopify/refunds events
 * Look up specific orders by their ID, using `{{ shop.orders[12345678900] }}` 
-* Loop through all open orders: `{% for order in shop.orders %}`
+* Loop through all _**open**_ orders: `{% for order in shop.orders %}`
 
-Or, loop through all orders, not just open orders:  
-\`
-
-\`
+Or, loop through _**all**_ orders, not just open orders: `{% for order in shop.orders.any %}`
 
 Or, use these sub-objects to loop through certain subsets of orders:  
 `shop.orders.open`  
