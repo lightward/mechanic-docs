@@ -24,6 +24,7 @@ Mechanic supports a variety of [**event topics**](../../core/events/topics.md). 
 * **mechanic/scheduler/30min** Runs every 30 minutes.
 * **mechanic/scheduler/hourly** Runs every hour, on the hour.
 * **mechanic/scheduler/daily** Runs at midnight, in the store's local timezone.
+* **mechanic/scheduler/monday** Runs every Monday at midnight, in the store's local timezone. \(Note: this would be at the end of Sunday evening\). Each named weekday is supported.
 
 {% hint style="info" %}
 More specific times can be achieved by subscribing to an event topic with a delay \(e.g. "mechanic/scheduler/daily+5.hours"\). To learn more, see [Subscriptions](../../core/tasks/subscriptions.md).
