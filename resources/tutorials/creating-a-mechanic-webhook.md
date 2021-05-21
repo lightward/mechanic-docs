@@ -22,7 +22,7 @@ Next, click the "+ Add a webhook" button, towards the end of the settings pag.
 
 Webhooks should be named after the service that will be sending you data, with an event topic that makes sense, using the format `user/subject/verb`.
 
-For this example, we'll simply call ours "Example", with an event topic of "use/webhook/test".
+For this example, we'll simply call ours "Example", with an event topic of "user/webhook/test".
 
 ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39a8db04286364bc94d8aa/file-IydtRZ3CcY.png)
 
