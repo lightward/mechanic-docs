@@ -76,6 +76,7 @@
   * [Pauses](core/runs/pauses.md)
 * [Interacting with Shopify](core/shopify/README.md)
   * [Responding to events](core/shopify/events.md)
+  * [Permissions](core/shopify/permissions.md)
   * [Reading data](core/shopify/read/README.md)
     * [Liquid objects](core/shopify/read/liquid-objects.md)
     * [GraphQL in Liquid](core/shopify/read/graphql-in-liquid.md)
