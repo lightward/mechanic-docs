@@ -186,7 +186,7 @@
 ---
 
 * [FAQ](faq/README.md)
-  * [Can I re-send order confirmation emails with Mechanic?](faq/can-i-re-send-order-confirmation-emails-with-mechanic.md)
+  * [Can I re-send order confirmation emails with Mechanic?](faq/can-i-resend-order-confirmation-emails-with-mechanic.md)
   * [Why am I seeing a different price than on the app store?](faq/why-am-i-seeing-a-different-price-than-on-the-app-store.md)
   * [Do you have a partner-friendly plan?](faq/do-you-have-a-partner-friendly-plan.md)
   * [Why are my tasks delayed or not running?](faq/why-are-my-tasks-delayed-or-not-running.md)
