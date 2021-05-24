@@ -180,11 +180,13 @@
 * [Responding to action results](techniques/responding-to-action-results.md)
 * [Working with external APIs](techniques/working-with-external-apis.md)
 * [Finding a resource ID](techniques/finding-a-resource-id.md)
+* [Migrating templates from Shopify to Mechanic](techniques/migrating-templates-from-shopify-to-mechanic.md)
 * [Securing Mechanic webhooks](techniques/securing-mechanic-webhooks.md)
 
 ---
 
 * [FAQ](faq/README.md)
+  * [Can I re-send order confirmation emails with Mechanic?](faq/can-i-re-send-order-confirmation-emails-with-mechanic.md)
   * [Why am I seeing a different price than on the app store?](faq/why-am-i-seeing-a-different-price-than-on-the-app-store.md)
   * [Do you have a partner-friendly plan?](faq/do-you-have-a-partner-friendly-plan.md)
   * [Why are my tasks delayed or not running?](faq/why-are-my-tasks-delayed-or-not-running.md)
