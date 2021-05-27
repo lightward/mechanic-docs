@@ -186,6 +186,7 @@
 ---
 
 * [FAQ](faq/README.md)
+  * [How do I send images with my emails?](faq/how-do-i-send-images-with-my-emails.md)
   * [Can I re-send order confirmation emails with Mechanic?](faq/can-i-resend-order-confirmation-emails-with-mechanic.md)
   * [Why am I seeing a different price than on the app store?](faq/why-am-i-seeing-a-different-price-than-on-the-app-store.md)
   * [Do you have a partner-friendly plan?](faq/do-you-have-a-partner-friendly-plan.md)
