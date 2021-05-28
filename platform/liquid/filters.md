@@ -505,7 +505,7 @@ Returns the integer length of the input string.
 ### slice
 
 {% hint style="info" %}
-This filter also works for [arrays](https://learn.mechanic.dev/platform/liquid/filters#slice-1)! And there's a different behavior available for [hashes](https://learn.mechanic.dev/platform/liquid/filters#slice-2).
+This filter also works for [arrays](#slice-1)! And there's a different behavior available for [hashes](#slice-2).
 {% endhint %}
 
 This filter accepts an integer offset, and an optional integer length \(defaulting to 1\). It returns a substring, beginning at the provided index, having the provided length.
@@ -920,7 +920,7 @@ This filter can be used on any array. Used without any arguments, it returns a s
 ### slice
 
 {% hint style="info" %}
-This filter also works for [strings](https://learn.mechanic.dev/platform/liquid/filters#slice)! And there's a different behavior available for [hashes](https://learn.mechanic.dev/platform/liquid/filters#slice-2).
+This filter also works for [strings](#slice)! And there's a different behavior available for [hashes](#slice-2).
 {% endhint %}
 
 This filter accepts an integer offset, and an optional integer length \(defaulting to 1\). If the length is 1, it returns the single element found at that index of the input array. Otherwise, it returns a slice of the array, beginning at the provided index, having the provided length.
@@ -1109,7 +1109,7 @@ Returns an array of keys found in the supplied hash.
 ### slice \*
 
 {% hint style="info" %}
-This filter has alternate behavior for [arrays](https://learn.mechanic.dev/platform/liquid/filters#slice-1) and [strings](https://learn.mechanic.dev/platform/liquid/filters#slice)!
+This filter has alternate behavior for [arrays](#slice-1) and [strings](#slice)!
 {% endhint %}
 
 When applied to a hash, the slice filter accepts one or more string arguments, corresponding to keys that the hash may contain. This filter will then return a new hash, containing only matching key/value pairs from the original hash.
