@@ -182,6 +182,7 @@ user/orders/unpaid_reminder+1.day
     {
       "topic": "user/orders/unpaid_reminder",
       "task_id": {{ task.id | json }},
+      "run_at": {{ "now" | date: "%s" | plus: one_day_in_seconds | json }},
       "data": {
         "order_id": {{ order.id | json }}
       }
