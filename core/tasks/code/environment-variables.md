@@ -3,7 +3,7 @@
 A task's Liquid code always has access to a set of **environment variables**, defined by Mechanic.
 
 {% hint style="info" %}
-Environment variables may be overwritten as needed. \(When preparing a task preview, this may be a necessary technique.\) To learn more, see [Stub data](../previews/stub-data.md).
+Environment variables may be reassigned as needed. \(When preparing a task preview, this may be a necessary technique.\) To learn more, see [Stub data](../previews/stub-data.md).
 {% endhint %}
 
 | Variable | Contents |

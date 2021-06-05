@@ -10,6 +10,8 @@ When performed, a run has a **result**. Depending on the type of run, this resul
 
 Most runs are scheduled to be performed immediately. Some runs may be [scheduled](scheduling.md) for the future. Some runs may be [paused](pauses.md); some runs may be [retried](retries.md), once performed.
 
+At the moment a run is performed, it loads in all related data \(which may include the related store, or the related event, or the related task\). 
+
 ## Run flow
 
 A normal flow in Mechanic looks like this:
