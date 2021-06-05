@@ -4,7 +4,7 @@ In some cases, a run that has already been performed may be performed again, usi
 
 When a run is retried, its previous result is permanently discarded. Because of this, runs that already have a meaningful result \(i.e. an event run that gave rise to task runs, or a task run that generated actions, or an action run that succeeded\) cannot be retried.
 
-Runs are given **automatic retries** when a non-permanent error is encountered. In some cases, Mechanic permits **manual retries** for runs, allowing users to reset a run's results and perform the run again.
+Runs are given **automatic retries** when a non-permanent error is encountered. In some cases, Mechanic permits **manual retries** for runs, allowing users to reset a run's result and perform the run again.
 
 ## Retry context
 
@@ -12,7 +12,11 @@ Retried event runs will always reflect Mechanic's current configuration, includi
 
 Retried task runs will always use a task's latest configuration, including the task's [options](../tasks/options/), [code](../tasks/code/), and [Shopify API version](../tasks/shopify-api-version.md).
 
-Retried action runs will use their original action options, as dictated by the task run that generated them. Action runs are entirely unaffected by updates to their task.
+Retried action runs will always use their original action options, as dictated by the task run that generated them. Action runs are entirely unaffected by updates to their task.
+
+{% hint style="info" %}
+Outstanding task and action runs that belong to a newly-disabled task will always fail when performed, whether they're retried or performed normally. This means that disabling a task ensures that it will not perform any work, even if it has task or action runs already scheduled.
+{% endhint %}
 
 ## Automatic retries
 
