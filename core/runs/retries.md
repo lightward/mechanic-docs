@@ -15,7 +15,7 @@ Retried task runs will always use a task's latest configuration, including the t
 Retried action runs will always use their original action options, as dictated by the task run that generated them. Action runs are entirely unaffected by updates to their task.
 
 {% hint style="info" %}
-Outstanding task and action runs that belong to a newly-disabled task will always fail when performed, whether they're retried or performed normally. This means that disabling a task ensures that it will not perform any work, even if it has task or action runs already scheduled.
+Outstanding task and action runs that belong to a newly-disabled task will always fail when performed, whether they're retried or performed normally. This means that disabling a task – as long as it remains disabled – ensures that it will not perform any work, even if it has task or action runs already scheduled.
 {% endhint %}
 
 ## Automatic retries
