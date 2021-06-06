@@ -4,7 +4,7 @@ Mechanic's **task library** is a compendium of e-commerce automation tasks and d
 
 When building a new task, it's often easier to modify an existing task than to create a task from scratch. Searching GitHub is a good place to start, when looking for inspiration.
 
-**To browse the task library, visit** [**usemechanic.com**](https://usemechanic.com/)**.**
+**To browse the task library, visit** [**tasks.mechanic.dev**](https://tasks.mechanic.dev/)**.**
 
 **The task library is open for contributions, by way of pull requests – see** [**Contributing**](contributing.md)**.**
 
