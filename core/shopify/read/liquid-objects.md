@@ -14,7 +14,7 @@ For example, while Shopify themes support `{{ customer.name }}`, Mechanic does n
 
 ## Usage
 
-Each task is given a set of global variables to work with, out of the box. Mechanic's task code editor will tell you which ones are available. For example, for a task responding to a `shopify/orders/` event, you might see this:
+Each task is given a set of [environment variables](../../tasks/code/environment-variables.md) to work with, out of the box. Mechanic's task code editor will tell you which ones are available. For example, for a task responding to a `shopify/orders/` event, you might see this:
 
 ![](https://s3.amazonaws.com/helpscout.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1e12c7d3a7e9ae69bd2/5e28a1e1a248a.png)
 
@@ -24,7 +24,7 @@ Use [Mechanic's Liquid object documentation](../../../platform/liquid/objects/) 
 
 ## Use Liquid objects when...
 
-* ... your task's event gives you an automatic object containing the data you need. For example, for a task responding to a "shopify/customers/" event, you'll get an automatic `customer` variable. Feel free to use this variable to get to additional data, like `customer.orders.first.name`.
+* ... your task's event gives you an [environment variable](../../tasks/code/environment-variables.md) containing the data you need. For example, for a task responding to a "shopify/customers/" event, you'll get an automatic `customer` variable. Feel free to use this variable to get to additional data, like `customer.orders.first.name`.
 * ... you know you're not going to need to load an enormous amount of data. For example, a `{% for customer in shop.customers %}` loop is just fine if you know your store will have only hundreds or thousands of customers.
 * ... when it's easy to get to the right data, allowing future versions of you to easily understand what you were doing. ;\) There are plenty of scenarios where it's easier to use Liquid objects than it is to use GraphQL, and if you can do so without accidentally downloading too much data \(see above\), go for it.
 
