@@ -2,7 +2,7 @@
 
 Mechanic-flavored Liquid comes with a complement of [Liquid objects](../../../platform/liquid/objects/), each of which is tied to a resource in the [Shopify Admin REST API](https://shopify.dev/docs/admin-api/rest). Many objects support access to related objects via lookups \(e.g. `{{ shop.customers[customer_id].orders.first }}`\); in this way, the REST API can be traversed by resource.
 
-Access to these Liquid objects varies, based on the context in which Liquid is rendered. For example, a task that subscribes to shopify/customers/create will have access to the [Customer](../) object in its code, via a variable called `customer`. To learn more about how these objects are made available to task code, see [Liquid variables](../../tasks/code/environment-variables.md).
+Access to these Liquid objects varies, based on the context in which Liquid is rendered. For example, a task that subscribes to shopify/customers/create will have access to the [Customer](../) object in its code, via a variable called `customer`. To learn more about how these objects are made available to task code, see [environment variables](../../tasks/code/environment-variables.md).
 
 {% hint style="warning" %}
 **Shopify variables in Mechanic do not necessarily contain the same attributes as Liquid variables used in Shopify \(in places like themes or email templates\) – even if they share the same name.**
