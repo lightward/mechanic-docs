@@ -82,6 +82,7 @@
     * [Bulk operations](core/shopify/read/bulk-operations.md)
     * [The Shopify action](core/shopify/read/the-shopify-action.md)
   * [Writing data](core/shopify/write.md)
+  * [API rate limit](core/shopify/api-rate-limit.md)
   * [API versions](core/shopify/api-versions.md)
 
 ## Platform
