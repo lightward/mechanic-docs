@@ -1,6 +1,6 @@
 # API rate limit
 
-Mechanic has native awareness of Shopify's **API rate limit**, and will accordingly gate the execution of operations that require access to the Shopify API.
+Mechanic has native awareness of Shopify's **API rate limit**, and will accordingly manage the execution of operations that require access to the Shopify API. Mechanic users do not need to manage the API rate limit themselves.
 
 If the rate limit has been reached, any due task runs or [Shopify action](../actions/shopify.md) runs will wait to be enqueued until the rate limit has recovered.
 
