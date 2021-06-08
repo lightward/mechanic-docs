@@ -2,7 +2,11 @@
 
 **Condition** tags are useful for making decisions about what code to run, based on some specific value under inspection.
 
-Often, condition tags are concerned with whether a value is **truthy** or **falsey**. In Liquid, only the values `false` and `nil` are falsey; all other values are truthy. Liquid inherits this behavior from Ruby; [learn more about this](https://learn.co/lessons/truthiness-in-ruby-readme).
+Often, condition tags are concerned with whether a value is **truthy** or **falsey**. In Liquid, only the values `false` and `nil` are falsey; all other values are truthy.
+
+{% hint style="info" %}
+For further discussion on how Liquid treats values, see their documentation: [Truthiness and falsiness in Liquid](https://shopify.dev/docs/themes/liquid/reference/basics/true-and-false).
+{% endhint %}
 
 ## if
 

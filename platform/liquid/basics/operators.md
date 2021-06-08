@@ -2,6 +2,10 @@
 
 An **operator** is a statement that evaluates some code, and makes a decision about what to do next. Operators can be used for comparing two values, inspecting a single value, or evaluating whether or not some code returns `true`.
 
+{% hint style="info" %}
+For further discussion on how Liquid treats values, see their documentation: [Truthiness and falsiness in Liquid](https://shopify.dev/docs/themes/liquid/reference/basics/true-and-false).
+{% endhint %}
+
 ## Comparison operators
 
 If `b = 6`, the table below illustrates the comparison operators and the way they interact with `b`:
