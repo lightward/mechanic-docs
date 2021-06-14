@@ -891,7 +891,7 @@ This filter appends any number of arguments onto the provided array, returning a
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 one
 two
 three
@@ -1009,7 +1009,7 @@ This filter prepends any number of arguments onto the provided array, returning 
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```text
 zero
 one
 two

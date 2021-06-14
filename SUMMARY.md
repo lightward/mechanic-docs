@@ -187,6 +187,7 @@
 ---
 
 * [FAQ](faq/README.md)
+  * [How do I add an unsubscribe link to my emails?](faq/how-do-i-add-an-unsubscribe-link-to-my-emails.md)
   * [How do I send images with my emails?](faq/how-do-i-send-images-with-my-emails.md)
   * [Can I re-send order confirmation emails with Mechanic?](faq/can-i-resend-order-confirmation-emails-with-mechanic.md)
   * [Why am I seeing a different price than on the app store?](faq/why-am-i-seeing-a-different-price-than-on-the-app-store.md)
