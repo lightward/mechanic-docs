@@ -89,6 +89,12 @@ That task must be subscribed to the event topic being used.
 {% endtab %}
 {% endtabs %}
 
+### Scheduling future events
+
+#### Using run\_at
+
+This example uses the `run_at` option to run the task at a later scheduled time.
+
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
@@ -125,10 +131,6 @@ That task must be subscribed to the event topic being used.
 ```
 {% endtab %}
 {% endtabs %}
-
-### Scheduling future events
-
-#### Using run\_at
 
 This task emails a customer daily until their order is paid. It works by scheduling a follow-up run of the same task, one day in the future, using the `run_at` option.
 
