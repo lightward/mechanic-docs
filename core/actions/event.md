@@ -67,7 +67,7 @@ That task must be subscribed to the event topic being used.
 {% assign task_id = "293b7040-6689-4eb1-8b5d-64f4d33eb2ae" %}
 {% comment %} For multiple tasks use `task_ids` {% endcomment %}
 
-{% action "event", topic: "user/foo/bar", data: data, task_id: task.id %}
+{% action "event", topic: "user/foo/bar", data: data, task_id: task_id %}
 ```
 {% endtab %}
 
