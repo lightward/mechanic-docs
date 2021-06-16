@@ -89,6 +89,7 @@ That task must be subscribed to the event topic being used.
 {% endtab %}
 {% endtabs %}
 #### Notes
+You can limit a task to itself by referencing it's own task.id
 
 See [**options**](../../tasks/options) to have a user configurable input instead of hardcoding the task id(s).
 
