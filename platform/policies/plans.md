@@ -1,6 +1,6 @@
 # Plans
 
-Mechanic does not have different plans. The following details apply to every Mechanic account:
+**Mechanic does not have different plans.** The following details apply to every Mechanic account:
 
 * Each account in good standing may install an unlimited number of [tasks](../../core/tasks/), may receive an unlimited number of [events](../../core/events/), and may process an unlimited number of [runs](../../core/runs/).
 * Each account has a limited-term trial period, during which no billing agreement is required.
