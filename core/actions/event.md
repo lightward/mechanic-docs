@@ -56,9 +56,8 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 ### Using the Event tag with a specific task
 
 Uses the optional `task_id` parameter to control which **singular** task is allowed to respond to this event.
-That task must be subscribed to the event topic being used.
-*For multiple tasks use `task_ids`*
 
+That task must be subscribed to the event topic being used.
 
 {% tabs %}
 {% tab title="Liquid" %}
@@ -66,6 +65,7 @@ That task must be subscribed to the event topic being used.
 {% assign data = hash %}
 {% assign data["foo"] = "bar" %}
 {% assign task_id = "293b7040-6689-4eb1-8b5d-64f4d33eb2ae" %}
+{% comment %} For multiple tasks use `task_ids` {% endcomment %}
 
 {% action "event", topic: "user/foo/bar", data: data, task_id: task.id %}
 ```
@@ -88,6 +88,9 @@ That task must be subscribed to the event topic being used.
 ```
 {% endtab %}
 {% endtabs %}
+#### Notes
+
+See [**options**](../../tasks/options) to have a user configurable input instead of hardcoding the task id(s).
 
 ### Scheduling future events
 
