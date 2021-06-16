@@ -53,7 +53,9 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 {% endtab %}
 {% endtabs %}
 
-### Using the Event tag with a specific task
+### Using specific tasks
+
+#### Using task\_id 
 
 Uses the optional `task_id` parameter to control which **singular** task is allowed to respond to this event.
 
