@@ -55,7 +55,7 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 
 ### Using specific tasks
 
-#### Using task\_id 
+#### Using task\_id
 
 Uses the optional `task_id` parameter to control which **singular** task is allowed to respond to this event.
 
@@ -90,10 +90,12 @@ That task must be subscribed to the event topic being used.
 ```
 {% endtab %}
 {% endtabs %}
+
 #### Notes
+
 You can limit a task to itself by referencing it's own task.id
 
-See [**options**](../../tasks/options) to have a user configurable input instead of hardcoding the task id(s).
+See [**options**](https://github.com/lightward/mechanic-docs/tree/34e0af545410cf0aa59d77a6e259266942f50aab/tasks/options/README.md) to have a user configurable input instead of hardcoding the task id\(s\).
 
 ### Scheduling future events
 
