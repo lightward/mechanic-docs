@@ -32,7 +32,44 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 {% assign data = hash %}
 {% assign data["foo"] = "bar" %}
 
-{% action "event", topic: "user/foo/bar", data: data, task_id: task.id %}
+{% action "event", topic: "user/foo/bar", data: data %}
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+  "action": {
+    "type": "event",
+    "options": {
+      "topic": "user/foo/bar",
+      "data": {
+        "foo": "bar"
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Using specific tasks
+
+#### Using task\_id 
+
+Uses the optional `task_id` parameter to control which **singular** task is allowed to respond to this event.
+
+That task must be subscribed to the event topic being used.
+
+{% tabs %}
+{% tab title="Liquid" %}
+```javascript
+{% assign data = hash %}
+{% assign data["foo"] = "bar" %}
+{% assign task_id = "293b7040-6689-4eb1-8b5d-64f4d33eb2ae" %}
+{% comment %} For multiple tasks use `task_ids` {% endcomment %}
+
+{% action "event", topic: "user/foo/bar", data: data, task_id: task_id %}
 ```
 {% endtab %}
 
@@ -53,6 +90,16 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 ```
 {% endtab %}
 {% endtabs %}
+#### Notes
+You can limit a task to itself by referencing it's own task.id
+
+See [**options**](../../tasks/options) to have a user configurable input instead of hardcoding the task id(s).
+
+### Scheduling future events
+
+#### Using run\_at
+
+This example uses the `run_at` option to run the task at a later scheduled time.
 
 {% tabs %}
 {% tab title="Liquid" %}
@@ -90,10 +137,6 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 ```
 {% endtab %}
 {% endtabs %}
-
-### Scheduling future events
-
-#### Using run\_at
 
 This task emails a customer daily until their order is paid. It works by scheduling a follow-up run of the same task, one day in the future, using the `run_at` option.
 
