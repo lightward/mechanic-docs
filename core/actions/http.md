@@ -11,6 +11,7 @@ All HTTP methods are supported; the results of HTTP requests may be reused by a 
 | `method` | Required; must be one of `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"` |
 | `url` | Required; must be a string beginning with `https://` or `http://` |
 | `body` | Required unless `method` is `"get"`; format varies, see below |
+| `files` | Optional; may be set to a JSON object, mapping filenames to [file generators](file-generators/) |
 | `headers` | Optional; may be set to a JSON object, mapping header names to header values |
 | `verify` | Optional; may be set to `false` to disable SSL certificate verification |
 | `error_on_5xx` | Optional; may be set to `true` to have 5xx HTTP response codes be considered action errors |
@@ -25,7 +26,26 @@ If the Content-Type header is unspecified or set to `application/json`, and if t
 
 #### Form-encoded data
 
-If the Content-Type header is set to `application/x-www-form-urlencoded`, and if the `body` option is set to a JSON object or array, the request body will be serialized to a form-encoded string.
+If the `files` option is given, its contents will be evaluated for [file generators](file-generators/), and the results will be used to construct a `multipart/form-data` request, combining generated files with any key-value pairs found in the `body` option.
+
+```javascript
+{% action "http" %}
+  {
+    "method": "post",
+    "url": "https://postman-echo.com/post",
+    "body": {
+      "hello": "world"
+    },
+    "files": {
+      "robots.txt": {
+        "url": "https://www.shopify.com/robots.txt"
+      }
+    }
+  }
+{% endaction %}
+```
+
+If the `files` option is not given, and if the Content-Type header is set to `application/x-www-form-urlencoded`, and if the `body` option is set to a JSON object or array, the request body will be serialized to a form-encoded string.
 
 ### Basic authentication
 
