@@ -26,7 +26,7 @@ If the Content-Type header is unspecified or set to `application/json`, and if t
 
 #### Form-encoded data
 
-If the `files` option is given, its contents will be evaluated for [file generators](file-generators/), and the results will be used to construct a `multipart/form-data` request, combining generated files with any key-value pairs found in the `body` option.
+If the `files` option is given, its contents will be evaluated for [file generators](file-generators/), and the results will be used to construct a `multipart/form-data` upload request, combining generated files with any key-value pairs found in the `body` option.
 
 ```javascript
 {% action "http" %}
