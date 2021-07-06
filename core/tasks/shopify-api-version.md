@@ -1,6 +1,6 @@
 # Shopify API version
 
-Each task is configured with a [**Shopify API version**](https://shopify.dev/concepts/about-apis/versioning), defaulting to the latest version at the time of the task's creation.
+Each task is configured with a specific [**Shopify API version**](https://shopify.dev/concepts/about-apis/versioning), defaulting to the latest version at the time of the task's creation.
 
 This version is used in all activity related to the current task, including:
 
@@ -8,17 +8,23 @@ This version is used in all activity related to the current task, including:
 * GraphQL calls performed by [the shopify Liquid filter](shopify-api-version.md)
 * All Shopify API calls performed by [the Shopify action](../actions/shopify.md), including [bulk operations](shopify-api-version.md)
 
+{% hint style="info" %}
+When a task run starts, it checks the Shopify API version configured for the task at that time. Action runs always inherit their Shopify API version from their task run. This means that changing a task's Shopify API version can affect queued task runs, but won't change queued action runs.
+{% endhint %}
+
+## Using "unstable"
+
+All Shopify API versions are named with a specific date \(i.e. "2021-07"\), except for "unstable". This version receives regular updates from Shopify, and its features may change without notice.
+
+Most tasks should use a dated version, to maximize the amount of time a task can rely on a specific set of Shopify API features.
+
+## Automatic version upgrades
+
+Shopify supports each version for 12 months \(except for "unstable", which is always available\). 30 days before a task's version becomes unsupported, Mechanic will automatically begin calling the closest supported version instead.
+
 ## Changing versions
 
 The selector for a task's Shopify API version is available towards the end of the task's advanced settings.
 
-![](../../.gitbook/assets/2021-02-09-16.48.53.gif)
-
-{% hint style="info" %}
-Changing a task's Shopify API version only affects task and action runs that are created after the change. Each run is pinned to the Shopify API version that was active at the time the run was created; [retrying](../runs/retries.md) a run does not change its version.
-{% endhint %}
-
-## Automatic version upgrades
-
-Shopify supports each version for 12 months. 30 days before a task's version becomes unsupported, Mechanic will automatically begin calling the closest supported version instead.
+![](../../.gitbook/assets/2021-07-06-13.36.06.gif)
 
