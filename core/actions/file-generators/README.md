@@ -7,7 +7,6 @@ Generated files may each be a maximum of 20MB.
 | File generator | Purpose |
 | :--- | :--- |
 | [Base64](base64.md) | Decodes base64-encoded content, returning a file containing the results |
-| [HTTP](../http.md) | Adds generated files to a multipart/form-data HTTP request |
 | [PDF](pdf.md) | Renders HTML using a full Webkit browser, returning a PDF file of the results |
 | [Plaintext](plaintext.md) | Allows defining file contents using a plain string, instead of a file generator object |
 | [URL](url.md) | Downloads and returns a file |
@@ -52,4 +51,5 @@ In the following example, a [Files](../files.md) action is defined, mapping file
 | [Email](../email.md) | Uses file generators to prepare email attachments |
 | [Files](../files.md) | Uses file generators to prepare temporary URLs, from which the generated files can be downloaded |
 | [FTP](../ftp.md) | Uses file generators to prepare FTP uploads |
+| [HTTP](../http.md) | Adds generated files to a multipart/form-data HTTP request |
 
