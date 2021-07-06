@@ -1,6 +1,6 @@
 # Shopify API version
 
-Each task is configured with a specific [**Shopify API version**](https://shopify.dev/concepts/about-apis/versioning), defaulting to the latest version at the time of the task's creation.
+Each task is configured with a specific [**Shopify API version**](../shopify/api-versions.md), defaulting to the latest version at the time of the task's creation.
 
 This version is used in all activity related to the current task, including:
 
@@ -21,6 +21,8 @@ Most tasks should use a dated version, to maximize the amount of time a task can
 ## Automatic version upgrades
 
 Shopify supports each version for 12 months \(except for "unstable", which is always available\). 30 days before a task's version becomes unsupported, Mechanic will automatically begin calling the closest supported version instead.
+
+Shopify may, at times, mark certain API features as deprecated. If a Mechanic account calls a deprecated API, Mechanic will display the deprecation notice in the app. Learn more about [Shopify API deprecations](../shopify/api-versions.md#deprecations).
 
 ## Changing versions
 
