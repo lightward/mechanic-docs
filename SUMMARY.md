@@ -187,6 +187,7 @@
 ---
 
 * [FAQ](faq/README.md)
+  * [Does my theme need to be updated for Mechanic?](faq/does-my-theme-need-to-be-updated-for-mechanic.md)
   * [Do you have a plan for development stores?](faq/do-you-have-a-plan-for-development-stores.md)
   * [Why don't I see any events in my task's activity?](faq/why-dont-i-see-any-events-in-my-tasks-activity.md)
   * [Can I read data back from my webhook submission?](faq/can-i-read-data-back-from-my-webhook-submission.md)
