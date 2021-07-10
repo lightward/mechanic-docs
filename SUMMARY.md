@@ -194,7 +194,7 @@
   * [How do I send images with my emails?](faq/how-do-i-send-images-with-my-emails.md)
   * [Can I re-send order confirmation emails with Mechanic?](faq/can-i-resend-order-confirmation-emails-with-mechanic.md)
   * [Why am I seeing a different price than on the app store?](faq/why-am-i-seeing-a-different-price-than-on-the-app-store.md)
-  * [Do you have a partner-friendly plan?](faq/do-you-have-a-partner-friendly-plan.md)
+  * [Do you have a Partner-friendly plan?](faq/do-you-have-a-partner-friendly-plan.md)
   * [Why are my tasks delayed or not running?](faq/why-are-my-tasks-delayed-or-not-running.md)
   * [My task is failing because of a permissions problem. Why?](faq/my-task-is-failing-because-of-a-permissions-problem.md)
   * [How do I preview email attachments?](faq/how-do-i-preview-email-attachments.md)

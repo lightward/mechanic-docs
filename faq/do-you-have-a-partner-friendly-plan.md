@@ -1,4 +1,4 @@
-# Do you have a partner-friendly plan?
+# Do you have a Partner-friendly plan?
 
 Yes! Write in to [team@usemechanic.com](mailto:team@usemechanic.com), making sure to include your store name, and we'll help you out.
 
