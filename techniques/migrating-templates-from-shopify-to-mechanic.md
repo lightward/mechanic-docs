@@ -81,17 +81,11 @@ For numbers that are formatted with the "money" filter, check to make sure that 
 {{ order.total_price | times: 100 | money }}
 ```
 
-### 3. PDFs only: check your fonts
+### 3. Check your stylesheets
 
-Under the hood, we use [wkhtmltopdf](https://wkhtmltopdf.org/) to generate PDFs. This engine does support web fonts, which includes fonts you may get from providers like [Google Fonts](https://fonts.google.com/). For an example, see this task: [Demonstration: Web fonts in PDFs](https://usemechanic.com/task/demonstration-web-fonts-in-pdfs)
+External stylesheets are not supported for emails \(though they _are_ supported for the [PDF file generator](../core/actions/file-generators/pdf/)\). This means that, for email content, any `<link rel="stylesheet">` tags need to be replaced with a `<style>` tag, containing the full contents of that stylesheet.
 
-In some cases, the code determining your font may need to be simplified. This varies, and is not always necessary; remember to check your fonts when testing, and send us a support message if you've got any questions.
-
-### 4. Check your stylesheets
-
-In general, external stylesheets are not supported. This means that any `<link rel="stylesheet">` tags need to be replaced with a `<style>` tag, containing the full contents of that stylesheet.
-
-There is one exception. When using email templates, Mechanic will automatically replace this tag:
+There is one exception scenario. When using email templates, Mechanic will automatically replace this tag:
 
 ```text
 <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
