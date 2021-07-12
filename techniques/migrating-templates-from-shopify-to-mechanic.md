@@ -1,6 +1,6 @@
 # Migrating templates from Shopify to Mechanic
 
-You can bring your templates over from Shopify's email notifications, or from Shopify's [Order Printer](https://apps.shopify.com/order-printer) app, in order to generate order-related material on-demand in  Mechanic. This could look like [triggering an order confirmation email](../faq/can-i-resend-order-confirmation-emails-with-mechanic.md), or [generating a PDF invoice](../core/actions/file-generators/pdf.md).
+You can bring your templates over from Shopify's email notifications, or from Shopify's [Order Printer](https://apps.shopify.com/order-printer) app, in order to generate order-related material on-demand in  Mechanic. This could look like [triggering an order confirmation email](../faq/can-i-resend-order-confirmation-emails-with-mechanic.md), or [generating a PDF invoice](../core/actions/file-generators/pdf/).
 
 We'll talk about this in two parts: the task script, and then the steps required for preparing a Shopify template for use with Mechanic.
 
