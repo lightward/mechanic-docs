@@ -188,6 +188,7 @@
 ---
 
 * [FAQ](faq/README.md)
+  * [Can I replace Shopify's order emails with Mechanic?](faq/can-i-replace-shopifys-order-emails-with-mechanic.md)
   * [Can I manually set Shopify permissions for Mechanic?](faq/can-i-manually-set-shopify-permissions-for-mechanic.md)
   * [Does my theme need to be updated for Mechanic?](faq/does-my-theme-need-to-be-updated-for-mechanic.md)
   * [Do you have a plan for development stores?](faq/do-you-have-a-plan-for-development-stores.md)
