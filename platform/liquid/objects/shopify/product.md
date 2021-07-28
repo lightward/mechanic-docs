@@ -13,5 +13,5 @@
 * An array of related [variant objects](variant.md): `{{ product.variants }}` 
 * An array of related [collection objects](collection.md): `{{ product.collections }}`
 * An array of related [product image objects](product-image.md): `{{ product.images }}`  
-* The related [metafields object](metafields/metafields.md): `{{ product.metafields }}`
+* The related [metafields object](metafields/metafield-collection.md): `{{ product.metafields }}`
 

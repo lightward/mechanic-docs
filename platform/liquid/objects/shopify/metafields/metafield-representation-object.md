@@ -26,5 +26,5 @@ For example, a product\_reference metafield representation object contains a `pr
 
 ## How to access it
 
-A metafield representation object can only be retrieved via [metafield collection](metafields.md) lookup: `resource.metafields.namespace.key`.
+A metafield representation object can only be retrieved via [metafield collection](metafield-collection.md) lookup: `resource.metafields.namespace.key`.
 

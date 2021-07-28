@@ -154,7 +154,7 @@
       * [Metafields](platform/liquid/objects/shopify/metafields/README.md)
         * [Metafield object](platform/liquid/objects/shopify/metafields/metafield-object.md)
         * [Metafield representation object](platform/liquid/objects/shopify/metafields/metafield-representation-object.md)
-        * [Metafield collection object](platform/liquid/objects/shopify/metafields/metafields.md)
+        * [Metafield collection object](platform/liquid/objects/shopify/metafields/metafield-collection.md)
       * [Order object](platform/liquid/objects/shopify/order.md)
       * [Order risk object](platform/liquid/objects/shopify/order-risk.md)
       * [Price rule object](platform/liquid/objects/shopify/price-rule.md)
