@@ -11,5 +11,5 @@
 * An array of related [inventory level objects](inventory-level.md): `{{ variant.inventory_levels }}`
 * The related [inventory item object](inventory-item.md): `{{ variant.inventory_item }}` 
 * The related [product object](product.md): `{{ variant.product }}` 
-* The related [metafields object](metafields.md): `{{ variant.metafields }}` 
+* The related [metafields object](metafields/metafields.md): `{{ variant.metafields }}` 
 

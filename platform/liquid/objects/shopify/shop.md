@@ -18,5 +18,5 @@
 * A set of [article](article.md) tags: `{{ shop.articles.tags }}` 
 * A set of [article](article.md) authors: `{{ shop.articles.authors }}` 
 * A set of [shipping zones](shipping-zone.md): `{% for shipping_zone in shop.shipping_zones %}`
-* The related [metafields object](metafields.md): `{{ shop.metafields }}` 
+* The related [metafields object](metafields/metafields.md): `{{ shop.metafields }}` 
 
