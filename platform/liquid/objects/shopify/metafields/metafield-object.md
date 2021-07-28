@@ -1,5 +1,9 @@
 # Metafield object
 
+{% hint style="info" %}
+This page is part of a series: see [Metafields](./) for an overview on how Mechanic's Liquid implementation thinks about metafields.
+{% endhint %}
+
 The metafield object reflects the REST Admin API's representation of a metafield.
 
 Mechanic includes support for the metafield object for completeness, but it _is not_ the most useful way to go about using metafield values \(see [Metafield representation object](metafield-representation-object.md)\).

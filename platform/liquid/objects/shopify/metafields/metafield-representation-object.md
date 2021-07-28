@@ -1,8 +1,12 @@
 # Metafield representation object
 
+{% hint style="info" %}
+This page is part of a series: see [Metafields](./) for an overview on how Mechanic's Liquid implementation thinks about metafields.
+{% endhint %}
+
 Mechanic's metafield representation object mirrors [Shopify's metafield Liquid object](https://shopify.dev/api/liquid/objects/metafield), in that it makes the metafield type and value easily available, in a usable form. It is not the same as Mechanic's [metafield object](metafield-object.md), which contains the REST Admin API representation of a metafield.
 
-{% hint style="info" %}
+{% hint style="warning" %}
 Metafield representation objects are only available for modern metafield types. They are not available for [deprecated metafields](https://shopify.dev/api/liquid/objects/metafield#deprecated-metafields) \(i.e. json\_string, number, and string\).
 {% endhint %}
 
