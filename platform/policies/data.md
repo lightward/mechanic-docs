@@ -6,17 +6,17 @@ Mechanic stores all data in the US, on encrypted volumes provided by Heroku and 
 
 For more details, see Heroku's [Security](https://www.heroku.com/policy/security) and [Data encryption](https://devcenter.heroku.com/articles/heroku-postgres-production-tier-technical-characterization#data-encryption) documentation.
 
-## Retention
+## Retention of events
 
 {% hint style="info" %}
-**On August 19, Mechanic's event data retention period will change to 15 days, for all accounts.** The rest of the data retention policy will remain unchanged.
+**On August 19, Mechanic's event retention period will change to 15 days, for all accounts.** The rest of the retention policy will remain unchanged.
 {% endhint %}
 
-All event data is retained for a default of 60 days after the event is considered "complete" \(see below\). To set a different retention period for your Mechanic account, email [team@usemechanic.com](mailto:team@usemechanic.com).
+An event is retained for a default of 60 days after the event is considered "complete" \(see below\). To set a different retention period for your Mechanic account, email [team@usemechanic.com](mailto:team@usemechanic.com).
 
-For stores that have uninstalled Mechanic, event data will be retained for the same retention period _after the event's latest activity_, whether or not the event is "complete".
+For stores that have uninstalled Mechanic, events will be retained for the same retention period _after the event's latest activity_, whether or not an event is "complete".
 
-Retained data includes:
+Retained event information includes:
 
 * Event data \(for Shopify events, this means the payload of the related webhook\)
 * Task runs for those events \(i.e. the result of rendering task Liquid with the related event data\)
