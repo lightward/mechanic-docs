@@ -8,6 +8,10 @@ For more details, see Heroku's [Security](https://www.heroku.com/policy/security
 
 ## Retention
 
+{% hint style="info" %}
+**On August 19, Mechanic's event data retention period will change to 15 days, for all accounts.** The rest of the data retention policy will remain unchanged.
+{% endhint %}
+
 All event data is retained for a default of 60 days after the event is considered "complete" \(see below\). To set a different retention period for your Mechanic account, email [team@usemechanic.com](mailto:team@usemechanic.com).
 
 For stores that have uninstalled Mechanic, event data will be retained for the same retention period _after the event's latest activity_, whether or not the event is "complete".
