@@ -8,16 +8,74 @@ An action object is a plain JSON object, having the following structure:
 {
   "action": {
     "type": ACTION_TYPE,
-    "options": ACTION_OPTIONS
+    "options": ACTION_OPTIONS,
+    "meta": ACTION_META
   }
 }
 ```
 
-The action type is always a string, having a value that corresponds to [a supported action](../../actions/) \(e.g. `"shopify"`, or `"http"`\).
-
-Action options vary by action type. Depending on the action type, its options may be another complete object, or an array, or a scalar value.
-
 {% hint style="info" %}
 Use the [action tag](../../../platform/liquid/tags/action.md) to skip the boilerplate while writing actions.
 {% endhint %}
+
+## Defining an action
+
+### Type
+
+The action **type** is always a string, having a value that corresponds to [a supported action](../../actions/) \(e.g. `"shopify"`, or `"http"`\).
+
+### Options
+
+Action **options** vary by action type. Depending on the action type, its options may be another complete object, or an array, or a scalar value.
+
+### Meta
+
+Actions may optionally include **meta** information, annotating the action with any JSON value.
+
+This information could be purely for record-keeping, making it easy to determine why an action was rendered information:
+
+```javascript
+{
+  "action": {
+    "type": "shopify",
+    "options": [
+      "post",
+      "/admin/customers/1234567890/send_invite.json",
+      {}
+    ],
+    "meta": {
+      "invite_reason": "alpha"
+      "customer_email": "customer@example.com"
+    }
+  }
+}
+```
+
+Or, this information could be used to facilitate complex task flows, in concert with mechanic/actions/perform event \(see [Responding to action results](../../../techniques/responding-to-action-results.md)\). The meta information can supply followup task runs with information about state, allowing the task to cycle between different pieces of operation.
+
+```javascript
+{% if event.topic contains "trigger" %}
+  {% action %}
+    {
+      "type": "cache",
+      "options": ["set", "foo", "bar"],
+      "meta": {
+        "mode": "first"
+      }
+    }
+  {% endaction %}
+{% elsif action.meta.mode == "first" %}
+  {% action %}
+    {
+      "type": "cache",
+      "options": ["set", "foo", "bar"],
+      "meta": {
+        "mode": "second"
+      }
+    }
+  {% endaction %}
+{% elsif action.meta.mode == "second" %}
+  {% action "echo", "done" %}
+{% endif %}
+```
 
