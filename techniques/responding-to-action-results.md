@@ -30,62 +30,9 @@ It's important to specifically account for the mechanic/actions/perform topic wh
 Mechanic will step in and forcibly fail subsequent task runs that contain results identical to their predecessors.
 {% endhint %}
 
-## Examples
+## Example
 
-### Switching on action success
-
-This example prompts the Mechanic user to enter a chunk of JSON, which will be used to create a customer record via a [Shopify action](../core/actions/shopify.md). If Shopify reports back that the customer creation was successful, the task will log the success. If not, an email is sent, reporting the error.
-
-Note: This script is written to specifically support [previews](../core/tasks/previews/), using stub data during event preview to ensure that appropriate preview actions are generated.
-
-{% tabs %}
-{% tab title="Subscriptions" %}
-```text
-mechanic/user/text
-mechanic/actions/perform
-```
-{% endtab %}
-{% endtabs %}
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{% if event.topic == "mechanic/user/text" %}
-  {% if event.preview %}
-    {% assign event = hash %}
-    {% assign event["topic"] = "mechanic/user/text" %}
-    {% assign event["data"] = '{"email":"customer@example.com"}' %}
-  {% endif %}
-
-  {% assign data = event.data | default: "{}" | parse_json %}
-  {% action "shopify", "create", "customer", data %}
-{% elsif event.topic == "mechanic/actions/perform" %}
-  {% if event.preview %}
-    {% assign action = hash %}
-    {% assign action["type"] = "shopify" %}
-    {% assign action["run"] = hash %}
-    {% assign action["run"]["ok"] = true %}
-  {% endif %}
-
-  {% if action.run.ok %}
-    {% log "Success!" %}
-  {% else %}
-    {% action "email" %}
-      {
-        "to": "admin@example.com",
-        "subject": "Failed to create a customer",
-        "body": {{ "Alert!" | append: newline | append: newline | append: action.run.error | json }}
-      }
-    {% endaction %}
-  {% endif %}
-{% endif %}
-```
-{% endtab %}
-{% endtabs %}
-
-### Switching on action meta
-
-This example cycles between three different modes of operation, depending on the [meta information](../core/tasks/code/action-objects.md#meta) recorded in the action definition. And, by checking on `action.run.ok` at the very beginning, the task is also able to "break" into failure-handling mode.
+This example cycles between three different modes of operation, depending on the [meta information](../core/tasks/code/action-objects.md#meta) recorded in the action definition. And, by checking on `action.run.ok` at the very beginning, the task is also able to "break" into failure-handling mode, in which an email is sent to an administrator.
 
 {% tabs %}
 {% tab title="Subscriptions" %}
@@ -100,7 +47,13 @@ mechanic/actions/perform
 {% tab title="Code" %}
 ```javascript
 {% if action.run.ok == false %}
-  {% log "Failure!" %}
+  {% action "email" %}
+    {
+      "to": "admin@example.com",
+      "subject": "Action failure",
+      "body": {{ "Alert!<br><br>" | append: action.run.error | json }}
+    }
+  {% endaction %}
 {% elsif event.topic contains "trigger" %}
   {% action %}
     {
@@ -114,7 +67,7 @@ mechanic/actions/perform
 {% elsif action.meta.mode == "first" %}
   {% capture mutation %}
     mutation {
-      tagsAdd(id: "gid://shopify/Customer/739331866685", tags: ["processed"]) {
+      tagsAdd(id: "gid://shopify/Customer/1234567890", tags: ["processed"]) {
         userErrors { field, message }
       }
     }
