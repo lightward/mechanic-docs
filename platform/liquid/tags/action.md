@@ -7,14 +7,12 @@ The **action tag** renders an [**action object**](../../../core/tasks/code/actio
 This tag has several usage styles, each style resulting in valid JSON for an action object.
 
 {% hint style="info" %}
-As with nearly all Liquid tags, the action tag supports Liquid variables. This means that the action type and options may be given using variables, instead of scalar values, like strings.
+As with nearly all Liquid tags, the action tag supports Liquid variables. This means that the action type and options may be given using variables \(instead of scalar values, like strings\).
 {% endhint %}
 
 ### Block syntax
 
-This usage style offers the lightest form of abstraction, in that it only abstracts away `{ "action": ... }` layer of the resulting JSON object. Use this style when it's necessary to also provide an action's optional meta payload \(in addition to the required values of an action definition, i.e. action type and options\). This syntax requires a closing `{% endaction %}` tag.
-
-{% page-ref page="../../../techniques/responding-to-action-results.md" %}
+This usage style offers the lightest form of abstraction, in that it only abstracts away `{ "action": ... }` layer of the resulting JSON object. Use this style when it's necessary to also provide [meta information for an action](../../../core/tasks/code/action-objects.md#meta), in addition to the action's type and options.
 
 {% tabs %}
 {% tab title="Liquid" %}
@@ -56,7 +54,7 @@ This usage style offers the lightest form of abstraction, in that it only abstra
 
 ### Block typed syntax
 
-🏆 This is the most common style of usage. The action type is given as an argument to the Liquid tag itself, and the action options are given in JSON in the tag's body. This syntax requires a closing `{% endaction %}` tag.
+🏆 This is the most common style of usage. The action type is given as an argument to the Liquid tag itself, and the action options are given in JSON in the tag's body.
 
 {% tabs %}
 {% tab title="Liquid" %}
