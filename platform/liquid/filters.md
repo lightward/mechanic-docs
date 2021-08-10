@@ -1097,7 +1097,7 @@ This filter accepts one or more string arguments, corresponding to keys that sho
 
 {% tab title="Output" %}
 ```javascript
-{"bar":"bar","baz":"baz"}
+{"qux":"qux"}
 ```
 {% endtab %}
 {% endtabs %}
