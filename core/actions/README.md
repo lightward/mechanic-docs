@@ -4,6 +4,8 @@ In Mechanic, an **action** is an instruction for performing work that has an eff
 
 Actions are defined by tasks using [**action objects**](../tasks/code/action-objects.md), which are simple JSON objects specifying an action's type and options. Action objects can be constructed using the [**action tag**](../../platform/liquid/tags/action.md).
 
+Actions are performed asynchronously, which means their results are only accessible after the conclusion of the related task and action run \(See [Responding to action results](../../techniques/responding-to-action-results.md)\).
+
 ## Action types
 
 An **action type** determines the class of operation to be performed. While actions may vary greatly, there are only a few action types:
