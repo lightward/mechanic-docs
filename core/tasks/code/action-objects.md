@@ -32,7 +32,7 @@ Action **options** vary by action type. Depending on the action type, its option
 
 Actions may optionally include **meta** information, annotating the action with any JSON value.
 
-This information could be purely for record-keeping, making it easy to determine why an action was rendered:
+This information could be purely for record-keeping, making it easy to determine why an action was rendered, or to add helpful context:
 
 ```javascript
 {
