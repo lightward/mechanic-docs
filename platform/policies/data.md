@@ -8,11 +8,7 @@ For more details, see Heroku's [Security](https://www.heroku.com/policy/security
 
 ## Retention of events
 
-{% hint style="info" %}
-**On August 19, Mechanic's event retention period will change to 15 days, for all accounts.** The rest of the retention policy will remain unchanged.
-{% endhint %}
-
-An event is retained for a default of 60 days after the event is considered "complete" \(see below\). To set a different retention period for your Mechanic account, email [team@usemechanic.com](mailto:team@usemechanic.com).
+An event is retained for a default of 15 days after the event is considered "complete" \(see below\). To set a different retention period for your Mechanic account, email [team@usemechanic.com](mailto:team@usemechanic.com).
 
 For stores that have uninstalled Mechanic, events will be retained for the same retention period _after the event's latest activity_, whether or not an event is "complete".
 
@@ -36,15 +32,15 @@ The content of event data varies based on the tasks configured for your Mechanic
 1. A customer creates an account.
 2. Shopify sends Mechanic a customer creation event, containing all of that customer's data.
 3. A merchant-configured Mechanic task sends that customer an email; no other activity is performed.
-4. 60 days later, by policy, Mechanic deletes the customer creation event \(which contain the customer's data\), and the related runs \(which contain everything needed to send them the email\).
+4. 15 days later, by policy, Mechanic deletes the customer creation event \(which contain the customer's data\), and the related runs \(which contain everything needed to send them the email\).
 
 #### Delayed deletion
 
 1. A store staff member creates a customer order.
 2. Shopify sends Mechanic an order creation event, containing the order's data and the customer's data.
-3. A merchant-configured Mechanic task is scheduled to run 90 days in the future, at which time it will send a follow-up customer email.
-4. 60 days after the order was created, Mechanic checks the order creation event, and discovers that a task run is still pending. The event is not deleted.
-5. 90 days after the order was created, the task runs, generating an "email" action run which sends the customer follow-up later.
+3. A merchant-configured Mechanic task is scheduled to run 30 days in the future, at which time it will send a follow-up customer email.
+4. 15 days after the order was created, Mechanic checks the order creation event, and discovers that a task run is still pending. The event is not deleted.
+5. 30 days after the order was created, the task runs, generating an "email" action run which sends the customer follow-up later.
 6. Shortly thereafter, Mechanic checks the order creation event, finds that all related runs have been completed, and deletes the event \(which contains the order's data and the customer's data\), and the related task and action runs \(which contain all details for the customer follow-up email\).
 
 #### Recursively delayed deletion
@@ -67,5 +63,5 @@ The content of event data varies based on the tasks configured for your Mechanic
 2. Shopify sends Mechanic an order creation event, containing the order's data and the customer's data.
 3. A merchant-configured Mechanic task is scheduled to run 90 days in the future, at which time it will send a follow-up customer email.
 4. The next day, Mechanic is removed from the store's apps list.
-5. 60 days later, because Mechanic has been uninstalled, Mechanic deletes the order creation event _even though_ it is not considered complete.
+5. 15 days later, because Mechanic has been uninstalled, Mechanic deletes the order creation event _even though_ it is not considered complete.
 
