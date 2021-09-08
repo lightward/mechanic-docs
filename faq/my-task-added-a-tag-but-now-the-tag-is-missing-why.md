@@ -6,6 +6,10 @@ In most cases, this comes down to someone else – or some_thing_ else, like ano
 
 For this, you'll need to contact Shopify support. \(Mechanic can't help with this, and neither can the Mechanic team.\) Shopify keeps logs for when tags were added and removed, and by whom – so, send them a message, referencing the related resource, the tag\(s\) that went missing, and when. They should be able to tell you who \(or what\) was responsible for the tag removal.
 
+{% hint style="info" %}
+As of September 2021, Shopify has a rare but confirmed issue with adding tags having non-English characters, via the tagsAdd mutation. When this issue is in play, the mutation returns successfully, but does not actually add the submitted tags.
+{% endhint %}
+
 ### Types of conflicts
 
 #### Conflicts with a human user
