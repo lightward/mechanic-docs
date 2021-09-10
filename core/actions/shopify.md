@@ -315,7 +315,7 @@ This example deletes a product, having a certain ID.
 
 This usage style invokes [Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest). It accepts an array of option values, containing these elements in order:
 
-1. **Operation** Must be one of `"post"` , `"put"` , or `"delete"` 
+1. **Operation** Must be one of `"get"`, `"post"` , `"put"` , or `"delete"` 
 2. **Request path** The entire, literal request path to use, including the requested [API version](https://shopify.dev/concepts/about-apis/versioning#calling-an-api-version) — e.g. `"/admin/api/2020-01/orders.json"`
 3. **A JSON object of attributes** In general, this means a wrapper object whose key is named after the current resource type, and whose value is the same set of data that would be used in the [resourceful](shopify.md#resourceful-rest) style
 
