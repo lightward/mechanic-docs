@@ -320,7 +320,7 @@ This usage style invokes [Shopify REST Admin API](https://shopify.dev/docs/admin
 3. **A JSON object of attributes** In general, this means a wrapper object whose key is named after the current resource type, and whose value is the same set of data that would be used in the [resourceful](shopify.md#resourceful-rest) style
 
 {% hint style="info" %}
-When switching from resourceful to explicit REST, it's common to forget the outer wrapper object. This wrapper is required by Shopify for all requests; it's handled automatically during resourceful usage, but must be handled manually during explicit usage.
+When switching from resourceful to explicit REST, it's common to forget the outer wrapper object. This wrapper is required by Shopify for all request methods except GET and DELETE; it's handled automatically during resourceful usage, but must be handled manually during explicit usage.
 {% endhint %}
 
 #### Example: Creating a resource
