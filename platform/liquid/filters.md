@@ -477,7 +477,7 @@ Matt and Megan love to party and travel.
 
 ### sha256, hmac\_sha1, hmac\_sha256
 
-Generates hexadecimal SHA checksums of strings. For binary output instead, add `binary: true` to the filter's options.
+Generates hexadecimal SHA digests. For binary output instead, add `binary: true` to the filter's options.
 
 {% tabs %}
 {% tab title="Code" %}
