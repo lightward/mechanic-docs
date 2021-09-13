@@ -288,6 +288,12 @@ The parse\_jsonl filter can be used to parse a series of JSON strings, each on t
 {{ json_objects | map: "email" | join: ", " }}
 ```
 
+The parse filters raise errors when invalid JSON or JSONL is received. To ignore parse errors during parse\_json, and to return null when an error is encountered, add `silent: true` to the filter's options:
+
+```javascript
+{% assign should_be_nil = "{{" | parse_json: silent: true %}
+```
+
 ### parse\_xml \*
 
 Use this filter to parse an XML string. \(Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from_xml).\) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
@@ -471,7 +477,7 @@ Matt and Megan love to party and travel.
 
 ### sha256, hmac\_sha1, hmac\_sha256
 
-Generates SHA checksums of strings.
+Generates hexadecimal SHA checksums of strings. For binary output instead, add `binary: true` to the filter's options.
 
 {% tabs %}
 {% tab title="Code" %}
@@ -484,6 +490,18 @@ hmac_sha1: {{ signature }}
 
 {% assign signature = "mechanic" | hmac_sha256: "sincerely" %}
 hmac_sha256: {{ signature }}
+
+{% comment %}
+  Generating an AWS request signature - adapted from
+  https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html
+{% endcomment %}
+{% assign kSecret = "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY" %}
+{% assign prefixed_kSecret = "AWS4" | append: kSecret %}
+{% assign kDate = "20150830" | hmac_sha256: prefixed_kSecret, binary: true %}
+{% assign kRegion = "us-east-1" | hmac_sha256: kDate, binary: true %}
+{% assign kService = "iam" | hmac_sha256: kRegion, binary: true %}
+{% assign kSigning = "aws4_request" | hmac_sha256: kService %}
+aws: {{ kSigning }}
 ```
 {% endtab %}
 
@@ -494,6 +512,8 @@ sha256: 6c8a739536961bcf34dccc343908406d48139344da4754d4cfe43dcf8d662607
 hmac_sha1: 0425a4dbbe0588be87fb51b5706c2244401bc73a
 
 hmac_sha256: 4b8e2bcf66f95b21f74f491eacc1459b0c9ea6723355174af52ded391f9326ea
+
+aws: c4afb1cc5771d871763a393e44b703571b55cc28424d1a5e86da6ed3c154a4b9
 ```
 {% endtab %}
 {% endtabs %}
