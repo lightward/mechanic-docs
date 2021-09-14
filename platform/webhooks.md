@@ -2,25 +2,29 @@
 
 A Mechanic **webhook** allows data to be submitted directly to Mechanic, resulting in a new [**event**](../core/events/) having a particular topic, containing the submitted data. Webhooks are called with simple HTTP POST requests, which means they can be called from any programming language, and from many applications.
 
+Mechanic's webhook API includes CORS support for all origins, making these requests available for use in online user experiences.
+
 {% hint style="info" %}
 This article is an introduction to webhooks. To get started quickly, see [Creating a Mechanic webhook](../resources/tutorials/creating-a-mechanic-webhook.md).
 {% endhint %}
 
 ## Configuration
 
-A Mechanic webhook is configured with a specific event topic, and is assigned a unique, webhook-specific URL. Any valid POST request to that webhook URL will result in a new event being created, having the configured topic, containing the parsed data from the POST request.
+A Mechanic webhook is configured with a name and a specific event topic, and is assigned a unique, webhook-specific URL. Any valid POST request to the assigned webhook URL will result in a new event being created, having the configured topic, containing the parsed data from the POST request.
 
-Any request using an HTTP method other than POST will receive a 405 Method Not Allowed response.
+![](../.gitbook/assets/screen-shot-2021-09-14-at-12.46.59-pm.png)
 
 ## Requests
 
-The Mechanic webhook URL accepts these common request content types:
+The Mechanic webhook API only accepts POST requests. \(All other methods will receive a 405 Method Not Allowed response.\)
+
+The following content types are supported, and will be parsed appropriately as event data:
 
 * text/plain
 * application/json
 * application/x-www-form-urlencoded
 
-When called in-browser via JavaScript, one must be respectful of CORS origins. Mechanic webhooks support cross-domain requests from the Shopify store's myshopify.com subdomain, and from the store's primary domain \(if applicable\). Additional approved CORS origins may be configured in the store's Mechanic account settings.
+Mechanic's webhook API includes CORS support for all origins, making these requests available for use in online user experiences.
 
 ### Examples
 
@@ -34,28 +38,47 @@ curl -X POST -F foo=bar https://usemechanic.com/webhook/abcdef12-3456-abcd-ef12-
 curl -X POST -H "content-type: application/json" -d @data.json https://usemechanic.com/webhook/abcdef12-3456-abcd-ef12-3456abcdef12
 ```
 
-With jQuery:
+With fetch:
 
-```text
-$.post('https://usemechanic.com/webhook/abcdef12-3456-abcd-ef12-3456abcdef12', { foo: 'bar' });
+```javascript
+const data = {
+  some_data: 'yep here it is',
+};
+
+fetch(
+  'https://usemechanic.com/webhook/0000-0000',
+  {
+    method: 'post',
+    body: JSON.stringify(data),
+    headers: {
+      'content-type': 'application/json'
+    },
+  }
+).then(console.log);
 ```
 
-```text
+With jQuery:
+
+```javascript
+$.post('https://usemechanic.com/webhook/0000-0000', { foo: 'bar' });
+```
+
+```javascript
 $.ajax({
-  url: 'https://usemechanic.com/webhook/abcdef12-3456-abcd-ef12-3456abcdef12',
+  url: 'https://usemechanic.com/webhook/0000-0000',
   method: 'POST',
   data: { foo: 'bar' }
 });
 ```
 
-```text
+```javascript
 let data = { foo: 'bar' };
 
 $.ajax({
-  url: 'https://usemechanic.com/webhook/abcdef12-3456-abcd-ef12-3456abcdef12',
+  url: 'https://usemechanic.com/webhook/0000-0000',
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json'
+    'content-type': 'application/json'
   },
   data: JSON.stringify(data)
 });
@@ -63,7 +86,9 @@ $.ajax({
 
 ## Responses
 
-A successful webhook request will always receive a 204 No Content response, indicating that an event has been created with the submitted data. The event will be run asynchronously, along with any generated task and action runs that follow.
+A properly-formatted webhook request will always receive a 204 No Content response, even in the case of an incorrect webhook ID in the URL.
+
+If an active webhook ID was used, then an event will be created with the submitted data. The event will be run asynchronously, along with any generated task and action runs that follow.
 
 ### Retrieving run results
 

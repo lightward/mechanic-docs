@@ -96,7 +96,6 @@
   * [Privacy](platform/policies/privacy.md)
 * [Cache](platform/cache/README.md)
   * [Cache endpoints](platform/cache/endpoints.md)
-* [CORS](platform/cors.md)
 * [Email](platform/email/README.md)
   * [Receiving email](platform/email/receiving-email.md)
   * [Custom email addresses](platform/email/custom-email-domain.md)
