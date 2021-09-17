@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)
+* [Untitled](untitled.md)
 * [🤓 Hire a Mechanic developer](https://learn.mechanic.dev/custom#if-you-need-a-developer)
 
 ## Resources
@@ -131,7 +132,7 @@
     * [array](platform/liquid/keyword-literals/array.md)
     * [hash](platform/liquid/keyword-literals/hash.md)
     * [newline](platform/liquid/keyword-literals/newline.md)
-  * [Objects](platform/liquid/objects/README.md)
+  * [Mechanic Objects](platform/liquid/objects/README.md)
     * [Action object](platform/liquid/objects/action.md)
     * [Cache object](platform/liquid/objects/cache.md)
     * [Event object](platform/liquid/objects/event.md)
