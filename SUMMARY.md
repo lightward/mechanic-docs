@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [🙋 "I need something custom!"](custom.md)
-* [status.mechanic.dev](https://status.mechanic.dev)
+* [💯 status.mechanic.dev](https://status.mechanic.dev)
 
 ## Resources
 
