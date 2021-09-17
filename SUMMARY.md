@@ -3,7 +3,6 @@
 * [Introduction](README.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)
-* [Untitled](untitled.md)
 * [🤓 Hire a Mechanic developer](https://learn.mechanic.dev/custom#if-you-need-a-developer)
 
 ## Resources
