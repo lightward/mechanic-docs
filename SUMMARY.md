@@ -1,13 +1,13 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [🙋 "I need something custom!"](custom.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
-* [Hire a Mechanic developer](hire-a-mechanic-developer.md)
+* [🙋 "I need something custom!"](custom.md)
+* [🤓 Hire a Mechanic developer](https://learn.mechanic.dev/custom#if-you-need-a-developer)
 
 ## Resources
 
-* [Task library](resources/task-library/README.md)
+* [🧑‍💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
 * [🚀 Slack community](resources/slack.md)
 * [Tutorials](resources/tutorials/README.md)
@@ -168,7 +168,7 @@
     * [Theme asset object](platform/liquid/shopify/theme-asset.md)
     * [Transaction object](platform/liquid/shopify/transaction.md)
     * [Variant object](platform/liquid/shopify/variant.md)
-  * [Tags](platform/liquid/tags/README.md)
+  * [Mechanic Tags](platform/liquid/tags/README.md)
     * [action](platform/liquid/tags/action.md)
     * [assign](platform/liquid/tags/assign.md)
     * [error](platform/liquid/tags/error.md)
