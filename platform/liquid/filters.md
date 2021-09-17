@@ -319,11 +319,62 @@ Use this filter to parse an XML string. \(Under the hood, this filter calls [Has
 
 ### shopify \*
 
-\[todo\]
+This filter accepts a GraphQL query string, sends it to Shopify, and returns the full response – including `"data"` and `"errors"`.
+
+{% hint style="info" %}
+Tip: Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-admin-api) to quickly and precisely assemble your queries.
+{% endhint %}
+
+```javascript
+{% capture query %}
+  query {
+    shop {
+      primaryDomain {
+        host
+        id
+        sslEnabled
+        url
+      }
+      myshopifyDomain
+    }
+  }
+{% endcapture %}
+
+{{ query | shopify | json }}
+```
+
+{% code title="Response" %}
+```javascript
+{
+  "data": {
+    "shop": {
+      "primaryDomain": {
+        "host": "graphql-admin.myshopify.com",
+        "id": "gid://shopify/Domain/33896136726",
+        "sslEnabled": true,
+        "url": "https://graphql-admin.myshopify.com"
+      },
+      "myshopifyDomain": "graphql-admin.myshopify.com"
+    }
+  },
+  "extensions": {
+    "cost": {
+      "requestedQueryCost": 2,
+      "actualQueryCost": 2,
+      "throttleStatus": {
+        "maximumAvailable": 1000,
+        "currentlyAvailable": 975,
+        "restoreRate": 50
+      }
+    }
+  }
+}
+```
+{% endcode %}
 
 ## String filters
 
-Mechanic supports
+Mechanic supports all of the string filters available in Liquid - [https://shopify.dev/api/liquid/filters/string-filters](https://shopify.dev/api/liquid/filters/string-filters).
 
 ### append
 
