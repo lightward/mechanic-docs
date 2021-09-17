@@ -1,10 +1,10 @@
 # Objects
 
-Mechanic makes a variety of [**Liquid environment variables**](../../../core/tasks/code/environment-variables.md) available, containing specific Liquid objects. \(The `{{ shop }}` variable, for example, is always available and always contains the [Shop object](shopify/shop.md).\)
+Mechanic makes a variety of [**Liquid environment variables**](../../../core/tasks/code/environment-variables.md) available, containing specific Liquid objects. \(The `{{ shop }}` variable, for example, is always available and always contains the [Shop object](../shopify/shop.md).\)
 
 Mechanic's Liquid objects mapping to Shopify resources all contain data pulled from the [Shopify's REST Admin API reference](https://shopify.dev/docs/admin-api/rest/reference). These objects are listed here:
 
-{% page-ref page="shopify/" %}
+{% page-ref page="../shopify/" %}
 
 {% hint style="warning" %}
 **Shopify variables in Mechanic do not necessarily contain the same attributes as Liquid variables used in Shopify \(in places like themes or email templates\) – even if they share the same name.**

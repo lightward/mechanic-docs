@@ -51,17 +51,17 @@ Shopify and Mechanic both use Liquid code for their templates. Run through the f
 
 ### 1. Change variables to order properties
 
-Shopify uses variables like `{{ total_price }}` and `{{ transactions }}` and `{{ email }}`. These are all properties of [the order object](../platform/liquid/objects/shopify/order.md), and you can access them as such in Mechanic, using variables like `{{ order.total_price }}` and `{{ order.transactions }}` and `{{ order.email }}`.
+Shopify uses variables like `{{ total_price }}` and `{{ transactions }}` and `{{ email }}`. These are all properties of [the order object](../platform/liquid/shopify/order.md), and you can access them as such in Mechanic, using variables like `{{ order.total_price }}` and `{{ order.transactions }}` and `{{ order.email }}`.
 
 Some variables from Shopify are already given as properties of an object you can use in Mechanic. For example, `{{ shop.name }}` works in both Order Printer and in Shopify.
 
 To see what variables Shopify uses in their notification templates, [see their documentation](https://help.shopify.com/en/manual/orders/notifications/email-variables). If you're using Order Printer, you can find a similar list by opening up a template in the app, and clicking the "View the Liquid variable list" link.
 
-For a full list of order object properties in Mechanic, [see our documentation](../platform/liquid/objects/shopify/order.md).
+For a full list of order object properties in Mechanic, [see our documentation](../platform/liquid/shopify/order.md).
 
 ### 2. Convert numeric strings to numbers, and check on money rendering
 
-Mechanic uses API data from Shopify to power [the order object](../platform/liquid/objects/shopify/order.md). Because the Shopify API makes money figures available as strings, you may need to convert these values to numbers for parts of your template to work correctly.
+Mechanic uses API data from Shopify to power [the order object](../platform/liquid/shopify/order.md). Because the Shopify API makes money figures available as strings, you may need to convert these values to numbers for parts of your template to work correctly.
 
 Example:
 

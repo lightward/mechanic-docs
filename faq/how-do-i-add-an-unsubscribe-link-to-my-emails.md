@@ -8,7 +8,7 @@ In the rare case that an email _does_ warrant an unsubscribe link, use `{{ custo
 <a href="{{ customer.unsubscribe_url }}">Unsubscribe</a>
 ```
 
-This property of [the customer object](../platform/liquid/objects/shopify/customer-object.md) points to a Mechanic-powered URL that...
+This property of [the customer object](../platform/liquid/shopify/customer-object.md) points to a Mechanic-powered URL that...
 
 1. Turns off the "Accepts marketing" property of the related customer, in their Shopify records
 2. Gives the customer a link to return them to the Shopify store's online storefront

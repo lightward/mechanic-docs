@@ -11,7 +11,7 @@
 ### Associated resources
 
 {% hint style="warning" %}
-Use caution when loading large sets of resources through the shop object. Using code like `{% for product in shop.products %}` will result in Mechanic downloading the complete REST representation of all products in the store, which may be more data than is necessary or useful. When working with large amounts of data, consider [using GraphQL](../../../../core/shopify/read/graphql-in-liquid.md) instead.
+Use caution when loading large sets of resources through the shop object. Using code like `{% for product in shop.products %}` will result in Mechanic downloading the complete REST representation of all products in the store, which may be more data than is necessary or useful. When working with large amounts of data, consider [using GraphQL](../../../core/shopify/read/graphql-in-liquid.md) instead.
 
 For clarity: looking up a single resource by ID will only result in a single REST API call, as in `{% assign product = shop.products[1234567890] %}`. If many of these requests are necessary, it may _still_ be useful to look to GraphQL, but this kind of usage does not load more than the specific, single resource identified.
 {% endhint %}
