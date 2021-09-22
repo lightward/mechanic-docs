@@ -26,6 +26,17 @@ The following content types are supported, and will be parsed appropriately as e
 
 Mechanic's webhook API includes CORS support for all origins, making these requests available for use in online user experiences.
 
+### Client-specific endpoints
+
+When configuring an integration with external apps and services, some require specific behavior from webhook hosts – usually for the purposes of validating a webhook before it's enabled. Mechanic includes specific support for some known webhook clients; request new ones at [mechanic.canny.io](https://mechanic.canny.io/).
+
+A webhook invocation signals its client selection via a path suffix. Given a webhook URL of `usemechanic.com/webhook/0000..0000`, a client-specific endpoint for Ship24 \(for example\) would be available at `usemechanic.com/webhook/0000..0000/ship24`.
+
+| Client | Webhook suffix | Behavior notes | Client documentation |
+| :--- | :--- | :--- | :--- |
+| Asana | asana | Supports the `X-Hook-Secret` header for the handshake phase | [Documentation](https://developers.asana.com/docs/webhooks) |
+| Ship24 | ship24 | Supports HEAD requests for webhook verification | n/a |
+
 ### Examples
 
 With cURL:
