@@ -192,6 +192,7 @@
 ---
 
 * [FAQ](faq/README.md)
+  * [Does Mechanic have an affiliate program?](faq/does-mechanic-have-an-affiliate-program.md)
   * [Can non-owners install Mechanic?](faq/can-non-owners-install-mechanic.md)
   * [Can I replace Shopify's order emails with Mechanic?](faq/can-i-replace-shopifys-order-emails-with-mechanic.md)
   * [Can I manually set Shopify permissions for Mechanic?](faq/can-i-manually-set-shopify-permissions-for-mechanic.md)
