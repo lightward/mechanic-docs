@@ -6,5 +6,7 @@ When building a new task, it's often easier to modify an existing task than to c
 
 **To browse the task library, visit** [**tasks.mechanic.dev**](https://tasks.mechanic.dev/)**.**
 
+**The Mechanic community can request new tasks – see** [**Requesting**](requesting.md)**.**
+
 **The task library is open for contributions, by way of pull requests – see** [**Contributing**](contributing.md)**.**
 

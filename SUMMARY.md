@@ -9,6 +9,7 @@
 
 * [🧑‍💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
+  * [Requesting](resources/task-library/requesting.md)
 * [🚀 Slack community](resources/slack.md)
 * [Tutorials](resources/tutorials/README.md)
   * [Creating a Mechanic webhook](resources/tutorials/creating-a-mechanic-webhook.md)
