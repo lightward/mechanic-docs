@@ -6,11 +6,15 @@ description: 'Great! Mechanic is made for this. Here''s where to start. :)'
 
 Mechanic is a development platform – in the hands of a developer, it can be used to accomplish almost anything in Shopify. While our [task library](resources/task-library/) covers many use cases, Mechanic's true strength is in letting developers solve merchant problems quickly, giving merchants easy configuration forms for managing the resulting tasks.
 
+{% hint style="info" %}
+Need something that you think others might need to? The Mechanic community accepts [task requests](resources/task-library/requesting.md), and the top-voted requests are regularly selected for implementation.
+{% endhint %}
+
 ## If you need a developer…
 
 Mechanic's automation tasks are written in Liquid, which is a template language used heavily in and around Shopify. This means that developers of all levels, with even a little Shopify development experience, can get started with Mechanic.
 
-**To find a developer for hire, start by posting in the \#jobs channel of Mechanic's Slack workspace.** [**Use this link to join**](https://join.slack.com/t/usemechanic/shared_invite/zt-cq84nrs7-ggYbYTbf~CrCjTg8nmHP2A)**.** This is a super common path, and our Slack community is here to help. :\)
+**To find a developer for hire, start by posting in the \#jobs channel of Mechanic's Slack workspace.** [**Use this link to join**](https://join.slack.com/t/usemechanic/shared_invite/zt-cq84nrs7-ggYbYTbf~CrCjTg8nmHP2A)**.** This is a super common path, and the Mechanic community is here to help. :\)
 
 If you already have a developer on your team, or have an existing connection to a developer, send them this article and see if they can help you!
 
