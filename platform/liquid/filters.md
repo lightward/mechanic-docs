@@ -449,6 +449,10 @@ Use this filter to match a string with a Ruby-compatible regular expression patt
 
 This filter returns the entire matched string \(i.e. [MatchData\#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to_s)\). Use the "captures" or "named\_captures" lookups to receive an array or hash of captures, respectively \(i.e. [MatchData\#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData\#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named_captures)\).
 
+{% hint style="info" %}
+This filter only returns the first match found. To find all available matches in a string, use [scan](filters.md#scan).
+{% endhint %}
+
 ```javascript
 {{ "It's a lovely day!" | match: "(?<=a ).*(?= day)" }}
 => "lovely"
@@ -459,7 +463,7 @@ This filter returns the entire matched string \(i.e. [MatchData\#to\_s](https://
 
 {% assign match = "It's a lovely day!" | match: "a (?<adjective>bucolic|lovely) day" %}
 {{ match.named_captures }}
-=> {"adjective"=>"lovely"}
+=> {"adjective" => "lovely"}
 
 {% assign match = "It's a lovely day!" | match: "a (?i:LOVELY) day" %}
 {{ match }}
@@ -525,6 +529,27 @@ Matt and Megan love to party and travel.
 ```
 {% endtab %}
 {% endtabs %}
+
+### scan \*
+
+Use this filter to find all available matches in a string, using a Ruby-compatible regular expression pattern \(see [Regexp](https://ruby-doc.org/core/Regexp.html)\).
+
+This filter returns an array of matches, consisting of each matched string \(i.e. [MatchData\#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to_s)\). Use the "captures" or "named\_captures" lookups on individual matches to receive an array or hash of captures, respectively \(i.e. [MatchData\#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData\#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named_captures)\).
+
+{% hint style="info" %}
+This filter returns an array of matches. To only find the first match, use [match](filters.md#match).
+{% endhint %}
+
+```javascript
+{{ "It's a lovely day!" | scan: "[\w']+" }}
+=> ["It's", "a", "lovely", "day"]
+
+{{ "It's a lovely day!" | scan: "(bucolic|lovely|day)" | map: "captures" }}
+=> [["lovely"], ["day"]]
+
+{{ "It's a lovely day!" | scan: "(?<punctuation>[[:punct:]])" | map: "named_captures" }}
+=> [{"punctuation" => "'"}, {"punctuation" => "!"}]
+```
 
 ### sha256, hmac\_sha1, hmac\_sha256
 
