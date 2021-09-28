@@ -15,5 +15,5 @@ For tasks that respond to events on Shopify resources, we recommend the followin
 
 ## Example
 
-Coming shortly. :\)
+Coming shortly! See [https://github.com/lightward/mechanic-tasks/pull/66](https://github.com/lightward/mechanic-tasks/pull/66).
 
