@@ -79,7 +79,8 @@
   * [Retries](core/runs/retries.md)
   * [Pauses](core/runs/pauses.md)
 * [Interacting with Shopify](core/shopify/README.md)
-  * [Responding to events](core/shopify/events.md)
+  * [Responding to events](core/shopify/events/README.md)
+    * [Reconciling missing events](core/shopify/events/reconciling-missing-events.md)
   * [Reading data](core/shopify/read/README.md)
     * [Liquid objects](core/shopify/read/liquid-objects.md)
     * [GraphQL in Liquid](core/shopify/read/graphql-in-liquid.md)
@@ -193,6 +194,7 @@
 ---
 
 * [FAQ](faq/README.md)
+  * [A Shopify event is missing. Where is it?](faq/a-shopify-event-is-missing.-where-is-it.md)
   * [Does Mechanic have an affiliate program?](faq/does-mechanic-have-an-affiliate-program.md)
   * [Can non-owners install Mechanic?](faq/can-non-owners-install-mechanic.md)
   * [Can I replace Shopify's order emails with Mechanic?](faq/can-i-replace-shopifys-order-emails-with-mechanic.md)
