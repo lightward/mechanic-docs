@@ -19,7 +19,7 @@ Task runs may be scheduled using [subscription offsets](../tasks/subscriptions.m
 Subscription offsets are a property of the task, and are applied by the task run – _not_ the event run. This means that the subscribed-to event must be created and run _before_ the subscription offset is calculated and applied.
 
 {% hint style="info" %}
-The first task run on a new mechanic/scheduler/daily task may not be performed when expected, for the very first run.
+In some cases, the first task run on a new mechanic/scheduler/daily task may not be performed when expected.
 
 To illustrate: if a user creates a task at 9am Monday, subscribing to mechanic/scheduler/daily+10.hours, they will have to wait until _the following midnight_ before the mechanic/scheduler/daily event is created. When that event's run is performed, the task's subscription offset will be calculated and applied, and the task run will be enqueued for 10 hours later. This means that the task will run for the first time on 10am Tuesday, _not_ 10am Monday.
 {% endhint %}
