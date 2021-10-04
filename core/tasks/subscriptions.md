@@ -12,6 +12,8 @@ Subscription offsets are appended to the subscription topic, and are of the form
 
 A subscription consisting of an event topic and an offset looks like "shopify/customers/create+1.hour".
 
+To learn more about scheduling work with Mechanic, see [Scheduling](../runs/scheduling.md).
+
 {% hint style="warning" %}
 The [Shopify variables](code/environment-variables.md#shopify-variables) available to tasks always contain data drawn from the event itself. If a task has a offset event subscription, this data may be outdated by the time the task runs.
 
