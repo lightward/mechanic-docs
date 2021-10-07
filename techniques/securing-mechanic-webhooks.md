@@ -22,7 +22,7 @@ With this in place, one would then use something like this, in the corresponding
 {% assign customer_id = event.data.customer_id %}
 {% assign customer_id_signature = event.data.customer_id_signature %}
 
-{% assign expected_customer_id_signature = customer_id | hmac_sha256: "some-secret-value" | json %}
+{% assign expected_customer_id_signature = customer_id | hmac_sha256: "some-secret-value" %}
 
 {% if expected_customer_id_signature != customer_id_signature %}
   {% error "Customer ID signature did not match." %}
