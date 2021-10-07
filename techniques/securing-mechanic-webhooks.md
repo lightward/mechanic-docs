@@ -39,6 +39,8 @@ One might use something like this in the Shopify theme code:
 
 The approach above prevents would-be attackers from passing off altered data as legitimate, but it does not prevent manually repeated submissions of the _same_ data.
 
+#### Using idempotent task code
+
 The best approach for preventing this is to ensure that the Mechanic task code is fully idempotent, such that it only performs the desired work _once_, no matter how many times it is invoked.
 
 One way to solve this is to leverage [the Mechanic cache](../platform/cache/) to remember that a given request has already been processed. Here's an example:
@@ -57,4 +59,32 @@ One way to solve this is to leverage [the Mechanic cache](../platform/cache/) to
 ```
 
 In this way, later submissions of the same webhook data will be ignored.
+
+#### Adding time to the request signature
+
+To prevent a replay of the same request _much_ later, add a rounded representation of the current time to the signature calculation. Here's an example, on the theme code side:
+
+```javascript
+{% assign time_rounded = "now" | date: "%s" | times: 1.0 | divided_by: 60 | round %}
+{% assign signature_data = customer.id | append: time_rounded %}
+{% assign signature = hmac_sha256: "some-secret-value" %}
+```
+
+And here's how this might be validated in task code:
+
+```javascript
+{% assign customer_id = event.data.customer_id %}
+{% assign customer_id_signature = event.data.customer_id_signature %}
+
+{% assign time_rounded = "now" | date: "%s" | times: 1.0 | divided_by: 60 | round %}
+{% assign expected_customer_id_signature = customer_id | append: time_rounded | hmac_sha256: "some-secret-value" %}
+
+{% if expected_customer_id_signature != customer_id_signature %}
+  {% error "Customer ID signature did not match." %}
+{% endif %}
+```
+
+In this way, the signature will only be valid within a 60-minute interval.
+
+Bear in mind, with this strategy, timeliness becomes important! A [queue delay](../faq/why-are-my-tasks-delayed-or-not-running.md) could push the event past the rounding, resulting in a new time value, and invalidating the request signature.
 
