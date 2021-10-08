@@ -194,6 +194,7 @@
 ---
 
 * [FAQ](faq/README.md)
+  * [How do I stop a large batch of runs?](faq/how-do-i-stop-a-large-batch-of-runs.md)
   * [A Shopify event is missing. Where is it?](faq/a-shopify-event-is-missing-where-is-it.md)
   * [Does Mechanic have an affiliate program?](faq/does-mechanic-have-an-affiliate-program.md)
   * [Can non-owners install Mechanic?](faq/can-non-owners-install-mechanic.md)
