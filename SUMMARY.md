@@ -217,6 +217,7 @@
   * [Can I query external APIs?](faq/can-i-query-external-apis.md)
   * [Why can't I access the Shopify API during preview mode?](faq/why-cant-i-access-the-shopify-api-during-preview-mode.md)
   * [How do marketing preferences work with Mechanic?](faq/how-do-marketing-preferences-work-with-mechanic.md)
+  * [Can I send data to Google Sheets?](faq/can-i-send-data-to-google-sheets.md)
   * [What's possible with timeline comments?](faq/whats-possible-with-timeline-comments.md)
 * [Under construction](under-construction.md)
 
