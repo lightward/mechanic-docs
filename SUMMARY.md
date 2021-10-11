@@ -7,7 +7,7 @@
 
 ## Resources
 
-* [🧑‍💻 Task library](resources/task-library/README.md)
+* [🧑💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
 * [🚀 Slack community](resources/slack.md)
@@ -20,7 +20,7 @@
   * [Maintain a tag for orders processed today](resources/video-walkthroughs/maintain-a-tag-for-orders-processed-today.md)
   * [Auto-tag orders with their tracking numbers](resources/video-walkthroughs/auto-tag-orders-with-their-tracking-numbers.md)
   * [Sync inventory for shared SKUs](resources/video-walkthroughs/sync-inventory-for-shared-skus.md)
-  * [Auto-tag products when their SKU\(s\) change](resources/video-walkthroughs/auto-tag-products-when-their-sku-s-change.md)
+  * [Auto-tag products when their SKU(s) change](resources/video-walkthroughs/auto-tag-products-when-their-sku-s-change.md)
   * [Auto-publish new products](resources/video-walkthroughs/auto-publish-new-products.md)
   * [Email a report of customers who haven't ordered in X days](resources/video-walkthroughs/email-a-report-of-customers-who-havent-ordered-in-x-days.md)
   * [Upgrading a Mechanic task: Adding a time delay](resources/video-walkthroughs/upgrading-a-mechanic-task-adding-a-time-delay.md)
@@ -33,7 +33,7 @@
   * [Auto-tag customers by sales channel](resources/video-walkthroughs/auto-tag-customers-by-sales-channel.md)
   * [Creating products in bulk](resources/video-walkthroughs/creating-products-in-bulk.md)
 
-## Core Concepts <a id="core"></a>
+## Core Concepts <a href="core" id="core"></a>
 
 * [Events](core/events/README.md)
   * [Topics](core/events/topics.md)
@@ -191,7 +191,7 @@
 * [Migrating templates from Shopify to Mechanic](techniques/migrating-templates-from-shopify-to-mechanic.md)
 * [Securing Mechanic webhooks](techniques/securing-mechanic-webhooks.md)
 
----
+***
 
 * [FAQ](faq/README.md)
   * [How do I stop a large batch of runs?](faq/how-do-i-stop-a-large-batch-of-runs.md)
@@ -220,4 +220,3 @@
   * [Can I send data to Google Sheets?](faq/can-i-send-data-to-google-sheets.md)
   * [What's possible with timeline comments?](faq/whats-possible-with-timeline-comments.md)
 * [Under construction](under-construction.md)
-
