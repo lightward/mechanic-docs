@@ -14,6 +14,22 @@ From [Flow's app store listing](https://apps.shopify.com/flow):
 
 As an automation tool itself, Flow has its own terms for the components of automation.
 
+#### Workflow
+
+A package of configuration, containing a trigger, zero or more conditions, and one or more actions. Analogous to a Mechanic task.
+
+#### Trigger
+
+An event from Shopify or another connector (like Mechanic), which can be used to set workflows. Analogous to a Mechanic event.
+
+#### Condition
+
+A logical check which evaluates some data (possibly provided by the trigger), and steers the workflow towards specific actions. Loosely analogous to the code in a Mechanic task.
+
+#### Action
+
+Work to be performed, at the conclusion of a workflow's run. Directly analogous to a Mechanic action.
+
 {% hint style="info" %}
 Both Mechanic and Flow use the term "action"! When working on both of these platforms together, keep an eye out for this term, and make sure you understand which platform's definition is relevant.
 {% endhint %}
