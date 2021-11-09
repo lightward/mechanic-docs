@@ -2,7 +2,7 @@
 
 This page contains definitions for all Mechanic-supported Liquid filters.
 
-Filters that are unique to Mechanic \(and not available in Shopify or on other platforms\) are noted with an asterisk.
+Filters that are unique to Mechanic (and not available in Shopify or on other platforms) are noted with an asterisk.
 
 {% hint style="info" %}
 This page is a developer reference for Liquid filters supported by Mechanic. For an introduction to the concept of filters, see [Filters](basics/filters.md).
@@ -21,7 +21,7 @@ Allows for converting between strings and their base64-encoded representations.
 
 ### browser \*
 
-This filter converts a browser user agent string into an object that represents the browser itself. \(This filter uses data from [ Browserscope](https://github.com/ua-parser/uap-core) to match user agents.
+This filter converts a browser user agent string into an object that represents the browser itself. (This filter uses data from [ Browserscope](https://github.com/ua-parser/uap-core) to match user agents.
 
 {% tabs %}
 {% tab title="Code" %}
@@ -50,7 +50,7 @@ device model: {{ browser.device.model }}
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 Google 79.0.259819395
 
 name: Google
@@ -99,7 +99,7 @@ The parse\_csv filter accepts a "headers" option; when set to `true`, this filte
 ```
 {% endtab %}
 
-{% tab title="parse\_csv" %}
+{% tab title="parse_csv" %}
 ```javascript
 {% comment %}
   Note the dashes used in the capture/endcapture tags!
@@ -138,7 +138,7 @@ Order Name,Order ID,Order Date
 ```
 {% endtab %}
 
-{% tab title="parse\_csv with headers" %}
+{% tab title="parse_csv with headers" %}
 ```javascript
 {% comment %}
   Note the dashes used in the capture/endcapture tags!
@@ -180,11 +180,11 @@ Order Name,Order ID,Order Date
 
 ### date, parse\_date \*
 
-Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/docs/themes/liquid/reference/filters/additional-filters#date). Mechanic's implementation has all the functionality of Shopify's. It accepts a date format, using [the same format as Ruby's strftime](http://www.ruby-doc.org/core/Time.html#method-i-strftime). \(Sites like [strfti.me](http://www.strfti.me/) offer convenient references for this format.\) Under the hood, this filter uses [ActiveSupport::TimeZone\#strptime](https://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html#method-i-strptime), and inherits its behavior with regard to missing upper components.
+Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/docs/themes/liquid/reference/filters/additional-filters#date). Mechanic's implementation has all the functionality of Shopify's. It accepts a date format, using [the same format as Ruby's strftime](http://www.ruby-doc.org/core/Time.html#method-i-strftime). (Sites like [strfti.me](http://www.strfti.me) offer convenient references for this format.) Under the hood, this filter uses [ActiveSupport::TimeZone#strptime](https://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html#method-i-strptime), and inherits its behavior with regard to missing upper components.
 
 #### Choosing a timezone
 
-Mechanic's date filter supports a `tz` option, which accepts [a timezone name from the TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If given, the resulting time string will be in the specified timezone. If this option is not provided, the store's local timezone will be used instead.
+Mechanic's date filter supports a `tz` option, which accepts [a timezone name from the TZ database](https://en.wikipedia.org/wiki/List\_of\_tz\_database\_time\_zones). If given, the resulting time string will be in the specified timezone. If this option is not provided, the store's local timezone will be used instead.
 
 ```javascript
 {{ "now" | date: "%Y-%m-%d %H:%M %z" }}
@@ -196,7 +196,7 @@ Mechanic's date filter supports a `tz` option, which accepts [a timezone name fr
 
 #### Using the current time
 
-This filter also accepts the special value `"now"`, and values offset from now, as in `"now + 5 days"` or `"now - 5 weeks"`. In this way, the filter supports simple date math. Note that durations are calculated using variable duration lengths, given the naturally varying length of specific days, weeks, months, and years, given DST and other calendar variances, all informed by the store's timezone. This math is backed by [ActiveSupport::TimeWithZone\#+](https://api.rubyonrails.org/classes/ActiveSupport/TimeWithZone.html#method-i-2B). An example, quoting from that documentation: "a time + 24.hours will advance exactly 24 hours, while a time + 1.day will advance 23-25 hours, depending on the day".
+This filter also accepts the special value `"now"`, and values offset from now, as in `"now + 5 days"` or `"now - 5 weeks"`. In this way, the filter supports simple date math. Note that durations are calculated using variable duration lengths, given the naturally varying length of specific days, weeks, months, and years, given DST and other calendar variances, all informed by the store's timezone. This math is backed by [ActiveSupport::TimeWithZone#+](https://api.rubyonrails.org/classes/ActiveSupport/TimeWithZone.html#method-i-2B). An example, quoting from that documentation: "a time + 24.hours will advance exactly 24 hours, while a time + 1.day will advance 23-25 hours, depending on the day".
 
 ```javascript
 {{ "now + 6 weeks" | date: "%Y-%m-%d %H:%M %z" }}
@@ -237,7 +237,7 @@ Howdy {{ order.shipping_address.first_name | default: "partner" }}
 
 These filters allow you to compress and decompress strings, using gzip compression.
 
-In general, all strings passing through Mechanic must be UTF-8, and must ultimately be valid when represented as JSON. However, because gzip'd content may _not_ be UTF-8, and because it may be important to preserve the original encoding, the gunzip filter supports a `force_utf8: false` option. Use this when you're certain the original encoding must be preserved, _if_ you ultimately intend to pass along the string in a JSON-friendly representation. \(For example, you might gunzip a value, and then use the base64 filter to represent it safely within JSON.\)
+In general, all strings passing through Mechanic must be UTF-8, and must ultimately be valid when represented as JSON. However, because gzip'd content may _not_ be UTF-8, and because it may be important to preserve the original encoding, the gunzip filter supports a `force_utf8: false` option. Use this when you're certain the original encoding must be preserved, _if_ you ultimately intend to pass along the string in a JSON-friendly representation. (For example, you might gunzip a value, and then use the base64 filter to represent it safely within JSON.)
 
 ```javascript
 {{ "testing" | gzip | gunzip }}
@@ -260,11 +260,11 @@ In general, all strings passing through Mechanic must be UTF-8, and must ultimat
 
 ### graphql\_arguments \*
 
-\[todo\]
+\[todo]
 
 ### img\_url \*
 
-\[todo\]
+\[todo]
 
 ### json, parse\_json, parse\_jsonl \*
 
@@ -296,7 +296,7 @@ The parse filters raise errors when invalid JSON or JSONL is received. To ignore
 
 ### parse\_xml \*
 
-Use this filter to parse an XML string. \(Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from_xml).\) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
+Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from\_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
 
 ```javascript
 {% capture xml_string %}
@@ -313,7 +313,7 @@ Use this filter to parse an XML string. \(Under the hood, this filter calls [Has
 {{ xml | json }}
 ```
 
-```text
+```
 {"foo":{"bar":["baz",{"qux":"quux"}]}}
 ```
 
@@ -386,7 +386,7 @@ Mechanic supports all of the string filters available in Liquid - [https://shopi
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 report.pdf
 ```
 {% endtab %}
@@ -402,7 +402,7 @@ report.pdf
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 Mechanic
 ```
 {% endtab %}
@@ -419,7 +419,7 @@ Mechanic
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 STOP YELLING AT ME
 stop yelling at me
 ```
@@ -445,9 +445,9 @@ This filter accepts a phone number – country code is required! – and outputs
 
 ### match \*
 
-Use this filter to match a string with a Ruby-compatible regular expression pattern \(see [Regexp](https://ruby-doc.org/core/Regexp.html)\).
+Use this filter to match a string with a Ruby-compatible regular expression pattern (see [Regexp](https://ruby-doc.org/core/Regexp.html)).
 
-This filter returns the entire matched string \(i.e. [MatchData\#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to_s)\). Use the "captures" or "named\_captures" lookups to receive an array or hash of captures, respectively \(i.e. [MatchData\#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData\#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named_captures)\).
+This filter returns the entire matched string (i.e. [MatchData#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to\_s)). Use the "captures" or "named\_captures" lookups to receive an array or hash of captures, respectively (i.e. [MatchData#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named\_captures)).
 
 {% hint style="info" %}
 This filter only returns the first match found. To find all available matches in a string, use [scan](filters.md#scan).
@@ -484,7 +484,7 @@ This filter only returns the first match found. To find all available matches in
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 It was geat to meet you
 ```
 {% endtab %}
@@ -503,7 +503,7 @@ Removes a substring from a string.
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 Hi ! Nice to meet !
 Hi ! Nice to meet everyone!
 ```
@@ -523,7 +523,7 @@ Replaces a substring with something else.
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 Matt and Megan love to party and party.
 Matt and Megan love to party and travel.
 ```
@@ -532,9 +532,9 @@ Matt and Megan love to party and travel.
 
 ### scan \*
 
-Use this filter to find all available matches in a string, using a Ruby-compatible regular expression pattern \(see [Regexp](https://ruby-doc.org/core/Regexp.html)\).
+Use this filter to find all available matches in a string, using a Ruby-compatible regular expression pattern (see [Regexp](https://ruby-doc.org/core/Regexp.html)).
 
-This filter returns an array of matches, consisting of each matched string \(i.e. [MatchData\#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to_s)\). Use the "captures" or "named\_captures" lookups on individual matches to receive an array or hash of captures, respectively \(i.e. [MatchData\#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData\#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named_captures)\).
+This filter returns an array of matches, consisting of each matched string (i.e. [MatchData#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to\_s)). Use the "captures" or "named\_captures" lookups on individual matches to receive an array or hash of captures, respectively (i.e. [MatchData#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named\_captures)).
 
 {% hint style="info" %}
 This filter returns an array of matches. To only find the first match, use [match](filters.md#match).
@@ -582,7 +582,7 @@ aws: {{ kSigning }}
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 sha256: 6c8a739536961bcf34dccc343908406d48139344da4754d4cfe43dcf8d662607
 
 hmac_sha1: 0425a4dbbe0588be87fb51b5706c2244401bc73a
@@ -604,7 +604,7 @@ Returns the integer length of the input string.
 This filter also works for [arrays](filters.md#slice-1)! And there's a different behavior available for [hashes](filters.md#slice-2).
 {% endhint %}
 
-This filter accepts an integer offset, and an optional integer length \(defaulting to 1\). It returns a substring, beginning at the provided index, having the provided length.
+This filter accepts an integer offset, and an optional integer length (defaulting to 1). It returns a substring, beginning at the provided index, having the provided length.
 
 Negative offsets begin counting from the end of the string.
 
@@ -635,7 +635,7 @@ Takes a substring, and uses it to split a string into an array.
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 love
 is
 all
@@ -657,7 +657,7 @@ The strip filter removes whitespace from both sides of a string. The lstrip filt
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 why do we have so many spaces?
 ```
 {% endtab %}
@@ -687,7 +687,7 @@ Use this filter on strings to remove indentation from strings.
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
   Hello, friend!
   It's a mighty fine day!
 
@@ -704,9 +704,9 @@ It's a mighty fine day!
 
 ### currency \*
 
-Formats a number \(given as an [integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)\) as currency. Called with no arguments, this filter uses the store's primary currency and default locale.
+Formats a number (given as an [integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)) as currency. Called with no arguments, this filter uses the store's primary currency and default locale.
 
-A three-character ISO currency code may be specified as the first argument; currency support is drawn from the [money](https://github.com/RubyMoney/money/blob/main/config/currency_iso.json) project. The locale may be overridden as a named option; locale support is drawn from [rails-i18n](https://github.com/svenfuchs/rails-i18n#available-locales).
+A three-character ISO currency code may be specified as the first argument; currency support is drawn from the [money](https://github.com/RubyMoney/money/blob/main/config/currency\_iso.json) project. The locale may be overridden as a named option; locale support is drawn from [rails-i18n](https://github.com/svenfuchs/rails-i18n#available-locales).
 
 {% tabs %}
 {% tab title="Code" %}
@@ -719,7 +719,7 @@ A three-character ISO currency code may be specified as the first argument; curr
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 $100,000.00
 €100,000.00
 €100 000,00
@@ -728,7 +728,7 @@ $100 000,00
 {% endtab %}
 {% endtabs %}
 
-Note that this filter does not automatically append the currency ISO code \(e.g. it will not generate output resembling "€100,000.00 EUR"\). To add the ISO code manually, use one of these examples:
+Note that this filter does not automatically append the currency ISO code (e.g. it will not generate output resembling "€100,000.00 EUR"). To add the ISO code manually, use one of these examples:
 
 ```javascript
 {{ price | currency }} {{ shop.currency }}
@@ -776,7 +776,7 @@ Concatenates two arrays into a single array.
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 sandwich, apple, soup, pasta, pizza, salad
 eggs, oatmeal, toast, sandwich, apple, soup, pasta, pizza, salad
 ```
@@ -808,7 +808,7 @@ Returns the first or last element of an array. You can use `first` or `last` in 
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 VIP
 Canada
 This customer is a VIP!
@@ -819,7 +819,7 @@ Eh!
 
 ### in\_groups \*
 
-This filter is an implementation of [Array\#in\_groups](https://api.rubyonrails.org/classes/Array.html#method-i-in_groups). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
+This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.org/classes/Array.html#method-i-in\_groups). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
 
 {% tabs %}
 {% tab title="Code" %}
@@ -851,7 +851,7 @@ This filter is an implementation of [Array\#in\_groups](https://api.rubyonrails.
 
 ### in\_groups\_of \*
 
-This filter is an implementation of [Array\#in\_groups\_of](https://api.rubyonrails.org/classes/Array.html#method-i-in_groups_of). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
+This filter is an implementation of [Array#in\_groups\_of](https://api.rubyonrails.org/classes/Array.html#method-i-in\_groups\_of). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
 
 This filter is particularly useful when performing work in batches, by making it easy to split an array of potentially large size into smaller pieces of controlled size.
 
@@ -877,7 +877,7 @@ This filter is particularly useful when performing work in batches, by making it
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 [["1","2"],["3","4"],["5"]]
 ```
 {% endtab %}
@@ -941,7 +941,7 @@ Creates a string from the elements of an array using a character passed as an ar
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 VIP, New, Canada
 ```
 {% endtab %}
@@ -949,7 +949,7 @@ VIP, New, Canada
 
 ### map
 
-Given an array of objects that contain attributes \(e.g. `name`\) and values \(e.g. `matt`\), we can use `map` to get a new array of values for a specific attribute of the objects in the array. In the below example, we have an array of products, and each product has a title. Using `map` we can create a new array of only product titles.
+Given an array of objects that contain attributes (e.g. `name`) and values (e.g. `matt`), we can use `map` to get a new array of values for a specific attribute of the objects in the array. In the below example, we have an array of products, and each product has a title. Using `map` we can create a new array of only product titles.
 
 {% tabs %}
 {% tab title="Code" %}
@@ -965,7 +965,7 @@ Given an array of objects that contain attributes \(e.g. `name`\) and values \(e
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 AppleOrangePepperCheese
 ```
 {% endtab %}
@@ -987,7 +987,7 @@ This filter appends any number of arguments onto the provided array, returning a
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 one
 two
 three
@@ -1019,7 +1019,7 @@ This filter can be used on any array. Used without any arguments, it returns a s
 This filter also works for [strings](filters.md#slice)! And there's a different behavior available for [hashes](filters.md#slice-2).
 {% endhint %}
 
-This filter accepts an integer offset, and an optional integer length \(defaulting to 1\). If the length is 1, it returns the single element found at that index of the input array. Otherwise, it returns a slice of the array, beginning at the provided index, having the provided length.
+This filter accepts an integer offset, and an optional integer length (defaulting to 1). If the length is 1, it returns the single element found at that index of the input array. Otherwise, it returns a slice of the array, beginning at the provided index, having the provided length.
 
 Negative offsets begin counting from the end of the array.
 
@@ -1054,7 +1054,7 @@ Sorts an array by a given attribute.
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 <h4>jim@joe.com</h4>
 <h4>jack@joe.com</h4>
 ```
@@ -1083,7 +1083,7 @@ Removes any duplicates in an array, resulting in a new array of distinct values.
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 Honda Ford Toyota Jeep VW
 ```
 {% endtab %}
@@ -1105,7 +1105,7 @@ This filter prepends any number of arguments onto the provided array, returning 
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 zero
 one
 two
@@ -1136,7 +1136,7 @@ sports products:
 {% endtab %}
 
 {% tab title="Output" %}
-```text
+```
 All products:
 - Ball
 - Car
@@ -1241,9 +1241,11 @@ We'll keep support for these filters, but we don't recommend using them.
 
 First things first: we don't recommend using Shopify's REST API for tagging. Because this API requires you to specify the _entire_ set of tags all at once, it's very easy to accidentally overwrite the work of another user or system. Instead, we strongly recommend using GraphQL for tagging.
 
-{% page-ref page="../../techniques/tagging-shopify-resources.md" %}
+{% content-ref url="../../techniques/tagging-shopify-resources.md" %}
+[tagging-shopify-resources.md](../../techniques/tagging-shopify-resources.md)
+{% endcontent-ref %}
 
-If you _must_ use REST, you can use these filters to make your life a little easier, and manipulate tag strings and arrays more naturally. \(All four of these tag filters are case-sensitive.\)
+If you _must_ use REST, you can use these filters to make your life a little easier, and manipulate tag strings and arrays more naturally. (All four of these tag filters are case-sensitive.)
 
 ```javascript
 {{ "a, b" | add_tag: "c" }}
@@ -1271,4 +1273,3 @@ If supplied an array, these filters will return an array as well:
 {{ "a,b,c,d,e" | split: "," | remove_tags: "c", "d" | join: "-" }}
 => a-b-e
 ```
-

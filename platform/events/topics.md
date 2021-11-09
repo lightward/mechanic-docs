@@ -10,32 +10,43 @@ Mechanic supports a variety of [**event topics**](../../core/events/topics.md). 
 
 ### Actions
 
-* **mechanic/actions/perform** Occurs when an action has been performed, regardless of its success or failure. A task may subscribe to this topic to be notified when each of its actions have been performed, so that the task may then respond to the results.
+* **mechanic/actions/perform**\
+  ****Occurs when an action has been performed, regardless of its success or failure. A task may subscribe to this topic to be notified when each of its actions have been performed, so that the task may then respond to the results.
 
 ### Emails
 
-* **mechanic/emails/received** Occurs when Mechanic receives an email sent to the store's dedicated email address. \(A store at example.myshopify.com can receive email at example@mail.usemechanic.com.\)
+* **mechanic/emails/received**\
+  ****Occurs when Mechanic receives an email sent to the store's dedicated email address. (A store at example.myshopify.com can receive email at example@mail.usemechanic.com.)
 
 ### Scheduler
 
-* **mechanic/scheduler/10min** Runs every 10 minutes.
-* **mechanic/scheduler/15min** Runs every 15 minutes.
-* **mechanic/scheduler/20min** Runs every 20 minutes. \(You see where this is going.\)
-* **mechanic/scheduler/30min** Runs every 30 minutes.
-* **mechanic/scheduler/hourly** Runs every hour, on the hour.
-* **mechanic/scheduler/daily** Runs at midnight, in the store's local timezone.
-* **mechanic/scheduler/monday** Runs every Monday at midnight, in the store's local timezone. \(Note: this would be at the end of Sunday evening\). Each named weekday is supported.
+* **mechanic/scheduler/10min**\
+  ****Runs every 10 minutes.
+* **mechanic/scheduler/15min**\
+  ****Runs every 15 minutes.
+* **mechanic/scheduler/20min**\
+  ****Runs every 20 minutes. (You see where this is going.)
+* **mechanic/scheduler/30min**\
+  ****Runs every 30 minutes.
+* **mechanic/scheduler/hourly**\
+  ****Runs every hour, on the hour.
+* **mechanic/scheduler/daily**\
+  ****Runs at midnight, in the store's local timezone.
+* **mechanic/scheduler/monday**\
+  Runs every Monday at midnight, in the store's local timezone. (Note: this would be at the end of Sunday evening). Each named weekday is supported.
 
 {% hint style="info" %}
-More specific times can be achieved by subscribing to an event topic with a delay \(e.g. "mechanic/scheduler/daily+5.hours"\). To learn more, see [Subscriptions](../../core/tasks/subscriptions.md).
+More specific times can be achieved by subscribing to an event topic with a delay (e.g. "mechanic/scheduler/daily+5.hours"). To learn more, see [Subscriptions](../../core/tasks/subscriptions.md).
 {% endhint %}
 
 ### User
 
 Not to be confused with events in the User domain, the mechanic/user event subject describes ways that the user expresses their intent – to Mechanic – to run the task.
 
-* **mechanic/user/trigger** When used, adds a "Run task" button to the task itself. This button generates a new event, to which only this task will respond.
-* **mechanic/user/text** When used, adds a "Run task" button to the task itself. This button prompts the user with a multi-line text box. When submitted, an event is generated, to which only this task will respond. The event contains the user's input in its data, making user's input available in `{{ event.data }}`.
+* **mechanic/user/trigger**\
+  ****When used, adds a "Run task" button to the task itself. This button generates a new event, to which only this task will respond.
+* **mechanic/user/text**\
+  ****When used, adds a "Run task" button to the task itself. This button prompts the user with a multi-line text box. When submitted, an event is generated, to which only this task will respond. The event contains the user's input in its data, making user's input available in `{{ event.data }}`.
 
 
 
@@ -67,9 +78,9 @@ Tasks subscribing to Shopify events receive [Liquid environment variables](../..
 
 ### Customer saved searches
 
-* shopify/customer\_groups/create 
-* shopify/customer\_groups/update 
-* shopify/customer\_groups/delete 
+* shopify/customer\_groups/create&#x20;
+* shopify/customer\_groups/update&#x20;
+* shopify/customer\_groups/delete&#x20;
 
 ### Customers
 
@@ -156,7 +167,7 @@ Tasks subscribing to Shopify events receive [Liquid environment variables](../..
 
 ## User
 
-The User event domain is for custom, user-generated events, having any subject and verb \(e.g. "user/foo/bar"\). As with all events, a User event topic must use the standard three-part topic form, but only the "user/" prefix is mandatory.
+The User event domain is for custom, user-generated events, having any subject and verb (e.g. "user/foo/bar"). As with all events, a User event topic must use the standard three-part topic form, but only the "user/" prefix is mandatory.
 
 Mechanic allows developers several ways to generate custom User events:
 
@@ -176,4 +187,3 @@ Mechanic invites third-party app developers to develop Mechanic integrations, ma
 {% hint style="info" %}
 Third-party services can often be connected to Mechanic using [webhooks](../webhooks.md).
 {% endhint %}
-

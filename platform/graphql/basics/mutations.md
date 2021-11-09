@@ -3,7 +3,7 @@
 GraphQL mutations create, update, or delete objects in the Shopify GraphQL admin API. A mutation has a name, takes input data, and specifies fields to return in the response.
 
 {% hint style="info" %}
-This page discusses the general concept of a GraphQL mutation. For more detail on how this applies to Mechanic and the Shopify API, see [Actions / Shopify](../../../core/actions/shopify.md).
+This page discusses the general concept of a GraphQL mutation. For more detail on how this applies to Mechanic and the Shopify API, see [Actions / Shopify](../../../core/actions/integrations/shopify.md).
 {% endhint %}
 
 ## Create a product and return the product ID
@@ -81,4 +81,3 @@ mutation {
 {% hint style="success" %}
 [https://graphql.org/learn/queries/](https://graphql.org/learn/queries/)
 {% endhint %}
-

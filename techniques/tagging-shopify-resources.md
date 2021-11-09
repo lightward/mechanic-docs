@@ -2,7 +2,7 @@
 
 Merchants commonly use Mechanic for adding or removing tags from customers, orders, products, and other Shopify resources.
 
-When writing your task scripts, use [a Shopify action](../core/actions/shopify.md) to add or remove tags via the Shopify API. There are two usages available: one using GraphQL, and one using the REST API.
+When writing your task scripts, use [a Shopify action](../core/actions/integrations/shopify.md) to add or remove tags via the Shopify API. There are two usages available: one using GraphQL, and one using the REST API.
 
 ## GraphQL
 
@@ -75,7 +75,7 @@ The one drawback is that using GraphQL does not automatically log the results of
 {% endaction %}
 ```
 
-Note the triple dots: the `... on <TYPE>` syntax marks an inline fragment. Replace "Customer" with the name of the GraphQL type you're working with \(e.g. "Product", or "Order\). Read more from Shopify: [GraphQL / Advanced Concepts / Inline Fragments](https://shopify.dev/concepts/graphql/advanced#inline-fragments).
+Note the triple dots: the `... on <TYPE>` syntax marks an inline fragment. Replace "Customer" with the name of the GraphQL type you're working with (e.g. "Product", or "Order). Read more from Shopify: [GraphQL / Advanced Concepts / Inline Fragments](https://shopify.dev/concepts/graphql/advanced#inline-fragments).
 
 ## REST
 
@@ -105,5 +105,4 @@ This approach is also viable, but has one risk: because it specifies all of the 
 {% endaction %}
 ```
 
-These examples use `add_tag` and `remove_tag`, which are Liquid filters unique to Mechanic \(see [Mechanic's list of supported filters](../platform/liquid/filters.md)\).
-
+These examples use `add_tag` and `remove_tag`, which are Liquid filters unique to Mechanic (see [Mechanic's list of supported filters](../platform/liquid/filters.md)).

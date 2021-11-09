@@ -4,20 +4,19 @@ In Mechanic, an **action** is an instruction for performing work that has an eff
 
 Actions are defined by tasks using [**action objects**](../tasks/code/action-objects.md), which are simple JSON objects specifying an action's type and options. Action objects can be constructed using the [**action tag**](../../platform/liquid/tags/action.md).
 
-Actions are performed asynchronously, which means their results are only accessible after the conclusion of the related task and action run \(See [Responding to action results](../../techniques/responding-to-action-results.md)\).
+Actions are performed asynchronously, which means their results are only accessible after the conclusion of the related task and action run (See [Responding to action results](../../techniques/responding-to-action-results.md)).
 
 ## Action types
 
 An **action type** determines the class of operation to be performed. While actions may vary greatly, there are only a few action types:
 
-| Action | Purpose |
-| :--- | :--- |
-| [Cache](cache.md) | Performing operations on the store's Mechanic cache |
-| [Echo](echo.md) | Debugging; displays the options that it is provided, with no side-effects |
-| [Email](email.md) | Sending transactional email |
-| [Event](event.md) | Generating custom user events |
-| [Files](files.md) | Generating files of various types, storing them at a temporary Mechanic-provided URL |
-| [FTP](ftp.md) | Performing FTP file uploads and downloads |
-| [HTTP](http.md) | Performing HTTP requests |
-| [Shopify](shopify.md) | Sending requests to the Shopify Admin API, supporting both REST and GraphQL |
-
+| Action                             | Purpose                                                                              |
+| ---------------------------------- | ------------------------------------------------------------------------------------ |
+| [Cache](cache.md)                  | Performing operations on the store's Mechanic cache                                  |
+| [Echo](echo.md)                    | Debugging; displays the options that it is provided, with no side-effects            |
+| [Email](email.md)                  | Sending transactional email                                                          |
+| [Event](event.md)                  | Generating custom user events                                                        |
+| [Files](files.md)                  | Generating files of various types, storing them at a temporary Mechanic-provided URL |
+| [FTP](ftp.md)                      | Performing FTP file uploads and downloads                                            |
+| [HTTP](http.md)                    | Performing HTTP requests                                                             |
+| [Shopify](integrations/shopify.md) | Sending requests to the Shopify Admin API, supporting both REST and GraphQL          |

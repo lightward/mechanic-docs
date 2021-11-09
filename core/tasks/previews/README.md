@@ -1,6 +1,6 @@
 # Previews
 
-A task uses its **preview** to demonstrate what actions the task intends to generate. Among other purposes \(see below\), this is also how tasks request the Shopify permissions they require.
+A task uses its **preview** to demonstrate what actions the task intends to generate. Among other purposes (see below), this is also how tasks request the Shopify permissions they require.
 
 Mechanic generates a task preview by rendering the task code using a **preview event**, which resembles a live event that the task may see. The task is then responsible for rendering **preview actions** in response to the preview event, actions which are visually presented to the user and are analyzed by the platform, but are never actually performed.
 
@@ -30,7 +30,7 @@ At the platform level, Mechanic uses previews to determine what permissions a ta
 
 Mechanic gets this information from the actions that a task generates during preview, as well as from analysis of the Liquid lookups and GraphQL queries that a task uses during runtime.
 
-For example, if a task renders a [Shopify](../../actions/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using `shop.customers`, or observes the [shopify](../../../platform/liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the `read_customers` scope.
+For example, if a task renders a [Shopify](../../actions/integrations/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using `shop.customers`, or observes the [shopify](../../../platform/liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the `read_customers` scope.
 
 ## Detecting preview events
 
@@ -58,7 +58,7 @@ For live events, the `preview` attribute does not exist. This means that `event.
 {% endtab %}
 {% endtabs %}
 
-A preview event's data is taken from the Mechanic account's event history, providing a realistic sample of the data a task can expect to see. \(If the account history has no events for a given topic just yet, Mechanic will attempt to use anonymous sample event data of its own.\)
+A preview event's data is taken from the Mechanic account's event history, providing a realistic sample of the data a task can expect to see. (If the account history has no events for a given topic just yet, Mechanic will attempt to use anonymous sample event data of its own.)
 
 ## Rendering preview actions
 
@@ -99,7 +99,7 @@ Branching a task like this has two problems:
 {% endtab %}
 
 {% tab title="Subscriptions" %}
-```text
+```
 shopify/orders/create
 ```
 {% endtab %}
@@ -115,7 +115,7 @@ This technique has several advantages:
 
 1. Constructing stub data allows the rest of the task to proceed without any special knowledge of the preview event.
 2. The preview actions generated are an excellent indicator of how the task will behave when given a live event.
-3. The developer is able to test their code instantly, by changing the values of the stub data. \(In the example below, they can prove that the condition on line 7 works by experimenting with the order's source name on line 3.\)
+3. The developer is able to test their code instantly, by changing the values of the stub data. (In the example below, they can prove that the condition on line 7 works by experimenting with the order's source name on line 3.)
 
 {% tabs %}
 {% tab title="Task code" %}
@@ -139,7 +139,7 @@ This technique has several advantages:
 {% endtab %}
 
 {% tab title="Subscriptions" %}
-```text
+```
 shopify/orders/create
 ```
 {% endtab %}
@@ -148,4 +148,3 @@ shopify/orders/create
 {% hint style="info" %}
 The stub data in this example includes an ID for the order in order to generate a realistic tagsAdd mutation during preview mode. Realistic preview actions are important for users and developers, but there's a functional importance for tagsAdd mutations in particular: in preview mode, Mechanic looks at the `id` argument in order to determine what kind of resource will be tagged, in order to determine what permissions this particular mutation requires.
 {% endhint %}
-

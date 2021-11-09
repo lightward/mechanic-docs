@@ -2,7 +2,7 @@
 
 Mechanic supports Shopify's bulk operations GraphQL API, allows developers to submit a query to Shopify for asynchronous processing, and making the results available to the task once complete.
 
-This approach dodges the issues inherent in synchronous methods of reading data \(like GraphQL via the shopify filter, or REST via Liquid objects\). Unlike these methods, the bulk operations API does not exhaust Shopify API limit for your Mechanic account, and therefore does not slow down other tasks. It also does not require any special logic for pagination, since Shopify handles all data collection.
+This approach dodges the issues inherent in synchronous methods of reading data (like GraphQL via the shopify filter, or REST via Liquid objects). Unlike these methods, the bulk operations API does not exhaust Shopify API limit for your Mechanic account, and therefore does not slow down other tasks. It also does not require any special logic for pagination, since Shopify handles all data collection.
 
 {% hint style="info" %}
 This article reviews Mechanic's support for bulk operations. If this feature is new to you, start by reading Shopify's tutorial on the bulk operations API: [https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api)
@@ -18,17 +18,17 @@ This area deserves improvement! To discuss the future of this behavior, visit th
 
 ### Creating a bulk operation
 
-Use the [Shopify](../../actions/shopify.md) action to execute a bulkOperationRunQuery mutation \(see [Shopify's tutorial](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api#bulk-query-overview)\). Mechanic will detect this mutation, and will begin monitoring the bulk operation in progress.
+Use the [Shopify](../../actions/integrations/shopify.md) action to execute a bulkOperationRunQuery mutation (see [Shopify's tutorial](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api#bulk-query-overview)). Mechanic will detect this mutation, and will begin monitoring the bulk operation in progress.
 
 ### Subscribing to the results
 
 Add a [subscription](../../tasks/subscriptions.md) to mechanic/shopify/bulk\_operation.
 
-Once Mechanic detects that the bulk operation has been completed, the platform will automatically re-invoked the same task with an event having the topic "mechanic/shopify/bulk\_operation", containing the bulk operation's data, when the bulk operation is complete. \(As with [mechanic/actions/perform](../../../techniques/responding-to-action-results.md), Mechanic will only invoke the current task when the bulk operation completes; no other task will be notified.\)
+Once Mechanic detects that the bulk operation has been completed, the platform will automatically re-invoked the same task with an event having the topic "mechanic/shopify/bulk\_operation", containing the bulk operation's data, when the bulk operation is complete. (As with [mechanic/actions/perform](../../../techniques/responding-to-action-results.md), Mechanic will only invoke the current task when the bulk operation completes; no other task will be notified.)
 
 ### Accessing the results
 
-When processing a mechanic/shopify/bulk\_operation event, the task will have access to an [environment variable](../../tasks/code/environment-variables.md) called `bulkOperation`, containing all attributes of the bulk operation \([docs](https://shopify.dev/docs/admin-api/graphql/reference/bulk-operations/bulkoperation)\).
+When processing a mechanic/shopify/bulk\_operation event, the task will have access to an [environment variable](../../tasks/code/environment-variables.md) called `bulkOperation`, containing all attributes of the bulk operation ([docs](https://shopify.dev/docs/admin-api/graphql/reference/bulk-operations/bulkoperation)).
 
 The set of objects returned by the bulk operation is made available as `bulkOperation.objects`, allowing you to scan returned data immediately, using an expression like `{% for object in bulkOperation.objects %}`.
 
@@ -50,7 +50,7 @@ This technique allows the array of objects to be quickly filtered by type:
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-```text
+```
 mechanic/user/trigger
 mechanic/shopify/bulk_operation
 ```
@@ -115,4 +115,3 @@ mechanic/shopify/bulk_operation
 
 * ... you only need a little bit of data. Use the [shopify](../../../platform/liquid/filters.md#shopify) filter instead.
 * ... you're responding to a Shopify event, and the data you need comes along with the event data. Use [Liquid objects](liquid-objects.md) instead.
-
