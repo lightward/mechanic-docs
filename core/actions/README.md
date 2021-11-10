@@ -24,7 +24,7 @@ An **action type** determines the class of operation to be performed. While acti
 
 Mechanic maintains a set of integration actions, offering first-class support for several external services.
 
-| Action                             | Integrated service | Description                                                                     |
-| ---------------------------------- | ------------------ | ------------------------------------------------------------------------------- |
-| [Shopify](integrations/shopify.md) | Shopify Admin API  | Sending requests to the Shopify Admin API, supporting both REST and GraphQL     |
-| [Flow](integrations/flow.md)       | Shopify Flow       | Supports sending customer, order, product, and general triggers to Shopify Flow |
+| Action                             | Integrated service | Purpose                                                                     |
+| ---------------------------------- | ------------------ | --------------------------------------------------------------------------- |
+| [Shopify](integrations/shopify.md) | Shopify Admin API  | Sending requests to the Shopify Admin API, supporting both REST and GraphQL |
+| [Flow](integrations/flow.md)       | Shopify Flow       | Sending customer, order, product, and general triggers to Shopify Flow      |
