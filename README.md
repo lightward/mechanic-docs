@@ -32,11 +32,13 @@ When a task responds to an incoming event, it can choose to generate an [**actio
 * The [HTTP](core/actions/http.md) action performs any request, to any HTTP endpoint. This facilitates integration with third-party APIs.
 * The [Files](core/actions/files.md) action generates a variety of file formats, including PDF, CSV, ZIP, and anything retrieved from a public URL. Files generated this way receive a temporary URL of their own, and can be fed into other tasks for further processing.
 
+For a complete list of supported actions, see [Actions](core/actions/).
+
 ### Liquid
 
 Mechanic makes heavy use of [**Liquid**](platform/liquid/basics/) – a template language created by Shopify. Its primary use is in [**task code**](core/tasks/code/). In the same way that a Liquid theme receives browser requests and renders HTML, a Mechanic task receives events, and renders actions (by defining them with JSON).
 
-In Mechanic, our Liquid implementation includes additional support for constructing arrays and hashes, and includes many useful filters, making data processing more efficient.
+In Mechanic, our Liquid implementation includes additional support for constructing [arrays](platform/liquid/basics/types.md#array) and [hashes](platform/liquid/basics/types.md#hash), and includes many useful [filters](platform/liquid/filters.md), making data processing more efficient.
 
 ### Run queues
 
