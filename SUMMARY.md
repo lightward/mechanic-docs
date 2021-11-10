@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)
-* [🤓 Hire a Mechanic developer](https://learn.mechanic.dev/custom#if-you-need-a-developer)
+* [🤓 Hire a Mechanic developer](hire-a-developer.md)
 
 ## Resources
 
@@ -222,4 +222,3 @@
   * [How do marketing preferences work with Mechanic?](faq/how-do-marketing-preferences-work-with-mechanic.md)
   * [Can I send data to Google Sheets?](faq/can-i-send-data-to-google-sheets.md)
   * [What's possible with timeline comments?](faq/whats-possible-with-timeline-comments.md)
-* [Under construction](under-construction.md)
