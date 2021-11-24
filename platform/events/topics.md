@@ -178,7 +178,12 @@ Mechanic allows developers several ways to generate custom User events:
 
 ### Judge.me
 
-* **judgeme/review/created** Occurs when new Judge.me reviews are received. Requires enabling the Mechanic integration within Judge.me; see [Judge.me's integration announcement](https://blog.judge.me/blog/new-integration-mechanic-app).
+* **judgeme/review/created** — Occurs when new Judge.me reviews are received. Requires enabling the Mechanic integration within Judge.me; see [Judge.me's integration announcement](https://blog.judge.me/blog/new-integration-mechanic-app).
+* **judgeme/review/updated** — Occurs when Judge.me reviews are updated. Requires enabling the Mechanic integration within Judge.me; see [Judge.me's integration announcement](https://blog.judge.me/blog/new-integration-mechanic-app).
+
+### Locksmith
+
+* **locksmith/sessions/ping** — Occurs when a user gains access to a resource on an online store using [Locksmith](https://apps.shopify.com/locksmith). Learn more [here](topics.md#locksmith).
 
 ### Additional apps
 
