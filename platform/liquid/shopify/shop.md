@@ -23,7 +23,7 @@ For clarity: looking up a single resource by ID will only result in a single RES
   * `{{ shop.products[1234567890] }}`
   * `{% for product in shop.products.published %}`
 * An index of [variant objects](variant.md)
-  * `{{ shop.variant[1234567890] }}`
+  * `{{ shop.variants[1234567890] }}`
   * `{% for variant in shop.variants %}`
 * An index of [order objects](order.md)
   * `{{ shop.orders[1234567890] }}`
