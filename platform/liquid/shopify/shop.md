@@ -24,12 +24,14 @@ For clarity: looking up a single resource by ID will only result in a single RES
 * An index of [product objects](product.md)
   * `{{ shop.products[1234567890] }}`
   * `{% for product in shop.products %}`
+  * `{% for product in shop.products.published %}`
 * An index of [variant objects](variant.md)
   * `{{ shop.variants[1234567890] }}`
   * `{% for variant in shop.variants %}`
 * An index of [order objects](order.md)
   * `{{ shop.orders[1234567890] }}`
   * `{% for order in shop.orders %}`
+  * `{% for order in shop.orders.paid %}`
 * An index of [draft order objects](https://docs.usemechanic.com/article/386-the-draft-order-object)
   * `{{ shop.draft_orders[1234567890] }}`
   * `{% for draft_order in shop.draft_orders.invoice_sent %}`
@@ -39,7 +41,7 @@ For clarity: looking up a single resource by ID will only result in a single RES
   * `{% for customer in shop.customers %}`
 * An index of [price rule objects](price-rule.md)
   * `{{ shop.price_rules[1234567890] }}`
-  * `{% for price_rule in shop.price_rules %}v>`
+  * `{% for price_rule in shop.price_rules %}`
 * A lookup of [discount code objects](discount-code.md)
   * `{{ shop.discount_codes["SUMMERTIME"] }}`
 * An index of [blog objects](blog.md)
