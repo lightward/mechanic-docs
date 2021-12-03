@@ -11,6 +11,7 @@
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
 * [🚀 Slack community](resources/slack.md)
+* [🤝 Partner directory](https://partners.mechanic.dev)
 * [Tutorials](resources/tutorials/README.md)
   * [Creating a Mechanic webhook](resources/tutorials/creating-a-mechanic-webhook.md)
   * [Practicing writing tasks](resources/tutorials/practicing-writing-tasks.md)
@@ -33,7 +34,7 @@
   * [Auto-tag customers by sales channel](resources/video-walkthroughs/auto-tag-customers-by-sales-channel.md)
   * [Creating products in bulk](resources/video-walkthroughs/creating-products-in-bulk.md)
 
-## Core Concepts <a href="core" id="core"></a>
+## Core Concepts <a href="#core" id="core"></a>
 
 * [Events](core/events/README.md)
   * [Topics](core/events/topics.md)
