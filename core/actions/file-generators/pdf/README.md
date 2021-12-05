@@ -1,6 +1,6 @@
 # PDF
 
-The **PDF** file generator accepts an object containing an HTML string, and generates a PDF document using [Pdfcrowd](https://pdfcrowd.com/). This service renders the provided HTML using the same rendering engine as Google Chrome, which means that PDFs may be generated with modern CSS and JavaScript, including chart libraries and web fonts.
+The **PDF** file generator accepts an object containing an HTML string, and generates a PDF document using [Pdfcrowd](https://pdfcrowd.com). This service renders the provided HTML using the same rendering engine as Google Chrome, which means that PDFs may be generated with modern CSS and JavaScript, including chart libraries and web fonts.
 
 {% hint style="info" %}
 Mechanic accounts created prior to July 12, 2021 use a different rendering engine by default. [Learn about migrating to Pdfcrowd](migrating-to-pdfcrowd.md)
@@ -8,14 +8,14 @@ Mechanic accounts created prior to July 12, 2021 use a different rendering engin
 
 ## Options
 
-| Option | Description |
-| :--- | :--- |
+| Option | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
 | `html` | Required; a string containing the HTML, CSS and JavaScript to be rendered |
-| ... | Additional Pdfcrowd API options supported; see below |
+| ...    | Additional Pdfcrowd API options supported; see below                      |
 
 ```javascript
 {
-  "base64": {
+  "pdf": {
     "html": HTML,
     ...
   }
@@ -98,4 +98,3 @@ If it's unclear why something isn't rendering properly, start by saving and test
 ```
 {% endtab %}
 {% endtabs %}
-
