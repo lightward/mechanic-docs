@@ -21,6 +21,8 @@ To learn more about why we work this way, see [lightward.com/pricing](https://li
 
 Shopify doesn't _specifically_ support pricing models like ours. So we compromise by showing the suggested pricing for each Shopify plan, with a note immediately below referencing the actual policy in play.
 
+It's a bit of a risky move, because this _sort of_ makes it look like we have pricing plans that one could switch between. To be clear: [we do not have pricing plans](plans.md). These figures reflect the suggested prices auto-generated for each Shopify plan, and they _are_ only suggestions.
+
 ![https://apps.shopify.com/mechanic](<../../.gitbook/assets/Screen Shot 2022-01-04 at 10.45.22 AM.png>)
 
 Per step #2 of the policy, if a suggested price works for you, you're free to accept it immediately and proceed. Per the _rest_ of the policy, if that price _doesn't_ feel good to you, write in to [team@usemechanic.com](mailto:team@usemechanic.com), and we'll work together to find one that feels good to everyone. :)
