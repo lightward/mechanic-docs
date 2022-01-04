@@ -1,6 +1,6 @@
 # Pricing
 
-🔈 [LISTEN HERE :)](https://podcast.lightward.com/episodes/lightwards-pricing-policy-pay-what-feels-good)
+> Prefer to listen? [🔊 Hear a spoken version of this policy](https://podcast.lightward.com/episodes/lightwards-pricing-policy-pay-what-feels-good)
 
 Our top priority is to create health for ourselves, and to give you the best tools we can for creating health for you. (We interpret "health" broadly: healthy transactions created in healthy business can enable health in a million other areas.)
 
@@ -16,3 +16,11 @@ We believe (a) that the financial side of this is as important to get right as t
 A note about “what feels good”: when talking about numbers, it’s that sweet spot where you feel you’re appropriately investing in something. Only you know what that number is for you, where you’re neither straining yourself to afford the thing, nor paying a number that represents undervaluing what you receive. If that gives you pause, it’s okay. Take a minute and feel it out. :)
 
 To learn more about why we work this way, see [lightward.com/pricing](https://lightward.com/pricing).
+
+### "Why are there price tiers shown on the App Store?"
+
+Shopify doesn't _specifically_ support pricing models like ours. So we compromise by showing the suggested pricing for each Shopify plan, with a note immediately below referencing the actual policy in play.
+
+![https://apps.shopify.com/mechanic](<../../.gitbook/assets/Screen Shot 2022-01-04 at 10.45.22 AM.png>)
+
+Per step #2 of the policy, if a suggested price works for you, you're free to accept it immediately and proceed. Per the _rest_ of the policy, if that price _doesn't_ feel good to you, write in to [team@usemechanic.com](mailto:team@usemechanic.com), and we'll work together to find one that feels good to everyone. :)
