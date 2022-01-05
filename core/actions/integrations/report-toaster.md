@@ -6,6 +6,4 @@ Report Toaster is a reporting and analytics app, which offers an integration wit
 
 Find a complete reference for this action in the Integrations section:
 
-{% content-ref url="../../../platform/integrations/report-toaster.md" %}
-[report-toaster.md](../../../platform/integrations/report-toaster.md)
-{% endcontent-ref %}
+→ [Platform / Integrations / Report Toaster / Action](../../../platform/integrations/report-toaster.md#action)

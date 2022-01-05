@@ -38,9 +38,10 @@ The Report Toaster integration includes a **report\_toaster** action which can b
 
 This action accepts two options.
 
-| Option    | Description                                                                                                                 |
-| --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| operation | Required; The name of the operation to run as part of the Report Toaster action. Available types are "report" and "update". |
+| Option                                                                                        | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| operation                                                                                     | Required; The name of the operation to run as part of the Report Toaster action. Available types are "report" and "update". |
+| \[varies, see [Report](report-toaster.md#report) or [Update](report-toaster.md#update) usage] | Required; see specific usage documentation                                                                                  |
 
 ### Report
 
