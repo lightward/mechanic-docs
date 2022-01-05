@@ -187,8 +187,8 @@ Mechanic allows developers several ways to generate custom User events:
 
 ### Report Toaster
 
-* **report\_toaster/reports/create** — Occurs when a Report Toaster report has been created and is available for download. Learn more here.
-* **report\_toaster/reports/fail** — Occurs when a requested Report Toaster report has failed. Learn more here.
+* **report\_toaster/reports/create** — Occurs when a Report Toaster report has been created and is available for download. Learn more [here](../integrations/report-toaster.md#event-topics).
+* **report\_toaster/reports/fail** — Occurs when a requested Report Toaster report has failed. Learn more [here](../integrations/report-toaster.md#event-topics).
 
 ### Additional apps
 
