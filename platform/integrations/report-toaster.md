@@ -36,7 +36,7 @@ Used to uniquely identify any Report Toaster report. Found in the URL when navig
 
 The Report Toaster integration includes a **report\_toaster** action which can be used to perform one or more operations on data within Report Toaster.
 
-This action accepts two options.
+This action accepts two options, one specifying a Report Toaster operation, and the other varying based on the specified operation.
 
 | Option                                                                                        | Description                                                                                                                 |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -152,10 +152,9 @@ The Update operation is used to update some data in the Report Toaster dataset. 
 
 The update operation will be limited to attributes that are intended for update via external sources.
 
-| Operation option | Description                                                                                                                                                                                                                                                                                                                        |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \[model]         | Required; an array of objects defining the resources which will be updated. Currently the array must be named "Order".                                                                                                                                                                                                             |
-| \[updates]       | <p>Required; an array of update objects which use the <a href="https://datatracker.ietf.org/doc/html/rfc7396">Merge/Patch</a> format. Current limitations are as follows:<br><br>1. The "id" attribute must be used to identify an Order.<br>2. Currently only "shipping_cost" and "transaction<em>_</em>fees" can be updated.</p> |
+| Operation option                                                               | Description                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \[the name of the model to be updated; currently, only `"Order"` is supported] | <p>Required; an array of update objects which use the <a href="https://datatracker.ietf.org/doc/html/rfc7396">Merge/Patch</a> format. Current limitations are as follows:<br><br>1. The "id" attribute must be used to identify an Order.<br>2. Currently only "shipping_cost" and "transaction<em>_</em>fees" can be updated.</p> |
 
 #### **Basic Example: Update shipping costs**
 
