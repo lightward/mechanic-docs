@@ -185,6 +185,11 @@ Mechanic allows developers several ways to generate custom User events:
 
 * **locksmith/sessions/ping** — Occurs when a user gains access to a resource on an online store using [Locksmith](https://apps.shopify.com/locksmith). Learn more [here](topics.md#locksmith).
 
+### Report Toaster
+
+* **report\_toaster/reports/create** — Occurs when a Report Toaster report has been created and is available for download. Learn more here.
+* **report\_toaster/reports/fail** — Occurs when a requested Report Toaster report has failed. Learn more here.
+
 ### Additional apps
 
 Mechanic invites third-party app developers to develop Mechanic integrations, making it easy for developers to use our services together. If you're an app developer interested in this, email [team@usemechanic.com](mailto:team@usemechanic.com).
