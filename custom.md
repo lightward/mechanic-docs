@@ -7,7 +7,7 @@ description: Great! Mechanic is made for this. Here's where to start. :)
 Mechanic is a development platform – in the hands of a developer, it can be used to accomplish almost anything in Shopify. While our [task library](resources/task-library/) covers many use cases, Mechanic's true strength is in letting developers solve merchant problems quickly, giving merchants easy configuration forms for managing the resulting tasks.
 
 {% hint style="info" %}
-Need something that you think others might need to? The Mechanic community accepts [task requests](resources/task-library/requesting.md), and the top-voted requests are regularly selected for implementation.
+Need something that you think others might need too? The Mechanic community accepts [task requests](resources/task-library/requesting.md), and the top-voted requests are regularly selected for implementation.
 {% endhint %}
 
 ## If you need a developer…
