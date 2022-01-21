@@ -340,31 +340,35 @@ Tip: Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graph
   }
 {% endcapture %}
 
-{{ query | shopify | json }}
+{% assign result = query | shopify %}
+
+{% log result %}
 ```
 
 {% code title="Response" %}
 ```javascript
 {
-  "data": {
-    "shop": {
-      "primaryDomain": {
-        "host": "graphql-admin.myshopify.com",
-        "id": "gid://shopify/Domain/33896136726",
-        "sslEnabled": true,
-        "url": "https://graphql-admin.myshopify.com"
-      },
-      "myshopifyDomain": "graphql-admin.myshopify.com"
-    }
-  },
-  "extensions": {
-    "cost": {
-      "requestedQueryCost": 2,
-      "actualQueryCost": 2,
-      "throttleStatus": {
-        "maximumAvailable": 1000,
-        "currentlyAvailable": 975,
-        "restoreRate": 50
+  "log": {
+    "data": {
+      "shop": {
+        "primaryDomain": {
+          "host": "mechanic-app.myshopify.com",
+          "id": "gid://shopify/Domain/11673403453",
+          "sslEnabled": true,
+          "url": "https://mechanic-app.myshopify.com"
+        },
+        "myshopifyDomain": "mechanic-app.myshopify.com"
+      }
+    },
+    "extensions": {
+      "cost": {
+        "requestedQueryCost": 2,
+        "actualQueryCost": 2,
+        "throttleStatus": {
+          "maximumAvailable": 1000.0,
+          "currentlyAvailable": 998,
+          "restoreRate": 50.0
+        }
       }
     }
   }

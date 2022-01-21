@@ -19,7 +19,7 @@ Mechanic provides [a Liquid filter called "shopify"](../../../platform/liquid/fi
 
 {% assign result = query | shopify %}
 
-{{ result.data.shop.name }}
+{% log result.data.shop.name %}
 ```
 
 Or, if you're working with multiple pages of data, you might use set up a forloop, using a cursor to retrieve page after page:
