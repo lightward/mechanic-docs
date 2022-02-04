@@ -22,7 +22,7 @@ Use the [action tag](../../../platform/liquid/tags/action.md) to skip the boiler
 
 ### Type
 
-The action **type** is always a string, having a value that corresponds to [a supported action](../../actions/) \(e.g. `"shopify"`, or `"http"`\).
+The action **type** is always a string, having a value that corresponds to [a supported action](../../actions/) (e.g. `"shopify"`, or `"http"`).
 
 ### Options
 
@@ -44,14 +44,14 @@ This information could be purely for record-keeping, making it easy to determine
       {}
     ],
     "meta": {
-      "invite_reason": "alpha"
+      "invite_reason": "alpha",
       "customer_email": "customer@example.com"
     }
   }
 }
 ```
 
-Or, this information could be used to facilitate complex task flows, in concert with a subscription to mechanic/actions/perform \(see [Responding to action results](../../../techniques/responding-to-action-results.md)\). An action's meta information can supply followup task runs with information about state, allowing the task to cycle between different phases of operation.
+Or, this information could be used to facilitate complex task flows, in concert with a subscription to mechanic/actions/perform (see [Responding to action results](../../../techniques/responding-to-action-results.md)). An action's meta information can supply followup task runs with information about state, allowing the task to cycle between different phases of operation.
 
 ```javascript
 {% if event.topic contains "trigger" %}
@@ -78,4 +78,3 @@ Or, this information could be used to facilitate complex task flows, in concert 
   {% action "echo", "done" %}
 {% endif %}
 ```
-
