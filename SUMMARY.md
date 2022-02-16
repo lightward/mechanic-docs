@@ -7,7 +7,7 @@
 
 ## Resources
 
-* [🧑💻 🧑💻 Task library](resources/task-library/README.md)
+* [🧑💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
 * [🚀 Slack community](resources/slack.md)
