@@ -25,6 +25,7 @@ One might use something like this in the Shopify theme code:
 ... and then something like this, in the corresponding Mechanic task code:
 
 ```javascript
+{% raw %}
 {% assign customer_id = event.data.customer_id %}
 {% assign customer_id_signature = event.data.customer_id_signature %}
 
@@ -33,6 +34,7 @@ One might use something like this in the Shopify theme code:
 {% if expected_customer_id_signature != customer_id_signature %}
   {% error "Customer ID signature did not match." %}
 {% endif %}
+{% endraw %}
 ```
 
 ### Preventing replay attacks
@@ -46,6 +48,7 @@ The best approach for preventing this is to ensure that the Mechanic task code i
 One way to solve this is to leverage [the Mechanic cache](../platform/cache/) to remember that a given request has already been processed. Here's an example:
 
 ```javascript
+{% raw %}
 {% assign cache_key = event.data | json | sha256 %}
 
 {% if cache[cache_key] %}
@@ -54,6 +57,7 @@ One way to solve this is to leverage [the Mechanic cache](../platform/cache/) to
 {% endif %}
 
 {% action "cache", "set", cache_key, true %}
+{% endraw %}
 
 [... proceed with processing the event]
 ```
@@ -65,14 +69,17 @@ In this way, later submissions of the same webhook data will be ignored.
 To prevent a replay of the same request _much_ later, add a rounded representation of the current time to the signature calculation. Here's an example, on the theme code side:
 
 ```javascript
+{% raw %}
 {% assign time_rounded = "now" | date: "%s" | times: 1.0 | divided_by: 60 | round %}
 {% assign signature_data = customer.id | append: time_rounded %}
 {% assign signature = hmac_sha256: "some-secret-value" %}
+{% endraw %}
 ```
 
 And here's how this might be validated in task code:
 
 ```javascript
+{% raw %}
 {% assign customer_id = event.data.customer_id %}
 {% assign customer_id_signature = event.data.customer_id_signature %}
 
@@ -82,9 +89,9 @@ And here's how this might be validated in task code:
 {% if expected_customer_id_signature != customer_id_signature %}
   {% error "Customer ID signature did not match." %}
 {% endif %}
+{% endraw %}
 ```
 
 In this way, the signature will only be valid within a 60-minute interval.
 
 Bear in mind, with this strategy, timeliness becomes important! A [queue delay](../faq/why-are-my-tasks-delayed-or-not-running.md) could push the event past the rounding, resulting in a new time value, and invalidating the request signature.
-

@@ -11,6 +11,7 @@ For a complete list of filters supported by Mechanic, see [Filters](../filters.m
 ```javascript
 {{ order.billing_address.zip | upcase }}
 
+{% raw %}
 {% assign full_name = customer.first_name | append: " " | append: customer.last_name %}
+{% endraw %}
 ```
-

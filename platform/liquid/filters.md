@@ -15,8 +15,10 @@ This page is a developer reference for Liquid filters supported by Mechanic. For
 Allows for converting between strings and their base64-encoded representations.
 
 ```javascript
+{% raw %}
 {% assign json_safe_image = image | base64 %}
 {% assign original_image = json_safe_image | decode_base64 %}
+{% endraw %}
 ```
 
 ### browser \*
@@ -26,7 +28,9 @@ This filter converts a browser user agent string into an object that represents 
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign browser = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/79.0.259819395 Mobile/16G77 Safari/604.1" | browser %}
+{% endraw %}
 
 {{ browser }}
 
@@ -73,6 +77,7 @@ The parse\_csv filter accepts a "headers" option; when set to `true`, this filte
 {% tabs %}
 {% tab title="csv" %}
 ```javascript
+{% raw %}
 {% capture two_dimensional_array_json %}
   [
     [
@@ -96,11 +101,13 @@ The parse\_csv filter accepts a "headers" option; when set to `true`, this filte
 {% assign two_dimensional_array = two_dimensional_array_json | parse_json %}
 
 {% assign csv_string = two_dimensional_array | csv %}
+{% endraw %}
 ```
 {% endtab %}
 
 {% tab title="parse_csv" %}
 ```javascript
+{% raw %}
 {% comment %}
   Note the dashes used in the capture/endcapture tags!
   They make sure that we don't end up with blank lines
@@ -133,6 +140,7 @@ Order Name,Order ID,Order Date
 
   {% assign orders[orders.size] = order %}
 {% endfor %}
+{% endraw %}
 
 {{ orders | json }}
 ```
@@ -140,6 +148,7 @@ Order Name,Order ID,Order Date
 
 {% tab title="parse_csv with headers" %}
 ```javascript
+{% raw %}
 {% comment %}
   Note the dashes used in the capture/endcapture tags!
   They make sure that we don't end up with blank lines
@@ -174,6 +183,7 @@ Order Name,Order ID,Order Date
     }
   ]
 {% endcomment %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
@@ -249,11 +259,13 @@ In general, all strings passing through Mechanic must be UTF-8, and must ultimat
 {{ "H4sIANAafl8AA8tIzcnJVyjPL8pJAQCFEUoNCwAAAA==" | decode_base64: force_utf8: false | gunzip }}
 => "hello world"
 
+{% raw %}
 {% assign base64_non_utf8_string = "H4sIACP1fV8AAyvPSCxRSMlPLVbILFHITU3MUyjJV0hKVXjUMKc4J7/8UcNcewAYP+lTIwAAAA==" %}
 {{ base64_non_utf8_string | decode_base64: force_utf8: false | gunzip: force_utf8: false }}
 => (a string that is not UTF-8, and cannot be exported to JSON as-is)
 
 {% assign base64_non_utf8_string = "H4sIACP1fV8AAyvPSCxRSMlPLVbILFHITU3MUyjJV0hKVXjUMKc4J7/8UcNcewAYP+lTIwAAAA==" %}
+{% endraw %}
 {{ base64_non_utf8_string | decode_base64: force_utf8: false | gunzip }}
 => "what does it mean to be “slow”?"
 ```
@@ -272,18 +284,22 @@ Allows converting objects to their JSON representations, and parsing that JSON i
 
 ```javascript
 {% assign order_as_json = order | json }}
+{% raw %}
 {% assign plain_order = order_as_json | parse_json %}
+{% endraw %}
 ```
 
 The parse\_jsonl filter can be used to parse a series of JSON strings, each on their own line, into an array of hashes. Useful when preparing [stub data](../../core/tasks/previews/stub-data.md) for [bulk operations](../graphql/bulk-operations.md).
 
 ```javascript
+{% raw %}
 {% capture jsonl_string %}
   {"id":"gid://shopify/Customer/12345","email":"foo@bar.baz"}
   {"id":"gid://shopify/Customer/67890","email":"bar@baz.qux"}
 {% endcapture %}
 
 {% assign json_objects = jsonl_string | parse_jsonl %}
+{% endraw %}
 
 {{ json_objects | map: "email" | join: ", " }}
 ```
@@ -291,7 +307,9 @@ The parse\_jsonl filter can be used to parse a series of JSON strings, each on t
 The parse filters raise errors when invalid JSON or JSONL is received. To ignore parse errors during parse\_json, and to return null when an error is encountered, add `silent: true` to the filter's options:
 
 ```javascript
+{% raw %}
 {% assign should_be_nil = "{{" | parse_json: silent: true %}
+{% endraw %}
 ```
 
 ### parse\_xml \*
@@ -299,6 +317,7 @@ The parse filters raise errors when invalid JSON or JSONL is received. To ignore
 Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from\_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
 
 ```javascript
+{% raw %}
 {% capture xml_string %}
 <foo>
   <bar>baz</bar>
@@ -309,6 +328,7 @@ Use this filter to parse an XML string. (Under the hood, this filter calls [Hash
 {% endcapture %}
 
 {% assign xml = xml_string | parse_xml %}
+{% endraw %}
 
 {{ xml | json }}
 ```
@@ -326,6 +346,7 @@ Tip: Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graph
 {% endhint %}
 
 ```javascript
+{% raw %}
 {% capture query %}
   query {
     shop {
@@ -343,6 +364,7 @@ Tip: Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graph
 {% assign result = query | shopify %}
 
 {% log result %}
+{% endraw %}
 ```
 
 {% code title="Response" %}
@@ -461,6 +483,7 @@ This filter only returns the first match found. To find all available matches in
 {{ "It's a lovely day!" | match: "(?<=a ).*(?= day)" }}
 => "lovely"
 
+{% raw %}
 {% assign match = "It's a lovely day!" | match: "a (bucolic|lovely) day" %}
 {{ match.captures }}
 => ["lovely"]
@@ -470,6 +493,7 @@ This filter only returns the first match found. To find all available matches in
 => {"adjective" => "lovely"}
 
 {% assign match = "It's a lovely day!" | match: "a (?i:LOVELY) day" %}
+{% endraw %}
 {{ match }}
 => "a lovely day"
 ```
@@ -562,6 +586,7 @@ Generates hexadecimal SHA digests. For binary output instead, add `binary: true`
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign signature = "mechanic" | sha256 %}
 sha256: {{ signature }}
 
@@ -581,6 +606,7 @@ hmac_sha256: {{ signature }}
 {% assign kRegion = "us-east-1" | hmac_sha256: kDate, binary: true %}
 {% assign kService = "iam" | hmac_sha256: kRegion, binary: true %}
 {% assign kSigning = "aws4_request" | hmac_sha256: kService %}
+{% endraw %}
 aws: {{ kSigning }}
 ```
 {% endtab %}
@@ -630,11 +656,13 @@ Takes a substring, and uses it to split a string into an array.
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign quote = "love,is,all,you,need!" | split: ',' %}
 
 {% for word in quote %}
   {{ quote }}
 {% endfor %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -680,10 +708,12 @@ Use this filter on strings to remove indentation from strings.
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% capture message %}
   Hello, friend!
   It's a mighty fine day!
 {% endcapture %}
+{% endraw %}
 
 {{ message }}
 {{ message | unindent }}
@@ -764,6 +794,7 @@ Concatenates two arrays into a single array.
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign lunch = "sandwich, apple, soup" | split: ", " %}
 {% assign dinner = "pasta, pizza, salad" | split: ", " %}
 
@@ -774,6 +805,7 @@ Concatenates two arrays into a single array.
 {% assign breakfast = "eggs, oatmeal, toast" | split: ", " %}
 
 {% assign meals = breakfast | concat: lunch | concat: dinner %}
+{% endraw %}
 
 {{ meals | join: ", " }}
 ```
@@ -794,6 +826,7 @@ Returns the first or last element of an array. You can use `first` or `last` in 
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% comment %} 
   product.tags = "VIP", "New", "Canada"
 {% endcomment %}
@@ -808,6 +841,7 @@ Returns the first or last element of an array. You can use `first` or `last` in 
 {% if customer.tags.last == "Canada" %}
   Eh!
 {% endif %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -894,6 +928,7 @@ This filter accepts the name of an object property or attribute, and returns a h
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% capture variants_json %}
   [
     {
@@ -908,6 +943,7 @@ This filter accepts the name of an object property or attribute, and returns a h
 {% endcapture %}
 
 {% assign variants = variants_json | parse_json %}
+{% endraw %}
 
 {{ variants | index_by: "sku" | json }}
 ```
@@ -936,9 +972,11 @@ Creates a string from the elements of an array using a character passed as an ar
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% comment %} 
   product.tags = "VIP", "New", "Canada"
 {% endcomment %}
+{% endraw %}
 
 {{ customer.tags | join: ', ' }}
 ```
@@ -958,11 +996,13 @@ Given an array of objects that contain attributes (e.g. `name`) and values (e.g.
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% comment %} 
   product.titles = "Apple", "Orange", "Pepper", "Cheese"
 {% endcomment %}
 
 {% assign product_titles = products | map: 'title' %}
+{% endraw %}
 
 {{ product_titles }}
 ```
@@ -982,9 +1022,11 @@ This filter appends any number of arguments onto the provided array, returning a
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign count_to_three = "one,two,three" | split: "," %}
 
 {% assign count_to_five = count_to_three | push: "four", "five" %}
+{% endraw %}
 
 {{ count_to_five | join: newline }}
 ```
@@ -1049,11 +1091,13 @@ Sorts an array by a given attribute.
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign big_spenders = customers | sort: "total_spent" %}
 
 {% for customer in big_spenders %}
   <h4>{{ customer.email }}</h4>
 {% endfor %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -1081,7 +1125,9 @@ Removes any duplicates in an array, resulting in a new array of distinct values.
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign cars = "Honda Ford Toyota Jeep VW Honda VW" %}
+{% endraw %}
 {{ cars | split: ' ' | uniq | join: ' ' }}
 ```
 {% endtab %}
@@ -1100,9 +1146,11 @@ This filter prepends any number of arguments onto the provided array, returning 
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign count_two_three = "two,three" | split: "," %}
 
 {% assign count_to_three_and_start_at_zero = count_two_three | unshift: "zero", "one" %}
+{% endraw %}
 
 {{ count_to_three_and_start_at_zero | join: newline }}
 ```
@@ -1126,6 +1174,7 @@ Takes an array of objects, and create a new array with only those that have a gi
 {% tab title="Code" %}
 ```javascript
 All products:
+{% raw %}
 {% for product in collection.products %}
 - {{ product.title }}
 {% endfor %}
@@ -1136,6 +1185,7 @@ sports products:
 {% for product in sports_products %}
 - {{ product.title }}
 {% endfor %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -1163,9 +1213,11 @@ The compact filter is [a long-standing part of Liquid itself](http://shopify.git
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign foo = hash %}
 {% assign foo["bar"] = "baz" %}
 {% assign foo["qux"] = nil %}
+{% endraw %}
 {{ foo | json }}
 {{ foo | compact | json }}
 ```
@@ -1186,10 +1238,12 @@ This filter accepts one or more string arguments, corresponding to keys that sho
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
 {% assign foo["baz"] = "baz" %}
 {% assign foo["qux"] = "qux" %}
+{% endraw %}
 
 {{ foo | except: "bar", "baz" | json }}
 ```
@@ -1217,10 +1271,12 @@ When applied to a hash, the slice filter accepts one or more string arguments, c
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
 {% assign foo["baz"] = "baz" %}
 {% assign foo["qux"] = "qux" %}
+{% endraw %}
 
 {{ foo | slice: "bar", "baz" | json }}
 ```

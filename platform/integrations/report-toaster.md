@@ -66,6 +66,7 @@ Report results can be returned inline, in which case there will be a 10MB limit.
 #### **Basic Example: Single operation returning JSON Data (limit 10 MB)**
 
 ```liquid
+{% raw %}
 {% action "report_toaster" %}
   { 
     {% comment %}
@@ -97,11 +98,13 @@ Report results can be returned inline, in which case there will be a 10MB limit.
     ]
   }
 {% endaction %}
+{% endraw %}
 ```
 
 #### **Basic Example: Batch operation - return one CSV file and two JSON**
 
 ```liquid
+{% raw %}
 {% action "report_toaster" %}
   {
     {% comment %}
@@ -144,6 +147,7 @@ Report results can be returned inline, in which case there will be a 10MB limit.
     ]
   }
 {% endaction %}
+{% endraw %}
 ```
 
 ### Update
@@ -159,6 +163,7 @@ The update operation will be limited to attributes that are intended for update 
 #### **Basic Example: Update shipping costs**
 
 ```liquid
+{% raw %}
 {% action "report_toaster" %}
   {
     {% comment %}
@@ -177,6 +182,7 @@ The update operation will be limited to attributes that are intended for update 
     ]
   }
 {% endaction %}
+{% endraw %}
 ```
 
 ## Event topics

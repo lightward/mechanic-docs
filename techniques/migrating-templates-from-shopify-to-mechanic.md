@@ -8,7 +8,8 @@ We'll talk about this in two parts: the task script, and then the steps required
 
 To generate an order PDF to send as an email, you might use a task like this one, paired with a subscription to shopify/orders/create:
 
-```text
+```
+{% raw %}
 {% action "email" %}
   {
     "to": {{ order.email | json }},
@@ -25,11 +26,13 @@ To generate an order PDF to send as an email, you might use a task like this one
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 
 Or, to send out an order-related email, you might use something like this:
 
-```text
+```
+{% raw %}
 {% action "email" %}
   {
     "to": {{ order.email | json }},
@@ -39,6 +42,7 @@ Or, to send out an order-related email, you might use something like this:
     "from_display_name": {{ shop.name | json }}
   }
 {% endaction %}
+{% endraw %}
 ```
 
 Both task scripts offer the user a multi-line code field, allowing them to paste in the original template from Shopify.
@@ -47,7 +51,7 @@ A few template modifications are necessary before they'll function as intended, 
 
 ## Preparing the template
 
-Shopify and Mechanic both use Liquid code for their templates. Run through the following changes to convert your Shopify templates \(whether from an email notification or from Order Printer\) to something Mechanic can use.
+Shopify and Mechanic both use Liquid code for their templates. Run through the following changes to convert your Shopify templates (whether from an email notification or from Order Printer) to something Mechanic can use.
 
 ### 1. Change variables to order properties
 
@@ -65,35 +69,38 @@ Mechanic uses API data from Shopify to power [the order object](../platform/liqu
 
 Example:
 
-```text
+```
+{% raw %}
 {% if total_price > 5000 %}
+{% endraw %}
 ```
 
 should become...
 
-```text
+```
+{% raw %}
 {% assign total_price_number = order.total_price | times: 1 %} {% if total_price > 5000 %}
+{% endraw %}
 ```
 
 For numbers that are formatted with the "money" filter, check to make sure that the final numbers are correct. You may need to multiply the number by 100 to achieve the expected results, as in:
 
-```text
+```
 {{ order.total_price | times: 100 | money }}
 ```
 
 ### 3. Check your stylesheets
 
-External stylesheets are not supported for emails \(though they _are_ supported for the [PDF file generator](../core/actions/file-generators/pdf/)\). This means that, for email content, any `<link rel="stylesheet">` tags need to be replaced with a `<style>` tag, containing the full contents of that stylesheet.
+External stylesheets are not supported for emails (though they _are_ supported for the [PDF file generator](../core/actions/file-generators/pdf/)). This means that, for email content, any `<link rel="stylesheet">` tags need to be replaced with a `<style>` tag, containing the full contents of that stylesheet.
 
 There is one exception scenario. When using email templates, Mechanic will automatically replace this tag:
 
-```text
+```
 <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
 ```
 
 ... with a style tag containing rules extracted from Shopify's default notification emails. You may still need to make overriding changes, particularly for brand colors, but this should help you make progress more rapidly.
 
 {% hint style="warning" %}
-Note: This &lt;link&gt; tag substitution only happens for email templates – it does not occur anywhere else.
+Note: This \<link> tag substitution only happens for email templates – it does not occur anywhere else.
 {% endhint %}
-

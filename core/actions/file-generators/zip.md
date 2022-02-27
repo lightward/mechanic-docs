@@ -1,13 +1,13 @@
 # ZIP
 
-The **ZIP** file generator accepts an options object, specifying a set of files \(themselves defined using file generators\) to be compressed into a single ZIP file. The resulting ZIP file may optionally be password-protected.
+The **ZIP** file generator accepts an options object, specifying a set of files (themselves defined using file generators) to be compressed into a single ZIP file. The resulting ZIP file may optionally be password-protected.
 
 ## Options
 
-| Option | Description |
-| :--- | :--- |
-| `files` | Required; an object specifying a set of filenames mapped to file generators |
-| `password` | Optional; a string specifying a password to use for encrypting the file |
+| Option     | Description                                                                 |
+| ---------- | --------------------------------------------------------------------------- |
+| `files`    | Required; an object specifying a set of filenames mapped to file generators |
+| `password` | Optional; a string specifying a password to use for encrypting the file     |
 
 ```javascript
 {
@@ -23,6 +23,7 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "files" %}
   {
     "secure.zip": {
@@ -43,6 +44,7 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -74,4 +76,3 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
 ```
 {% endtab %}
 {% endtabs %}
-

@@ -5,7 +5,7 @@ In specific cases, events may be triggered by activity associated with an earlie
 * The [Event action](../actions/event.md) generates a new child event, when performed
 * A subscription to the [mechanic/actions/perform](../../techniques/responding-to-action-results.md) topic generates new child events as actions are performed
 
-Tasks responding to child events may reference to the parent's event using `{{ event.parent }}`. Parent events are recursively available \(as in `{{ event.parent.parent.parent }}`\), to a limit of 5 generations back.
+Tasks responding to child events may reference to the parent's event using `{{ event.parent }}`. Parent events are recursively available (as in `{{ event.parent.parent.parent }}`), to a limit of 5 generations back.
 
 When viewing any given event in Mechanic, look in the event details to find any parent or child relationships that apply:
 
@@ -17,14 +17,15 @@ Under "Parent" or "Children", click on a linked event topic to open up a specifi
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-```text
+```
 mechanic/user/trigger
 user/fan/out
 ```
 {% endtab %}
 
 {% tab title="Script" %}
-```text
+```
+{% raw %}
 {% assign n = event.data | default: 0 | times: 1 %}
 
 {% if n < 5 %}
@@ -40,6 +41,7 @@ user/fan/out
 {% else %}
   {% action "echo", event_data: event.data, parent_event_data: event.parent.data %}
 {% endif %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
@@ -47,4 +49,3 @@ user/fan/out
 As written, this task will "fan out": it will generate 1 child event, which will then generate 2 child events, each of which will then generate 3 child events, and each of those will then generate 4 child events, and finally, each of those events will generate 5 child events of their own. The result: 154 events, created with a single click. 💪
 
 Importantly, note the `"task_id"` option, applied to the Event action. This option ensures that only this task, and no other, will respond to the new event. While it's unlikely that any other task will subscribe to "user/fan/out" events, this option is important for ensuring expected behavior.
-

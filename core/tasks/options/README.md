@@ -11,12 +11,14 @@ Options are made available in the `options` variable, which is a hash having key
 {% tabs %}
 {% tab title="Example" %}
 ```javascript
+{% raw %}
 {% action "echo", options.some_value_to_echo__required_multiline %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
 
-Because option keys are registered via static analysis, options must each be referenced using a standard lookup \(e.g. `options.foobar`\) at least once.
+Because option keys are registered via static analysis, options must each be referenced using a standard lookup (e.g. `options.foobar`) at least once.
 
 ## Order
 
@@ -25,6 +27,7 @@ Options are displayed to the user in the order in which they are first reference
 Because this may not result in a natural sequence, it can be useful to prefix task code with a comment block, explicitly referencing each option so as to force the overall order.
 
 ```javascript
+{% raw %}
 {% comment %}
   Preferred option order:
 
@@ -32,6 +35,7 @@ Because this may not result in a natural sequence, it can be useful to prefix ta
   {{ options.bar__required }}
   {{ options.baz__boolean }}
 {% endcomment %}
+{% endraw %}
 ```
 
 ## Flags
@@ -42,16 +46,16 @@ Most flags may be combined with other flags, for more nuanced control.
 
 If no flags are used for an option, an option will be made available as a plain text field, and the option value will be a string.
 
-| Flag | Effect |
-| :--- | :--- |
-| required | Requires the user to populate this option before the task can be saved |
-| boolean | Renders a checkbox; the option value is a boolean |
-| multiline | Renders a multiline text field; the option value is a string |
-| email | Renders a text field of type "email"; the option value is a string |
-| number | Renders a text field of type "number", configured for value steps of 1; the option value is a number |
-| code | Renders a text field that's formatted for code; the option value is a string |
-| keyval | Renders a compound form element, allowing the user to provide zero or more key-value pairs; the option value is a hash, containing these key-value pairs |
-| array | Renders a compound form element, allowing the user to provide zero or more values; the option value is an array, containing these values |
+| Flag      | Effect                                                                                                                                                   |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| required  | Requires the user to populate this option before the task can be saved                                                                                   |
+| boolean   | Renders a checkbox; the option value is a boolean                                                                                                        |
+| multiline | Renders a multiline text field; the option value is a string                                                                                             |
+| email     | Renders a text field of type "email"; the option value is a string                                                                                       |
+| number    | Renders a text field of type "number", configured for value steps of 1; the option value is a number                                                     |
+| code      | Renders a text field that's formatted for code; the option value is a string                                                                             |
+| keyval    | Renders a compound form element, allowing the user to provide zero or more key-value pairs; the option value is a hash, containing these key-value pairs |
+| array     | Renders a compound form element, allowing the user to provide zero or more values; the option value is an array, containing these values                 |
 
 {% hint style="info" %}
 Array options have a hidden feature: once the user-configured array reaches 5 elements in size, a new "Manage in bulk" button will appear for that option. Clicking it will open a modal which allows the user to manage the array's input using a single multiline text field, in which each line represents an array element. This is a convenient way to configure larger arrays.
@@ -62,4 +66,3 @@ Array options have a hidden feature: once the user-configured array reaches 5 el
 Options that allow text input are evaluated for Liquid when a task processes an event. Liquid evaluation for options occurs before it occurs for task code, which means that any Liquid variables created by task code are not available to task options.
 
 Liquid code in task options have access to the same set of [environment variables](../code/environment-variables.md) that are made available to the task code, including `event`, `shop`, `cache`, and any event subject variables.
-

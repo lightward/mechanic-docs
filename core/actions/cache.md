@@ -1,6 +1,6 @@
 # Cache
 
-The **Cache** action allows developers to interact with the store's Mechanic [**cache**](../../platform/cache/), using commands inspired by Redis. Cache entries have a **key**, a **value** containing up to 256 kilobytes, and a **ttl** \(Time To Live\) defaulting to the maximum of 60 days.
+The **Cache** action allows developers to interact with the store's Mechanic [**cache**](../../platform/cache/), using commands inspired by Redis. Cache entries have a **key**, a **value** containing up to 256 kilobytes, and a **ttl** (Time To Live) defaulting to the maximum of 60 days.
 
 ## Options
 
@@ -15,6 +15,7 @@ In this option style, the cache command is given as the root key of the options 
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "cache" %}
   {
     "incr": {
@@ -23,6 +24,7 @@ In this option style, the cache command is given as the root key of the options 
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -50,7 +52,9 @@ In this option style, the cache command and its arguments are given in a list. U
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "cache", "incr", "foo" %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -71,7 +75,7 @@ In this option style, the cache command and its arguments are given in a list. U
 
 ## Expiration
 
-Each cache entry is given a default TTL value of 60 days. \(A cache entry's TTL may not exceed 60 days.\)
+Each cache entry is given a default TTL value of 60 days. (A cache entry's TTL may not exceed 60 days.)
 
 A cache command will always reset the entry's TTL value upon execution, regardless of the TTL's original value.
 
@@ -79,7 +83,7 @@ A cache command will always reset the entry's TTL value upon execution, regardle
 
 The required arguments for each command are given below, in the order in which they are supported for [positional options](cache.md#positional-options).
 
-When a command is given using [verbose options](cache.md#verbose-options), the `ttl` value \(in seconds\) is always supported.
+When a command is given using [verbose options](cache.md#verbose-options), the `ttl` value (in seconds) is always supported.
 
 ### set
 
@@ -87,13 +91,15 @@ Stores a value. Requires `key` and `value`. The stored value may be any JSON obj
 
 ### setex
 
-Using a defined TTL \(an expiration interval\) given in seconds, stores a value. Requires `key`, `ttl`, and `value`. The stored value may be any JSON object.
+Using a defined TTL (an expiration interval) given in seconds, stores a value. Requires `key`, `ttl`, and `value`. The stored value may be any JSON object.
 
 {% hint style="info" %}
 The "setex" command has the same net functionality as "set", but it does have one difference: because "setex" requires an explicit `ttl` value, it's possible to use "setex" to express an expiring value using a single line of Liquid. The same result could be achieved with "set", but it would require using verbose options.
 
-```text
+```
+{% raw %}
 {% action "cache", "setex", "foo", 5, "bar" %}
+{% endraw %}
 ```
 {% endhint %}
 
@@ -124,6 +130,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 {% tabs %}
 {% tab title="Verbose options" %}
 ```javascript
+{% raw %}
 {% action "cache" %}
   {
     "set": {
@@ -132,12 +139,15 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
 {% tab title="Positional options" %}
 ```javascript
+{% raw %}
 {% action "cache", "set", "foo", 5 %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
@@ -147,6 +157,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 {% tabs %}
 {% tab title="Verbose options" %}
 ```javascript
+{% raw %}
 {% action "cache" %}
   {
     "setex": {
@@ -156,12 +167,15 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
 {% tab title="Positional options" %}
 ```javascript
+{% raw %}
 {% action "cache", "setex", 60, "foo" %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
@@ -171,6 +185,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 {% tabs %}
 {% tab title="Verbose options" %}
 ```javascript
+{% raw %}
 {% action "cache" %}
   {
     "del": {
@@ -178,13 +193,15 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
 {% tab title="Positional options" %}
 ```javascript
+{% raw %}
 {% action "cache", "del", "foo" %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
-

@@ -13,11 +13,13 @@ Because this file generator is used implicitly, when a string is given instead o
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "files" %}
   {
     "plain.txt": "This\nis\na\nmulti-line\nplaintext\nfile."
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -34,4 +36,3 @@ Because this file generator is used implicitly, when a string is given instead o
 ```
 {% endtab %}
 {% endtabs %}
-

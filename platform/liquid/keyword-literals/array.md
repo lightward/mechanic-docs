@@ -7,6 +7,7 @@ Arrays support [assignment by index](../tags/assign.md#assigning-into-arrays). M
 ## Example
 
 ```javascript
+{% raw %}
 {% assign weekdays = array %}
 {% assign weekdays[0] = "Monday" %}
 {% assign weekdays[1] = "Tuesday" %}
@@ -21,5 +22,5 @@ Arrays support [assignment by index](../tags/assign.md#assigning-into-arrays). M
 {% endfor %}
 
 {% assign weekdays[weekdays.size] = "A NEW WEEKDAY, DYNAMICALLY INDEXED???" %}
+{% endraw %}
 ```
-

@@ -1,24 +1,24 @@
 # FTP
 
-The **FTP** action can upload and download files via [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol), [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol), or [FTPS](https://en.wikipedia.org/wiki/FTPS). The files to be uploaded are evaluated using [**file generators**](file-generators/). Downloaded file data is available either as an UTF-8 string, or as a base64-encoded string, and can be used in followup task runs via [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
+The **FTP** action can upload and download files via [FTP](https://en.wikipedia.org/wiki/File\_Transfer\_Protocol), [SFTP](https://en.wikipedia.org/wiki/SSH\_File\_Transfer\_Protocol), or [FTPS](https://en.wikipedia.org/wiki/FTPS). The files to be uploaded are evaluated using [**file generators**](file-generators/). Downloaded file data is available either as an UTF-8 string, or as a base64-encoded string, and can be used in followup task runs via [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
 
-A connecting service like [Couchdrop](https://couchdrop.io/) can be used to relay these uploads on to other cloud locations, like Dropbox, Google Drive, and Amazon S3.
+A connecting service like [Couchdrop](https://couchdrop.io) can be used to relay these uploads on to other cloud locations, like Dropbox, Google Drive, and Amazon S3.
 
 A single FTP action may download a maximum of 20MB of data, across all downloaded files.
 
 ## Options
 
-| Option | Description |
-| :--- | :--- |
-| `host` | Required; the hostname of the destination server |
-| `user` | Required; a string |
-| `uploads` | Optional; an object whose keys are file paths \(relative or absolute\), and whose values are [file generators](file-generators/) |
-| `downloads` | Optional; an array of file paths \(relative or absolute\) to download |
-| `mode` | Optional; only available for FTP; can be set to `"ascii"` |
-| `password` | Optional; a string |
-| `port` | Optional; an integer specifying the server port on which FTP or SFTP is available |
-| `private_key_pem` | Optional; only available for SFTP; a PEM-formatted certificate for authentication |
-| `protocol` | Optional; can be `"ftp"`, `"sftp"`, or `"ftps"` |
+| Option            | Description                                                                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `host`            | Required; the hostname of the destination server                                                                               |
+| `user`            | Required; a string                                                                                                             |
+| `uploads`         | Optional; an object whose keys are file paths (relative or absolute), and whose values are [file generators](file-generators/) |
+| `downloads`       | Optional; an array of file paths (relative or absolute) to download                                                            |
+| `mode`            | Optional; only available for FTP; can be set to `"ascii"`                                                                      |
+| `password`        | Optional; a string                                                                                                             |
+| `port`            | Optional; an integer specifying the server port on which FTP or SFTP is available                                              |
+| `private_key_pem` | Optional; only available for SFTP; a PEM-formatted certificate for authentication                                              |
+| `protocol`        | Optional; can be `"ftp"`, `"sftp"`, or `"ftps"`                                                                                |
 
 ### Authentication
 
@@ -29,6 +29,7 @@ When connecting to an FTP or FTPS server, authenticate with the `password` optio
 When connecting to an SFTP server, authenticate using either `password` or `private_key_pem`. PEM certificates may be given directly in the task code:
 
 ```javascript
+{% raw %}
 {% capture private_key_pem %}
 -----BEGIN OPENSSH PRIVATE KEY-----
 l0UGrDQWWbOpUsLENHwD5ya478pmRXarmDj5Wh31B54nmuq7be4ZKD5eh9nEV42JCl4mX6
@@ -48,17 +49,19 @@ pZ/WFoT82brhooSfJDue14C0Y=
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 
 ### File paths
 
-Both `uploads` and `downloads` allow the task author to define file paths. If only the filename is given \(e.g. `"sample.pdf"`\), the file will be resolved in the home directory of the user. If a relative path \(e.g. `"subdirectory/sample.pdf"`\) or absolute path \(e.g. `"/tmp/sample.pdf"`\) is given, it will be respected accordingly.
+Both `uploads` and `downloads` allow the task author to define file paths. If only the filename is given (e.g. `"sample.pdf"`), the file will be resolved in the home directory of the user. If a relative path (e.g. `"subdirectory/sample.pdf"`) or absolute path (e.g. `"/tmp/sample.pdf"`) is given, it will be respected accordingly.
 
 #### Example
 
-This example action results in \(a\) an upload to an absolute path, starting from the server root, \(b\) an upload to a nested directory within the user's home folder, and \(c\) an upload to a nested directory in another user's home folder \(which may fail, depending on filesystem permissions\).
+This example action results in (a) an upload to an absolute path, starting from the server root, (b) an upload to a nested directory within the user's home folder, and (c) an upload to a nested directory in another user's home folder (which may fail, depending on filesystem permissions).
 
 ```javascript
+{% raw %}
 {% action "ftp" %}
   {
     ...
@@ -69,11 +72,12 @@ This example action results in \(a\) an upload to an absolute path, starting fro
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 
 ## Result
 
-This action returns the following data structure, most useful in combination with mechanic/actions/perform \(see [Responding to action results](../../techniques/responding-to-action-results.md)\):
+This action returns the following data structure, most useful in combination with mechanic/actions/perform (see [Responding to action results](../../techniques/responding-to-action-results.md)):
 
 ```javascript
 {
@@ -104,17 +108,18 @@ This action returns the following data structure, most useful in combination wit
 }
 ```
 
-Note that each uploaded and downloaded file is keyed by the path provided for that file in the action's options. Downloaded file data is available as a UTF-8 string; for binary data that cannot be represented in UTF-8, use the base64-encoded version, possibly in concert with the [decode\_base64](https://learn.mechanic.dev/platform/liquid/filters#base-64-decode_base64) filter.
+Note that each uploaded and downloaded file is keyed by the path provided for that file in the action's options. Downloaded file data is available as a UTF-8 string; for binary data that cannot be represented in UTF-8, use the base64-encoded version, possibly in concert with the [decode\_base64](https://learn.mechanic.dev/platform/liquid/filters#base-64-decode\_base64) filter.
 
 ## Testing
 
-If a server is unavailable for testing, consider using [Couchdrop](https://couchdrop.io/), with [their hosted storage service](https://couchdrop.io/features/hosted-storage). This is a \(nearly\) configuration-free avenue for testing, using the hosts ftp.couchdrop.io or sftp.couchdrop.io.
+If a server is unavailable for testing, consider using [Couchdrop](https://couchdrop.io), with [their hosted storage service](https://couchdrop.io/features/hosted-storage). This is a (nearly) configuration-free avenue for testing, using the hosts ftp.couchdrop.io or sftp.couchdrop.io.
 
-Alternatively, [ngrok](https://ngrok.com/) can be used to create a public tunnel to a local FTP or SSH server. By running `ngrok tcp 22` \(adjusting for the appropriate local port\), ngrok will generate a temporary public host and port that's appropriate for use while testing.
+Alternatively, [ngrok](https://ngrok.com) can be used to create a public tunnel to a local FTP or SSH server. By running `ngrok tcp 22` (adjusting for the appropriate local port), ngrok will generate a temporary public host and port that's appropriate for use while testing.
 
 Uploads are processed before downloads; it can be useful to test by uploading a file, and then immediately downloading it again:
 
 ```javascript
+{% raw %}
 {% action "ftp" %}
   {
     "host": "ftp.couchdrop.io",
@@ -127,6 +132,7 @@ Uploads are processed before downloads; it can be useful to test by uploading a 
     ]
   }
 {% endaction %}
+{% endraw %}
 ```
 
 ## Example
@@ -135,7 +141,7 @@ This task compiles all SKUs with their titles and prices, and uploads it as a CS
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-```text
+```
 mechanic/scheduler/daily
 mechanic/user/trigger
 ```
@@ -143,6 +149,7 @@ mechanic/user/trigger
 
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% assign csv_rows = array %}
 
 {% assign header = "SKU,Title,Price" | split: "," %}
@@ -177,7 +184,7 @@ mechanic/user/trigger
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
-

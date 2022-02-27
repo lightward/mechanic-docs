@@ -2,11 +2,11 @@
 
 A task **subscription** is the expression of a task's intent to receive certain [**events**](../events/), filtering by [**topic**](../events/topics.md). A subscription consists of an event topic, optionally combined with an **offset**. A task may have any number of subscriptions.
 
-![A task&apos;s subscription configuration, within the task&apos;s advanced settings.](../../.gitbook/assets/screen-shot-2021-04-05-at-7.50.17-pm.png)
+![A task's subscription configuration, within the task's advanced settings.](../../.gitbook/assets/screen-shot-2021-04-05-at-7.50.17-pm.png)
 
 ## Offsets
 
-A subscription offset defines the amount of time a task should wait before responding to the incoming event. It's the easiest way to add a delay to a task's subscription to a specific topic. \(For finer control over event timing, try using the `run_at` option of [the Event action](../actions/event.md).\)
+A subscription offset defines the amount of time a task should wait before responding to the incoming event. It's the easiest way to add a delay to a task's subscription to a specific topic. (For finer control over event timing, try using the `run_at` option of [the Event action](../actions/event.md).)
 
 Subscription offsets are appended to the subscription topic, and are of the form "+1.hour". Offsets may be given using minutes, hours, days, weeks, months, or years.
 
@@ -20,9 +20,11 @@ The [Shopify variables](code/environment-variables.md#shopify-variables) availab
 To reload the data in a Shopify variable, use something like this:
 
 ```javascript
+{% raw %}
 {% unless event.preview %}
   {% assign customer = customer.reload %}
 {% endunless %}
+{% endraw %}
 ```
 
 Remember, Mechanic does not permit access to the Shopify API during [event preview](previews/). Using this `unless` statement ensures that reloading only happens during a live event.
@@ -41,9 +43,11 @@ One subscription is permitted per line. Blank lines and leading/trailing whitesp
 ```javascript
 shopify/orders/create
 
+{% raw %}
 {% if options.send_email_when_order_cancelled__boolean %}
   shopify/orders/cancelled
 {% endif %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
@@ -59,8 +63,9 @@ shopify/orders/paid+{{ options.days_to_wait_before_followup__number_required }}.
 {% tabs %}
 {% tab title="Optional offset" %}
 ```javascript
-shopify/customers/create{% if options.wait_one_hour__boolean %}+1.hour{% endif %}
+shopify/customers/create{% raw %}
+{% if options.wait_one_hour__boolean %}+1.hour{% endif %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
-

@@ -10,23 +10,23 @@ This action accepts a JSON object, whose keys are filenames and whose values are
 
 ## Result
 
-This action returns an object having the same keys \(i.e. filenames\) as its input. Each value is an object, having the following properties:
+This action returns an object having the same keys (i.e. filenames) as its input. Each value is an object, having the following properties:
 
-| File property | Description |
-| :--- | :--- |
-| `expires_at` | An ISO8601 timestamp, specifying when the file will expire |
-| `mime_type` | The [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) of the generated file |
-| `name` | The filename, as given in the original action options |
-| `size` | The size of the generated file, in bytes |
-| `url` | The URL at which this file will be available, until it expires |
+| File property | Description                                                                                           |
+| ------------- | ----------------------------------------------------------------------------------------------------- |
+| `expires_at`  | An ISO8601 timestamp, specifying when the file will expire                                            |
+| `mime_type`   | The [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) of the generated file |
+| `name`        | The filename, as given in the original action options                                                 |
+| `size`        | The size of the generated file, in bytes                                                              |
+| `url`         | The URL at which this file will be available, until it expires                                        |
 
 ## Example
 
-This task generates a variety of files. It then re-invokes itself \(via mechanic/actions/perform\), sending an email containing links to each of the generated files.
+This task generates a variety of files. It then re-invokes itself (via mechanic/actions/perform), sending an email containing links to each of the generated files.
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-```text
+```
 mechanic/user/trigger
 mechanic/actions/perform
 ```
@@ -36,6 +36,7 @@ mechanic/actions/perform
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% if event.topic == "mechanic/user/trigger" %}
   {% action "files" %}
     {
@@ -80,7 +81,7 @@ mechanic/actions/perform
     }
   {% endaction %}
 {% endif %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
-

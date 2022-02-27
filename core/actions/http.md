@@ -6,15 +6,15 @@ All HTTP methods are supported; the results of HTTP requests may be reused by a 
 
 ## Options
 
-| Option | Description |
-| :--- | :--- |
-| `method` | Required; must be one of `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"` |
-| `url` | Required; must be a string beginning with `https://` or `http://` |
-| `body` | Required unless `method` is `"get"`; format varies, see below |
-| `files` | Optional; may be set to a JSON object, mapping filenames to [file generators](file-generators/) |
-| `headers` | Optional; may be set to a JSON object, mapping header names to header values |
-| `verify` | Optional; may be set to `false` to disable SSL certificate verification |
-| `error_on_5xx` | Optional; may be set to `true` to have 5xx HTTP response codes be considered action errors |
+| Option         | Description                                                                                     |
+| -------------- | ----------------------------------------------------------------------------------------------- |
+| `method`       | Required; must be one of `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"`                   |
+| `url`          | Required; must be a string beginning with `https://` or `http://`                               |
+| `body`         | Required unless `method` is `"get"`; format varies, see below                                   |
+| `files`        | Optional; may be set to a JSON object, mapping filenames to [file generators](file-generators/) |
+| `headers`      | Optional; may be set to a JSON object, mapping header names to header values                    |
+| `verify`       | Optional; may be set to `false` to disable SSL certificate verification                         |
+| `error_on_5xx` | Optional; may be set to `true` to have 5xx HTTP response codes be considered action errors      |
 
 ### Request format
 
@@ -29,6 +29,7 @@ If the Content-Type header is unspecified or set to `application/json`, and if t
 If the `files` option is given, its contents will be evaluated for [file generators](file-generators/), and the results will be used to construct a `multipart/form-data` upload request, combining generated files with any key-value pairs found in the `body` option.
 
 ```javascript
+{% raw %}
 {% action "http" %}
   {
     "method": "post",
@@ -43,6 +44,7 @@ If the `files` option is given, its contents will be evaluated for [file generat
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 
 If the `files` option is not given, and if the Content-Type header is set to `application/x-www-form-urlencoded`, and if the `body` option is set to a JSON object or array, the request body will be serialized to a form-encoded string.
@@ -52,6 +54,7 @@ If the `files` option is not given, and if the Content-Type header is set to `ap
 To authenticate a request using [the Authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) and the "Basic" authentication type, use something like this:
 
 ```javascript
+{% raw %}
 {% assign username = "guest" %}
 {% assign password = "guest" %}
 {% assign authorization_header = username | append: ":" | append: password | base64 | prepend: "Basic " %}
@@ -65,18 +68,19 @@ To authenticate a request using [the Authorization header](https://developer.moz
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 
 ## Result
 
 This action returns an object containing the following keys:
 
-| File property | Description |
-| :--- | :--- |
-| `status` | An integer, specifying the response code |
-| `headers` | An object containing response headers, where each key is a string and each value is an array of values found for that header |
-| `body` | The interpreted value of the response body; see below |
-| `body_base64` | The original response body, encoded using base64 |
+| File property | Description                                                                                                                  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `status`      | An integer, specifying the response code                                                                                     |
+| `headers`     | An object containing response headers, where each key is a string and each value is an array of values found for that header |
+| `body`        | The interpreted value of the response body; see below                                                                        |
+| `body_base64` | The original response body, encoded using base64                                                                             |
 
 ### Response headers
 
@@ -85,7 +89,9 @@ Because HTTP allows for the same header name to be present multiple times, this 
 To retrieve a specific header in a task responding to [mechanic/actions/perform](./), use something like this:
 
 ```javascript
+{% raw %}
 {% log response_type_header: action.run.result.headers['content-type'][0] %}
+{% endraw %}
 ```
 
 ### Response body
@@ -108,7 +114,7 @@ This task prompts the user for text input, and submits it to a public API that r
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-```text
+```
 mechanic/user/text
 mechanic/actions/perform
 ```
@@ -118,6 +124,7 @@ mechanic/actions/perform
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
+{% raw %}
 {% if event.topic == "mechanic/user/text" %}
   {% action "http" %}
     {
@@ -132,7 +139,7 @@ mechanic/actions/perform
     response_content_type: action.run.result.headers['content-type'][0],
     response_body: action.run.result.body %}
 {% endif %}
+{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
-

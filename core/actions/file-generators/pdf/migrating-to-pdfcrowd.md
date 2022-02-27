@@ -1,6 +1,6 @@
 # Migrating to Pdfcrowd
 
-Mechanic accounts created prior to July 12, 2021 default to using [wkhtmltopdf](https://wkhtmltopdf.org/) instead of [Pdfcrowd](https://pdfcrowd.com/). This rendering engine uses a version of WebKit from 2012, and therefore does not support many features of the modern web.
+Mechanic accounts created prior to July 12, 2021 default to using [wkhtmltopdf](https://wkhtmltopdf.org) instead of [Pdfcrowd](https://pdfcrowd.com). This rendering engine uses a version of WebKit from 2012, and therefore does not support many features of the modern web.
 
 We strongly encourage all users to migrate to Pdfcrowd, which uses a modern release of Chrome for rendering HTML.
 
@@ -17,6 +17,7 @@ For accounts created prior to July 12, 2021, an option labeled "Opt in to Pdfcro
 To start using Pdfcrowd with just a single file generator, add `"__force_pdfcrowd": true` to the PDF generator options.
 
 ```javascript
+{% raw %}
 {% action "files" %}
   {
     "migration_test.pdf": {
@@ -25,6 +26,7 @@ To start using Pdfcrowd with just a single file generator, add `"__force_pdfcrow
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 
 ### Pdfcrowd options
@@ -53,5 +55,4 @@ To use additional options from the list above, add them alongside the `html` opt
 }
 ```
 
-## 
-
+##

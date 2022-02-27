@@ -19,6 +19,7 @@ This file generator accepts a base64-encoded string. It does not support any oth
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "files" %}
   {
     "image_from_base64.jpg": {
@@ -26,6 +27,7 @@ This file generator accepts a base64-encoded string. It does not support any oth
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -44,4 +46,3 @@ This file generator accepts a base64-encoded string. It does not support any oth
 ```
 {% endtab %}
 {% endtabs %}
-

@@ -4,22 +4,22 @@ The **Email** action is for sending email. ✅ It supports the store's [**email 
 
 ## Restrictions
 
-Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provider. Currently, Mechanic only supports Postmark's transactional message stream, which means that marketing and other bulk mail may not be sent. To learn more about what is and isn't a transactional message, see Postmark's article: ["What are Transactional emails?"](https://postmarkapp.com/support/article/804-what-are-transactional-emails).
+Mechanic sends email via [Postmark](https://postmarkapp.com), our email provider. Currently, Mechanic only supports Postmark's transactional message stream, which means that marketing and other bulk mail may not be sent. To learn more about what is and isn't a transactional message, see Postmark's article: ["What are Transactional emails?"](https://postmarkapp.com/support/article/804-what-are-transactional-emails).
 
 ## Options
 
-| Option | Description |
-| :--- | :--- |
-| `to` | Required; an array or comma-delimited string of recipient addresses |
-| `subject` | Required; a string specifying the message subject |
-| `body` | Required; an HTML string of body content; supports HTML and CSS |
-| `cc` | Optional; an array or comma-delimited string of cc addresses |
-| `bcc` | Optional; an array or comma-delimited string of bcc addresses |
-| `reply_to` | Optional; a single reply-to address |
-| `from_display_name` | Optional; a string controlling the name \(but not the address\) of the sender |
-| `template` | Optional; a string naming an email template from the current Mechanic account |
-| `attachments` | Optional; an object specifying files to attach, using [file generators](file-generators/) |
-| `...` | Additional options may be provided, and will be made available to email templates as variables, named after each option |
+| Option              | Description                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `to`                | Required; an array or comma-delimited string of recipient addresses                                                     |
+| `subject`           | Required; a string specifying the message subject                                                                       |
+| `body`              | Required; an HTML string of body content; supports HTML and CSS                                                         |
+| `cc`                | Optional; an array or comma-delimited string of cc addresses                                                            |
+| `bcc`               | Optional; an array or comma-delimited string of bcc addresses                                                           |
+| `reply_to`          | Optional; a single reply-to address                                                                                     |
+| `from_display_name` | Optional; a string controlling the name (but not the address) of the sender                                             |
+| `template`          | Optional; a string naming an email template from the current Mechanic account                                           |
+| `attachments`       | Optional; an object specifying files to attach, using [file generators](file-generators/)                               |
+| `...`               | Additional options may be provided, and will be made available to email templates as variables, named after each option |
 
 ## Message formatting
 
@@ -28,7 +28,7 @@ Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provide
 Mechanic parses each email body for HTML and CSS, allowing authors to use `<style>` tags without having to think about email client compatibility.
 
 {% hint style="info" %}
-If you're simply trying to add formatted text and aren't ready to dig into the code yourself, try using a tool like [wordtohtml.net](https://wordtohtml.net/) to quickly generate usable HTML.
+If you're simply trying to add formatted text and aren't ready to dig into the code yourself, try using a tool like [wordtohtml.net](https://wordtohtml.net) to quickly generate usable HTML.
 {% endhint %}
 
 ### Embedded images
@@ -37,7 +37,7 @@ Images may be embedded using the `<img>` tag, but must be hosted independently. 
 
 ## Changing the sender address
 
-This action only supports sending from a single address \(regardless of the sender name, as controlled by the `from_display_name` option\).
+This action only supports sending from a single address (regardless of the sender name, as controlled by the `from_display_name` option).
 
 By default, the sender address is a Mechanic address based on the store's myshopify.com subdomain. For example, the store example.myshopify.com will default to having its mail sent from example@mail.usemechanic.com.
 
@@ -61,6 +61,7 @@ Note that custom options, like all task options, must be provided using standard
 For example, consider this action:
 
 ```javascript
+{% raw %}
 {% action "email" %}
   {
     "to": "customer@example.com",
@@ -69,6 +70,7 @@ For example, consider this action:
     "order_data": {{ order | json }}
   }
 {% endaction %}
+{% endraw %}
 ```
 
 The template named "order\_acknowledgement" could include the following Liquid, and get the expected results:
@@ -77,7 +79,7 @@ The template named "order\_acknowledgement" could include the following Liquid, 
 This is the first item: {{ order_data.line_items.first.title }}
 ```
 
-But, because `order_data` is a plain [hash](../../platform/liquid/keyword-literals/hash.md) based entirely on JSON data, instead of being an enhanced order object \(see [Environment variables](../tasks/code/environment-variables.md)\), the following Liquid usage would fail:
+But, because `order_data` is a plain [hash](../../platform/liquid/keyword-literals/hash.md) based entirely on JSON data, instead of being an enhanced order object (see [Environment variables](../tasks/code/environment-variables.md)), the following Liquid usage would fail:
 
 ```javascript
 Remember order {{ order_data.customer.orders.any.first.number }}, your first ever?
@@ -97,6 +99,7 @@ For more on this, see [File generators](file-generators/).
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "email" %}
   {
     "to": "hello@example.com",
@@ -106,6 +109,7 @@ For more on this, see [File generators](file-generators/).
     "from_display_name": {{ shop.name | json }}
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -132,6 +136,7 @@ For more on this, see [File generators](file-generators/).
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% capture email_body %}
   <b>Hello!</b>
 
@@ -145,6 +150,7 @@ For more on this, see [File generators](file-generators/).
     "body": {{ email_body | unindent | strip | newline_to_br | json }}
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -169,6 +175,7 @@ For more on this, see [File generators](file-generators/).
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "email" %}
   {
     "to": "test@example.com",
@@ -181,6 +188,7 @@ For more on this, see [File generators](file-generators/).
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -204,4 +212,3 @@ For more on this, see [File generators](file-generators/).
 ```
 {% endtab %}
 {% endtabs %}
-

@@ -37,6 +37,7 @@ If it's unclear why something isn't rendering properly, start by saving and test
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% capture html %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,6 +73,7 @@ If it's unclear why something isn't rendering properly, start by saving and test
     }
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 

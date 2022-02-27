@@ -9,6 +9,7 @@ Note that this Liquid filter does not support running mutations (i.e. writing Sh
 Mechanic provides [a Liquid filter called "shopify"](../../../platform/liquid/filters.md#shopify), specifically for executing your hand-written GraphQL query, and returning everything back from Shopify's GraphQL admin API. This means that reading back GraphQL data is as easy as this:
 
 ```javascript
+{% raw %}
 {% capture query %}
   query {
     shop {
@@ -20,11 +21,13 @@ Mechanic provides [a Liquid filter called "shopify"](../../../platform/liquid/fi
 {% assign result = query | shopify %}
 
 {% log result.data.shop.name %}
+{% endraw %}
 ```
 
 Or, if you're working with multiple pages of data, you might use set up a forloop, using a cursor to retrieve page after page:
 
 ```javascript
+{% raw %}
 {% assign cursor = nil %}
 {% assign total_inventory = 0 %}
 
@@ -81,6 +84,7 @@ Or, if you're working with multiple pages of data, you might use set up a forloo
     {% break %}
   {% endif %}
 {% endfor %}
+{% endraw %}
 ```
 
 {% hint style="info" %}

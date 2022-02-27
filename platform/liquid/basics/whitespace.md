@@ -1,6 +1,6 @@
 # Whitespace
 
-Outside of Liquid statements, all whitespace is preserved. This can result in whitespace that is unwieldy \(for example, while formatting GraphQL queries\).
+Outside of Liquid statements, all whitespace is preserved. This can result in whitespace that is unwieldy (for example, while formatting GraphQL queries).
 
 To avoid this, use hyphens just inside of Liquid statement openings and closings, as in the following:
 
@@ -18,6 +18,7 @@ Learn more from Shopify: see [Whitespace control](https://shopify.dev/docs/theme
 ## Example
 
 ```javascript
+{% raw %}
 {%- capture message -%}
   This is a message.
 {%- endcapture -%}
@@ -25,9 +26,9 @@ Learn more from Shopify: see [Whitespace control](https://shopify.dev/docs/theme
 {% capture message -%}
   This is a message.
 {% endcapture -%}
+{% endraw %}
 
 {{- customer.name -}}
 {{ customer.name -}}
 {{- customer.name }}
 ```
-

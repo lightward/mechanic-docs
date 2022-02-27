@@ -4,16 +4,18 @@ The **Echo** action has no effects: it returns the options that are given. This 
 
 ## Options
 
-This action accepts any and all options, restricted only in that they must be valid JSON values \(as with all results of [task code](../tasks/code/)\).
+This action accepts any and all options, restricted only in that they must be valid JSON values (as with all results of [task code](../tasks/code/)).
 
 ### Forcing an error
 
-If the Echo action is given a `"__error"` option, it will raise that error when the action run is performed. Use this feature when it's useful to indicate an issue with a task run, without marking the entire task run as a failure \(as would be the case when using an [error object](../tasks/code/error-objects.md)\).
+If the Echo action is given a `"__error"` option, it will raise that error when the action run is performed. Use this feature when it's useful to indicate an issue with a task run, without marking the entire task run as a failure (as would be the case when using an [error object](../tasks/code/error-objects.md)).
 
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "echo", __error: "Forcing an error!" %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -38,7 +40,9 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "echo", foo: "bar", baz: "qux" %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -60,7 +64,9 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "echo", "foo", "bar", "baz" %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -83,7 +89,9 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "echo", "foo" %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -102,12 +110,14 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
+{% raw %}
 {% action "echo" %}
   {
     "foo": "bar",
     "baz": "qux"
   }
 {% endaction %}
+{% endraw %}
 ```
 {% endtab %}
 
@@ -125,4 +135,3 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 ```
 {% endtab %}
 {% endtabs %}
-
