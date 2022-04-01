@@ -42,16 +42,16 @@ For a trivial task, subscribing to shopify/customers/create, and having the foll
 ```
 {% raw %}
 {% if customer.email contains "gmail.com" %}
-  {% log "got a gmail user!" %}
+  {% log message: "got a gmail user!", email: customer.email %}
 {% else %}
-  {% log "got someone else!" %}
+  {% log message: "got someone else!", email: customer.email %}
 {% endif %}
 {% endraw %}
 ```
 
 ... we define two preview events, one which represents a Gmail user, and one which does not. This allows us to easily assert that the task behaves properly in both scenarios.
 
-![](<../../../.gitbook/assets/2022-04-01 16.46.20.gif>)
+![](<../../../.gitbook/assets/2022-04-01 17.23.24.gif>)
 
 ## Versioning
 
