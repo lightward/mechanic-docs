@@ -49,6 +49,7 @@
   * [Options](core/tasks/options/README.md)
     * [Custom validation](core/tasks/options/custom-validation.md)
   * [Previews](core/tasks/previews/README.md)
+    * [Defining preview events](core/tasks/previews/events.md)
     * [Stub data](core/tasks/previews/stub-data.md)
   * [Shopify API version](core/tasks/shopify-api-version.md)
   * [Advanced settings](core/tasks/advanced-settings/README.md)
