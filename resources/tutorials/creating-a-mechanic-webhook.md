@@ -1,6 +1,6 @@
 # Creating a Mechanic webhook
 
-Webhooks are the nearly ubiquitous carriers of information to and from services across the internet - services like IFTTT, Zapier, Stripe, PayPal, JotForm, and countlessly more. You can use webhooks to send information from these services into Mechanic, where you can then perform any [logic](../../core/tasks/code/) and [actions](../../core/actions/) you need.
+Webhooks are the nearly ubiquitous carriers of information to and from services across the internet - services like IFTTT, Zapier, Stripe, PayPal, JotForm, and countless more. You can use webhooks to send information from these services into Mechanic, where you can then perform any [logic](../../core/tasks/code/) and [actions](../../core/actions/) you need.
 
 {% hint style="info" %}
 This is a tutorial for getting started quickly. To learn more about webhooks themselves, see [Mechanic webhooks](../../platform/webhooks.md).
@@ -12,62 +12,62 @@ Let's review a detailed example.
 
 ### 1. Create a Mechanic webhook.
 
-Start by opening Mechanic, from the "Apps" section of Shopify. Once in Mechanic, scroll down to the "Your account" section, and click the "Manage settings" link.
+Start by opening Mechanic, from the "Apps" section of Shopify. Once in Mechanic, click the "Settings" button in the upper-right corner, then navigate to the "Webhooks" tab.
 
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1eb04286364bc944403/5e28a1eb6f5e7.png)
-
-Next, click the "+ Add a webhook" button, towards the end of the settings pag.
-
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39a89d2c7d3a7e9ae7384c/file-SfcKTlfshg.png)
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.55.25 PM.png>)
 
 Webhooks should be named after the service that will be sending you data, with an event topic that makes sense, using the format `user/subject/verb`.
 
 For this example, we'll simply call ours "Example", with an event topic of "user/webhook/test".
 
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39a8db04286364bc94d8aa/file-IydtRZ3CcY.png)
+Click the submit button to save the webhook, and use the copy button to copy the resulting webhook URL.
 
-Click the submit button to save the webhook, and copy the resulting webhook URL.
-
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39a9502c7d3a7e9ae73854/file-RjoxMqLWMo.png)
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.56.31 PM.png>)
 
 The URL will look something like this:
 
 ```
-https://usemechanic.com/webhook/00000000-0000-0000-0000-000000000000
+https://webhooks.mechanic.dev/00000000-0000-0000-0000-000000000000
 ```
+
+{% hint style="info" %}
+Older webhook URLs resemble `https://usemechanic.com/webhook/00...00`. This URL structure still works, but we recommend migrating to `https://webhooks.mechanic.dev/00...00` instead, for enhanced reliability.
+{% endhint %}
 
 ### 2. Create a task that subscribes to your webhook event.
 
-Back on the Mechanic homepage, click the "Start a custom task" link.
+Back on the Mechanic homepage, click the "Add task" link.
 
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ec04286364bc944406/5e28a1ec93588.png)
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.58.21 PM.png>)
 
-Keeping things simple for this example, we'll title the task "Webhook test", fill in the subscription field with "user/webhook/text" (to match the webhook), and click the "Echo" button beneath the script editor to quickly fill in a simple ["echo" action](https://help.usemechanic.com/actions/echo).
+Then, click the "Start a blank task" button.
 
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e39a9c82c7d3a7e9ae7385e/file-NWZw6pzVGj.png)
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.59.33 PM.png>)
 
-Lastly, save the task. Note the action preview that's generated: "When user/webhook/test is triggered…".
+Keeping things simple for this example, we'll title the task "Webhook test", with a subscription to "user/webhook/text" (to match the webhook configuration), and a simple [Echo action](../../core/actions/echo.md) in the task code.
 
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ed2c7d3a7e9ae69bee/5e28a1ed374ae.png)
+![](<../../.gitbook/assets/2022-04-01 18.01.16.gif>)
+
+Lastly, save the task.
 
 ### 3. Test your webhook.
 
 Open [https://reqbin.com/](https://reqbin.com), and construct a request to our webhook. Here, we'll select "POST", paste in the webhook URL, and fill in a simple piece of content. (Webhooks support plain text, form-encoded content, _and_ JSON; for this example, we'll use JSON.)
 
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ed2c7d3a7e9ae69bef/5e28a1ed874a6.png)
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 6.04.05 PM.png>)
 
 Click the "Send" button, and you'll see a 204 response returned within ReqBin.
 
-Over in Mechanic, watch the "Recent activity" list on the app homepage to see the incoming event.
+Over in Mechanic, watch for the new event on the "Events" page (or in the "Recent events" section of the Mechanic homepage):
 
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ee2c7d3a7e9ae69bf0/5e28a1edd2328.png)
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 6.04.59 PM.png>)
 
 Click on that event to see the results of our task and its echo action.
 
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1ee04286364bc944408/5e28a1ee17e5b.png)
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 6.07.14 PM.png>)
 
 ### 4. Connect your webhook URL to another service.
 
 This last part is up to you! Provide the webhook URL, generated by Mechanic, to whatever service you'd like to use. When provided with this URL, the service will start sending your data over to Mechanic for processing.
 
-That's it! :) Modify to taste.
+That's it! :) Adjust to taste.
