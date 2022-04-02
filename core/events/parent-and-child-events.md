@@ -7,11 +7,9 @@ In specific cases, events may be triggered by activity associated with an earlie
 
 Tasks responding to child events may reference to the parent's event using `{{ event.parent }}`. Parent events are recursively available (as in `{{ event.parent.parent.parent }}`), to a limit of 5 generations back.
 
-When viewing any given event in Mechanic, look in the event details to find any parent or child relationships that apply:
+When viewing any given event in Mechanic, look in the event details to find any parent or child relationships that apply. Click through to any displayed parent or child event to view that event's details.
 
-![](../../.gitbook/assets/image.png)
-
-Under "Parent" or "Children", click on a linked event topic to open up a specific event.
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 7.06.37 PM.png>)
 
 ## Example
 
@@ -23,7 +21,7 @@ user/fan/out
 ```
 {% endtab %}
 
-{% tab title="Script" %}
+{% tab title="Code" %}
 ```
 {% raw %}
 {% assign n = event.data | default: 0 | times: 1 %}

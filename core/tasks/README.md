@@ -14,7 +14,7 @@ Working on getting better at task-writing? See [Practicing writing tasks](../../
 
 ## Example
 
-This very basic task subscribes to shopify/customers/create, and renders an [Email](../actions/email.md) action, using an email subject and body drawn from user-configured [options](options/).
+This very basic task subscribes to shopify/customers/create, and renders an [Email action](../actions/email.md), using an email subject and body taken from user-configured [options](options/).
 
 {% tabs %}
 {% tab title="Subscriptions" %}
@@ -22,9 +22,7 @@ This very basic task subscribes to shopify/customers/create, and renders an [Ema
 shopify/customers/create
 ```
 {% endtab %}
-{% endtabs %}
 
-{% tabs %}
 {% tab title="Code" %}
 ```javascript
 {% raw %}
@@ -39,6 +37,14 @@ shopify/customers/create
 {% endraw %}
 ```
 {% endtab %}
+
+{% tab title="Export" %}
+```
+{"name":"Customer signup alerts","options":{"email_recipient__email_required":"aesha@example.com","email_subject__required":"A new customer has signed up: {{ customer.email }}","email_body__multiline_required":"Hi! View this customer's details online:\n\nhttps://{{ shop.domain }}/admin/customers/{{ customer.id }}\n\n-Mechanic"},"script":"{% raw %}
+{% action \"email\" %}\n  {\n    \"to\": {{ options.email_recipient__email_required | json }},\n    \"subject\": {{ options.email_subject__required | json }},\n    \"body\": {{ options.email_body__multiline_required | newline_to_br | json }},\n    \"from_display_name\": {{ shop.name | json }}\n  }\n{% endaction %}
+{% endraw %}","subscriptions":["shopify/customers/create"],"online_store_javascript":null,"order_status_javascript":null,"docs":null,"subscriptions_template":"shopify/customers/create","shopify_api_version":"2022-04","liquid_profiling":false,"perform_action_runs_in_sequence":false,"halt_action_run_sequence_on_error":false,"preview_event_definitions":[]}
+```
+{% endtab %}
 {% endtabs %}
 
-![](../../.gitbook/assets/screen-shot-2021-02-05-at-4.00.45-pm.png)
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 7.14.46 PM.png>)

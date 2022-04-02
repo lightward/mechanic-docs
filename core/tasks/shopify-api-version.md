@@ -26,6 +26,7 @@ Shopify may, at times, mark certain API features as deprecated. If a Mechanic ac
 
 ## Changing versions
 
-The selector for a task's Shopify API version is available towards the end of the task's advanced settings.
+The selector for a task's Shopify API version is available in Advanced mode, below the task code area.
 
-![](../../.gitbook/assets/2021-07-06-13.36.06.gif)
+![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 7.19.33 PM.png>)
+
