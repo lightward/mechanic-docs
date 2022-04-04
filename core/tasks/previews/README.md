@@ -117,46 +117,9 @@ shopify/orders/create
 
 ### Dynamic preview actions
 
-A dynamic preview action is the natural result of exercising a task's code as completely as possible.
+A dynamic preview action is the natural result of exercising a task's code as completely as possible, without adding any business logic that responds to `event.preview`.
 
-In the following example, the task code uses `event.preview` to construct a brand new `order` variable, one that is guaranteed to resemble an order from the Online Store sales channel. This synthetic variable is an example of [**stub data**](stub-data.md).
+There are two techniques available for this:
 
-This technique has several advantages:
-
-1. Constructing stub data allows the rest of the task to proceed without any special knowledge of the preview event.
-2. The preview actions generated are an excellent indicator of how the task will behave when given a live event.
-3. The developer is able to test their code instantly, by changing the values of the stub data. (In the example below, they can prove that the condition on line 7 works by experimenting with the order's source name on line 3.)
-
-{% tabs %}
-{% tab title="Task code" %}
-```javascript
-{% raw %}
-{% if event.preview %}
-  {% assign order = hash %}
-  {% assign order["source_name"] = "web" %}
-  {% assign order["admin_graphql_api_id"] = "gid://shopify/Order/1234567890" %}
-{% endif %}
-
-{% if order.source_name == "web" %}
-  {% action "shopify" %}
-    mutation {
-      tagsAdd(id: {{ order.admin_graphql_api_id | json }}, tags: "web") {
-        userErrors { field, message }
-      }
-    }
-  {% endaction %}
-{% endif %}
-{% endraw %}
-```
-{% endtab %}
-
-{% tab title="Subscriptions" %}
-```
-shopify/orders/create
-```
-{% endtab %}
-{% endtabs %}
-
-{% hint style="info" %}
-The stub data in this example includes an ID for the order in order to generate a realistic tagsAdd mutation during preview mode. Realistic preview actions are important for users and developers, but there's a functional importance for tagsAdd mutations in particular: in preview mode, Mechanic looks at the `id` argument in order to determine what kind of resource will be tagged, in order to determine what permissions this particular mutation requires.
-{% endhint %}
+1. Use [**defined preview events**](events.md) to control preview event data, without ever having to add preview-related code to the task itself. This is the cleanest way to control data provided by the event during preview.
+2. Use [**stub data**](stub-data.md) to dynamically swap in preview-friendly values. This is generally not necessary for preview _event_ data, but may be necessary when querying Shopify for data during a task: because the Shopify API is disabled during preview, using stub data can be useful for swapping in realistic values that _would_ be returned during a live run.

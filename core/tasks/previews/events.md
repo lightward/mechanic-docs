@@ -13,6 +13,10 @@ However, developers may define their own preview events, containing whatever dat
 * Multiple preview events may be defined per event topic. This allows developers to verify that their task renders the appropriate results under a variety of circumstances.
   * Defined preview events can be labeled with a description, which is visible in the task preview pane. This makes it easy to identify the scenario that a preview event is meant to represent.
 
+{% hint style="info" %}
+Preview event definitions cannot provide for return values from Shopify query operations (i.e. output from the [shopify filter](../../../platform/liquid/filters.md#shopify), or the result of traversing Shopify Liquid objects, as in `customer.orders.first`). For those purposes, use the [**stub data**](stub-data.md) technique.
+{% endhint %}
+
 ## Configuration
 
 Preview events may be defined using the "Edit preview events" button, in the task preview pane.

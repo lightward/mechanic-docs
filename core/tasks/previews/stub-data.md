@@ -2,11 +2,21 @@
 
 **Stub data** is hard-coded into a task, providing an unchanging source of data for [**previews**](./). It is an important tool when generating [**dynamic preview actions**](./#dynamic-preview-actions). Stub data may be used for user-defined variables, but may also override [**environment variables**](../code/environment-variables.md) as needed.
 
+{% hint style="info" %}
+For controlling preview event data (i.e. the values in `event.data`, and values found in [event subject variables](../code/environment-variables.md#event-subject-variables)), use [**defined preview events**](events.md) to cleanly specify these values _outside_ of the task code.
+{% endhint %}
+
 ## Stubbing Liquid variables
 
 Most tasks make decisions based on the [Liquid variables](../code/environment-variables.md) automatically provided, making it a common practice to stub them during preview mode. Any and all Liquid variables may be replaced by stub data, including `event` and any [event subject variables](../code/environment-variables.md#event-subject-variables).
 
 In simple cases, replacement objects may be constructed using the [assign](../../../platform/liquid/tags/assign.md) tag.
+
+{% hint style="info" %}
+The stub data in the following examples include an ID for the order, so as to generate a realistic tagsAdd mutation during preview mode.
+
+Realistic preview actions are important for users and developers, but there's a functional importance for tagsAdd mutations in particular: in preview mode, Mechanic looks at the `id` argument in order to determine what kind of resource will be tagged, in order to determine what permissions this particular mutation requires. If you generate tagsAdd mutations during preview, make sure to use realistic ID values!
+{% endhint %}
 
 ```javascript
 {% raw %}
