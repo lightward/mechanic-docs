@@ -6,10 +6,12 @@ By default, each preview event's data is sampled from previous events that the M
 
 However, developers may define their own preview events, containing whatever data the developer wishes to use for preview. This may be useful for several reasons:
 
+* Most tasks conditionally respond to events based on their data. Controlling the event data present during preview allows the developer to deterministically verify the results of the action.
+* Further, by deterministically/predictably generating actions, the developer can consistently demonstrate the permissions they need to Mechanic. (To learn more about this, see [Previews](./).)
+* Defining preview event data is usually simpler than defining [stub data](stub-data.md).
+  * Stubbing the `event` variable (or any of the [subject variables](../code/environment-variables.md#event-subject-variables)) removes any intelligence from the objects Mechanic generates from event data, a drawback avoided by defining a preview event and its data. Using the [Order object](../../../platform/liquid/shopify/order.md) as an example, a task may typically access its custom attributes via `order.note_attributes.color`, or via `order.note_attributes[0].value`. This dynamic behavior is lost if the `event` variable is stubbed out, which can result in behaviors that are difficult to diagnose.
 * Multiple preview events may be defined per event topic. This allows developers to verify that their task renders the appropriate results under a variety of circumstances.
   * Defined preview events can be labeled with a description, which is visible in the task preview pane. This makes it easy to identify the scenario that a preview event is meant to represent.
-* Defining preview event data is usually simpler than defining [stub data](stub-data.md) for the `event` variable.
-  * Stubbing the `event` variable removes any intelligence from the objects found in `event.data`, a drawback avoided by defining a preview event and its data. Using the [Order object](../../../platform/liquid/shopify/order.md) as an example, a task may typically access its custom attributes via `order.note_attributes.color`, or via `order.note_attributes[0].value`. This dynamic behavior is lost if the `event` variable is stubbed out, which can result in behaviors that are difficult to diagnose.
 
 ## Configuration
 
@@ -33,7 +35,7 @@ Identifies the event definition to Mechanic, when Mechanic goes to construct pre
 
 Used to construct `event.data`, and may be set to whatever values are useful in representing a specific scenario. The data structures used here should resemble what Mechanic will receive for a live event of the same topic.
 
-Notably, the data here _can_ be limited to just the properties that are useful. In the example below, defining two preview events for shopify/customers/create, we limit the event data to just the email address.
+Notably, the data here _can_ be limited to just the properties that are useful. For example, while Mechanic might normally generate a complete payload for shopify/orders/create, the developer might only care about the `"email"` property of the order – and so their defined preview event data might be limited to just that property. (Note that the inverse may not be true: defining preview event data for traversals into other objects, e.g. using preview event data to define a value for `order.line_items[0].product.title`, will _not_ work.)
 
 ### Example
 
