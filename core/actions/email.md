@@ -51,9 +51,9 @@ To achieve easily reusable headers and footers, Mechanic can be configured with 
 
 To use a specific email template with the Email action, use the `template` option to specify the name of the desired email template.
 
-### Creating template variables
+### Creating email template variables
 
-All options used with the Email action will be made available as Liquid variables for the email template. This means that standard options may be used, like `{{ subject }}` and `{{ body }}`, and also custom options: passing in an `order` option, containing order data, may allow the email template to show the order name via `{{ order.name }}`.
+All options used with the Email action will be made available as Liquid variables for the email template. This means that standard options may be used, like `{{ subject }}` and `{{ body }}`, and also custom options: passing in an `"order_data"` option, containing order data, may allow the email template to show the order name via `{{ order_data.name }}`.
 
 {% hint style="warning" %}
 Note that custom options, like all task options, must be provided using standard JSON. This means that the data made available to email templates will be derived from plain JSON values.
