@@ -4,7 +4,11 @@ description: A complete index
 
 # Event topics
 
-Mechanic supports a variety of [**event topics**](../../core/events/topics.md). This page is a complete index of pre-defined topics, organized by **domain** and **subject**.
+Mechanic supports a variety of [**event topics**](../../core/events/topics.md), each a classification of an [**event**](../../core/events/). This page is a complete index of pre-defined topics, organized by **domain** and **subject**.
+
+{% hint style="info" %}
+Incoming events may be selectively filtered out using [event filters](filters.md).
+{% endhint %}
 
 ## Mechanic
 
