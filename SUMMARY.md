@@ -227,4 +227,4 @@
   * [How do marketing preferences work with Mechanic?](faq/how-do-marketing-preferences-work-with-mechanic.md)
   * [Can I send data to Google Sheets?](faq/can-i-send-data-to-google-sheets.md)
   * [What's possible with timeline comments?](faq/whats-possible-with-timeline-comments.md)
-  * [I'm getting a "query param length is too long" error when using GraphQL.](faq/im-getting-a-query-param-length-is-too-long-error-when-using-graphql..md)
+  * [I'm getting a "query param length is too long" error when using GraphQL.](faq/query-param-length-is-too-long.md)
