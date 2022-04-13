@@ -342,21 +342,19 @@ Use this filter to parse an XML string. (Under the hood, this filter calls [Hash
 This filter accepts a GraphQL query string, sends it to Shopify, and returns the full response – including `"data"` and `"errors"`.
 
 {% hint style="info" %}
-Tip: Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-admin-api) to quickly and precisely assemble your queries.
+Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-admin-api) to quickly and precisely assemble your queries.
 {% endhint %}
 
-```javascript
+{% tabs %}
+{% tab title="Usage" %}
+```liquid
 {% raw %}
 {% capture query %}
   query {
     shop {
       primaryDomain {
         host
-        id
-        sslEnabled
-        url
       }
-      myshopifyDomain
     }
   }
 {% endcapture %}
@@ -366,20 +364,17 @@ Tip: Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graph
 {% log result %}
 {% endraw %}
 ```
+{% endtab %}
 
-{% code title="Response" %}
-```javascript
+{% tab title="Result" %}
+```json
 {
   "log": {
     "data": {
       "shop": {
         "primaryDomain": {
-          "host": "mechanic-app.myshopify.com",
-          "id": "gid://shopify/Domain/11673403453",
-          "sslEnabled": true,
-          "url": "https://mechanic-app.myshopify.com"
+          "host": "example.com",
         },
-        "myshopifyDomain": "mechanic-app.myshopify.com"
       }
     },
     "extensions": {
@@ -396,7 +391,46 @@ Tip: Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graph
   }
 }
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+#### GraphQL variables
+
+This filter also supports GraphQL variables, via an optional named argument called `variables`.
+
+```liquid
+{% raw %}
+{% capture query %}
+  query ProductQuery($id: ID!) {
+    product(id: $id) {
+      title
+    }
+  }
+{% endcapture %}
+
+{% assign variables = hash %}
+{% assign variables["id"] = product_id %}
+
+{% assign result = query | shopify: variables: variables %}
+
+{% log result %}
+
+
+{% comment %}
+  Alternate style, avoiding the `variables: variables` construction:
+{% endcomment %}
+
+{% assign query_options = hash %}
+{% assign query_options["variables"] = hash %}
+{% assign query_options["variables"]["id"] = product_id %}
+
+{% assign result = query | shopify: query_options %}
+{% endraw %}
+```
+
+{% hint style="info" %}
+Variables can be a useful part of making queries reusable within a task, or for working around [Shopify's 50,000 character limit for GraphQL queries](../../faq/query-param-length-is-too-long.md).
+{% endhint %}
 
 ## String filters
 
