@@ -162,6 +162,14 @@ Tasks subscribing to Shopify events receive [Liquid environment variables](../..
 
 * shopify/shop/update
 
+### Subscriptions
+
+{% hint style="warning" %}
+Shopify only allows subscription events for apps that _provide_ subscription contracts to customers. And, Shopify does not permit _other_ apps to access subscription data for other apps. This means that platforms like Mechanic can't monitor for Shopify events related to subscription contracts or subscription billing events.
+
+Ultimately, this means that Mechanic cannot currently offer subscription event topics to developers.
+{% endhint %}
+
 ### Themes
 
 * shopify/themes/create
