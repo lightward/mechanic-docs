@@ -32,7 +32,7 @@ Mechanic's webhook API includes CORS support for all origins, making these reque
 
 When configuring an integration with external apps and services, some require specific behavior from webhook hosts – usually for the purposes of validating a webhook before it's enabled. Mechanic includes specific support for some known webhook clients; request new ones at [mechanic.canny.io](https://mechanic.canny.io).
 
-A webhook invocation signals its client selection via a path suffix. Given a webhook URL of `usemechanic.com/webhook/0000..0000`, a client-specific endpoint for Ship24 (for example) would be available at `usemechanic.com/webhook/0000..0000/ship24`.
+A webhook invocation signals its client selection via a path suffix. Given a webhook URL of `webhooks.mechanic.dev/0000..0000`, a client-specific endpoint for Ship24 (for example) would be available at `webhooks.mechanic.dev/0000..0000/ship24`.
 
 | Client | Webhook suffix | Behavior notes                                              |                                                                                                       |
 | ------ | -------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -44,11 +44,11 @@ A webhook invocation signals its client selection via a path suffix. Given a web
 With cURL:
 
 ```
-curl -X POST -F foo=bar https://usemechanic.com/webhook/abcdef12-3456-abcd-ef12-3456abcdef12
+curl -X POST -F foo=bar https://webhooks.mechanic.dev/abcdef12-3456-abcd-ef12-3456abcdef12
 ```
 
 ```
-curl -X POST -H "content-type: application/json" -d @data.json https://usemechanic.com/webhook/abcdef12-3456-abcd-ef12-3456abcdef12
+curl -X POST -H "content-type: application/json" -d @data.json https://webhooks.mechanic.dev/abcdef12-3456-abcd-ef12-3456abcdef12
 ```
 
 With fetch:
@@ -59,7 +59,7 @@ const data = {
 };
 
 fetch(
-  'https://usemechanic.com/webhook/0000-0000',
+  'https://webhooks.mechanic.dev/0000-0000',
   {
     method: 'post',
     body: JSON.stringify(data),
@@ -73,12 +73,12 @@ fetch(
 With jQuery:
 
 ```javascript
-$.post('https://usemechanic.com/webhook/0000-0000', { foo: 'bar' });
+$.post('https://webhooks.mechanic.dev/0000-0000', { foo: 'bar' });
 ```
 
 ```javascript
 $.ajax({
-  url: 'https://usemechanic.com/webhook/0000-0000',
+  url: 'https://webhooks.mechanic.dev/0000-0000',
   method: 'POST',
   data: { foo: 'bar' }
 });
@@ -88,7 +88,7 @@ $.ajax({
 let data = { foo: 'bar' };
 
 $.ajax({
-  url: 'https://usemechanic.com/webhook/0000-0000',
+  url: 'https://webhooks.mechanic.dev/0000-0000',
   method: 'POST',
   headers: {
     'content-type': 'application/json'
