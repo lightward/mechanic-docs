@@ -12,7 +12,7 @@ This article is an introduction to webhooks. To get started quickly, see [Creati
 
 A Mechanic webhook is configured with a name and a specific event topic, and is assigned a unique, webhook-specific URL. Any valid POST request to the assigned webhook URL will result in a new event being created, having the configured topic, containing the parsed data from the POST request.
 
-![](../.gitbook/assets/screen-shot-2021-09-14-at-12.46.59-pm.png)
+![](<../.gitbook/assets/image (11).png>)
 
 ## Requests
 
@@ -23,6 +23,8 @@ The following content types are supported, and will be parsed appropriately as e
 * text/plain
 * application/json
 * application/x-www-form-urlencoded
+
+Webhook request headers are never included in event data.
 
 Mechanic's webhook API includes CORS support for all origins, making these requests available for use in online user experiences.
 
