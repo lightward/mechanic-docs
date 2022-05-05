@@ -1,6 +1,6 @@
 # Monitoring Mechanic
 
-Mechanic is frequently used for business-critical operations. The Mechanic team closely monitors its operations (and shares status information at [status.mechanic.dev](https://status.mechanic.dev)), but it can be useful to set up task-specific monitoring, specific to the visibility needs of each business.
+Mechanic is frequently used for business-critical operations. The Mechanic team closely monitors the platform (and shares status information at [status.mechanic.dev](https://status.mechanic.dev)), but it can be useful to set up task-specific monitoring, specific to the visibility needs of each business.
 
 {% hint style="info" %}
 Mechanic is a highly available system with built-in redundancies. It processes data asynchronously, using queues — this means that, generally, any failures simply result in a delay, rather than resulting in lost data.
