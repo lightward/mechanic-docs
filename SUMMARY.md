@@ -196,6 +196,7 @@
 * [Finding a resource ID](techniques/finding-a-resource-id.md)
 * [Migrating templates from Shopify to Mechanic](techniques/migrating-templates-from-shopify-to-mechanic.md)
 * [Securing Mechanic webhooks](techniques/securing-mechanic-webhooks.md)
+* [Monitoring Mechanic](techniques/monitoring.md)
 
 ***
 
