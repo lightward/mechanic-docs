@@ -28,7 +28,7 @@ If the Content-Type header is unspecified or set to `application/json`, and if t
 
 If the `files` option is given, its contents will be evaluated for [file generators](file-generators/), and the results will be used to construct a `multipart/form-data` upload request, combining generated files with any key-value pairs found in the `body` option.
 
-```javascript
+```liquid
 {% raw %}
 {% action "http" %}
   {
@@ -53,7 +53,7 @@ If the `files` option is not given, and if the Content-Type header is set to `ap
 
 To authenticate a request using [the Authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) and the "Basic" authentication type, use something like this:
 
-```javascript
+```liquid
 {% raw %}
 {% assign username = "guest" %}
 {% assign password = "guest" %}
@@ -119,11 +119,9 @@ mechanic/user/text
 mechanic/actions/perform
 ```
 {% endtab %}
-{% endtabs %}
 
-{% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% raw %}
 {% if event.topic == "mechanic/user/text" %}
   {% action "http" %}

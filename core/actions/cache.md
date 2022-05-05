@@ -14,7 +14,7 @@ In this option style, the cache command is given as the root key of the options 
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "cache" %}
   {
@@ -29,7 +29,7 @@ In this option style, the cache command is given as the root key of the options 
 {% endtab %}
 
 {% tab title="JSON" %}
-```javascript
+```json
 {
   "action": {
     "type": "cache",
@@ -51,7 +51,7 @@ In this option style, the cache command and its arguments are given in a list. U
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "cache", "incr", "foo" %}
 {% endraw %}
@@ -96,7 +96,7 @@ Using a defined TTL (an expiration interval) given in seconds, stores a value. R
 {% hint style="info" %}
 The "setex" command has the same net functionality as "set", but it does have one difference: because "setex" requires an explicit `ttl` value, it's possible to use "setex" to express an expiring value using a single line of Liquid. The same result could be achieved with "set", but it would require using verbose options.
 
-```
+```liquid
 {% raw %}
 {% action "cache", "setex", "foo", 5, "bar" %}
 {% endraw %}
@@ -129,7 +129,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 
 {% tabs %}
 {% tab title="Verbose options" %}
-```javascript
+```liquid
 {% raw %}
 {% action "cache" %}
   {
@@ -144,7 +144,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 {% endtab %}
 
 {% tab title="Positional options" %}
-```javascript
+```liquid
 {% raw %}
 {% action "cache", "set", "foo", 5 %}
 {% endraw %}
@@ -156,7 +156,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 
 {% tabs %}
 {% tab title="Verbose options" %}
-```javascript
+```liquid
 {% raw %}
 {% action "cache" %}
   {
@@ -172,7 +172,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 {% endtab %}
 
 {% tab title="Positional options" %}
-```javascript
+```liquid
 {% raw %}
 {% action "cache", "setex", 60, "foo" %}
 {% endraw %}
@@ -184,7 +184,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 
 {% tabs %}
 {% tab title="Verbose options" %}
-```javascript
+```liquid
 {% raw %}
 {% action "cache" %}
   {
@@ -198,7 +198,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 {% endtab %}
 
 {% tab title="Positional options" %}
-```javascript
+```liquid
 {% raw %}
 {% action "cache", "del", "foo" %}
 {% endraw %}

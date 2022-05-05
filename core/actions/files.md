@@ -26,16 +26,14 @@ This task generates a variety of files. It then re-invokes itself (via mechanic/
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-```
+```liquid
 mechanic/user/trigger
 mechanic/actions/perform
 ```
 {% endtab %}
-{% endtabs %}
 
-{% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% raw %}
 {% if event.topic == "mechanic/user/trigger" %}
   {% action "files" %}

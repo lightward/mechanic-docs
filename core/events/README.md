@@ -7,5 +7,5 @@ An event always has a [**topic**](topics.md), and **data** (even if the data is 
 Events are fed into Mechanic by the responsible party – for events that are about things in Shopify, for example, the events come to Mechanic from Shopify itself.
 
 {% hint style="info" %}
-Incoming events may be selectively filtered out using [event filters](../../platform/events/filters.md).
+Incoming events may be selectively skipped using [event filters](../../platform/events/filters.md).
 {% endhint %}

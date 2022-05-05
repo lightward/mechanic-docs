@@ -10,7 +10,7 @@ In this example, a task begins by validating an option called "A positive number
 
 Once the option is filled in, the task preview will be rendered. If the user has entered a zero, or a negative number, the [error tag](../../../platform/liquid/tags/error.md) is used to generate an [error object](../code/error-objects.md). The error message will then be shown to the user, and they will be prevented from saving the task until they provide valid input.
 
-```javascript
+```liquid
 {% raw %}
 {% if options.a_positive_number__required_number <= 0 %}
   {% error "The option 'A positive number' must be greater than zero." %}

@@ -45,7 +45,7 @@ Notably, the data here _can_ be limited to just the properties that are useful. 
 
 For a trivial task, subscribing to shopify/customers/create, and having the following task code...
 
-```
+```liquid
 {% raw %}
 {% if customer.email contains "gmail.com" %}
   {% log message: "got a gmail user!", email: customer.email %}

@@ -12,7 +12,7 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "echo", __error: "Forcing an error!" %}
 {% endraw %}
@@ -33,13 +33,13 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% endtab %}
 {% endtabs %}
 
-![](../../.gitbook/assets/screen-shot-2021-07-13-at-11.40.52-am.png)
+![](<../../.gitbook/assets/Screen Shot 2022-05-05 at 11.50.17 AM.png>)
 
 ## Examples
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "echo", foo: "bar", baz: "qux" %}
 {% endraw %}
@@ -63,7 +63,7 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "echo", "foo", "bar", "baz" %}
 {% endraw %}
@@ -88,7 +88,7 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "echo", "foo" %}
 {% endraw %}
@@ -109,7 +109,7 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "echo" %}
   {

@@ -12,9 +12,9 @@ This page is about migrating to Pdfcrowd. To learn more about using Pdfcrowd, se
 
 For accounts created prior to July 12, 2021, an option labeled "Opt in to Pdfcrowd" is available in the Mechanic account settings. To start using Pdfcrowd for the entire account, enable this option, and click the "Save settings" button.
 
-![](../../../../.gitbook/assets/screen-shot-2021-07-12-at-1.14.42-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2022-05-05 at 11.54.42 AM.png>)
 
-To start using Pdfcrowd with just a single file generator, add `"__force_pdfcrowd": true` to the PDF generator options.
+Or, to start using Pdfcrowd with just a single file generator, add `"__force_pdfcrowd": true` to the PDF generator options.
 
 ```javascript
 {% raw %}

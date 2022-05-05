@@ -22,7 +22,7 @@ user/fan/out
 {% endtab %}
 
 {% tab title="Code" %}
-```
+```liquid
 {% raw %}
 {% assign n = event.data | default: 0 | times: 1 %}
 

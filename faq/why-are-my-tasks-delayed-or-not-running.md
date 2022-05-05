@@ -2,18 +2,18 @@
 
 In general, there are two reasons why a task might be delayed, or might not be appearing to run:
 
-1. The upstream service \(like Shopify\) is delayed in sending notifications to Mechanic
+1. The upstream service (like Shopify) is delayed in sending notifications to Mechanic
 2. Your Mechanic account is experiencing a delay
-
-{% hint style="info" %}
-Many of these cases turn out to be the result of a task _running_, but deciding not to perform any activity. Depending on your account configuration, Mechanic may elect to hide events that perform no activity. Read more about this: [Hiding events](../platform/events/hiding.md). 
-{% endhint %}
 
 ## If upstream service is delayed in sending notifications to Mechanic...
 
-... then you won't see anything appearing in Mechanic's activity log. If that service is Shopify, you might see something reported [on Shopify's status page](https://www.shopifystatus.com/).
+... then you won't see anything appearing in Mechanic's activity log. If that service is Shopify, you might see something reported [on Shopify's status page](https://www.shopifystatus.com).
 
 In most cases, delays are resolved in time, and the delayed events are later on sent to Mechanic, where they can be processed.
+
+{% hint style="warning" %}
+In very rare cases, Shopify may erroneously miss an event entirely. This is a documented behavior of Shopify's webhook system. To learn more about this, see [Reconciling missing events](../core/shopify/events/reconciling-missing-events.md).
+{% endhint %}
 
 ### A note about update events
 
@@ -26,4 +26,3 @@ For example, if you change a product's title, then save it, then notice a mistak
 ## If your Mechanic account is experiencing a delay...
 
 ... then you'll see a steady stream of incoming activity, in your account's activity log, but you might not see activity corresponding to the very latest events in your store. Mechanic has [some currency limits](../core/runs/concurrency.md) that determine how much can happen in your account at once, and if you reach those limits, processing may be delayed until Mechanic catches up.
-

@@ -12,7 +12,7 @@ Because this file generator is used implicitly, when a string is given instead o
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "files" %}
   {

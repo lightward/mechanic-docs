@@ -2,7 +2,7 @@
 
 In some cases, a run that has already been performed may be performed again, using a **retry**.
 
-When a run is retried, its previous result is permanently discarded. Because of this, runs that already have a meaningful result \(i.e. an event run that gave rise to task runs, or a task run that generated actions, or an action run that succeeded\) cannot be retried.
+When a run is retried, its previous result is permanently discarded. Because of this, runs that already have a meaningful result (i.e. an event run that gave rise to task runs, or a task run that generated actions, or an action run that succeeded) cannot be retried.
 
 Runs are given **automatic retries** when a non-permanent error is encountered. In some cases, Mechanic permits **manual retries** for runs, allowing users to reset a run's result and perform the run again.
 
@@ -32,16 +32,15 @@ Some task runs may be manually retried, via the Mechanic user interface.
 
 Task runs may be retried...
 
-* ... if the task run itself failed \(due to a Liquid error, an API error while reading data, or something else\)
+* ... if the task run itself failed (due to a Liquid error, an API error while reading data, or something else)
 * ... or, if the task run did not generate any actions
 
 During task development, it can be useful to set up a task to only render [log objects](../tasks/code/log-objects.md). A task run which only rendered log objects can be retried, and this ability to retry can be convenient when rapidly iterating on task code.
 
-![](../../.gitbook/assets/screen-shot-2021-06-05-at-11.24.20-am.png)
+![This example was generated from a task whose code contained only a \{% error "Oh no!" %\} tag.](<../../.gitbook/assets/Screen Shot 2022-05-05 at 3.53.35 PM.png>)
 
 ### Action runs
 
 Only failed action runs may be retried.
 
-![](../../.gitbook/assets/screen-shot-2021-06-05-at-11.25.10-am.png)
-
+![This example was generated from a task whose code contained only a \{% action "echo", \_\_error: "Oh no!" %\} tag.](<../../.gitbook/assets/Screen Shot 2022-05-05 at 3.55.10 PM.png>)

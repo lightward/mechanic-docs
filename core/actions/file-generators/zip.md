@@ -22,7 +22,7 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "files" %}
   {

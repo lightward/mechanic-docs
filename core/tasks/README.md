@@ -24,7 +24,7 @@ shopify/customers/create
 {% endtab %}
 
 {% tab title="Code" %}
-```javascript
+```liquid
 {% raw %}
 {% action "email" %}
   {

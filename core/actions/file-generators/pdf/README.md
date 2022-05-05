@@ -36,7 +36,7 @@ If it's unclear why something isn't rendering properly, start by saving and test
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% capture html %}
 <link rel="preconnect" href="https://fonts.googleapis.com">

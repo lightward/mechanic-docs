@@ -18,7 +18,7 @@ The stub data in the following examples include an ID for the order, so as to ge
 Realistic preview actions are important for users and developers, but there's a functional importance for tagsAdd mutations in particular: in preview mode, Mechanic looks at the `id` argument in order to determine what kind of resource will be tagged, in order to determine what permissions this particular mutation requires. If you generate tagsAdd mutations during preview, make sure to use realistic ID values!
 {% endhint %}
 
-```javascript
+```liquid
 {% raw %}
 {% if event.preview %}
   {% assign order = hash %}
@@ -40,7 +40,7 @@ Realistic preview actions are important for users and developers, but there's a 
 
 It's also possible to construct this data using [parse\_json](../../../platform/liquid/filters.md#json-parse\_json-parse\_jsonl).
 
-```javascript
+```liquid
 {% raw %}
 {% if event.preview %}
   {% capture order_json %}
@@ -75,7 +75,7 @@ It can be useful to specify stub data using JSON, fed through the [parse\_json](
 
 {% tabs %}
 {% tab title="GraphQL with stub data" %}
-```javascript
+```liquid
 {% raw %}
 {% capture query %}
   query {
@@ -119,7 +119,7 @@ It can be useful to specify stub data using JSON, fed through the [parse\_json](
 {% endtab %}
 
 {% tab title="GraphQL pagination with stub data" %}
-```javascript
+```liquid
 {% raw %}
 {% assign cursor = nil %}
 {% assign total_inventory = 0 %}

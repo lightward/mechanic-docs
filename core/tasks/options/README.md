@@ -10,7 +10,7 @@ Options are made available in the `options` variable, which is a hash having key
 
 {% tabs %}
 {% tab title="Example" %}
-```javascript
+```liquid
 {% raw %}
 {% action "echo", options.some_value_to_echo__required_multiline %}
 {% endraw %}
@@ -26,7 +26,7 @@ Options are displayed to the user in the order in which they are first reference
 
 Because this may not result in a natural sequence, it can be useful to prefix task code with a comment block, explicitly referencing each option so as to force the overall order.
 
-```javascript
+```liquid
 {% raw %}
 {% comment %}
   Preferred option order:

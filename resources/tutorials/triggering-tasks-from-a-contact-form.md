@@ -147,7 +147,7 @@ After that, we'll add an [Email](../../core/actions/email.md) action, configurin
 
 {% tabs %}
 {% tab title="Task code" %}
-```csharp
+```liquid
 {% raw %}
 {% assign rows = array %}
 

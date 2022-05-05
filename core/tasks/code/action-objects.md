@@ -15,7 +15,7 @@ An action object is a plain JSON object, having the following structure:
 ```
 
 {% hint style="info" %}
-Use the [action tag](../../../platform/liquid/tags/action.md) to skip the boilerplate while writing actions.
+Use the [action tag](../../../platform/liquid/tags/action.md) to skip the boilerplate while writing actions. All tasks in the Mechanic task library use the action tag, rather than writing out the action object in raw JSON.
 {% endhint %}
 
 ## Defining an action
@@ -53,7 +53,7 @@ This information could be purely for record-keeping, making it easy to determine
 
 Or, this information could be used to facilitate complex task flows, in concert with a subscription to mechanic/actions/perform (see [Responding to action results](../../../techniques/responding-to-action-results.md)). An action's meta information can supply followup task runs with information about state, allowing the task to cycle between different phases of operation.
 
-```javascript
+```liquid
 {% raw %}
 {% if event.topic contains "trigger" %}
   {% action %}

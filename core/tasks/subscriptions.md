@@ -2,7 +2,7 @@
 
 A task **subscription** is the expression of a task's intent to receive certain [**events**](../events/), filtering by [**topic**](../events/topics.md). A subscription consists of an event topic, optionally combined with an **offset**. A task may have any number of subscriptions.
 
-![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 7.16.33 PM.png>)
+![](<../../.gitbook/assets/Screen Shot 2022-05-05 at 10.09.07 AM.png>)
 
 ## Offsets
 
@@ -19,7 +19,7 @@ The [Shopify variables](code/environment-variables.md#shopify-variables) availab
 
 To reload the data in a Shopify variable, use something like this:
 
-```javascript
+```liquid
 {% raw %}
 {% unless event.preview %}
   {% assign customer = customer.reload %}
@@ -40,7 +40,7 @@ One subscription is permitted per line. Blank lines and leading/trailing whitesp
 
 {% tabs %}
 {% tab title="Conditional subscription" %}
-```javascript
+```liquid
 shopify/orders/create
 
 {% raw %}
@@ -54,7 +54,7 @@ shopify/orders/create
 
 {% tabs %}
 {% tab title="Dynamic offset" %}
-```javascript
+```liquid
 shopify/orders/paid+{{ options.days_to_wait_before_followup__number_required }}.days
 ```
 {% endtab %}
@@ -62,7 +62,7 @@ shopify/orders/paid+{{ options.days_to_wait_before_followup__number_required }}.
 
 {% tabs %}
 {% tab title="Optional offset" %}
-```javascript
+```liquid
 shopify/customers/create{% raw %}
 {% if options.wait_one_hour__boolean %}+1.hour{% endif %}
 {% endraw %}

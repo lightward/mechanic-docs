@@ -28,7 +28,7 @@ The [plaintext](plaintext.md) file generator is invoked implicitly by supplying 
 
 In the following example, a [Files](../files.md) action is defined, mapping filenames (`"invoice.pdf"`, `"external.jpg"`, and `plain.txt`) to file generators (a PDF generator, a URL generator, and – implicitly – a plaintext generator). Note how the file generator invocation varies, based on the specific file generator in play.
 
-```javascript
+```liquid
 {% raw %}
 {% action "files" %}
   {

@@ -18,7 +18,7 @@ This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/doc
 
 {% tabs %}
 {% tab title="Liquid" %}
-```javascript
+```liquid
 {% raw %}
 {% action "shopify" %}
   mutation {

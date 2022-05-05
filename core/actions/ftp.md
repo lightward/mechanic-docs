@@ -28,7 +28,7 @@ When connecting to an FTP or FTPS server, authenticate with the `password` optio
 
 When connecting to an SFTP server, authenticate using either `password` or `private_key_pem`. PEM certificates may be given directly in the task code:
 
-```javascript
+```liquid
 {% raw %}
 {% capture private_key_pem %}
 -----BEGIN OPENSSH PRIVATE KEY-----
@@ -60,7 +60,7 @@ Both `uploads` and `downloads` allow the task author to define file paths. If on
 
 This example action results in (a) an upload to an absolute path, starting from the server root, (b) an upload to a nested directory within the user's home folder, and (c) an upload to a nested directory in another user's home folder (which may fail, depending on filesystem permissions).
 
-```javascript
+```liquid
 {% raw %}
 {% action "ftp" %}
   {
@@ -118,7 +118,7 @@ Alternatively, [ngrok](https://ngrok.com) can be used to create a public tunnel 
 
 Uploads are processed before downloads; it can be useful to test by uploading a file, and then immediately downloading it again:
 
-```javascript
+```liquid
 {% raw %}
 {% action "ftp" %}
   {
@@ -148,7 +148,7 @@ mechanic/user/trigger
 {% endtab %}
 
 {% tab title="Code" %}
-```javascript
+```liquid
 {% raw %}
 {% assign csv_rows = array %}
 
