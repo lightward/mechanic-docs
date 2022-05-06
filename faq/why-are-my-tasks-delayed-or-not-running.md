@@ -5,6 +5,10 @@ In general, there are two reasons why a task might be delayed, or might not be a
 1. The upstream service (like Shopify) is delayed in sending notifications to Mechanic
 2. Your Mechanic account is experiencing a delay
 
+{% hint style="info" %}
+Using Mechanic for a business-critical purpose? Learn about [monitoring Mechanic](../techniques/monitoring.md).
+{% endhint %}
+
 ## If upstream service is delayed in sending notifications to Mechanic...
 
 ... then you won't see anything appearing in Mechanic's activity log. If that service is Shopify, you might see something reported [on Shopify's status page](https://www.shopifystatus.com).
