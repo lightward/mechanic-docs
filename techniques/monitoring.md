@@ -18,13 +18,13 @@ Mechanic's status page also supports alert subscriptions, via email, SMS, Slack,
 
 Mechanic does not have native alerting for task or action runs that return errors.
 
-### Monitoring action runs
+### Action runs
 
-To monitor specific actions, subscribe to the mechanic/actions/perform event, which re-invokes a task with the results of each action run. Use this opportunity to inspect the status of the action, responding accordingly. To learn more, see [Responding to action results](https://learn.mechanic.dev/techniques/responding-to-action-results).
+To monitor actions, subscribe to the mechanic/actions/perform event, which re-invokes a task with the results of each action run. Use this opportunity to inspect the status of the action, responding accordingly. To learn more, see [Responding to action results](https://learn.mechanic.dev/techniques/responding-to-action-results).
 
-### Monitoring task runs
+### Task runs
 
-To achieve task-specific monitoring, use the [HTTP action](../core/actions/http.md) to ping a service like [Cronitor](https://cronitor.io) when critical tasks run, configuring that service to send alerts should the pings ever miss their schedule.
+To monitor tasks, use the [HTTP action](../core/actions/http.md) to ping a service like [Cronitor](https://cronitor.io) when critical tasks run, configuring that service to send alerts should the pings ever miss their schedule.
 
 It's generally preferable to use an external service for this sort of thing, rather than using Mechanic to monitor itself. Still, monitoring tasks _are_ viable, by using [a scheduler event](https://learn.mechanic.dev/platform/events/topics#scheduler) to check on an expiring flag in the [Mechanic cache](https://learn.mechanic.dev/platform/cache). This way, by setting that flag during sensitive task runs (using the[ Cache action](https://learn.mechanic.dev/core/actions/cache)), a sort of [dead man's switch](https://en.wikipedia.org/wiki/Dead\_man's\_switch) can be created: if the scheduled run ever finds that the flag is not present, that task could then send an email (or post to Slack, or whatever's useful).
 
