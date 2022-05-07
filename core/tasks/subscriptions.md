@@ -1,12 +1,14 @@
 # Subscriptions
 
-A task **subscription** is the expression of a task's intent to receive certain [**events**](../events/), filtering by [**topic**](../events/topics.md). A subscription consists of an event topic, optionally combined with an **offset**. A task may have any number of subscriptions.
+A task **subscription** is the expression of a task's intent to receive certain [**events**](../events/), filtering by [**topic**](../events/topics.md). A subscription consists of an event topic, optionally combined with a time **offset**, which creates a delay.
+
+A task may have any number of subscriptions.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-05 at 10.09.07 AM.png>)
 
 ## Offsets
 
-A subscription offset defines the amount of time a task should wait before responding to the incoming event. It's the easiest way to add a delay to a task's subscription to a specific topic. (For finer control over event timing, try using the `run_at` option of the [Event action](../actions/event.md).)
+A subscription offset defines the amount of time a task should wait or delay before responding to the incoming event. It's the easiest way to add a delay to a task's subscription to a specific topic. (For finer control over event timing, try using the `run_at` option of the [Event action](../actions/event.md).)
 
 Subscription offsets are appended to the subscription topic, and are of the form "+1.hour". Offsets may be given using minutes, hours, days, weeks, months, or years.
 
