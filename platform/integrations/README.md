@@ -7,6 +7,10 @@ Mechanic maintains several official integration points:
 * [Report Toaster](report-toaster.md)
 * [Shopify Flow](shopify-flow.md)
 
-Mechanic can be used with most HTTP APIs, via the [HTTP action](../../core/actions/http.md) (for sending and receiving data) and its [webhook system](../webhooks.md) (for receiving pushed data). This makes it possible for developers to manually integrate many more services.
+{% hint style="info" %}
+### Need a service that's not on this list?
+
+Mechanic can be used with most HTTP APIs, via the [HTTP action](../../core/actions/http.md) (for sending and receiving data) and its [webhook system](../webhooks.md) (for receiving pushed data). This makes it possible for developers to manually integrate many more services, as long as the service in question has an appropriate API.
 
 If you need a hand exploring a custom integration, start here: ["I need something custom!"](../../custom.md).
+{% endhint %}
