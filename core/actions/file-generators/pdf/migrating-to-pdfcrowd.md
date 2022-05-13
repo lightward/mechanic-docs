@@ -1,6 +1,6 @@
 # Migrating to Pdfcrowd
 
-Mechanic accounts created prior to July 12, 2021 default to using [wkhtmltopdf](https://wkhtmltopdf.org) instead of [Pdfcrowd](https://pdfcrowd.com). This rendering engine uses a version of WebKit from 2012, and therefore does not support many features of the modern web.
+Mechanic accounts created prior to July 12, 2021 default to using [wkhtmltopdf](https://wkhtmltopdf.org/) instead of [Pdfcrowd](https://pdfcrowd.com/). This rendering engine uses a version of WebKit from 2012, and therefore does not support many features of the modern web.
 
 We strongly encourage all users to migrate to Pdfcrowd, which uses a modern release of Chrome for rendering HTML.
 

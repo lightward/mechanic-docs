@@ -3,7 +3,7 @@
 Mechanic allows developers to integrate directly with [Report Toaster](https://apps.shopify.com/report-toaster) to retrieve and update data. Use Report Toaster's powerful reporting engine to retrieve and operate on your Shopify data.
 
 {% hint style="info" %}
-Report Toaster is offered by [Cloudlab](https://www.cloudlab.com). Get assistance with this integration at [support.cloudlab.com](https://support.cloudlab.com), or by emailing [support@cloudlab.com](mailto:support@cloudlab.com).
+Report Toaster is offered by [Cloudlab](https://www.cloudlab.com/). Get assistance with this integration at [support.cloudlab.com](https://support.cloudlab.com/), or by emailing [support@cloudlab.com](mailto:support@cloudlab.com).
 {% endhint %}
 
 ## What is Report Toaster?

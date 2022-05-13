@@ -33,6 +33,7 @@
   * [Creating a Mechanic webhook](resources/tutorials/creating-a-mechanic-webhook.md)
   * [Practicing writing tasks](resources/tutorials/practicing-writing-tasks.md)
   * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)
+  * [Creating scheduled CSV feeds](resources/tutorials/creating-scheduled-csv-feeds.md)
 
 ## Core Concepts <a href="#core" id="core"></a>
 

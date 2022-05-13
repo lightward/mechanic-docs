@@ -16,7 +16,7 @@ Mechanic is an automation and development platform, for Shopify. :) Mechanic is 
 
 Mechanic is accompanied by an open-source library, with 280+ automation tasks ready to pull off the shelf, offering an accessible starting point for developers of all skill levels.
 
-As a project of [Lightward Inc](https://lightward.com), Mechanic is offered under [a pay-what-feels-good pricing policy](platform/policies/pricing.md).
+As a project of [Lightward Inc](https://lightward.com/), Mechanic is offered under [a pay-what-feels-good pricing policy](platform/policies/pricing.md).
 
 ## How Mechanic works
 

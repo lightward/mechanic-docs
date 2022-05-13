@@ -11,7 +11,7 @@ Using Mechanic for a business-critical purpose? Learn about [monitoring Mechanic
 
 ## If upstream service is delayed in sending notifications to Mechanic...
 
-... then you won't see anything appearing in Mechanic's activity log. If that service is Shopify, you might see something reported [on Shopify's status page](https://www.shopifystatus.com).
+... then you won't see anything appearing in Mechanic's activity log. If that service is Shopify, you might see something reported [on Shopify's status page](https://www.shopifystatus.com/).
 
 In most cases, delays are resolved in time, and the delayed events are later on sent to Mechanic, where they can be processed.
 

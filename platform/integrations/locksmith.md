@@ -4,9 +4,9 @@ description: Access control, for anything in your online store :)
 
 # Locksmith
 
-### What is [Locksmith](https://apps.shopify.com/locksmith)?
+### What is [Locksmith](https://apps.shopify.com/locksmith?utm\_source=mechanic\&utm\_medium=learn-mechanic-dev)?
 
-As a tool, Locksmith's power comes from a super-versatile yet super-simple idea: locks to protect your content, and keys to let different people in. Locksmith is made by Lightward (us) the same makers as Mechanic. Give [Locksmith](https://apps.shopify.com/locksmith) a try today!
+As a tool, Locksmith's power comes from a super-versatile yet super-simple idea: locks to protect your content, and keys to let different people in. Locksmith is made by Lightward (us) the same makers as Mechanic. Give [Locksmith](https://apps.shopify.com/locksmith?utm\_source=mechanic\&utm\_medium=learn-mechanic-dev) a try today!
 
 Once you've locked something, use keys to grant access if the customer…
 
@@ -35,7 +35,7 @@ Or, grant access using any custom condition by using a little Liquid code.
 
 ### Locksmith --> Mechanic Integration
 
-Every time access is granted to a resource on a store using [Locksmith](https://apps.shopify.com/locksmith), an event is sent to Mechanic with the following payload for the `locksmith/sessions/ping` event topic
+Every time access is granted to a resource on a store using [Locksmith](https://apps.shopify.com/locksmith?utm\_source=mechanic\&utm\_medium=learn-mechanic-dev), an event is sent to Mechanic with the following payload for the `locksmith/sessions/ping` event topic
 
 {% code title="locksmith/sessions/ping" %}
 ```json

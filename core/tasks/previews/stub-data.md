@@ -71,7 +71,7 @@ Mechanic makes GraphQL data available to tasks via the [shopify](../../../platfo
 
 For this reason, it's important to allow the shopify filter to run normally, and construct stub data afterwards.
 
-It can be useful to specify stub data using JSON, fed through the [parse\_json](../../../platform/liquid/filters.md#json-parse\_json-parse\_jsonl) filter. Sample JSON is easy to generate using [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com).
+It can be useful to specify stub data using JSON, fed through the [parse\_json](../../../platform/liquid/filters.md#json-parse\_json-parse\_jsonl) filter. Sample JSON is easy to generate using [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/).
 
 {% tabs %}
 {% tab title="GraphQL with stub data" %}

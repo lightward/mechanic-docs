@@ -4,7 +4,7 @@
 This FAQ is about Shopify events specifically. For a more general treatment of this question, refer to [Why don't I see any events in my task's activity?](why-dont-i-see-any-events-in-my-tasks-activity.md).
 {% endhint %}
 
-Start by checking [status.mechanic.dev](https://status.mechanic.dev) and [shopifystatus.com](https://shopifystatus.com) for service interruptions. (If you're not signed up for Mechanic status notifications, this is a good time to take care of that!)
+Start by checking [status.mechanic.dev](https://status.mechanic.dev/) and [shopifystatus.com](https://shopifystatus.com/) for service interruptions. (If you're not signed up for Mechanic status notifications, this is a good time to take care of that!)
 
 If the event is well and truly missing, email [team@usemechanic.com](mailto:team@usemechanic.com) for further assistance.
 

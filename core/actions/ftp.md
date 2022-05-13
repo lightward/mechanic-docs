@@ -2,7 +2,7 @@
 
 The **FTP** action can upload and download files via [FTP](https://en.wikipedia.org/wiki/File\_Transfer\_Protocol), [SFTP](https://en.wikipedia.org/wiki/SSH\_File\_Transfer\_Protocol), or [FTPS](https://en.wikipedia.org/wiki/FTPS). The files to be uploaded are evaluated using [**file generators**](file-generators/). Downloaded file data is available either as an UTF-8 string, or as a base64-encoded string, and can be used in followup task runs via [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
 
-A connecting service like [Couchdrop](https://couchdrop.io) can be used to relay these uploads on to other cloud locations, like Dropbox, Google Drive, and Amazon S3.
+A connecting service like [Couchdrop](https://couchdrop.io/) can be used to relay these uploads on to other cloud locations, like Dropbox, Google Drive, and Amazon S3.
 
 A single FTP action may download a maximum of 20MB of data, across all downloaded files.
 
@@ -112,9 +112,9 @@ Note that each uploaded and downloaded file is keyed by the path provided for th
 
 ## Testing
 
-If a server is unavailable for testing, consider using [Couchdrop](https://couchdrop.io), with [their hosted storage service](https://couchdrop.io/features/hosted-storage). This is a (nearly) configuration-free avenue for testing, using the hosts ftp.couchdrop.io or sftp.couchdrop.io.
+If a server is unavailable for testing, consider using [Couchdrop](https://couchdrop.io/), with [their hosted storage service](https://couchdrop.io/features/hosted-storage). This is a (nearly) configuration-free avenue for testing, using the hosts ftp.couchdrop.io or sftp.couchdrop.io.
 
-Alternatively, [ngrok](https://ngrok.com) can be used to create a public tunnel to a local FTP or SSH server. By running `ngrok tcp 22` (adjusting for the appropriate local port), ngrok will generate a temporary public host and port that's appropriate for use while testing.
+Alternatively, [ngrok](https://ngrok.com/) can be used to create a public tunnel to a local FTP or SSH server. By running `ngrok tcp 22` (adjusting for the appropriate local port), ngrok will generate a temporary public host and port that's appropriate for use while testing.
 
 Uploads are processed before downloads; it can be useful to test by uploading a file, and then immediately downloading it again:
 

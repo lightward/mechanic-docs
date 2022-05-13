@@ -30,7 +30,7 @@ Mechanic's webhook API includes CORS support for all origins, making these reque
 
 ### Client-specific endpoints
 
-When configuring an integration with external apps and services, some require specific behavior from webhook hosts – usually for the purposes of validating a webhook before it's enabled. Mechanic includes specific support for some known webhook clients; request new ones at [mechanic.canny.io](https://mechanic.canny.io).
+When configuring an integration with external apps and services, some require specific behavior from webhook hosts – usually for the purposes of validating a webhook before it's enabled. Mechanic includes specific support for some known webhook clients; request new ones at [mechanic.canny.io](https://mechanic.canny.io/).
 
 A webhook invocation signals its client selection via a path suffix. Given a webhook URL of `webhooks.mechanic.dev/0000..0000`, a client-specific endpoint for Ship24 (for example) would be available at `webhooks.mechanic.dev/0000..0000/ship24`.
 

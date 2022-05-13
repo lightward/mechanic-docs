@@ -52,7 +52,7 @@ Lastly, save the task.
 
 ### 3. Test your webhook.
 
-Open [https://reqbin.com/](https://reqbin.com), and construct a request to our webhook. Here, we'll select "POST", paste in the webhook URL, and fill in a simple piece of content. (Webhooks support plain text, form-encoded content, _and_ JSON; for this example, we'll use JSON.)
+Open [https://reqbin.com/](https://reqbin.com/), and construct a request to our webhook. Here, we'll select "POST", paste in the webhook URL, and fill in a simple piece of content. (Webhooks support plain text, form-encoded content, _and_ JSON; for this example, we'll use JSON.)
 
 ![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 6.04.05 PM.png>)
 

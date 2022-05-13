@@ -4,7 +4,7 @@ The **Email** action is for sending email. ✅ It supports the store's [**email 
 
 ## Restrictions
 
-Mechanic sends email via [Postmark](https://postmarkapp.com), our email provider. Currently, Mechanic only supports Postmark's transactional message stream, which means that marketing and other bulk mail may not be sent. To learn more about what is and isn't a transactional message, see Postmark's article: ["What are Transactional emails?"](https://postmarkapp.com/support/article/804-what-are-transactional-emails).
+Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provider. Currently, Mechanic only supports Postmark's transactional message stream, which means that marketing and other bulk mail may not be sent. To learn more about what is and isn't a transactional message, see Postmark's article: ["What are Transactional emails?"](https://postmarkapp.com/support/article/804-what-are-transactional-emails).
 
 ## Options
 
@@ -28,7 +28,7 @@ Mechanic sends email via [Postmark](https://postmarkapp.com), our email provider
 Mechanic parses each email body for HTML and CSS, allowing authors to use `<style>` tags without having to think about email client compatibility.
 
 {% hint style="info" %}
-If you're simply trying to add formatted text and aren't ready to dig into the code yourself, try using a tool like [wordtohtml.net](https://wordtohtml.net) to quickly generate usable HTML.
+If you're simply trying to add formatted text and aren't ready to dig into the code yourself, try using a tool like [wordtohtml.net](https://wordtohtml.net/) to quickly generate usable HTML.
 {% endhint %}
 
 ### Embedded images

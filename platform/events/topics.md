@@ -195,7 +195,7 @@ Mechanic allows developers several ways to generate custom User events:
 
 ### Locksmith
 
-* **locksmith/sessions/ping** — Occurs when a user gains access to a resource on an online store using [Locksmith](https://apps.shopify.com/locksmith). Learn more [here](topics.md#locksmith).
+* **locksmith/sessions/ping** — Occurs when a user gains access to a resource on an online store using [Locksmith](https://apps.shopify.com/locksmith?utm\_source=mechanic\&utm\_medium=learn-mechanic-dev). Learn more [here](topics.md#locksmith).
 
 ### Report Toaster
 

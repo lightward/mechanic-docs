@@ -2,7 +2,7 @@
 
 ### What is Judge.me?
 
-[Judge.me](https://judge.me) helps you collect and display reviews about your products and Shopify store. This increases your conversion rate, organic traffic, and buyer engagement by leveraging your user-generated content.
+[Judge.me](https://judge.me/) helps you collect and display reviews about your products and Shopify store. This increases your conversion rate, organic traffic, and buyer engagement by leveraging your user-generated content.
 
 ### Judge.me --> Mechanic
 
