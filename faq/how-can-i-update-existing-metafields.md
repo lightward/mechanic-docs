@@ -10,7 +10,7 @@ Received a Shopify error (resource invalid): metafields.key must be unique withi
 
 Use the following code as an example for how you might create a metafield if is missing, or update it if it already exists, using either REST or GraphQL:
 
-```javascript
+```liquid
 {% raw %}
 {% assign customer = shop.customers[1234567890] %}
 
@@ -31,7 +31,7 @@ Use the following code as an example for how you might create a metafield if is 
           "namespace": "testing",
           "key": "REST",
           "value": "test!",
-          "value_type": "string"
+          "type": "single_line_text_field"
         }
       ]
     }
@@ -49,7 +49,7 @@ Use the following code as an example for how you might create a metafield if is 
             namespace: "testing"
             key: "GraphQL"
             value: "test!"
-            valueType: STRING
+            type: "single_line_text_field"
           }
         ]
       }
