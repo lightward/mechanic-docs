@@ -136,7 +136,7 @@ This example shows how the query and variables may be built up separately, and p
             id: $metafieldId
             namespace: $metafieldNamespace
             key: $metafieldKey
-            valueType: STRING
+            type: "single_line_text_field"
             value: $metafieldValue
           }
         ]

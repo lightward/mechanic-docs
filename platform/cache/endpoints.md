@@ -10,7 +10,7 @@ Mechanic's cache endpoints include CORS support for all origins, making these re
 
 Cache endpoints may be configured in the Mechanic settings:
 
-![](<../../.gitbook/assets/Screen Shot 2021-09-14 at 12.30.46 PM.png>)
+![](../../.gitbook/assets/screen-shot-2021-09-14-at-12.30.46-pm.png)
 
 Enter the cache key, where the desired data has been stored, and save to receive a unique cache endpoint URL. The URL, when accessed, will return a JSON response containing the value associated with that cache key.
 

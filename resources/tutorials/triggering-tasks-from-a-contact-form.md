@@ -41,11 +41,11 @@ For this tutorial, we'll use JavaScript. And because we're using Mechanic, we do
 
 For this tutorial, I created a development store and installed the [Debut theme](https://themes.shopify.com/themes/debut/styles/default). I use the contact form that comes with the theme as the form that submits to our webook. You can use any contact form on any theme, or create a form specifically for the purpose of submitting to our webhook.
 
-![](<../../.gitbook/assets/image (7) (1).png>)
+![](<../../.gitbook/assets/image (7) (1) (2) (2) (2) (2) (2) (2).png>)
 
 First things first: we're going to make sure of the element ID, for our contact form. This will be important for writing JavaScript that addresses this form. After investigating, we discover that the form ID is "ContactForm". Easy enough!
 
-![Here, we use Chrome's developer tools to verify the form's ID attribute.](<../../.gitbook/assets/2021-03-13 13.18.06.gif>)
+![Here, we use Chrome's developer tools to verify the form's ID attribute.](../../.gitbook/assets/2021-03-13-13.18.06.gif)
 
 Next, we're going to write some JavaScript that listens for the`submit` event of this form – functionally, this means that we're going to wire up some code to run when the form is submitted. The goal: to jump in when the form is submitted, send the form data to our webhook (which will then trigger our Mechanic task), and then allow the form to submit as usual. This way, we add Mechanic functionality without disabling the form's existing behavior.
 
@@ -123,7 +123,7 @@ With all that in place, save the task. We're leaving the task code empty for rig
 
 To make sure what data we're working with, let's submit the contact form, and then examine the resulting event data in Mechanic. (It's okay that we hit the captcha prompt; the important part is making sure that we're sending data to Mechanic.)
 
-![We've got the Chrome developer tools open so we can see our console.log messages.](<../../.gitbook/assets/2021-03-13 14.08.28.gif>)
+![We've got the Chrome developer tools open so we can see our console.log messages.](../../.gitbook/assets/2021-03-13-14.08.28.gif)
 
 Heading to the "Events" page of the Mechanic app, we can see our data coming in.
 
