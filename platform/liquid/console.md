@@ -10,13 +10,13 @@ Unlike task previews, the Liquid console _does_ permit access to the Shopify Adm
 
 ## Context
 
-Liquid code is always rendered in a certain **context**, which includes some information going in, and which may contain some new information afterwards.
+Liquid code is always rendered in a certain **context**, which includes some information going in, and which may contain additional information afterward.
 
 Mechanic's Liquid console includes information about the final rendering context, as inspected after the render. This includes...
 
 * [Environment variables](../../core/tasks/code/environment-variables.md), as set by the Mechanic platform ahead of time
 * Scope variables, as set by the user in their submitted Liquid code during rendering
-* Information about the way the user's Liquid code interacted with the Shopify API, during rendering
+* Information about the way the user's Liquid code interacted with the Shopify API during rendering
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-18 at 5.38.16 PM.png>)
 
@@ -26,9 +26,9 @@ When viewing a specific event in the Mechanic app, the Liquid rendering context 
 
 ![](<../../.gitbook/assets/2022-05-18 17.48.01.gif>)
 
-Because of this, the Liquid console can be used for examining what a task had access to at the moment of any given event. For a shopify/orders/create event, for example, one might use `{% log orders.line_items[0] %}` to see the contents of an order's first line item.
+Because of this, the Liquid console can be used for examining what a task had access to at the moment of any given event. For a shopify/orders/create event, for example, one might use `{% log order.line_items[0] %}` to see the contents of an order's first line item.
 
 {% hint style="info" %}
-Looking at a child event? Try using `{% log event.parent %}` in the console to inspect data available from the parent. Or, to examine data from a grandparent event, try `{% log event.parent.parent %}`.
+Looking at a child event? Try using `{% log event.parent %}` in the console to inspect data available from the parent. Or, to examine data from an ancestor event further back, try `{% log event.parent.parent %}`.
 {% endhint %}
 
