@@ -12,7 +12,7 @@ This article is an introduction to webhooks. To get started quickly, see [Creati
 
 A Mechanic webhook is configured with a name and a specific event topic, and is assigned a unique, webhook-specific URL. Any valid POST request to the assigned webhook URL will result in a new event being created, having the configured topic, containing the parsed data from the POST request.
 
-![](<../.gitbook/assets/image (11).png>)
+![](<../.gitbook/assets/image (17).png>)
 
 ## Requests
 
