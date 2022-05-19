@@ -182,6 +182,7 @@
     * [assign](platform/liquid/tags/assign.md)
     * [error](platform/liquid/tags/error.md)
     * [log](platform/liquid/tags/log.md)
+  * [Liquid console](platform/liquid/console.md)
 * [Shopify](platform/shopify/README.md)
   * [Custom authentication](platform/shopify/custom-authentication.md)
   * ["Read all orders"](platform/shopify/read-all-orders.md)
