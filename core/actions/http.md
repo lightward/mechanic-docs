@@ -4,6 +4,10 @@ The **HTTP** action performs HTTP requests. It is commonly used to invoke third-
 
 All HTTP methods are supported; the results of HTTP requests may be reused by a task via [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
 
+{% hint style="info" %}
+When developing task code, verify your HTTP action's behavior with [webhook.site](https://webhook.site/) (making sure not to share sensitive information with this service).
+{% endhint %}
+
 ## Options
 
 | Option         | Description                                                                                     |
