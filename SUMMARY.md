@@ -229,3 +229,4 @@
   * [Can I send data to Google Sheets?](faq/can-i-send-data-to-google-sheets.md)
   * [What's possible with timeline comments?](faq/whats-possible-with-timeline-comments.md)
   * [I'm getting a "query param length is too long" error when using GraphQL.](faq/query-param-length-is-too-long.md)
+  * [Can my Mechanic concurrency limit be raised?](faq/can-my-mechanic-concurrency-limit-be-raised.md)
