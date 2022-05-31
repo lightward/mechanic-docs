@@ -90,7 +90,7 @@ This action returns an object containing the following keys:
 
 Because HTTP allows for the same header name to be present multiple times, this action's result specifies an array for each response header – even if the header was only present once.
 
-To retrieve a specific header in a task responding to [mechanic/actions/perform](./), use something like this:
+To retrieve a specific header in a task responding to [mechanic/actions/perform](../../techniques/responding-to-action-results.md), use something like this:
 
 ```javascript
 {% raw %}
