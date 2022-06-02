@@ -6,7 +6,7 @@ In Liquid, different kids of data have different **types**. Each type describes 
 
 A string contains a series of characters, forming text.
 
-```java
+```liquid
 {% raw %}
 {% assign my_name = "Matt" %}
 {% endraw %}
@@ -16,7 +16,7 @@ A string contains a series of characters, forming text.
 
 Liquid supports both two number types: integers (whole numbers) and floats (numbers having decimal precision).
 
-```java
+```liquid
 {% raw %}
 {% assign a_int = 99 %}
 {% assign a_float = 99.99 %}
@@ -25,7 +25,7 @@ Liquid supports both two number types: integers (whole numbers) and floats (numb
 
 ## Boolean
 
-```java
+```liquid
 {% raw %}
 {% assign is_mechanic_awesome = true %}
 {% assign is_it_warm_outside = false %}
@@ -36,7 +36,15 @@ Liquid supports both two number types: integers (whole numbers) and floats (numb
 
 Borrowing from [Ruby's concept of nil](https://www.rubyguides.com/2018/01/ruby-nil/), Liquid's `nil` is an empty value that is returned when Liquid code has no results. It evaluates to `false` in conditionals statements, and outputs nothing when printing out text.
 
-```java
+{% hint style="warning" %}
+If a variable reference comes up missing, Liquid will silently use `nil` instead _without_ raising an error.
+{% endhint %}
+
+{% hint style="info" %}
+In Liquid, `null` is not a keyword literal. But, because `null` is also typically not used as a variable name in Mechanic Liquid code, and because Liquid uses `nil` when a variable is not found, it works out: `{% assign foo = null %}` results in assigning `foo` a value of `nil`. (Unless, of course, `null` was previously assigned to something else, e.g. `{% assign null = "something else" %}`.)
+{% endhint %}
+
+```liquid
 {% raw %}
 {% if order.email %}
   There is an email address
@@ -46,7 +54,7 @@ Borrowing from [Ruby's concept of nil](https://www.rubyguides.com/2018/01/ruby-n
 
 {% tabs %}
 {% tab title="Liquid" %}
-```java
+```liquid
 email address: {{ order.email }}
 ```
 {% endtab %}
@@ -70,11 +78,24 @@ An array is a value that itself contains an ordered list of other values. Each v
 
 ### Creating an array
 
-Liquid supports creating arrays of strings using the [split](../filters.md#split) filter. In Mechanic, arrays can be created using the [array](types.md) literal.
+Liquid supports creating arrays of strings using the [split](../filters.md#split) filter. In Mechanic, arrays can be created using the [array literal](types.md).
+
+{% hint style="info" %}
+The array literal is unique to Mechanic Liquid. Arrays cannot be created in this way using Shopify Liquid.
+{% endhint %}
+
+```liquid
+{% raw %}
+{% assign an_array_of_strings = "one,two,three" | split: "," %}
+{% assign also_an_array_of_strings = "1,2,3" | split: "," %}
+
+{% assign an_empty_array = array %}
+{% endraw %}
+```
 
 ### Iterating through arrays
 
-```java
+```liquid
 {% raw %}
 {% for customer_tag in customers.tags %}
   {{ customer_tag }}
@@ -84,7 +105,7 @@ Liquid supports creating arrays of strings using the [split](../filters.md#split
 
 ### Accessing an array element
 
-```java
+```liquid
 {{ customers.tags[0] }}
 {{ customers.tags[1] }}
 ```
@@ -95,13 +116,13 @@ Mechanic includes a variety of [array filters](../filters.md#array-filters), use
 
 ## Object
 
-An **object** is any value that has attributes (also known as properties). The name of an attribute is known as its **key**; the data stored for an attribute is known as its **value**. In Mechanic, some objects have additional intelligence of their own, like the `shop` object.
+An **object** is any value that has attributes (also known as properties). The name of an attribute is known as its **key**; the data stored for an attribute is known as its **value**. In Mechanic, some objects have additional intelligence of their own, like the [Shop object](../shopify/shop.md).
 
 ### Iterating through objects
 
 Objects may be traversed using [for loops](control-flow/iteration.md).
 
-```javascript
+```liquid
 {% raw %}
 {% assign object = hash %}
 {% assign object["foo"] = "bar" %}
@@ -120,7 +141,7 @@ Objects may be traversed using [for loops](control-flow/iteration.md).
 
 All of the following examples return the same value.
 
-```javascript
+```liquid
 {% raw %}
 {% assign foo = '{"foo":"bar"}' | parse_json %}
 
@@ -141,14 +162,23 @@ In Mechanic, a **hash** is a simple type of object that has no additional intell
 In Mechanic, hashes can be created using the [hash](../keyword-literals/hash.md) literal, or by using any of the "parse" [filters](../filters.md).
 
 {% hint style="info" %}
-This only applies to Mechanic. Liquid objects and hashes cannot be created in Shopify.
+This only applies to Mechanic Liquid. Hashes cannot be created in Shopify Liquid.
 {% endhint %}
+
+```liquid
+{% raw %}
+{% assign a_hash_object = hash %}
+{% assign a_hash_object["key"] = "value" %}
+
+{% assign a_hash_from_json = '{"foo":"bar"}' | parse_json %}
+{% endraw %}
+```
 
 ### Iterating through hashes
 
 Hashes may be traversed using [for loops](control-flow/iteration.md), like other objects. For convenience, Mechanic also supports extract an array of hash keys using the [keys](../filters.md#keys) filter, or object values using the [values](../filters.md#values) filter. The resulting arrays may also be used with a for loop, like any array.
 
-```javascript
+```liquid
 {% raw %}
 {% assign object = hash %}
 {% assign object["foo"] = "bar" %}
