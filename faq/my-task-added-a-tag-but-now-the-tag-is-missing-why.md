@@ -4,17 +4,13 @@ In most cases, this comes down to someone else – or some_thing_ else, like ano
 
 ### Confirming where the tag went
 
-For this, you'll need to contact Shopify support. \(Mechanic can't help with this, and neither can the Mechanic team.\) Shopify keeps logs for when tags were added and removed, and by whom – so, send them a message, referencing the related resource, the tag\(s\) that went missing, and when. They should be able to tell you who \(or what\) was responsible for the tag removal.
-
-{% hint style="info" %}
-As of September 2021, Shopify has a rare but confirmed issue with adding tags having non-English characters, via the tagsAdd mutation. When this issue is in play, the mutation returns successfully, but does not actually add the submitted tags.
-{% endhint %}
+For this, you'll need to contact Shopify support. (Mechanic can't help with this, and neither can the Mechanic team.) Shopify keeps logs for when tags were added and removed, and by whom – so, send them a message, referencing the related resource, the tag(s) that went missing, and when. They should be able to tell you who (or what) was responsible for the tag removal.
 
 ### Types of conflicts
 
 #### Conflicts with a human user
 
-Here's an example of how this sort of conflict could come about, using a hypothetical order \(although the same flow would apply to products, customers, etc\):
+Here's an example of how this sort of conflict could come about, using a hypothetical order (although the same flow would apply to products, customers, etc):
 
 1. An order is created by a staff member, using the draft orders section of Shopify
 2. Mechanic notices the new order, and adds a tag
@@ -22,7 +18,7 @@ Here's an example of how this sort of conflict could come about, using a hypothe
 4. The staff member modifies the order in some way, and hits save
 5. Shopify receives the order update, which includes an empty list of tags – this empty list overwrites Mechanic's tagging work, and the order now has no tags
 
-The only solutions to this are human solutions. :\) Make sure your staff is aware of the potential for conflicts of this sort.
+The only solutions to this are human solutions. :) Make sure your staff is aware of the potential for conflicts of this sort.
 
 #### Conflicts with another app
 
@@ -30,11 +26,10 @@ Here's how these conflicts tend to happen, using a product as an example:
 
 1. A product is created
 2. Mechanic notices the new product, and adds a tag
-3. _Another_ app also notices the new product, and uses an outdated Shopify API \(i.e. the REST admin API\) to update its tags – this outdated API overwrites Mechanic's work, and Mechanic's new tag is lost
+3. _Another_ app also notices the new product, and uses an outdated Shopify API (i.e. the REST admin API) to update its tags – this outdated API overwrites Mechanic's work, and Mechanic's new tag is lost
 
-If you run into this scenario, the right thing to do is ask the app developer to move their app's tagging behavior over to Shopify's GraphQL admin API. This API allows tags to be added \(or removed\) one at a time, instead of sending along entire \(possibly empty\) tag lists which overwrite the tagging work of anyone else. \(We talk more about this subject here, with specific regard to this API choice for Mechanic tasks: see [Tagging Shopify resources](../techniques/tagging-shopify-resources.md).\)
+If you run into this scenario, the right thing to do is ask the app developer to move their app's tagging behavior over to Shopify's GraphQL admin API. This API allows tags to be added (or removed) one at a time, instead of sending along entire (possibly empty) tag lists which overwrite the tagging work of anyone else. (We talk more about this subject here, with specific regard to this API choice for Mechanic tasks: see [Tagging Shopify resources](../techniques/tagging-shopify-resources.md).)
 
 #### Conflicts with another Mechanic task
 
-If you're using tasks from Mechanic's library, this should only happen as a result of misconfiguration. If you've written your own tasks, do make sure that you're using GraphQL for managing Shopify tags \(see [Tagging Shopify resources](../techniques/tagging-shopify-resources.md) for more on that subject\).
-
+If you're using tasks from Mechanic's library, this should only happen as a result of misconfiguration. If you've written your own tasks, do make sure that you're using GraphQL for managing Shopify tags (see [Tagging Shopify resources](../techniques/tagging-shopify-resources.md) for more on that subject).
