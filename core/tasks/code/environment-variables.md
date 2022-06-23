@@ -14,6 +14,22 @@ Environment variables may be reassigned as needed. (When preparing a task previe
 | `task`    | An object containing information about the current task                                                                                                    |
 | `options` | An object containing task [**options**](../options/), configured by the user                                                                               |
 
+{% hint style="info" %}
+The [Shopify variables](environment-variables.md#shopify-variables) available to tasks always contain data drawn from the event itself. If a task has a offset event subscription, this data may be outdated by the time the task runs.
+
+To reload the data in a Shopify variable, use something like this:
+
+```liquid
+{% raw %}
+{% unless event.preview %}
+  {% assign customer = customer.reload %}
+{% endunless %}
+{% endraw %}
+```
+
+Remember, Mechanic does not permit access to the Shopify API during [event preview](../previews/). Using this `unless` statement ensures that reloading only happens during a live event.
+{% endhint %}
+
 ## Event subject variables
 
 When a task is actually invoked for an event, it may have access to an additional variable, determined by the specific event it is responding to. When this is the case, the additional variable will be named after the event subject, and its contents will be established by the event's data. The name of this variable is communicated by the Mechanic task editor, based on the task's current [**subscriptions**](../subscriptions.md).
