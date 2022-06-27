@@ -278,20 +278,36 @@ In general, all strings passing through Mechanic must be UTF-8, and must ultimat
 
 \[todo]
 
-### json, parse\_json, parse\_jsonl \*
+### json, parse\_json \*
 
 Allows converting objects to their JSON representations, and parsing that JSON into hashes.
 
-```javascript
+```liquid
 {% assign order_as_json = order | json }}
 {% raw %}
 {% assign plain_order = order_as_json | parse_json %}
 {% endraw %}
 ```
 
+The parse\_json filter raises an error when invalid JSON. To ignore parse errors, and to return null when an error is encountered, add `silent: true` to the filter's options:
+
+```liquid
+{% raw %}
+{% assign should_be_nil = "{{" | parse_json: silent: true %}
+{% endraw %}
+```
+
+### jsonl, parse\_jsonl \*
+
+Allows for rendering an iterable object (i.e. an array) as a series of JSON lines, separated by simple newlines.
+
+```liquid
+{{ shop.customers | jsonl }}
+```
+
 The parse\_jsonl filter can be used to parse a series of JSON strings, each on their own line, into an array of hashes. Useful when preparing [stub data](../../core/tasks/previews/stub-data.md) for [bulk operations](../graphql/bulk-operations.md).
 
-```javascript
+```liquid
 {% raw %}
 {% capture jsonl_string %}
   {"id":"gid://shopify/Customer/12345","email":"foo@bar.baz"}
@@ -304,13 +320,7 @@ The parse\_jsonl filter can be used to parse a series of JSON strings, each on t
 {{ json_objects | map: "email" | join: ", " }}
 ```
 
-The parse filters raise errors when invalid JSON or JSONL is received. To ignore parse errors during parse\_json, and to return null when an error is encountered, add `silent: true` to the filter's options:
-
-```javascript
-{% raw %}
-{% assign should_be_nil = "{{" | parse_json: silent: true %}
-{% endraw %}
-```
+The parse\_jsonl filter raises error an error when invalid JSONL is received.
 
 ### parse\_xml \*
 
