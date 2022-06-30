@@ -12,9 +12,8 @@ If you're new to the concept of debouncing: usually encountered in UI implementa
 
 To set up event debouncing, identify the event topic that's receiving excess traffic. In a new task subscribing to that topic (or updating an existing such task), add a Cache action that sets an expiring flag, like this:
 
-{% tabs %}
-{% tab title="Task script" %}
-```
+{% code title="Task code" %}
+```liquid
 {% raw %}
 {% action "cache" %}
   {
@@ -27,16 +26,14 @@ To set up event debouncing, identify the event topic that's receiving excess tra
 {% endaction %}
 {% endraw %}
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 Choose a cache key and ttl value (in seconds) that make sense for your scenario – the idea is to "remember" that we've received an event of this topic, and to only remember that for a certain amount of time.
 
 Then, in the store's Mechanic settings, add a new event filter, which renders `false` only if the received event has the topic we're interested in, and if that cached value is still in place.
 
-{% tabs %}
-{% tab title="Event filter" %}
-```
+{% code title="Event filter" %}
+```liquid
 {% raw %}
 {% if event.topic == "user/foo/bar" and cache.foobar_received %}
   false
@@ -45,10 +42,9 @@ Then, in the store's Mechanic settings, add a new event filter, which renders `f
 {% endif %}
 {% endraw %}
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
-![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5fc7e48bd580ce55a38b3a41/file-ZywLatxT1R.png)
+![](<../.gitbook/assets/Screen Shot 2022-06-30 at 3.33.01 PM.png>)
 
 You're done! Save your settings, and test your work.
 
@@ -58,9 +54,8 @@ The implementation described above identifies and filters events by topic. Howev
 
 To accomplish this, generate a "fingerprint" of events as you receive them, by assembling the data you're interested in and running it through the sha256 filter, generating a unique string based on the parts of your fingerprint.
 
-{% tabs %}
-{% tab title="Task script" %}
-```javascript
+{% code title="Task code" %}
+```liquid
 {% raw %}
 {% assign fingerprint_parts = hash %}
 {% assign fingerprint_parts["product_id"] = event.data.product_id %}
@@ -78,14 +73,12 @@ To accomplish this, generate a "fingerprint" of events as you receive them, by a
 {% endaction %}
 {% endraw %}
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 Then, bring that logic and resulting cache key over to your event filter.
 
-{% tabs %}
-{% tab title="Event filter" %}
-```javascript
+{% code title="Event filter" %}
+```liquid
 {% raw %}
 {% assign fingerprint_parts = hash %}
 {% assign fingerprint_parts["product_id"] = event.data.product_id %}
@@ -99,7 +92,6 @@ Then, bring that logic and resulting cache key over to your event filter.
 {% endif %}
 {% endraw %}
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 Your fingerprint should be composed of data that identifies a resource as perfectly unique. By doing so, you'll be debouncing event resources, instead of an entire event stream.
