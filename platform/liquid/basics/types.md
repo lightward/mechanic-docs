@@ -1,6 +1,6 @@
 # Data types
 
-In Liquid, different kids of data have different **types**. Each type describes the nature of its data.
+In Liquid, different kinds of data have different **types**. Each type describes the nature of its data.
 
 {% hint style="warning" %}
 Some of the documentation below is specific to Mechanic Liquid, and may not apply to Shopify Liquid, or to other Liquid implementations.
