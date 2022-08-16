@@ -32,13 +32,15 @@ Mechanic gets this information from the actions that a task generates during pre
 
 For example, if a task renders a [Shopify](../../actions/integrations/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using `shop.customers`, or observes the [shopify](../../../platform/liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the `read_customers` scope.
 
-## Detecting preview events
+## Sources
 
 Previews are generated using synthetic, temporary, non-persisted events – at least one for each event topic that the task subscribes to. These events are sourced from one of three places, in order of priority:
 
-1. If the task [defines its own preview event](events.md) for a given topic, the preview will use the defined event
-2. Or, if the Mechanic account has a recent event with a matching topic on file, the preview will use data from that event
-3. Or, if the event topic is standard (i.e. not a part of [the User domain](../../../platform/events/)
+1. If the task [defines its own preview event](events.md) for a given topic, the preview will use the defined event;
+2. Or, if the Mechanic account has a recent event with a matching topic on file, the preview will use data from that event;
+3. Or, if the event topic is standard and known to Mechanic (i.e. not a part of [the User domain](../../../platform/events/)), the preview will use illustrative example event data defined by the Mechanic platform.
+
+## Detecting preview events
 
 A preview event is identical to a live event in all respects but one: it contains a `preview` attribute, set to `true`, identifying it as a preview event.
 
