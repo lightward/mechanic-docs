@@ -10,15 +10,18 @@ When developing task code, verify your HTTP action's behavior with [webhook.site
 
 ## Options
 
-| Option         | Description                                                                                     |
-| -------------- | ----------------------------------------------------------------------------------------------- |
-| `method`       | Required; must be one of `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"`                   |
-| `url`          | Required; must be a string beginning with `https://` or `http://`                               |
-| `body`         | Required unless `method` is `"get"`; format varies, see below                                   |
-| `files`        | Optional; may be set to a JSON object, mapping filenames to [file generators](file-generators/) |
-| `headers`      | Optional; may be set to a JSON object, mapping header names to header values                    |
-| `verify`       | Optional; may be set to `false` to disable SSL certificate verification                         |
-| `error_on_5xx` | Optional; may be set to `true` to have 5xx HTTP response codes be considered action errors      |
+| Option             | Description                                                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `method`           | Required; must be one of `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"`                                                                                      |
+| `url`              | Required; must be a string beginning with `https://` or `http://`                                                                                                  |
+| `body`             | Required unless `method` is `"get"`; format varies, see below                                                                                                      |
+| `files`            | Optional; may be set to a JSON object, mapping filenames to [file generators](file-generators/)                                                                    |
+| `headers`          | Optional; may be set to a JSON object, mapping header names to header values                                                                                       |
+| `follow_redirects` | Optional; defaults to `true`, may be set to `false`; controls whether or not 3xx responses with `Location` headers are automatically followed to their destination |
+| `proxy`            | Optional; may be a proxy URI string beginning with `https://`, `http://`, or `socks5://`; see "Using a proxy" below                                                |
+| `verify`           | Optional; may be set to `false` to disable SSL certificate verification                                                                                            |
+| `error_on_5xx`     | Optional; may be set to `true` to have 5xx HTTP response codes be considered action errors                                                                         |
+|                    |                                                                                                                                                                    |
 
 ### Request format
 
@@ -74,6 +77,32 @@ To authenticate a request using [the Authorization header](https://developer.moz
 {% endaction %}
 {% endraw %}
 ```
+
+### Using a proxy
+
+The HTTP action supports HTTPS, HTTP, and SOCKS5 proxy connections via the `"proxy"` option, set to a URI string beginning with `https://`, `http://`, or `socks5://`. When configured, Mechanic will open a connection to your proxy server, and pass your request through that connection.
+
+{% code title="Example HTTP action using a proxy" %}
+```liquid
+{% raw %}
+{% action "http" %}
+  {
+    "method": "get",
+    "url": "https://api.ipify.org?format=json",
+    "proxy": "socks5://user:password@host.domain:port"
+  }
+{% endaction %}
+{% endraw %}
+```
+{% endcode %}
+
+{% hint style="warning" %}
+We recommend using an HTTPS proxy server (rather than HTTP or SOCKS5) for a secure connection between Mechanic and your proxy. [QuotaGuard Shield](https://www.quotaguard.com/quotaguard-shield/) is a good option for this kind of service.
+{% endhint %}
+
+{% hint style="info" %}
+Mechanic does not use static IP addresses for outbound requests. Using a connection proxy for your HTTP actions can allow you to control the client IP address of your API requests, for API vendors that require fixed IPs.
+{% endhint %}
 
 ## Result
 
