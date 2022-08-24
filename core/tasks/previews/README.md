@@ -32,6 +32,10 @@ Mechanic gets this information from the actions that a task generates during pre
 
 For example, if a task renders a [Shopify](../../actions/integrations/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using `shop.customers`, or observes the [shopify](../../../platform/liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the `read_customers` scope.
 
+{% hint style="warning" %}
+Some mutations have multiple potential scope requirements, like `tagsAdd` or `metafieldsSet`. For these mutations, make sure that your preview actions are rendered with realistic ID strings in their arguments (e.g. `id: "gid://shopify/Product/12345"`). Mechanic will look to these IDs to determine what scopes to request.
+{% endhint %}
+
 ## Sources
 
 Previews are generated using synthetic, temporary, non-persisted events – at least one for each event topic that the task subscribes to. These events are sourced from one of three places, in order of priority:
