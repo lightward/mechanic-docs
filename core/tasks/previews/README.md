@@ -30,10 +30,10 @@ At the platform level, Mechanic uses previews to determine what permissions a ta
 
 Mechanic gets this information from the actions that a task generates during preview, as well as from analysis of the Liquid lookups and GraphQL queries that a task uses during runtime.
 
-For example, if a task renders a [Shopify](../../actions/integrations/shopify.md) action containing a [customerCreate](https://shopify.dev/docs/admin-api/graphql/reference/customers/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using `shop.customers`, or observes the [shopify](../../../platform/liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the `read_customers` scope.
+For example, if a task renders a [Shopify](../../actions/integrations/shopify.md) action containing a [customerCreate](https://shopify.dev/api/admin-graphql/latest/mutations/customercreate) mutation, Mechanic will prompt the user to grant access to the `write_customers` Shopify OAuth scope. If Mechanic observes a task using `shop.customers`, or observes the [shopify](../../../platform/liquid/filters.md#shopify) filter receiving a customer-related GraphQL query, it will prompt for the `read_customers` scope.
 
 {% hint style="warning" %}
-Some mutations have multiple potential scope requirements, like `tagsAdd` or `metafieldsSet`. For these mutations, make sure that your preview actions are rendered with realistic ID strings in their arguments (e.g. `id: "gid://shopify/Product/12345"`). Mechanic will look to these IDs to determine what scopes to request.
+Some GraphQL mutations have multiple potential scope requirements, like [tagsAdd](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd) or [metafieldsSet](https://shopify.dev/api/admin-graphql/latest/mutations/metafieldsset). Because the requirements of these mutations hinge on their arguments, make sure that your preview actions are rendered with realistic ID strings (e.g. `id: "gid://shopify/Product/12345"`). Mechanic will look for these IDs to determine what scopes to request.
 {% endhint %}
 
 ## Sources
