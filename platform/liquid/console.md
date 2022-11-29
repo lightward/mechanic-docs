@@ -3,11 +3,11 @@
 Mechanic's **Liquid console** is available in the footer of every page of the Mechanic Shopify app. It's a useful scratchpad for testing [**Mechanic Liquid**](./), without having to think about the output restrictions of [task previews](../../core/tasks/previews/). The console includes information about the final rendering **context** for each Liquid submission, which can be useful in understanding how Mechanic Liquid works.
 
 {% hint style="info" %}
-Unlike task previews, the Liquid console _does_ permit access to the Shopify Admin API, with a limit of 10 requests per Liquid submission.
+Unlike task previews, the Liquid console _does_ permit access to the Shopify Admin API, with a limit of 10 requests per Liquid submission. For REST requests, a page size of 10 is used, instead of the usual 250.
 {% endhint %}
 
 {% hint style="warning" %}
-The Liquid console has much tighter restrictions on memory limits than actual task runs. If you run into a memory limit error, try testing your code in a new task subscribing to mechanic/user/trigger, allowing you to experiment with your code in Mechanic's full runtime environment.
+The Liquid console has much tighter restrictions than actual task runs. If you run into a memory limit error, or an error relating to the number of Shopify Admin API requests made, try testing your code in a new task subscribing to mechanic/user/trigger. This will allow you to experiment with your code in Mechanic's full runtime environment.
 {% endhint %}
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-17 at 3.52.18 PM.png>)
