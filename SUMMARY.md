@@ -231,3 +231,4 @@
   * [I'm getting a "query param length is too long" error when using GraphQL.](faq/query-param-length-is-too-long.md)
   * [Can my Mechanic concurrency limit be raised?](faq/can-my-mechanic-concurrency-limit-be-raised.md)
   * [What IP address does Mechanic use?](faq/what-ip-address-does-mechanic-use.md)
+  * [Can Mechanic read or manage customer subscriptions?](faq/can-mechanic-read-or-manage-customer-subscriptions.md)
