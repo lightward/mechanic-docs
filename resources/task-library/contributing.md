@@ -27,13 +27,11 @@ We follow the same process any open-source project does when it comes to code ma
     <img src="../../.gitbook/assets/fork.gif" alt="" data-size="original">
 3.  The task library is made up of the [tasks](https://github.com/lightward/mechanic-tasks/tree/master/tasks) and the supporting documentation. In these next few steps, you'll ensure you can build the [docs](https://github.com/lightward/mechanic-tasks/tree/master/docs), so that you can complete this step when you are ready to submit your contribution.
 
-    1. Building the docs requires npm, node >=12.10.0, and yarn.&#x20;
-       1. Install npm and node here: [https://www.npmjs.com/get-npm](https://www.npmjs.com/get-npm)
-       2. Install yarn here: [https://yarnpkg.com/getting-started/install](https://yarnpkg.com/getting-started/install)
+    1. Building the docs requires nodejs and npm. You can install them from here: [https://www.npmjs.com/get-npm](https://www.npmjs.com/get-npm)
     2. While in the project directory, run the following commands to build the docs:
 
     ```
-    yarn          # install dependencies
+    npm install   # install dependencies
     npm run build # compile docs
     npm run test  # apply sanity checks
     ```
@@ -46,4 +44,4 @@ We follow the same process any open-source project does when it comes to code ma
 8. If all goes well with the build, you'll see your task listed in the automatically created documentation in `docs/README.md`
 9. You're now ready to make your pull request! Head over to [https://github.com/lightward/mechanic-tasks/pulls](https://github.com/lightward/mechanic-tasks/pulls)  and click New pull request, you should see the changes you committed to your fork, and you'll proceed with filling out the pull request form.
 10. After you submit your first pull request, you will be required to read and accept [our CLA](https://github.com/lightward/mechanic-tasks/blob/master/CLA.md). The[ CLA assistant](https://github.com/marketplace/actions/cla-assistant-lite) will leave a comment, giving you a statement of agreement that you must paste into a comment of your own.
-11. This process could sound confusing if you haven't done it before, but once you've done it once, it's simple and it is also pretty exciting to go through the process.  The other bonus is, you'll be ready to submit a pull request to any open-source software project in the future. If you need help please out to us in the [Slack workspace](https://join.slack.com/t/usemechanic/shared\_invite/zt-cq84nrs7-ggYbYTbf\~CrCjTg8nmHP2A).
+11. This process could sound confusing if you haven't done it before, but once you've done it once, it's simple and it is also pretty exciting to go through the process.  The other bonus is, you'll be ready to submit a pull request to any open-source software project in the future. If you need help please out to us in the [community Slack workspace](https://slack.mechanic.dev/).
