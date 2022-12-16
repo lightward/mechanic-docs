@@ -1128,27 +1128,42 @@ Negative offsets begin counting from the end of the array.
 
 This filter returns the number of elements in the given array.
 
-### sort
+### sort, sort\_natural, sort\_naturally \*
 
-Sorts an array by a given attribute.
+Sorts an array. All three filters accept a single optional parameter, specifying an attribute to sort by, as in `orders | sort: "number"` or `orders | sort_naturally: "number"`.
+
+* `sort` – performs a standard alphanumeric sort (part of standard Liquid)
+* `sort_natural`– sorts by case-insensitive string values (part of standard Liquid)
+* `sort_naturally` – uses the human-friendly sort order defined by [naturally](https://github.com/dogweather/naturally) (unique to Mechanic)
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% raw %}
-{% assign big_spenders = customers | sort: "total_spent" %}
-
-{% for customer in big_spenders %}
-  <h4>{{ customer.email }}</h4>
-{% endfor %}
+{% assign set = "order #10.b,Order #10.a,Order #2.c,order #2.d" | split: "," %}
 {% endraw %}
+
+unsorted:
+  {{ set | join: ", " }}
+sort:
+  {{ set | sort | join: ", " }}
+sort_natural:
+  {{ set | sort_natural | join: ", " }}
+sort_naturally:
+  {{ set | sort_naturally | join: ", " }}
 ```
 {% endtab %}
 
 {% tab title="Output" %}
 ```
-<h4>jim@joe.com</h4>
-<h4>jack@joe.com</h4>
+unsorted:
+  order #10.b, Order #10.a, Order #2.c, order #2.d
+sort:
+  Order #10.a, Order #2.c, order #10.b, order #2.d
+sort_natural:
+  Order #10.a, order #10.b, Order #2.c, order #2.d
+sort_naturally:
+  Order #2.c, Order #10.a, order #2.d, order #10.b
 ```
 {% endtab %}
 {% endtabs %}
