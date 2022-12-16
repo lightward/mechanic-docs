@@ -1136,6 +1136,10 @@ Sorts an array. All three filters accept a single optional parameter, specifying
 * `sort_natural`– sorts by case-insensitive string values (part of standard Liquid)
 * `sort_naturally` – uses the human-friendly sort order defined by [naturally](https://github.com/dogweather/naturally) (unique to Mechanic)
 
+{% hint style="info" %}
+Make sure to choose the sort algorithm most suitable for the consumers of your data. Machine audiences are typically happier with `sort`; human audiences are typically happier with `sort_naturally`.
+{% endhint %}
+
 {% tabs %}
 {% tab title="Code" %}
 ```liquid
