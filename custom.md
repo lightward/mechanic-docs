@@ -16,12 +16,14 @@ Mechanic's automation tasks are written in Liquid, which is a template language 
 
 **To find a developer for hire, you can contact Mechanic Partners directly at** [**partners.mechanic.dev**](https://partners.mechanic.dev/)**.** This is a growing list of established developers, both independent and agency, who can help you with your implementation.
 
+**You can also post to the #jobs channel of our community Slack workspace, at** [**slack.mechanic.dev**](https://slack.mechanic.dev/)**.** If you've got more general questions first, try posting them in #general.
+
 Lastly: if you already have a developer on your team, or have an existing connection to a developer, send them this article and see if they can help you!
 
 ## If you are a developer…
 
 If you're familiar with Liquid, and Shopify's Admin APIs, start by picking something from our [task library](resources/task-library/) that's close to what you're looking for, then modify it as needed.
 
-Make sure to take advantage of the documentation found here, beginning with the Core Concepts section. Mechanic is a powerful system, and grounding yourself in the fundamentals is a good way to begin.
+Make sure to take advantage of the documentation found here, beginning with the [Core Concepts](broken-reference) section. Mechanic is a powerful system, and grounding yourself in the fundamentals is a good way to begin.
 
-Finally, join Mechanic's Slack workspace to exchange support with the community – [use this link to join](https://join.slack.com/t/usemechanic/shared\_invite/zt-cq84nrs7-ggYbYTbf\~CrCjTg8nmHP2A). The #general channel is a great place to start, and it's filled with people who are using Mechanic to solve problems every day. :)
+Finally, join Mechanic's Slack workspace at [slack.mechanic.dev](https://slack.mechanic.dev/) to exchange support with the community. The #general channel is a great place to start, and it's filled with people who are using Mechanic to solve problems every day. :)
