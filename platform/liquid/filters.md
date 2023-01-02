@@ -5,7 +5,11 @@ This page contains definitions for all Mechanic-supported Liquid filters.
 Filters that are unique to Mechanic (and not available in Shopify or on other platforms) are noted with an asterisk.
 
 {% hint style="info" %}
-This page is a developer reference for Liquid filters supported by Mechanic. For an introduction to the concept of filters, see [Filters](basics/filters.md).
+This page is a developer reference for Liquid filters supported by Mechanic. For an introduction to the concept of Liquid filters, see [Filters](basics/filters.md).
+{% endhint %}
+
+{% hint style="warning" %}
+Liquid filters should not be confused with [event filters](../events/filters.md), which are used to conditionally ignore incoming events.
 {% endhint %}
 
 ## Data filters

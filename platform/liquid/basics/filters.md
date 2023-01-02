@@ -6,6 +6,10 @@ Mechanic inherits [all filters from Liquid itself](https://shopify.github.io/liq
 
 For a complete list of filters supported by Mechanic, see [Filters](../filters.md).
 
+{% hint style="warning" %}
+Liquid filters should not be confused with [event filters](../../events/filters.md), which are used to conditionally ignore incoming events.
+{% endhint %}
+
 ## Example syntax
 
 ```javascript
