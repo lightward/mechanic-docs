@@ -66,7 +66,7 @@ For a description of each topic's behavior, see Shopify's documentation:
 * [WebhookSubscriptionTopic (GraphQL enum)](https://shopify.dev/api/admin-graphql/latest/enums/WebhookSubscriptionTopic)
 * [Event topics for Webhook (REST resource)](https://shopify.dev/api/admin-rest/latest/resources/webhook#event-topics)
 
-Note that all topics are represented in the WebhookSubscriptionTopic enum documentation, but not all topics covered in the REST resource documentation.
+Note that all topics are represented in the WebhookSubscriptionTopic enum documentation, but not all topics are covered in the REST resource documentation.
 {% endhint %}
 
 * shopify/carts/create
