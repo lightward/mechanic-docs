@@ -61,7 +61,12 @@ Mechanic does not support Shopify event topics that are scoped to an individual 
 {% endhint %}
 
 {% hint style="info" %}
-For a description of each Shopify topic's behavior, see [Shopify's webhook event topic documentation](https://shopify.dev/api/admin-rest/latest/resources/webhook#event-topics).
+For a description of each topic's behavior, see Shopify's documentation:
+
+* [WebhookSubscriptionTopic (GraphQL enum)](https://shopify.dev/api/admin-graphql/latest/enums/WebhookSubscriptionTopic)
+* [Event topics for Webhook (REST resource)](https://shopify.dev/api/admin-rest/latest/resources/webhook#event-topics)
+
+Note that all topics are represented in the WebhookSubscriptionTopic documentation, but not all topics are fully documented in Shopify's REST documentation.
 {% endhint %}
 
 * shopify/carts/create
