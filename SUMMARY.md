@@ -92,6 +92,7 @@
     * [Bulk operations](core/shopify/read/bulk-operations.md)
     * [The Shopify action](core/shopify/read/the-shopify-action.md)
   * [Writing data](core/shopify/write.md)
+  * [Shopify admin action links](core/shopify/admin-action-links.md)
   * [API rate limit](core/shopify/api-rate-limit.md)
   * [API versions](core/shopify/api-versions.md)
 
@@ -123,6 +124,7 @@
   * [Locksmith](platform/integrations/locksmith.md)
   * [Report Toaster](platform/integrations/report-toaster.md)
   * [Shopify Flow](platform/integrations/shopify-flow.md)
+  * [Run links](platform/integrations/run-links.md)
 * [Liquid](platform/liquid/README.md)
   * [Basics](platform/liquid/basics/README.md)
     * [Syntax](platform/liquid/basics/syntax.md)

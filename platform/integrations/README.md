@@ -6,6 +6,7 @@ Mechanic maintains several official integration points:
 * [Locksmith](locksmith.md)
 * [Report Toaster](report-toaster.md)
 * [Shopify Flow](shopify-flow.md)
+* [Run links](run-links.md)
 
 {% hint style="info" %}
 ### Need a service that's not on this list?

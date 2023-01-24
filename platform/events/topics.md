@@ -45,12 +45,37 @@ More specific times can be achieved by subscribing to an event topic with a dela
 
 ### User
 
-Not to be confused with events in the User domain, the mechanic/user event subject describes ways that the user expresses their intent – to Mechanic – to run the task.
+Not to be confused with events in the User domain, the mechanic/user event subject describes ways that the user expresses their intent – to Mechanic – to run the task. [Run links](../integrations/run-links.md) are available for these topics.
 
 * **mechanic/user/trigger**\
   ****When used, adds a "Run task" button to the task itself. This button generates a new event, to which only this task will respond.
 * **mechanic/user/text**\
-  ****When used, adds a "Run task" button to the task itself. This button prompts the user with a multi-line text box. When submitted, an event is generated, to which only this task will respond. The event contains the user's input in its data, making user's input available in `{{ event.data }}`.
+  ****When used, adds a "Run task" button to the task itself. This button prompts the user with a multi-line text box. When submitted, an event is generated, to which only this task will respond. The event contains the user's input in its data, making user's input available in `event.data`.
+
+The following mechanic/user topics are typically used with [Shopify admin action links](../../core/shopify/admin-action-links.md), and are documented there more fully.
+
+*   **mechanic/user/abandoned\_checkout**\
+    **mechanic/user/abandoned\_checkouts**
+
+    Occurs when a user sends one or more abandoned checkouts to Mechanic
+* **mechanic/user/collection**\
+  **mechanic/user/collections**\
+  Occurs when a user sends one or more collections to Mechanic&#x20;
+* **mechanic/user/customer**\
+  **mechanic/user/customers**\
+  Occurs when a user sends one or more customers to Mechanic&#x20;
+* **mechanic/user/draft\_order**\
+  **mechanic/user/draft\_orders**\
+  Occurs when a user sends one or more draft orders to Mechanic
+* **mechanic/user/order**\
+  **mechanic/user/orders**\
+  Occurs when a user sends one or more orders to Mechanic
+* **mechanic/user/variant**\
+  **mechanic/user/variants**\
+  Occurs when a user sends one or more product variants to Mechanic&#x20;
+* **mechanic/user/product**\
+  **mechanic/user/products**\
+  Occurs when a user sends one or more products to Mechanic&#x20;
 
 ## Shopify
 
