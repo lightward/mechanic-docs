@@ -14,15 +14,15 @@ Shopify admin action links are a form of [**run link**](../../platform/integrati
 
 ## Supported resources
 
-| Resource                                                                                      | Resource type URL parameter | Individual mode event topic       | Batch mode event topic             |
-| --------------------------------------------------------------------------------------------- | --------------------------- | --------------------------------- | ---------------------------------- |
-| [Customer](https://shopify.dev/api/admin-rest/latest/resources/customer)                      | `customer`                  | mechanic/user/customer            | mechanic/user/customers            |
-| [Order](https://shopify.dev/api/admin-rest/latest/resources/order)                            | `order`                     | mechanic/user/order               | mechanic/user/orders               |
-| [Draft order](https://shopify.dev/api/admin-rest/latest/resources/draftorder)                 | `draft_order`               | mechanic/user/draft\_order        | mechanic/user/draft\_orders        |
-| [Abandoned checkout](https://shopify.dev/api/admin-rest/latest/resources/abandoned-checkouts) | `abandoned_checkout`        | mechanic/user/abandoned\_checkout | mechanic/user/abandoned\_checkouts |
-| [Product](https://shopify.dev/api/admin-rest/latest/resources/product)                        | `product`                   | mechanic/user/product             | mechanic/user/products             |
-| [Product variant](https://shopify.dev/api/admin-rest/latest/resources/product-variant)        | `variant`                   | mechanic/user/variant             | mechanic/user/variants             |
-| [Collection](https://shopify.dev/api/admin-rest/latest/resources/collection)                  | `collection`                | mechanic/user/collection          | mechanic/user/collections          |
+| Resource object                                                                                               | Resource type URL parameter | Individual mode event topic       | Batch mode event topic             |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------- | --------------------------------- | ---------------------------------- |
+| [Customer](https://shopify.dev/api/admin-rest/latest/resources/customer#resource-object)                      | `customer`                  | mechanic/user/customer            | mechanic/user/customers            |
+| [Order](https://shopify.dev/api/admin-rest/latest/resources/order#resource-object)                            | `order`                     | mechanic/user/order               | mechanic/user/orders               |
+| [Draft order](https://shopify.dev/api/admin-rest/latest/resources/draftorder#resource-object)                 | `draft_order`               | mechanic/user/draft\_order        | mechanic/user/draft\_orders        |
+| [Abandoned checkout](https://shopify.dev/api/admin-rest/latest/resources/abandoned-checkouts#resource-object) | `abandoned_checkout`        | mechanic/user/abandoned\_checkout | mechanic/user/abandoned\_checkouts |
+| [Product](https://shopify.dev/api/admin-rest/latest/resources/product#resource-object)                        | `product`                   | mechanic/user/product             | mechanic/user/products             |
+| [Product variant](https://shopify.dev/api/admin-rest/latest/resources/product-variant#resource-object)        | `variant`                   | mechanic/user/variant             | mechanic/user/variants             |
+| [Collection](https://shopify.dev/api/admin-rest/latest/resources/collection#resource-object)                  | `collection`                | mechanic/user/collection          | mechanic/user/collections          |
 
 ## Processing modes
 
