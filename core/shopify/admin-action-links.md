@@ -82,7 +82,7 @@ These URLs may be manually constructed, using resource type parameter values dra
 
 Using a Shopify admin action link brings the user to the page shown below, in which selected resources are shown for preview, and a choice of [processing mode](admin-action-links.md#processing-modes) is offered.
 
-<figure><img src="../../.gitbook/assets/processingMode.gif" alt=""><figcaption><p>Select to send your resources as an array of resources in a single event, or as a single resource in many events</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/processingModes.gif" alt=""><figcaption><p>Select to send your resources as an array of resources in a single event, or as a single resource in many events</p></figcaption></figure>
 
 After selecting a processing mode, select from the available compatible tasks – i.e. from enabled tasks that subscribe to a relevant event topic. You can send this event to one or more tasks that subscribe to the correct event topic.
 
