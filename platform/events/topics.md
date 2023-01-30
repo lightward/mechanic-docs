@@ -38,6 +38,8 @@ Incoming events may be selectively filtered out using [event filters](filters.md
   ****Runs at midnight, in the store's local timezone.
 * **mechanic/scheduler/monday**\
   Runs every Monday at midnight, in the store's local timezone. (Note: this would be at the end of Sunday evening). Each named weekday is supported.
+* **mechanic/scheduler/monthly**\
+  ****Runs at midnight on the 1st of the month, in the store's local timezone.
 
 {% hint style="info" %}
 More specific times can be achieved by subscribing to an event topic with a delay (e.g. "mechanic/scheduler/daily+5.hours"). To learn more, see [Subscriptions](../../core/tasks/subscriptions.md).
