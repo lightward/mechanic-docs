@@ -42,7 +42,7 @@ Incoming events may be selectively filtered out using [event filters](filters.md
   ****Runs at midnight on the 1st of the month, in the store's local timezone.
 
 {% hint style="info" %}
-More specific times can be achieved by subscribing to an event topic with a delay (e.g. "mechanic/scheduler/daily+5.hours"). To learn more, see [Subscriptions](../../core/tasks/subscriptions.md).
+More specific times can be achieved by subscribing to an event topic with a delay (e.g. "mechanic/scheduler/daily+5.hours"). There is no limit to the length of the delay, including delaying longer than the scheduler interval itself (e.g. "mechanic/scheduler/daily+100.hours"). To learn more, see [Subscriptions](../../core/tasks/subscriptions.md).
 {% endhint %}
 
 ### User
