@@ -30,7 +30,7 @@ For a complete list of options, see [https://pdfcrowd.com/doc/api/html-to-pdf/ht
 
 ### Debugging
 
-If it's unclear why something isn't rendering properly, start by saving and testing the HTML locally. If it seems like Pdfcrowd is doing something unexpected, add `"debug_log": true` to the generator options, run your task, and send the resulting event inspector URL to [team@usemechanic.com](mailto:team@usemechanic.com). The platform team will be able to access the Pdfcrowd logs for your run on your behalf.
+If it's unclear why something isn't rendering properly, start by testing the HTML being used in a Pdfcrowd playground, at [https://pdfcrowd.com/playground/html-to-pdf](https://pdfcrowd.com/playground/html-to-pdf). If the issue is reproducible in the playground, use the "Help" button along the left-hand sidebar to get the ID of your specific playground, and instructions for contacting Pdfcrowd support with the details of your test.
 
 ## Example
 
