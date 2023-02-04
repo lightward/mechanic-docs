@@ -32,6 +32,10 @@ For a complete list of options, see [https://pdfcrowd.com/doc/api/html-to-pdf/ht
 
 If it's unclear why something isn't rendering properly, start by testing the HTML being used in a Pdfcrowd playground, at [https://pdfcrowd.com/playground/html-to-pdf](https://pdfcrowd.com/playground/html-to-pdf). If the issue is reproducible in the playground, use the "Help" button along the left-hand sidebar to get the ID of your specific playground, and instructions for contacting Pdfcrowd support with the details of your test.
 
+{% embed url="https://www.loom.com/share/94ea5776e2d84b6d92c1e7ca551e6e92" %}
+A screencast illustrating an HTML test, and a path for reaching Pdfcrowd support
+{% endembed %}
+
 ## Example
 
 {% tabs %}
