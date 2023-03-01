@@ -69,7 +69,7 @@ To send an email using a reusable [email template](../platform/email/templates.m
 {% hint style="info" %}
 You may pass along additional variables to your email template, by using your own custom action options. In the example below, we pass along two custom options, with two different techniques:
 
-* By specifying `"order_data"`, we allow the email template to use a variable called `order_data` which includes a copy of everything we know about the current order. The email template will be able to call values from this variable using something like `{{ order.name }}`.
+* By specifying `"order_data"`, we allow the email template to use a variable called `order_data` which includes a copy of everything we know about the current order. The email template will be able to call values from this variable using something like `{{ order_data.name }}`.
 * By specifying `"additional_data"`, we define our own static values for a new email template variable called `additional_data`. The order template will be able to call values from this variable using something like `{{ additional_data.some }}`.
 
 To learn more about this, see [Creating email template variables](../core/actions/email.md#creating-email-template-variables).
