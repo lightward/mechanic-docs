@@ -149,9 +149,9 @@ The Mechanic webhook API only accepts POST requests. (All other methods will rec
 
 Mechanic's webhook API includes CORS support for all origins, making these requests available for use in online user experiences.
 
-#### File uploads
+### File uploads
 
-File uploads are allowed. Each uploaded file will be represented in event data (regardless of event data mode) as a structured hash having the following keys:
+File uploads are supported via multipart/form-data webhook requests. Each uploaded file will be represented in event data (regardless of event data mode) as a structured hash having the following keys:
 
 * `content_base64` — A base64 string representation of the file content
 * `mime_type` — The MIME type of the file, as declared in the headers for that file
@@ -168,6 +168,19 @@ Decode base64-encoded file content with Liquid, using Mechanic's [decode\_base64
 {% endraw %}
 ```
 {% endhint %}
+
+{% code title="File upload sample representation" %}
+```json
+{
+  "my_upload": {
+    "content_base64": "PD94bWw[...]mc+Cg==",
+    "mime_type": "image/svg+xml",
+    "name": "logo.svg",
+    "size": 12345
+  }
+}
+```
+{% endcode %}
 
 ### Client-specific endpoints
 
