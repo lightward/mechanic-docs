@@ -10,23 +10,151 @@ This article is an introduction to webhooks. To get started quickly, see [Creati
 
 ## Configuration
 
-A Mechanic webhook is configured with a name and a specific event topic, and is assigned a unique, webhook-specific URL. Any valid POST request to the assigned webhook URL will result in a new event being created, having the configured topic, containing the parsed data from the POST request.
+![](<../.gitbook/assets/Screenshot 2023-03-07 at 11.04.17 AM.png>)
 
-![](<../.gitbook/assets/image (11).png>)
+* Name — Something to remember this webhook by ✨
+* Event topic — The [topic](../core/events/topics.md) used for events created via this webhook
+* Event data mode — Either "Auto" or "Full request"; see below
+* Webhook URL — A unique, permanent, webhook-specific URL, supplied by Mechanic after creating the webhook
+
+### Event data mode
+
+Each webhook has a choice of modes used to translate request data into event data.
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-03-08 at 1.23.17 PM.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Changing a webhook's event data mode takes effect immediately for all incoming requests. It does not apply retroactively, i.e. it has no impact on webhook events that were received prior to the change.
+{% endhint %}
+
+#### Auto (default)
+
+In "Auto" mode, event data is the result of merging an interpreted hash of parameters from the request body with an interpreted hash of parameters from the request query string.
+
+If no parameters from the request body are found, or if parsing the request body fails for any reason, event data is set to parameters from the request query string.
+
+If no structured parameters are found from either the request body or the request query string, event data is set to the request body in string form. If the string is blank (i.e. zero-length or consisting only of whitespace), event data is set to `null`.
+
+#### Full request
+
+In "Full request" mode, event data is set to a hash with the following keys:
+
+| Key            | Type                  | Notes                                                                                                                              |
+| -------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `body_base64`  | Base64-encoded string | The raw request body, encoded in base64                                                                                            |
+| `body`         | Hash or null          | The interpreted set of structured parameters from the request body, or null if parsing fails for any reason                        |
+| `client_ip`    | String                | The IP address of the requesting client                                                                                            |
+| `headers`      | Hash                  | Represents the request headers, keyed by lowercased header names, containing arrays of string values (⚠️ see warning below)        |
+| `mime_type`    | String or null        | The MIME type of the request as interpreted from the `content-type` request header, or null if that header was not found           |
+| `query_string` | String or null        | Contains everything after the "?" character in the request URL, or null if no such value was found                                 |
+| `query`        | Hash or null          | Contains the interpreted set of structured parameters from the query string, or null if none were found                            |
+| `request_id`   | UUID string           | Uniquely identifies the request, having the same value found in the original webhook request response in the `x-request-id` header |
+| `webhook_id`   | UUID string           | Identifies the Mechanic webhook which handled the request                                                                          |
+
+{% hint style="info" %}
+Decode the base64-encoded request body with Liquid, using Mechanic's [decode\_base64](liquid/filters.md#base64-decode\_base64) filter.
+{% endhint %}
+
+{% hint style="danger" %}
+Mechanic's webhook request header representation has an important limitation: the array of header values is currently limited to a size of one (1). If multiple request headers are given using the same header name, their values will be concatenated with commas and represented in a single string, as the sole array element.
+
+This means that a request which defines both `X-Foo: Bar` and `X-Foo: Baz` headers will be represented thusly:
+
+```json
+"headers": {
+  "x-foo": [
+    "Bar,Baz"
+  ]
+}
+```
+
+Let us first acknowledge that this is ridiculous. 💯 ✅
+
+As of this writing (2023-03-08), an upstream provider of Mechanic's does not have proper support for requests containing repeated header names. Mechanic's behavior here is a compromise chosen (1) to allow us to resolve this in the future without requiring a change to the format of this representation, and (2) for consistency with [HTTP action's response format](../core/actions/http.md#response-headers).
+
+When this issue is resolved, the header example above will be represented as follows:
+
+```json
+"headers": {
+  "x-foo": [
+    "Bar",
+    "Baz"
+  ]
+}
+```
+
+Task code that reads webhook request headers should take these two possible representations into account.
+{% endhint %}
+
+{% code title="Sample "Full request" event data" %}
+```json
+{
+  "body_base64": "LS0tLS0[...]S0NCg==",
+  "body": {
+    "file_upload": {
+      "content_base64": "iVBORw0[...]K5CYII=",
+      "mime_type": "image/png",
+      "name": "tiny.png",
+      "size": 1265
+    },
+    "key": "value",
+    "hash": {
+      "key": "hash_value"
+    },
+    "array": [
+      "array_value"
+    ]
+  },
+  "client_ip": "8.8.8.8",
+  "headers": {
+    "content-length": [
+      "1759"
+    ],
+    "content-type": [
+      "multipart/form-data; boundary=----WebKitFormBoundaryqcjvhXaEdqng2TkC"
+    ],
+    "x-custom": [
+      "Value"
+    ],
+    "x-foo": [
+      "Bar,Baz"
+    ]
+  },
+  "mime_type": "multipart/form-data",
+  "query_string": "key=value&hash[key]=hash_value&array[]=array_value",
+  "query": {
+    "key": "value",
+    "hash": {
+      "key": "hash_value"
+    },
+    "array": [
+      "array_value"
+    ]
+  },
+  "request_id": "a8723f25-20ff-4b89-a46c-73fc387a16d3",
+  "webhook_id": "d166806f-1f79-4283-b4b4-80a38ee04431"
+}
+```
+{% endcode %}
 
 ## Requests
 
 The Mechanic webhook API only accepts POST requests. (All other methods will receive a 405 Method Not Allowed response.)
 
-The following content types are supported, and will be parsed appropriately as event data:
-
-* text/plain
-* application/json
-* application/x-www-form-urlencoded
-
-Webhook request headers are never included in event data.
-
 Mechanic's webhook API includes CORS support for all origins, making these requests available for use in online user experiences.
+
+#### File uploads
+
+File uploads are allowed. Each uploaded file will be represented in event data (regardless of event data mode) as a structured hash having the following keys:
+
+* `content_base64` — A base64 string representation of the file content
+* `mime_type` — The MIME type of the file, as declared in the headers for that file
+* `name` — The original name of the file, as declared in the headers for that file
+* `size` — An integer reflecting the size of the file in bytes
+
+{% hint style="info" %}
+Decode base64-encoded file content with Liquid, using Mechanic's [decode\_base64](liquid/filters.md#base64-decode\_base64) filter.
+{% endhint %}
 
 ### Client-specific endpoints
 
