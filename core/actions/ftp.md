@@ -1,6 +1,10 @@
+---
+description: Upload and download files via FTP, FTPS, or SFTP.
+---
+
 # FTP
 
-The **FTP** action can upload and download files via [FTP](https://en.wikipedia.org/wiki/File\_Transfer\_Protocol), [SFTP](https://en.wikipedia.org/wiki/SSH\_File\_Transfer\_Protocol), or [FTPS](https://en.wikipedia.org/wiki/FTPS). The files to be uploaded are evaluated using [**file generators**](file-generators/). Downloaded file data is available either as an UTF-8 string, or as a base64-encoded string, and can be used in followup task runs via [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
+The **FTP** action can upload and download files via [FTP](https://en.wikipedia.org/wiki/File\_Transfer\_Protocol), [FTPS](https://en.wikipedia.org/wiki/FTPS), or [SFTP](https://en.wikipedia.org/wiki/SSH\_File\_Transfer\_Protocol). The files to be uploaded are evaluated using [**file generators**](file-generators/). Downloaded file data is available either as an UTF-8 string, or as a base64-encoded string, and can be used in followup task runs via [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
 
 A connecting service like [Couchdrop](https://couchdrop.io/) can be used to relay these uploads on to other cloud locations, like Dropbox, Google Drive, and Amazon S3.
 
@@ -12,7 +16,7 @@ A single FTP action may download a maximum of 20MB of data, across all downloade
 
 | Option      | Type                           | Notes                                                                                                                |
 | ----------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| `protocol`  | `"ftp"`, `"sftp"`, or `"ftps"` | The protocol to use for connection; inferred if omitted                                                              |
+| `protocol`  | `"ftp"`, `"ftps"`, or `"sftp"` | The protocol to use for connection; inferred if omitted                                                              |
 | `host`      | String, required               | The hostname or IP address of the destination server                                                                 |
 | `port`      | Number, optional               | The server port to connect to                                                                                        |
 | `user`      | String, required               | The username for authentication                                                                                      |
@@ -26,6 +30,12 @@ A single FTP action may download a maximum of 20MB of data, across all downloade
 | ------ | ---------------- | ----------------------------------------------- |
 | `mode` | String, optional | May be set to `"ascii"`; defaults to `"binary"` |
 
+### FTPS options
+
+| Option   | Type              | Notes                                                  |
+| -------- | ----------------- | ------------------------------------------------------ |
+| `verify` | Boolean, optional | May be set to `false` to ignore SSL certificate errors |
+
 ### SFTP options
 
 | Option            | Type              | Notes                                                                                                                                          |
@@ -34,19 +44,13 @@ A single FTP action may download a maximum of 20MB of data, across all downloade
 | `verify`          | Boolean, optional | May be set to `true` in combination with `"known_hosts"` to validate the host                                                                  |
 | `known_hosts`     | String, optional  | An sshd-compatible known\_hosts file ([docs](https://linux.die.net/man/8/sshd), [helpful article](https://linuxhandbook.com/known-hosts-file)) |
 
-### FTPS options
-
-| Option   | Type              | Notes                                                  |
-| -------- | ----------------- | ------------------------------------------------------ |
-| `verify` | Boolean, optional | May be set to `false` to ignore SSL certificate errors |
-
 ### User authentication
 
 The `user` option is always required.
 
 When connecting to an FTP or FTPS server, authenticate with the `password` option.
 
-When connecting to an SFTP server, authenticate using either `password` or `private_key_pem`. PEM certificates may be given directly in the task code:
+When connecting to an SFTP server, authenticate using either `password` or `private_key_pem`, or both. PEM certificates may be given directly in the task code:
 
 ```liquid
 {% raw %}
