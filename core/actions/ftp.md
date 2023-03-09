@@ -8,17 +8,37 @@ A single FTP action may download a maximum of 20MB of data, across all downloade
 
 ## Options
 
-| Option            | Description                                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `host`            | Required; the hostname of the destination server                                                                               |
-| `user`            | Required; a string                                                                                                             |
-| `uploads`         | Optional; an object whose keys are file paths (relative or absolute), and whose values are [file generators](file-generators/) |
-| `downloads`       | Optional; an array of file paths (relative or absolute) to download                                                            |
-| `mode`            | Optional; only available for FTP; can be set to `"ascii"`                                                                      |
-| `password`        | Optional; a string                                                                                                             |
-| `port`            | Optional; an integer specifying the server port on which FTP or SFTP is available                                              |
-| `private_key_pem` | Optional; only available for SFTP; a PEM-formatted certificate for authentication                                              |
-| `protocol`        | Optional; can be `"ftp"`, `"sftp"`, or `"ftps"`                                                                                |
+### General options
+
+| Option      | Type                           | Notes                                                                                                                |
+| ----------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `protocol`  | `"ftp"`, `"sftp"`, or `"ftps"` | The protocol to use for connection; inferred if omitted                                                              |
+| `host`      | String, required               | The hostname or IP address of the destination server                                                                 |
+| `port`      | Number, optional               | The server port to connect to                                                                                        |
+| `user`      | String, required               | The username for authentication                                                                                      |
+| `password`  | String, optional               | The password for authentication                                                                                      |
+| `uploads`   | Hash, optional                 | An object whose keys are file paths (relative or absolute), and whose values are [file generators](file-generators/) |
+| `downloads` | Array, optional                | File path strings (relative or absolute) to download                                                                 |
+
+### FTP options
+
+| Option | Type             | Notes                                           |
+| ------ | ---------------- | ----------------------------------------------- |
+| `mode` | String, optional | May be set to `"ascii"`; defaults to `"binary"` |
+
+### SFTP options
+
+| Option            | Type              | Notes                                                                                                                                          |
+| ----------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `private_key_pem` | String, optional  | A complete PEM-formatted private key for authentication                                                                                        |
+| `verify`          | Boolean, optional | May be set to `true` in combination with `"known_hosts"` to validate the host                                                                  |
+| `known_hosts`     | String, optional  | An sshd-compatible known\_hosts file ([docs](https://linux.die.net/man/8/sshd), [helpful article](https://linuxhandbook.com/known-hosts-file)) |
+
+### FTPS options
+
+| Option   | Type              | Notes                                                  |
+| -------- | ----------------- | ------------------------------------------------------ |
+| `verify` | Boolean, optional | May be set to `false` to ignore SSL certificate errors |
 
 ### Authentication
 
