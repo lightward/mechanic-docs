@@ -40,7 +40,7 @@ A single FTP action may download a maximum of 20MB of data, across all downloade
 | -------- | ----------------- | ------------------------------------------------------ |
 | `verify` | Boolean, optional | May be set to `false` to ignore SSL certificate errors |
 
-### Authentication
+### User authentication
 
 The `user` option is always required.
 
@@ -72,7 +72,7 @@ pZ/WFoT82brhooSfJDue14C0Y=
 {% endraw %}
 ```
 
-### File paths
+### Uploads and downloads
 
 Both `uploads` and `downloads` allow the task author to define file paths. If only the filename is given (e.g. `"sample.pdf"`), the file will be resolved in the home directory of the user. If a relative path (e.g. `"subdirectory/sample.pdf"`) or absolute path (e.g. `"/tmp/sample.pdf"`) is given, it will be respected accordingly.
 
@@ -132,7 +132,7 @@ Note that each uploaded and downloaded file is keyed by the path provided for th
 
 ## Testing
 
-If a server is unavailable for testing, consider using [Couchdrop](https://couchdrop.io/), with [their hosted storage service](https://couchdrop.io/features/hosted-storage). This is a (nearly) configuration-free avenue for testing, using the hosts ftp.couchdrop.io or sftp.couchdrop.io.
+If a server is unavailable for testing, consider using [Couchdrop](https://couchdrop.io/), with [their hosted storage service](https://couchdrop.io/features/hosted-storage). This is a (nearly) configuration-free avenue for testing, using my.couchdrop.io for FTP, FTPS, or SFTP.
 
 Alternatively, [ngrok](https://ngrok.com/) can be used to create a public tunnel to a local FTP or SSH server. By running `ngrok tcp 22` (adjusting for the appropriate local port), ngrok will generate a temporary public host and port that's appropriate for use while testing.
 
