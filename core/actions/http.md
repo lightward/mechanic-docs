@@ -10,18 +10,17 @@ When developing task code, verify your HTTP action's behavior with [webhook.site
 
 ## Options
 
-| Option             | Description                                                                                                                                                        |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `method`           | Required; must be one of `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"`                                                                                      |
-| `url`              | Required; must be a string beginning with `https://` or `http://`                                                                                                  |
-| `body`             | Required unless `method` is `"get"`; format varies, see below                                                                                                      |
-| `files`            | Optional; may be set to a JSON object, mapping filenames to [file generators](file-generators/)                                                                    |
-| `headers`          | Optional; may be set to a JSON object, mapping header names to header values                                                                                       |
-| `follow_redirects` | Optional; defaults to `true`, may be set to `false`; controls whether or not 3xx responses with `Location` headers are automatically followed to their destination |
-| `proxy`            | Optional; may be a proxy URI string beginning with `https://`, `http://`, or `socks5://`; see "Using a proxy" below                                                |
-| `verify`           | Optional; may be set to `false` to disable SSL certificate verification                                                                                            |
-| `error_on_5xx`     | Optional; may be set to `true` to have 5xx HTTP response codes be considered action errors                                                                         |
-|                    |                                                                                                                                                                    |
+| Option             | Type                                  | Notes                                                                                                                                                    |
+| ------------------ | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `method`           | String, required                      | Must be one of `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"`                                                                                      |
+| `url`              | String, required                      | Must start with `https://` or `http://`                                                                                                                  |
+| `body`             | String, required for non-GET requests | Format varies, see below                                                                                                                                 |
+| `files`            | Hash, optional                        | May be set to a JSON object, mapping filenames to [file generators](file-generators/)                                                                    |
+| `headers`          | Hash, optional                        | May be set to a JSON object, mapping header names to header values                                                                                       |
+| `follow_redirects` | Boolean, optional                     | Defaults to `true`, may be set to `false`; controls whether or not 3xx responses with `Location` headers are automatically followed to their destination |
+| `proxy`            | String, optional                      | May be a proxy URI string beginning with `https://`, `http://`, or `socks5://`; see "Using a proxy" below                                                |
+| `verify`           | Boolean, optional                     | May be set to `false` to disable SSL certificate verification                                                                                            |
+| `error_on_5xx`     | Boolean, optional                     | May be set to `true` to have 5xx HTTP response codes be considered action errors                                                                         |
 
 ### Request format
 
