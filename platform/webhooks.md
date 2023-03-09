@@ -8,6 +8,10 @@ Mechanic's webhook API includes CORS support for all origins, making these reque
 This article is an introduction to webhooks. To get started quickly, see [Creating a Mechanic webhook](../resources/tutorials/creating-a-mechanic-webhook.md).
 {% endhint %}
 
+{% hint style="info" %}
+Tools like [Postman](https://www.postman.com/) ([docs](https://learning.postman.com/docs/sending-requests/requests/)) can be useful for exercising Mechanic webhooks without code, for verifying their behavior.
+{% endhint %}
+
 ## Configuration
 
 ![](<../.gitbook/assets/Screenshot 2023-03-07 at 11.04.17 AM.png>)
