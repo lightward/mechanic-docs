@@ -123,9 +123,25 @@ shopify/orders/create
 
 ### Dynamic preview actions
 
-A dynamic preview action is the natural result of exercising a task's code as completely as possible, without adding any business logic that responds to `event.preview`.
+A dynamic preview action is the natural result of exercising a task's code as completely as possible, without adding any business logic that responds to `event.preview`. Put another way, the idea is to make the preview (that appears during task editing) look as similar to a live event as possible.
 
-There are two techniques available for this:
+{% code title="Example" %}
+```liquid
+{% raw %}
+{% if some_evaluated_condition %}
+  {% action "shopify" %}
+    mutation {
+      tagsAdd(id: {{ order.admin_graphql_api_id | json }}, tags: "web") {
+        userErrors { field, message }
+      }
+    }
+  {% endaction %}
+{% endif %}
+{% endraw %}
+```
+{% endcode %}
+
+There are two techniques available for "steering" the task towards desired outcomes during preview.
 
 1. Use [**defined preview events**](events.md) to control preview event data, without ever having to add preview-related code to the task itself. This is the cleanest way to control data provided by the event during preview.
 2. Use [**stub data**](stub-data.md) to dynamically swap in preview-friendly values. This is generally not necessary for preview _event_ data, but may be necessary when querying Shopify for data during a task: because the Shopify API is disabled during preview, using stub data can be useful for swapping in realistic values that _would_ be returned during a live run.
