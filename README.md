@@ -4,6 +4,8 @@ description: I'm glad you're here. :) –Isaac
 
 # Introduction
 
+{% embed url="https://www.youtube.com/watch?v=QitSqzfBovg" %}
+
 ## Can Mechanic help me?
 
 Maybe! Mechanic is a Shopify development and automation platform, which comes with a rich library of pre-written automation tasks – and our users write their own custom tasks every day. Let's find out if Mechanic might work for you.
