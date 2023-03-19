@@ -1,24 +1,25 @@
+---
+description: I'm glad you're here. :) –Isaac
+---
+
 # Introduction
 
-I'm glad you're here. :) I'm Isaac, and I built Mechanic. My intent is to make Shopify better for everyone. We do this, here, in two parts: (1) by making it as easy as possible for developers to solve merchant problems, and (2) by making it as easy as possible to use (and re-use) those solutions. Mechanic is very, very good at both.
+## Can Mechanic help me?
 
-Mechanic is a powerful platform, and I made it to empower everyone who uses it. You are invited. :)
+Maybe! Mechanic is a Shopify development and automation platform, which comes with a rich library of pre-written automation tasks – and our users write their own custom tasks every day. Let's find out if Mechanic might work for you.
+
+1. Are you working on something Shopify-related? (Mechanic is only available for Shopify.)
+2. Is what you're looking for already available from [Mechanic's task library](https://tasks.mechanic.dev/)? (We have hundreds of common scenarios already handled with pre-written, open-source, modifiable, off-the-shelf tasks.)
+3. As far as your problem concerns Shopify data, is what you want to do supported by the [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql)? (Mechanic's toolkit goes beyond Shopify's APIs, but a Mechanic task can only interact with Shopify data in ways that Shopify supports.)
+4. Are you open to [going custom](custom.md)? (Whether you need a developer or already have that covered, the path to creating a custom Mechanic task is well-established.)
+
+That list wasn't exactly a formal flowchart, but we hope it's helpful as you're evaluating Mechanic for your purposes. At its best, Mechanic is a platform and toolkit that you go to, and return to, when you hit the limits of the Shopify admin. And it's a community that collectively has learned how solve many, many kinds of problems. (Join our [community Slack workspace](resources/slack.md)!)
 
 {% hint style="info" %}
 Got a question you need answered now? [Join our Slack workspace.](https://join.slack.com/t/usemechanic/shared\_invite/zt-cq84nrs7-ggYbYTbf\~CrCjTg8nmHP2A) 💬
 {% endhint %}
 
-## What is Mechanic?
-
-{% embed url="https://www.youtube.com/watch?v=QitSqzfBovg" %}
-
-Mechanic is an automation and development platform, for Shopify. :) Mechanic is a replacement for custom apps, allowing developers to solve a similar set of problems without having to host the infrastructure, or think about scaffolding. Developers can get more projects completed faster and more sustainably, by leveraging Mechanic's toolkit.
-
-Mechanic is accompanied by an open-source library, with 280+ automation tasks ready to pull off the shelf, offering an accessible starting point for developers of all skill levels.
-
-As a project of [Lightward Inc](https://lightward.com/), Mechanic is offered under [a pay-what-feels-good pricing policy](platform/policies/pricing.md).
-
-## How Mechanic works
+## How does Mechanic work?
 
 ### Tasks, events, and actions
 
