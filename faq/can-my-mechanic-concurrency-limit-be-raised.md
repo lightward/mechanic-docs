@@ -1,11 +1,11 @@
 # Can my Mechanic concurrency limit be raised?
 
-Perhaps! This question can come up when the Mechanic queue for a particular store becomes backlogged, delaying task activity.
+Perhaps! This question can come up when the Mechanic queue for a particular store becomes backlogged, delaying task activity. Queue concurrency is controlled by each store's Mechanic [**concurrency limit**](../core/runs/concurrency.md).
 
-In general, queue slowdowns tend to be related to the Shopify Admin API rate limit, not to the [concurrency limit](../core/runs/concurrency.md). In order to respect the Shopify API rate limit for each store, Mechanic must sometimes artificially slow down its work.
+{% hint style="info" %}
+In most cases, an inefficient run queue is best addressed by combining or reorganizing tasks, improving [Shopify API usage efficiency](../core/shopify/api-rate-limit.md) (converting REST requests to GraphQL is often helpful), or by making judicious use of [event filters](../platform/events/filters.md).
 
-The best place to start is to examine how your tasks interact with the Shopify Admin API, looking for ways to improve efficiency. Often, this looks like migrating things from REST to GraphQL, or looking for places where you're making more requests than necessary.
+It can be also useful to temporarily disable a task responsible for the backup; doing so will cause Mechanic to instantly fail its enqueued runs when they come up for processing, but it will not fail those task runs ahead of time.
+{% endhint %}
 
-To learn about maximizing efficiency in this way, see [Shopify / API rate limit](../core/shopify/api-rate-limit.md).
-
-If this direction doesn't prove useful, or if it's not relevant, contact [team@usemechanic.com](mailto:team@usemechanic.com) and we can discuss raising the Mechanic concurrency limit for your store.
+The limit can be evaluated and adjusted on a case-by-case basis with the platform support team. Contact [team@usemechanic.com](mailto:team@usemechanic.com) with your shop domain and as many specifics about your scenario as possible, and we can discuss from there.
