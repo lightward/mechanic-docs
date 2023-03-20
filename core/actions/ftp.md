@@ -80,6 +80,8 @@ pZ/WFoT82brhooSfJDue14C0Y=
 
 Both `uploads` and `downloads` allow the task author to define file paths. If only the filename is given (e.g. `"sample.pdf"`), the file will be resolved in the home directory of the user. If a relative path (e.g. `"subdirectory/sample.pdf"`) or absolute path (e.g. `"/tmp/sample.pdf"`) is given, it will be respected accordingly.
 
+Each individual file operation (i.e. each upload or download) will be attempted a maximum of 3 times within the FTP/FTPS/SFTP session, retrying if an error occurs during upload or download.
+
 #### Example
 
 This example action results in (a) an upload to an absolute path, starting from the server root, (b) an upload to a nested directory within the user's home folder, and (c) an upload to a nested directory in another user's home folder (which may fail, depending on filesystem permissions).
