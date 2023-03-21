@@ -2,16 +2,20 @@
 
 In general, there are two reasons why a task might be delayed, or might not be appearing to run:
 
-1. The upstream service (like Shopify) is delayed in sending notifications to Mechanic
-2. Your Mechanic account is experiencing a delay
+1. Your Mechanic queue is backed up
+2. The upstream service (like Shopify) is delayed in sending notifications to Mechanic
 
 {% hint style="info" %}
 Using Mechanic for a business-critical purpose? Learn about [monitoring Mechanic](../techniques/monitoring.md).
 {% endhint %}
 
-## If your Mechanic account is experiencing a delay...
+## If your Mechanic queue is backed up...
 
 ... then you'll see a steady stream of incoming activity, in your account's activity log, but you might not see activity corresponding to the very latest events in your store. Mechanic has [some concurrency limits](../core/runs/concurrency.md) that determine how much can happen in your account at once, and if you reach those limits, processing of new events will be delayed until Mechanic catches up.
+
+{% hint style="info" %}
+Related FAQ: [Can my Mechanic concurrency limit be raised?](can-my-mechanic-concurrency-limit-be-raised.md)
+{% endhint %}
 
 ## If upstream service is delayed in sending notifications to Mechanic...
 
