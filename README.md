@@ -4,7 +4,11 @@ description: I'm glad you're here. :) –Isaac
 
 # Introduction
 
-{% embed url="https://www.youtube.com/watch?v=QitSqzfBovg" %}
+Mechanic is a Shopify development and automation platform. Get started by...
+
+* ... [looking in the task library](resources/task-library/) for an off-the-shelf solution
+* ... [learning about "going custom"](custom.md) for something that fits you perfectly
+* ... [asking in our community Slack workspace](resources/slack.md) if you need something else
 
 ## Can Mechanic help me?
 
