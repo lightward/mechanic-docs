@@ -10,6 +10,10 @@ Mechanic is a Shopify development and automation platform. Get started by...
 * ... [learning about "going custom"](custom.md) for something that fits you perfectly
 * ... [asking in our community Slack workspace](resources/slack.md) if you need something else
 
+{% hint style="info" %}
+Find Mechanic on the Shopify app store: [apps.shopify.com/mechanic](https://apps.shopify.com/mechanic)
+{% endhint %}
+
 ## Can Mechanic help me?
 
 Maybe! Mechanic is a Shopify development and automation platform, which comes with a rich library of pre-written automation tasks – and our users write their own custom tasks every day. Let's find out if Mechanic might work for you.
