@@ -261,12 +261,16 @@ A properly-formatted webhook request will always receive a 204 No Content respon
 
 If an active webhook ID was used, then an event will be created with the submitted data. The event will be run asynchronously, along with any generated task and action runs that follow.
 
+### Webhook request ID
+
+All POST requests to webhooks.mechanic.dev will receive an `x-request-id` response header, containing a UUID. This ID can be used as a search term when looking up a Mechanic event, and can be referenced in Liquid as a part of the [Event object](liquid/objects/event.md) via `event.webhook_request_id`.&#x20;
+
 ### Retrieving run results
 
 The webhook ingress API is solely for ingesting data to form a new event. Because of this, the webhook response necessarily does not contain any data resulting from the runs that might follow. (To further explain the point: there could be zero task runs that follow, or many, and there are no hard guarantees for when those runs would finish.)
 
 This means that the caller must use another avenue for retrieving the results of any generated runs. In general, there are three options for this:
 
-* For a consistently re-occurring call with a single caller, the task responding to the webhook event may write its results to the Mechanic cache, allowing the caller to retrieve results using a [cache endpoint](cache/endpoints.md).
-* For calls with variable or multiple callers, consider generating [a UUID](https://en.wikipedia.org/wiki/Universally\_unique\_identifier), and submitting it to the webhook along with the other submitted data. Tasks responding to the webhook event should store their results keyed by that UUID, using an external storage mechanism (possibly via the [HTTP](../core/actions/http.md) or [FTP](../core/actions/ftp.md) actions).
+* For a consistently re-occurring call with a single caller, the task responding to the webhook event may write its results to the [Mechanic cache](cache/), allowing the caller to retrieve results using a [cache endpoint](cache/endpoints.md).
+* For calls with variable or multiple callers, use the webhook request ID by reading the `x-request-id` response header in your client code, and by referencing `event.webhook_request_id` in your task's Liquid code in. Tasks responding to the webhook event should store their results keyed by that UUID, using an external storage mechanism (possibly via the [HTTP](../core/actions/http.md) or [FTP](../core/actions/ftp.md) actions).
 * For calls triggered by customer activity on an online Shopify storefront, consider (a) requiring the customer to be logged in, (b) sending the customer ID in the webhook request data, (c) storing task results in a customer metafield (using the [Shopify](../core/actions/integrations/shopify.md) action), and (d) using storefront Liquid to render the content of that metafield, polling until a value is present.
