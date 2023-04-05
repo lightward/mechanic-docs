@@ -15,31 +15,31 @@ Incoming events may be selectively filtered out using [event filters](filters.md
 ### Actions
 
 * **mechanic/actions/perform**\
-  ****Occurs when an action has been performed, regardless of its success or failure. A task may subscribe to this topic to be notified when each of its actions have been performed, so that the task may then respond to the results.
+  Occurs when an action has been performed, regardless of its success or failure. A task may subscribe to this topic to be notified when each of its actions have been performed, so that the task may then respond to the results.
 
 ### Emails
 
 * **mechanic/emails/received**\
-  ****Occurs when Mechanic receives an email sent to the store's dedicated email address. (A store at example.myshopify.com can receive email at example@mail.usemechanic.com.)
+  Occurs when Mechanic receives an email sent to the store's dedicated email address. (A store at example.myshopify.com can receive email at example@mail.usemechanic.com.)
 
 ### Scheduler
 
 * **mechanic/scheduler/10min**\
-  ****Runs every 10 minutes.
+  Runs every 10 minutes.
 * **mechanic/scheduler/15min**\
-  ****Runs every 15 minutes.
+  Runs every 15 minutes.
 * **mechanic/scheduler/20min**\
-  ****Runs every 20 minutes. (You see where this is going.)
+  Runs every 20 minutes. (You see where this is going.)
 * **mechanic/scheduler/30min**\
-  ****Runs every 30 minutes.
+  Runs every 30 minutes.
 * **mechanic/scheduler/hourly**\
-  ****Runs every hour, on the hour.
+  Runs every hour, on the hour.
 * **mechanic/scheduler/daily**\
-  ****Runs at midnight, in the store's local timezone.
+  Runs at midnight, in the store's local timezone.
 * **mechanic/scheduler/monday**\
   Runs every Monday at midnight, in the store's local timezone. (Note: this would be at the end of Sunday evening). Each named weekday is supported.
 * **mechanic/scheduler/monthly**\
-  ****Runs at midnight on the 1st of the month, in the store's local timezone.
+  Runs at midnight on the 1st of the month, in the store's local timezone.
 
 {% hint style="info" %}
 More specific times can be achieved by subscribing to an event topic with a delay (e.g. "mechanic/scheduler/daily+5.hours"). There is no limit to the length of the delay, including delaying longer than the scheduler interval itself (e.g. "mechanic/scheduler/daily+100.hours"). To learn more, see [Subscriptions](../../core/tasks/subscriptions.md).
@@ -50,9 +50,9 @@ More specific times can be achieved by subscribing to an event topic with a dela
 Not to be confused with events in the User domain, the mechanic/user event subject describes ways that the user expresses their intent – to Mechanic – to run the task. [Run links](../integrations/run-links.md) are available for these topics.
 
 * **mechanic/user/trigger**\
-  ****When used, adds a "Run task" button to the task itself. This button generates a new event, to which only this task will respond.
+  When used, adds a "Run task" button to the task itself. This button generates a new event, to which only this task will respond.
 * **mechanic/user/text**\
-  ****When used, adds a "Run task" button to the task itself. This button prompts the user with a multi-line text box. When submitted, an event is generated, to which only this task will respond. The event contains the user's input in its data, making user's input available in `event.data`.
+  When used, adds a "Run task" button to the task itself. This button prompts the user with a multi-line text box. When submitted, an event is generated, to which only this task will respond. The event contains the user's input in its data, making user's input available in `event.data`.
 
 The following mechanic/user topics are typically used with [Shopify admin action links](../../core/shopify/admin-action-links.md), and are documented there more fully.
 
@@ -105,15 +105,24 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/collections/create
 * shopify/collections/delete
 * shopify/collections/update
+* shopify/companies/create
+* shopify/companies/delete
+* shopify/companies/update
+* shopify/company\_contacts/create
+* shopify/company\_contacts/delete
+* shopify/company\_contacts/update
+* shopify/company\_locations/create
+* shopify/company\_locations/delete
+* shopify/company\_locations/update
 * shopify/customer\_groups/create
 * shopify/customer\_groups/delete
 * shopify/customer\_groups/update
-* shopify/customers\_marketing\_consent/update
 * shopify/customers/create
 * shopify/customers/delete
 * shopify/customers/disable
 * shopify/customers/enable
 * shopify/customers/update
+* shopify/customers\_marketing\_consent/update
 * shopify/disputes/create
 * shopify/disputes/update
 * shopify/domains/create
