@@ -1,6 +1,6 @@
 # Cache
 
-The **Cache** action allows developers to interact with the store's Mechanic [**cache**](../../platform/cache/), using commands inspired by Redis. Cache entries have a **key**, a **value** containing up to 256 kilobytes, and a **ttl** (Time To Live) defaulting to the maximum of 60 days.
+The **Cache** action allows developers to interact with the store's Mechanic [**cache**](../../platform/cache/), using commands inspired by Redis. Cache entries have a **key**, a **value** containing up to 256 kilobytes, and a **ttl** value ("Time To Live") in seconds, defaulting to the maximum of 60 days (i.e. 5184000 seconds).
 
 ## Options
 
@@ -75,7 +75,7 @@ In this option style, the cache command and its arguments are given in a list. U
 
 ## Expiration
 
-Each cache entry is given a default TTL value of 60 days. (A cache entry's TTL may not exceed 60 days.)
+Each cache entry is given a default TTL value of 60 days, or 5184000 seconds. (A cache entry's TTL may not exceed 60 days.)
 
 A cache command will always reset the entry's TTL value upon execution, regardless of the TTL's original value.
 
