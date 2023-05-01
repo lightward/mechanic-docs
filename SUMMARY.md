@@ -82,7 +82,6 @@
   * [Concurrency](core/runs/concurrency.md)
   * [Ordering](core/runs/ordering.md)
   * [Retries](core/runs/retries.md)
-  * [Pauses](core/runs/pauses.md)
 * [Interacting with Shopify](core/shopify/README.md)
   * [Responding to events](core/shopify/events/README.md)
     * [Reconciling missing events](core/shopify/events/reconciling-missing-events.md)
