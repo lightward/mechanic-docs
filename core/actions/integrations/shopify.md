@@ -16,6 +16,10 @@ This action has several usage styles, each with a different set of constraints o
 
 This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). In this style, a single GraphQL query string is supplied as the action options. The [action](../../../platform/liquid/tags/action.md) tag has specific support for this action type, allowing this string to be provided as the contents of an action block.
 
+{% hint style="info" %}
+To prepare complex query inputs, use the [graphql\_arguments](../../../platform/liquid/filters.md#graphql\_arguments) Liquid filter.
+{% endhint %}
+
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid

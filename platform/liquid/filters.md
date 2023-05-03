@@ -276,7 +276,57 @@ In general, all strings passing through Mechanic must be UTF-8, and must ultimat
 
 ### graphql\_arguments \*
 
-\[todo]
+Useful for preparing key-value pairs of GraphQL query or mutation arguments.
+
+{% hint style="info" %}
+Across the documentation and [task library](../../resources/task-library/), you'll frequently see `json` used for serializing argument values. Users have reported some rare cases where this filter is insufficient, and where `graphql_arguments` does the trick instead.
+{% endhint %}
+
+{% hint style="info" %}
+`graphql_arguments` is typically used for rendering GraphQL values into the final GraphQL query string itself. Instead, consider extracting your values as GraphQL variables. This approach can result in more reusable query code.
+
+To try this using a Shopify action, use the [GraphQL with variables](../../core/actions/integrations/shopify.md#graphql-with-variables) syntax.
+
+To try this using the shopify filter, use the [variables](filters.md#graphql-variables) argument.
+
+
+{% endhint %}
+
+```liquid
+{% raw %}
+{% assign inputs = hash %}
+{% assign inputs["a_string"] = "yep this is a string" %}
+{% assign inputs["a_more_complex_type"] = hash %}
+{% assign inputs["a_more_complex_type"]["id"] = "gid://something/Or?other" %}
+{% assign inputs["an_array"] = array %}
+{% assign inputs["an_array"][0] = 1 %}
+{% assign inputs["an_array"][0] = 2 %}
+
+{% action "shopify" %}
+  mutation {
+    anExample({{ inputs | graphql_arguments }}) {
+      result
+    }
+  }
+{% endaction %}
+{% endraw %}
+```
+
+This results in a [GraphQL Shopify action](../../core/actions/integrations/shopify.md#graphql) containing the following GraphQL:
+
+```graphql
+mutation {
+  anExample(
+    a_string: "yep this is a string"
+    a_more_complex_type: { id: "gid://something/Or?other" }
+    an_array: [2]
+  ) {
+    result
+  }
+}
+```
+
+For a more complex example, see [Set product or variant metafields values in bulk](https://github.com/lightward/mechanic-tasks/blob/ce13e354c263f47bb77d80618fc90af5064d10bc/docs/set-product-or-variant-metafields-in-bulk/script.liquid#L127) from the task library.
 
 ### img\_url \*
 
