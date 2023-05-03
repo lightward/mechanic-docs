@@ -288,8 +288,6 @@ Across the documentation and [task library](../../resources/task-library/), you'
 To try this using a Shopify action, use the [GraphQL with variables](../../core/actions/integrations/shopify.md#graphql-with-variables) syntax.
 
 To try this using the shopify filter, use the [variables](filters.md#graphql-variables) argument.
-
-
 {% endhint %}
 
 ```liquid
@@ -462,6 +460,10 @@ Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-a
 
 This filter also supports GraphQL variables, via an optional named argument called `variables`.
 
+{% hint style="info" %}
+Variables can be a useful part of making queries reusable within a task, or for working around [Shopify's 50,000 character limit for GraphQL queries](../../faq/query-param-length-is-too-long.md).
+{% endhint %}
+
 ```liquid
 {% raw %}
 {% capture query %}
@@ -491,10 +493,6 @@ This filter also supports GraphQL variables, via an optional named argument call
 {% assign result = query | shopify: query_options %}
 {% endraw %}
 ```
-
-{% hint style="info" %}
-Variables can be a useful part of making queries reusable within a task, or for working around [Shopify's 50,000 character limit for GraphQL queries](../../faq/query-param-length-is-too-long.md).
-{% endhint %}
 
 ## String filters
 
