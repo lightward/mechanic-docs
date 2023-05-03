@@ -298,7 +298,7 @@ To try this using the shopify filter, use the [variables](filters.md#graphql-var
 {% assign inputs["a_more_complex_type"]["id"] = "gid://something/Or?other" %}
 {% assign inputs["an_array"] = array %}
 {% assign inputs["an_array"][0] = 1 %}
-{% assign inputs["an_array"][0] = 2 %}
+{% assign inputs["an_array"][1] = 2 %}
 
 {% action "shopify" %}
   mutation {
@@ -317,7 +317,7 @@ mutation {
   anExample(
     a_string: "yep this is a string"
     a_more_complex_type: { id: "gid://something/Or?other" }
-    an_array: [2]
+    an_array: [1, 2]
   ) {
     result
   }
