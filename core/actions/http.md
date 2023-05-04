@@ -12,7 +12,7 @@ When developing task code, verify your HTTP action's behavior with [webhook.site
 
 | Option             | Type                                  | Notes                                                                                                                                                    |
 | ------------------ | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `method`           | String, required                      | Must be one of `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"`                                                                                      |
+| `method`           | String, required                      | Must be one of `"options"`, `"head"`, `"get"`, `"post"`, `"put"`, `"patch"`, or `"delete"`                                                               |
 | `url`              | String, required                      | Must start with `https://` or `http://`                                                                                                                  |
 | `body`             | String, required for non-GET requests | Format varies, see below                                                                                                                                 |
 | `files`            | Hash, optional                        | May be set to a JSON object, mapping filenames to [file generators](file-generators/)                                                                    |
