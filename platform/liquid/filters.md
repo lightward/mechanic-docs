@@ -372,7 +372,7 @@ The parse\_jsonl filter can be used to parse a series of JSON strings, each on t
 {{ json_objects | map: "email" | join: ", " }}
 ```
 
-The parse\_jsonl filter raises error an error when invalid JSONL is received.
+The parse\_jsonl filter raises an error when invalid JSONL is received.
 
 ### parse\_xml \*
 
