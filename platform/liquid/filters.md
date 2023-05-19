@@ -18,7 +18,7 @@ Liquid filters should not be confused with [event filters](../events/filters.md)
 
 Allows for converting between strings and their base64-encoded representations.
 
-```
+```javascript
 {% raw %}
 {% assign json_safe_image = image | base64 %}
 {% assign original_image = json_safe_image | decode_base64 %}
@@ -31,7 +31,7 @@ This filter converts a browser user agent string into an object that represents 
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign browser = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/79.0.259819395 Mobile/16G77 Safari/604.1" | browser %}
 {% endraw %}
@@ -80,7 +80,7 @@ The parse\_csv filter accepts a "headers" option; when set to `true`, this filte
 
 {% tabs %}
 {% tab title="csv" %}
-```
+```javascript
 {% raw %}
 {% capture two_dimensional_array_json %}
   [
@@ -110,7 +110,7 @@ The parse\_csv filter accepts a "headers" option; when set to `true`, this filte
 {% endtab %}
 
 {% tab title="parse_csv" %}
-```
+```javascript
 {% raw %}
 {% comment %}
   Note the dashes used in the capture/endcapture tags!
@@ -151,7 +151,7 @@ Order Name,Order ID,Order Date
 {% endtab %}
 
 {% tab title="parse_csv with headers" %}
-```
+```javascript
 {% raw %}
 {% comment %}
   Note the dashes used in the capture/endcapture tags!
@@ -200,7 +200,7 @@ Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/d
 
 Mechanic's date filter supports a `tz` option, which accepts [a timezone name from the TZ database](https://en.wikipedia.org/wiki/List\_of\_tz\_database\_time\_zones). If given, the resulting time string will be in the specified timezone. If this option is not provided, the store's local timezone will be used instead.
 
-```
+```javascript
 {{ "now" | date: "%Y-%m-%d %H:%M %z" }}
 => "2019-01-01 09:00 +0900"
 
@@ -212,7 +212,7 @@ Mechanic's date filter supports a `tz` option, which accepts [a timezone name fr
 
 This filter also accepts the special value `"now"`, and values offset from now, as in `"now + 5 days"` or `"now - 5 weeks"`. In this way, the filter supports simple date math. Note that durations are calculated using variable duration lengths, given the naturally varying length of specific days, weeks, months, and years, given DST and other calendar variances, all informed by the store's timezone. This math is backed by [ActiveSupport::TimeWithZone#+](https://api.rubyonrails.org/classes/ActiveSupport/TimeWithZone.html#method-i-2B). An example, quoting from that documentation: "a time + 24.hours will advance exactly 24 hours, while a time + 1.day will advance 23-25 hours, depending on the day".
 
-```
+```javascript
 {{ "now + 6 weeks" | date: "%Y-%m-%d %H:%M %z" }}
 {{ "now + 3 months" | date: "%Y-%m-%d %H:%M %z" }}
 {{ "now - 3 months" | date: "%Y-%m-%d %H:%M %z" }}
@@ -228,7 +228,7 @@ Use parse\_date to parse a date string, when its exact format is known. This fil
 
 This filter returns an ISO8601 string, representing the parsed date value in the store's local timezone. If the supplied date string cannot be parsed successfully, the filter will return nil.
 
-```
+```javascript
 {{ "01-01-20" | parse_date: "%m-%d-%y" }}
 => "2020-01-01T00:00:00+11:00"
 
@@ -243,7 +243,7 @@ This filter returns an ISO8601 string, representing the parsed date value in the
 
 Returns either the input value, or – if the input is either `nil`, `false`, or an empty string `""` – it returns its argument.
 
-```
+```javascript
 Howdy {{ order.shipping_address.first_name | default: "partner" }}
 ```
 
@@ -253,7 +253,7 @@ These filters allow you to compress and decompress strings, using gzip compressi
 
 In general, all strings passing through Mechanic must be UTF-8, and must ultimately be valid when represented as JSON. However, because gzip'd content may _not_ be UTF-8, and because it may be important to preserve the original encoding, the gunzip filter supports a `force_utf8: false` option. Use this when you're certain the original encoding must be preserved, _if_ you ultimately intend to pass along the string in a JSON-friendly representation. (For example, you might gunzip a value, and then use the base64 filter to represent it safely within JSON.)
 
-```
+```javascript
 {{ "testing" | gzip | gunzip }}
 => "testing"
 
@@ -290,7 +290,7 @@ To try this using a Shopify action, use the [GraphQL with variables](../../core/
 To try this using the shopify filter, use the [variables](filters.md#graphql-variables) argument.
 {% endhint %}
 
-```
+```liquid
 {% raw %}
 {% assign inputs = hash %}
 {% assign inputs["a_string"] = "yep this is a string" %}
@@ -312,7 +312,7 @@ To try this using the shopify filter, use the [variables](filters.md#graphql-var
 
 This results in a [GraphQL Shopify action](../../core/actions/integrations/shopify.md#graphql) containing the following GraphQL:
 
-```
+```graphql
 mutation {
   anExample(
     a_string: "yep this is a string"
@@ -334,7 +334,7 @@ For a more complex example, see [Set product or variant metafields values in bul
 
 Allows converting objects to their JSON representations, and parsing that JSON into hashes.
 
-```
+```liquid
 {% assign order_as_json = order | json }}
 {% raw %}
 {% assign plain_order = order_as_json | parse_json %}
@@ -343,7 +343,7 @@ Allows converting objects to their JSON representations, and parsing that JSON i
 
 The parse\_json filter raises an error when invalid JSON. To ignore parse errors, and to return null when an error is encountered, add `silent: true` to the filter's options:
 
-```
+```liquid
 {% raw %}
 {% assign should_be_nil = "{{" | parse_json: silent: true %}
 {% endraw %}
@@ -353,13 +353,13 @@ The parse\_json filter raises an error when invalid JSON. To ignore parse errors
 
 Allows for rendering an iterable object (i.e. an array) as a series of JSON lines, separated by simple newlines.
 
-```
+```liquid
 {{ shop.customers | jsonl }}
 ```
 
 The parse\_jsonl filter can be used to parse a series of JSON strings, each on their own line, into an array of hashes. Useful when preparing [stub data](../../core/tasks/previews/stub-data.md) for [bulk operations](../graphql/bulk-operations.md).
 
-```
+```liquid
 {% raw %}
 {% capture jsonl_string %}
   {"id":"gid://shopify/Customer/12345","email":"foo@bar.baz"}
@@ -372,13 +372,13 @@ The parse\_jsonl filter can be used to parse a series of JSON strings, each on t
 {{ json_objects | map: "email" | join: ", " }}
 ```
 
-The parse\_jsonl filter raises an error when invalid JSONL is received.
+The parse\_jsonl filter raises error an error when invalid JSONL is received.
 
 ### parse\_xml \*
 
 Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from\_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
 
-```
+```javascript
 {% raw %}
 {% capture xml_string %}
 <foo>
@@ -409,7 +409,7 @@ Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-a
 
 {% tabs %}
 {% tab title="Usage" %}
-```
+```liquid
 {% raw %}
 {% capture query %}
   query {
@@ -429,7 +429,7 @@ Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-a
 {% endtab %}
 
 {% tab title="Result" %}
-```
+```json
 {
   "log": {
     "data": {
@@ -464,7 +464,7 @@ This filter also supports GraphQL variables, via an optional named argument call
 Variables can be a useful part of making queries reusable within a task, or for working around [Shopify's 50,000 character limit for GraphQL queries](../../faq/query-param-length-is-too-long.md).
 {% endhint %}
 
-```
+```liquid
 {% raw %}
 {% capture query %}
   query ProductQuery($id: ID!) {
@@ -502,7 +502,7 @@ Mechanic supports all of the string filters available in Liquid - [https://shopi
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ 'report' | append: '.pdf' }}
 ```
 {% endtab %}
@@ -518,7 +518,7 @@ report.pdf
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ 'mechanic' | capitalize }}
 ```
 {% endtab %}
@@ -534,7 +534,7 @@ Mechanic
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ 'stop yelling it at me' | upcase }}
 {{ 'STOP YELLING AT ME' | downcase }}
 ```
@@ -552,7 +552,7 @@ stop yelling at me
 
 This filter accepts a phone number – country code is required! – and outputs it in [standard E.164 format](https://en.wikipedia.org/wiki/E.164). If the number does not appear valid, the filter returns `nil`.
 
-```
+```javascript
 {{ "1 (312) 456-7890" | e164 }}
 => "13124567890"
 
@@ -575,7 +575,7 @@ This filter returns the entire matched string (i.e. [MatchData#to\_s](https://ru
 This filter only returns the first match found. To find all available matches in a string, use [scan](filters.md#scan).
 {% endhint %}
 
-```
+```javascript
 {{ "It's a lovely day!" | match: "(?<=a ).*(?= day)" }}
 => "lovely"
 
@@ -602,7 +602,7 @@ This filter only returns the first match found. To find all available matches in
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ 'great to meet you.' | prepend: 'It was ' }}
 ```
 {% endtab %}
@@ -620,7 +620,7 @@ Removes a substring from a string.
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ "Hi everyone! Nice to meet everyone!" | remove: "everyone" }}
 {{ "Hi everyone! Nice to meet everyone!" | remove_first: "everyone" }}
 ```
@@ -640,7 +640,7 @@ Replaces a substring with something else.
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ "Matt and Megan love to travel and travel." | replace: 'travel', 'party' }}
 {{ "Matt and Megan love to travel and travel | replace_first : 'travel', 'party' }}
 ```
@@ -664,7 +664,7 @@ This filter returns an array of matches, consisting of each matched string (i.e.
 This filter returns an array of matches. To only find the first match, use [match](filters.md#match).
 {% endhint %}
 
-```
+```javascript
 {{ "It's a lovely day!" | scan: "[\w']+" }}
 => ["It's", "a", "lovely", "day"]
 
@@ -681,7 +681,7 @@ Generates hexadecimal SHA digests. For binary output instead, add `binary: true`
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign signature = "mechanic" | sha256 %}
 sha256: {{ signature }}
@@ -734,7 +734,7 @@ This filter accepts an integer offset, and an optional integer length (defaultin
 
 Negative offsets begin counting from the end of the string.
 
-```
+```javascript
 {{ "12345" | slice: 3 }}
 => "4"
 
@@ -751,7 +751,7 @@ Takes a substring, and uses it to split a string into an array.
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign quote = "love,is,all,you,need!" | split: ',' %}
 
@@ -779,7 +779,7 @@ The strip filter removes whitespace from both sides of a string. The lstrip filt
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ '   why do we have so many spaces?      ' | strip }}
 ```
 {% endtab %}
@@ -803,7 +803,7 @@ Use this filter on strings to remove indentation from strings.
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% capture message %}
   Hello, friend!
@@ -840,7 +840,7 @@ A three-character ISO currency code may be specified as the first argument; curr
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ "100000.0" | currency }}
 {{ 100000.0 | currency: "EUR" }}
 {{ 100000 | currency: "EUR", locale: "fr" }}
@@ -860,7 +860,7 @@ $100 000,00
 
 Note that this filter does not automatically append the currency ISO code (e.g. it will not generate output resembling "€100,000.00 EUR"). To add the ISO code manually, use one of these examples:
 
-```
+```javascript
 {{ price | currency }} {{ shop.currency }}
 {{ price | currency | append: " " | append: shop.currency }}
 ```
@@ -889,7 +889,7 @@ Concatenates two arrays into a single array.
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign lunch = "sandwich, apple, soup" | split: ", " %}
 {% assign dinner = "pasta, pizza, salad" | split: ", " %}
@@ -921,7 +921,7 @@ Returns the first or last element of an array. You can use `first` or `last` in 
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% comment %} 
   product.tags = "VIP", "New", "Canada"
@@ -957,13 +957,13 @@ This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.o
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ "1,2,3" | split: "," | in_groups: 2 | json }}
 ```
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```javascript
 [["1","2"],["3",null]]
 ```
 {% endtab %}
@@ -971,13 +971,13 @@ This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.o
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ "1,2,3" | split: "," | in_groups: 2, fill_with: false | json }}
 ```
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```javascript
 [["1","2"],["3"]]
 ```
 {% endtab %}
@@ -991,13 +991,13 @@ This filter is particularly useful when performing work in batches, by making it
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ "1,2,3,4,5" | split: "," | in_groups_of: 2 | json }}
 ```
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```javascript
 [["1","2"],["3","4"],["5",null]]
 ```
 {% endtab %}
@@ -1005,7 +1005,7 @@ This filter is particularly useful when performing work in batches, by making it
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {{ "1,2,3,4,5" | split: "," | in_groups_of: 2, fill_with: false | json }}
 ```
 {% endtab %}
@@ -1023,7 +1023,7 @@ This filter accepts the name of an object property or attribute, and returns a h
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% capture variants_json %}
   [
@@ -1046,7 +1046,7 @@ This filter accepts the name of an object property or attribute, and returns a h
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```javascript
 {
   "ONE": {
     "id": 12345,
@@ -1067,7 +1067,7 @@ Creates a string from the elements of an array using a character passed as an ar
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% comment %} 
   product.tags = "VIP", "New", "Canada"
@@ -1091,7 +1091,7 @@ Given an array of objects that contain attributes (e.g. `name`) and values (e.g.
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% comment %} 
   product.titles = "Apple", "Orange", "Pepper", "Cheese"
@@ -1117,7 +1117,7 @@ This filter appends any number of arguments onto the provided array, returning a
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign count_to_three = "one,two,three" | split: "," %}
 
@@ -1147,7 +1147,7 @@ This filter returns a new array, containing the contents of the original in reve
 
 This filter can be used on any array. Used without any arguments, it returns a single random element from the array. Provide an integer argument to return another array of that size, containing a random subset of the input array.
 
-```
+```javascript
 {{ "1,2,3" | split: "," | sample }}
 => "2"
 
@@ -1165,7 +1165,7 @@ This filter accepts an integer offset, and an optional integer length (defaultin
 
 Negative offsets begin counting from the end of the array.
 
-```
+```javascript
 {{ "1,2,3,4,5" | split: "," | slice: 3 }}
 => "4"
 
@@ -1194,7 +1194,7 @@ Make sure to choose the sort algorithm most suitable for the consumers of your d
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```liquid
 {% raw %}
 {% assign set = "order #10.b,Order #10.a,Order #2.c,order #2.d" | split: "," %}
 {% endraw %}
@@ -1228,7 +1228,7 @@ sort_naturally:
 
 Use this on an array of numbers to quickly generate their sum.
 
-```
+```javascript
 {{ "[1, 2, 3]" | parse_json | sum }}
 => 6
 ```
@@ -1239,7 +1239,7 @@ Removes any duplicates in an array, resulting in a new array of distinct values.
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign cars = "Honda Ford Toyota Jeep VW Honda VW" %}
 {% endraw %}
@@ -1260,7 +1260,7 @@ This filter prepends any number of arguments onto the provided array, returning 
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign count_two_three = "two,three" | split: "," %}
 
@@ -1287,7 +1287,7 @@ Takes an array of objects, and create a new array with only those that have a gi
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 All products:
 {% raw %}
 {% for product in collection.products %}
@@ -1327,7 +1327,7 @@ The compact filter is [a long-standing part of Liquid itself](http://shopify.git
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign foo = hash %}
 {% assign foo["bar"] = "baz" %}
@@ -1339,7 +1339,7 @@ The compact filter is [a long-standing part of Liquid itself](http://shopify.git
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```javascript
 {"bar":"baz","qux":null}
 {"bar":"baz"}
 ```
@@ -1352,7 +1352,7 @@ This filter accepts one or more string arguments, corresponding to keys that sho
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
@@ -1365,7 +1365,7 @@ This filter accepts one or more string arguments, corresponding to keys that sho
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```javascript
 {"qux":"qux"}
 ```
 {% endtab %}
@@ -1385,7 +1385,7 @@ When applied to a hash, the slice filter accepts one or more string arguments, c
 
 {% tabs %}
 {% tab title="Code" %}
-```
+```javascript
 {% raw %}
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
@@ -1398,7 +1398,7 @@ When applied to a hash, the slice filter accepts one or more string arguments, c
 {% endtab %}
 
 {% tab title="Output" %}
-```
+```javascript
 {"bar":"bar","baz":"baz"}
 ```
 {% endtab %}
@@ -1422,7 +1422,7 @@ First things first: we don't recommend using Shopify's REST API for tagging. Bec
 
 If you _must_ use REST, you can use these filters to make your life a little easier, and manipulate tag strings and arrays more naturally. (All four of these tag filters are case-sensitive.)
 
-```
+```javascript
 {{ "a, b" | add_tag: "c" }}
 => a, b, c
 
@@ -1441,7 +1441,7 @@ If you _must_ use REST, you can use these filters to make your life a little eas
 
 If supplied an array, these filters will return an array as well:
 
-```
+```javascript
 {{ "a,b,e" | split: "," | add_tags: "c", "d" | join: "-" }}
 => a-b-c-d-e
 
