@@ -27,13 +27,7 @@ These resource options only accept fully-numeric resource IDs (i.e. 12345). They
 
 This action also sends user-defined data, with one option available for each of Flow's supported datatypes. These options are _always_ sent to Flow, even if they're omitted from the action definition; when omitted, their values are set to the documented default.
 
-| Option         | Type          | Default                       |
-| -------------- | ------------- | ----------------------------- |
-| `user_boolean` | Boolean       | `false`                       |
-| `user_email`   | Email address | `"hey@mechanic.invalid"`      |
-| `user_number`  | Number        | `0`                           |
-| `user_string`  | String        | `""`                          |
-| `user_url`     | URL           | `"https://mechanic.invalid/"` |
+<table><thead><tr><th width="198.0845070422535">Option</th><th width="150">Type</th><th>Default</th></tr></thead><tbody><tr><td><code>user_boolean</code></td><td>Boolean</td><td><code>false</code></td></tr><tr><td><code>user_email</code></td><td>Email address</td><td><code>"hey@mechanic.invalid"</code></td></tr><tr><td><code>user_number</code></td><td>Number</td><td><code>0</code></td></tr><tr><td><code>user_string</code></td><td>String</td><td><code>""</code></td></tr><tr><td><code>user_url</code></td><td>URL</td><td><code>"https://mechanic.invalid/"</code></td></tr></tbody></table>
 
 ## Usage
 

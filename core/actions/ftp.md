@@ -14,15 +14,7 @@ A single FTP action may download a maximum of 20MB of data, across all downloade
 
 ### General options
 
-| Option      | Type                           | Notes                                                                                                                |
-| ----------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| `protocol`  | `"ftp"`, `"ftps"`, or `"sftp"` | The protocol to use for connection; inferred if omitted                                                              |
-| `host`      | String, required               | The hostname or IP address of the destination server                                                                 |
-| `port`      | Number, optional               | The server port to connect to                                                                                        |
-| `user`      | String, required               | The username for authentication                                                                                      |
-| `password`  | String, optional               | The password for authentication                                                                                      |
-| `uploads`   | Hash, optional                 | An object whose keys are file paths (relative or absolute), and whose values are [file generators](file-generators/) |
-| `downloads` | Array, optional                | File path strings (relative or absolute) to download                                                                 |
+<table><thead><tr><th width="204.33333333333331">Option</th><th width="186">Type</th><th>Notes</th></tr></thead><tbody><tr><td><code>protocol</code></td><td><code>"ftp"</code>, <code>"ftps"</code>, or <code>"sftp"</code></td><td>The protocol to use for connection; inferred if omitted</td></tr><tr><td><code>host</code></td><td>String, required</td><td>The hostname or IP address of the destination server</td></tr><tr><td><code>port</code></td><td>Number, optional</td><td>The server port to connect to</td></tr><tr><td><code>user</code></td><td>String, required</td><td>The username for authentication</td></tr><tr><td><code>password</code></td><td>String, optional</td><td>The password for authentication</td></tr><tr><td><code>uploads</code></td><td>Hash, optional</td><td>An object whose keys are file paths (relative or absolute), and whose values are <a href="file-generators/">file generators</a></td></tr><tr><td><code>downloads</code></td><td>Array, optional</td><td>File path strings (relative or absolute) to download</td></tr></tbody></table>
 
 ### FTP options
 

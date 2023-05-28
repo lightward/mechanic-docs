@@ -51,17 +51,11 @@ This operation is most useful in concert with the `report_toaster/reports/create
 
 Report results can be returned inline, in which case there will be a 10MB limit. Alternatively, a file URL can be returned in a variety of formats.
 
-| Operation option | Description                                                                                                 |
-| ---------------- | ----------------------------------------------------------------------------------------------------------- |
-| reports          | Required; an array of objects defining the reports that will be executed. See below for the report options. |
+<table><thead><tr><th width="150">Operation option</th><th>Description</th></tr></thead><tbody><tr><td>reports</td><td>Required; an array of objects defining the reports that will be executed. See below for the report options.</td></tr></tbody></table>
 
 #### **Report object definition**
 
-| Report option | Description                                                                                                                                        |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id            | Required; a string specifying the unique identifier for a pre-defined report to be executed                                                        |
-| file          | Optional; an object describing a file to be returned when inline JSON results are not desired. Available file formats are "json", "csv", and "pdf" |
-| meta          | Optional; an object providing context for the report execution. This value will be returned with the  `report_toaster/reports/create` webhook      |
+<table><thead><tr><th width="150">Report option</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>Required; a string specifying the unique identifier for a pre-defined report to be executed</td></tr><tr><td>file</td><td>Optional; an object describing a file to be returned when inline JSON results are not desired. Available file formats are "json", "csv", and "pdf"</td></tr><tr><td>meta</td><td>Optional; an object providing context for the report execution. This value will be returned with the  <code>report_toaster/reports/create</code> webhook</td></tr></tbody></table>
 
 #### **Basic Example: Single operation returning JSON Data (limit 10 MB)**
 

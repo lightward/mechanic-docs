@@ -41,7 +41,7 @@ For this tutorial, we'll use JavaScript. And because we're using Mechanic, we do
 
 For this tutorial, I created a development store and installed the [Debut theme](https://themes.shopify.com/themes/debut/styles/default). I use the contact form that comes with the theme as the form that submits to our webook. You can use any contact form on any theme, or create a form specifically for the purpose of submitting to our webhook.
 
-![](<../../.gitbook/assets/image (7) (1) (2) (2) (2) (2) (2) (2).png>)
+![](<../../.gitbook/assets/image (7) (1) (2) (2) (2) (2) (2) (1) (1).png>)
 
 First things first: we're going to make sure of the element ID, for our contact form. This will be important for writing JavaScript that addresses this form. After investigating, we discover that the form ID is "ContactForm". Easy enough!
 

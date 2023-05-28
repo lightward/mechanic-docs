@@ -7,7 +7,7 @@
 
 ## Resources
 
-* [🧑💻 Task library](resources/task-library/README.md)
+* [🧑💻 🧑💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
 * [🚀 Slack community](resources/slack.md)
@@ -234,4 +234,3 @@
   * [What IP address does Mechanic use?](faq/what-ip-address-does-mechanic-use.md)
   * [Can Mechanic read or manage customer subscriptions?](faq/can-mechanic-read-or-manage-customer-subscriptions.md)
   * [Can task content be translated into multiple languages?](faq/can-task-content-be-translated-into-multiple-languages.md)
-  * [This is a test](faq/this-is-a-test.md)

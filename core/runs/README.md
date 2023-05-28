@@ -33,10 +33,4 @@ If Shopify's rate limit for _either_ the GraphQL or REST Admin API has been reac
 
 ## Run states
 
-| Unscheduled | The run has not been assigned a time to be performed          |
-| ----------- | ------------------------------------------------------------- |
-| Scheduled   | Scheduled to be performed, but that time has not yet arrived  |
-| Due         | The run is ready to be performed, and is waiting for a runner |
-| Started     | The run is being performed                                    |
-| Failed      | The run has been performed, and an error has been recorded    |
-| Succeeded   | The run has been performed, without errors                    |
+<table data-header-hidden><thead><tr><th width="216">Run state</th><th>Description</th></tr></thead><tbody><tr><td>Unscheduled</td><td>The run has not been assigned a time to be performed</td></tr><tr><td>Scheduled</td><td>Scheduled to be performed, but that time has not yet arrived</td></tr><tr><td>Due</td><td>The run is ready to be performed, and is waiting for a runner</td></tr><tr><td>Started</td><td>The run is being performed</td></tr><tr><td>Failed</td><td>The run has been performed, and an error has been recorded</td></tr><tr><td>Succeeded</td><td>The run has been performed, without errors</td></tr></tbody></table>

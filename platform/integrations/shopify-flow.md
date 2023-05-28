@@ -140,7 +140,7 @@ If the event data configuration results in invalid JSON, the resulting Mechanic 
 ```
 {% endhint %}
 
-![](<../../.gitbook/assets/Screen Shot 2021-11-05 at 7.23.39 PM (1).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-11-05 at 7.23.39 PM.png>)
 
 ![](<../../.gitbook/assets/Screen Shot 2021-11-05 at 7.22.30 PM.png>)
 
