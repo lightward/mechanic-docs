@@ -10,7 +10,7 @@
 {% endraw %}
 ```
 
-using a github pr
+using a github pull request
 
 * does
 * or
