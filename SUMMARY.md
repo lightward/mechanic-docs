@@ -108,6 +108,7 @@
   * [Receiving email](platform/email/receiving-email.md)
   * [Custom email addresses](platform/email/custom-email-domain.md)
   * [Email templates](platform/email/templates.md)
+* [Error handling](platform/error-handling.md)
 * [Events](platform/events/README.md)
   * [Event topics](platform/events/topics.md)
   * [Event filters](platform/events/filters.md)

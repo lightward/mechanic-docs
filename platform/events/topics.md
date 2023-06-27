@@ -22,6 +22,20 @@ Incoming events may be selectively filtered out using [event filters](filters.md
 * **mechanic/emails/received**\
   Occurs when Mechanic receives an email sent to the store's dedicated email address. (A store at example.myshopify.com can receive email at example@mail.usemechanic.com.)
 
+### Errors
+
+{% hint style="info" %}
+Learn more about [error handling](../error-handling.md).
+{% endhint %}
+
+*   **mechanic/errors/action**
+
+    Occurs when an action fails.
+* **mechanic/errors/event**\
+  Occurs when an event run fails.
+* **mechanic/errors/task**\
+  Occurs when a task run fails.
+
 ### Scheduler
 
 * **mechanic/scheduler/10min**\
