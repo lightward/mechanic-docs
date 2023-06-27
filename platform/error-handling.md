@@ -147,4 +147,4 @@ This occurs when a task run fails. (Examples: a task run exceeds Mechanic's memo
 
 ## Example task
 
-You can install our error reporter task here.
+You can install our error reporter task [here](https://tasks.mechanic.dev/error-reporter).
