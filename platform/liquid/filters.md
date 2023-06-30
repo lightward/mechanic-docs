@@ -326,10 +326,6 @@ mutation {
 
 For a more complex example, see [Set product or variant metafields values in bulk](https://github.com/lightward/mechanic-tasks/blob/ce13e354c263f47bb77d80618fc90af5064d10bc/docs/set-product-or-variant-metafields-in-bulk/script.liquid#L127) from the task library.
 
-### img\_url \*
-
-\[todo]
-
 ### json, parse\_json \*
 
 Allows converting objects to their JSON representations, and parsing that JSON into hashes.
@@ -1447,4 +1443,20 @@ If supplied an array, these filters will return an array as well:
 
 {{ "a,b,c,d,e" | split: "," | remove_tags: "c", "d" | join: "-" }}
 => a-b-e
+```
+
+### img\_url \*
+
+Mechanic's `img_url` filter mirrors Shopify's now-deprecated `img_url` filter. We do not encourage its use. As of this writing, usage notes are available at [https://www.shopify.com/partners/blog/img-url-filter](https://www.shopify.com/partners/blog/img-url-filter).
+
+This filter accepts a [Product object](shopify/product.md), [Variant object](shopify/variant.md), [Line item object](shopify/line-item.md), or [Product image object](shopify/product-image.md). The filter accepts an optional size argument, set to a size string (e.g. `"master"`, `"large"`, `"small"`). The filter may also be provided with named `crop`, `scale`, and `format` options.
+
+#### Examples
+
+```
+{{ shop.orders[12345].line_items.first | img_url }}
+
+{{ product.variants[0] | img_url: '100x300', scale: 2, crop: 'bottom' }}
+
+{{ image | img_url: 'master', format: 'pjpg' }}
 ```
