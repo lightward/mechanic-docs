@@ -122,12 +122,16 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/companies/create
 * shopify/companies/delete
 * shopify/companies/update
+* shopify/company\_contact\_roles/assign
+* shopify/company\_contact\_roles/revoke
 * shopify/company\_contacts/create
 * shopify/company\_contacts/delete
 * shopify/company\_contacts/update
 * shopify/company\_locations/create
 * shopify/company\_locations/delete
 * shopify/company\_locations/update
+* shopify/customer/tags\_added
+* shopify/customer/tags\_removed
 * shopify/customer\_groups/create
 * shopify/customer\_groups/delete
 * shopify/customer\_groups/update
@@ -135,7 +139,9 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/customers/delete
 * shopify/customers/disable
 * shopify/customers/enable
+* shopify/customers/merge
 * shopify/customers/update
+* shopify/customers\_email\_marketing\_consent/update
 * shopify/customers\_marketing\_consent/update
 * shopify/disputes/create
 * shopify/disputes/update
@@ -194,6 +200,10 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/payment\_terms/create
 * shopify/payment\_terms/delete
 * shopify/payment\_terms/update
+* shopify/product\_feeds/create
+* shopify/product\_feeds/full\_sync
+* shopify/product\_feeds/incremental\_sync
+* shopify/product\_feeds/update
 * shopify/products/create
 * shopify/products/delete
 * shopify/products/update
@@ -213,6 +223,7 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/segments/delete
 * shopify/segments/update
 * shopify/shop/update
+* shopify/tax\_partners/update
 * shopify/tender\_transactions/create
 * shopify/themes/create
 * shopify/themes/delete
