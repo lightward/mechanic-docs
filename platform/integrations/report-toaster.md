@@ -121,10 +121,12 @@ Report results can be returned inline, in which case there will be a 10MB limit.
         {% comment %}
           Optionally set this to create a download link to the report data
           instead of returning the report data in the event. Options are
-          'json', 'csv' and 'pdf'.
+          'json', 'csv' and 'pdf'. If csv then include_headers can be used
+          to turn headers on/off - they are included if ommitted
         {% endcomment %}
         "file": {
           "format": "csv"
+         ,"include_headers": false
         },
 
         {% comment %}
