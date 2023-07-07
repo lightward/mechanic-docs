@@ -27,5 +27,5 @@ Mechanic maintains a set of integration actions, offering first-class support fo
 | Action                                           | Integrated service | Purpose                                                                        |
 | ------------------------------------------------ | ------------------ | ------------------------------------------------------------------------------ |
 | [Flow](integrations/flow.md)                     | Shopify Flow       | Sending customer, order, product, and general triggers to Shopify Flow         |
-| [Shopify](integrations/shopify.md)               | Shopify Admin API  | Sending requests to the Shopify Admin API, supporting both REST and GraphQL    |
+| [Shopify](shopify.md)                            | Shopify Admin API  | Sending requests to the Shopify Admin API, supporting both REST and GraphQL    |
 | [Report Toaster](integrations/report-toaster.md) | Report Toaster     | Requesting reports from Report Toaster, or updating data within Report Toaster |

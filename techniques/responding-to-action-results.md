@@ -5,7 +5,7 @@ In writing a Mechanic task, it may be necessary to do more than a single round o
 To achieve enhanced flows of this sort, subscribe to the **mechanic/actions/perform** event topic. When a task includes this subscription, Mechanic will generate an event with that topic for every action that the task completes. This event will only ever be responded to by the task that generated it; it will never be sent to other tasks.
 
 {% hint style="info" %}
-The mechanic/actions/perform subscription is commonly used with the [Shopify action](../core/actions/integrations/shopify.md) (with GraphQL mutations) and the [HTTP action](../core/actions/http.md) (for reading data from third-party APIs – see [Working with external APIs](working-with-external-apis.md)).
+The mechanic/actions/perform subscription is commonly used with the [Shopify action](../core/actions/shopify.md) (with GraphQL mutations) and the [HTTP action](../core/actions/http.md) (for reading data from third-party APIs – see [Working with external APIs](working-with-external-apis.md)).
 
 The [Echo action](../core/actions/echo.md) does not generate mechanic/actions/perform events.
 {% endhint %}

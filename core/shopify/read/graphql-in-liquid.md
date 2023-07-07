@@ -3,7 +3,7 @@
 Tasks may use the [shopify Liquid filter](../../../platform/liquid/filters.md#shopify) to convert GraphQL query strings into simple result objects, by sending the query to the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). The easiest way to build these queries is via the [Shopify Admin API GraphiQL explorer](https://shopify.dev/tools/graphiql-admin-api), which allows queries to be interactively constructed.
 
 {% hint style="info" %}
-The shopify filter does not support running mutations (i.e. writing Shopify data via GraphQL). To run mutations, use the [Shopify action](../../actions/integrations/shopify.md).
+The shopify filter does not support running mutations (i.e. writing Shopify data via GraphQL). To run mutations, use the [Shopify action](../../actions/shopify.md).
 {% endhint %}
 
 ## Usage
@@ -99,7 +99,7 @@ You'll note that this code includes stub data when running during a preview even
 
 The hardest part of using GraphQL in Mechanic is writing the query itself. :) For help with this, we recommend installing [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/). It provides an environment where, using auto-complete and built-in documentation, you can rapidly build the right query for your task.
 
-Note: GraphQL queries (excluding whitespace) are limited to 50,000 characters. That's a hard limit, enforced on Shopify's end – if you bump up against it, you'll need to adjust your query strategy to always stay under that limit. If you're saving large values to a metafield, for example, consider separating those values using GraphQL variables, keeping the query itself trim. Learn more about this scenario using the [Shopify action](../../actions/integrations/shopify.md#graphql-with-variables), or with the [shopify Liquid filter](../../../platform/liquid/filters.md#shopify).
+Note: GraphQL queries (excluding whitespace) are limited to 50,000 characters. That's a hard limit, enforced on Shopify's end – if you bump up against it, you'll need to adjust your query strategy to always stay under that limit. If you're saving large values to a metafield, for example, consider separating those values using GraphQL variables, keeping the query itself trim. Learn more about this scenario using the [Shopify action](../../actions/shopify.md#graphql-with-variables), or with the [shopify Liquid filter](../../../platform/liquid/filters.md#shopify).
 
 ## Use GraphQL when...
 

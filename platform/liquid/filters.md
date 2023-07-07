@@ -285,7 +285,7 @@ Across the documentation and [task library](../../resources/task-library/), you'
 {% hint style="info" %}
 `graphql_arguments` is typically used for rendering GraphQL values into the final GraphQL query string itself. Instead, consider extracting your values as GraphQL variables. This approach can result in more reusable query code.
 
-To try this using a Shopify action, use the [GraphQL with variables](../../core/actions/integrations/shopify.md#graphql-with-variables) syntax.
+To try this using a Shopify action, use the [GraphQL with variables](../../core/actions/shopify.md#graphql-with-variables) syntax.
 
 To try this using the shopify filter, use the [variables](filters.md#graphql-variables) argument.
 {% endhint %}
@@ -310,7 +310,7 @@ To try this using the shopify filter, use the [variables](filters.md#graphql-var
 {% endraw %}
 ```
 
-This results in a [GraphQL Shopify action](../../core/actions/integrations/shopify.md#graphql) containing the following GraphQL:
+This results in a [GraphQL Shopify action](../../core/actions/shopify.md#graphql) containing the following GraphQL:
 
 ```graphql
 mutation {
