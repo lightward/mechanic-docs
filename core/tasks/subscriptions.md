@@ -12,11 +12,11 @@ A task may have any number of subscriptions.
 
 ## Offsets
 
-A subscription offset defines the amount of time a task should wait or delay (!!) before responding to the incoming event. It's the easiest way to add a delay to a task's subscription to a specific topic. (For finer control over event timing, try using the `run_at` option of the [Event action](../actions/event.md).)
+A subscription offset (sometimes called a delay) defines the amount of time a task should wait or delay (!!) before responding to the incoming event. It's the easiest way to add a delay to a task's subscription to a specific topic. (For finer control over event timing, try using the `run_at` option of the [Event action](../actions/event.md).)
 
 Subscription offsets are appended to the subscription topic, and are of the form "+1.hour". Offsets may be given using minutes, hours, days, weeks, months, or years. There is no limit to how large the subscription offset may be.
 
-A subscription with an offset looks like "shopify/customers/create+1.hour".
+**A subscription with an offset looks like `shopify/customers/create+1.hour`.**
 
 To learn more about scheduling work with Mechanic, see [Scheduling](../runs/scheduling.md).
 
