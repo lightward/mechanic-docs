@@ -236,3 +236,4 @@
   * [Can Mechanic read or manage customer subscriptions?](faq/can-mechanic-read-or-manage-customer-subscriptions.md)
   * [Can task content be translated into multiple languages?](faq/can-task-content-be-translated-into-multiple-languages.md)
   * [Can I add a time delay to my task?](faq/can-i-add-a-time-delay-to-my-task.md)
+  * [Can I add another store to my existing Mechanic subscription?](faq/can-i-add-another-store-to-my-existing-mechanic-subscription.md)
