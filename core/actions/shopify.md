@@ -124,54 +124,40 @@ This example shows how the query and variables may be built up separately, and p
 {% tab title="Liquid" %}
 ```javascript
 {% raw %}
+{% assign metafield_owner_id = "gid://shopify/Customer/507332001849" %}
+{% assign metafield_value = hash %}
+{% assign metafield_value["foo"] = "bar" %}
+
 {% capture query %}
-  mutation SetCustomerMetafield(
-    $customerId: ID!
-    $metafieldNamespace: String!
-    $metafieldKey: String!
-    $metafieldId: ID
-    $metafieldValue: String!
-  ) {
-    customerUpdate(
-      input: {
-        id: $customerId
-        metafields: [
-          {
-            id: $metafieldId
-            namespace: $metafieldNamespace
-            key: $metafieldKey
-            type: "single_line_text_field"
-            value: $metafieldValue
-          }
-        ]
+  mutation MetafieldsSet($metafields: [MetafieldsSetInput!]!) {
+    metafieldsSet(metafields: $metafields) {
+      metafields {
+        key
+        namespace
+        value
+        createdAt
+        updatedAt
       }
-    ) {
       userErrors {
         field
         message
-      }
-      customer {
-        metafield(
-          namespace: $metafieldNamespace
-          key: $metafieldKey
-        ){
-          id
-        }
+        code
       }
     }
   }
 {% endcapture %}
 
-{% assign customer_id = 700837494845 %}
-{% assign customer = shop.customers[customer_id] %}
-{% assign existing_metafield = customer.metafields.test | where: "key", "test" | first %}
+{% assign metafield = hash %}
+{% assign metafield["ownerId"] = metafield_owner_id %}
+{% assign metafield["namespace"] = "demo" %}
+{% assign metafield["key"] = "demo" %}
+{% assign metafield["type"] = "json" %}
+{% assign metafield["value"] = metafield_value | json %}
+{% assign metafields = array %}
+{% assign metafields = metafields | push: metafield %}
 
 {% assign variables = hash %}
-{% assign variables["customerId"] = customer.admin_graphql_api_id %}
-{% assign variables["metafieldNamespace"] = "test" %}
-{% assign variables["metafieldKey"] = "test" %}
-{% assign variables["metafieldId"] = existing_metafield.admin_graphql_api_id %}
-{% assign variables["metafieldValue"] = "now" | date: "%s" %}
+{% assign variables["metafields"] = metafields %}
 
 {% action "shopify" query: query, variables: variables %}
 {% endraw %}
