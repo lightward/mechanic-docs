@@ -120,6 +120,7 @@
     * [Pagination](platform/graphql/basics/pagination.md)
   * [Bulk operations](platform/graphql/bulk-operations.md)
 * [Integrations](platform/integrations/README.md)
+  * [Appstle Subscriptions](platform/integrations/appstle-subscriptions.md)
   * [Judge.me](platform/integrations/judge.me.md)
   * [Locksmith](platform/integrations/locksmith.md)
   * [Report Toaster](platform/integrations/report-toaster.md)

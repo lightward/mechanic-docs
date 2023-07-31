@@ -243,6 +243,20 @@ Mechanic allows developers several ways to generate custom User events:
 
 ## Third-party
 
+### Appstle Subscriptions
+
+* **appstle\_subscriptions/subscriptions/create** — Occurs when a subscription is created.
+* **appstle\_subscriptions/subscriptions/activate** — Occurs when a subscription is activated.
+* **appstle\_subscriptions/subscriptions/cancel** — Occurs when a subscription is cancelled.
+* **appstle\_subscriptions/subscriptions/next\_order\_date\_change** — Occurs when the next order data of a subscription is changed.
+* **appstle\_subscriptions/subscriptions/pause** — Occurs when a subscription is paused.
+* **appstle\_subscriptions/subscriptions/update** — Occurs when a subscription is updated.
+* **appstle\_subscriptions/billings/create** — Occurs when billing for a subscription is created.
+* **appstle\_subscriptions/billings/failure** — Occurs when billing for a subscription fails.
+* **appstle\_subscriptions/billings/interval\_change** — Occurs when billing for a subscription changes.
+
+Learn more about the Appstle Subscriptions integration [here](../integrations/appstle-subscriptions.md).
+
 ### Judge.me
 
 * **judgeme/review/created** — Occurs when new Judge.me reviews are received. Requires enabling the Mechanic integration within Judge.me; see [Judge.me's integration announcement](https://blog.judge.me/blog/new-integration-mechanic-app).
