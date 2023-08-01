@@ -12,7 +12,7 @@ You can trigger your Mechanic tasks and take action when events happen in Appstl
 
 ### Connecting Appstle Subscriptions to Mechanic
 
-Enable the Mechanic subscription under App integrations in the Appstle Subscriptions app:
+Enable the Mechanic integration under App integrations in the Appstle Subscriptions app:
 
 <figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
