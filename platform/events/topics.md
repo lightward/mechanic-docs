@@ -70,10 +70,6 @@ Not to be confused with events in the User domain, the mechanic/user event subje
 
 The following mechanic/user topics are typically used with [Shopify admin action links](../../core/shopify/admin-action-links.md), and are documented there more fully.
 
-*   **mechanic/user/abandoned\_checkout**\
-    **mechanic/user/abandoned\_checkouts**
-
-    Occurs when a user sends one or more abandoned checkouts to Mechanic
 * **mechanic/user/collection**\
   **mechanic/user/collections**\
   Occurs when a user sends one or more collections to Mechanic&#x20;
