@@ -1,12 +1,13 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [⛩ Introduction](README.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)
 * [🤓 Hire a Mechanic developer](hire-a-developer.md)
 
 ## Resources
 
+* [⬇ Install Mechanic](https://apps.shopify.com/mechanic)
 * [🧑💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
