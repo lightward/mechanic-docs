@@ -4,7 +4,9 @@ description: A complete index
 
 # Event topics
 
-Mechanic supports a variety of [**event topics**](../../core/events/topics.md), each a classification of an [**event**](../../core/events/). This page is a complete index of pre-defined topics, organized by **domain**.
+Mechanic supports a variety of [**event topics**](../../core/events/topics.md), each a classification of an [**event**](../../core/events/). Each [**task**](../../core/tasks/) can signal its interest in specific topics by using [**subscriptions**](../../core/tasks/subscriptions.md).
+
+This page is a complete index of pre-defined topics, organized by the event topic's **domain**.
 
 {% hint style="info" %}
 Incoming events may be selectively filtered out using [event filters](filters.md).

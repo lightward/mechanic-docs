@@ -2,7 +2,7 @@
 description: I'm glad you're here. :) –Isaac
 ---
 
-# Introduction
+# ⛩ Introduction
 
 Mechanic is a Shopify development and automation platform. Get started by...
 
@@ -33,9 +33,9 @@ Got a question you need answered now? [Join our Slack workspace.](https://join.s
 
 ### Tasks, events, and actions
 
-A developer writes [**tasks**](core/tasks/) – Mechanic's term for a piece of automation. These tasks can respond to many different [**events**](core/events/), like a Shopify webhook, a manual trigger, a regular interval (e.g. hourly, daily), or an incoming email.
+A developer writes [**tasks**](core/tasks/) – Mechanic's term for a piece of automation. These tasks can respond to many different [**events**](core/events/), like a Shopify webhook, a manual trigger, a regular interval (e.g. hourly, daily), or an incoming email. Tasks use [**subscriptions**](core/tasks/subscriptions.md) to signal their interest in specific event types.
 
-When a task responds to an incoming event, it can choose to generate an [**action**](core/actions/) – an operation that has an effect.
+When a task receives an incoming event, it can choose to generate an [**action**](core/actions/) – an operation that has an effect.
 
 * The [Shopify](core/actions/shopify.md) action makes changes to a Shopify store, like tagging, publishing, creating or deleting resources. It provides direct and complete access to Shopify's admin API, with support for both REST and GraphQL.
 * The [Email](core/actions/email.md) action is for sending email. It supports custom templates, and attachments.
