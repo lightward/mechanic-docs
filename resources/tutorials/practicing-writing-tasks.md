@@ -9,6 +9,7 @@ Working on getting better at task-writing? See [Writing a high-quality task](../
 ## Assignments
 
 * [ ] 1\. Auto-tag customers with @gmail.com email addresses, with "gmail"
+  * Configure the task's event subscriptions appropriately
   * Support case-insensitivity – recognize "@gmail.com", _and_ "@Gmail.com"
   * Ignore domains with more extensions – don't tag for "@gmail.com.au"
   * Make sure that any existing tags on the customer's account are kept, not lost
