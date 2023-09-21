@@ -10,7 +10,7 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
 
 #### **Example: Skip Tagging if Tag Already Exists**
 
-{% code lineNumbers="true" fullWidth="true" %}
+{% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```liquid
 {% raw %}
 {% if event.topic == "shopify/products/update" or event.preview %}
@@ -42,7 +42,7 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
 
 **Example: Using Timestamps to Prevent Loops**
 
-{% code lineNumbers="true" fullWidth="true" %}
+{% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```liquid
 {% raw %}
 {% if event.topic == "shopify/products/update" or event.preview %}
