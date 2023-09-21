@@ -194,6 +194,7 @@
 
 ## Techniques
 
+* [Preventing action loops](techniques/preventing-action-loops.md)
 * [Writing a high-quality task](techniques/writing-a-high-quality-task.md)
 * [Tagging Shopify resources](techniques/tagging-shopify-resources.md)
 * [Debouncing events](techniques/debouncing-events.md)
