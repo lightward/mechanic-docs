@@ -116,6 +116,12 @@ Every time access is granted to a resource on a store using [Locksmith](https://
 ```
 {% endcode %}
 
+
+
 {% hint style="info" %}
-Please email [team@uselocksmith.com](mailto:team@uselocksmith.com) and request to have your webhooks sent to Mechanic.
+Webhooks can be enabled by visiting your Locksmith _Settings_ page, and clicking "Enable Mechanic events" under the _Extensions_ heading:
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-09-25 at 11.36.55 AM.png" alt=""><figcaption><p>Locksmith > Settings > Extensions > Mechanic </p></figcaption></figure>
+
+Please email [team@uselocksmith.com](mailto:team@uselocksmith.com) if you need help enabling webhooks to be sent to Mechanic.
