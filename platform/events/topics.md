@@ -193,6 +193,7 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/orders/fulfilled
 * shopify/orders/paid
 * shopify/orders/partially\_fulfilled
+* shopify/orders/shopify\_protect\_eligibility\_changed
 * shopify/orders/updated
 * shopify/payment\_schedules/due
 * shopify/payment\_terms/create
@@ -208,6 +209,7 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/profiles/create
 * shopify/profiles/delete
 * shopify/profiles/update
+* shopify/publications/delete
 * shopify/refunds/create
 * shopify/returns/approve
 * shopify/returns/cancel
