@@ -2,9 +2,9 @@
 
 ## Residency
 
-Mechanic stores all data in the US, on encrypted volumes provided by Heroku and AWS. Data encryption keys are managed by Heroku.
+Mechanic stores all data in the US, on encrypted volumes provided by Crunchy Data and AWS. Data encryption keys are managed by Crunchy Data.
 
-For more details, see Heroku's [Security](https://www.heroku.com/policy/security) and [Data encryption](https://devcenter.heroku.com/articles/heroku-postgres-production-tier-technical-characterization#data-encryption) documentation.
+For more details, see Crunchy Data's [Security](https://www.crunchydata.com/security) documentation.
 
 ## Retention of events
 
