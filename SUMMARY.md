@@ -208,7 +208,6 @@
 ***
 
 * [FAQ](faq/README.md)
-  * [How can I look up an order by name using GraphQL?](faq/how-can-i-look-up-an-order-by-name-using-graphql.md)
   * [How do I stop a large batch of runs?](faq/how-do-i-stop-a-large-batch-of-runs.md)
   * [A Shopify event is missing. Where is it?](faq/a-shopify-event-is-missing-where-is-it.md)
   * [Does Mechanic have an affiliate program?](faq/does-mechanic-have-an-affiliate-program.md)
