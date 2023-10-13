@@ -35,11 +35,13 @@ See [https://pdfcrowd.com/doc/api/html-to-pdf/http/](https://pdfcrowd.com/doc/ap
 
 ### wkhtmltopdf options
 
-For reference while migrating, these are the PDF generator options supported by wkhtmltopdf:
+{% hint style="danger" %}
+This wkhtmltopdf option list is given as a reference while migrating to Pdfcrowd. Don't build new wkhtmltopdf-specific functionality using these options.
+{% endhint %}
 
 collate, no-collate, grayscale, image-dpi, image-quality, lowquality, margin-bottom, margin-left, margin-right, margin-top, orientation, page-height, page-size, page-width, no-pdf-compression, title, outline, no-outline, outline-depth, background, no-background, default-header, encoding, disable-external-links, enable-external-links, disable-forms, enable-forms, images, no-images, load-media-error-handling, minimum-font-size, exclude-from-outline, include-in-outline, page-offset, disable-smart-shrinking, enable-smart-shrinking, disable-toc-back-links, enable-toc-back-links, zoom, footer-center, footer-font-name, footer-font-size, footer-html, footer-left, footer-line, no-footer-line, footer-right, footer-spacing, header-center, header-font-name, header-font-size, header-html, header-left, header-line, no-header-line, header-right, header-spacing, replace, disable-dotted-lines, toc-header-text, toc-level-indentation, disable-toc-links, toc-text-size-shrink
 
-To use additional options from the list above, add them alongside the `html` option:
+To use options from the list above, add them alongside `"html"`:
 
 ```javascript
 {
