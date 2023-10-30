@@ -35,6 +35,7 @@
   * [Practicing writing tasks](resources/tutorials/practicing-writing-tasks.md)
   * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)
   * [Creating scheduled CSV feeds](resources/tutorials/creating-scheduled-csv-feeds.md)
+  * [Fetching data from a shared Google sheet](resources/tutorials/fetching-data-from-a-shared-google-sheet.md)
 
 ## Core Concepts <a href="#core" id="core"></a>
 
