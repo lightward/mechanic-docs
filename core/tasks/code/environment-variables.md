@@ -10,7 +10,7 @@ Environment variables may be reassigned as needed. (When preparing a task previe
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `shop`    | An object containing [Shopify's REST representation of the current Shopify store](https://shopify.dev/docs/admin-api/rest/reference/store-properties/shop) |
 | `event`   | An object containing information about the current event                                                                                                   |
-| `cache`   | The current store's Mechanic cache, supporting lookups for cached values                                                                                   |
+| `cache`   | The current store's [Mechanic cache](../../../platform/liquid/objects/cache.md) object, supporting lookups for cached values                               |
 | `task`    | An object containing information about the current task                                                                                                    |
 | `options` | An object containing task [**options**](../options/), configured by the user                                                                               |
 

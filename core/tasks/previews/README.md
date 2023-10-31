@@ -4,7 +4,11 @@ A task uses its **preview** to demonstrate what actions the task intends to gene
 
 Mechanic generates a task preview by rendering the task code using a **preview event**, which resembles a live event that the task may see. The task is then responsible for rendering **preview actions** in response to the preview event, actions which are visually presented to the user and are analyzed by the platform, but are never actually performed.
 
-**During a preview, access to the Shopify API is disabled.** In most cases, this means that the task must detect and react to preview events intentionally. To provide tasks with relevant sample data during preview, developers can [**define preview events**](events.md) (to construct relevant scenarios at the event level) or use [**stub data**](stub-data.md) (to swap in predefined values for `event`, or for the results of Shopify API data).
+{% hint style="info" %}
+**Task previews cannot access the Mechanic cache or the Shopify Admin API.** This restriction is made to increase the predictability and performance of task previews.
+
+To provide tasks with relevant sample data during preview, developers can [define preview events](events.md) (to construct relevant scenarios at the event level) or use [stub data](stub-data.md) (to swap in predefined values for [environment variables](../code/environment-variables.md), or for the results of data that would otherwise come from the Mechanic cache or the Shopify Admin API).
+{% endhint %}
 
 ## Purposes
 

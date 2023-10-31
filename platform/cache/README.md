@@ -1,6 +1,10 @@
 # Cache
 
-Each Mechanic account has a simple key-value cache, which may be written to using [Cache](../../core/actions/cache.md) actions, and read from using the[ cache object](../liquid/objects/cache.md) and [cache endpoints](endpoints.md).
+Each Mechanic account has a simple key-value cache, which may be written to using [Cache](../../core/actions/cache.md) actions, and read from using the [cache object](../liquid/objects/cache.md) and [cache endpoints](endpoints.md).
+
+{% hint style="info" %}
+Cache data is unavailable during [task preview](../../core/tasks/previews/).
+{% endhint %}
 
 ## Restrictions
 

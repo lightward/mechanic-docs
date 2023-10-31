@@ -2,6 +2,10 @@
 
 The **Cache** action allows developers to interact with the store's Mechanic [**cache**](../../platform/cache/), using commands inspired by Redis. Cache entries have a **key**, a **value** containing up to 256 kilobytes, and a **ttl** value ("Time To Live") in seconds, defaulting to the maximum of 60 days (i.e. 5184000 seconds).
 
+{% hint style="info" %}
+Cache actions (like all actions) are performed after their task run is completed. The results of Cache actions therefore aren't reflected during the task run that generates them.
+{% endhint %}
+
 ## Options
 
 This action supports two styles of options: a more verbose nested structure, and a simpler set of positional arguments.
