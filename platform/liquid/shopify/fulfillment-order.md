@@ -6,5 +6,5 @@
 
 ## What it contains
 
-* [Every property from the Fulfillment resource in the Shopify REST Admin API](https://shopify.dev/docs/api/admin-rest/2023-10/resources/fulfillmentorder#resource-object)
+* [Every property from the Fulfillment Order resource in the Shopify REST Admin API](https://shopify.dev/docs/api/admin-rest/2023-10/resources/fulfillmentorder#resource-object)
 * The related [order object](order.md): `{{ fulfillment_order.order }}`
