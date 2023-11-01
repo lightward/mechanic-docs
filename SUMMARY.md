@@ -209,6 +209,7 @@
 ***
 
 * [FAQ](faq/README.md)
+  * [The app isn't loading. What do I do?](faq/the-app-isnt-loading.-what-do-i-do.md)
   * [How do I stop a large batch of runs?](faq/how-do-i-stop-a-large-batch-of-runs.md)
   * [A Shopify event is missing. Where is it?](faq/a-shopify-event-is-missing-where-is-it.md)
   * [Does Mechanic have an affiliate program?](faq/does-mechanic-have-an-affiliate-program.md)
