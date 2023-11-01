@@ -39,7 +39,7 @@ Or, combine to be even more selective:\
 * An array of [order risk objects](order-risk.md): `{{ order.risks }}`&#x20;
 * An array of [transaction objects](transaction.md): `{{ order.transactions }}`
 * An array of [fulfillment objects](fulfillment.md): `{{ order.fulfillments }}`&#x20;
-* An array of [fulfillment orders objects](fulfillment-1.md): `{{ order.fulfillment_orders }}`&#x20;
+* An array of [fulfillment orders objects](fulfillment-order.md): `{{ order.fulfillment_orders }}`&#x20;
 * An array of note attributes, that also supports lookups by attribute name: `{% for attr in order.note_attributes %}{% if attr.name == "color" %}{{ attr.value }}{% endif %}{% endfor %}`, or `{{ order.note_attributes.color }}`&#x20;
 
 ## Notes
