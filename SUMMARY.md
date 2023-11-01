@@ -160,6 +160,7 @@
     * [Dispute object](platform/liquid/shopify/dispute.md)
     * [Draft order object](platform/liquid/shopify/draft-order.md)
     * [Fulfillment object](platform/liquid/shopify/fulfillment.md)
+    * [Fulfillment order object](platform/liquid/shopify/fulfillment-1.md)
     * [Fulfillment event object](platform/liquid/shopify/fulfillment-event.md)
     * [Gift card object](platform/liquid/shopify/gift-card.md)
     * [Inventory item object](platform/liquid/shopify/inventory-item.md)
