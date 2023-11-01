@@ -13,7 +13,7 @@
   * [Requesting](resources/task-library/requesting.md)
 * [🚀 Slack community](resources/slack.md)
 * [🤝 Partner directory](https://partners.mechanic.dev)
-* [Tutorials](resources/tutorials/README.md)
+* [🧠 Tutorials](resources/tutorials/README.md)
   * [Video walkthroughs](resources/video-walkthroughs/README.md)
     * [Auto-tag orders by originating staff member](resources/video-walkthroughs/auto-tag-orders-by-originating-staff-member.md)
     * [Maintain a tag for orders processed today](resources/video-walkthroughs/maintain-a-tag-for-orders-processed-today.md)
