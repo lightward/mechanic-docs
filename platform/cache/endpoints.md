@@ -16,7 +16,7 @@ Enter the cache key, where the desired data has been stored, and save to receive
 
 ### Alternatives
 
-Not all data can be JSON-encoded. To work around this restriction, use the [base64](../liquid/filters.md#base-64-decode\_base64) Liquid filter to cache base64-encoded data.
+Not all data can be JSON-encoded. To work around this restriction, use the [base64](../liquid/filters/#base-64-decode\_base64) Liquid filter to cache base64-encoded data.
 
 Values cached in Mechanic have a maximum lifetime of 60 days. If data must be stored long-term, or is quite large, consider using the [FTP](../../core/actions/ftp.md) action in concert with a service like [Couchdrop](https://couchdrop.io/), to send data to a more appropriate storage location.
 

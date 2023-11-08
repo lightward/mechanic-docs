@@ -18,7 +18,7 @@ Each task is given a set of [environment variables](../../tasks/code/environment
 
 ![](https://s3.amazonaws.com/helpscout.net/docs/assets/5ddd799f2c7d3a7e9ae472fc/images/5e28a1e12c7d3a7e9ae69bd2/5e28a1e1a248a.png)
 
-The [cache](../../../platform/liquid/objects/cache.md), [event](../../../platform/liquid/objects/event.md), [options](../../../platform/liquid/objects/options.md), and [shop](../../../platform/liquid/shopify/shop.md) objects are always available for tasks; the [order](../../../platform/liquid/shopify/order.md) object (as in this example) contains the order to which the current event relates.
+The [cache](../../../platform/liquid/objects/cache.md), [event](../../../platform/liquid/objects/event.md), [options](../../../platform/liquid/objects/options.md), and [shop](../../../platform/liquid/objects/shopify/shop.md) objects are always available for tasks; the [order](../../../platform/liquid/objects/shopify/order.md) object (as in this example) contains the order to which the current event relates.
 
 Use [Mechanic's Liquid object documentation](../../../platform/liquid/objects/) to discover what data is available for each Liquid object.
 

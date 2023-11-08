@@ -9,12 +9,12 @@ However, developers may define their own preview events, containing whatever dat
 * Most tasks conditionally respond to events based on their data. Controlling the event data present during preview allows the developer to deterministically verify the results of the action.
 * Further, by deterministically/predictably generating actions, the developer can consistently demonstrate the permissions they need to Mechanic. (To learn more about this, see [Previews](./).)
 * Defining preview event data is usually simpler than defining [stub data](stub-data.md).
-  * Stubbing the `event` variable (or any of the [subject variables](../code/environment-variables.md#event-subject-variables)) removes any intelligence from the objects Mechanic generates from event data, a drawback avoided by defining a preview event and its data. Using the [Order object](../../../platform/liquid/shopify/order.md) as an example, a task may typically access its custom attributes via `order.note_attributes.color`, or via `order.note_attributes[0].value`. This dynamic behavior is lost if the `event` variable is stubbed out, which can result in behaviors that are difficult to diagnose.
+  * Stubbing the `event` variable (or any of the [subject variables](../code/environment-variables.md#event-subject-variables)) removes any intelligence from the objects Mechanic generates from event data, a drawback avoided by defining a preview event and its data. Using the [Order object](../../../platform/liquid/objects/shopify/order.md) as an example, a task may typically access its custom attributes via `order.note_attributes.color`, or via `order.note_attributes[0].value`. This dynamic behavior is lost if the `event` variable is stubbed out, which can result in behaviors that are difficult to diagnose.
 * Multiple preview events may be defined per event topic. This allows developers to verify that their task renders the appropriate results under a variety of circumstances.
   * Defined preview events can be labeled with a description, which is visible in the task preview pane. This makes it easy to identify the scenario that a preview event is meant to represent.
 
 {% hint style="info" %}
-Preview event definitions cannot provide for return values from Shopify query operations (i.e. output from the [shopify filter](../../../platform/liquid/filters.md#shopify), or the result of traversing Shopify Liquid objects, as in `customer.orders.first`). For those purposes, use the [**stub data**](stub-data.md) technique.
+Preview event definitions cannot provide for return values from Shopify query operations (i.e. output from the [shopify filter](../../../platform/liquid/filters/#shopify), or the result of traversing Shopify Liquid objects, as in `customer.orders.first`). For those purposes, use the [**stub data**](stub-data.md) technique.
 {% endhint %}
 
 ## Configuration

@@ -26,7 +26,7 @@ Keep an eye on tasks that are running at the same time, competing for resources.
 
 In high-volume scenarios for Shopify Plus accounts, Mechanic's performance can be improved by creating [a custom Shopify app](https://help.shopify.com/en/manual/apps/custom-apps), having the same permissions that you've granted to Mechanic. Because this private app represents your explicit control and intent, it usually comes with a higher API rate limit. (And, in some cases, Shopify can grant this custom app a _higher_ API usage limit, upon request.) By providing Mechanic with this custom app's Shopify Admin API access token, you can extend this higher limit to Mechanic.
 
-This feature is also useful for accessing Plus-only APIs, which are only available to custom Shopify apps. Notably, this includes gift cards (using [the gift card object](../../platform/liquid/shopify/gift-card.md)).
+This feature is also useful for accessing Plus-only APIs, which are only available to custom Shopify apps. Notably, this includes gift cards (using [the gift card object](../../platform/liquid/objects/shopify/gift-card.md)).
 
 This setting can be found in the Mechanic account settings, in the Permissions area. (This setting is only shown for Shopify Plus accounts.) Before adding your API token, you must ensure that the private app has every access scope that Mechanic requires. A list of current required access scopes is provided just below the token field.
 

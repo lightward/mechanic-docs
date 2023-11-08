@@ -82,7 +82,7 @@ An array is a value that itself contains an ordered list of other values. Each v
 
 ### Creating an array
 
-Liquid supports creating arrays of strings using the [split](../filters.md#split) filter. In Mechanic, arrays can be created using the [array literal](types.md).
+Liquid supports creating arrays of strings using the [split](../filters/#split) filter. In Mechanic, arrays can be created using the [array literal](types.md).
 
 {% hint style="info" %}
 The array literal is unique to Mechanic Liquid. Arrays cannot be created in this way using Shopify Liquid.
@@ -116,11 +116,11 @@ The array literal is unique to Mechanic Liquid. Arrays cannot be created in this
 
 ### Array filters
 
-Mechanic includes a variety of [array filters](../filters.md#array-filters), useful for transforming arrays or retrieving specific values.
+Mechanic includes a variety of [array filters](../filters/#array-filters), useful for transforming arrays or retrieving specific values.
 
 ## Object
 
-An **object** is any value that has attributes (also known as properties). The name of an attribute is known as its **key**; the data stored for an attribute is known as its **value**. In Mechanic, some objects have additional intelligence of their own, like the [Shop object](../shopify/shop.md).
+An **object** is any value that has attributes (also known as properties). The name of an attribute is known as its **key**; the data stored for an attribute is known as its **value**. In Mechanic, some objects have additional intelligence of their own, like the [Shop object](../objects/shopify/shop.md).
 
 ### Iterating through objects
 
@@ -163,7 +163,7 @@ In Mechanic, a **hash** is a simple type of object that has no additional intell
 
 ### Creating a hash
 
-In Mechanic, hashes can be created using the [hash](../keyword-literals/hash.md) literal, or by using any of the "parse" [filters](../filters.md).
+In Mechanic, hashes can be created using the [hash](../keyword-literals/hash.md) literal, or by using any of the "parse" [filters](../filters/).
 
 {% hint style="info" %}
 This only applies to Mechanic Liquid. Hashes cannot be created in Shopify Liquid.
@@ -180,7 +180,7 @@ This only applies to Mechanic Liquid. Hashes cannot be created in Shopify Liquid
 
 ### Iterating through hashes
 
-Hashes may be traversed using [for loops](control-flow/iteration.md), like other objects. For convenience, Mechanic also supports extract an array of hash keys using the [keys](../filters.md#keys) filter, or object values using the [values](../filters.md#values) filter. The resulting arrays may also be used with a for loop, like any array.
+Hashes may be traversed using [for loops](control-flow/iteration.md), like other objects. For convenience, Mechanic also supports extract an array of hash keys using the [keys](../filters/#keys) filter, or object values using the [values](../filters/#values) filter. The resulting arrays may also be used with a for loop, like any array.
 
 ```liquid
 {% raw %}

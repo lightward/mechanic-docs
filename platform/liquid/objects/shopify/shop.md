@@ -11,7 +11,7 @@
 ### Associated resources
 
 {% hint style="warning" %}
-Use caution when loading large sets of resources through the shop object. Using code like `{% product in shop.products %}` will result in Mechanic downloading the complete REST representation of all products in the store, which may be more data than is necessary or useful. When working with large amounts of data, consider [using GraphQL](../../../core/shopify/read/graphql-in-liquid.md) instead.
+Use caution when loading large sets of resources through the shop object. Using code like `{% product in shop.products %}` will result in Mechanic downloading the complete REST representation of all products in the store, which may be more data than is necessary or useful. When working with large amounts of data, consider [using GraphQL](../../../../core/shopify/read/graphql-in-liquid.md) instead.
 
 
 

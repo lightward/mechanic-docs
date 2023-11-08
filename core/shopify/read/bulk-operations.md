@@ -117,5 +117,5 @@ mechanic/shopify/bulk_operation
 
 ## Don't use bulk operations when...
 
-* ... you only need a little bit of data. Use the [shopify](../../../platform/liquid/filters.md#shopify) filter instead.
+* ... you only need a little bit of data. Use the [shopify](../../../platform/liquid/filters/#shopify) filter instead.
 * ... you're responding to a Shopify event, and the data you need comes along with the event data. Use [Liquid objects](liquid-objects.md) instead.

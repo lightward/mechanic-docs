@@ -99,7 +99,7 @@ Shopify and Mechanic both use Liquid code for their templates. Run through the f
 
 ### Update variables to reference order properties
 
-Shopify uses variables like `{{ total_price }}` and `{{ transactions }}` and `{{ email }}`. These variables aren't automatically available in Mechanic, but the right pieces of data all available via [the Order object](../platform/liquid/shopify/order.md), using references like `{{ order.total_price }}` and `{{ order.transactions }}` and `{{ order.email }}`.
+Shopify uses variables like `{{ total_price }}` and `{{ transactions }}` and `{{ email }}`. These variables aren't automatically available in Mechanic, but the right pieces of data all available via [the Order object](../platform/liquid/objects/shopify/order.md), using references like `{{ order.total_price }}` and `{{ order.transactions }}` and `{{ order.email }}`.
 
 Rather than changing all of these variable references across the template, it may be easier to initialize those variables at the top of the template code, using something like this:
 
@@ -121,7 +121,7 @@ Mechanic's usual sources for querying Shopify data may be used here as well. To 
 
 ### Convert numeric strings to numbers, and check on money rendering
 
-Mechanic uses API data from Shopify to power [the Order object](../platform/liquid/shopify/order.md). Because the Shopify API makes money figures available as strings, one _may_ need to cast these values to numbers for parts of your template to work correctly. This may be done via assignment, as in `{% assign foo = some_number | times: 1 %}`, or at the time of output, as in `{{ some_number | times: 1 }}`.
+Mechanic uses API data from Shopify to power [the Order object](../platform/liquid/objects/shopify/order.md). Because the Shopify API makes money figures available as strings, one _may_ need to cast these values to numbers for parts of your template to work correctly. This may be done via assignment, as in `{% assign foo = some_number | times: 1 %}`, or at the time of output, as in `{{ some_number | times: 1 }}`.
 
 This is particularly important if the figure is used in a logical condition, like this one:
 

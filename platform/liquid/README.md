@@ -4,36 +4,16 @@ Everything in Mechanic is about [**tasks**](../../core/tasks/), and tasks are wr
 
 Fundamentally, [**task code**](../../core/tasks/code/) is a Liquid template for rendering JSON instructions for [**actions**](../../core/actions/). In the same way that a Liquid theme might take Shopify store data and render HTML for a web browser, Mechanic task code takes incoming [**events**](../../core/events/), and uses them as variables to render JSON objects, defining work to be performed.
 
-## Liquid basics
+## One Liquid, many implementations
 
-Mechanic's implementation of Liquid is based on the same engine that Shopify uses, which means that Mechanic shares the same basic Liquid features as Shopify does.
+**Open-source Liquid** is a template language created by Shopify, used by many developers for many projects and products in, around, and beyond Shopify. ([Learn the basics here!](basics/))
 
-{% content-ref url="basics/" %}
-[basics](basics/)
-{% endcontent-ref %}
+**Shopify Liquid** is the implementation of open-source Liquid used within Shopify itself, including Shopify's Online Store themes. Shopify Liquid contains many filters and objects that are not a part of open-source Liquid.
 
-## Mechanic's additions
+**Mechanic Liquid** is the implementation of open-source Liquid used here, within Mechanic. It contains many filters and objects that are unique to Mechanic, in addition to some unique language features.
 
-Task code only ever renders JSON objects. To make it easier to generate JSON, we've introduced several new Liquid tags: [action](tags/action.md), [log](tags/log.md), and [error](tags/error.md).
-
-{% content-ref url="tags/" %}
-[tags](tags/)
-{% endcontent-ref %}
-
-Mechanic has first-class support for [arrays](keyword-literals/array.md) and [hashes](keyword-literals/hash.md), via new keyword literals that make it easy to instantiate them. We've also enhanced the [assign](https://docs.usemechanic.com/article/357-the-assign-tag) tag to support assigning values within arrays and hashes.
-
-{% content-ref url="keyword-literals/" %}
-[keyword-literals](keyword-literals/)
-{% endcontent-ref %}
-
-We've added several filters that make it easier to manage data in the Mechanic world. Highlights include [match](filters.md#match) (for regular expressions), and [csv](filters.md#csv), [base64](filters.md#base-64-decode\_base64), and [decode\_json](filters.md#json-parse\_json-parse\_jsonl).
-
-{% content-ref url="basics/filters.md" %}
-[filters.md](basics/filters.md)
-{% endcontent-ref %}
-
-Finally, Mechanic task code frequently interacts with special variables that Mechanic creates, representing specific types of data. These variables are examples of Mechanic-powered Liquid objects, which contain more intelligence than the usual Liquid variable.
-
-{% content-ref url="objects/" %}
-[objects](objects/)
-{% endcontent-ref %}
+* [**Mechanic filters**](filters/) make it easier to manage data in the context of Mechanic tasks.
+  * Mechanic Liquid also includes support for many [Shopify Liquid filters](filters/shopify.md)!
+* [**Mechanic keyword literals**](keyword-literals/) create support for [arrays](keyword-literals/array.md) and [hashes](keyword-literals/hash.md).
+* [**Mechanic objects**](objects/) define specific types of data, which may describe parts of Mechanic or parts of a Shopify store.
+* [**Mechanic tags**](tags/) make it easier for task writers to render JSON objects. These tags include [action](tags/action.md), [log](tags/log.md), and [error](tags/error.md). We've also enhanced the [assign](tags/assign.md) tag to support assigning values within arrays and hashes.

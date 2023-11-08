@@ -113,4 +113,4 @@ This approach is also viable, but has one risk: because it specifies all of the 
 {% endraw %}
 ```
 
-These examples use `add_tag` and `remove_tag`, which are Liquid filters unique to Mechanic (see [Mechanic's list of supported filters](../platform/liquid/filters.md)).
+These examples use `add_tag` and `remove_tag`, which are Liquid filters unique to Mechanic (see [Mechanic's list of supported filters](../platform/liquid/filters/)).

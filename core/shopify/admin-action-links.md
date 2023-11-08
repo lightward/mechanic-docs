@@ -82,7 +82,7 @@ After selecting a processing mode, select from the available compatible tasks â€
 
 To qualify a task to receive these events, subscribe to an event topic from the [Supported resources](admin-action-links.md#supported-resources) table above.
 
-For these events, Mechanic makes available an [environment variable](../tasks/code/environment-variables.md) named after the third term in the event topic. For example, a mechanic/user/order event will make available a variable called `order`, which contains an [Order object](../../platform/liquid/shopify/order.md) with data pulled from the Shopify Admin REST API. By contrast, a mechanic/user/orders event will make available a variable called `orders`, which contains an array of Order objects.
+For these events, Mechanic makes available an [environment variable](../tasks/code/environment-variables.md) named after the third term in the event topic. For example, a mechanic/user/order event will make available a variable called `order`, which contains an [Order object](../../platform/liquid/objects/shopify/order.md) with data pulled from the Shopify Admin REST API. By contrast, a mechanic/user/orders event will make available a variable called `orders`, which contains an array of Order objects.
 
 {% hint style="danger" %}
 Event data for these topics is often very similar to data from [Shopify events](events/), but there are occasionally differences. For example, shopify/orders/\* events do not include customer data. By contrast, customer data is included in the Shopify Admin REST API representation for the Order resource. Therefore, event data for mechanic/user/order and mechanic/user/orders events _do_ contain information about the customer, unlike shopify/orders events.

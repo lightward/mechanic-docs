@@ -1,33 +1,16 @@
-# Filters
+# Mechanic filters
 
-This page contains definitions for all Mechanic-supported Liquid filters.
-
-Filters that are unique to Mechanic (and not available in Shopify or on other platforms) are noted with an asterisk.
-
-{% hint style="info" %}
-This page is a developer reference for Liquid filters supported by Mechanic. For an introduction to the concept of Liquid filters, see [Filters](basics/filters.md).
-{% endhint %}
+This page defines [**filters**](../basics/filters.md) that are unique to Mechanic Liquid. [Mechanic also supports many filters from Shopify Liquid.](shopify.md)
 
 {% hint style="warning" %}
-Liquid filters should not be confused with [event filters](../events/filters.md), which are used to conditionally ignore incoming events.
+Liquid filters should not be confused with [event filters](../../events/filters.md), which are used to conditionally ignore incoming events.
 {% endhint %}
 
 ## Data filters
 
-### base64, decode\_base64 \*
+### browser
 
-Allows for converting between strings and their base64-encoded representations.
-
-```javascript
-{% raw %}
-{% assign json_safe_image = image | base64 %}
-{% assign original_image = json_safe_image | decode_base64 %}
-{% endraw %}
-```
-
-### browser \*
-
-This filter converts a browser user agent string into an object that represents the browser itself. (This filter uses data from [ Browserscope](https://github.com/ua-parser/uap-core) to match user agents.
+This filter converts a browser user agent string into an object that represents the browser itself. Data from[ Browserscope](https://github.com/ua-parser/uap-core) is used to match user agents.
 
 {% tabs %}
 {% tab title="Code" %}
@@ -72,7 +55,7 @@ device: iPhone<br>device name: iPhone<br>device brand: Apple<br>device model: iP
 {% endtab %}
 {% endtabs %}
 
-### csv, parse\_csv \*
+### csv, parse\_csv
 
 Supports converting a two-dimensional array to a CSV string, and back again.
 
@@ -192,7 +175,7 @@ Order Name,Order ID,Order Date
 {% endtab %}
 {% endtabs %}
 
-### date, parse\_date \*
+### date, parse\_date
 
 Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/docs/themes/liquid/reference/filters/additional-filters#date). Mechanic's implementation has all the functionality of Shopify's. It accepts a date format, using [the same format as Ruby's strftime](http://www.ruby-doc.org/core/Time.html#method-i-strftime). (Sites like [strfti.me](http://www.strfti.me/) offer convenient references for this format.) Under the hood, this filter uses [ActiveSupport::TimeZone#strptime](https://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html#method-i-strptime), and inherits its behavior with regard to missing upper components.
 
@@ -239,15 +222,7 @@ This filter returns an ISO8601 string, representing the parsed date value in the
 => nil
 ```
 
-### default
-
-Returns either the input value, or – if the input is either `nil`, `false`, or an empty string `""` – it returns its argument.
-
-```javascript
-Howdy {{ order.shipping_address.first_name | default: "partner" }}
-```
-
-### gzip, gunzip \*
+### gzip, gunzip
 
 These filters allow you to compress and decompress strings, using gzip compression.
 
@@ -274,20 +249,20 @@ In general, all strings passing through Mechanic must be UTF-8, and must ultimat
 => "what does it mean to be “slow”?"
 ```
 
-### graphql\_arguments \*
+### graphql\_arguments
 
 Useful for preparing key-value pairs of GraphQL query or mutation arguments.
 
 {% hint style="info" %}
-Across the documentation and [task library](../../resources/task-library/), you'll frequently see `json` used for serializing argument values. Users have reported some rare cases where this filter is insufficient, and where `graphql_arguments` does the trick instead.
+Across the documentation and [task library](../../../resources/task-library/), you'll frequently see `json` used for serializing argument values. Users have reported some rare cases where this filter is insufficient, and where `graphql_arguments` does the trick instead.
 {% endhint %}
 
 {% hint style="info" %}
 `graphql_arguments` is typically used for rendering GraphQL values into the final GraphQL query string itself. Instead, consider extracting your values as GraphQL variables. This approach can result in more reusable query code.
 
-To try this using a Shopify action, use the [GraphQL with variables](../../core/actions/shopify.md#graphql-with-variables) syntax.
+To try this using a Shopify action, use the [GraphQL with variables](../../../core/actions/shopify.md#graphql-with-variables) syntax.
 
-To try this using the shopify filter, use the [variables](filters.md#graphql-variables) argument.
+To try this using the shopify filter, use the [variables](./#graphql-variables) argument.
 {% endhint %}
 
 ```liquid
@@ -310,7 +285,7 @@ To try this using the shopify filter, use the [variables](filters.md#graphql-var
 {% endraw %}
 ```
 
-This results in a [GraphQL Shopify action](../../core/actions/shopify.md#graphql) containing the following GraphQL:
+This results in a [GraphQL Shopify action](../../../core/actions/shopify.md#graphql) containing the following GraphQL:
 
 ```graphql
 mutation {
@@ -326,7 +301,7 @@ mutation {
 
 For a more complex example, see [Set product or variant metafields values in bulk](https://github.com/lightward/mechanic-tasks/blob/ce13e354c263f47bb77d80618fc90af5064d10bc/docs/set-product-or-variant-metafields-in-bulk/script.liquid#L127) from the task library.
 
-### json, parse\_json \*
+### json, parse\_json
 
 Allows converting objects to their JSON representations, and parsing that JSON into hashes.
 
@@ -345,7 +320,7 @@ The parse\_json filter raises an error when invalid JSON. To ignore parse errors
 {% endraw %}
 ```
 
-### jsonl, parse\_jsonl \*
+### jsonl, parse\_jsonl
 
 Allows for rendering an iterable object (i.e. an array) as a series of JSON lines, separated by simple newlines.
 
@@ -353,7 +328,7 @@ Allows for rendering an iterable object (i.e. an array) as a series of JSON line
 {{ shop.customers | jsonl }}
 ```
 
-The parse\_jsonl filter can be used to parse a series of JSON strings, each on their own line, into an array of hashes. Useful when preparing [stub data](../../core/tasks/previews/stub-data.md) for [bulk operations](../graphql/bulk-operations.md).
+The parse\_jsonl filter can be used to parse a series of JSON strings, each on their own line, into an array of hashes. Useful when preparing [stub data](../../../core/tasks/previews/stub-data.md) for [bulk operations](../../graphql/bulk-operations.md).
 
 ```liquid
 {% raw %}
@@ -370,7 +345,7 @@ The parse\_jsonl filter can be used to parse a series of JSON strings, each on t
 
 The parse\_jsonl filter raises an error when invalid JSONL is received.
 
-### parse\_xml \*
+### parse\_xml
 
 Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from\_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
 
@@ -395,7 +370,7 @@ Use this filter to parse an XML string. (Under the hood, this filter calls [Hash
 {"foo":{"bar":["baz",{"qux":"quux"}]}}
 ```
 
-### shopify \*
+### shopify
 
 This filter accepts a GraphQL query string, sends it to Shopify, and returns the full response – including `"data"` and `"errors"`.
 
@@ -457,7 +432,7 @@ Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-a
 This filter also supports GraphQL variables, via an optional named argument called `variables`.
 
 {% hint style="info" %}
-Variables can be a useful part of making queries reusable within a task, or for working around [Shopify's 50,000 character limit for GraphQL queries](../../faq/query-param-length-is-too-long.md).
+Variables can be a useful part of making queries reusable within a task, or for working around [Shopify's 50,000 character limit for GraphQL queries](../../../faq/query-param-length-is-too-long.md).
 {% endhint %}
 
 ```liquid
@@ -492,59 +467,7 @@ Variables can be a useful part of making queries reusable within a task, or for 
 
 ## String filters
 
-Mechanic supports all of the string filters available in Liquid - [https://shopify.dev/api/liquid/filters/string-filters](https://shopify.dev/api/liquid/filters/string-filters).
-
-### append
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{{ 'report' | append: '.pdf' }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-report.pdf
-```
-{% endtab %}
-{% endtabs %}
-
-### capitalize
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{{ 'mechanic' | capitalize }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-Mechanic
-```
-{% endtab %}
-{% endtabs %}
-
-### downcase, upcase
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{{ 'stop yelling it at me' | upcase }}
-{{ 'STOP YELLING AT ME' | downcase }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-STOP YELLING AT ME
-stop yelling at me
-```
-{% endtab %}
-{% endtabs %}
-
-### e164 \*
+### e164
 
 This filter accepts a phone number – country code is required! – and outputs it in [standard E.164 format](https://en.wikipedia.org/wiki/E.164). If the number does not appear valid, the filter returns `nil`.
 
@@ -559,16 +482,14 @@ This filter accepts a phone number – country code is required! – and outputs
 => "null"
 ```
 
-### escape, escape\_once
-
-### match \*
+### match
 
 Use this filter to match a string with a Ruby-compatible regular expression pattern (see [Regexp](https://ruby-doc.org/core/Regexp.html)).
 
 This filter returns the entire matched string (i.e. [MatchData#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to\_s)). Use the "captures" or "named\_captures" lookups to receive an array or hash of captures, respectively (i.e. [MatchData#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named\_captures)).
 
 {% hint style="info" %}
-This filter only returns the first match found. To find all available matches in a string, use [scan](filters.md#scan).
+This filter only returns the first match found. To find all available matches in a string, use [scan](./#scan).
 {% endhint %}
 
 ```javascript
@@ -590,50 +511,6 @@ This filter only returns the first match found. To find all available matches in
 => "a lovely day"
 ```
 
-### md5
-
-### newline\_to\_br
-
-### prepend
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{{ 'great to meet you.' | prepend: 'It was ' }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-It was geat to meet you
-```
-{% endtab %}
-{% endtabs %}
-
-### remove, remove\_first
-
-Removes a substring from a string.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{{ "Hi everyone! Nice to meet everyone!" | remove: "everyone" }}
-{{ "Hi everyone! Nice to meet everyone!" | remove_first: "everyone" }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-Hi ! Nice to meet !
-Hi ! Nice to meet everyone!
-```
-{% endtab %}
-{% endtabs %}
-
-### replace, replace\_first
-
-Replaces a substring with something else.
-
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
@@ -650,14 +527,27 @@ Matt and Megan love to party and travel.
 {% endtab %}
 {% endtabs %}
 
-### scan \*
+### rsa\_sha256
+
+Accepts string input, given an RSA PEM key string as a filter option.
+
+{% hint style="info" %}
+This filter is useful for generating [JSON Web Signatures](../../../techniques/working-with-external-apis/json-web-signatures.md)!
+{% endhint %}
+
+```liquid
+{{ input | rsa_sha256: private_key_pem }}
+{{ input | rsa_sha256: private_key_pem, binary: true | base64_encode }}
+```
+
+### scan
 
 Use this filter to find all available matches in a string, using a Ruby-compatible regular expression pattern (see [Regexp](https://ruby-doc.org/core/Regexp.html)).
 
 This filter returns an array of matches, consisting of each matched string (i.e. [MatchData#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to\_s)). Use the "captures" or "named\_captures" lookups on individual matches to receive an array or hash of captures, respectively (i.e. [MatchData#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named\_captures)).
 
 {% hint style="info" %}
-This filter returns an array of matches. To only find the first match, use [match](filters.md#match).
+This filter returns an array of matches. To only find the first match, use [match](./#match).
 {% endhint %}
 
 ```javascript
@@ -671,129 +561,7 @@ This filter returns an array of matches. To only find the first match, use [matc
 => [{"punctuation" => "'"}, {"punctuation" => "!"}]
 ```
 
-### sha256, hmac\_sha1, hmac\_sha256
-
-Generates hexadecimal SHA digests. For binary output instead, add `binary: true` to the filter's options.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{% raw %}
-{% assign signature = "mechanic" | sha256 %}
-sha256: {{ signature }}
-
-{% assign signature = "mechanic" | hmac_sha1: "sincerely" %}
-hmac_sha1: {{ signature }}
-
-{% assign signature = "mechanic" | hmac_sha256: "sincerely" %}
-hmac_sha256: {{ signature }}
-
-{% comment %}
-  Generating an AWS request signature - adapted from
-  https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html
-{% endcomment %}
-{% assign kSecret = "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY" %}
-{% assign prefixed_kSecret = "AWS4" | append: kSecret %}
-{% assign kDate = "20150830" | hmac_sha256: prefixed_kSecret, binary: true %}
-{% assign kRegion = "us-east-1" | hmac_sha256: kDate, binary: true %}
-{% assign kService = "iam" | hmac_sha256: kRegion, binary: true %}
-{% assign kSigning = "aws4_request" | hmac_sha256: kService %}
-{% endraw %}
-aws: {{ kSigning }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-sha256: 6c8a739536961bcf34dccc343908406d48139344da4754d4cfe43dcf8d662607
-
-hmac_sha1: 0425a4dbbe0588be87fb51b5706c2244401bc73a
-
-hmac_sha256: 4b8e2bcf66f95b21f74f491eacc1459b0c9ea6723355174af52ded391f9326ea
-
-aws: c4afb1cc5771d871763a393e44b703571b55cc28424d1a5e86da6ed3c154a4b9
-```
-{% endtab %}
-{% endtabs %}
-
-### size
-
-Returns the integer length of the input string.
-
-### slice
-
-{% hint style="info" %}
-This filter also works for [arrays](filters.md#slice-1)! And there's a different behavior available for [hashes](filters.md#slice-2).
-{% endhint %}
-
-This filter accepts an integer offset, and an optional integer length (defaulting to 1). It returns a substring, beginning at the provided index, having the provided length.
-
-Negative offsets begin counting from the end of the string.
-
-```javascript
-{{ "12345" | slice: 3 }}
-=> "4"
-
-{{ "12345" | slice: 3, 2 }}
-=> "45"
-
-{{ "12345" | slice: -3, 2 }}
-=> "34"
-```
-
-### split
-
-Takes a substring, and uses it to split a string into an array.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{% raw %}
-{% assign quote = "love,is,all,you,need!" | split: ',' %}
-
-{% for word in quote %}
-  {{ quote }}
-{% endfor %}
-{% endraw %}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-love
-is
-all
-you
-need!
-```
-{% endtab %}
-{% endtabs %}
-
-### strip, lstrip, rstrip
-
-The strip filter removes whitespace from both sides of a string. The lstrip filter removes whitespace from the left side; the rstrip filter removes whitespace from the right side.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{{ '   why do we have so many spaces?      ' | strip }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-why do we have so many spaces?
-```
-{% endtab %}
-{% endtabs %}
-
-### strip\_html
-
-### strip\_newlines
-
-### truncate, truncatewords
-
-### unindent \*
+### unindent
 
 Use this filter on strings to remove indentation from strings.
 
@@ -824,13 +592,11 @@ It's a mighty fine day!
 {% endtab %}
 {% endtabs %}
 
-### url\_decode, url\_encode
+## Math filters
 
-## Number filters
+### currency
 
-### currency \*
-
-Formats a number (given as an [integer](basics/types.md#integer-float), [float](basics/types.md#integer-float), or [string](basics/types.md#string)) as currency. Called with no arguments, this filter uses the store's primary currency and default locale.
+Formats a number (given as an [integer](../basics/types.md#integer-float), [float](../basics/types.md#integer-float), or [string](../basics/types.md#string)) as currency. Called with no arguments, this filter uses the store's primary currency and default locale.
 
 A three-character ISO currency code may be specified as the first argument; currency support is drawn from the [money](https://github.com/RubyMoney/money/blob/main/config/currency\_iso.json) project. The locale may be overridden as a named option; locale support is drawn from [rails-i18n](https://github.com/svenfuchs/rails-i18n#available-locales).
 
@@ -861,93 +627,9 @@ Note that this filter does not automatically append the currency ISO code (e.g. 
 {{ price | currency | append: " " | append: shop.currency }}
 ```
 
-### Math filters
-
-Mechanic supports [the same set of math filters as Shopify](https://shopify.dev/docs/themes/liquid/reference/filters/math-filters#modulo).
-
-* abs – Returns the absolute value of the input. No arguments.
-* at\_most – Accepts one argument; returns either the input or the argument, whichever is lesser.
-* at\_least – Accepts one argument; returns either the input or the argument, whichever is greater.
-* ceil – Rounds a float to the next highest integer.
-* divided\_by – Accepts one argument; divides the input by the argument. If both the input and arguments are integers, returns an integer; otherwise, returns a float.
-* floor – Rounds a float down to the next highest integer.
-* minus – Accepts one argument; returns the input minus the argument.
-* plus – Accepts one argument; returns the input plus the argument.
-* round – Rounds a float to the nearest integer.
-* times – Accepts one argument; divides the input by the argument. If both the input and arguments are integers, returns an integer; otherwise, returns a float.
-* modulo – Accepts one argument; divides the input by the argument and returns the remainder.
-
 ## Array filters
 
-### concat
-
-Concatenates two arrays into a single array.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{% raw %}
-{% assign lunch = "sandwich, apple, soup" | split: ", " %}
-{% assign dinner = "pasta, pizza, salad" | split: ", " %}
-
-{% assign meals = lunch | concat: dinner %}
-
-{{ meals | join: ", " }}
-
-{% assign breakfast = "eggs, oatmeal, toast" | split: ", " %}
-
-{% assign meals = breakfast | concat: lunch | concat: dinner %}
-{% endraw %}
-
-{{ meals | join: ", " }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-sandwich, apple, soup, pasta, pizza, salad
-eggs, oatmeal, toast, sandwich, apple, soup, pasta, pizza, salad
-```
-{% endtab %}
-{% endtabs %}
-
-### first, last
-
-Returns the first or last element of an array. You can use `first` or `last` in dot notation inside of tags.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{% raw %}
-{% comment %} 
-  product.tags = "VIP", "New", "Canada"
-{% endcomment %}
-
-{{ custom.tags | first }}
-{{ customer.tags | last }}
-
-{% if customer.tags.first == "VIP" %}
-  This customer is a VIP!
-{% endif %
-
-{% if customer.tags.last == "Canada" %}
-  Eh!
-{% endif %}
-{% endraw %}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-VIP
-Canada
-This customer is a VIP!
-Eh!
-```
-{% endtab %}
-{% endtabs %}
-
-### in\_groups \*
+### in\_groups
 
 This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.org/classes/Array.html#method-i-in\_groups). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
 
@@ -979,7 +661,7 @@ This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.o
 {% endtab %}
 {% endtabs %}
 
-### in\_groups\_of \*
+### in\_groups\_of
 
 This filter is an implementation of [Array#in\_groups\_of](https://api.rubyonrails.org/classes/Array.html#method-i-in\_groups\_of). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
 
@@ -1013,7 +695,7 @@ This filter is particularly useful when performing work in batches, by making it
 {% endtab %}
 {% endtabs %}
 
-### index\_by \*
+### index\_by
 
 This filter accepts the name of an object property or attribute, and returns a hash that whose values are every element in the array, keyed by every element's corresponding property or attribute.
 
@@ -1057,57 +739,7 @@ This filter accepts the name of an object property or attribute, and returns a h
 {% endtab %}
 {% endtabs %}
 
-### join
-
-Creates a string from the elements of an array using a character passed as an argument.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{% raw %}
-{% comment %} 
-  product.tags = "VIP", "New", "Canada"
-{% endcomment %}
-{% endraw %}
-
-{{ customer.tags | join: ', ' }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-VIP, New, Canada
-```
-{% endtab %}
-{% endtabs %}
-
-### map
-
-Given an array of objects that contain attributes (e.g. `name`) and values (e.g. `matt`), we can use `map` to get a new array of values for a specific attribute of the objects in the array. In the below example, we have an array of products, and each product has a title. Using `map` we can create a new array of only product titles.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{% raw %}
-{% comment %} 
-  product.titles = "Apple", "Orange", "Pepper", "Cheese"
-{% endcomment %}
-
-{% assign product_titles = products | map: 'title' %}
-{% endraw %}
-
-{{ product_titles }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-AppleOrangePepperCheese
-```
-{% endtab %}
-{% endtabs %}
-
-### push \*
+### push
 
 This filter appends any number of arguments onto the provided array, returning a new array, leaving the original unmodified.
 
@@ -1135,11 +767,7 @@ five
 {% endtab %}
 {% endtabs %}
 
-### reverse
-
-This filter returns a new array, containing the contents of the original in reverse order.
-
-### sample \*
+### sample
 
 This filter can be used on any array. Used without any arguments, it returns a single random element from the array. Provide an integer argument to return another array of that size, containing a random subset of the input array.
 
@@ -1153,11 +781,7 @@ This filter can be used on any array. Used without any arguments, it returns a s
 
 ### slice
 
-{% hint style="info" %}
-This filter also works for [strings](filters.md#slice)! And there's a different behavior available for [hashes](filters.md#slice-2).
-{% endhint %}
-
-This filter accepts an integer offset, and an optional integer length (defaulting to 1). If the length is 1, it returns the single element found at that index of the input array. Otherwise, it returns a slice of the array, beginning at the provided index, having the provided length.
+When applied to an array, this filter accepts an integer offset, and an optional integer length (defaulting to 1). If the length is 1, it returns the single element found at that index of the input array. Otherwise, it returns a slice of the array, beginning at the provided index, having the provided length.
 
 Negative offsets begin counting from the end of the array.
 
@@ -1172,20 +796,12 @@ Negative offsets begin counting from the end of the array.
 => "3,4"
 ```
 
-### size
+### sort\_naturally
 
-This filter returns the number of elements in the given array.
-
-### sort, sort\_natural, sort\_naturally \*
-
-Sorts an array. All three filters accept a single optional parameter, specifying an attribute to sort by, as in `orders | sort: "number"` or `orders | sort_naturally: "number"`.
-
-* `sort` – performs a standard alphanumeric sort (part of standard Liquid)
-* `sort_natural`– sorts by case-insensitive string values (part of standard Liquid)
-* `sort_naturally` – uses the human-friendly sort order defined by [naturally](https://github.com/dogweather/naturally) (unique to Mechanic)
+Sorts an array uses the human-friendly sort order defined by [naturally](https://github.com/dogweather/naturally). Accepts a single optional parameter, specifying an attribute to sort.
 
 {% hint style="info" %}
-Make sure to choose the sort algorithm most suitable for the consumers of your data. Machine audiences are typically happier with `sort`; human audiences are typically happier with `sort_naturally`.
+This filter complements Shopify Liquid's [sort](https://shopify.dev/docs/api/liquid/filters/sort) and [sort\_natural](https://shopify.dev/docs/api/liquid/filters/sort\_natural) filters. Choose your sort filter intentionally: machine audiences are typically happier with "sort", and human audiences are typically happier with "sort\_naturally".
 {% endhint %}
 
 {% tabs %}
@@ -1220,37 +836,7 @@ sort_naturally:
 {% endtab %}
 {% endtabs %}
 
-### sum \*
-
-Use this on an array of numbers to quickly generate their sum.
-
-```javascript
-{{ "[1, 2, 3]" | parse_json | sum }}
-=> 6
-```
-
-### uniq
-
-Removes any duplicates in an array, resulting in a new array of distinct values.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{% raw %}
-{% assign cars = "Honda Ford Toyota Jeep VW Honda VW" %}
-{% endraw %}
-{{ cars | split: ' ' | uniq | join: ' ' }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-Honda Ford Toyota Jeep VW
-```
-{% endtab %}
-{% endtabs %}
-
-### unshift \*
+### unshift
 
 This filter prepends any number of arguments onto the provided array, returning a new array, leaving the original unmodified.
 
@@ -1317,9 +903,9 @@ Sports products:
 
 ## Hash filters
 
-### compact \*
+### compact
 
-The compact filter is [a long-standing part of Liquid itself](http://shopify.github.io/liquid/filters/compact/). Mechanic's implementation includes explicit support for hashes. The result: Mechanic's implementation removes nil elements from arrays, and removes hash keys having nil values.
+When applied to a hash, this filter returns a new hash which omits all keys having nil values.
 
 {% tabs %}
 {% tab title="Code" %}
@@ -1342,7 +928,7 @@ The compact filter is [a long-standing part of Liquid itself](http://shopify.git
 {% endtab %}
 {% endtabs %}
 
-### except \*
+### except
 
 This filter accepts one or more string arguments, corresponding to keys that should be left out of the output. The filter returns a new hash, containing all the key/value pairs of the original hash _except_ those keys named as arguments.
 
@@ -1367,15 +953,11 @@ This filter accepts one or more string arguments, corresponding to keys that sho
 {% endtab %}
 {% endtabs %}
 
-### keys \*
+### keys
 
 Returns an array of keys found in the supplied hash.
 
-### slice \*
-
-{% hint style="info" %}
-This filter has alternate behavior for [arrays](filters.md#slice-1) and [strings](filters.md#slice)!
-{% endhint %}
+### slice
 
 When applied to a hash, the slice filter accepts one or more string arguments, corresponding to keys that the hash may contain. This filter will then return a new hash, containing only matching key/value pairs from the original hash.
 
@@ -1400,63 +982,6 @@ When applied to a hash, the slice filter accepts one or more string arguments, c
 {% endtab %}
 {% endtabs %}
 
-### values \*
+### values
 
 Returns an array of values found in the supplied hash.
-
-## Deprecated filters
-
-We'll keep support for these filters, but we don't recommend using them.
-
-### add\_tag, add\_tags, remove\_tag, remove\_tags
-
-First things first: we don't recommend using Shopify's REST API for tagging. Because this API requires you to specify the _entire_ set of tags all at once, it's very easy to accidentally overwrite the work of another user or system. Instead, we strongly recommend using GraphQL for tagging.
-
-{% content-ref url="../../techniques/tagging-shopify-resources.md" %}
-[tagging-shopify-resources.md](../../techniques/tagging-shopify-resources.md)
-{% endcontent-ref %}
-
-If you _must_ use REST, you can use these filters to make your life a little easier, and manipulate tag strings and arrays more naturally. (All four of these tag filters are case-sensitive.)
-
-```javascript
-{{ "a, b" | add_tag: "c" }}
-=> a, b, c
-
-{{ "a, b, e" | add_tags: "c", "d" }}
-=> a, b, c, d, e
-
-{{ "a, b, e" | add_tags: "c", "d", sort: false }}
-=> a, b, e, c, d
-
-{{ "a, b, c" | remove_tag: "b" }}
-=> a, b
-
-{{ "a, b, c" | remove_tags: "a", "c" }}
-=> b
-```
-
-If supplied an array, these filters will return an array as well:
-
-```javascript
-{{ "a,b,e" | split: "," | add_tags: "c", "d" | join: "-" }}
-=> a-b-c-d-e
-
-{{ "a,b,c,d,e" | split: "," | remove_tags: "c", "d" | join: "-" }}
-=> a-b-e
-```
-
-### img\_url \*
-
-Mechanic's `img_url` filter mirrors Shopify's now-deprecated `img_url` filter. We do not encourage its use. As of this writing, usage notes are available at [https://www.shopify.com/partners/blog/img-url-filter](https://www.shopify.com/partners/blog/img-url-filter).
-
-This filter accepts a [Product object](shopify/product.md), [Variant object](shopify/variant.md), [Line item object](shopify/line-item.md), or [Product image object](shopify/product-image.md). The filter accepts an optional size argument, set to a size string (e.g. `"master"`, `"large"`, `"small"`). The filter may also be provided with named `crop`, `scale`, and `format` options.
-
-#### Examples
-
-```
-{{ shop.orders[12345].line_items.first | img_url }}
-
-{{ product.variants[0] | img_url: '100x300', scale: 2, crop: 'bottom' }}
-
-{{ image | img_url: 'master', format: 'pjpg' }}
-```

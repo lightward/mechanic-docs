@@ -2,7 +2,7 @@
 
 The `array` keyword literal may be used in any Liquid code to instantiate an [array](../basics/types.md#array).
 
-Arrays support [assignment by index](../tags/assign.md#assigning-into-arrays). Many other operations are supported using [array filters](../filters.md#array-filters).
+Arrays support [assignment by index](../tags/assign.md#assigning-into-arrays). Many other operations are supported using [array filters](../filters/#array-filters).
 
 ## Example
 
