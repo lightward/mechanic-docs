@@ -863,44 +863,6 @@ three
 {% endtab %}
 {% endtabs %}
 
-### where
-
-Takes an array of objects, and create a new array with only those that have a given property value.
-
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-All products:
-{% raw %}
-{% for product in collection.products %}
-- {{ product.title }}
-{% endfor %}
-
-{% assign sports_products = collection.products | where: "type", "sports" %}
-
-sports products:
-{% for product in sports_products %}
-- {{ product.title }}
-{% endfor %}
-{% endraw %}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-All products:
-- Ball
-- Car
-- Cheese
-- Bat
-
-Sports products:
-- Ball
-- Batt
-```
-{% endtab %}
-{% endtabs %}
-
 ## Hash filters
 
 ### compact
