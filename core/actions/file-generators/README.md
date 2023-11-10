@@ -2,8 +2,6 @@
 
 **File generators** are invoked by [**actions**](../) to create new files, using options provided by the action, and handing the resulting file back to the action for further use. In this way, [**tasks**](../../tasks/) can make choices about what files to generate, and what to do with the results.
 
-Generated files may each be a maximum of 20MB.
-
 | File generator            | Purpose                                                                                |
 | ------------------------- | -------------------------------------------------------------------------------------- |
 | [Base64](base64.md)       | Decodes base64-encoded content, returning a file containing the results                |
@@ -11,6 +9,18 @@ Generated files may each be a maximum of 20MB.
 | [Plaintext](plaintext.md) | Allows defining file contents using a plain string, instead of a file generator object |
 | [URL](url.md)             | Downloads and returns a file                                                           |
 | [ZIP](zip.md)             | Accepts its own set of file generators, returning a ZIP archive of the results         |
+
+## Maximum filesize
+
+Generated files may each be a maximum of 20MB.
+
+{% hint style="info" %}
+"But why?", you may well ask!
+
+Mechanic allows action run results to be fed back into the system ([via mechanic/actions/perform](../../../techniques/responding-to-action-results.md)). File generators usually end up having their resulting files represented in the action run results, and base64-encoding 20mb of binary data makes for a lot of JSON. We have to draw a line somewhere. :person\_shrugging:
+{% endhint %}
+
+## Object structure
 
 File generator objects, like [action objects](../../tasks/code/action-objects.md), are plain JSON objects each having a single key, and a single value. The object key specifies which file generator is to be invoked; the object value contains the options used for that generator.
 
@@ -47,6 +57,8 @@ In the following example, a [Files](../files.md) action is defined, mapping file
 ```
 
 ## Supported actions
+
+These are the Mechanic actions that support file generators.
 
 | Action               | Usage                                                                                            |
 | -------------------- | ------------------------------------------------------------------------------------------------ |
