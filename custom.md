@@ -16,8 +16,6 @@ Mechanic's automation tasks are written in Liquid, which is a template language 
 
 **To find a developer for hire, you can contact Mechanic Partners directly at** [**partners.mechanic.dev**](https://partners.mechanic.dev/)**.** This is a growing list of established developers, both independent and agency, who can help you with your implementation.
 
-**You can also post to the #jobs channel of our community Slack workspace, at** [**slack.mechanic.dev**](https://slack.mechanic.dev/)**.** If you've got more general questions first, try posting them in #general.
-
 Lastly: if you already have a developer on your team, or have an existing connection to a developer, send them this article and see if they can help you!
 
 ## If you are a developer…
