@@ -2,11 +2,12 @@
 
 [Events](../events/), [tasks](../tasks/), and [actions](../actions/) are all processed using queues, in which a piece of work is enqueued, and performed in its turn. Each piece of work is called a **run**. Thus, Mechanic performs work using event runs, task runs, and action runs.
 
-When performed, a run has a **result**. Depending on the type of run, this result may define additional work to be performed:
+When performed, a run has a **result**. Depending on the type of run, this result may define additional runs to be performed after it concludes.
 
-* **Event runs**, when performed, result in a set of task runs.
-* **Task runs**, when performed, result in a set of action runs.
-* **Action runs**, when performed, have results that vary by [action type](../actions/#action-types).
+* **Event runs**, when performed, may result in a set of enqueued task runs.
+* **Task runs**, when performed, may result in a set of enqueued action runs.
+* **Action runs**, when performed, have behaviors that vary by [action type](../actions/#action-types).
+  * If the originating task [subscribes to mechanic/actions/perform](../../techniques/responding-to-action-results.md), each action run will spawn a new event containing that action's results. This new event will be processed in an enqueued event run, creating an opportunity for the task to respond to the action's results.
 
 Most runs are scheduled to be performed immediately. Some runs may be [scheduled](scheduling.md) for the future. Some runs may be [retried](retries.md), once performed.
 
@@ -17,7 +18,7 @@ At the moment a run is performed, it loads in all related data (which may includ
 A normal flow in Mechanic looks like this:
 
 1. An event is created – possibly by a [Shopify webhook](../../platform/webhooks.md), or by a [user webhook](../../platform/webhooks.md), by the [Mechanic scheduler](../../platform/events/topics.md#scheduler), or by an [Event action](../actions/event.md).
-2. An event run is created, and performed. During this phase, Mechanic scans the store's tasks to see which ones are relevant for the current event, by checking the subscriptions on file for each task. For each task that Mechanic discovers for the event, a task run is created. (If the task subscription involved an [offset](../tasks/subscriptions.md#offsets), as in "mechanic/scheduler/daily+2.hours", the task run will be set to wait for that amount of time.) The result of the event run is this set of task runs.
+2. An event run is created, and performed. During this phase, Mechanic scans the store's tasks to see which ones are relevant for the current event, by checking the subscriptions on file for each task. For each task that Mechanic discovers for the event, a task run is created. (If the task subscription involved an [offset](../tasks/subscriptions.md#offsets), as in mechanic/scheduler/daily+2.hours, the task run will be set to wait for that amount of time.) The result of the event run is this set of task runs.
 3. Each task run is performed. During this phase, Mechanic takes each task's [Liquid code](../tasks/code/), and renders it using the associated event. The result of the task run is the set of JSON [action objects](../tasks/code/action-objects.md) rendered by the task's Liquid code. Each action object is used to create an action run.
 4. Each action run is performed. During this phase, Mechanic executes each action, given the options that were provided for it by the task run's result.
 
