@@ -1,7 +1,7 @@
 # How do I send images with my emails?
 
 {% hint style="info" %}
-Adding images to Mechanic-generated emails is a job that always involves code. If this is your first time eyeing custom Mechanic code, start here: ["I need something custom!"](../custom/).
+Adding images to Mechanic-generated emails is a job that always involves code. If this is your first time eyeing custom Mechanic code, start here: ["I need something custom!"](../custom.md).
 {% endhint %}
 
 ## Attaching images

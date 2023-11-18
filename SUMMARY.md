@@ -2,8 +2,8 @@
 
 * [⛩ Introduction](README.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
-* [🙋 "I need something custom!"](custom/README.md)
-  * [👩💻 "I need help with my custom task!"](custom/i-need-help-with-my-custom-task.md)
+* [🙋 "I need something custom!"](custom.md)
+* [🧑💻 "I need help with my custom task!"](i-need-help-with-my-custom-task.md)
 * [🤓 Hire a Mechanic developer](hire-a-developer.md)
 
 ## Resources

@@ -1,4 +1,4 @@
-# 👩💻 "I need help with my custom task"
+# 🧑💻 "I need help with my custom task!"
 
 ### What support is included with my Mechanic subscription?
 
