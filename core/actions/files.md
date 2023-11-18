@@ -10,7 +10,15 @@ This action accepts a JSON object, whose keys are filenames and whose values are
 
 ## Result
 
-This action returns an object having the same keys (i.e. filenames) as its input. Each value is an object, having the following properties:
+{% hint style="info" %}
+In Mechanic, actions are performed after their originating task run concludes. Actions are not performed inline during the task's Liquid rendering.
+
+To inspect and respond to the results of an HTTP action, add a task subscription to mechanic/actions/perform, allowing the action to re-invoke the task with the action result data.
+
+Learn more: [Responding to action results](../../techniques/responding-to-action-results.md)
+{% endhint %}
+
+A Files action returns an object having the same keys (i.e. filenames) as its input. Each value is an object, having the following properties:
 
 | File property | Description                                                                                           |
 | ------------- | ----------------------------------------------------------------------------------------------------- |

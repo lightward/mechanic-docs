@@ -95,7 +95,15 @@ Mechanic does not use static IP addresses for outbound requests. Using a connect
 
 ## Result
 
-This action returns an object containing the following keys:
+{% hint style="info" %}
+In Mechanic, actions are performed after their originating task run concludes. Actions are not performed inline during the task's Liquid rendering.
+
+To inspect and respond to the results of an HTTP action, add a task subscription to mechanic/actions/perform, allowing the action to re-invoke the task with the action result data.
+
+Learn more: [Responding to action results](../../techniques/responding-to-action-results.md)
+{% endhint %}
+
+An HTTP action returns an object containing the following keys:
 
 | File property | Description                                                                                                                  |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------- |

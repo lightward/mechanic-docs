@@ -4,7 +4,13 @@ In Mechanic, an **action** is an instruction for performing work that has an eff
 
 Actions are defined by tasks using [**action objects**](../tasks/code/action-objects.md), which are simple JSON objects specifying an action's type and options. Action objects can be constructed using the [**action tag**](../../platform/liquid/tags/action.md).
 
-Actions are performed asynchronously, which means their results are only accessible after the conclusion of the related task and action run (See [Responding to action results](../../techniques/responding-to-action-results.md)).
+{% hint style="info" %}
+In Mechanic, actions are performed after their originating task run concludes. Actions are not performed inline during the task's Liquid rendering.
+
+To inspect and respond to the results of an HTTP action, add a task subscription to mechanic/actions/perform, allowing the action to re-invoke the task with the action result data.
+
+Learn more: [Responding to action results](../../techniques/responding-to-action-results.md)
+{% endhint %}
 
 ## Action types
 

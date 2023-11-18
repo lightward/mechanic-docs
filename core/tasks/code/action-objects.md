@@ -18,6 +18,14 @@ An action object is a plain JSON object, having the following structure:
 Use the [action tag](../../../platform/liquid/tags/action.md) to skip the boilerplate while writing actions. All tasks in the Mechanic task library use the action tag, rather than writing out the action object in raw JSON.
 {% endhint %}
 
+{% hint style="info" %}
+In Mechanic, actions are performed after their originating task run concludes. Actions are not performed inline during the task's Liquid rendering.
+
+To inspect and respond to the results of an HTTP action, add a task subscription to mechanic/actions/perform, allowing the action to re-invoke the task with the action result data.
+
+Learn more: [Responding to action results](../../../techniques/responding-to-action-results.md)
+{% endhint %}
+
 ## Defining an action
 
 ### Type
