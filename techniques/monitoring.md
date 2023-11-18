@@ -16,7 +16,11 @@ Mechanic's status page also supports alert subscriptions, via email, SMS, Slack,
 
 ## Monitoring tasks
 
-Mechanic does not have native alerting for task or action runs that return errors.
+{% hint style="info" %}
+Mechanic can spawn error events when an event, task, or action fails. Use the data from these error events to implement your own error response procedures.
+
+Learn more: [Error handling](../platform/error-handling.md)
+{% endhint %}
 
 ### Action runs
 
