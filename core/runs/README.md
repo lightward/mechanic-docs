@@ -22,9 +22,9 @@ A normal flow in Mechanic looks like this:
 3. Each task run is performed. During this phase, Mechanic takes each task's [Liquid code](../tasks/code/), and renders it using the associated event. The result of the task run is the set of JSON [action objects](../tasks/code/action-objects.md) rendered by the task's Liquid code. Each action object is used to create an action run.
 4. Each action run is performed. During this phase, Mechanic executes each action, given the options that were provided for it by the task run's result.
 
-Understanding this sequence of events is important. Task runs do not come into existence until the event run has been performed, and action runs are only performed after their task run has fully concluded.
+**Understanding this sequence of events is important.** Task runs do not come into existence until the event run has been performed, and action runs are only performed after their task run has fully concluded.
 
-Importantly, this means that tasks do not have direct access to the effects of the actions they generate. Actions are performed later in the sequence, and their effects will only be seen by subsequent task runs.
+Critically, this means that tasks do not have direct access to the effects of the actions they generate. Actions are performed later in the sequence, and their effects will only be seen by subsequent task runs.
 
 ## Run priorities
 

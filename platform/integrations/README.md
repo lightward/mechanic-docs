@@ -15,5 +15,5 @@ Mechanic can be used with most HTTP APIs, via the [HTTP action](../../core/actio
 
 The [Mechanic task library](https://tasks.mechanic.dev/) has a limited selection of tasks integrating with third-party services.
 
-If you don't find a match in the task library, consider a custom task to achieve your integration. Start here: ["I need something custom!"](../../custom.md)
+If you don't find a match in the task library, consider a custom task to achieve your integration. Start here: ["I need something custom!"](../../custom/)
 {% endhint %}

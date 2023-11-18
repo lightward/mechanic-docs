@@ -6,4 +6,4 @@ Mechanic's automation tasks are written in Liquid, which is a template language 
 
 This is a super common path, and the Mechanic community is here to help. :)
 
-If you already have a developer on your team, or have an existing connection to a developer, send them [this article](custom.md) and see if they can help you!
+If you already have a developer on your team, or have an existing connection to a developer, send them [this article](custom/) and see if they can help you!
