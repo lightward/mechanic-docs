@@ -3,7 +3,7 @@
 * [⛩ Introduction](README.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)
-* [🧑💻 "I need help with my custom task!"](i-need-help-with-my-custom-task.md)
+* [🧑💻 "I need help with my custom task!"](custom-help.md)
 * [🤓 Hire a Mechanic developer](hire-a-developer.md)
 
 ## Resources
@@ -248,3 +248,4 @@
   * [Can task content be translated into multiple languages?](faq/can-task-content-be-translated-into-multiple-languages.md)
   * [Can I add a time delay to my task?](faq/can-i-add-a-time-delay-to-my-task.md)
   * [Can I add another store to my existing Mechanic subscription?](faq/can-i-add-another-store-to-my-existing-mechanic-subscription.md)
+  * [How can I reduce memory usage of my task?](faq/how-can-i-reduce-memory-usage-of-my-task.md)
