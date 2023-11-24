@@ -16,7 +16,7 @@ layout:
 # How can I reduce memory usage of my task?
 
 {% hint style="info" %}
-Instant fixes are hard to come by for this kind of problem. If you help with your task code, [here's where to find assistance](../custom-help.md).
+Instant fixes are hard to come by for this kind of problem. If you need help with your task code, [here's where to find assistance](../custom-help.md).
 {% endhint %}
 
 Memory efficiency is a dynamic problem. Here are some tips for task code when memory constraints become a factor.
@@ -25,9 +25,9 @@ Memory efficiency is a dynamic problem. Here are some tips for task code when me
 
 Any time a data set is iterated upon, any memory inefficiencies within the loop have a chance to be multiplied in severity.
 
-## Look for large strings.
+## Look for large assignments.
 
-Remember that Liquid variable assignments are always by value, not by reference, which can lead to surprise memory exhaustion with large values. Check on your assignments, concatenations, captures, etc.
+Remember that Liquid variable assignments (i.e. any use of the [assign tag](../platform/liquid/tags/assign.md)) are always by value, not by reference. This can lead to surprise memory exhaustion with large values. Check on your assignments, concatenations, captures, etc.
 
 ## Look for opportunities to split up the work.
 
