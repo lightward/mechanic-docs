@@ -14,7 +14,7 @@ Shopify admin action links are a form of [**run link**](../../platform/integrati
 
 ## Supported resources
 
-<table><thead><tr><th width="211.33333333333331">Resource object</th><th width="273">Resource type URL parameter</th><th width="318">Individual mode event topic</th><th width="325">Batch mode event topic</th></tr></thead><tbody><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/customer#resource-object">Customer</a></td><td><code>customer</code></td><td>mechanic/user/customer</td><td>mechanic/user/customers</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/order#resource-object">Order</a></td><td><code>order</code></td><td>mechanic/user/order</td><td>mechanic/user/orders</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/draftorder#resource-object">Draft order</a></td><td><code>draft_order</code></td><td>mechanic/user/draft_order</td><td>mechanic/user/draft_orders</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/product#resource-object">Product</a></td><td><code>product</code></td><td>mechanic/user/product</td><td>mechanic/user/products</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/product-variant#resource-object">Product variant</a></td><td><code>variant</code></td><td>mechanic/user/variant</td><td>mechanic/user/variants</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/collection#resource-object">Collection</a></td><td><code>collection</code></td><td>mechanic/user/collection</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="175.33333333333331">Resource object</th><th width="173">URL parameter</th><th width="255">Individual mode event topic</th><th width="325">Batch mode event topic</th></tr></thead><tbody><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/customer#resource-object">Customer</a></td><td><code>customer</code></td><td>mechanic/user/customer</td><td>mechanic/user/customers</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/order#resource-object">Order</a></td><td><code>order</code></td><td>mechanic/user/order</td><td>mechanic/user/orders</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/draftorder#resource-object">Draft order</a></td><td><code>draft_order</code></td><td>mechanic/user/draft_order</td><td>mechanic/user/draft_orders</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/product#resource-object">Product</a></td><td><code>product</code></td><td>mechanic/user/product</td><td>mechanic/user/products</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/product-variant#resource-object">Product variant</a></td><td><code>variant</code></td><td>mechanic/user/variant</td><td>mechanic/user/variants</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/collection#resource-object">Collection</a></td><td><code>collection</code></td><td>mechanic/user/collection</td><td></td></tr></tbody></table>
 
 ## Processing modes
 
@@ -64,7 +64,7 @@ Sending one (1) resource to Mechanic via bulk action (on a resource list page) i
 Shopify admin action links are a form of [run link](../../platform/integrations/run-links.md), following this pattern:
 
 ```
-https://store.myshopify.com/admin/apps/mechanic/tasks/run?resource_type=$RESOURCE_TYPE&ids[]=123&ids[]=456
+https://admin.shopify.com/store/$SHOP_NAME/apps/mechanic/tasks/run?resource_type=$RESOURCE_TYPE&ids[]=123&ids[]=456
 ```
 
 These URLs may be manually constructed, using resource type parameter values drawn from the [Supported resources](admin-action-links.md#supported-resources) table above, and using integer REST resource IDs.
@@ -102,7 +102,7 @@ Additional changes may be necessary. Always test thoroughly, and follow [best pr
 
 The [Send a PDF invoice when an order is created](https://tasks.mechanic.dev/send-a-pdf-invoice-when-an-order-is-created) task, from the Mechanic task library, is well-suited to this kind of adaptation. To illustrate, here is the portion of the task code that addresses the order itself:
 
-{% code overflow="wrap" lineNumbers="true" %}
+{% code lineNumbers="true" %}
 ```liquid
 {% raw %}
 {% if order.email != blank and order.financial_status == "pending" %}
