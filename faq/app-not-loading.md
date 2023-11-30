@@ -14,6 +14,7 @@ If these steps don't reveal the issue and a path for resolving it, write to [tea
 
 * How far you got in the list above
 * The contents of [myip.wtf/text](https://myip.wtf/text) and [myip.wtf/headers](https://myip.wtf/headers)
+* A screenshot from [ipv6test.google.com](https://ipv6test.google.com/)
 * A screenshot (including the brower's URL bar) of the app failing to load
 
 If you want to compare notes with other users, head to [slack.mechanic.dev](https://slack.mechanic.dev/).
