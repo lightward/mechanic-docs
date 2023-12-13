@@ -66,6 +66,7 @@ Shopify Liquid includes many filters that are not supported by Mechanic. If a fi
 * [replace\_first](https://shopify.dev/docs/api/liquid/filters/replace\_first)
 * [replace\_last](https://shopify.dev/docs/api/liquid/filters/replace\_last)
 * [rstrip](https://shopify.dev/docs/api/liquid/filters/rstrip)
+* [sha1](https://shopify.dev/docs/api/liquid/filters/sha1)
 * [sha256](https://shopify.dev/docs/api/liquid/filters/sha256)
 * [slice](https://shopify.dev/docs/api/liquid/filters/slice)
 * [split](https://shopify.dev/docs/api/liquid/filters/split)
