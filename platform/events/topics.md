@@ -140,6 +140,11 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/customers/update
 * shopify/customers\_email\_marketing\_consent/update
 * shopify/customers\_marketing\_consent/update
+* shopify/discounts/create
+* shopify/discounts/delete
+* shopify/discounts/redeemcode\_added
+* shopify/discounts/redeemcode\_removed
+* shopify/discounts/update
 * shopify/disputes/create
 * shopify/disputes/update
 * shopify/domains/create
@@ -161,11 +166,13 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/fulfillment\_orders/hold\_released
 * shopify/fulfillment\_orders/line\_items\_prepared\_for\_local\_delivery
 * shopify/fulfillment\_orders/line\_items\_prepared\_for\_pickup
+* shopify/fulfillment\_orders/merged
 * shopify/fulfillment\_orders/moved
 * shopify/fulfillment\_orders/order\_routing\_complete
 * shopify/fulfillment\_orders/placed\_on\_hold
 * shopify/fulfillment\_orders/rescheduled
 * shopify/fulfillment\_orders/scheduled\_fulfillment\_order\_ready
+* shopify/fulfillment\_orders/split
 * shopify/fulfillments/create
 * shopify/fulfillments/update
 * shopify/inventory\_items/create
