@@ -33,3 +33,5 @@ In all other cases, custom email addresses must be manually approved by Mechanic
 ## Verification
 
 Mechanic requires verification of domain name ownership via DNS record. Once a custom email address is configured and approved, Mechanic will provide you with two DNS records to add to your domain. For help on adding these records, see Postmark's documentation: [Resources for adding DKIM and Return-Path records to DNS for common hosts and DNS providers](https://postmarkapp.com/support/article/1090-resources-for-adding-dkim-and-return-path-records-to-dns-for-common-hosts-and-dns-providers).
+
+DMARC is also critical for email deliverability! It's an administrator responsibility for the email domain used for sending. Mechanic can't take care of this for you, but we do have documentation: [learn more about Mechanic and DMARC here](dmarc.md).
