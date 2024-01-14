@@ -1,12 +1,38 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Receiving email
 
 Every Shopify store that uses Mechanic has its own, dedicated email address, named after the store's myshopify.com subdomain and located at mail.usemechanic.com. A store at example.myshopify.com would be assigned the address example@mail.usemechanic.com.
 
-## Event data
+{% hint style="info" %}
+For a working example task from Mechanic's library, see [Forward incoming email to another address](https://tasks.mechanic.dev/forward-incoming-email-to-another-address)
+{% endhint %}
 
-All Mechanic email, both inbound and outbound, is powered by Postmark. As such, we leave parsing of incoming emails to Postmark, and we pass the results on to you. Refer to [Postmark's email parsing guide](https://postmarkapp.com/developer/user-guide/inbound/parse-an-email) to see how Postmark thinks about this – the data you receive in Mechanic is as you see in that documentation, with one difference: where Postmark uses keys like "ReplyTo" and "HtmlBody", Mechanic uses keys like "reply\_to" and "html\_body".
+## Event
 
-Specifically, you'll have access to these attributes, all available in the `email` variable:
+Every incoming email message results in a new Mechanic event.
+
+### Topic
+
+mechanic/emails/received
+
+### Data
+
+Postmark (Mechanic's email provider) parses your incoming mail, and hands its JSON representation to Mechanic to use as event data. Refer to [Postmark's email parsing guide](https://postmarkapp.com/developer/user-guide/inbound/parse-an-email) to see how Postmark thinks about this. The data you receive in Mechanic is as you see in that documentation, with one difference: where Postmark uses keys like "ReplyTo" and "HtmlBody", Mechanic uses keys like "reply\_to" and "html\_body".
+
+Specifically, you'll have access to these attributes, all available in the `email` object:
 
 * `"attachments"` – an array, containing objects with the keys `"name"`, `"content"`, `"content_type"`, `"content_length"`, and `"content_id"`
 * `"cc"` – a string containing the full "CC" list, including names and email addresses
@@ -24,23 +50,3 @@ Specifically, you'll have access to these attributes, all available in the `emai
 * `"text_body"` – a string, containing the plaintext email body
 * `"to"` – a string containing the full "To" list, including names and email addresses
 * `"to_full"` – an array, containing objects with the keys `"email"`, `"name"`, and `"mailbox_hash"`
-
-## Building a task that receives email
-
-As with all things in Mechanic, receiving email starts with an event. Here, you'll use the event topic mechanic/emails/received.
-
-To start experimenting with receiving emails, create a task that subscribes to mechanic/emails/received, and that has this single line for its script:
-
-```javascript
-<div data-gb-custom-block data-tag="action" data-0='echo'></div>
-```
-
-Then, send an email to your Mechanic account.
-
-Once the first email is received, your task preview (the right-hand column of the task editor) will start generating previews based on that most recent email event. This frees you to start experimenting with using different email values. For example, try something like this:
-
-```javascript
-<div data-gb-custom-block data-tag="assign"></div>
-
-<div data-gb-custom-block data-tag="action" data-0='echo'></div>
-```
