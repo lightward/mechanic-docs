@@ -20,9 +20,9 @@ This is where the `liquid` tag comes in. Within `{% liquid ... %}`, you can writ
 
 The `liquid` tag opens up an alternative Liquid parsing mode, in which each line of code _within_ the tag is evaluated as if each line was wrapped in its own `{% ... %}` markers.
 
-This means that these lines are equivalent:
+This means that two pieces of Liquid are equivalent:
 
-```
+```liquid
 {% raw %}
 {% echo "hello!" %}
 {% endraw %}
@@ -50,7 +50,7 @@ Typical usage looks like this, using the [action tag](action.md) as an example:
 {% endraw %}
 ```
 
-In the example above, the interior of the `action` tag is static content. The Liquid engine sees the `{% action "email" %}` lines, and it knows that more content is coming. So, it puts the Email action aside temporarily, and gathers all the content _before_ the `{% endaction %}` tag. Once `endaction` arrives, all the content in the middle is handed back to the Email action, which generates the final [action JSON object](../objects/action.md). The final output looks like this:
+In the example above, the interior of the `action` tag is static content. The Liquid engine sees the `{% action "email" %}` lines, and it knows that more content is coming. So, it puts the Email action aside temporarily, and gathers all the content that follows, ending right before the closing `{% endaction %}` tag. Once `endaction` arrives, all the content in the middle is handed back to the Email action, which generates the final [action JSON object](../objects/action.md). The final output looks like this:
 
 ```json
 {"action":{"type":"email","options":{"to":"hello@example.com"}}}
