@@ -36,9 +36,11 @@ The `liquid` tag is useful when you're doing lots of Liquid statements, and when
 
 ## Mechanic tags
 
-Mechanic comes with custom Liquid tags, each of which can be invoked either as a Liquid block tag or as an inline tag.
+Mechanic Liquid adds several tags that are relevant here: [action](action.md), [error](error.md), and [log](log.md). All three of these tags support block usage and inline usage.
 
-Typical usage looks like this, using the [action tag](action.md) as an example:
+### Block usage
+
+Typical block usage looks like this, using the action tag as an example:
 
 ```liquid
 {% raw %}
@@ -76,13 +78,34 @@ These next two examples use the `liquid` tag to achieve exactly the same behavio
 %}
 ```
 
-This last example does something different: it relies on the `action` tag's ability to take its input as its final argument. Rather than passing in the email configuration as static JSON content in the tag's body, the email configuration is passed in as a [hash](../keyword-literals/hash.md) to the tag itself.
+### Inline usage
+
+The action, error, and log tags all have an inline usage as well. Typical inline usage looks like this, using the log tag as an example:
+
+```liquid
+{% raw %}
+{% log "oh my!" %}
+{% endraw %}
+```
+
+The `action` tag supports a type argument, so simple inline usage might look like this:
+
+```liquid
+{% raw %}
+{% assign payload = hash %}
+{% assign payload["to"] = "hello@example.com" %}
+{% action "email", payload %}
+{% endraw %}
+```
+
+Here's how these examples work using the `liquid` tag:
 
 ```liquid
 {% liquid
+  log "oh my!"
+
   assign payload = hash
   assign payload["to"] = "hello@example.com"
-
   action "email", payload
 %}
 ```
