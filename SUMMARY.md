@@ -189,6 +189,7 @@
       * [Transaction object](platform/liquid/objects/shopify/transaction.md)
       * [Variant object](platform/liquid/objects/shopify/variant.md)
   * [Mechanic tags](platform/liquid/tags/README.md)
+    * [liquid](platform/liquid/tags/liquid.md)
     * [action](platform/liquid/tags/action.md)
     * [assign](platform/liquid/tags/assign.md)
     * [error](platform/liquid/tags/error.md)
