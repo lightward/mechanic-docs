@@ -14,7 +14,7 @@ In Mechanic's task code, the code you write is assumed to contain a stream of JS
 
 This nested way of doing Liquid (some other language on the outside – like HTML or JSON – and Liquid on the inside) works well when _most_ of the code is in that outside language. When most of your code is Liquid itself, the `{% ... %}` and `{{ ... }}` markers start to get in the way.
 
-This is where the `liquid` tag comes in. Within `{% liquid ... %}`, you can write line after line of pure Liquid expressions, without ever having to exit Liquid parsing and return to the outside language.
+This is where the `liquid` tag comes in. Within `{% liquid ... %}`, you can write line after line of pure Liquid expressions, without ever having to return to the outside language.
 
 ## How it works
 
@@ -58,7 +58,7 @@ In the example above, the interior of the `action` tag is static content. The Li
 {"action":{"type":"email","options":{"to":"hello@example.com"}}}
 ```
 
-These next two examples use the `liquid` tag to achieve exactly the same behavior: some static JSON content, passed up to the "parent" `action` tag. (All of the Liquid examples below produce the JSON output shown above.)
+These next two examples use the `liquid` tag to achieve exactly the same behavior: some static JSON content, passed up to the "parent" `action` tag. Both of the Liquid examples below produce the JSON output shown above.
 
 ```liquid
 {% liquid
@@ -88,7 +88,7 @@ The action, error, and log tags all have an inline usage as well. Typical inline
 {% endraw %}
 ```
 
-The `action` tag supports a type argument, so simple inline usage might look like this:
+The `action` tag supports a type argument; simple inline usage might look like this:
 
 ```liquid
 {% raw %}
@@ -108,4 +108,11 @@ Here's how these examples work using the `liquid` tag:
   assign payload["to"] = "hello@example.com"
   action "email", payload
 %}
+```
+
+And here's the output:
+
+```json
+{"log":"oh my!"}
+{"action":{"type":"email","options":{"to":"hello@example.com"}}}
 ```
