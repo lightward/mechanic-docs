@@ -1,15 +1,15 @@
 # Table of contents
 
-* [⛩ Introduction](README.md)
+* [⛩️ Introduction](README.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)
-* [🧑💻 "I need help with my custom task!"](custom-help.md)
+* [🧑‍💻 "I need help with my custom task!"](custom-help.md)
 * [🤓 Hire a Mechanic developer](hire-a-developer.md)
 
 ## Resources
 
-* [⬇ Install Mechanic](https://apps.shopify.com/mechanic)
-* [🧑💻 Task library](resources/task-library/README.md)
+* [⬇️ Install Mechanic](https://apps.shopify.com/mechanic)
+* [🧑‍💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
 * [🚀 Slack community](resources/slack.md)
