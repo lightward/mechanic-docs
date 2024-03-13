@@ -527,7 +527,11 @@ Matt and Megan love to party and travel.
 {% endtab %}
 {% endtabs %}
 
-### rsa\_sha256
+### hmac\_sha512
+
+Works like [hmac\_sha256 from Shopify Liquid](https://shopify.dev/docs/api/liquid/filters/hmac\_sha256), but uses SHA-512 instead.
+
+### rsa\_sha256, rsa\_sha512
 
 Accepts string input, given an RSA PEM key string as a filter option.
 
@@ -538,6 +542,11 @@ This filter is useful for generating [JSON Web Signatures](../../../techniques/w
 ```liquid
 {{ input | rsa_sha256: private_key_pem }}
 {{ input | rsa_sha256: private_key_pem, binary: true | base64_encode }}
+```
+
+```liquid
+{{ input | rsa_sha512: private_key_pem }}
+{{ input | rsa_sha512: private_key_pem, binary: true | base64_encode }}
 ```
 
 ### scan
@@ -560,6 +569,10 @@ This filter returns an array of matches. To only find the first match, use [matc
 {{ "It's a lovely day!" | scan: "(?<punctuation>[[:punct:]])" | map: "named_captures" }}
 => [{"punctuation" => "'"}, {"punctuation" => "!"}]
 ```
+
+### sha512
+
+Works like [sha256 from Shopify Liquid](https://shopify.dev/docs/api/liquid/filters/sha256), but uses SHA-512 instead.
 
 ### unindent
 
