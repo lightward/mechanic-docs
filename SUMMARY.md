@@ -251,3 +251,4 @@
   * [Can I add a time delay to my task?](faq/can-i-add-a-time-delay-to-my-task.md)
   * [Can I add another store to my existing Mechanic subscription?](faq/can-i-add-another-store-to-my-existing-mechanic-subscription.md)
   * [How can I reduce memory usage of my task?](faq/how-can-i-reduce-memory-usage-of-my-task.md)
+  * [How do I connect PayPal to Shopify with Mechanic?](faq/how-do-i-connect-paypal-to-shopify-with-mechanic.md)
