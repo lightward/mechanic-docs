@@ -18,6 +18,8 @@ Use caution when loading large sets of resources through the shop object. Using 
 For clarity: looking up a single resource by ID will only result in a single REST API call, as in `{% assign product = shop.products[1234567890] %}`. If many of these requests are necessary, it may _still_ be useful to look to GraphQL, but this kind of usage does not load more than the specific, single resource identified.
 {% endhint %}
 
+* The admin URL of the shop (e.g.  https://admin.shopify.com/store/mechanic-shop/)
+  * `{{ shop.admin_url }}`
 * An index of [collection objects](collection.md)
   * `{{ shop.collections[1234567890] }}`
   * `{% for collection in shop.collections %}`
