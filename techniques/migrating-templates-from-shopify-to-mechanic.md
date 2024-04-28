@@ -119,6 +119,10 @@ To see what variables Shopify uses in their notification templates, [see their d
 Mechanic's usual sources for querying Shopify data may be used here as well. To learn more about pulling in Shopify data, see [Reading data](../core/shopify/read/).
 {% endhint %}
 
+### Check for Liquid filter support
+
+Mechanic Liquid supports many filters from Shopify Liquid, but not all of them! If a filter isn't working the way you expect, check [Mechanic's list of supported Shopify Liquid filters](../platform/liquid/filters/shopify.md). You may need to adjust your code to work around filters that Mechanic Liquid doesn't support.
+
 ### Convert numeric strings to numbers, and check on money rendering
 
 Mechanic uses API data from Shopify to power [the Order object](../platform/liquid/objects/shopify/order.md). Because the Shopify API makes money figures available as strings, one _may_ need to cast these values to numbers for parts of your template to work correctly. This may be done via assignment, as in `{% assign foo = some_number | times: 1 %}`, or at the time of output, as in `{{ some_number | times: 1 }}`.
