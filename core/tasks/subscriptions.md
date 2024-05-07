@@ -14,11 +14,15 @@ A task may have any number of subscriptions.
 
 A subscription offset (sometimes called a delay) defines the amount of time a task should wait or delay (!!) before responding to the incoming event. It's the easiest way to add a delay to a task's subscription to a specific topic. (For finer control over event timing, try using the `run_at` option of the [Event action](../actions/event.md).)
 
-Subscription offsets are appended to the subscription topic, and are of the form "+1.hour". Offsets may be given using minutes, hours, days, weeks, months, or years. There is no limit to how large the subscription offset may be.
+Subscription offsets are appended to the subscription topic, and are of the form "+1.hour". Offsets may be given using seconds, minutes, hours, days, weeks, months, or years. There is no limit to how large the subscription offset may be.
 
 **A subscription with an offset looks like `shopify/customers/create+1.hour`.**
 
 To learn more about scheduling work with Mechanic, see [Scheduling](../runs/scheduling.md).
+
+{% hint style="info" %}
+In practice, large offsets can make debugging difficult in practice! If you're thinking about work to be done weeks or months or years from now, consider running an hourly or daily task that scans for work that's due to be done, instead of scheduling tasks for the distant future.
+{% endhint %}
 
 {% hint style="warning" %}
 The [Shopify variables](code/environment-variables.md#shopify-variables) available to tasks always contain data drawn from the event itself. If a task has a offset event subscription, this data may be outdated by the time the task runs.
