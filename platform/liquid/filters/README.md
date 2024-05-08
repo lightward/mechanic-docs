@@ -177,37 +177,88 @@ Order Name,Order ID,Order Date
 
 ### date, parse\_date
 
-Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/docs/themes/liquid/reference/filters/additional-filters#date). Mechanic's implementation has all the functionality of Shopify's. It accepts a date format, using [the same format as Ruby's strftime](http://www.ruby-doc.org/core/Time.html#method-i-strftime). (Sites like [strfti.me](http://www.strfti.me/) offer convenient references for this format.) Under the hood, this filter uses [ActiveSupport::TimeZone#strptime](https://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html#method-i-strptime), and inherits its behavior with regard to missing upper components.
+Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/docs/themes/liquid/reference/filters/additional-filters#date), and has several important extensions.
 
-#### Choosing a timezone
+{% code title="Quick reference" %}
+```liquid
+{{ "now"
+    | date: [format,]
 
-Mechanic's date filter supports a `tz` option, which accepts [a timezone name from the TZ database](https://en.wikipedia.org/wiki/List\_of\_tz\_database\_time\_zones). If given, the resulting time string will be in the specified timezone. If this option is not provided, the store's local timezone will be used instead.
+      [tz: "America/Chicago",]
+
+      [beginning_of_year: true,]
+      [end_of_year: true,]
+
+      [beginning_of_quarter: true,]
+      [end_of_quarter: true,]
+
+      [beginning_of_month: true,]
+      [end_of_month: true,]
+
+      [beginning_of_week: "monday",]
+      [end_of_week: "sunday",]
+
+      [beginning_of_day: true,]
+      [end_of_day: true,]
+      [middle_of_day: true,]
+
+      [advance: "1 day 10 minutes",]
+}}
+```
+{% endcode %}
+
+#### Format
+
+Date formats may be given per[ Ruby's strftime](http://www.ruby-doc.org/core/Time.html#method-i-strftime). For an interactive format-building tool, see [strfti.me](https://www.strfti.me/).
+
+Unlike Shopify Liquid, Mechanic's date filter does not require a format argument. If one is not given, Mechanic defaults to formatting the date per ISO8601.
 
 ```javascript
-{{ "now" | date: "%Y-%m-%d %H:%M %z" }}
-=> "2019-01-01 09:00 +0900"
+{{ "2000-01-01" | date: "%Y-%m-%d %H:%M %z" }}
+=> "2000-01-01 00:00 -0600"
 
-{{ "now" | date: "%Y-%m-%d %H:%M %z", tz: "UTC" }}
-=> "2019-01-01 00:00 +0000"
+{{ "2000-01-01" | date }}
+=> "2000-01-01T00:00:00-06:00"
+
+{{ "2000-01-01" | date: tz: "UTC" }}
+=> "2000-01-01T06:00:00Z"
 ```
 
 #### Using the current time
 
-This filter also accepts the special value `"now"`, and values offset from now, as in `"now + 5 days"` or `"now - 5 weeks"`. In this way, the filter supports simple date math. Note that durations are calculated using variable duration lengths, given the naturally varying length of specific days, weeks, months, and years, given DST and other calendar variances, all informed by the store's timezone. This math is backed by [ActiveSupport::TimeWithZone#+](https://api.rubyonrails.org/classes/ActiveSupport/TimeWithZone.html#method-i-2B). An example, quoting from that documentation: "a time + 24.hours will advance exactly 24 hours, while a time + 1.day will advance 23-25 hours, depending on the day".
+This filter accepts the special value `"now"`. This may optionally be combined with a single date calculation, as in `"now + 5 days"` or `"now - 5 weeks"`.  For specifics on date calculation, see notes below for the `advance` option.
 
-```javascript
-{{ "now + 6 weeks" | date: "%Y-%m-%d %H:%M %z" }}
-{{ "now + 3 months" | date: "%Y-%m-%d %H:%M %z" }}
-{{ "now - 3 months" | date: "%Y-%m-%d %H:%M %z" }}
+#### Additional options
 
-=> "2021-02-15 14:06 -0500"
-=> "2021-04-04 14:06 -0400"
-=> "2020-10-04 14:06 -0400"
-```
+The date filter also accepts these following options, evaluated in the following order:
+
+1. `tz` — [A timezone name from the TZ database](https://en.wikipedia.org/wiki/List\_of\_tz\_database\_time\_zones)
+   * If given, the resulting time string will be in the specified timezone.
+   * If this option is not provided, the time is assumed to be in the store's local timezone, as configured at the Shopify level.
+   * All date calculations are performed with respect to the current timezone, with consideration for DST and other calendar variances.
+2. `beginning_of_year: true` or `end_of_year: true`
+3. `beginning_of_quarter: true` or `end_of_quarter: true`
+4. `beginning_of_month: true` or `end_of_month: true`
+5. `beginning_of_week: weekday` or `end_of_month: weekday`
+   * `weekday` must be a string naming the first day of the week for the intended usage, e.g. `"sunday"` or `"monday"`
+6. `beginning_of_day: true` or `middle_of_day: true` or `end_of_day: true`
+7. `advance:`` ``"1 year 6 months"`
+   * Supports any combination of years, months, weeks, days, hours, minutes, seconds
+   * Supports positive and negative values
+   * Durations are calculated in the order given, left to right
+   * Seconds, minutes, and hours are all implemented as constant intervals
+   * Days, weeks, months, and years are all variable-length, appropriate for the current time in the current timezone (see `tz`). For example, `{{ "2023-01-31" | date: "%F", advance: "1 year 1 month" }}` returns `2024-02-29`.
+   * Commas and signs may be used for clarity. Pluralization is optional. All of the examples below are equivalent:
+     * `{{ "now" | date: advance: "-3 hours, +2 minutes, -1 second" }}`
+     * `{{ "now" | date: advance: "-3 hours, 2 minutes, -1 second" }}`
+     * `{{ "now" | date: advance: "-3 hour 2 minute -1 second" }}`
+     * `{{ "now" | date: advance: "-3 hours 2 minutes -1 seconds" }}`
 
 #### Parsing dates
 
 Use parse\_date to parse a date string, when its exact format is known. This filter is useful for strings that contain an ambiguous date value, like `"01/01/01"`.
+
+Under the hood, parse\_date uses [ActiveSupport::TimeZone#strptime](https://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html#method-i-strptime), and inherits its behavior with regard to missing upper components.
 
 This filter returns an ISO8601 string, representing the parsed date value in the store's local timezone. If the supplied date string cannot be parsed successfully, the filter will return nil.
 
