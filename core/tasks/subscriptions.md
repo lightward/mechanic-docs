@@ -20,8 +20,14 @@ Subscription offsets are appended to the subscription topic, and are of the form
 
 To learn more about scheduling work with Mechanic, see [Scheduling](../runs/scheduling.md).
 
-{% hint style="info" %}
+{% hint style="success" %}
 In practice, large offsets can make debugging difficult in practice! If you're thinking about work to be done weeks or months or years from now, consider running an hourly or daily task that scans for work that's due to be done, instead of scheduling tasks for the distant future.
+{% endhint %}
+
+{% hint style="info" %}
+In some cases, the first task run on a new mechanic/scheduler/daily task may not be performed when expected.
+
+To illustrate: if a user creates a task at 9am Monday, subscribing to mechanic/scheduler/daily+10.hours, they will have to wait until _the following midnight_ before the mechanic/scheduler/daily event is created. When that event's run is performed, the task's subscription offset will be calculated and applied, and the task run will be enqueued for 10 hours later. This means that the task will run for the first time on 10am Tuesday, _not_ 10am Monday.
 {% endhint %}
 
 {% hint style="warning" %}
