@@ -59,117 +59,131 @@ device: iPhone<br>device name: iPhone<br>device brand: Apple<br>device model: iP
 
 Supports converting a two-dimensional array to a CSV string, and back again.
 
-The parse\_csv filter accepts a "headers" option; when set to `true`, this filter will interpret the first line of input as containing headers for the CSV table, and will return an array of hashes whose keys map to items in that header row.
+The `csv` filter accepts as an optional delimiter argument that defaults to a comma `,` You can use a custom delimiter you can use this form `csv: ";"` instead of `csv`.
+
+The `parse_csv` filter accepts a "headers" option; when set to `true`, this filter will interpret the first line of input as containing headers for the CSV table, and will return an array of hashes whose keys map to items in that header row.
+
+The `parse_csv` filter also accepts a delimiter option that default to a comma but can be set to a custom delimiter as shown here: `parse_csv: headers: true, delimiter: ";"` and here `parse_csv: delimiter: ";"`.
+
+
 
 {% tabs %}
-{% tab title="csv" %}
-```javascript
+{% tab title="Example Usage csv and parse_csv filters" %}
+```liquid
 {% raw %}
-{% capture two_dimensional_array_json %}
-  [
-    [
-      "Order Name",
-      "Order ID",
-      "Order Date"
-    ],
-    [
-      "#1234",
-      1234567890,
-      "2021/03/23"
-    ],
-    [
-      "#1235",
-      1234567891,
-      "2021/03/24"
-    ]
-  ]
-{% endcapture %}
+{% if event.preview %}
+  {% capture shop_json %}
+    {
+      "products": [
+        {
+          "id": 1234567890,
+          "title": "Short sleeve t-shirt"
+        }
+      ]
+    }
+  {% endcapture %}
 
-{% assign two_dimensional_array = two_dimensional_array_json | parse_json %}
+  {% assign shop = shop_json | parse_json %}
+{% endif %}
 
-{% assign csv_string = two_dimensional_array | csv %}
-{% endraw %}
-```
-{% endtab %}
+{% assign rows = array %}
 
-{% tab title="parse_csv" %}
-```javascript
-{% raw %}
-{% comment %}
-  Note the dashes used in the capture/endcapture tags!
-  They make sure that we don't end up with blank lines
-  at the beginning and end of our CSV string.
-{% endcomment %}
-{% capture csv_string -%}
+{% assign header = array %}
+{% assign header[0] = "Product ID" %}
+{% assign header[1] = "Product Title" %}
+
+{% assign rows[0] = header %}
+
+{% for product in shop.products %}
+  {% assign row = array %}
+  {% assign row[0] = product.id %}
+  {% assign row[1] = product.title %}
+
+  {% assign rows[rows.size] = row %}
+{% endfor %}
+
+{% assign csv = rows | csv: ";" %}
+
+{% action "email" %}
+  {
+    "to": {{ options.email_recipient__email_required | json }},
+    "subject": {{ "Product ID export for " | append: shop.name | json }},
+    "body": "Please see attached. :)",
+    "reply_to": {{ shop.customer_email | json }},
+    "from_display_name": {{ shop.name | json }},
+    "attachments": {
+      "export.csv": {{ csv | json }}
+    }
+  }
+{% endaction %}
+
+{% action "echo" csv %}
+
+{%- capture csv_string_default_delimiter -%}
 Order Name,Order ID,Order Date
 #1234,1234567890,2021/03/23
 #1235,1234567891,2021/03/24
 {%- endcapture %}
 
-{% assign csv_rows = csv_string | parse_csv %}
+{%- capture csv_string_custom_delimiter -%}
+Order Name;Order ID;Order Date
+#1234;1234567890;2021/03/23
+#1235;1234567891;2021/03/24
+{%- endcapture %}
 
-{% assign orders = array %}
-{% for row in csv_rows %}
-  {% comment %}
-    Skip the header row
-  {% endcomment %}
+{% comment %}
+  Parse CSV with default delimiter (comma)
+{% endcomment %}
+{% assign orders_with_default_delimiter = csv_string_default_delimiter | parse_csv: headers: true %}
+{% action "echo" orders_with_default_delimiter %}
+
+{% comment %}
+  Parse CSV with custom delimiter (semicolon)
+{% endcomment %}
+{% assign orders_with_custom_delimiter = csv_string_custom_delimiter | parse_csv: headers: true, delimiter: ";" %}
+{% action "echo" orders_with_custom_delimiter %}
+
+{% comment %}
+  Parse CSV without headers, default delimiter
+{% endcomment %}
+{% assign csv_rows_default_delimiter = csv_string_default_delimiter | parse_csv %}
+
+{% assign orders_without_headers_default_delimiter = array %}
+{% for row in csv_rows_default_delimiter %}
   {% if forloop.first %}
     {% continue %}
   {% endif %}
 
   {% assign order = hash %}
   {% assign order["name"] = row[0] %}
-  {% comment %}
-    We're using `times: 1` to convert our string ID to an integer
-  {% endcomment %}
   {% assign order["id"] = row[1] | times: 1 %}
   {% assign order["date"] = row[2] %}
 
-  {% assign orders[orders.size] = order %}
+  {% assign orders_without_headers_default_delimiter[orders_without_headers_default_delimiter.size] = order %}
 {% endfor %}
-{% endraw %}
 
-{{ orders | json }}
-```
-{% endtab %}
-
-{% tab title="parse_csv with headers" %}
-```javascript
-{% raw %}
-{% comment %}
-  Note the dashes used in the capture/endcapture tags!
-  They make sure that we don't end up with blank lines
-  at the beginning and end of our CSV string.
-{% endcomment %}
-{% capture csv_string -%}
-Order Name,Order ID,Order Date
-#1234,1234567890,2021/03/23
-#1235,1234567891,2021/03/24
-{%- endcapture %}
+{% action "echo" orders_without_headers_default_delimiter %}
 
 {% comment %}
-  Note: the order ID is a string, in this resulting set of
-  hashes, not an integer!
+  Parse CSV without headers, custom delimiter
 {% endcomment %}
-{% assign orders = csv_string | parse_csv: headers: true %}
+{% assign csv_rows_custom_delimiter = csv_string_custom_delimiter | parse_csv: delimiter: ";" %}
 
-{{ orders | json }}
-{% comment %}
-  The result:
+{% assign orders_without_headers_custom_delimiter = array %}
+{% for row in csv_rows_custom_delimiter %}
+  {% if forloop.first %}
+    {% continue %}
+  {% endif %}
 
-  [
-    {
-      "Order Name": "#1234",
-      "Order ID": "1234567890",
-      "Order Date": "2021/03/23"
-    },
-    {
-      "Order Name": "#1235",
-      "Order ID": "1234567891",
-      "Order Date": "2021/03/24"
-    }
-  ]
-{% endcomment %}
+  {% assign order = hash %}
+  {% assign order["name"] = row[0] %}
+  {% assign order["id"] = row[1] | times: 1 %}
+  {% assign order["date"] = row[2] %}
+
+  {% assign orders_without_headers_custom_delimiter[orders_without_headers_custom_delimiter.size] = order %}
+{% endfor %}
+
+{% action "echo" orders_without_headers_custom_delimiter %}
 {% endraw %}
 ```
 {% endtab %}
@@ -242,7 +256,7 @@ The date filter also accepts these following options, evaluated in the following
 5. `beginning_of_week: weekday` or `end_of_month: weekday`
    * `weekday` must be a string naming the first day of the week for the intended usage, e.g. `"sunday"` or `"monday"`
 6. `beginning_of_day: true` or `middle_of_day: true` or `end_of_day: true`
-7. `advance:`` ``"1 year 6 months"`
+7. `advance: "1 year 6 months"`
    * Supports any combination of years, months, weeks, days, hours, minutes, seconds
    * Supports positive and negative values
    * Durations are calculated in the order given, left to right
