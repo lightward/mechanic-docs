@@ -8,7 +8,7 @@ For more details, see Crunchy Data's [Security](https://www.crunchydata.com/secu
 
 ## Retention of events
 
-An event is retained for a default of 15 days after the event is considered "complete" (see below). To set a different retention period for your Mechanic account, email [team@usemechanic.com](mailto:team@usemechanic.com).
+An event is retained for a default of 15 days after the event is considered "complete" (see below).
 
 For stores that have uninstalled Mechanic, events will be retained for the same retention period _after the event's latest activity_, whether or not an event is "complete".
 
