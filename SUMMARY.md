@@ -252,3 +252,4 @@
   * [How can I reduce memory usage of my task?](faq/how-can-i-reduce-memory-usage-of-my-task.md)
   * [How do I connect PayPal to Shopify with Mechanic?](faq/how-do-i-connect-paypal-to-shopify-with-mechanic.md)
   * [How do I add a Shopify access scope to my task?](faq/how-do-i-add-a-shopify-access-scope-to-my-task.md)
+  * [Can I have my Mechanic data retained for more (or less) than 15 days?](faq/can-i-have-my-mechanic-data-retained-for-more-or-less-than-15-days.md)
