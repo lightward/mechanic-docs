@@ -8,13 +8,15 @@ For more details, see Crunchy Data's [Security](https://www.crunchydata.com/secu
 
 ## Retention of events
 
-An event is retained for a default of 15 days after the event is considered "complete" (see below).
-
-For stores that have uninstalled Mechanic, events will be retained for the same retention period _after the event's latest activity_, whether or not an event is "complete".
+An event is retained for a default of 15 days after the event is considered "complete" (see definition below). This interval cannot be changed for a Mechanic account. Expunged data may persist in encrypted database backups for a limited period of time.
 
 {% hint style="info" %}
-Mechanic's datastores keep rolling backups for a period of 7 days. This means that a deleted event will be included in backups for 7 days after deletion.
+If you want to have your data retained for longer, start here:
+
+[Can I have my Mechanic data retained for more (or less) than 15 days?](../../faq/can-i-have-my-mechanic-data-retained-for-more-or-less-than-15-days.md)
 {% endhint %}
+
+For stores that have uninstalled Mechanic, events will be retained for the same retention period _after the event's latest activity_, whether or not an event is "complete".
 
 Retained event information includes:
 
