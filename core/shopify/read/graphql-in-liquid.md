@@ -1,4 +1,4 @@
-# GraphQL in Liquid
+# 🏆 GraphQL in Liquid
 
 Tasks may use the [shopify Liquid filter](../../../platform/liquid/filters/#shopify) to convert GraphQL query strings into simple result objects, by sending the query to the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). The easiest way to build these queries is via the [Shopify Admin API GraphiQL explorer](https://shopify.dev/tools/graphiql-admin-api), which allows queries to be interactively constructed.
 

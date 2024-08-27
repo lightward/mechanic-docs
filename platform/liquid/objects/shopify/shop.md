@@ -1,4 +1,4 @@
-# 💪 Shop object
+# Shop object
 
 ## How to access it
 
