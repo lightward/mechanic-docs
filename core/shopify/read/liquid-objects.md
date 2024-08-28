@@ -3,14 +3,10 @@
 Mechanic-flavored Liquid comes with a complement of [Liquid objects](../../../platform/liquid/objects/), each of which is tied to a resource in the [Shopify Admin REST API](https://shopify.dev/docs/admin-api/rest). Many objects support access to related objects via lookups (e.g. `{{ shop.customers[customer_id].orders.first }}`); in this way, the REST API can be traversed by resource.
 
 {% hint style="danger" %}
-**Important Notice**
+**Shopify is deprecating some of the Shopify Admin REST API. The first round of deprecations involve the product and variant endpoints. Read the deprecation notice** [**here**](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing)**.**&#x20;
 
-\
-Shopify is deprecating some of the Shopify Admin REST API. The first round of deprecations involve the product and variant endpoints. Read the deprecation notice [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing). \
-\
 Our recommendation is to use [GraphQL](../../actions/shopify.md#graphql) going forward. The [product](../../../platform/liquid/objects/shopify/product.md) and [variant](../../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. It appears that Shopify will gradually phase out the REST API over time.
 
-\
 All of our [library tasks](https://tasks.mechanic.dev/) will be ported to use GraphQL only, which will provide a model for how you can update your custom tasks. You'll be able to update your non-customized library tasks with a click of a button :relaxed:
 {% endhint %}
 
