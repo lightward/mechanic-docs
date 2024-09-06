@@ -113,7 +113,7 @@ mechanic/shopify/bulk_operation
 ## Use bulk operations when...
 
 * ... your task needs to collect and process a lot of data. Tasks responding to bulk operations operate with a higher memory allowance than other tasks, decreasing the chances of your task being terminated for memory exhaustion.
-* ... paginating for data would be too complicated. Pagination in GraphQL can be painful, especially when using nested resources.
+* ... paginating for data would be too complicated. Pagination in GraphQL can be tricky when using nested resources.
 
 ## Don't use bulk operations when...
 

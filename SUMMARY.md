@@ -37,6 +37,11 @@
   * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)
   * [Creating scheduled CSV feeds](resources/tutorials/creating-scheduled-csv-feeds.md)
   * [Fetching data from a shared Google sheet](resources/tutorials/fetching-data-from-a-shared-google-sheet.md)
+  * [Converting tasks from Shopify REST to GraphQL](resources/tutorials/converting-tasks-from-shopify-rest-to-graphql/README.md)
+    * [Conversion: Single resource lookups](resources/tutorials/converting-tasks-from-shopify-rest-to-graphql/conversion-single-resource-lookups.md)
+    * [Conversion: Resource loops to paginated queries](resources/tutorials/converting-tasks-from-shopify-rest-to-graphql/conversion-resource-loops-to-paginated-queries.md)
+    * [Conversion: Connections from a resource](resources/tutorials/converting-tasks-from-shopify-rest-to-graphql/conversion-connections-from-a-resource.md)
+    * [Conversion: Metafield lookups from a resource](resources/tutorials/converting-tasks-from-shopify-rest-to-graphql/conversion-metafield-lookups-from-a-resource.md)
 
 ## Core Concepts <a href="#core" id="core"></a>
 
@@ -193,6 +198,7 @@
     * [assign](platform/liquid/tags/assign.md)
     * [error](platform/liquid/tags/error.md)
     * [log](platform/liquid/tags/log.md)
+  * [Mechanic code snippets](platform/liquid/mechanic-code-snippets.md)
 * [Shopify](platform/shopify/README.md)
   * [Custom authentication](platform/shopify/custom-authentication.md)
   * ["Read all orders"](platform/shopify/read-all-orders.md)

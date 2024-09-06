@@ -6,16 +6,13 @@ In the query below you'll notice the fields`pageInfo` and `cursor`. These are im
 
 ```graphql
 query {
-  orders(first:10) {
+  orders(first: 10) {
     pageInfo { # Returns details about the current page of results
       hasNextPage # Whether there are more results after this page
-      hasPreviousPage # Whether there are more results before this page
+      endCursor # A marker for the last result in this page
     }
-    edges {
-      cursor # A marker for an edge's position in the connection
-      node {
-        name # The fields to be returned for each node
-      }
+    nodes {
+      name # The fields to be returned for each node
     }
   }
 }
@@ -30,8 +27,7 @@ query {
 * [ ] Nodes
 * [ ] pageInfo
 * [ ] hastNextPage
-* [ ] hasPreviousPage
-* [ ] cursor
+* [ ] endCursor
 * [ ] Cursor-based pagination
 
 {% hint style="success" %}
@@ -41,4 +37,3 @@ query {
 {% hint style="success" %}
 [https://graphql.org/learn/pagination/](https://graphql.org/learn/pagination/)
 {% endhint %}
-
