@@ -59,13 +59,36 @@ device: iPhone<br>device name: iPhone<br>device brand: Apple<br>device model: iP
 
 Supports converting a two-dimensional array to a CSV string, and back again.
 
-The `csv` filter accepts as an optional delimiter argument that defaults to a comma `,` You can use a custom delimiter you can use this form `csv: ";"` instead of `csv`.
+#### Arguments
 
-The `parse_csv` filter accepts a "headers" option; when set to `true`, this filter will interpret the first line of input as containing headers for the CSV table, and will return an array of hashes whose keys map to items in that header row.
+* `delimiter` (optional): A single character that separates the fields in the CSV. Defaults to a comma.
+* `include_bom` (optional): A boolean value that, when set to true, includes a Byte Order Mark (BOM) at the beginning of the CSV string to enhance compatibility with Microsoft Excel. Defaults to false.
 
-The `parse_csv` filter also accepts a delimiter option that default to a comma but can be set to a custom delimiter as shown here: `parse_csv: headers: true, delimiter: ";"` and here `parse_csv: delimiter: ";"`.
+{% tabs %}
+{% tab title="Default" %}
+```liquid
+{{ data | csv }}
+```
+{% endtab %}
 
+{% tab title="Custom Delimiter" %}
+```javascript
+{{ data | csv: ";" }}
+```
+{% endtab %}
 
+{% tab title="Include BOM" %}
+```liquid
+{{ data | csv: include_bom: true }}
+```
+{% endtab %}
+
+{% tab title="Custom Delimiter and BOM" %}
+```liquid
+{{ data | csv: ";", include_bom: true }}
+```
+{% endtab %}
+{% endtabs %}
 
 {% tabs %}
 {% tab title="Example Usage csv and parse_csv filters" %}
@@ -79,7 +102,9 @@ The `parse_csv` filter also accepts a delimiter option that default to a comma b
           "id": 1234567890,
           "title": "Short sleeve t-shirt"
         }
-      ]
+      ],
+      "name": "My Test Shop",
+      "customer_email": "shop@example.com"
     }
   {% endcapture %}
 
@@ -102,7 +127,10 @@ The `parse_csv` filter also accepts a delimiter option that default to a comma b
   {% assign rows[rows.size] = row %}
 {% endfor %}
 
-{% assign csv = rows | csv: ";" %}
+{%- comment -%}
+  Generate CSV with custom delimiter and include BOM for Excel compatibility
+{%- endcomment -%}
+{% assign csv = rows | csv: ";", include_bom: true %}
 
 {% action "email" %}
   {
