@@ -101,10 +101,7 @@ Mechanic does not support Shopify event topics that are scoped to an individual 
 {% hint style="info" %}
 For a description of each topic's behavior, see Shopify's documentation:
 
-* [WebhookSubscriptionTopic (GraphQL enum)](https://shopify.dev/api/admin-graphql/latest/enums/WebhookSubscriptionTopic)
-* [Event topics for Webhook (REST resource)](https://shopify.dev/api/admin-rest/latest/resources/webhook#event-topics)
-
-Note that all topics are represented in the WebhookSubscriptionTopic enum documentation, but not all topics are covered in the REST resource documentation.
+[https://shopify.dev/docs/api/webhooks](https://shopify.dev/docs/api/webhooks)
 {% endhint %}
 
 * shopify/carts/create
@@ -129,6 +126,7 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/company\_locations/update
 * shopify/customer/tags\_added
 * shopify/customer/tags\_removed
+* shopify/customer\_account\_settings/update
 * shopify/customer\_groups/create
 * shopify/customer\_groups/delete
 * shopify/customer\_groups/update
@@ -191,6 +189,9 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/markets/create
 * shopify/markets/delete
 * shopify/markets/update
+* shopify/metafield\_definitions/create
+* shopify/metafield\_definitions/delete
+* shopify/metafield\_definitions/update
 * shopify/order\_transactions/create
 * shopify/orders/cancelled
 * shopify/orders/create
@@ -208,6 +209,7 @@ Note that all topics are represented in the WebhookSubscriptionTopic enum docume
 * shopify/payment\_terms/update
 * shopify/product\_feeds/create
 * shopify/product\_feeds/full\_sync
+* shopify/product\_feeds/full\_sync\_finish
 * shopify/product\_feeds/incremental\_sync
 * shopify/product\_feeds/update
 * shopify/products/create
