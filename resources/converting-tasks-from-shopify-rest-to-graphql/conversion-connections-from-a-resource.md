@@ -22,7 +22,7 @@ This is a simple task to loop through a product's collections, check if the coll
 
 The GraphQL version of the the task above use a paginated query to get all of the collections a product  is a member of. The outer loop upper range (e.g. the **10** in `{% for n in (1..10) %}`) is arbitrary, and you may adjust it to the approximate maximum number of collections any given product might have.
 
-The event preview block in this task sample makes this code appear to be overly verbose, however the [preview block](../../../core/tasks/previews/stub-data.md#stubbing-graphql-data) is often an important step to ensure that Mechanic prompts for the correct scopes for reading and writing Shopify API data.
+The event preview block in this task sample makes this code appear to be overly verbose, however the [preview block](../../core/tasks/previews/stub-data.md#stubbing-graphql-data) is often an important step to ensure that Mechanic prompts for the correct scopes for reading and writing Shopify API data.
 
 <pre class="language-liquid" data-title="GraphQL - Querying a product&#x27;s collections with pagination" data-overflow="wrap" data-line-numbers><code class="lang-liquid">{% assign cursor = nil %}
 
@@ -91,5 +91,5 @@ The event preview block in this task sample makes this code appear to be overly 
 </code></pre>
 
 {% hint style="info" %}
-To assist with generating a paginated query block, you can use the ["paginated\_query" snippet](../../../platform/liquid/mechanic-code-snippets.md#paginated\_query) in the Mechanic code editor, and it will prompt you to choose the object type to paginate over (e.g. products).
+To assist with generating a paginated query block, you can use the ["paginated\_query" snippet](../../platform/liquid/mechanic-code-snippets.md#paginated\_query) in the Mechanic code editor, and it will prompt you to choose the object type to paginate over (e.g. products).
 {% endhint %}

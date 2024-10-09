@@ -4,10 +4,6 @@ The Mechanic community maintains a board of task requests, where anyone can subm
 
 {% embed url="https://mechanic.canny.io/task-requests" %}
 
-### How does this work?
-
-Twice a month (on the 15th and last day of the month), Mechanic staff will commission the top-voted task for implementation (filtering by the criteria below).
-
 ### What kind of task requests are accepted?
 
 We accept task requests in two categories:

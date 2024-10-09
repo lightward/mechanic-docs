@@ -6,12 +6,14 @@ The **Shopify** action sends requests to the [Shopify admin API](https://shopify
 **Important Notice**
 
 \
-Shopify is deprecating some of the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read the deprecation notice [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing). \
+Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation  [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).\
 \
-Our recommendation is to use [GraphQL](shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. It appears that Shopify will gradually phase out the REST API over time.
+Use the [GraphQL](shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API competely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
 
 \
-All of our [library tasks](https://tasks.mechanic.dev/) will be ported to use GraphQL only, which will provide a model for how you can update your custom tasks. You'll be able to update your non-customized library tasks with a click of a button :relaxed:
+All of our [library tasks](https://tasks.mechanic.dev/) will be ported to use GraphQL only, which will provide a model for how you can update your custom tasks. You'll be able to update your non-customized library tasks with a click of a button :relaxed:\
+\
+Please see these [guides](../../resources/converting-tasks-from-shopify-rest-to-graphql/) for migrating your custom tasks to GraphQL.
 {% endhint %}
 
 {% hint style="info" %}
@@ -203,12 +205,15 @@ This example shows how the query and variables may be built up separately, and p
 **Important Notice**
 
 \
-Shopify is deprecating some of the Shopify Admin REST API. The first round of deprecations involve the product and variant endpoints. Read the deprecation notice [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing). \
+Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation  [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).\
 \
-Our recommendation is to use [GraphQL](shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. It appears that Shopify will gradually phase out the REST API over time.
+Use the [GraphQL](shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API competely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
 
 \
-All of our [library tasks](https://tasks.mechanic.dev/) will be ported to GraphQL only which will provide a model for how you can update your custom tasks. You'll be able to update your non-customized library tasks with a click of a button :relaxed:
+All of our [library tasks](https://tasks.mechanic.dev/) will be ported to use GraphQL only, which will provide a model for how you can update your custom tasks. You'll be able to update your non-customized library tasks with a click of a button :relaxed:\
+\
+Please see these [guides](../../resources/converting-tasks-from-shopify-rest-to-graphql/) for migrating your custom tasks to GraphQL.\
+
 {% endhint %}
 
 This usage style invokes the [Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest). It accepts an array of option values, containing these elements in order:
@@ -343,12 +348,14 @@ This example deletes a product, having a certain ID.
 **Important Notice**
 
 \
-Shopify is deprecating some of the Shopify Admin REST API. The first round of deprecations involve the product and variant endpoints. Read the deprecation notice [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing). \
+Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation  [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).\
 \
-Our recommendation is to use [GraphQL](shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. It appears that Shopify will gradually phase out the REST API over time.
+Use the [GraphQL](shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API competely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
 
 \
-All of our [library tasks](https://tasks.mechanic.dev/) will be ported to GraphQL only which will provide a model for how you can update your custom tasks. You'll be able to update your non-customized library tasks with a click of a button :relaxed:
+All of our [library tasks](https://tasks.mechanic.dev/) will be ported to use GraphQL only, which will provide a model for how you can update your custom tasks. You'll be able to update your non-customized library tasks with a click of a button :relaxed:\
+\
+Please see these [guides](../../resources/converting-tasks-from-shopify-rest-to-graphql/) for migrating your custom tasks to GraphQL.
 {% endhint %}
 
 This usage style invokes [Shopify REST Admin API](https://shopify.dev/docs/admin-api/rest). It accepts an array of option values, containing these elements in order:
