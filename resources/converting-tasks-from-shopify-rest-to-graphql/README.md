@@ -5,11 +5,13 @@ icon: triangle-exclamation
 # 🏆 Converting tasks from Shopify REST to GraphQL
 
 {% hint style="danger" %}
-**Shopify is deprecating some of the Shopify Admin REST API. The first round of deprecations involve the product and variant endpoints. Read the deprecation notice** [**here**](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing)**.**
+**Important Notice**
 
-Our recommendation is to use [GraphQL](../../core/actions/shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. It also appears that Shopify will gradually phase out the REST API.
+Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).
 
-Over time, all of our [library tasks](https://tasks.mechanic.dev/) will be ported to use GraphQL only, which in conjunction with these tutorials, will provide a model for how you can update your custom tasks.&#x20;
+Use the [GraphQL](https://learn.mechanic.dev/core/actions/shopify#graphql) going forward. The [product](https://learn.mechanic.dev/platform/liquid/objects/shopify/product) and [variant](https://learn.mechanic.dev/platform/liquid/objects/shopify/variant) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API competely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
+
+
 {% endhint %}
 
 These conversion tutorials will be be based on products, variants, and associated resources, but the methodologies are applicable to other type of REST resources as well.
