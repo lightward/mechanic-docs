@@ -1,10 +1,11 @@
 # Table of contents
 
 * [⛩️ Introduction](README.md)
+* [🤓 Hire a Mechanic developer](hire-a-developer.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)
 * [🧑‍💻 "I need help with my custom task!"](custom-help.md)
-* [🤓 Hire a Mechanic developer](hire-a-developer.md)
+* [📣 Shopify is deprecating the REST API](shopify-is-deprecating-the-rest-api.md)
 
 ## Resources
 
