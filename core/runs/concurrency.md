@@ -20,6 +20,5 @@ Related FAQ: [Can my Mechanic concurrency limit be raised?](../../faq/can-my-mec
 
 ## Tips
 
-* To ensure that your tasks are working with up-to-date information, consider reloading your resources at the beginning of the task script. For example, a task responding to a customer event might include `{% assign customer = customer.reload %}` at the very beginning, to ensure that any changes to the customer (since the original event) are reflected in the `customer` variable.
 * Use GraphQL to query Shopify, to keep your data usage efficient. (To learn more, see [Interacting with Shopify](../shopify/).)
 * For options for ordering execution of runs, see [Ordering](ordering.md).

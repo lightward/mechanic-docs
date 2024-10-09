@@ -9,7 +9,7 @@ icon: triangle-exclamation
 
 Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).
 
-Use the [GraphQL](https://learn.mechanic.dev/core/actions/shopify#graphql) going forward. The [product](https://learn.mechanic.dev/platform/liquid/objects/shopify/product) and [variant](https://learn.mechanic.dev/platform/liquid/objects/shopify/variant) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API competely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
+Use the [GraphQL](https://learn.mechanic.dev/core/actions/shopify#graphql) going forward. The [product](https://learn.mechanic.dev/platform/liquid/objects/shopify/product) and [variant](https://learn.mechanic.dev/platform/liquid/objects/shopify/variant) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API completely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
 
 
 {% endhint %}
