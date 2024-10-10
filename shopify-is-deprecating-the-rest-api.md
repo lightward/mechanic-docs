@@ -9,7 +9,7 @@ Shopify is evolving its platform to enhance performance and provide more powerfu
 
 ### Why is Shopify Making this Change?
 
-Shopify only wants to maintain one API and have decided  to discontinue the REST Admin API in favor of the GraphQL Admin API. GraphQL addresses several limitations of REST, offering significant benefits such as:
+Shopify wants to maintain one API and have decided  to discontinue the REST Admin API in favor of the GraphQL Admin API. GraphQL addresses several limitations of REST, offering significant benefits such as:
 
 * **Efficient Data Retrieva**l: Fetch precisely the data you need in a single request.
 * **Reduced Network Load**: Minimize data transfer between client and server.
