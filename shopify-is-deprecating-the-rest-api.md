@@ -7,9 +7,9 @@ Shopify is evolving its platform to enhance performance and provide more powerfu
 * **Deprecation of REST Admin API**: Starting October 1, 2024, the REST Admin API is considered a legacy API. Shopify will begin phasing it out, with critical endpoints like product and variant endpoints ceasing to function on February 1, 2025.
 * **GraphQL Admin AP**I: All new developments and updates will utilize the GraphQL Admin API exclusively. This shift is aimed at leveraging the enhanced capabilities and efficiencies that GraphQL offers.
 
-### Why the Change?
+### Why is Shopify Making this Change?
 
-This transition is driven by Shopify’s decision to discontinue the REST Admin API in favor of the GraphQL Admin API. GraphQL addresses several limitations of REST, offering significant benefits such as:
+Shopify only wants to maintain one API and have decided  to discontinue the REST Admin API in favor of the GraphQL Admin API. GraphQL addresses several limitations of REST, offering significant benefits such as:
 
 * **Efficient Data Retrieva**l: Fetch precisely the data you need in a single request.
 * **Reduced Network Load**: Minimize data transfer between client and server.
