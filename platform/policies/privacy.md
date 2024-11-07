@@ -20,6 +20,14 @@ Personal Information we collect about you is shared with Help Scout for the purp
 
 Finally, we may also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.
 
+## Data Protection and Security Measures
+
+We have implemented security procedures to protect the confidentiality of your data. This includes:
+
+* **Encryption**: We use industry-standard encryption protocols to protect your information both in transit and at rest.
+* **Access Controls**: Data access is restricted to authorized personnel only.
+* **Monitoring and Auditing**: Continuous monitoring of our systems ensures any unauthorized access is promptly identified and addressed.
+
 ## Your Rights
 
 If you are a European resident, you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted, per the GDPR. If you would like to exercise this right, please contact us through the contact information below.
@@ -37,4 +45,3 @@ We may update this privacy policy from time to time in order to reflect, for exa
 ## Contact Us
 
 For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at [team@usemechanic.com](mailto:team@usemechanic.com).
-
