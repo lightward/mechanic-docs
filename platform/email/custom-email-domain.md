@@ -22,13 +22,9 @@ To change the email address used for outgoing email, open the Mechanic email set
 
 Mechanic requires approval of custom email addresses before using them for outgoing mail.
 
-Email addresses will be auto-approved if any of the following are true:
+Custom email addresses must be manually approved by Mechanic staff.&#x20;
 
-* If the custom address matches the store owner's email address
-* If the custom address has the same domain name as the store's primary domain name
-* If the custom address is on a subdomain of the store's primary domain name
-
-In all other cases, custom email addresses must be manually approved by Mechanic staff. Contact [team@usemechanic.com](mailto:team@usemechanic.com) to have your address approved.
+Contact [team@usemechanic.com](mailto:team@usemechanic.com) to have your address approved.
 
 ## Verification
 
