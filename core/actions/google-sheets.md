@@ -1,0 +1,225 @@
+# Google Sheets
+
+The Google Sheets action allows you to interact with Google Sheets. It supports creating new spreadsheets, appending data to existing sheets, and exporting spreadsheets in various formats. Mechanic interacts with Google Sheets via the Google Sheets API, using OAuth2 for authentication.\
+
+
+## Options
+
+<table><thead><tr><th width="165">Option</th><th width="90">Type</th><th>Description</th></tr></thead><tbody><tr><td>account</td><td>string</td><td>Required: the Google account email address to authenticate with</td></tr><tr><td>operation</td><td>string</td><td>Required: the operation to perform. One of: "append_rows", "create_spreadsheet", "export_spreadsheet"</td></tr><tr><td>spreadsheet_id</td><td>string</td><td>Required: for append_rows and export_spreadsheet; the ID of the target spreadsheet</td></tr><tr><td>title</td><td>string</td><td>Required: for create_spreadsheet; the title for the new spreadsheet</td></tr><tr><td>rows</td><td>array</td><td>Required: for append_rows and optional for create_spreadsheet; array of arrays containing the data to write</td></tr><tr><td>sheet_name</td><td>string</td><td>Optional: for append_rows; defaults to "Sheet1"</td></tr><tr><td>file_type</td><td>string</td><td>Optional: for export_spreadsheet; the format to export. One of: "xlsx" (default), "csv", "pdf", "html", "ods", "tsv"</td></tr></tbody></table>
+
+## Options
+
+### append\_rows
+
+Adds new rows to an existing spreadsheet.
+
+#### Required Options
+
+* account
+* spreadsheet\_id
+* rows
+
+#### Optional Options
+
+* sheet\_name (defaults to "Sheet1")
+
+### create\_spreadsheet
+
+Creates a new spreadsheet, optionally with initial data.
+
+#### Required Options
+
+* account
+* title
+
+#### Optional Options
+
+* rows (initial data to populate the spreadsheet)
+
+### export\_spreadsheet
+
+Exports a spreadsheet in various formats.
+
+#### Required Options
+
+* account
+* spreadsheet\_id
+
+#### Optional Options
+
+* file\_type&#x20;
+  * xlsx (default)
+  * csv
+  * pdf
+  * html
+  * ods
+  * tsv
+
+
+
+## Authentication
+
+This action requires connecting a Google account with the appropriate  permissions. To connect an account:
+
+1. Go to the Settings screen
+2. Click Authentication
+3. Follow the Google account connection flow
+
+## File Access
+
+The action can only access spreadsheets it creates, no other spreadsheets in your drive.
+
+## Examples
+
+### Append Rows to Existing Sheet
+
+```liquid
+{% raw %}
+{% action "google_sheets" %}
+  {
+    "account": "user@example.com",
+    "operation": "append_rows",
+    "spreadsheet_id": "1234567890abcdef",
+    "sheet_name": "Orders",
+    "rows": [
+      ["Order ID", "Customer", "Total"],
+      ["1001", "John Doe", "99.99"],
+      ["1002", "Jane Smith", "149.99"]
+    ]
+  }
+{% endaction %}
+{% endraw %}
+```
+
+### Create New Spreadsheet
+
+```liquid
+{% raw %}
+{% action "google_sheets" %}
+  {
+    "account": "user@example.com",
+    "operation": "create_spreadsheet",
+    "title": "Monthly Sales Report",
+    "rows": [
+      ["Month", "Revenue", "Expenses", "Profit"],
+      ["January", "5000", "3000", "2000"],
+      ["February", "5500", "3200", "2300"]
+    ]
+  }
+{% endaction %}
+{% endraw %}
+```
+
+### Export Spreadsheet
+
+```liquid
+{% raw %}
+{% action "google_sheets" %}
+  {
+    "account": "user@example.com",
+    "operation": "export_spreadsheet",
+    "spreadsheet_id": "1234567890abcdef",
+    "file_type": "pdf"
+  }
+{% endaction %}
+{% endraw %}
+```
+
+### Dynamic Data Example
+
+```liquid
+{% raw %}
+{% assign order_rows = array %}
+{% assign header_row = array %}
+{% assign header_row["Order", "Customer", "Total"] %}
+{% assign order_rows[header_row] %}
+
+{% for order in shop.orders %}
+  {% assign order_row = array %}
+  {% assign order_row[order.name, order.customer.name, order.total_price] %}
+  {% assign order_rows[order_row] %}
+{% endfor %}
+
+{% action "google_sheets" %}
+  {
+    "account": {{ options.google_account | json }},
+    "operation": "append_rows",
+    "spreadsheet_id": {{ options.spreadsheet_id | json }},
+    "rows": {{ order_rows | json }}
+  }
+{% endaction %}
+{% endraw %}
+```
+
+## Action Responses
+
+The action returns different responses based on the operation performed:
+
+### append\_rows Response
+
+```typescript
+{
+  "spreadsheet_id": string,
+  "updated_range": string,
+  "updated_rows": number,
+  "updated_columns": number,
+  "spreadsheet_url": string
+}
+```
+
+### Example:
+
+```json
+{
+  "spreadsheet_id": "1234567890abcdef",
+  "updated_range": "Sheet1!A1:C3",
+  "updated_rows": 3,
+  "updated_columns": 3,
+  "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1234567890abcdef"
+}
+```
+
+#### create\_spreadsheet Response
+
+```typescript
+{
+  "spreadsheet_id": string,
+  "spreadsheet_url": string,
+  "title": string
+}
+```
+
+Example:
+
+```json
+{
+  "spreadsheet_id": "1234567890abcdef",
+  "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1234567890abcdef",
+  "title": "Monthly Sales Report"
+}
+```
+
+#### export\_spreadsheet Response
+
+```typescript
+{
+  "spreadsheet_id": string,
+  "name": string,
+  "size": number,
+  "file_type": string,
+  "data_base64": string
+}
+```
+
+Example:
+
+```json
+{
+  "spreadsheet_id": "1234567890abcdef",
+  "name": "Monthly Sales Report",
+  "size": 12345,
+  "file_type": "pdf",
+  "data_base64": "base64encodeddata..."
+}
+```
+

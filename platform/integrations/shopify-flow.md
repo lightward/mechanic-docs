@@ -1,6 +1,6 @@
 # Shopify Flow
 
-Mechanic allows developers to integrate their work with [Shopify Flow](https://apps.shopify.com/flow) via an official Flow connector, sending triggers to Shopify using Mechanic's [Flow action](../../core/actions/integrations/flow.md), and receiving events from Shopify using custom event topics in [the user domain](../events/topics.md#user-1).
+Mechanic allows developers to integrate their work with [Shopify Flow](https://apps.shopify.com/flow) via an official Flow connector, sending triggers to Shopify using Mechanic's [Flow action](../../core/actions/flow.md), and receiving events from Shopify using custom event topics in [the user domain](../events/topics.md#user-1).
 
 ## What is Flow?
 
@@ -43,7 +43,7 @@ Mechanic's Flow connector works in both directions: Mechanic → Flow, and Flow 
 
 ### Mechanic → Flow
 
-Shopify Flow workflows are triggered from the Mechanic side, using Mechanic's [Flow action](../../core/actions/integrations/flow.md). There are four triggers to choose from: General, Customer, Order, and Product. Mechanic's Flow action can produce any one of these four triggers, depending on the action options given.
+Shopify Flow workflows are triggered from the Mechanic side, using Mechanic's [Flow action](../../core/actions/flow.md). There are four triggers to choose from: General, Customer, Order, and Product. Mechanic's Flow action can produce any one of these four triggers, depending on the action options given.
 
 On the Flow side, workflows may be configured to listen for any of these four Mechanic triggers.
 
