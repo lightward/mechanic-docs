@@ -32,6 +32,8 @@ Mechanic maintains a set of integration actions, offering first-class support fo
 
 | Action                                           | Integrated service | Purpose                                                                        |
 | ------------------------------------------------ | ------------------ | ------------------------------------------------------------------------------ |
+| [Google Drive](google-drive.md)                  | Google Drive       | Upload files to Google Drive                                                   |
+| [Google Sheets](google-sheets.md)                | Google Sheets      | Create, Update, Export Google Sheets                                           |
 | [Flow](flow.md)                                  | Shopify Flow       | Sending customer, order, product, and general triggers to Shopify Flow         |
 | [Shopify](shopify.md)                            | Shopify Admin API  | Sending requests to the Shopify Admin API, supporting both REST and GraphQL    |
 | [Report Toaster](integrations/report-toaster.md) | Report Toaster     | Requesting reports from Report Toaster, or updating data within Report Toaster |
