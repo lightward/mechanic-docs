@@ -30,7 +30,7 @@ Shopify wants to maintain one API and have decided to discontinue the REST Admin
 * REST lookups in email task options will no longer work
 * Any tasks using REST API for product/variant operations will stop working
 
-We recommend migrating all tasks to GraphQL now, not just those affected by the February deadline, as all REST endpoints will eventually be deprecated.
+**We recommend migrating all tasks to GraphQL now, not just those affected by the February deadline, as all REST endpoints will eventually be deprecated.**
 
 #### Next Steps
 
