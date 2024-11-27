@@ -12,7 +12,6 @@ Shopify is evolving its platform to enhance performance and provide more powerfu
 Shopify wants to maintain one API and have decided to discontinue the REST Admin API in favor of the GraphQL Admin API. GraphQL addresses several limitations of REST, offering significant benefits such as:
 
 * **Efficient Data Retrieval**: Fetch precisely the data you need in a single request.
-* **Reduced Network Load**: Minimize data transfer between client and server.
 * **Enhanced Flexibility**: Customize queries to suit your specific needs.
 
 ## How Does This Affect You?

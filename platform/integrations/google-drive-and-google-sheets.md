@@ -45,6 +45,7 @@ See in-depth documentation of the Google Drive action [here](../../core/actions/
 #### Supported Features
 
 * Upload multiple files in a single action
+* Paths can include folders (e.g., 'reports/monthly/file.txt')
 * Overwrite existing files (optional)
 * Generate various file types (text, PDF, CSV, HTML)
 

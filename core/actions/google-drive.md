@@ -13,7 +13,7 @@ It supports various file types and can generate files dynamically using [file ge
 
 The `uploads` hash supports these properties:
 
-<table><thead><tr><th width="174">Property</th><th width="93">Type</th><th>Description</th></tr></thead><tbody><tr><td>overwrite</td><td>boolean</td><td>Optional: when true, files with matching names will be overwritten. Defaults to false</td></tr><tr><td>[filename]</td><td>string | hash</td><td>One or more filename-to-content mappings. Can be either a direct string for simple content, or an object using <a href="file-generators/">file generators</a></td></tr></tbody></table>
+<table><thead><tr><th width="174">Property</th><th width="93">Type</th><th>Description</th></tr></thead><tbody><tr><td>overwrite</td><td>boolean</td><td>Optional: when true, files with matching names will be overwritten. Defaults to false</td></tr><tr><td>[path/filename]</td><td>string | hash</td><td>One or more file paths mapped to their content. Paths can include folders (e.g., 'reports/monthly/file.txt'). Content can be either a direct string or a <a href="file-generators/">file generator object</a>.</td></tr></tbody></table>
 
 ## Authentication
 
@@ -22,6 +22,25 @@ This action requires connecting a Google account with the appropriate Drive perm
 1. Go to the Settings screen
 2. Click Authentication
 3. Follow the Google account connection flow
+
+## Folder Support
+
+Files can be organized in folders by including path information in the filename:
+
+* Use forward slashes to separate folder names (e.g., "reports/2024/monthly/file.pdf")
+* Folders will be created automatically if they don't exist
+* Can only access folders created by this integration
+* Invalid characters not allowed: `< > : " / \ | ? *`
+
+### Path Examples
+
+```
+reports/monthly/report.pdf        # Three levels deep
+data/2024/q1/sales.csv           # Four levels deep
+archives/backups/files.zip        # Three levels deep
+```
+
+
 
 ## Examples
 
@@ -55,6 +74,35 @@ This action requires connecting a Google account with the appropriate Drive perm
         }
       },
       "data.csv": "Date,Value\n2024-01-01,100"
+    }
+  }
+{% endaction %}
+{% endraw %}
+```
+
+### Files in Folders
+
+```liquid
+{% raw %}
+{% action "google_drive" %}
+  {
+    "account": "user@example.com",
+    "uploads": {
+      "overwrite": true,
+      "reports/monthly/sales.pdf": {
+        "pdf": {
+          "html": "<h1>Monthly Sales Report</h1><p>Data for this month</p>"
+        }
+      },
+      "data/exports/stats.csv": "Date,Value\n2024-01-01,100",
+      "archive/backups/data.zip": {
+        "zip": {
+          "files": {
+            "readme.txt": "Backup files",
+            "data.csv": "id,value\n1,test"
+          }
+        }
+      }
     }
   }
 {% endaction %}
@@ -98,11 +146,12 @@ The action returns details about the uploaded files. The response is an object w
 ```json
 {
   "uploads": {
-    [filename: string]: {
+    [filepath: string]: {
       "id": string,          // Google Drive file ID
       "name": string,        // File name as stored in Drive
       "mime_type": string,   // MIME type of the uploaded file
-      "web_view_link": string // URL to view the file in Google Drive
+      "web_view_link": string, // URL to view the file in Google Drive
+      "path": string         // Full folder path where file was created
     }
   }
 }
@@ -113,11 +162,12 @@ The action returns details about the uploaded files. The response is an object w
 ```json
 {
   "uploads": {
-    "report.pdf": {
+    "reports/monthly/report.pdf": {
       "id": "1ABC...xyz",
       "name": "report.pdf",
       "mime_type": "application/pdf",
-      "web_view_link": "https://drive.google.com/file/d/1ABC...xyz/view"
+      "web_view_link": "https://drive.google.com/file/d/1ABC...xyz/view",
+      "path": "reports/monthly"
     }
   }
 }

@@ -5,7 +5,7 @@ The Google Sheets action allows you to interact with Google Sheets. It supports 
 
 ## Options
 
-<table><thead><tr><th width="165">Option</th><th width="90">Type</th><th>Description</th></tr></thead><tbody><tr><td>account</td><td>string</td><td>Required: the Google account email address to authenticate with</td></tr><tr><td>operation</td><td>string</td><td>Required: the operation to perform. One of: "append_rows", "create_spreadsheet", "export_spreadsheet"</td></tr><tr><td>spreadsheet_id</td><td>string</td><td>Required: for append_rows and export_spreadsheet; the ID of the target spreadsheet</td></tr><tr><td>title</td><td>string</td><td>Required: for create_spreadsheet; the title for the new spreadsheet</td></tr><tr><td>rows</td><td>array</td><td>Required: for append_rows and optional for create_spreadsheet; array of arrays containing the data to write</td></tr><tr><td>sheet_name</td><td>string</td><td>Optional: for append_rows; defaults to "Sheet1"</td></tr><tr><td>file_type</td><td>string</td><td>Optional: for export_spreadsheet; the format to export. One of: "xlsx" (default), "csv", "pdf", "html", "ods", "tsv"</td></tr></tbody></table>
+<table><thead><tr><th width="165">Option</th><th width="90">Type</th><th>Description</th></tr></thead><tbody><tr><td>account</td><td>string</td><td>Required: the Google account email address to authenticate with</td></tr><tr><td>operation</td><td>string</td><td>Required: the operation to perform. One of: "append_rows", "create_spreadsheet", "export_spreadsheet"</td></tr><tr><td>spreadsheet_id</td><td>string</td><td>Required: for append_rows and export_spreadsheet; the ID of the target spreadsheet</td></tr><tr><td>title</td><td>string</td><td>Required: for create_spreadsheet; the title for the new spreadsheet</td></tr><tr><td>rows</td><td>array</td><td>Required: for append_rows and optional for create_spreadsheet; array of arrays containing the data to write</td></tr><tr><td>sheet_name</td><td>string</td><td>Optional: for append_rows; defaults to "Sheet1"</td></tr><tr><td>file_type</td><td>string</td><td>Optional: for export_spreadsheet; the format to export. One of: "xlsx" (default), "csv", "pdf", "html", "ods", "tsv"</td></tr><tr><td>folder_path</td><td>string</td><td>Optional: for create_spreadsheet; the folder path where the spreadsheet should be created (e.g., "reports/2024/monthly")</td></tr></tbody></table>
 
 ## Options
 
@@ -34,6 +34,7 @@ Creates a new spreadsheet, optionally with initial data.
 
 #### Optional Options
 
+* folder\_path (path where spreadsheet should be created)
 * rows (initial data to populate the spreadsheet)
 
 ### export\_spreadsheet
@@ -68,6 +69,23 @@ This action requires connecting a Google account with the appropriate  permissio
 ## File Access
 
 The action can only access spreadsheets it creates, no other spreadsheets in your drive.
+
+## Folder Support
+
+When creating spreadsheets, you can specify a folder path to organize your files:
+
+* Use forward slashes to separate folder names (e.g., "reports/2024/monthly")
+* Folders will be created if they don't exist
+* Can only access folders created by this integration
+* Invalid characters not allowed: `< > : " / \ | ? *`
+
+### Folder Path Examples
+
+```
+reports/monthly           # Two levels deep
+data/2024/q1/sales       # Four levels deep
+archives/exports/sheets   # Three levels deep
+```
 
 ## Examples
 
@@ -151,6 +169,28 @@ The action can only access spreadsheets it creates, no other spreadsheets in you
 {% endraw %}
 ```
 
+### Create Spreadsheet in a Folder
+
+```liquid
+{% raw %}
+{% action "google_sheets" %}
+  {
+    "account": "user@example.com",
+    "operation": "create_spreadsheet",
+    "folder_path": "reports/2024/monthly",
+    "title": "March Sales",
+    "rows": [
+      ["Date", "Revenue", "Units"],
+      ["2024-03-01", "5000", "50"],
+      ["2024-03-02", "6000", "60"]
+    ]
+  }
+{% endaction %}
+{% endraw %}
+```
+
+
+
 ## Action Responses
 
 The action returns different responses based on the operation performed:
@@ -196,6 +236,28 @@ Example:
   "spreadsheet_id": "1234567890abcdef",
   "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1234567890abcdef",
   "title": "Monthly Sales Report"
+}
+```
+
+#### create\_spreadsheet Response with Folder
+
+```typescript
+{
+  "spreadsheet_id": string,
+  "spreadsheet_url": string,
+  "title": string,
+  "folder_path": string
+}
+```
+
+#### Example:
+
+```json
+{
+  "spreadsheet_id": "1234567890abcdef",
+  "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1234567890abcdef",
+  "title": "March Sales",
+  "folder_path": "reports/2024/monthly"
 }
 ```
 
