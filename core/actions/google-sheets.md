@@ -1,13 +1,22 @@
 # Google Sheets
 
-The Google Sheets action allows you to interact with Google Sheets. It supports creating new spreadsheets, appending data to existing sheets, and exporting spreadsheets in various formats. Mechanic interacts with Google Sheets via the Google Sheets API, using OAuth2 for authentication.\
+The Google Sheets action allows you to interact with Google Sheets. It supports creating new spreadsheets, appending data to existing sheets, and exporting spreadsheets in various formats. Mechanic interacts with Google Sheets via the Google Sheets API, using OAuth2 for authentication.
 
+{% hint style="info" %}
+Due to Google security restrictions, Mechanic can only access spreadsheets that were created through Mechanic itself. To work with Google Sheets:
+
+* First create a spreadsheet using the `"create_spreadsheet"` operation
+* Store the returned spreadsheet ID for later use
+* Then use operations like `"append_rows"` on this spreadsheet
+
+See this great [example](https://tasks.mechanic.dev/demonstration-add-new-orders-to-google-sheet) in the task library.
+{% endhint %}
 
 ## Options
 
 <table><thead><tr><th width="165">Option</th><th width="90">Type</th><th>Description</th></tr></thead><tbody><tr><td>account</td><td>string</td><td>Required: the Google account email address to authenticate with</td></tr><tr><td>operation</td><td>string</td><td>Required: the operation to perform. One of: "append_rows", "create_spreadsheet", "export_spreadsheet"</td></tr><tr><td>spreadsheet_id</td><td>string</td><td>Required: for append_rows and export_spreadsheet; the ID of the target spreadsheet</td></tr><tr><td>title</td><td>string</td><td>Required: for create_spreadsheet; the title for the new spreadsheet</td></tr><tr><td>rows</td><td>array</td><td>Required: for append_rows and optional for create_spreadsheet; array of arrays containing the data to write</td></tr><tr><td>sheet_name</td><td>string</td><td>Optional: for append_rows; defaults to "Sheet1"</td></tr><tr><td>file_type</td><td>string</td><td>Optional: for export_spreadsheet; the format to export. One of: "xlsx" (default), "csv", "pdf", "html", "ods", "tsv"</td></tr><tr><td>folder_path</td><td>string</td><td>Optional: for create_spreadsheet; the folder path where the spreadsheet should be created (e.g., "reports/2024/monthly")</td></tr></tbody></table>
 
-## Options
+## Operations
 
 ### append\_rows
 
