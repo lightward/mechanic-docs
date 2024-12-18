@@ -21,7 +21,7 @@ Subscription offsets are appended to the subscription topic, and are of the form
 To learn more about scheduling work with Mechanic, see [Scheduling](../runs/scheduling.md).
 
 {% hint style="success" %}
-In practice, large offsets can make debugging difficult in practice! If you're thinking about work to be done weeks or months or years from now, consider running an hourly or daily task that scans for work that's due to be done, instead of scheduling tasks for the distant future.
+In practice, large offsets can make debugging difficult! If you're thinking about work to be done weeks or months or years from now, consider running an hourly or daily task that scans for work that's due to be done, instead of scheduling tasks for the distant future.
 {% endhint %}
 
 {% hint style="info" %}
