@@ -124,6 +124,8 @@ For a description of each topic's behavior, see Shopify's documentation:
 * shopify/company\_locations/create
 * shopify/company\_locations/delete
 * shopify/company\_locations/update
+* shopify/customer/joined\_segment
+* shopify/customer/left\_segment
 * shopify/customer/tags\_added
 * shopify/customer/tags\_removed
 * shopify/customer\_account\_settings/update
@@ -135,9 +137,11 @@ For a description of each topic's behavior, see Shopify's documentation:
 * shopify/customers/disable
 * shopify/customers/enable
 * shopify/customers/merge
+* shopify/customers/purchasing\_summary
 * shopify/customers/update
 * shopify/customers\_email\_marketing\_consent/update
 * shopify/customers\_marketing\_consent/update
+* shopify/delivery\_promise\_settings/update
 * shopify/discounts/create
 * shopify/discounts/delete
 * shopify/discounts/redeemcode\_added
@@ -153,6 +157,8 @@ For a description of each topic's behavior, see Shopify's documentation:
 * shopify/draft\_orders/update
 * shopify/fulfillment\_events/create
 * shopify/fulfillment\_events/delete
+* shopify/fulfillment\_holds/added
+* shopify/fulfillment\_holds/released
 * shopify/fulfillment\_orders/cancellation\_request\_accepted
 * shopify/fulfillment\_orders/cancellation\_request\_rejected
 * shopify/fulfillment\_orders/cancellation\_request\_submitted
@@ -274,7 +280,7 @@ Learn more about the Appstle Subscriptions integration [here](../integrations/ap
 
 ### Locksmith
 
-* **locksmith/sessions/ping** — Occurs when a user gains access to a resource on an online store using [Locksmith](https://apps.shopify.com/locksmith?utm\_source=mechanic\&utm\_medium=learn-mechanic-dev). Learn more [here](topics.md#locksmith).
+* **locksmith/sessions/ping** — Occurs when a user gains access to a resource on an online store using [Locksmith](https://apps.shopify.com/locksmith?utm_source=mechanic\&utm_medium=learn-mechanic-dev). Learn more [here](topics.md#locksmith).
 
 ### Report Toaster
 
