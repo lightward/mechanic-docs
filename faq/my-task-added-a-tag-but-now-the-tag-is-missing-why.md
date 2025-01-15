@@ -1,6 +1,6 @@
 # My task added a tag, but now the tag is missing – why?
 
-In most cases, this comes down to someone else – or some_thing_ else, like another app – working on the tagged resource simultaneously. Mechanic tasks are more or less additional apps, so also keep an eye out for potential conflicts in your own task library.
+In most cases, this comes down to someone else – or som&#x65;_&#x74;hing_ else, like another app – working on the tagged resource simultaneously. Mechanic tasks are more or less additional apps, so also keep an eye out for potential conflicts in your own task library.
 
 ### Confirming where the tag went
 

@@ -43,6 +43,7 @@
   * [Conversion: Resource loops to paginated queries](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-resource-loops-to-paginated-queries.md)
   * [Conversion: Connections from a resource](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-connections-from-a-resource.md)
   * [Conversion: Metafield lookups from a resource](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-metafield-lookups-from-a-resource.md)
+  * [Conversion: Resource lookups in task option fields](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-resource-lookups-in-task-option-fields.md)
 
 ## Core Concepts <a href="#core" id="core"></a>
 

@@ -274,7 +274,7 @@ This filter accepts the special value `"now"`. This may optionally be combined w
 
 The date filter also accepts these following options, evaluated in the following order:
 
-1. `tz` — [A timezone name from the TZ database](https://en.wikipedia.org/wiki/List\_of\_tz\_database\_time\_zones)
+1. `tz` — [A timezone name from the TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
    * If given, the resulting time string will be in the specified timezone.
    * If this option is not provided, the time is assumed to be in the store's local timezone, as configured at the Shopify level.
    * All date calculations are performed with respect to the current timezone, with consideration for DST and other calendar variances.
@@ -440,7 +440,7 @@ The parse\_jsonl filter raises an error when invalid JSONL is received.
 
 ### parse\_xml
 
-Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from\_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
+Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
 
 ```javascript
 {% raw %}
@@ -579,7 +579,7 @@ This filter accepts a phone number – country code is required! – and outputs
 
 Use this filter to match a string with a Ruby-compatible regular expression pattern (see [Regexp](https://ruby-doc.org/core/Regexp.html)).
 
-This filter returns the entire matched string (i.e. [MatchData#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to\_s)). Use the "captures" or "named\_captures" lookups to receive an array or hash of captures, respectively (i.e. [MatchData#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named\_captures)).
+This filter returns the entire matched string (i.e. [MatchData#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to_s)). Use the "captures" or "named\_captures" lookups to receive an array or hash of captures, respectively (i.e. [MatchData#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named_captures)).
 
 {% hint style="info" %}
 This filter only returns the first match found. To find all available matches in a string, use [scan](./#scan).
@@ -622,7 +622,7 @@ Matt and Megan love to party and travel.
 
 ### hmac\_sha512
 
-Works like [hmac\_sha256 from Shopify Liquid](https://shopify.dev/docs/api/liquid/filters/hmac\_sha256), but uses SHA-512 instead.
+Works like [hmac\_sha256 from Shopify Liquid](https://shopify.dev/docs/api/liquid/filters/hmac_sha256), but uses SHA-512 instead.
 
 ### rsa\_sha256, rsa\_sha512
 
@@ -646,7 +646,7 @@ This filter is useful for generating [JSON Web Signatures](../../../techniques/w
 
 Use this filter to find all available matches in a string, using a Ruby-compatible regular expression pattern (see [Regexp](https://ruby-doc.org/core/Regexp.html)).
 
-This filter returns an array of matches, consisting of each matched string (i.e. [MatchData#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to\_s)). Use the "captures" or "named\_captures" lookups on individual matches to receive an array or hash of captures, respectively (i.e. [MatchData#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named\_captures)).
+This filter returns an array of matches, consisting of each matched string (i.e. [MatchData#to\_s](https://ruby-doc.org/core/MatchData.html#method-i-to_s)). Use the "captures" or "named\_captures" lookups on individual matches to receive an array or hash of captures, respectively (i.e. [MatchData#captures](https://ruby-doc.org/core/MatchData.html#method-i-captures), [MatchData#named\_captures](https://ruby-doc.org/core/MatchData.html#method-i-named_captures)).
 
 {% hint style="info" %}
 This filter returns an array of matches. To only find the first match, use [match](./#match).
@@ -704,7 +704,7 @@ It's a mighty fine day!
 
 Formats a number (given as an [integer](../basics/types.md#integer-float), [float](../basics/types.md#integer-float), or [string](../basics/types.md#string)) as currency. Called with no arguments, this filter uses the store's primary currency and default locale.
 
-A three-character ISO currency code may be specified as the first argument; currency support is drawn from the [money](https://github.com/RubyMoney/money/blob/main/config/currency\_iso.json) project. The locale may be overridden as a named option; locale support is drawn from [rails-i18n](https://github.com/svenfuchs/rails-i18n#available-locales).
+A three-character ISO currency code may be specified as the first argument; currency support is drawn from the [money](https://github.com/RubyMoney/money/blob/main/config/currency_iso.json) project. The locale may be overridden as a named option; locale support is drawn from [rails-i18n](https://github.com/svenfuchs/rails-i18n#available-locales).
 
 {% tabs %}
 {% tab title="Code" %}
@@ -737,7 +737,7 @@ Note that this filter does not automatically append the currency ISO code (e.g. 
 
 ### in\_groups
 
-This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.org/classes/Array.html#method-i-in\_groups). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
+This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.org/classes/Array.html#method-i-in_groups). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
 
 {% tabs %}
 {% tab title="Code" %}
@@ -769,7 +769,7 @@ This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.o
 
 ### in\_groups\_of
 
-This filter is an implementation of [Array#in\_groups\_of](https://api.rubyonrails.org/classes/Array.html#method-i-in\_groups\_of). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
+This filter is an implementation of [Array#in\_groups\_of](https://api.rubyonrails.org/classes/Array.html#method-i-in_groups_of). It accepts an array, and an integer count, and – optionally – a "fill\_with" option.
 
 This filter is particularly useful when performing work in batches, by making it easy to split an array of potentially large size into smaller pieces of controlled size.
 
@@ -907,7 +907,7 @@ Negative offsets begin counting from the end of the array.
 Sorts an array uses the human-friendly sort order defined by [naturally](https://github.com/dogweather/naturally). Accepts a single optional parameter, specifying an attribute to sort.
 
 {% hint style="info" %}
-This filter complements Shopify Liquid's [sort](https://shopify.dev/docs/api/liquid/filters/sort) and [sort\_natural](https://shopify.dev/docs/api/liquid/filters/sort\_natural) filters. Choose your sort filter intentionally: machine audiences are typically happier with "sort", and human audiences are typically happier with "sort\_naturally".
+This filter complements Shopify Liquid's [sort](https://shopify.dev/docs/api/liquid/filters/sort) and [sort\_natural](https://shopify.dev/docs/api/liquid/filters/sort_natural) filters. Choose your sort filter intentionally: machine audiences are typically happier with "sort", and human audiences are typically happier with "sort\_naturally".
 {% endhint %}
 
 {% tabs %}

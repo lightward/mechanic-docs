@@ -202,7 +202,7 @@ With everything assembled, we head back to the contact form, and make a submissi
 
 We did it! We augmented our existing contact form with the ability to send submission data to our new Mechanic task, which relays the data to our CRM system using a CSV email attachment. 🎉
 
-Thanks for reading! If you've got questions or suggestions, join the [Mechanic Slack workspace](https://join.slack.com/t/usemechanic/shared\_invite/zt-cq84nrs7-ggYbYTbf\~CrCjTg8nmHP2A). :)
+Thanks for reading! If you've got questions or suggestions, join the [Mechanic Slack workspace](https://join.slack.com/t/usemechanic/shared_invite/zt-cq84nrs7-ggYbYTbf~CrCjTg8nmHP2A). :)
 
 ### Import the final task
 

@@ -91,5 +91,5 @@ The event preview block in this task sample makes this code appear to be overly 
 </code></pre>
 
 {% hint style="info" %}
-To assist with generating a paginated query block, you can use the ["paginated\_query" snippet](../../platform/liquid/mechanic-code-snippets.md#paginated\_query) in the Mechanic code editor, and it will prompt you to choose the object type to paginate over (e.g. products).
+To assist with generating a paginated query block, you can use the ["paginated\_query" snippet](../../platform/liquid/mechanic-code-snippets.md#paginated_query) in the Mechanic code editor, and it will prompt you to choose the object type to paginate over (e.g. products).
 {% endhint %}
