@@ -98,7 +98,7 @@ archives/exports/sheets   # Three levels deep
 
 ## Examples
 
-### Append Rows to Existing Sheet
+### Append Rows to Existing Google Sheet
 
 ```liquid
 {% raw %}
@@ -118,7 +118,7 @@ archives/exports/sheets   # Three levels deep
 {% endraw %}
 ```
 
-### Create New Spreadsheet
+### Create New Google Sheet
 
 ```liquid
 {% raw %}
@@ -137,7 +137,7 @@ archives/exports/sheets   # Three levels deep
 {% endraw %}
 ```
 
-### Export Spreadsheet
+### Export Google Sheet
 
 ```liquid
 {% raw %}
@@ -178,7 +178,7 @@ archives/exports/sheets   # Three levels deep
 {% endraw %}
 ```
 
-### Create Spreadsheet in a Folder
+### Create Google Sheet in a Folder
 
 ```liquid
 {% raw %}
@@ -198,7 +198,34 @@ archives/exports/sheets   # Three levels deep
 {% endraw %}
 ```
 
+### Read Data From Google Sheet
 
+{% code title="Task subscriptions" %}
+```liquid
+mechanic/user/trigger
+mechanic/actions/perform
+```
+{% endcode %}
+
+<pre class="language-liquid" data-title="Task code"><code class="lang-liquid"><strong>{% if event.topic == "mechanic/user/trigger" %}
+</strong>  {% action "google_sheets" %}
+    {
+      "account": {{ options.google_account__required | json }},
+      "operation": "export_spreadsheet",
+      "spreadsheet_id":  {{ options.spreadsheet_id__required | json }},
+      "file_type": "csv"    
+    }
+  {% endaction %}
+{% endif %}
+
+{% if event.topic == "mechanic/actions/perform" %}
+  {% if action.type == "google_sheets" and action.run.ok %}
+    {% assign sheet_data = action.run.result.data_base64 | 
+    base64_decode | parse_csv: headers: true %}
+      {% action "echo" sheet_data %}
+  {% endif %}
+{% endif %}
+</code></pre>
 
 ## Action Responses
 
