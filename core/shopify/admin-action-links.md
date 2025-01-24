@@ -8,6 +8,10 @@ description: >-
 
 For supported resources, you'll find **"Send to Mechanic"** links within the Shopify admin. These links point to a Mechanic app URL that translates selected Shopify resources into Mechanic events for on-demand processing. Depending on the user's resource and task selections, their submission may result in one or more new events. Event data consists of the latest stable REST Admin API representation of the selected resource(s).
 
+{% hint style="warning" %}
+**Important**: Starting **Feb 1, 2025**, the `product` and `variant` resource types will no longer include full REST Admin API data in these events. Instead, only resource IDs (`id` and `admin_graphql_api_id`) will be included, due to Shopify REST API deprecations. If you need additional product or variant details (e.g. title, vendor, etc.), you must fetch them via Shopify's GraphQL API.
+{% endhint %}
+
 Tasks can qualify for this style of on-demand Shopify resource processing by subscribing to event topics like **mechanic/user/{resource}** (singular) for individual processing, and **mechanic/user/{resources}** (plural) for batch processing. See [Supported resources](admin-action-links.md#supported-resources) below for a complete table of resources and event topics.
 
 Shopify admin action links are a form of [**run link**](../../platform/integrations/run-links.md), and as such equivalent URLs may be constructed manually using known resource IDs. For example, an admin order notification email could be written to include such a link, allowing the email recipient to send the relevant order to Mechanic.
@@ -16,7 +20,18 @@ Shopify admin action links are a form of [**run link**](../../platform/integrati
 
 <table><thead><tr><th width="175.33333333333331">Resource object</th><th width="173">URL parameter</th><th width="255">Individual mode event topic</th><th width="325">Batch mode event topic</th></tr></thead><tbody><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/customer#resource-object">Customer</a></td><td><code>customer</code></td><td>mechanic/user/customer</td><td>mechanic/user/customers</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/order#resource-object">Order</a></td><td><code>order</code></td><td>mechanic/user/order</td><td>mechanic/user/orders</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/draftorder#resource-object">Draft order</a></td><td><code>draft_order</code></td><td>mechanic/user/draft_order</td><td>mechanic/user/draft_orders</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/product#resource-object">Product</a></td><td><code>product</code></td><td>mechanic/user/product</td><td>mechanic/user/products</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/product-variant#resource-object">Product variant</a></td><td><code>variant</code></td><td>mechanic/user/variant</td><td>mechanic/user/variants</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/collection#resource-object">Collection</a></td><td><code>collection</code></td><td>mechanic/user/collection</td><td></td></tr></tbody></table>
 
-## Processing modes
+{% hint style="warning" %}
+**Note**: After **Feb 1, 2025**, `product` and `variant` events will only include resource IDs:
+
+```
+{
+ "id": 123456,
+ "admin_graphql_api_id": "gid://shopify/Product/123456"
+}
+
+For more data, use Shopify's GraphQL API.
+```
+{% endhint %}
 
 Mechanic distinguishes between "individual" and "batch" modes to enable a greater variety of possible workflows. Some tasks may benefit from having knowledge of all selected resources at the same time within the same task run, while some tasks may be more suited to receiving a single resource at a time.
 
@@ -82,7 +97,11 @@ After selecting a processing mode, select from the available compatible tasks â€
 
 To qualify a task to receive these events, subscribe to an event topic from the [Supported resources](admin-action-links.md#supported-resources) table above.
 
-For these events, Mechanic makes available an [environment variable](../tasks/code/environment-variables.md) named after the third term in the event topic. For example, a mechanic/user/order event will make available a variable called `order`, which contains an [Order object](../../platform/liquid/objects/shopify/order.md) with data pulled from the Shopify Admin REST API. By contrast, a mechanic/user/orders event will make available a variable called `orders`, which contains an array of Order objects.
+For these events, Mechanic makes available an [environment variable](../tasks/code/environment-variables.md) named after the third term in the event topic. For example, a mechanic/user/order event will make available a variable called `order`, which contains an [Order object](../../platform/liquid/objects/shopify/order.md) with data pulled from the Shopify Admin REST API.&#x20;
+
+**Note**: For `product` and `variant`, as of Feb 1, 2025, only an `id` and `admin_graphql_api_id` are provided. Additional fields (e.g. `product.title`) must be fetched from Shopify GraphQL.
+
+By contrast, a mechanic/user/orders event will make available a variable called `orders`, which contains an array of Order objects.
 
 {% hint style="danger" %}
 Event data for these topics is often very similar to data from [Shopify events](events/), but there are occasionally differences. For example, shopify/orders/\* events do not include customer data. By contrast, customer data is included in the Shopify Admin REST API representation for the Order resource. Therefore, event data for mechanic/user/order and mechanic/user/orders events _do_ contain information about the customer, unlike shopify/orders events.
