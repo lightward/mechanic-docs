@@ -1,10 +1,10 @@
 # JavaScript
 
-Shopify allows apps to inject JavaScript into the online storefront, and into order status pages. (This is facilitated by [ScriptTag](https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag) in the Shopify API.)
+Shopify allows apps to inject JavaScript into the online storefront. (This is facilitated by [ScriptTag](https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag) in the Shopify API.)
 
-Mechanic supports this by allowing each task to specify its own JavaScript, to be injected into the online storefront or into order status pages.
+Mechanic supports this by allowing each task to specify its own JavaScript, to be injected into the online storefront.
 
-![](<../../../.gitbook/assets/Screen Shot 2022-04-01 at 7.22.19 PM.png>)
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 Here, the developer can add in their own JavaScript code, taking advantage of Liquid for mixing in data from the current store, or from the current task's options.
 
