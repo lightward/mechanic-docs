@@ -227,6 +227,7 @@
 ***
 
 * [FAQ](faq/README.md)
+  * [Why is everything harder now?](faq/why-is-everything-harder-now.md)
   * [The app isn't loading. What do I do?](faq/app-not-loading.md)
   * [How do I stop a large batch of runs?](faq/how-do-i-stop-a-large-batch-of-runs.md)
   * [A Shopify event is missing. Where is it?](faq/a-shopify-event-is-missing-where-is-it.md)
