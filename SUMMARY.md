@@ -227,7 +227,6 @@
 ***
 
 * [FAQ](faq/README.md)
-  * [Why is everything harder now?](faq/why-is-everything-harder-now.md)
   * [The app isn't loading. What do I do?](faq/app-not-loading.md)
   * [How do I stop a large batch of runs?](faq/how-do-i-stop-a-large-batch-of-runs.md)
   * [A Shopify event is missing. Where is it?](faq/a-shopify-event-is-missing-where-is-it.md)
@@ -257,6 +256,7 @@
   * [Can my Mechanic concurrency limit be raised?](faq/can-my-mechanic-concurrency-limit-be-raised.md)
   * [What IP address does Mechanic use?](faq/what-ip-address-does-mechanic-use.md)
   * [Can Mechanic read or manage customer subscriptions?](faq/can-mechanic-read-or-manage-customer-subscriptions.md)
+  * [Why is everything harder now?](faq/why-is-everything-harder-now.md)
   * [Can task content be translated into multiple languages?](faq/can-task-content-be-translated-into-multiple-languages.md)
   * [Can I add a time delay to my task?](faq/can-i-add-a-time-delay-to-my-task.md)
   * [Can I add another store to my existing Mechanic subscription?](faq/can-i-add-another-store-to-my-existing-mechanic-subscription.md)
