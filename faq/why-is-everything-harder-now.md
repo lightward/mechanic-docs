@@ -16,7 +16,9 @@ The following user message comes from our community Slack workspace — join at 
 >
 > Ok, rant over 🙂.&#x20;
 >
-> Oh! I forgot the the thought that originally inspired me to come back to this!This goes for the entire Shopify platform, not Mechanic specifically... I just can't get over the disconnect between Shopify's webhooks being represented as REST objects, while at the same time having to interact with the API via GraphQL. Everything is named differently, everything is structured differently.
+> Oh! I forgot the the thought that originally inspired me to come back to this!
+>
+> This goes for the entire Shopify platform, not Mechanic specifically... I just can't get over the disconnect between Shopify's webhooks being represented as REST objects, while at the same time having to interact with the API via GraphQL. Everything is named differently, everything is structured differently.
 >
 > It feels like, what is even the point of including any data at all in Shopify's webhooks? We're going to have to query a GraphQL representation of the data anyways, so if we even bother using the data from the webhook then we're forced to constantly deal with two different representations of the same data. Make it make sense please :melting\_face:
 
