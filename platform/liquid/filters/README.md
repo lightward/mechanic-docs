@@ -630,22 +630,6 @@ This filter only returns the first match found. To find all available matches in
 => "a lovely day"
 ```
 
-{% tabs %}
-{% tab title="Code" %}
-```javascript
-{{ "Matt and Megan love to travel and travel." | replace: 'travel', 'party' }}
-{{ "Matt and Megan love to travel and travel | replace_first : 'travel', 'party' }}
-```
-{% endtab %}
-
-{% tab title="Output" %}
-```
-Matt and Megan love to party and party.
-Matt and Megan love to party and travel.
-```
-{% endtab %}
-{% endtabs %}
-
 ### hmac\_sha512
 
 Works like [hmac\_sha256 from Shopify Liquid](https://shopify.dev/docs/api/liquid/filters/hmac_sha256), but uses SHA-512 instead.
