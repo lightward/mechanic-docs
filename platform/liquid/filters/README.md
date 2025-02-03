@@ -1,6 +1,24 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Mechanic filters
 
-This page defines [**filters**](../basics/filters.md) that are unique to Mechanic Liquid. [Mechanic also supports many filters from Shopify Liquid.](shopify.md)
+This page defines all of the [**Liquid filters**](../basics/filters.md) that are available in Mechanic Liquid. Mechanic supports many of our own filters, as well as an array of filters drawn from Shopify Liquid.&#x20;
+
+{% hint style="info" %}
+Note that not all Shopify Liquid filters are supported by Mechanic. If a filter is supported by Shopify but it's not included on this page, it's not available in Mechanic Liquid.
+{% endhint %}
 
 {% hint style="warning" %}
 Liquid filters should not be confused with [event filters](../../events/filters.md), which are used to conditionally ignore incoming events.
@@ -558,6 +576,14 @@ Variables can be a useful part of making queries reusable within a task, or for 
 {% endraw %}
 ```
 
+### Shopify Data filters
+
+In addition to our own filters, Mechanic supports the following data filter from Shopify Liquid:
+
+* [default](https://shopify.dev/docs/api/liquid/filters/default)
+
+***
+
 ## String filters
 
 ### e164
@@ -698,6 +724,49 @@ It's a mighty fine day!
 {% endtab %}
 {% endtabs %}
 
+### Shopify String filters
+
+In addition to our own filters, Mechanic supports the following string filters from Shopify Liquid:
+
+* [append](https://shopify.dev/docs/api/liquid/filters/append)
+* [base64\_decode](https://shopify.dev/docs/api/liquid/filters/base64_decode)
+* [base64\_encode](https://shopify.dev/docs/api/liquid/filters/base64_encode)
+* [base64\_url\_safe\_decode](https://shopify.dev/docs/api/liquid/filters/base64_url_safe_decode)
+* [base64\_url\_safe\_encode](https://shopify.dev/docs/api/liquid/filters/base64_url_safe_encode)
+* [capitalize](https://shopify.dev/docs/api/liquid/filters/capitalize)
+* [downcase](https://shopify.dev/docs/api/liquid/filters/downcase)
+* [escape](https://shopify.dev/docs/api/liquid/filters/escape)
+* [escape\_once](https://shopify.dev/docs/api/liquid/filters/escape_once)
+* [handleize](https://shopify.dev/docs/api/liquid/filters/handleize)
+* [hmac\_sha1](https://shopify.dev/docs/api/liquid/filters/hmac_sha1)
+* [hmac\_sha256](https://shopify.dev/docs/api/liquid/filters/hmac_sha256)
+* [lstrip](https://shopify.dev/docs/api/liquid/filters/lstrip)
+* [md5](https://shopify.dev/docs/api/liquid/filters/md5)
+* [newline\_to\_br](https://shopify.dev/docs/api/liquid/filters/newline_to_br)
+* [pluralize](https://shopify.dev/docs/api/liquid/filters/pluralize)
+* [prepend](https://shopify.dev/docs/api/liquid/filters/prepend)
+* [remove](https://shopify.dev/docs/api/liquid/filters/remove)
+* [remove\_first](https://shopify.dev/docs/api/liquid/filters/remove_first)
+* [remove\_last](https://shopify.dev/docs/api/liquid/filters/remove_last)
+* [replace](https://shopify.dev/docs/api/liquid/filters/replace)
+* [replace\_first](https://shopify.dev/docs/api/liquid/filters/replace_first)
+* [replace\_last](https://shopify.dev/docs/api/liquid/filters/replace_last)
+* [rstrip](https://shopify.dev/docs/api/liquid/filters/rstrip)
+* [sha1](https://shopify.dev/docs/api/liquid/filters/sha1)
+* [sha256](https://shopify.dev/docs/api/liquid/filters/sha256)
+* [slice](https://shopify.dev/docs/api/liquid/filters/slice)
+* [split](https://shopify.dev/docs/api/liquid/filters/split)
+* [strip](https://shopify.dev/docs/api/liquid/filters/strip)
+* [strip\_html](https://shopify.dev/docs/api/liquid/filters/strip_html)
+* [strip\_newlines](https://shopify.dev/docs/api/liquid/filters/strip_newlines)
+* [truncate](https://shopify.dev/docs/api/liquid/filters/truncate)
+* [truncatewords](https://shopify.dev/docs/api/liquid/filters/truncatewords)
+* [upcase](https://shopify.dev/docs/api/liquid/filters/upcase)
+* [url\_decode](https://shopify.dev/docs/api/liquid/filters/url_decode)
+* [url\_encode](https://shopify.dev/docs/api/liquid/filters/url_encode)
+
+***
+
 ## Math filters
 
 ### currency
@@ -732,6 +801,24 @@ Note that this filter does not automatically append the currency ISO code (e.g. 
 {{ price | currency }} {{ shop.currency }}
 {{ price | currency | append: " " | append: shop.currency }}
 ```
+
+### Shopify Math filters
+
+In addition to our own filters, Mechanic supports the following math filters from Shopify Liquid:
+
+* [abs](https://shopify.dev/docs/api/liquid/filters/abs)
+* [at\_least](https://shopify.dev/docs/api/liquid/filters/at_least)
+* [at\_most](https://shopify.dev/docs/api/liquid/filters/at_most)
+* [ceil](https://shopify.dev/docs/api/liquid/filters/ceil)
+* [divided\_by](https://shopify.dev/docs/api/liquid/filters/divided_by)
+* [floor](https://shopify.dev/docs/api/liquid/filters/floor)
+* [minus](https://shopify.dev/docs/api/liquid/filters/minus)
+* [modulo](https://shopify.dev/docs/api/liquid/filters/modulo)
+* [plus](https://shopify.dev/docs/api/liquid/filters/plus)
+* [round](https://shopify.dev/docs/api/liquid/filters/round)
+* [times](https://shopify.dev/docs/api/liquid/filters/times)
+
+***
 
 ## Array filters
 
@@ -968,6 +1055,26 @@ three
 ```
 {% endtab %}
 {% endtabs %}
+
+### Shopify Array filters
+
+In addition to our own filters, Mechanic supports the following array filters from Shopify Liquid:
+
+* [compact](https://shopify.dev/docs/api/liquid/filters/compact)
+* [concat](https://shopify.dev/docs/api/liquid/filters/concat)
+* [first](https://shopify.dev/docs/api/liquid/filters/first)
+* [join](https://shopify.dev/docs/api/liquid/filters/join)
+* [last](https://shopify.dev/docs/api/liquid/filters/last)
+* [map](https://shopify.dev/docs/api/liquid/filters/map)
+* [reverse](https://shopify.dev/docs/api/liquid/filters/reverse)
+* [size](https://shopify.dev/docs/api/liquid/filters/size)
+* [sort](https://shopify.dev/docs/api/liquid/filters/sort)
+* [sort\_natural](https://shopify.dev/docs/api/liquid/filters/sort_natural)
+* [sum](https://shopify.dev/docs/api/liquid/filters/sum)
+* [uniq](https://shopify.dev/docs/api/liquid/filters/uniq)
+* [where](https://shopify.dev/docs/api/liquid/filters/where)
+
+***
 
 ## Hash filters
 

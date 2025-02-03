@@ -153,7 +153,6 @@
     * [Whitespace](platform/liquid/basics/whitespace.md)
   * [Liquid console](platform/liquid/console.md)
   * [Mechanic filters](platform/liquid/filters/README.md)
-    * [Shopify Liquid filters](platform/liquid/filters/shopify.md)
     * [Deprecated filters](platform/liquid/filters/deprecated.md)
   * [Mechanic keyword literals](platform/liquid/keyword-literals/README.md)
     * [array](platform/liquid/keyword-literals/array.md)

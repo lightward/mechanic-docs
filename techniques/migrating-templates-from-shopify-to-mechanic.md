@@ -121,7 +121,7 @@ Mechanic's usual sources for querying Shopify data may be used here as well. To 
 
 ### Check for Liquid filter support
 
-Mechanic Liquid supports many filters from Shopify Liquid, but not all of them! If a filter isn't working the way you expect, check [Mechanic's list of supported Shopify Liquid filters](../platform/liquid/filters/shopify.md). You may need to adjust your code to work around filters that Mechanic Liquid doesn't support.
+Mechanic Liquid supports many filters from Shopify Liquid, but not all of them! If a filter isn't working the way you expect, check [Mechanic's list of supported Shopify Liquid filters](broken-reference). You may need to adjust your code to work around filters that Mechanic Liquid doesn't support.
 
 ### Convert numeric strings to numbers, and check on money rendering
 
