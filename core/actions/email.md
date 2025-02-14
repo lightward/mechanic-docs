@@ -17,6 +17,7 @@ Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provide
 | `bcc`               | Optional; an array or comma-delimited string of bcc addresses                                                           |
 | `reply_to`          | Optional; a single reply-to address                                                                                     |
 | `from_display_name` | Optional; a string controlling the name (but not the address) of the sender                                             |
+| `headers`           | Optional; a hash of email header strings and value strings                                                              |
 | `template`          | Optional; a string naming an email template from the current Mechanic account                                           |
 | `attachments`       | Optional; an object specifying files to attach, using [file generators](file-generators/)                               |
 | `...`               | Additional options may be provided, and will be made available to email templates as variables, named after each option |
