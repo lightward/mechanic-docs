@@ -1,12 +1,6 @@
 # My task is failing because of a permissions problem. Why?
 
-If you're creating a new task, and writing a script to go with it, you might see an error like this when you start running it for the first time:
-
-```
-Received a Shopify error (403): {"errors":"[API] This action requires merchant approval for write_orders scope."}
-```
-
-Or, if you're using GraphQL, you might see something like this:
+If you're working on a custom task, you might see an error like this:
 
 ```
 "message": "TagsAdd access denied"
