@@ -1,5 +1,9 @@
 # 🤖 "I need help with my AI-written task!"
 
+{% hint style="info" %}
+tldr: Mechanic generally requires more precision than [vibe coding](https://en.wikipedia.org/wiki/Vibe_coding) affords.
+{% endhint %}
+
 Hey there! :) I'm Isaac, the creator of Mechanic.
 
 As of this writing (currently March 30, 2025), AI is not very good at Mechanic. We're seeing a pretty steady stream of folks having issues with AI-generated tasks — issues arising because the AI does not know how Mechanic works. AI code frequently "invents" Mechanic features that do not exist, or fails to invoke necessary Mechanic features.
