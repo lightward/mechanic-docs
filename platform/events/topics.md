@@ -107,6 +107,7 @@ For a description of each topic's behavior, see Shopify's documentation:
 * shopify/carts/create
 * shopify/carts/update
 * shopify/channels/delete
+* shopify/checkout\_and\_accounts\_configurations/update
 * shopify/checkouts/create
 * shopify/checkouts/delete
 * shopify/checkouts/update
@@ -155,6 +156,11 @@ For a description of each topic's behavior, see Shopify's documentation:
 * shopify/draft\_orders/create
 * shopify/draft\_orders/delete
 * shopify/draft\_orders/update
+* shopify/finance\_app\_staff\_member/delete
+* shopify/finance\_app\_staff\_member/grant
+* shopify/finance\_app\_staff\_member/revoke
+* shopify/finance\_app\_staff\_member/update
+* shopify/finance\_kyc\_information/update
 * shopify/fulfillment\_events/create
 * shopify/fulfillment\_events/delete
 * shopify/fulfillment\_holds/added
@@ -195,6 +201,7 @@ For a description of each topic's behavior, see Shopify's documentation:
 * shopify/markets/create
 * shopify/markets/delete
 * shopify/markets/update
+* shopify/markets\_backup\_region/update
 * shopify/metafield\_definitions/create
 * shopify/metafield\_definitions/delete
 * shopify/metafield\_definitions/update
