@@ -13,9 +13,7 @@ Using Mechanic for a business-critical purpose? Learn about [monitoring Mechanic
 
 ... then you'll see a steady stream of incoming activity, in your account's activity log, but you might not see activity corresponding to the very latest events in your store. Mechanic has [some concurrency limits](../core/runs/concurrency.md) that determine how much can happen in your account at once, and if you reach those limits, processing of new events will be delayed until Mechanic catches up.
 
-{% hint style="info" %}
-Related FAQ: [Can my Mechanic concurrency limit be raised?](can-my-mechanic-concurrency-limit-be-raised.md)
-{% endhint %}
+If it's useful, you can consider disabling unnecessary tasks, which let each emerging task run fail instantly instead of running normally. It won't clear the event queue, but it'll let the event queue run more quickly. More on that here: [How do I stop a large batch of runs?](how-do-i-stop-a-large-batch-of-runs.md)
 
 ## If upstream service is delayed in sending notifications to Mechanic...
 
