@@ -20,6 +20,6 @@ To create events using third-party data, use one of these techniques:
 
 ## Examples
 
-* [Task: Send an SMS via Nexmo when a product is created](https://usemechanic.com/task/send-an-sms-via-nexmo-when-a-product-is-created)
-* [Task: Send new customer signups to IFTTT](https://usemechanic.com/task/send-new-customer-signups-to-ifttt)
 * [Task: Add new customers to GetResponse](https://usemechanic.com/task/add-new-customers-to-getresponse)
+* [Task: Send an event to Klaviyo when a fulfillment is delayed](https://tasks.mechanic.dev/send-an-event-to-klaviyo-when-a-fulfillment-is-delayed)
+* [Demonstration: Query external paginated API](https://tasks.mechanic.dev/demonstration-query-external-paginated-api)

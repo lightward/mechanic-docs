@@ -14,8 +14,10 @@ For this kind of work, we recommend an execution sequence that looks like this:
 
 1. Use an HTTP action to fire a GET request for your data's URL.
 2. Set up your task to respond to mechanic/actions/perform, so you can respond to the GET request's downloaded results.
-3. If you expect to use the retrieved data frequently, or across several tasks, consider using the [cache](../platform/cache/) to store that data for easy re-use.
+3. If needed, query the external API again to get additional results (e.g. pagination, extended data).
+4. If you expect to use the retrieved data frequently, or across several tasks, consider using the [cache](../platform/cache/) to store that data for easy re-use.
 
 ## Example
 
 * [Demonstration: Fetch an external configuration file](https://usemechanic.com/task/demonstration-fetch-an-external-configuration-file)
+* [Demonstration: Query external paginated API](https://tasks.mechanic.dev/demonstration-query-external-paginated-api)
