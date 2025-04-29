@@ -56,7 +56,7 @@ Decode the base64-encoded request body with Liquid, using Mechanic's [decode\_ba
 {% endhint %}
 
 {% hint style="danger" %}
-Mechanic's webhook request header representation has an important limitation: the array of header values is currently limited to a size of one (1). If multiple request headers are given using the same header name, their values will be concatenated with commas and represented in a single string, as the sole array element.
+Mechanic's webhook request header representation has an important limitation: the array of values for each header is currently limited to a size of one (1). If multiple request headers are given using the same header name, their values will be concatenated with commas and represented in a single string, as the sole array element.
 
 This means that a request which defines both `X-Foo: Bar` and `X-Foo: Baz` headers will be represented thusly:
 
