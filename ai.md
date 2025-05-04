@@ -1,9 +1,5 @@
 # 🤖 "I need help with my AI-written task!"
 
-{% hint style="info" %}
-tldr: Mechanic generally requires more precision than [vibe coding](https://en.wikipedia.org/wiki/Vibe_coding) affords.
-{% endhint %}
-
 Hey there! :) I'm Isaac, the creator of Mechanic.
 
 AI makes it easy to create code that's hard to fix.
