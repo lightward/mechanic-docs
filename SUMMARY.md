@@ -69,6 +69,7 @@
     * [JavaScript](core/tasks/advanced-settings/javascript.md)
     * [Perform action runs in sequence](core/tasks/advanced-settings/perform-action-runs-in-sequence.md)
   * [Import and export](core/tasks/import-and-export.md)
+  * [User Form](core/tasks/user-form.md)
 * [Actions](core/actions/README.md)
   * [Cache](core/actions/cache.md)
   * [Echo](core/actions/echo.md)

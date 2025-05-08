@@ -1,7 +1,3 @@
----
-icon: triangle-exclamation
----
-
 # 🏆 Converting tasks from Shopify REST to GraphQL
 
 {% hint style="danger" %}

@@ -49,6 +49,8 @@ Many flags may be combined with other flags, for more nuanced control.
 
 If no flags are used for an option, an option will be made available as a plain text field, and the option value will be a string.
 
+The special **`userform`** flag does not change the input type or validation; it simply marks an option as one that should appear on the _Run-task_ form (topic `mechanic/user/form`) in additions to the general task options screen.
+
 #### Flags fall into three categories:
 
 | Category            | Purpose                                                                                                                         |
@@ -97,10 +99,11 @@ Ordinals (`o1`, `o2`, …) determine display order. Underscores inside values ar
 
 ### 3.2 Form‑modifier flags
 
-| Flag       | Applies to | Effect                                               |
-| ---------- | ---------- | ---------------------------------------------------- |
-| `required` | Any        | Field must be filled before Save.                    |
-| `email`    | `text`     | Adds email placeholder and basic email format check. |
+| Flag       | Applies to | Effect                                                           |
+| ---------- | ---------- | ---------------------------------------------------------------- |
+| `required` | Any        | Field must be filled before Save.                                |
+| `email`    | `text`     | Adds email placeholder and basic email format check.             |
+| `userform` | Any        | Shows this option on  **Run task** form (`mechanic/user/form`).  |
 
 ### 3.3 Auxiliary flags
 

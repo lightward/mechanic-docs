@@ -417,8 +417,8 @@ For a more complex example, see [Set product or variant metafields values in bul
 Allows converting objects to their JSON representations, and parsing that JSON into hashes.
 
 ```liquid
-{% assign order_as_json = order | json }}
 {% raw %}
+{% assign order_as_json = order | json %}
 {% assign plain_order = order_as_json | parse_json %}
 {% endraw %}
 ```
