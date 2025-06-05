@@ -12,7 +12,7 @@ It can be also useful to temporarily disable a task responsible for the backup; 
 
 ## Limits
 
-Each store's Mechanic account has a fixed run queue size. This limit controls how many runs Mechanic will perform simultaneously for your store. With a limit of 5, this could mean 5 events, or 5 tasks, or 1 event and 2 tasks and 2 actions, or any other combination of runs. Additional runs will be performed as the preceding runs complete.
+Each store's Mechanic account has a fixed run queue size. This limit controls how many runs Mechanic will perform simultaneously for your store. With a limit of 2, this could mean 2 events, or 2 tasks, or 1 event and 1 tasks and 0 actions, or any other combination of runs. Additional runs will be performed as the preceding runs complete.
 
 {% hint style="info" %}
 Related FAQ: [Can my Mechanic concurrency limit be raised?](../../faq/can-my-mechanic-concurrency-limit-be-raised.md)
