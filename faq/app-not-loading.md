@@ -4,8 +4,8 @@ Deep breaths! We can figure this out. :)
 
 1. Check [status.mechanic.dev](https://status.mechanic.dev/) for platform updates.
 2. Try accessing Mechanic's app domains directly:
-   * Try opening [usemechanic.com](https://usemechanic.com/) directly. (You should be redirected to [tasks.mechanic.dev](https://tasks.mechanic.dev/); this is normal.)
-   * Try opening [ui.mechanic.dev](https://ui.mechanic.dev/). (You should be redirected to [usemechanic.com/auth/login](https://usemechanic.com/auth/login); this is normal.)
+   * Try opening [usemechanic.com](https://usemechanic.com/) directly. (You should be redirected to [mechanic.dev](https://mechanic.dev/); this is normal.)
+   * Try opening [ui.mechanic.dev](https://ui.mechanic.dev/). (You should see a blank page; this is normal.)
 3. If loading fails, try again from a private/incognito browser session.
 4. If that doesn't work, try again from another device.
 5. If that doesn't work, try again from another network. (Switch WiFi networks, or switch to cellular.)
