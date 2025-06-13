@@ -1,15 +1,33 @@
 # 🤖 "I need help with my AI-written task!"
 
-Hey there! :) I'm Isaac, the creator of Mechanic.
+AI thrives on good examples. Our task library — [tasks.mechanic.dev](https://tasks.mechanic.dev/) — is full of good examples.
 
-AI makes it easy to create code that's hard to get help with.
+And if you get too stuck, hire a human. :) We've got those at [partners.mechanic.dev](https://partners.mechanic.dev/).
 
-As of this writing (currently June 6, 2025), AI is getting better at Mechanic, but is still uneven in its results. AI code frequently "invents" Mechanic features that do not exist (like writing task code in YAML), or fails to invoke necessary Mechanic features (like [subscriptions](core/tasks/subscriptions.md), frequently), or composes task outputs in unsupported ways.
+***
 
-For now, if you're having issues with an AI-written task, your absolute best bet is to talk with a professional from the Mechanic partners list at [partners.mechanic.dev](https://partners.mechanic.dev/). Your task may need to be retooled, and possibly fully rewritten from scratch, by someone who can dynamically account for the practical realities of Mechanic and Shopify. As of right now, this seems to generally mean a human.
+Hey there! :) I'm Isaac, the creator of Mechanic. Those two lines above are the most important things to know. Keep reading if you're curious.
 
-We-the-platform-team are available for issues with the platform itself, but we can't get hands-on with custom code — whether written by a human or an AI or anything else. For a general overview of custom code on Mechanic, see [learn.mechanic.dev/custom](custom.md).
+AI makes it super easy to create code. This is awesome. I'm so, so excited about this. The more the merrier.
+
+This means Mechanic needs to learn something too: how to work with AI coders that can easily produce well-formed code but might not understand the patterns that Mechanic itself strictly abides by.
+
+An AI can rapidly produce code, and it'll be good-looking code, but if the AI doesn't _understand Mechanic_ the code might not work at all. In a very real way, it becomes a case of Mechanic not understanding the AI.
+
+This is an interesting bind: because _AI_ changes faster than _Mechanic_, it becomes a question of how best to guide the AI. For folks who understand code _less_ than the AI, this puts everyone in a rough position: the AI is doing its best but can't tell when it doesn't understand, and the human is doing their best but can't tell when the AI doesn't understand, and _all_ Mechanic knows is that it's being given something _it_ doesn't understand.
+
+As of this writing (currently June 12, 2025), AI is getting better at Mechanic. It's definitely getting better. But, still:
+
+* AI code often "invents" Mechanic features that do not exist (like writing task code in YAML, or compiling action objects into a JSON array)
+* AI code often fails to invoke necessary Mechanic features (like [subscriptions](core/tasks/subscriptions.md)!).
+* Intelligence is a game of guessing intelligently: AI often sort of just _guesses_ at what task code is supposed to generate.
+
+Mechanic, as a platform, is a place for solving things together. "Together" works best when everyone's honest about where they're at. Mechanic's a good place for that. :)
+
+The AI path with Mechanic is getting better, but it's not smooth yet. If you're having trouble with this, head to [learn.mechanic.dev/custom](https://learn.mechanic.dev/custom) — that page has an overview of the smooth paths that _do_ exist.
 
 To learn about how we at Lightward Inc roll with AI, please visit [lightward.ai](https://lightward.ai/), and say hello. :)
+
+No matter what: thank you for being here. :heart:
 
 \=Isaac
