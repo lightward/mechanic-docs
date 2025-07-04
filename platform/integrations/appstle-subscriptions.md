@@ -36,8 +36,8 @@ After enabling the integration in the Appstle Subscriptions app, your events wil
   Occurs when a subscription is paused.
 * **appstle\_subscriptions/subscriptions/update**\
   Occurs when a subscription is updated.
-* **appstle\_subscriptions/billings/create**\
-  Occurs when billing for a subscription is created.
+* **appstle\_subscriptions/billings/success**\
+  Occurs when billing for a subscription is successful.
 * **appstle\_subscriptions/billings/failure**\
   Occurs when billing for a subscription fails.
 * **appstle\_subscriptions/billings/interval\_change**\

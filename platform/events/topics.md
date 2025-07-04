@@ -291,7 +291,7 @@ Mechanic allows developers several ways to generate custom User events:
 * **appstle\_subscriptions/subscriptions/next\_order\_date\_change** — Occurs when the next order data of a subscription is changed.
 * **appstle\_subscriptions/subscriptions/pause** — Occurs when a subscription is paused.
 * **appstle\_subscriptions/subscriptions/update** — Occurs when a subscription is updated.
-* **appstle\_subscriptions/billings/create** — Occurs when billing for a subscription is created.
+* **appstle\_subscriptions/billings/success** — Occurs when billing for a subscription is successful.
 * **appstle\_subscriptions/billings/failure** — Occurs when billing for a subscription fails.
 * **appstle\_subscriptions/billings/interval\_change** — Occurs when billing for a subscription changes.
 
