@@ -41,7 +41,7 @@ The Markdown editor in Mechanic includes keyboard shortcuts for common formattin
 
 <summary>🎬 Watch: Keyboard Shortcuts Demo</summary>
 
-<figure><img src="../../../.gitbook/assets/markdown keyboard shortcuts demo.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/markdown keyboard shortcuts demo (1).gif" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -56,7 +56,7 @@ The Markdown editor in Mechanic includes keyboard shortcuts for common formattin
 ```
 </code></pre></td></tr><tr><td><strong>Toggle List</strong></td><td><p><i class="fa-apple">:apple:</i>: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> </p><p><br><i class="fa-windows">:windows:</i>: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd></p></td><td><p>Cycles through <strong>List</strong> formats.</p><pre><code><strong>→ Unordered List → Ordered List → Plain Text
 </strong>→ - text         → 1. text      → text
-</code></pre></td></tr><tr><td><strong>Toggle Link</strong></td><td><p><i class="fa-apple">:apple:</i>: <kbd>⌘</kbd>+<kbd>K</kbd> </p><p><br><i class="fa-windows">:windows:</i>: <kbd>Ctrl</kbd>+<kbd>K</kbd></p></td><td><p>Adds or removes <strong>Link</strong> formatting.</p><pre><code>[text](url)
+</code></pre></td></tr><tr><td><strong>Toggle Link</strong></td><td><p><i class="fa-apple">:apple:</i>: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> </p><p><br><i class="fa-windows">:windows:</i>: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd></p></td><td><p>Adds or removes <strong>Link</strong> formatting.</p><pre><code>[text](url)
 </code></pre></td></tr><tr><td><strong>Toggle Blockquote</strong></td><td><p><i class="fa-apple">:apple:</i>: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> </p><p><br><i class="fa-windows">:windows:</i>: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd></p></td><td><p>Adds or removes <strong>Blockquote</strong> formatting.</p><pre><code>> text 
 </code></pre></td></tr><tr><td><strong>Toggle Image</strong></td><td><p><i class="fa-apple">:apple:</i>: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> </p><p><br><i class="fa-windows">:windows:</i>: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd></p></td><td><p></p><p>Adds or removes <strong>Image</strong> formatting.</p><pre><code>![](url)
 </code></pre></td></tr></tbody></table>
