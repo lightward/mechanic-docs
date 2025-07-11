@@ -4,7 +4,6 @@ A typical REST products loop in Mechanic will have the structure below. While th
 
 {% code title="REST - shop.products resource loop" overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```liquid
-{% raw %}
 {% for product in shop.products %}
   {% comment %}
     -- product processing here, using REST fields
@@ -16,7 +15,6 @@ A typical REST products loop in Mechanic will have the structure below. While th
     {% endcomment %}
   {% endfor %}
 {% endfor %}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -38,7 +36,6 @@ If a query has the potential to return a very large number of resources (includi
 
 {% code title="GraphQL - paginated products query" overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```liquid
-{% raw %}
 {% assign cursor = nil %}
 {% assign search_query = nil %}
 
@@ -117,12 +114,11 @@ If a query has the potential to return a very large number of resources (includi
     {% break %}
   {% endif %}
 {% endfor %}
-{% endraw %}
 ```
 {% endcode %}
 
 {% hint style="info" %}
-To assist with generating a paginated query block, you can use the ["paginated\_query" snippet](../../platform/liquid/mechanic-code-snippets.md#paginated\_query) in the Mechanic code editor, and it will prompt you to choose the object type to paginate over (e.g. products).
+To assist with generating a paginated query block, you can use the ["paginated\_query" snippet](../../platform/liquid/mechanic-code-snippets.md#paginated_query) in the Mechanic code editor, and it will prompt you to choose the object type to paginate over (e.g. products).
 {% endhint %}
 
 To see a code diff from a Mechanic library task that was recently converted in this manner, click [here](https://github.com/lightward/mechanic-tasks/pull/393/files#diff-2efeafa8d41fb00ed8ffcd8481f358850d69d8b7537364d17cc744ec9f357681).

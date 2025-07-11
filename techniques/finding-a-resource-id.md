@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Finding a resource ID
 
 To find an ID for a resource in a Shopify store, start by opening the Shopify admin area. Then, navigate to the specific resource whose ID is needed. Lastly, look at the browser's address bar: the ID is the number at the very end.

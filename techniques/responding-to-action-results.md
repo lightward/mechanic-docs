@@ -51,7 +51,6 @@ mechanic/actions/perform
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% if action.run.ok == false %}
   {% action "email" %}
     {
@@ -91,7 +90,6 @@ mechanic/actions/perform
 {% elsif action.meta.mode == "second" %}
   {% action "echo", "done" %}
 {% endif %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}

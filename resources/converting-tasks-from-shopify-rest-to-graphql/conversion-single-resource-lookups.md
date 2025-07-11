@@ -4,15 +4,12 @@ At its core, accessing a single resource via either API is effectively the same.
 
 {% code title="REST - simple product lookup" %}
 ```liquid
-{% raw %}
 {% assign product = shop.products[product_id] %}
-{% endraw %}
 ```
 {% endcode %}
 
 {% code title="GraphQL - simple product query" overflow="wrap" lineNumbers="true" %}
 ```liquid
-{% raw %}
 {% capture query %}
   query {
     product(id: {{ product_id | json }}) {
@@ -25,7 +22,6 @@ At its core, accessing a single resource via either API is effectively the same.
 {% assign result = query | shopify %}
 
 {% assign product = result.data.product %}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -35,9 +31,7 @@ In a REST call, every field of that resource will be returned, allowing the usag
 
 {% code title="REST - example product logging" lineNumbers="true" %}
 ```liquid
-{% raw %}
 {% assign product = shop.products[product_id] %}
-{% endraw %}
 
 {% log
   title: product.title,
@@ -58,7 +52,6 @@ Occasionally, the REST and GraphQL APIs do not use the same field names. And in 
 
 {% code title="GraphQL - example product logging" lineNumbers="true" %}
 ```liquid
-{% raw %}
 {% capture query %}
   query {
     product(id: {{ product_id | json }}) {
@@ -74,7 +67,6 @@ Occasionally, the REST and GraphQL APIs do not use the same field names. And in 
     }
   }  
 {% endcapture %}
-{% endraw %}
 
 {% log
   title: product.title,
@@ -95,7 +87,6 @@ The preview block is only showing the fields from the REST product webhook that 
 
 {% code title="REST - Basic product tagging task" overflow="wrap" lineNumbers="true" %}
 ```liquid
-{% raw %}
 {% if event.preview %}
   {% capture product_json %}
     {
@@ -119,7 +110,6 @@ The preview block is only showing the fields from the REST product webhook that 
     %}
   {% endif %}
 {% endif %}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -131,7 +121,6 @@ The preview block simulates the relevant shape of the returned data, which typic
 
 {% code title="GraphQL - Basic product tagging task" overflow="wrap" lineNumbers="true" %}
 ```liquid
-{% raw %}
 {% capture query %}
   query {
     product(id: {{ product.admin_graphql_api_id | json }}) {
@@ -171,13 +160,12 @@ The preview block simulates the relevant shape of the returned data, which typic
       product: product
     %}
   {% endif %}
-{% endif %}
-{% endraw %}j
+{% endif %}j
 ```
 {% endcode %}
 
 {% hint style="info" %}
-To assist with generating an object query block, you can use the ["object\_query" snippet](../../../platform/liquid/mechanic-code-snippets.md#object\_query) in the Mechanic code editor, and it will prompt you to choose the object type to generate a query and preview block for (e.g. product).
+To assist with generating an object query block, you can use the ["object\_query" snippet](../../platform/liquid/mechanic-code-snippets.md#object_query) in the Mechanic code editor, and it will prompt you to choose the object type to generate a query and preview block for (e.g. product).
 {% endhint %}
 
 To see a code diff from a Mechanic library task that was recently converted in this manner, click [here](https://github.com/lightward/mechanic-tasks/pull/393/files#diff-e02b657fe67dbee68d890ad84b721837f25f6ab8c99d78ac39f28ef179478228), and review the code variations between the `{% if event.topic == "shopify/orders/create" %}` blocks.

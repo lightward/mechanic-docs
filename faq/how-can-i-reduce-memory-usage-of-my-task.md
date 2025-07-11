@@ -1,16 +1,5 @@
 ---
 description: Suggestions for task code that's running out memory
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # How can I reduce memory usage of my task?

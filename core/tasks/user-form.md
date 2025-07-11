@@ -17,7 +17,6 @@ Click the link button beside the title of the form to copy a link to the form th
 During a `mechanic/user/form` event, the ad-hoc values arrive under event.data.
 
 ```liquid
-{% raw %}
 {% # These will appear on the run task user form %}
 {% assign big_event = options.the_big_event__date_userform %}
 {% assign color_for_big_event = options.color_for_big_event__color_required_userform %}
@@ -33,7 +32,6 @@ During a `mechanic/user/form` event, the ad-hoc values arrive under event.data.
 {% endif %}
 
 {% action "echo" big_event, level, color_for_big_event %}
-{% endraw %}
 ```
 
 {% hint style="info" %}

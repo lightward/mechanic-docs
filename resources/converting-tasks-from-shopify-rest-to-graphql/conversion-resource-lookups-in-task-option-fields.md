@@ -4,7 +4,6 @@ An oft utilized feature of Mechanic is the ability to add Liquid tags into task 
 
 {% code title="REST - product resource lookup from line item" %}
 ```liquid
-{% raw %}
 {%- assign qualifying_product = nil -%}
 
 {%- for line_item in order.line_items -%}
@@ -17,7 +16,6 @@ An oft utilized feature of Mechanic is the ability to add Liquid tags into task 
 {%- if qualifying_product != blank -%}
   Special product notice for {{ qualifying_product.title }}...
 {%- endif -%}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -27,7 +25,6 @@ One method of conversion for lookup fields is to utilize a GraphQL query _direct
 
 {% code title="GraphQL - order query with line item products" lineNumbers="true" %}
 ```liquid
-{% raw %}
 {%- assign order_id = order.admin_graphql_api_id | default: "gid://shopify/Order/12345" -%}
 
 {%- capture query -%}
@@ -61,7 +58,6 @@ One method of conversion for lookup fields is to utilize a GraphQL query _direct
 {%- if qualifying_product != blank -%}
   Special product notice for {{ qualifying_product.title }}...
 {%- endif -%}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -74,9 +70,7 @@ Event preview blocks are not evaluated in task option fields. Instead, default v
 It can be helpful when using a GraphQL query in a task option field to add the code flag to the option field, which will add line numbers and give access to Mechanic code snippets.
 
 ```liquid
-{% raw %}
 {% assign email_body = options.email_body__multiline_code_required | strip | newline_to_br %}
-{% endraw %}
 ```
 
 <div><figure><img src="../../.gitbook/assets/Screenshot 2025-01-13 1.26.00 PM.png" alt=""><figcaption><p>Email body task option</p></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-01-13 1.26.16 PM.png" alt=""><figcaption><p>Email body task option using code flag</p></figcaption></figure></div>

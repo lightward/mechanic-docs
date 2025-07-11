@@ -101,7 +101,6 @@ archives/exports/sheets   # Three levels deep
 ### Append Rows to Existing Google Sheet
 
 ```liquid
-{% raw %}
 {% action "google_sheets" %}
   {
     "account": "user@example.com",
@@ -115,13 +114,11 @@ archives/exports/sheets   # Three levels deep
     ]
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Create New Google Sheet
 
 ```liquid
-{% raw %}
 {% action "google_sheets" %}
   {
     "account": "user@example.com",
@@ -134,13 +131,11 @@ archives/exports/sheets   # Three levels deep
     ]
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Export Google Sheet
 
 ```liquid
-{% raw %}
 {% action "google_sheets" %}
   {
     "account": "user@example.com",
@@ -149,13 +144,11 @@ archives/exports/sheets   # Three levels deep
     "file_type": "pdf"
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Dynamic Data Example
 
 ```liquid
-{% raw %}
 {% assign order_rows = array %}
 {% assign header_row = array %}
 {% assign header_row["Order", "Customer", "Total"] %}
@@ -175,13 +168,11 @@ archives/exports/sheets   # Three levels deep
     "rows": {{ order_rows | json }}
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Create Google Sheet in a Folder
 
 ```liquid
-{% raw %}
 {% action "google_sheets" %}
   {
     "account": "user@example.com",
@@ -195,7 +186,6 @@ archives/exports/sheets   # Three levels deep
     ]
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Read Data From Google Sheet

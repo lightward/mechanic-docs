@@ -25,7 +25,6 @@ Mechanic will always default to using the template named "default", when present
 Here's an example email action, specifying a non-default template:
 
 ```cpp
-{% raw %}
 {% action "email" %}
   {
     "to": "hello@example.com",
@@ -34,7 +33,6 @@ Here's an example email action, specifying a non-default template:
     "template": "welcome"
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ## Migrating from Shopify

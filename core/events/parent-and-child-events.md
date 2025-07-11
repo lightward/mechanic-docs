@@ -23,7 +23,6 @@ user/fan/out
 
 {% tab title="Code" %}
 ```liquid
-{% raw %}
 {% assign n = event.data | default: 0 | times: 1 %}
 
 {% if n < 5 %}
@@ -39,7 +38,6 @@ user/fan/out
 {% else %}
   {% action "echo", event_data: event.data, parent_event_data: event.parent.data %}
 {% endif %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}

@@ -31,13 +31,12 @@ This action has several usage styles, each with a different set of constraints o
 This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). In this style, a single GraphQL query string is supplied as the action options. The [action](../../platform/liquid/tags/action.md) tag has specific support for this action type, allowing this string to be provided as the contents of an action block.
 
 {% hint style="info" %}
-To prepare complex query inputs, use the [graphql\_arguments](../../platform/liquid/filters/#graphql\_arguments) Liquid filter.
+To prepare complex query inputs, use the [graphql\_arguments](../../platform/liquid/filters/#graphql_arguments) Liquid filter.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "shopify" %}
   mutation {
     customerCreate(
@@ -55,7 +54,6 @@ To prepare complex query inputs, use the [graphql\_arguments](../../platform/liq
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -85,7 +83,6 @@ This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/doc
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% capture query %}
   mutation DeleteProduct($productId: ID!) {
     productDelete(
@@ -109,7 +106,6 @@ This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/doc
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -137,7 +133,6 @@ This example shows how the query and variables may be built up separately, and p
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% assign metafield_owner_id = "gid://shopify/Customer/507332001849" %}
 {% assign metafield_value = hash %}
 {% assign metafield_value["foo"] = "bar" %}
@@ -174,7 +169,6 @@ This example shows how the query and variables may be built up separately, and p
 {% assign variables["metafields"] = metafields %}
 
 {% action "shopify" query: query, variables: variables %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -229,7 +223,6 @@ This example creates a (minimal) customer record.
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "shopify" %}
   [
     "create",
@@ -239,7 +232,6 @@ This example creates a (minimal) customer record.
     }
   ]
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -268,7 +260,6 @@ This example appends a line to the order note (assuming a task subscription to s
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "shopify" %}
   [
     "update",
@@ -281,7 +272,6 @@ This example appends a line to the order note (assuming a task subscription to s
     }
   ]
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -313,14 +303,12 @@ This example deletes a product, having a certain ID.
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "shopify" %}
   [
     "delete",
     ["product", 4814813560893]
   ]
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -375,7 +363,6 @@ This example creates a (minimal) customer record.
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "shopify" %}
   [
     "post",
@@ -387,7 +374,6 @@ This example creates a (minimal) customer record.
     }
   ]
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -418,7 +404,6 @@ This example appends a line to the order note (assuming a task subscription to s
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "shopify" %}
   [
     "put",
@@ -430,7 +415,6 @@ This example appends a line to the order note (assuming a task subscription to s
     }
   ]
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -461,14 +445,12 @@ This example deletes a product, having a certain ID.
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "shopify" %}
   [
     "delete",
     "/admin/api/2020-01/products/4814813724733.json"
   ]
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 

@@ -7,21 +7,17 @@
 The `for` tag runs its code against every value found in an array.
 
 ```javascript
-{% raw %}
 {% for product in products %}
   {% assign product_tags = product.tags | split: ", " %}
 {% endfor %}
-{% endraw %}
 ```
 
 ```javascript
-{% raw %}
 {% assign seconds_per_day = 86400 %}
 
 {% for i in (1..days_ahead) %}
   {% assign time_ahead = 0 | plus: seconds_per_day | times: i %}
 {% endfor %}
-{% endraw %}
 ```
 
 ### The forloop object
@@ -29,7 +25,6 @@ The `for` tag runs its code against every value found in an array.
 The `forloop`object contains information about the loop currently being processed. [Learn about its contents from Shopify](https://shopify.dev/docs/themes/liquid/reference/objects/for-loops).
 
 ```javascript
-{% raw %}
 {% for tag in tags %}
   {% if forloop.first %}
     {% comment %}
@@ -37,7 +32,6 @@ The `forloop`object contains information about the loop currently being processe
     {% endif %}
   {% endif %}
 {% endfor %}
-{% endraw %}
 ```
 
 ## continue
@@ -45,7 +39,6 @@ The `forloop`object contains information about the loop currently being processe
 Used within a `for`/`endfor` block, the `continue` tag instructs Liquid to skip the rest of the code in the current pass, and begin again with the next value in the array (if any).
 
 ```javascript
-{% raw %}
 {% for fulfillment in order.fulfillments %}
   {% if fulfillment.status == "cancelled" %}
     {% comment %}
@@ -56,7 +49,6 @@ Used within a `for`/`endfor` block, the `continue` tag instructs Liquid to skip 
 
   {% assign tag_to_add = "not cancelled" %}
 {% endfor %}
-{% endraw %}
 ```
 
 ## break
@@ -64,7 +56,6 @@ Used within a `for`/`endfor` block, the `continue` tag instructs Liquid to skip 
 Used within a `for`/`endfor` block, the `break` tag instructs Liquid to skip the rest of the code in the current pass, and to stop processing the array completely.
 
 ```javascript
-{% raw %}
 {% assign order_includes_compare_at_pricing = false %}
 
 {% for line_item in order.line_items %}
@@ -76,5 +67,4 @@ Used within a `for`/`endfor` block, the `break` tag instructs Liquid to skip the
     {% break %}
   {% endif %}
 {% endfor %}
-{% endraw %}
 ```

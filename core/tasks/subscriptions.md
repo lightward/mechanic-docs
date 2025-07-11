@@ -36,11 +36,9 @@ The [Shopify variables](code/environment-variables.md#shopify-variables) availab
 To reload the data in a Shopify variable, use something like this:
 
 ```liquid
-{% raw %}
 {% unless event.preview %}
   {% assign customer = customer.reload %}
 {% endunless %}
-{% endraw %}
 ```
 
 Remember, Mechanic does not permit access to the Shopify API during [event preview](previews/). Using this `unless` statement ensures that reloading only happens during a live event.
@@ -59,11 +57,9 @@ One subscription is permitted per line. Blank lines and leading/trailing whitesp
 ```liquid
 shopify/orders/create
 
-{% raw %}
 {% if options.send_email_when_order_cancelled__boolean %}
   shopify/orders/cancelled
 {% endif %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
@@ -79,9 +75,7 @@ shopify/orders/paid+{{ options.days_to_wait_before_followup__number_required }}.
 {% tabs %}
 {% tab title="Optional offset" %}
 ```liquid
-shopify/customers/create{% raw %}
-{% if options.wait_one_hour__boolean %}+1.hour{% endif %}
-{% endraw %}
+shopify/customers/create{% if options.wait_one_hour__boolean %}+1.hour{% endif %}
 ```
 {% endtab %}
 {% endtabs %}

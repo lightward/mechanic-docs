@@ -13,9 +13,7 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "echo", __error: "Forcing an error!" %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -40,9 +38,7 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "echo", foo: "bar", baz: "qux" %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -64,9 +60,7 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "echo", "foo", "bar", "baz" %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -89,9 +83,7 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "echo", "foo" %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -110,14 +102,12 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "echo" %}
   {
     "foo": "bar",
     "baz": "qux"
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 

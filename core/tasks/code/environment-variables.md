@@ -20,11 +20,9 @@ The [Shopify variables](environment-variables.md#shopify-variables) available to
 To reload the data in a Shopify variable, use something like this:
 
 ```liquid
-{% raw %}
 {% unless event.preview %}
   {% assign customer = customer.reload %}
 {% endunless %}
-{% endraw %}
 ```
 
 Remember, Mechanic does not permit access to the Shopify API during [event preview](../previews/). Using this `unless` statement ensures that reloading only happens during a live event.

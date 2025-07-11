@@ -4,7 +4,7 @@ description: Upload and download files via FTP, FTPS, or SFTP.
 
 # FTP
 
-The **FTP** action can upload and download files via [FTP](https://en.wikipedia.org/wiki/File\_Transfer\_Protocol), [FTPS](https://en.wikipedia.org/wiki/FTPS), or [SFTP](https://en.wikipedia.org/wiki/SSH\_File\_Transfer\_Protocol). The files to be uploaded are evaluated using [**file generators**](file-generators/). Downloaded file data is available either as an UTF-8 string, or as a base64-encoded string, and can be used in followup task runs via [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
+The **FTP** action can upload and download files via [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol), [FTPS](https://en.wikipedia.org/wiki/FTPS), or [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol). The files to be uploaded are evaluated using [**file generators**](file-generators/). Downloaded file data is available either as an UTF-8 string, or as a base64-encoded string, and can be used in followup task runs via [mechanic/actions/perform](../../techniques/responding-to-action-results.md).
 
 A connecting service like [Couchdrop](https://couchdrop.io/) can be used to relay these uploads on to other cloud locations, like Dropbox, Google Drive, and Amazon S3.
 
@@ -45,7 +45,6 @@ When connecting to an FTP or FTPS server, authenticate with the `password` optio
 When connecting to an SFTP server, authenticate using either `password` or `private_key_pem`, or both. PEM certificates may be given directly in the task code:
 
 ```liquid
-{% raw %}
 {% capture private_key_pem %}
 -----BEGIN OPENSSH PRIVATE KEY-----
 l0UGrDQWWbOpUsLENHwD5ya478pmRXarmDj5Wh31B54nmuq7be4ZKD5eh9nEV42JCl4mX6
@@ -65,7 +64,6 @@ pZ/WFoT82brhooSfJDue14C0Y=
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Uploads and downloads
@@ -79,7 +77,6 @@ Each individual file operation (i.e. each upload or download) will be attempted 
 This example action results in (a) an upload to an absolute path, starting from the server root, (b) an upload to a nested directory within the user's home folder, and (c) an upload to a nested directory in another user's home folder (which may fail, depending on filesystem permissions).
 
 ```liquid
-{% raw %}
 {% action "ftp" %}
   {
     ...
@@ -90,7 +87,6 @@ This example action results in (a) an upload to an absolute path, starting from 
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ## Result
@@ -134,7 +130,7 @@ An FTP action returns the following data structure, most useful in combination w
 }
 ```
 
-Note that each uploaded and downloaded file is keyed by the path provided for that file in the action's options. Downloaded file data is available as a UTF-8 string; for binary data that cannot be represented in UTF-8, use the base64-encoded version, possibly in concert with the [decode\_base64](https://learn.mechanic.dev/platform/liquid/filters#base-64-decode\_base64) filter.
+Note that each uploaded and downloaded file is keyed by the path provided for that file in the action's options. Downloaded file data is available as a UTF-8 string; for binary data that cannot be represented in UTF-8, use the base64-encoded version, possibly in concert with the [decode\_base64](https://learn.mechanic.dev/platform/liquid/filters#base-64-decode_base64) filter.
 
 ## Testing
 
@@ -145,7 +141,6 @@ Alternatively, [ngrok](https://ngrok.com/) can be used to create a public tunnel
 Uploads are processed before downloads; it can be useful to test by uploading a file, and then immediately downloading it again:
 
 ```liquid
-{% raw %}
 {% action "ftp" %}
   {
     "host": "ftp.couchdrop.io",
@@ -158,7 +153,6 @@ Uploads are processed before downloads; it can be useful to test by uploading a 
     ]
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ## Example
@@ -175,7 +169,6 @@ mechanic/user/trigger
 
 {% tab title="Code" %}
 ```liquid
-{% raw %}
 {% assign csv_rows = array %}
 
 {% assign header = "SKU,Title,Price" | split: "," %}
@@ -210,7 +203,6 @@ mechanic/user/trigger
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}

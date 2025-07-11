@@ -22,9 +22,7 @@ The best way to approach this is by creating a brand new task, which...
 In order to make this work, you may need to pull in data needed for your files. For example, if you're working on an email attachment based on order data, you may need to pull in a sample order object, like this:
 
 ```javascript
-{% raw %}
 {% assign order = shop.orders[1234567890] %}
-{% endraw %}
 ```
 
 Using this technique gives you a dedicated workspace, in the form of a task, for iterating on your file attachments. Once you have your attachment-generating code the way you want it, bring that code back to your original task.

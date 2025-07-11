@@ -28,10 +28,8 @@ When using the \`
 In the following example, a variable is assigned, modified with a new variable, and is finally rendered as output.
 
 ```javascript
-{% raw %}
 {% assign scope = "world" %}
 {% assign message = "Hello, " | append: scope %}
-{% endraw %}
 
 {{ message }}
 ```

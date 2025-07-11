@@ -23,7 +23,6 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "files" %}
   {
     "secure.zip": {
@@ -44,7 +43,6 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 

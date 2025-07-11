@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Mechanic filters
 
 This page defines all of the [**Liquid filters**](../basics/filters.md) that are available in Mechanic Liquid. Mechanic supports many of our own filters, as well as an array of filters drawn from Shopify Liquid.&#x20;
@@ -33,9 +19,7 @@ This filter converts a browser user agent string into an object that represents 
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% assign browser = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/79.0.259819395 Mobile/16G77 Safari/604.1" | browser %}
-{% endraw %}
 
 {{ browser }}
 
@@ -111,7 +95,6 @@ Supports converting a two-dimensional array to a CSV string, and back again.
 {% tabs %}
 {% tab title="Example Usage csv and parse_csv filters" %}
 ```liquid
-{% raw %}
 {% if event.preview %}
   {% capture shop_json %}
     {
@@ -230,7 +213,6 @@ Order Name;Order ID;Order Date
 {% endfor %}
 
 {% action "echo" orders_without_headers_custom_delimiter %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
@@ -349,13 +331,11 @@ In general, all strings passing through Mechanic must be UTF-8, and must ultimat
 {{ "H4sIANAafl8AA8tIzcnJVyjPL8pJAQCFEUoNCwAAAA==" | decode_base64: force_utf8: false | gunzip }}
 => "hello world"
 
-{% raw %}
 {% assign base64_non_utf8_string = "H4sIACP1fV8AAyvPSCxRSMlPLVbILFHITU3MUyjJV0hKVXjUMKc4J7/8UcNcewAYP+lTIwAAAA==" %}
 {{ base64_non_utf8_string | decode_base64: force_utf8: false | gunzip: force_utf8: false }}
 => (a string that is not UTF-8, and cannot be exported to JSON as-is)
 
 {% assign base64_non_utf8_string = "H4sIACP1fV8AAyvPSCxRSMlPLVbILFHITU3MUyjJV0hKVXjUMKc4J7/8UcNcewAYP+lTIwAAAA==" %}
-{% endraw %}
 {{ base64_non_utf8_string | decode_base64: force_utf8: false | gunzip }}
 => "what does it mean to be “slow”?"
 ```
@@ -377,7 +357,6 @@ To try this using the shopify filter, use the [variables](./#graphql-variables) 
 {% endhint %}
 
 ```liquid
-{% raw %}
 {% assign inputs = hash %}
 {% assign inputs["a_string"] = "yep this is a string" %}
 {% assign inputs["a_more_complex_type"] = hash %}
@@ -393,7 +372,6 @@ To try this using the shopify filter, use the [variables](./#graphql-variables) 
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 This results in a [GraphQL Shopify action](../../../core/actions/shopify.md#graphql) containing the following GraphQL:
@@ -417,18 +395,14 @@ For a more complex example, see [Set product or variant metafields values in bul
 Allows converting objects to their JSON representations, and parsing that JSON into hashes.
 
 ```liquid
-{% raw %}
 {% assign order_as_json = order | json %}
 {% assign plain_order = order_as_json | parse_json %}
-{% endraw %}
 ```
 
 The parse\_json filter raises an error when invalid JSON. To ignore parse errors, and to return null when an error is encountered, add `silent: true` to the filter's options:
 
 ```liquid
-{% raw %}
 {% assign should_be_nil = "{{" | parse_json: silent: true %}
-{% endraw %}
 ```
 
 ### jsonl, parse\_jsonl
@@ -442,14 +416,12 @@ Allows for rendering an iterable object (i.e. an array) as a series of JSON line
 The parse\_jsonl filter can be used to parse a series of JSON strings, each on their own line, into an array of hashes. Useful when preparing [stub data](../../../core/tasks/previews/stub-data.md) for [bulk operations](../../graphql/bulk-operations.md).
 
 ```liquid
-{% raw %}
 {% capture jsonl_string %}
   {"id":"gid://shopify/Customer/12345","email":"foo@bar.baz"}
   {"id":"gid://shopify/Customer/67890","email":"bar@baz.qux"}
 {% endcapture %}
 
 {% assign json_objects = jsonl_string | parse_jsonl %}
-{% endraw %}
 
 {{ json_objects | map: "email" | join: ", " }}
 ```
@@ -461,7 +433,6 @@ The parse\_jsonl filter raises an error when invalid JSONL is received.
 Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
 
 ```javascript
-{% raw %}
 {% capture xml_string %}
 <foo>
   <bar>baz</bar>
@@ -472,7 +443,6 @@ Use this filter to parse an XML string. (Under the hood, this filter calls [Hash
 {% endcapture %}
 
 {% assign xml = xml_string | parse_xml %}
-{% endraw %}
 
 {{ xml | json }}
 ```
@@ -492,7 +462,6 @@ Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-a
 {% tabs %}
 {% tab title="Usage" %}
 ```liquid
-{% raw %}
 {% capture query %}
   query {
     shop {
@@ -506,7 +475,6 @@ Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-a
 {% assign result = query | shopify %}
 
 {% log result %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -547,7 +515,6 @@ Variables can be a useful part of making queries reusable within a task, or for 
 {% endhint %}
 
 ```liquid
-{% raw %}
 {% capture query %}
   query ProductQuery($id: ID!) {
     product(id: $id) {
@@ -573,7 +540,6 @@ Variables can be a useful part of making queries reusable within a task, or for 
 {% assign query_options["variables"]["id"] = product_id %}
 
 {% assign result = query | shopify: query_options %}
-{% endraw %}
 ```
 
 ### Shopify Data filters
@@ -615,7 +581,6 @@ This filter only returns the first match found. To find all available matches in
 {{ "It's a lovely day!" | match: "(?<=a ).*(?= day)" }}
 => "lovely"
 
-{% raw %}
 {% assign match = "It's a lovely day!" | match: "a (bucolic|lovely) day" %}
 {{ match.captures }}
 => ["lovely"]
@@ -625,7 +590,6 @@ This filter only returns the first match found. To find all available matches in
 => {"adjective" => "lovely"}
 
 {% assign match = "It's a lovely day!" | match: "a (?i:LOVELY) day" %}
-{% endraw %}
 {{ match }}
 => "a lovely day"
 ```
@@ -684,12 +648,10 @@ Use this filter on strings to remove indentation from strings.
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% capture message %}
   Hello, friend!
   It's a mighty fine day!
 {% endcapture %}
-{% endraw %}
 
 {{ message }}
 {{ message | unindent }}
@@ -879,7 +841,6 @@ This filter accepts the name of an object property or attribute, and returns a h
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% capture variants_json %}
   [
     {
@@ -894,7 +855,6 @@ This filter accepts the name of an object property or attribute, and returns a h
 {% endcapture %}
 
 {% assign variants = variants_json | parse_json %}
-{% endraw %}
 
 {{ variants | index_by: "sku" | json }}
 ```
@@ -923,11 +883,9 @@ This filter appends any number of arguments onto the provided array, returning a
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% assign count_to_three = "one,two,three" | split: "," %}
 
 {% assign count_to_five = count_to_three | push: "four", "five" %}
-{% endraw %}
 
 {{ count_to_five | join: newline }}
 ```
@@ -984,9 +942,7 @@ This filter complements Shopify Liquid's [sort](https://shopify.dev/docs/api/liq
 {% tabs %}
 {% tab title="Code" %}
 ```liquid
-{% raw %}
 {% assign set = "order #10.b,Order #10.a,Order #2.c,order #2.d" | split: "," %}
-{% endraw %}
 
 unsorted:
   {{ set | join: ", " }}
@@ -1020,11 +976,9 @@ This filter prepends any number of arguments onto the provided array, returning 
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% assign count_two_three = "two,three" | split: "," %}
 
 {% assign count_to_three_and_start_at_zero = count_two_three | unshift: "zero", "one" %}
-{% endraw %}
 
 {{ count_to_three_and_start_at_zero | join: newline }}
 ```
@@ -1069,11 +1023,9 @@ When applied to a hash, this filter returns a new hash which omits all keys havi
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% assign foo = hash %}
 {% assign foo["bar"] = "baz" %}
 {% assign foo["qux"] = nil %}
-{% endraw %}
 {{ foo | json }}
 {{ foo | compact | json }}
 ```
@@ -1094,12 +1046,10 @@ This filter accepts one or more string arguments, corresponding to keys that sho
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
 {% assign foo["baz"] = "baz" %}
 {% assign foo["qux"] = "qux" %}
-{% endraw %}
 
 {{ foo | except: "bar", "baz" | json }}
 ```
@@ -1123,12 +1073,10 @@ When applied to a hash, the slice filter accepts one or more string arguments, c
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
 {% assign foo["baz"] = "baz" %}
 {% assign foo["qux"] = "qux" %}
-{% endraw %}
 
 {{ foo | slice: "bar", "baz" | json }}
 ```

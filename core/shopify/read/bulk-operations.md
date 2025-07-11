@@ -42,9 +42,7 @@ Because all objects are returned as peers in a flat set, we've found that proces
 This technique allows the array of objects to be quickly filtered by type:
 
 ```javascript
-{% raw %}
 {% assign customers = bulkOperation.objects | where: "__typename", "Customer" %}
-{% endraw %}
 ```
 {% endhint %}
 
@@ -62,7 +60,6 @@ mechanic/shopify/bulk_operation
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% if event.topic == "mechanic/user/trigger" %}
   {% capture bulk_operation_query %}
     query {
@@ -99,7 +96,6 @@ mechanic/shopify/bulk_operation
   {% assign emails = customers | map: "email" %}
   {% log emails: emails %}
 {% endif %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}

@@ -13,11 +13,9 @@ For further discussion on how Liquid treats values, see their documentation: [Tr
 An `if` tag is always paired with an `endif` tag. The code between these tags only runs if the condition in the `if` tag evaluates to something truthy.
 
 ```javascript
-{% raw %}
 {% if options.test_mode__boolean %}
   {% action "echo" summaries %}
 {% endif %}
-{% endraw %}
 ```
 
 ## unless
@@ -25,11 +23,9 @@ An `if` tag is always paired with an `endif` tag. The code between these tags on
 Identical in style to the `if` tag, the `unless` tag only executes the code it contains if the condition is falsey.
 
 ```javascript
-{% raw %}
 {% unless options.default_tracking_url_template contains "TRACKING_NUMBER" %}
   {% error %}{{ "Placeholder 'TRACKING_NUMBER' is missing." | json }}{% enderror %}
 {% endunless %}
-{% endraw %}
 ```
 
 ## else
@@ -37,23 +33,19 @@ Identical in style to the `if` tag, the `unless` tag only executes the code it c
 An `else` tag can be added within `if`, `unless`, and `case` blocks. The code that follows the `else` tag is run if the condition above it does not run.
 
 ```javascript
-{% raw %}
 {% if customer.email != empty %}
   {% assign email = customer.email %}
 {% else %}
   {% log "Customer had no email" %}
 {% endif %}
-{% endraw %}
 ```
 
 ```javascript
-{% raw %}
 {% unless customer.email == empty %}
   {% assign email = customer.email %}
 {% else %}
   {% log "Customer had no email" %}
 {% endif %}
-{% endraw %}
 ```
 
 ## elsif
@@ -63,7 +55,6 @@ An `elsif` tag adds a second condition to an `if` or `unless` block. If the cond
 Any number of `elsif` tags may be added within `if` or `unless` blocks.
 
 ```javascript
-{% raw %}
 {% assign today = "tuesday" %}
 
 {% if today == "monday" %}
@@ -71,11 +62,9 @@ Any number of `elsif` tags may be added within `if` or `unless` blocks.
 {% elsif today == "tuesday" %}
   {% log "it's tuesday!" %}
 {% endif %}
-{% endraw %}
 ```
 
 ```javascript
-{% raw %}
 {% assign today = "tuesday" %}
 
 {% unless today == "tuesday" %}
@@ -83,7 +72,6 @@ Any number of `elsif` tags may be added within `if` or `unless` blocks.
 {% elsif today == "tuesday" %}
   {% log "it's tuesday!" %}
 {% endif %}
-{% endraw %}
 ```
 
 ## case, when
@@ -91,7 +79,6 @@ Any number of `elsif` tags may be added within `if` or `unless` blocks.
 The `case` and `endcase` tag pair contain a series of `when` tags, and optionally an `else` tag. The value specified in the `case` tag is inspected, and Liquid then looks for a `when` tag that has a matching value. If one is found, that `when` tag gets to run its code. If no match is found, the code for the `else` tag (if given) is run.
 
 ```javascript
-{% raw %}
 {% case order.cancel_reason    %}
   {% when "customer" %}
     {% assign cancel_reason = "It was the customer." %}
@@ -102,5 +89,4 @@ The `case` and `endcase` tag pair contain a series of `when` tags, and optionall
   {% else %}
     {% assign cancel_reason = "It was something unknown." %}
 {% endcase %}
-{% endraw %}
 ```

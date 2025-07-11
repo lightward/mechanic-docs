@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Receiving email
 
 Every Shopify store that uses Mechanic has its own, dedicated email address, named after the store's myshopify.com subdomain and located at mail.usemechanic.com. A store at example.myshopify.com would be assigned the address example@mail.usemechanic.com.
@@ -37,7 +23,7 @@ Specifically, you'll have access to these attributes, all available in the `emai
 * `"attachments"` – an array, containing objects with the keys `"name"`, `"content"`, `"content_type"`, `"content_length"`, and `"content_id"`
 * `"cc"` – a string containing the full "CC" list, including names and email addresses
 * `"cc_full"` – an array, containing objects with the keys `"email"`, `"name"`, and `"mailbox_hash"`
-* `"date"` – an ISO8601 string indicating when the email was received by Postmark; use this with the [date ](../liquid/filters/#date-parse\_date)filter
+* `"date"` – an ISO8601 string indicating when the email was received by Postmark; use this with the [date ](../liquid/filters/#date-parse_date)filter
 * `"from"` – a string containing the email address of the sender
 * `"from_full"` – an object with the keys `"email"`, `"name"`, and `"mailbox_hash"`
 * `"from_name"` – a string containing the name of the sender

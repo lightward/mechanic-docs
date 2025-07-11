@@ -62,7 +62,6 @@ This information could be purely for record-keeping, making it easy to determine
 Or, this information could be used to facilitate complex task flows, in concert with a subscription to mechanic/actions/perform (see [Responding to action results](../../../techniques/responding-to-action-results.md)). An action's meta information can supply followup task runs with information about state, allowing the task to cycle between different phases of operation.
 
 ```liquid
-{% raw %}
 {% if event.topic contains "trigger" %}
   {% action %}
     {
@@ -86,5 +85,4 @@ Or, this information could be used to facilitate complex task flows, in concert 
 {% elsif action.meta.mode == "second" %}
   {% action "echo", "done" %}
 {% endif %}
-{% endraw %}
 ```

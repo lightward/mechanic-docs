@@ -44,9 +44,7 @@ Then, select the option for creating a "page" template, of type "liquid", and fi
 Next, fill in the template contents with the following:
 
 ```liquid
-{% raw %}
 {%- layout none -%}
-{% endraw %}
 {{- shop.metafields.mechanic.feed -}}
 ```
 

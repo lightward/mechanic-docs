@@ -22,22 +22,18 @@ If `b = 6`, the table below illustrates the comparison operators and the way the
 ### Examples
 
 ```javascript
-{% raw %}
 {% assign order_qualifies = false %}
 
 {% if order.cancelled_at == blank and cancel_risk %}
   {% assign order_qualifies = true %}
 {% endif %}
-{% endraw %}
 ```
 
 ```javascript
-{% raw %}
 {% if has_product != true %}
   {% log "Order has no products; skipping" %}
   {% assign send_email = false %}
 {% endif %}
-{% endraw %}
 ```
 
 ### Testing for blank, empty
@@ -51,7 +47,6 @@ Quoting from the [Rails API](https://api.rubyonrails.org/classes/Object.html#met
 > An object is blank if it's false, empty, or a whitespace string. For example, `nil`, '', ' ', \[], {}, and `false` are all blank.
 
 ```javascript
-{% raw %}
 {% assign empty_string = "" %}
 {% assign whitespace_string = "  " %}
 {% assign non_blank_string = "  !!  " %}
@@ -66,7 +61,6 @@ Quoting from the [Rails API](https://api.rubyonrails.org/classes/Object.html#met
 {% if non_blank_string != blank %}
 {% if non_empty_array != blank %}
 {% if empty_hash == blank %}
-{% endraw %}
 ```
 
 #### Empty
@@ -78,7 +72,6 @@ A string that only contains whitespace is not empty, but it _is_ blank!
 {% endhint %}
 
 ```javascript
-{% raw %}
 {% assign empty_string = "" %}
 {% assign whitespace_string = "  " %}
 {% assign non_blank_string = "  !!  " %}
@@ -93,7 +86,6 @@ A string that only contains whitespace is not empty, but it _is_ blank!
 {% if non_blank_string != empty %}
 {% if non_empty_array != empty %}
 {% if empty_hash == empty %}
-{% endraw %}
 ```
 
 ## Contains operator
@@ -103,24 +95,20 @@ The `contains` operator is used to check for the existence of a substring in a s
 ### Substring containment
 
 ```javascript
-{% raw %}
 {% if email_domain contains "@" %}
   {% error "Do not include '@' symbols in email domains. Thanks!" %}
 {% endif %}
-{% endraw %}
 ```
 
 ### Array element containment
 
 ```javascript
-{% raw %}
 {% assign product_tags = "foo, bar, baz" | split: ", " %}
 {% assign product_is_tagged_bar = false %}
 
 {% if product_tags contains "bar" %}
   {% assign product_is_tagged_bar = true %}
 {% endif %}
-{% endraw %}
 ```
 
 ## Logical operators
@@ -137,19 +125,15 @@ If `b = 3` and `c = 6`, the table below illustrates the logical operators in Liq
 ### Check if both the shipping address and billing are blank
 
 ```javascript
-{% raw %}
 {% if order.shipping_address != blank and order.billing_address != blank %}
   {% comment %} do something {% endcomment %}
 {% endif %}
-{% endraw %}
 ```
 
 ### Check if tag equals blank or a customer's tags contains a certain tag
 
 ```javascript
-{% raw %}
 {% if tag == blank or customer.tags contains tag %}
   {% comment %} do something {% endcomment %}
 {% endif %}
-{% endraw %}
 ```

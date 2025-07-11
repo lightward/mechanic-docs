@@ -14,7 +14,6 @@ To set up event debouncing, identify the event topic that's receiving excess tra
 
 {% code title="Task code" %}
 ```liquid
-{% raw %}
 {% action "cache" %}
   {
     "setex": {
@@ -24,7 +23,6 @@ To set up event debouncing, identify the event topic that's receiving excess tra
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -34,13 +32,11 @@ Then, in the store's Mechanic settings, add a new event filter, which renders `f
 
 {% code title="Event filter" %}
 ```liquid
-{% raw %}
 {% if event.topic == "user/foo/bar" and cache.foobar_received %}
   false
 {% else %}
   true
 {% endif %}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -56,7 +52,6 @@ To accomplish this, generate a "fingerprint" of events as you receive them, by a
 
 {% code title="Task code" %}
 ```liquid
-{% raw %}
 {% assign fingerprint_parts = hash %}
 {% assign fingerprint_parts["product_id"] = event.data.product_id %}
 {% assign fingerprint = fingerprint_parts | json | sha256 %}
@@ -71,7 +66,6 @@ To accomplish this, generate a "fingerprint" of events as you receive them, by a
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -79,7 +73,6 @@ Then, bring that logic and resulting cache key over to your event filter.
 
 {% code title="Event filter" %}
 ```liquid
-{% raw %}
 {% assign fingerprint_parts = hash %}
 {% assign fingerprint_parts["product_id"] = event.data.product_id %}
 {% assign fingerprint = fingerprint_parts | json | sha256 %}
@@ -90,7 +83,6 @@ Then, bring that logic and resulting cache key over to your event filter.
 {% else %}
   true
 {% endif %}
-{% endraw %}
 ```
 {% endcode %}
 

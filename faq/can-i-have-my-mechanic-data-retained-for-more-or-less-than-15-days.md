@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Can I have my Mechanic data retained for more (or less) than 15 days?
 
 Sort of! Let's review how Mechanic's data retention works, first:
@@ -38,12 +24,10 @@ This Event action schedules an event for 5 days in the future. Once the child ev
 Any impact from other child events aside, the result is a practical data retention period of 20 days for this event.
 
 ```liquid
-{% raw %}
 {% action "event" %}
   {
     "topic": "user/noop/data_retention",
     "run_at": {{ "now" | date: advance: "5 days" | json }}
   }
 {% endaction %}
-{% endraw %}
 ```

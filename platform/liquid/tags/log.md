@@ -11,13 +11,11 @@ This tag has several usage styles, each style resulting in a valid action object
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% log %}
   {
     "foo": "bar"
   }
 {% endlog %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -37,9 +35,7 @@ This tag has several usage styles, each style resulting in a valid action object
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% log "foobar" %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -57,12 +53,10 @@ This tag has several usage styles, each style resulting in a valid action object
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% assign details = hash %}
 {% assign details["foo"] = "bar" %}
 
 {% log message: "Something to remember", details: details %}
-{% endraw %}
 ```
 {% endtab %}
 

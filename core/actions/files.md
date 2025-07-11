@@ -42,7 +42,6 @@ mechanic/actions/perform
 
 {% tab title="Code" %}
 ```liquid
-{% raw %}
 {% if event.topic == "mechanic/user/trigger" %}
   {% action "files" %}
     {
@@ -87,7 +86,6 @@ mechanic/actions/perform
     }
   {% endaction %}
 {% endif %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}

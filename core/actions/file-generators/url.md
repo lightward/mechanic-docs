@@ -19,7 +19,6 @@ This file generator accepts a string containing a valid HTTP or HTTPS URL. It do
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "files" %}
   {
     "image_from_url.png": {
@@ -27,7 +26,6 @@ This file generator accepts a string containing a valid HTTP or HTTPS URL. It do
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 

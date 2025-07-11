@@ -25,12 +25,10 @@ You may add image tags in your emails (useful for adding logos!), but please not
 Instead, upload your image to Shopify ([learn how](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/file-uploads#upload-a-file-on-the-files-page)), and use the URL provided by Shopify to add your image using HTML:
 
 ```javascript
-{% raw %}
 {% capture email_body %}
   <p>Welcome!</p>
   <img src="https://cdn.shopify.com/s/files/1/0000/0000/0000/files/welcome_email.jpg">
 {% endcapture %}
-{% endraw %}
 ```
 
 ```javascript

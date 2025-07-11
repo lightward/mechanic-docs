@@ -15,7 +15,5 @@ Liquid filters should not be confused with [event filters](../../events/filters.
 ```javascript
 {{ order.billing_address.zip | upcase }}
 
-{% raw %}
 {% assign full_name = customer.first_name | append: " " | append: customer.last_name %}
-{% endraw %}
 ```

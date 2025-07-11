@@ -17,7 +17,6 @@ This usage style offers the lightest form of abstraction, in that it only abstra
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action %}
   {
     "type": "http",
@@ -31,7 +30,6 @@ This usage style offers the lightest form of abstraction, in that it only abstra
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -61,7 +59,6 @@ This usage style offers the lightest form of abstraction, in that it only abstra
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "http" %}
   {
     "method": "post",
@@ -69,7 +66,6 @@ This usage style offers the lightest form of abstraction, in that it only abstra
     "body": {{ event.data | json }}
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -96,9 +92,7 @@ Useful for action types that accept an array of options, this usage style accept
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "cache", "set", "foo", "bar" %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -125,9 +119,7 @@ This usage style is appropriate for action types that accept a single-level, un-
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "echo", foo: "bar", baz: "qux" %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -153,14 +145,12 @@ This usage style accepts two arguments: the action type, and the action options.
 {% tabs %}
 {% tab title="Liquid" %}
 ```javascript
-{% raw %}
 {% action "echo", "foo" %}
 
 {% assign action_options = hash %}
 {% assign action_options["foo"] = "bar" %}
 
 {% action "echo", action_options %}
-{% endraw %}
 ```
 {% endtab %}
 

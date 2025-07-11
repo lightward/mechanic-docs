@@ -42,9 +42,7 @@ For example, tasks that are created to print deliberately-sorted pick lists migh
 This mode creates an event for each selected Shopify resource, resulting in as many events as there were selected resources. Tasks subscribing to an individual mode event topic (e.g. mechanic/user/order or mechanic/user/customer) may use an [environment variable](../tasks/code/environment-variables.md) named after the singularized resource name, e.g. `order` or `customer`.
 
 ```liquid
-{% raw %}
 {% log product_title: product.title %}
-{% endraw %}
 ```
 
 ### Batch mode
@@ -52,11 +50,9 @@ This mode creates an event for each selected Shopify resource, resulting in as m
 This mode creates one (1) event whose data consists of an array holding all selected Shopify resources, up to a maximum of 50 resources total. No matter how many resources were selected, only one event is created. Tasks subscribing to a batch mode event topic (e.g. mechanic/user/orders or mechanic/user/customers) may use an [environment variable](../tasks/code/environment-variables.md) named after the pluralized resource name, e.g. `orders` or `customers`.
 
 ```liquid
-{% raw %}
 {% for product in products %}
   {% log product_title: product.title %} 
 {% endfor %}
-{% endraw %}
 ```
 
 ## Link usage
@@ -123,7 +119,6 @@ The [Send a PDF invoice when an order is created](https://tasks.mechanic.dev/sen
 
 {% code lineNumbers="true" %}
 ```liquid
-{% raw %}
 {% if order.email != blank and order.financial_status == "pending" %}
   {% action "email" %}
     {
@@ -142,7 +137,6 @@ The [Send a PDF invoice when an order is created](https://tasks.mechanic.dev/sen
     }
   {% endaction %}
 {% endif %}
-{% endraw %}
 ```
 {% endcode %}
 

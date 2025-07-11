@@ -23,9 +23,7 @@ The `liquid` tag opens up an alternative Liquid parsing mode, in which each line
 This means that two pieces of Liquid are equivalent:
 
 ```liquid
-{% raw %}
 {% echo "hello!" %}
-{% endraw %}
 
 {% liquid
    echo "hello!"
@@ -43,13 +41,11 @@ Mechanic Liquid adds several tags that are relevant here: [action](action.md), [
 Typical block usage looks like this, using the action tag as an example:
 
 ```liquid
-{% raw %}
 {% action "email" %}
   {
     "to": "hello@example.com"
   }
 {% endaction %}
-{% endraw %}
 ```
 
 In the example above, the interior of the `action` tag is static content. The Liquid engine sees the `{% action "email" %}` lines, and it knows that more content is coming. So, it puts the Email action aside temporarily, and gathers all the content that follows, ending right before the closing `{% endaction %}` tag. Once `endaction` arrives, all the content in the middle is handed back to the Email action, which generates the final [action JSON object](../objects/action.md). The final output looks like this:
@@ -83,19 +79,15 @@ These next two examples use the `liquid` tag to achieve exactly the same behavio
 The action, error, and log tags all have an inline usage as well. Typical inline usage looks like this, using the log tag as an example:
 
 ```liquid
-{% raw %}
 {% log "oh my!" %}
-{% endraw %}
 ```
 
 The `action` tag supports a type argument; simple inline usage might look like this:
 
 ```liquid
-{% raw %}
 {% assign payload = hash %}
 {% assign payload["to"] = "hello@example.com" %}
 {% action "email", payload %}
-{% endraw %}
 ```
 
 Here's how these examples work using the `liquid` tag:

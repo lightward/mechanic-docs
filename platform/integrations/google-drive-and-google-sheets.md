@@ -24,7 +24,6 @@ See in-depth documentation of the Google Drive action [here](../../core/actions/
 #### Basic Usage
 
 ```liquid
-{% raw %}
 {% action "google_drive" %}
   {
     "account": "your.email@example.com",
@@ -39,7 +38,6 @@ See in-depth documentation of the Google Drive action [here](../../core/actions/
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 #### Supported Features
@@ -59,7 +57,6 @@ See in-depth documentation of the Google Sheets action [here](../../core/actions
 #### Basic Usage
 
 ```liquid
-{% raw %}
 {% action "google_sheets" %}
   {
     "account": "your.email@example.com",
@@ -72,7 +69,6 @@ See in-depth documentation of the Google Sheets action [here](../../core/actions
     ]
   }
 {% endaction %}
-{% endraw %}
 ```
 
 #### Supported Operations

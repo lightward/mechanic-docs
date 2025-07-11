@@ -1,6 +1,6 @@
 # PDF
 
-The **PDF** file generator accepts an object containing an HTML string, and uses [Pdfcrowd](https://pdfcrowd.com/) to render it as a PDF document. Pdfcrowd employs the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium\_Embedded\_Framework) for HTML rendering, which uses the same foundation as Google Chrome. This allows Mechanic to generate PDFs with modern CSS and JavaScript features, including chart libraries and web fonts.
+The **PDF** file generator accepts an object containing an HTML string, and uses [Pdfcrowd](https://pdfcrowd.com/) to render it as a PDF document. Pdfcrowd employs the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework) for HTML rendering, which uses the same foundation as Google Chrome. This allows Mechanic to generate PDFs with modern CSS and JavaScript features, including chart libraries and web fonts.
 
 ## Options
 
@@ -34,7 +34,6 @@ A screencast illustrating an HTML test, and a path for reaching Pdfcrowd support
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% capture html %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +69,6 @@ A screencast illustrating an HTML test, and a path for reaching Pdfcrowd support
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 

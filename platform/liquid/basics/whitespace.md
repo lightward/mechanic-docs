@@ -18,7 +18,6 @@ Learn more from Shopify: see [Whitespace control](https://shopify.dev/docs/theme
 ## Example
 
 ```javascript
-{% raw %}
 {%- capture message -%}
   This is a message.
 {%- endcapture -%}
@@ -26,7 +25,6 @@ Learn more from Shopify: see [Whitespace control](https://shopify.dev/docs/theme
 {% capture message -%}
   This is a message.
 {% endcapture -%}
-{% endraw %}
 
 {{- customer.name -}}
 {{ customer.name -}}

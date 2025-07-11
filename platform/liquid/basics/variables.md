@@ -7,13 +7,11 @@ Like other language, Liquid stores information in **variables**. There are two L
 The assign tag creates a new variable.
 
 ```javascript
-{% raw %}
 {% assign my_name = "Matt" %}
 
 {% assign is_tired = false %}
 
 {% assign favorite_number = 8 %}
-{% endraw %}
 ```
 
 {% hint style="info" %}
@@ -27,7 +25,6 @@ The capture tag is a useful tool for creating strings of multiple variables, whi
 In the following example, the string is captured into a variable named `query`.
 
 ```javascript
-{% raw %}
 {% capture query %}
   query {
     inventoryLevel(id: {{ inventory_level.admin_graphql_api_id | json }}) {
@@ -39,5 +36,4 @@ In the following example, the string is captured into a variable named `query`.
     }
   }
 {% endcapture %}
-{% endraw %}
 ```

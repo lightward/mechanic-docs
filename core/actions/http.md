@@ -25,7 +25,6 @@ If the Content-Type header is unspecified or set to `application/json`, and if t
 If the `files` option is given, its contents will be evaluated for [file generators](file-generators/), and the results will be used to construct a `multipart/form-data` upload request, combining generated files with any key-value pairs found in the `body` option.
 
 ```liquid
-{% raw %}
 {% action "http" %}
   {
     "method": "post",
@@ -40,7 +39,6 @@ If the `files` option is given, its contents will be evaluated for [file generat
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 If the `files` option is not given, and if the Content-Type header is set to `application/x-www-form-urlencoded`, and if the `body` option is set to a JSON object or array, the request body will be serialized to a form-encoded string.
@@ -50,7 +48,6 @@ If the `files` option is not given, and if the Content-Type header is set to `ap
 To authenticate a request using [the Authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) and the "Basic" authentication type, use something like this:
 
 ```liquid
-{% raw %}
 {% assign username = "guest" %}
 {% assign password = "guest" %}
 {% assign authorization_header = username | append: ":" | append: password | base64 | prepend: "Basic " %}
@@ -64,7 +61,6 @@ To authenticate a request using [the Authorization header](https://developer.moz
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Using a proxy
@@ -73,7 +69,6 @@ The HTTP action supports HTTPS, HTTP, and SOCKS5 proxy connections via the `"pro
 
 {% code title="Example HTTP action using a proxy" %}
 ```liquid
-{% raw %}
 {% action "http" %}
   {
     "method": "get",
@@ -81,7 +76,6 @@ The HTTP action supports HTTPS, HTTP, and SOCKS5 proxy connections via the `"pro
     "proxy": "socks5://user:password@host.domain:port"
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -119,9 +113,7 @@ Because HTTP allows for the same header name to be present multiple times, this 
 To retrieve a specific header in a task responding to [mechanic/actions/perform](../../techniques/responding-to-action-results.md), use something like this:
 
 ```javascript
-{% raw %}
 {% log response_type_header: action.run.result.headers['content-type'][0] %}
-{% endraw %}
 ```
 
 ### Response body
@@ -152,7 +144,6 @@ mechanic/actions/perform
 
 {% tab title="Code" %}
 ```liquid
-{% raw %}
 {% if event.topic == "mechanic/user/text" %}
   {% action "http" %}
     {
@@ -167,7 +158,6 @@ mechanic/actions/perform
     response_content_type: action.run.result.headers['content-type'][0],
     response_body: action.run.result.body %}
 {% endif %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}

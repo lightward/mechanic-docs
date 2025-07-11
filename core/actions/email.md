@@ -62,7 +62,6 @@ Note that custom options, like all task options, must be provided using standard
 For example, consider this action:
 
 ```liquid
-{% raw %}
 {% action "email" %}
   {
     "to": "customer@example.com",
@@ -71,7 +70,6 @@ For example, consider this action:
     "order_data": {{ order | json }}
   }
 {% endaction %}
-{% endraw %}
 ```
 
 The template named "order\_acknowledgement" could include the following Liquid, and get the expected results:
@@ -100,7 +98,6 @@ For more on this, see [File generators](file-generators/).
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "email" %}
   {
     "to": "hello@example.com",
@@ -110,7 +107,6 @@ For more on this, see [File generators](file-generators/).
     "from_display_name": {{ shop.name | json }}
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -137,7 +133,6 @@ For more on this, see [File generators](file-generators/).
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% capture email_body %}
   <b>Hello!</b>
 
@@ -151,7 +146,6 @@ For more on this, see [File generators](file-generators/).
     "body": {{ email_body | unindent | strip | newline_to_br | json }}
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -176,7 +170,6 @@ For more on this, see [File generators](file-generators/).
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% action "email" %}
   {
     "to": "test@example.com",
@@ -189,7 +182,6 @@ For more on this, see [File generators](file-generators/).
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 

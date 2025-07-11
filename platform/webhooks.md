@@ -49,9 +49,7 @@ In "Full request" mode, event data is set to a hash with the following keys:
 Decode the base64-encoded request body with Liquid, using Mechanic's [decode\_base64](liquid/filters/#base64-decode_base64) filter.
 
 ```liquid
-{% raw %}
 {% assign raw_request_body = event.data.body_base64 | decode_base64 %}
-{% endraw %}
 ```
 {% endhint %}
 
@@ -156,10 +154,8 @@ File uploads are supported via multipart/form-data webhook requests. Each upload
 Decode base64-encoded file content with Liquid, using Mechanic's [decode\_base64](liquid/filters/#base64-decode_base64) filter.
 
 ```liquid
-{% raw %}
 {% assign file = event.data.body.my_upload %}
 {% assign raw_file_content = file.content_base64 | decode_base64 %}
-{% endraw %}
 ```
 {% endhint %}
 

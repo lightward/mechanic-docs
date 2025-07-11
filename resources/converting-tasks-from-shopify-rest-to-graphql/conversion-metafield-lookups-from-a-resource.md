@@ -1,16 +1,14 @@
 # Conversion: Metafield lookups from a resource
 
-For every Shopify resource object that supports metafields, Mechanic has traditionally provided a way to directly access those metafields from the resource using [dot notation](../../../platform/liquid/objects/shopify/metafields/metafield-collection.md). This shortcut will no longer be accessible for product and variant REST resources once they are fully deprecated.
+For every Shopify resource object that supports metafields, Mechanic has traditionally provided a way to directly access those metafields from the resource using [dot notation](../../platform/liquid/objects/shopify/metafields/metafield-collection.md). This shortcut will no longer be accessible for product and variant REST resources once they are fully deprecated.
 
 {% code title="REST - product metafield value check" lineNumbers="true" %}
 ```liquid
-{% raw %}
 {% assign metafield = product.metafields.custom.my_field %}
 
 {% if metafield.value == "Alpha" %}
   {% log "metafield value matched" %}
 {% endif %}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -18,7 +16,6 @@ While metafields can be queried directly using their ID, this attribute is not p
 
 {% code title="GraphQL - product query with metafield and value check" lineNumbers="true" %}
 ```liquid
-{% raw %}
 {% capture query %}
   query {
     product(id: {{ product.admin_graphql_api_id | json }}) {
@@ -36,6 +33,5 @@ While metafields can be queried directly using their ID, this attribute is not p
 {% if metafield.value == "Alpha" %}
   {% log "metafield value matched" %}
 {% endif %}
-{% endraw %}
 ```
 {% endcode %}

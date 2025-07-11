@@ -70,7 +70,6 @@ All four triggers include the following user-defined data variables, given as op
 To choose between trigger types, choose between defining exactly one specific Shopify resource ID (i.e. for a customer, order, or product, resulting in the appropriate resource trigger), or omitting a resource ID entirely (resulting in the General trigger).
 
 ```liquid
-{% raw %}
 {% action "flow" %}
   {
     {% comment %}
@@ -97,7 +96,6 @@ To choose between trigger types, choose between defining exactly one specific Sh
     "user_url":     "https://mechanic.invalid/"
   }
 {% endaction %}
-{% endraw %}
 ```
 
 On the Flow side, configure workflows to start with the appropriate Mechanic trigger.

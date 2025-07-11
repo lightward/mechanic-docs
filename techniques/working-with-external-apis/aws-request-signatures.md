@@ -5,7 +5,6 @@ The "hmac\_sha256" filter comes from Shopify Liquid, but the "binary" option is 
 {% endhint %}
 
 ```liquid
-{% raw %}
 {% comment %}
   Generating an AWS request signature - adapted from
   https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html
@@ -17,7 +16,6 @@ The "hmac\_sha256" filter comes from Shopify Liquid, but the "binary" option is 
 {% assign kRegion = "us-east-1" | hmac_sha256: kDate, binary: true %}
 {% assign kService = "iam" | hmac_sha256: kRegion, binary: true %}
 {% assign kSigning = "aws4_request" | hmac_sha256: kService %}
-{% endraw %}
 
 aws: {{ kSigning }}
 ```

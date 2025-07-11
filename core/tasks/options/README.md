@@ -28,7 +28,6 @@ Options are displayed to the user in the order in which they are first reference
 Because this may not result in a natural sequence, it can be useful to prefix task code with a comment block, explicitly referencing each option so as to force the overall order.
 
 ```liquid
-{% raw %}
 {% comment %}
   Option order:
 
@@ -36,7 +35,6 @@ Because this may not result in a natural sequence, it can be useful to prefix ta
   {{ options.mode__select_o1_test_o2_live }}
   {{ options.webhooks__array }}
 {% endcomment %}
-{% endraw %}
 ```
 
 ***

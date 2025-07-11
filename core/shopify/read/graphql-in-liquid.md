@@ -11,7 +11,6 @@ The shopify filter does not support running mutations (i.e. writing Shopify data
 The [shopify filter](../../../platform/liquid/filters/#shopify) accepts a GraphQL query string, and returns everything back from Shopify's GraphQL admin API. This means that reading back GraphQL data is as easy as this:
 
 ```liquid
-{% raw %}
 {% capture query %}
   query {
     shop {
@@ -23,7 +22,6 @@ The [shopify filter](../../../platform/liquid/filters/#shopify) accepts a GraphQ
 {% assign result = query | shopify %}
 
 {% log result.data.shop.name %}
-{% endraw %}
 ```
 
 {% hint style="info" %}
@@ -33,7 +31,6 @@ The [shopify filter](../../../platform/liquid/filters/#shopify) also supports Gr
 If you're working with multiple pages of data, you might use set up a forloop, using a cursor to retrieve page after page:
 
 ```liquid
-{% raw %}
 {% assign cursor = nil %}
 {% assign total_inventory = 0 %}
 
@@ -90,7 +87,6 @@ If you're working with multiple pages of data, you might use set up a forloop, u
     {% break %}
   {% endif %}
 {% endfor %}
-{% endraw %}
 ```
 
 {% hint style="info" %}

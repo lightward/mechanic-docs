@@ -46,13 +46,11 @@ Notably, the data here _can_ be limited to just the properties that are useful. 
 For a trivial task, subscribing to shopify/customers/create, and having the following task code...
 
 ```liquid
-{% raw %}
 {% if customer.email contains "gmail.com" %}
   {% log message: "got a gmail user!", email: customer.email %}
 {% else %}
   {% log message: "got someone else!", email: customer.email %}
 {% endif %}
-{% endraw %}
 ```
 
 ... we define two preview events, one which represents a Gmail user, and one which does not. This allows us to easily assert that the task behaves properly in both scenarios.

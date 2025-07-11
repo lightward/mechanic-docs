@@ -19,7 +19,6 @@ Realistic preview actions are important for users and developers, but there's a 
 {% endhint %}
 
 ```liquid
-{% raw %}
 {% if event.preview %}
   {% assign order = hash %}
   {% assign order["source_name"] = "web" %}
@@ -35,13 +34,11 @@ Realistic preview actions are important for users and developers, but there's a 
     }
   {% endaction %}
 {% endif %}
-{% endraw %}
 ```
 
-It's also possible to construct this data using [parse\_json](../../../platform/liquid/filters/#json-parse\_json-parse\_jsonl).
+It's also possible to construct this data using [parse\_json](../../../platform/liquid/filters/#json-parse_json-parse_jsonl).
 
 ```liquid
-{% raw %}
 {% if event.preview %}
   {% capture order_json %}
     {
@@ -62,7 +59,6 @@ It's also possible to construct this data using [parse\_json](../../../platform/
     }
   {% endaction %}
 {% endif %}
-{% endraw %}
 ```
 
 ## Stubbing GraphQL data
@@ -71,12 +67,11 @@ Mechanic makes GraphQL data available to tasks via the [shopify](../../../platfo
 
 For this reason, it's important to allow the shopify filter to run normally, and construct stub data afterwards.
 
-It can be useful to specify stub data using JSON, fed through the [parse\_json](../../../platform/liquid/filters/#json-parse\_json-parse\_jsonl) filter. Sample JSON is easy to generate using [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/).
+It can be useful to specify stub data using JSON, fed through the [parse\_json](../../../platform/liquid/filters/#json-parse_json-parse_jsonl) filter. Sample JSON is easy to generate using [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/).
 
 {% tabs %}
 {% tab title="GraphQL with stub data" %}
 ```liquid
-{% raw %}
 {% capture query %}
   query {
     publications(first: 250) {
@@ -114,13 +109,11 @@ It can be useful to specify stub data using JSON, fed through the [parse\_json](
 {% endif %}
 
 {% log available_publications: result.data.publications %}
-{% endraw %}
 ```
 {% endtab %}
 
 {% tab title="GraphQL pagination with stub data" %}
 ```liquid
-{% raw %}
 {% assign cursor = nil %}
 {% assign total_inventory = 0 %}
 
@@ -188,7 +181,6 @@ It can be useful to specify stub data using JSON, fed through the [parse\_json](
     {% break %}
   {% endif %}
 {% endfor %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}

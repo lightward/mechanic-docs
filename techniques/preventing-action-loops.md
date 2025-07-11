@@ -12,7 +12,6 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
 
 {% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```liquid
-{% raw %}
 {% if event.topic == "shopify/products/update" or event.preview %}
   {% assign existing_tags = product.tags | split: ", " %}
   
@@ -34,7 +33,6 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
     {% log "break loop" %}
   {% endunless %}
 {% endif %}
-{% endraw %}
 ```
 {% endcode %}
 
@@ -44,7 +42,6 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
 
 {% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```liquid
-{% raw %}
 {% if event.topic == "shopify/products/update" or event.preview %}
   {% assign current_timestamp = "now" | date: "%s" %}
   {% assign time_difference = current_timestamp | minus: product.metafields.custom.last_updated.value %}
@@ -78,7 +75,6 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
     {% log "not so fast" %}
   {% endif %}
 {% endif %}
-{% endraw %}
 ```
 {% endcode %}
 

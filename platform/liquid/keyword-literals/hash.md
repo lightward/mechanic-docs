@@ -13,7 +13,6 @@ In Mechanic's Liquid implementation, a hash can only have string keys.
 ## Example
 
 ```javascript
-{% raw %}
 {% assign sizes = hash %}
 {% assign sizes["S"] = "Small" %}
 {% assign sizes["M"] = "Medium" %}
@@ -28,5 +27,4 @@ In Mechanic's Liquid implementation, a hash can only have string keys.
 
   {{ size_abbreviation }}: {{ size_label }}
 {% endfor %}
-{% endraw %}
 ```

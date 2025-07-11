@@ -9,7 +9,6 @@ When writing your task scripts, use [a Shopify action](../core/actions/shopify.m
 Because the permission required varies based on what you're tagging, make sure to render a representative node ID during preview mode to avoid "TagsAdd access denied" errors. In this approach, we use stub data to create dynamic [preview actions](../core/tasks/previews/).
 
 ```javascript
-{% raw %}
 {% if event.preview %}
   {% capture customer_json %}
     {
@@ -47,7 +46,6 @@ Because the permission required varies based on what you're tagging, make sure t
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Logging the results
@@ -55,7 +53,6 @@ Because the permission required varies based on what you're tagging, make sure t
 GraphQL does not automatically log the results of a tagging operation. However, it's easy to include the final tags for a resource, in the results of your GraphQL mutation – very useful for proving that your mutation is doing what you expect, and also for allowing you to refer back to the current tagged state of the resource.
 
 ```javascript
-{% raw %}
 {% action "shopify" %}
   mutation {
     tagsAdd(
@@ -74,7 +71,6 @@ GraphQL does not automatically log the results of a tagging operation. However, 
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 Note the triple dots: the `... on <TYPE>` syntax marks an inline fragment. Replace "Customer" with the name of the GraphQL type you're working with (e.g. "Product", or "Order). Read more from Shopify: [GraphQL / Advanced Concepts / Inline Fragments](https://shopify.dev/concepts/graphql/advanced#inline-fragments).

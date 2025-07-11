@@ -29,12 +29,10 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% assign data = hash %}
 {% assign data["foo"] = "bar" %}
 
 {% action "event", topic: "user/foo/bar", data: data %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -66,14 +64,12 @@ That task must be subscribed to the event topic being used.
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% assign data = hash %}
 {% assign data["foo"] = "bar" %}
 {% assign task_id = "293b7040-6689-4eb1-8b5d-64f4d33eb2ae" %}
 {% comment %} For multiple tasks use `task_ids` {% endcomment %}
 
 {% action "event", topic: "user/foo/bar", data: data, task_id: task_id %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -110,7 +106,6 @@ This example uses the `run_at` option to run the task at a later scheduled time.
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
-{% raw %}
 {% assign one_day_in_seconds = 60 | times: 60 | times: 24 %}
 
 {% action "event" %}
@@ -123,7 +118,6 @@ This example uses the `run_at` option to run the task at a later scheduled time.
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 {% endtab %}
 
@@ -158,7 +152,6 @@ user/orders/unpaid_reminder
 
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% if event.preview %}
   {% assign order = hash %}
   {% assign order["id"] = 1234568790 %}
@@ -191,7 +184,6 @@ user/orders/unpaid_reminder
     }
   {% endaction %}
 {% endunless %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}
@@ -210,7 +202,6 @@ user/orders/unpaid_reminder+1.day
 
 {% tab title="Code" %}
 ```javascript
-{% raw %}
 {% if event.preview %}
   {% assign order = hash %}
   {% assign order["id"] = 1234568790 %}
@@ -242,7 +233,6 @@ user/orders/unpaid_reminder+1.day
     }
   {% endaction %}
 {% endunless %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}

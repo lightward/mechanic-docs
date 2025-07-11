@@ -24,7 +24,6 @@ In any of these scenarios, your Shopify template will need to be modified before
 To generate an order PDF to send as an email, you might use a task like this one, paired with a subscription to shopify/orders/create. Note how the template is made user-configurable by a task option, implicitly created by the `options.pdf_html_template__code_multiline_required` variable reference.
 
 ```
-{% raw %}
 {% action "email" %}
   {
     "to": {{ order.email | json }},
@@ -41,7 +40,6 @@ To generate an order PDF to send as an email, you might use a task like this one
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Generating email body HTML using a template from task options
@@ -49,7 +47,6 @@ To generate an order PDF to send as an email, you might use a task like this one
 To send out an order-related email where all the details are provided as HTML in the email itself, you might use something like this. Note how, as above, the template is set using task options.
 
 ```
-{% raw %}
 {% action "email" %}
   {
     "to": {{ order.email | json }},
@@ -59,7 +56,6 @@ To send out an order-related email where all the details are provided as HTML in
     "from_display_name": {{ shop.name | json }}
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Generating email body HTML from a reusable email template
@@ -76,7 +72,6 @@ To learn more about this, see [Creating email template variables](../core/action
 {% endhint %}
 
 ```
-{% raw %}
 {% action "email" %}
   {
     "to": {{ order.email | json }},
@@ -90,7 +85,6 @@ To learn more about this, see [Creating email template variables](../core/action
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ## Preparing the template
@@ -104,11 +98,9 @@ Shopify uses variables like `{{ total_price }}` and `{{ transactions }}` and `{{
 Rather than changing all of these variable references across the template, it may be easier to initialize those variables at the top of the template code, using something like this:
 
 ```
-{% raw %}
 {% assign total_price = order.total_price %}
 {% assign transactions = order.transactions %}
 {% assign email = order.email %}
-{% endraw %}
 ```
 
 Some variables from Shopify are already given as properties of an object you can use in Mechanic. For example, `{{ shop.name }}` works in both Order Printer and in Shopify.
@@ -130,18 +122,14 @@ Mechanic uses API data from Shopify to power [the Order object](../platform/liqu
 This is particularly important if the figure is used in a logical condition, like this one:
 
 ```
-{% raw %}
 {% if order.total_price > 5000 %}
-{% endraw %}
 ```
 
 Because `order.total_price` is a string, and because Liquid filters cannot be used in the middle of an `if` or `unless` tag, one should first assign the numeric value to a new variable and then update the condition to use that new variable.
 
 ```
-{% raw %}
 {% assign total_price_number = order.total_price | times: 1 %}
 {% if total_price > 5000 %}
-{% endraw %}
 ```
 
 For numbers that are formatted with the "money" or "money\_with\_currency" filter, check to make sure that the final numbers are correct. You may need to multiply the number by 100 to achieve the expected results, as in:

@@ -47,7 +47,6 @@ archives/backups/files.zip        # Three levels deep
 ### Simple Text File Upload
 
 ```liquid
-{% raw %}
 {% action "google_drive" %}
   {
     "account": "user@example.com",
@@ -56,13 +55,11 @@ archives/backups/files.zip        # Three levels deep
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Multiple Files with Overwrite
 
 ```liquid
-{% raw %}
 {% action "google_drive" %}
   {
     "account": "user@example.com",
@@ -77,13 +74,11 @@ archives/backups/files.zip        # Three levels deep
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Files in Folders
 
 ```liquid
-{% raw %}
 {% action "google_drive" %}
   {
     "account": "user@example.com",
@@ -106,13 +101,11 @@ archives/backups/files.zip        # Three levels deep
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ### Dynamic File Generation
 
 ```liquid
-{% raw %}
 {% capture report_content %}
   <h1>{{ shop.name }} - Monthly Report</h1>
   <p>Generated on {{ "now" | date: "%Y-%m-%d" }}</p>
@@ -136,7 +129,6 @@ archives/backups/files.zip        # Three levels deep
     }
   }
 {% endaction %}
-{% endraw %}
 ```
 
 ## Action Response

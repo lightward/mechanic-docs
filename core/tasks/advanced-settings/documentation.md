@@ -37,6 +37,14 @@ The following table comes from [markdownguide.org/cheat-sheet](https://www.markd
 
 The Markdown editor in Mechanic includes keyboard shortcuts for common formatting operations. These shortcuts can also be accessed through the **right click menu** in the editor.
 
+<details>
+
+<summary>🎬 Watch: Keyboard Shortcuts Demo</summary>
+
+<figure><img src="../../../.gitbook/assets/markdown keyboard shortcuts demo.gif" alt=""><figcaption></figcaption></figure>
+
+</details>
+
 <table data-header-hidden><thead><tr><th width="134.640625">Action</th><th width="208.4453125">Shortcut</th><th>Description</th></tr></thead><tbody><tr><td><strong>Action</strong></td><td><strong>Shortcut</strong></td><td><strong>Description</strong></td></tr><tr><td><strong>Toggle Bold</strong></td><td><p><i class="fa-apple">:apple:</i>: <kbd>⌘</kbd>+<kbd>B</kbd> </p><p><br><i class="fa-windows">:windows:</i>: <kbd>Ctrl</kbd>+<kbd>B</kbd></p></td><td><p>Adds or removes <strong>Bold</strong> formatting on selected text or current word.</p><pre><code>**text**
 </code></pre></td></tr><tr><td><strong>Toggle Italic</strong></td><td><p><i class="fa-apple">:apple:</i>: <kbd>⌘</kbd>+<kbd>I</kbd> </p><p><br><i class="fa-windows">:windows:</i>: <kbd>Ctrl</kbd>+<kbd>I</kbd></p></td><td><p>Adds or removes <em>Italic</em> formatting on selected text or current word.</p><pre><code>_text_
 </code></pre></td></tr><tr><td><strong>Toggle Strikethrough</strong></td><td><p><i class="fa-apple">:apple:</i>: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> </p><p><br><i class="fa-windows">:windows:</i>: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd></p></td><td><p>Adds or removes <del>Strikethrough</del> on selected text or current word.</p><pre><code>~text~

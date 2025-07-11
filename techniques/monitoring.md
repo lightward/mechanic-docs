@@ -30,7 +30,7 @@ To monitor actions, subscribe to the mechanic/actions/perform event, which re-in
 
 To monitor tasks, use the [HTTP action](../core/actions/http.md) to ping a service like [Cronitor](https://cronitor.io/) when critical tasks run, configuring that service to send alerts should the pings ever miss their schedule.
 
-It's generally preferable to use an external service for this sort of thing, rather than using Mechanic to monitor itself. Still, monitoring tasks _are_ viable, by using [a scheduler event](https://learn.mechanic.dev/platform/events/topics#scheduler) to check on an expiring flag in the [Mechanic cache](https://learn.mechanic.dev/platform/cache). This way, by setting that flag during sensitive task runs (using the[ Cache action](https://learn.mechanic.dev/core/actions/cache)), a sort of [dead man's switch](https://en.wikipedia.org/wiki/Dead\_man's\_switch) can be created: if the scheduled run ever finds that the flag is not present, that task could then send an email (or post to Slack, or whatever's useful).
+It's generally preferable to use an external service for this sort of thing, rather than using Mechanic to monitor itself. Still, monitoring tasks _are_ viable, by using [a scheduler event](https://learn.mechanic.dev/platform/events/topics#scheduler) to check on an expiring flag in the [Mechanic cache](https://learn.mechanic.dev/platform/cache). This way, by setting that flag during sensitive task runs (using the[ Cache action](https://learn.mechanic.dev/core/actions/cache)), a sort of [dead man's switch](https://en.wikipedia.org/wiki/Dead_man's_switch) can be created: if the scheduled run ever finds that the flag is not present, that task could then send an email (or post to Slack, or whatever's useful).
 
 #### Example
 
@@ -46,7 +46,6 @@ mechanic/user/trigger
 
 {% tab title="Code" %}
 ```liquid
-{% raw %}
 {% if event.topic contains "mechanic/scheduler" %}
   {% if cache["monitor-10min"] %}
     {% log ok: true, cache: cache["monitor-10min"] %}
@@ -63,7 +62,6 @@ mechanic/user/trigger
   {% assign now = "now" | date: "%Y-%m-%d %H:%M %p" %}
   {% action "cache", "setex", "monitor-10min", 600, now %}
 {% endif %}
-{% endraw %}
 ```
 {% endtab %}
 {% endtabs %}

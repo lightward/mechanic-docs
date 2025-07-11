@@ -11,9 +11,7 @@ Some of the documentation below is specific to Mechanic Liquid, and may not appl
 A string contains a series of characters, forming text.
 
 ```liquid
-{% raw %}
 {% assign my_name = "Matt" %}
-{% endraw %}
 ```
 
 ## Integer, Float
@@ -21,19 +19,15 @@ A string contains a series of characters, forming text.
 Liquid supports both two number types: integers (whole numbers) and floats (numbers having decimal precision).
 
 ```liquid
-{% raw %}
 {% assign a_int = 99 %}
 {% assign a_float = 99.99 %}
-{% endraw %}
 ```
 
 ## Boolean
 
 ```liquid
-{% raw %}
 {% assign is_mechanic_awesome = true %}
 {% assign is_it_warm_outside = false %}
-{% endraw %}
 ```
 
 ## Nil
@@ -49,11 +43,9 @@ In Liquid, `null` is not a keyword literal. But, because `null` is also typicall
 {% endhint %}
 
 ```liquid
-{% raw %}
 {% if order.email %}
   There is an email address
 {% endif %}
-{% endraw %}
 ```
 
 {% tabs %}
@@ -89,22 +81,18 @@ The array literal is unique to Mechanic Liquid. Arrays cannot be created in this
 {% endhint %}
 
 ```liquid
-{% raw %}
 {% assign an_array_of_strings = "one,two,three" | split: "," %}
 {% assign also_an_array_of_strings = "1,2,3" | split: "," %}
 
 {% assign an_empty_array = array %}
-{% endraw %}
 ```
 
 ### Iterating through arrays
 
 ```liquid
-{% raw %}
 {% for customer_tag in customers.tags %}
   {{ customer_tag }}
 {% endfor %}
-{% endraw %}
 ```
 
 ### Accessing an array element
@@ -127,7 +115,6 @@ An **object** is any value that has attributes (also known as properties). The n
 Objects may be traversed using [for loops](control-flow/iteration.md).
 
 ```liquid
-{% raw %}
 {% assign object = hash %}
 {% assign object["foo"] = "bar" %}
 {% assign object["baz"] = "qux" %}
@@ -138,7 +125,6 @@ Objects may be traversed using [for loops](control-flow/iteration.md).
 
   {{ key }}: {{ value }}
 {% endfor %}
-{% endraw %}
 ```
 
 ### Accessing an object property
@@ -146,14 +132,12 @@ Objects may be traversed using [for loops](control-flow/iteration.md).
 All of the following examples return the same value.
 
 ```liquid
-{% raw %}
 {% assign foo = '{"foo":"bar"}' | parse_json %}
 
 1. {{ foo.bar }}
 2. {{ foo["bar"] }}
 
 {% assign key = "bar" %}
-{% endraw %}
 3. {{ foo[key] }}
 ```
 
@@ -170,12 +154,10 @@ This only applies to Mechanic Liquid. Hashes cannot be created in Shopify Liquid
 {% endhint %}
 
 ```liquid
-{% raw %}
 {% assign a_hash_object = hash %}
 {% assign a_hash_object["key"] = "value" %}
 
 {% assign a_hash_from_json = '{"foo":"bar"}' | parse_json %}
-{% endraw %}
 ```
 
 ### Iterating through hashes
@@ -183,7 +165,6 @@ This only applies to Mechanic Liquid. Hashes cannot be created in Shopify Liquid
 Hashes may be traversed using [for loops](control-flow/iteration.md), like other objects. For convenience, Mechanic also supports extract an array of hash keys using the [keys](../filters/#keys) filter, or object values using the [values](../filters/#values) filter. The resulting arrays may also be used with a for loop, like any array.
 
 ```liquid
-{% raw %}
 {% assign object = hash %}
 {% assign object["foo"] = "bar" %}
 {% assign object["baz"] = "qux" %}
@@ -204,5 +185,4 @@ Hashes may be traversed using [for loops](control-flow/iteration.md), like other
 {% for value in values %}
   {{ value }}
 {% endfor %}
-{% endraw %}
 ```

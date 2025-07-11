@@ -11,17 +11,13 @@ Prevents an expression from being rendered or output.
 Any text inside `comment` tags won't be output, and any Liquid code will be parsed, but not executed.
 
 ```javascript
-{% raw %}
 {% comment %} This is a comment in Liquid {% endcomment %}
-{% endraw %}
 ```
 
 ```javascript
-{% raw %}
 {% comment %} 
   This is a comment in Liquid 
 {% endcomment %}
-{% endraw %}
 ```
 
 ## Inline comments
@@ -33,13 +29,11 @@ You can use inline comment tags to annotate your code, or to temporarily prevent
 You can create multi-line inline comments. However, each line in the tag must begin with a `#`, or a syntax error will occur.
 
 ```
-{% raw %}
 {% # this is a comment %}
 
 {% # for i in (1..3) -%}
   {{ i }}
 {% # endfor %}
-{% endraw %}
 
 {%
   ###############################
