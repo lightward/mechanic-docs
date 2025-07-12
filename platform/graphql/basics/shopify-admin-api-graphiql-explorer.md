@@ -1,13 +1,11 @@
 # Shopify Admin API GraphiQL explorer
 
-In the next sections, you'll learn about [queries](queries.md), [mutations](mutations.md), and [bulk operations](../bulk-operations.md). Shopify has provided a fantastic tool called the Admin Api GraphiQL explorer to help learn and work with the GraphQL API. The best way to learn GraphQL is to start writing queries and reviewing the data that is returned.
+To explore Shopify GraphQL interactively, use Shopify's instance of GraphiQL:
 
-![Shopify Admin API GraphiQL explorer](<../../../.gitbook/assets/image (5).png>)
+[https://shopify.dev/graphiql/admin-graphiql](https://shopify.dev/graphiql/admin-graphiql)
 
-{% hint style="success" %}
-A read-only demo is available here - [https://shopify.dev/tools/graphiql-admin-api](https://shopify.dev/tools/graphiql-admin-api)
-{% endhint %}
+To read your own Shopify data, install the Shopify GraphiQL app for your store:
 
-{% hint style="success" %}
-A full app is available for install on your Shopify store: [https://shopify-graphiql-app.shopifycloud.com/login](https://shopify-graphiql-app.shopifycloud.com/login)
-{% endhint %}
+[https://shopify-graphiql-app.shopifycloud.com/](https://shopify-graphiql-app.shopifycloud.com/)
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-07-12 at 3.11.59 PM.png" alt=""><figcaption></figcaption></figure>
