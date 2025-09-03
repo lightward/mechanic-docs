@@ -2,7 +2,7 @@
 
 The `permissions` tag explicitly declares which Shopify API access scopes a task requires. This helps Mechanic understand exactly what permissions your task needs, so that it can prompt you to approve these permissions. This tag should only be used if Mechanic isn't able to auto-detect the permissions required using [task previews](../../../core/tasks/previews/), [stub data](../../../core/tasks/previews/stub-data.md), and [preview events](../../../core/tasks/previews/events.md).
 
-## Basic Usage
+## Usage
 
 ```liquid
   {% permissions %}
