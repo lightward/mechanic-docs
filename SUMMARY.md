@@ -204,6 +204,7 @@
     * [assign](platform/liquid/tags/assign.md)
     * [error](platform/liquid/tags/error.md)
     * [log](platform/liquid/tags/log.md)
+    * [permissions](platform/liquid/tags/permissions.md)
   * [Mechanic code snippets](platform/liquid/mechanic-code-snippets.md)
 * [Shopify](platform/shopify/README.md)
   * [Custom authentication](platform/shopify/custom-authentication.md)

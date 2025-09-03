@@ -20,6 +20,10 @@ The solution is usually found in [**task previews**](../core/tasks/previews/)! M
    * If no: Great! Export your new task (i.e. the one that's _specifically_ focused on the issue), and send it to team@usemechanic.com, so a member of the platform team can take a look.
      * Important: the platform team can't help with debugging custom code, but they _can_ help with platform issues. If you've reached this part, you might have found a platform issue!
 
+{% hint style="info" %}
+We highly recommend you stick with the task preview approach. But, if you get stuck we have now introduced a [permissions tag](../platform/liquid/tags/permissions.md) that allows you to explicitly state the permissions your task requires.
+{% endhint %}
+
 ## Getting more help
 
 The best place to compare code-level notes is [**our community Slack workspace**](../resources/slack.md). Join up, start a thread, and share your code in the new thread.
