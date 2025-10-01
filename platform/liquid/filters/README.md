@@ -683,7 +683,7 @@ In addition to our own filters, Mechanic supports the following string filters f
 * [downcase](https://shopify.dev/docs/api/liquid/filters/downcase)
 * [escape](https://shopify.dev/docs/api/liquid/filters/escape)
 * [escape\_once](https://shopify.dev/docs/api/liquid/filters/escape_once)
-* [handleize](https://shopify.dev/docs/api/liquid/filters/handleize)
+* [handleize](https://shopify.dev/docs/api/liquid/filters/handleize) / [handle](https://shopify.dev/docs/api/liquid/filters/handleize)
 * [hmac\_sha1](https://shopify.dev/docs/api/liquid/filters/hmac_sha1)
 * [hmac\_sha256](https://shopify.dev/docs/api/liquid/filters/hmac_sha256)
 * [lstrip](https://shopify.dev/docs/api/liquid/filters/lstrip)
