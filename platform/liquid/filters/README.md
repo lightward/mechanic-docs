@@ -18,7 +18,7 @@ This filter converts a browser user agent string into an object that represents 
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% assign browser = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/79.0.259819395 Mobile/16G77 Safari/604.1" | browser %}
 
 {{ browser }}
@@ -255,7 +255,7 @@ Date formats may be given per[ Ruby's strftime](http://www.ruby-doc.org/core/Tim
 
 Unlike Shopify Liquid, Mechanic's date filter does not require a format argument. If one is not given, Mechanic defaults to formatting the date per ISO8601.
 
-```javascript
+```liquid
 {{ "2000-01-01" | date: "%Y-%m-%d %H:%M %z" }}
 => "2000-01-01 00:00 -0600"
 
@@ -304,7 +304,7 @@ Under the hood, parse\_date uses [ActiveSupport::TimeZone#strptime](https://api.
 
 This filter returns an ISO8601 string, representing the parsed date value in the store's local timezone. If the supplied date string cannot be parsed successfully, the filter will return nil.
 
-```javascript
+```liquid
 {{ "01-01-20" | parse_date: "%m-%d-%y" }}
 => "2020-01-01T00:00:00+11:00"
 
@@ -321,7 +321,7 @@ These filters allow you to compress and decompress strings, using gzip compressi
 
 In general, all strings passing through Mechanic must be UTF-8, and must ultimately be valid when represented as JSON. However, because gzip'd content may _not_ be UTF-8, and because it may be important to preserve the original encoding, the gunzip filter supports a `force_utf8: false` option. Use this when you're certain the original encoding must be preserved, _if_ you ultimately intend to pass along the string in a JSON-friendly representation. (For example, you might gunzip a value, and then use the base64 filter to represent it safely within JSON.)
 
-```javascript
+```liquid
 {{ "testing" | gzip | gunzip }}
 => "testing"
 
@@ -432,7 +432,7 @@ The parse\_jsonl filter raises an error when invalid JSONL is received.
 
 Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
 
-```javascript
+```liquid
 {% capture xml_string %}
 <foo>
   <bar>baz</bar>
@@ -447,7 +447,7 @@ Use this filter to parse an XML string. (Under the hood, this filter calls [Hash
 {{ xml | json }}
 ```
 
-```
+```json
 {"foo":{"bar":["baz",{"qux":"quux"}]}}
 ```
 
@@ -556,7 +556,7 @@ In addition to our own filters, Mechanic supports the following data filter from
 
 This filter accepts a phone number – country code is required! – and outputs it in [standard E.164 format](https://en.wikipedia.org/wiki/E.164). If the number does not appear valid, the filter returns `nil`.
 
-```javascript
+```liquid
 {{ "1 (312) 456-7890" | e164 }}
 => "13124567890"
 
@@ -577,7 +577,7 @@ This filter returns the entire matched string (i.e. [MatchData#to\_s](https://ru
 This filter only returns the first match found. To find all available matches in a string, use [scan](./#scan).
 {% endhint %}
 
-```javascript
+```liquid
 {{ "It's a lovely day!" | match: "(?<=a ).*(?= day)" }}
 => "lovely"
 
@@ -626,7 +626,7 @@ This filter returns an array of matches, consisting of each matched string (i.e.
 This filter returns an array of matches. To only find the first match, use [match](./#match).
 {% endhint %}
 
-```javascript
+```liquid
 {{ "It's a lovely day!" | scan: "[\w']+" }}
 => ["It's", "a", "lovely", "day"]
 
@@ -647,7 +647,7 @@ Use this filter on strings to remove indentation from strings.
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% capture message %}
   Hello, friend!
   It's a mighty fine day!
@@ -723,7 +723,7 @@ A three-character ISO currency code may be specified as the first argument; curr
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {{ "100000.0" | currency }}
 {{ 100000.0 | currency: "EUR" }}
 {{ 100000 | currency: "EUR", locale: "fr" }}
@@ -743,7 +743,7 @@ $100 000,00
 
 Note that this filter does not automatically append the currency ISO code (e.g. it will not generate output resembling "€100,000.00 EUR"). To add the ISO code manually, use one of these examples:
 
-```javascript
+```liquid
 {{ price | currency }} {{ shop.currency }}
 {{ price | currency | append: " " | append: shop.currency }}
 ```
@@ -774,7 +774,7 @@ This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.o
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {{ "1,2,3" | split: "," | in_groups: 2 | json }}
 ```
 {% endtab %}
@@ -788,7 +788,7 @@ This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.o
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {{ "1,2,3" | split: "," | in_groups: 2, fill_with: false | json }}
 ```
 {% endtab %}
@@ -808,7 +808,7 @@ This filter is particularly useful when performing work in batches, by making it
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {{ "1,2,3,4,5" | split: "," | in_groups_of: 2 | json }}
 ```
 {% endtab %}
@@ -822,7 +822,7 @@ This filter is particularly useful when performing work in batches, by making it
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {{ "1,2,3,4,5" | split: "," | in_groups_of: 2, fill_with: false | json }}
 ```
 {% endtab %}
@@ -840,7 +840,7 @@ This filter accepts the name of an object property or attribute, and returns a h
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% capture variants_json %}
   [
     {
@@ -882,7 +882,7 @@ This filter appends any number of arguments onto the provided array, returning a
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% assign count_to_three = "one,two,three" | split: "," %}
 
 {% assign count_to_five = count_to_three | push: "four", "five" %}
@@ -906,7 +906,7 @@ five
 
 This filter can be used on any array. Used without any arguments, it returns a single random element from the array. Provide an integer argument to return another array of that size, containing a random subset of the input array.
 
-```javascript
+```liquid
 {{ "1,2,3" | split: "," | sample }}
 => "2"
 
@@ -920,7 +920,7 @@ When applied to an array, this filter accepts an integer offset, and an optional
 
 Negative offsets begin counting from the end of the array.
 
-```javascript
+```liquid
 {{ "1,2,3,4,5" | split: "," | slice: 3 }}
 => "4"
 
@@ -975,7 +975,7 @@ This filter prepends any number of arguments onto the provided array, returning 
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% assign count_two_three = "two,three" | split: "," %}
 
 {% assign count_to_three_and_start_at_zero = count_two_three | unshift: "zero", "one" %}
@@ -1018,11 +1018,11 @@ In addition to our own filters, Mechanic supports the following array filters fr
 
 ### compact
 
-When applied to a hash, this filter returns a new hash which omits all keys having nil values. Note that the filter only operates on the top-level keys, it does not affect keys in lower levels of a nested hash.
+When applied to a hash, this filter returns a new hash which omits all keys having _nil_ values.
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% assign foo = hash %}
 {% assign foo["bar"] = "baz" %}
 {% assign foo["qux"] = nil %}
@@ -1039,13 +1039,37 @@ When applied to a hash, this filter returns a new hash which omits all keys havi
 {% endtab %}
 {% endtabs %}
 
+Note that the filter only operates on the top-level keys, it does not affect keys in lower levels of a nested hash. If you need to omit _nil_ keys from a nested hash, you must apply the compact filter to the nested hash directly.
+
+{% tabs %}
+{% tab title="Code" %}
+```liquid
+{% assign foo = hash %}
+{% assign foo["bar"] = hash %}
+{% assign foo["bar"]["baz"] = "baz" %}
+{% assign foo["bar"]["quz"] = nil %}
+{{ foo | compact | json }}
+
+{% assign foo["bar"] = foo["bar"] | compact %}
+{{ foo | json }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```javascript
+{"bar":{"baz":"baz","quz":null}}
+{"bar":{"baz":"baz"}}
+```
+{% endtab %}
+{% endtabs %}
+
 ### except
 
 This filter accepts one or more string arguments, corresponding to keys that should be left out of the output. The filter returns a new hash, containing all the key/value pairs of the original hash _except_ those keys named as arguments.
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
 {% assign foo["baz"] = "baz" %}
@@ -1072,7 +1096,7 @@ When applied to a hash, the slice filter accepts one or more string arguments, c
 
 {% tabs %}
 {% tab title="Code" %}
-```javascript
+```liquid
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
 {% assign foo["baz"] = "baz" %}
