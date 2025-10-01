@@ -1018,7 +1018,7 @@ In addition to our own filters, Mechanic supports the following array filters fr
 
 ### compact
 
-When applied to a hash, this filter returns a new hash which omits all keys having nil values.
+When applied to a hash, this filter returns a new hash which omits all keys having nil values. Note that the filter only operates on the top-level keys, it does not affect keys in lower levels of a nested hash.
 
 {% tabs %}
 {% tab title="Code" %}
