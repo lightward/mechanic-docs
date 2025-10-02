@@ -969,6 +969,46 @@ sort_naturally:
 {% endtab %}
 {% endtabs %}
 
+### sum
+
+Returns the sum of all elements in an array.
+
+{% tabs %}
+{% tab title="Code" %}
+```liquid
+{% assign primes = array | push: 2, 3, 5, 7, 11 %}
+{{ primes | sum }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+28
+```
+{% endtab %}
+{% endtabs %}
+
+Note that Mechanic's implementation of this filter predates [Shopify's sum filter](https://shopify.dev/docs/api/liquid/filters/sum), and so there are two notable differences.
+
+1. In Mechanic, the `sum` filter requires that every element of the array be a number.
+2. In Mechanic, the sum filter cannot operate on an array of objects. To achieve similar behavior to Shopify, you can combine `sum` with the `map` filter:
+
+{% tabs %}
+{% tab title="Code" %}
+```liquid
+Original quantity: {{ cart.items | map: "quantity" | join: "," }}
+Sum of quantities: {{ cart.items | map: "quantity" | sum }}
+```
+{% endtab %}
+
+{% tab title="Output" %}
+```
+Original quantity: 1,1,2,1,1
+Sum of quantities: 6
+```
+{% endtab %}
+{% endtabs %}
+
 ### unshift
 
 This filter prepends any number of arguments onto the provided array, returning a new array, leaving the original unmodified.
@@ -1008,7 +1048,6 @@ In addition to our own filters, Mechanic supports the following array filters fr
 * [size](https://shopify.dev/docs/api/liquid/filters/size)
 * [sort](https://shopify.dev/docs/api/liquid/filters/sort)
 * [sort\_natural](https://shopify.dev/docs/api/liquid/filters/sort_natural)
-* [sum](https://shopify.dev/docs/api/liquid/filters/sum)
 * [uniq](https://shopify.dev/docs/api/liquid/filters/uniq)
 * [where](https://shopify.dev/docs/api/liquid/filters/where)
 
