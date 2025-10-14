@@ -45,32 +45,4 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
 {% endaction %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "files",
-    "options": {
-      "secure.zip": {
-        "zip": {
-          "password": "opensesame",
-          "files": {
-            "confirmations.txt": "this data is protected with zipcrypto encryption",
-            "image.png": {
-              "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-            },
-            "receipt.pdf": {
-              "pdf": {
-                "html": "<h1>!!</h1>"
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-{% endtab %}
 {% endtabs %}

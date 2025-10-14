@@ -35,22 +35,6 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 {% action "event", topic: "user/foo/bar", data: data %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "event",
-    "options": {
-      "topic": "user/foo/bar",
-      "data": {
-        "foo": "bar"
-      }
-    }
-  }
-}
-```
-{% endtab %}
 {% endtabs %}
 
 ### Using specific tasks
@@ -70,23 +54,6 @@ That task must be subscribed to the event topic being used.
 {% comment %} For multiple tasks use `task_ids` {% endcomment %}
 
 {% action "event", topic: "user/foo/bar", data: data, task_id: task_id %}
-```
-{% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "event",
-    "options": {
-      "topic": "user/foo/bar",
-      "data": {
-        "foo": "bar"
-      },
-      "task_id": "293b7040-6689-4eb1-8b5d-64f4d33eb2ae"
-    }
-  }
-}
 ```
 {% endtab %}
 {% endtabs %}
@@ -118,24 +85,6 @@ This example uses the `run_at` option to run the task at a later scheduled time.
     }
   }
 {% endaction %}
-```
-{% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "event",
-    "options": {
-      "topic": "user/foo/bar",
-      "task_id": "293b7040-6689-4eb1-8b5d-64f4d33eb2ae",
-      "run_at": 1613158259,
-      "data": {
-        "foo": "bar"
-      }
-    }
-  }
-}
 ```
 {% endtab %}
 {% endtabs %}

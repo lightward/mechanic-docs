@@ -71,27 +71,4 @@ A screencast illustrating an HTML test, and a path for reaching Pdfcrowd support
 {% endaction %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "files",
-    "options": {
-      "file.pdf": {
-        "pdf": {
-          "html": "\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap\" rel=\"stylesheet\">\n<style>p { font-family: 'Liu Jian Mao Cao', cursive; }</style>\n\n<p>Almost before we knew it, we had left the ground.</p>\n<div id=\"tester\" style=\"width:100%;height:40vh;\"></div>\n\n<script src=\"https://cdn.plot.ly/plotly-2.2.0.min.js\"></script>\n<script>\n  // from https://plotly.com/javascript/getting-started/\n  TESTER = document.getElementById('tester');\n\tPlotly.newPlot( TESTER, [{\n\tx: [1, 2, 3, 4, 5],\n\ty: [1, 2, 4, 8, 16] }], {\n\tmargin: { t: 0 } } );\n</script>\n",
-          "page_width": "7in",
-          "page_height": "5in",
-          "margin_top": "10mm",
-          "margin_right": "10mm",
-          "margin_bottom": "10mm",
-          "margin_left": "10mm"
-        }
-      }
-    }
-  }
-}
-```
-{% endtab %}
 {% endtabs %}

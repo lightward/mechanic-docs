@@ -28,19 +28,4 @@ This file generator accepts a string containing a valid HTTP or HTTPS URL. It do
 {% endaction %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "files",
-    "options": {
-      "image_from_url.png": {
-        "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-      }
-    }
-  }
-}
-```
-{% endtab %}
 {% endtabs %}

@@ -109,23 +109,6 @@ For more on this, see [File generators](file-generators/).
 {% endaction %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "email",
-    "options": {
-      "to": "hello@example.com",
-      "subject": "Hello world",
-      "body": "It's a mighty fine day!",
-      "reply_to": "store@example.com",
-      "from_display_name": "Example Store"
-    }
-  }
-}
-```
-{% endtab %}
 {% endtabs %}
 
 ### Using HTML
@@ -148,21 +131,6 @@ For more on this, see [File generators](file-generators/).
 {% endaction %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "email",
-    "options": {
-      "to": "hello@example.com",
-      "subject": "Hello world",
-      "body": "<b>Hello!</b><br />\n<br />\nIt's fantastic to see you!"
-    }
-  }
-}
-```
-{% endtab %}
 {% endtabs %}
 
 ### Using attachments
@@ -182,26 +150,6 @@ For more on this, see [File generators](file-generators/).
     }
   }
 {% endaction %}
-```
-{% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "email",
-    "options": {
-      "to": "test@example.com",
-      "subject": "An image test",
-      "body": "Please see attached. :)",
-      "attachments": {
-        "a_configured_image_from_the_web.png": {
-          "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-        }
-      }
-    }
-  }
-}
 ```
 {% endtab %}
 {% endtabs %}

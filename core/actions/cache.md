@@ -29,22 +29,6 @@ In this option style, the cache command is given as the root key of the options 
 {% endaction %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```json
-{
-  "action": {
-    "type": "cache",
-    "options": {
-      "incr": {
-        "key": "foo",
-        "ttl": 600
-      }
-    }
-  }
-}
-```
-{% endtab %}
 {% endtabs %}
 
 ### Positional options
@@ -55,20 +39,6 @@ In this option style, the cache command and its arguments are given in a list. U
 {% tab title="Liquid" %}
 ```liquid
 {% action "cache", "incr", "foo" %}
-```
-{% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "cache",
-    "options": [
-      "incr",
-      "foo"
-    ]
-  }
-}
 ```
 {% endtab %}
 {% endtabs %}

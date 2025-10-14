@@ -16,19 +16,6 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% action "echo", __error: "Forcing an error!" %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "echo",
-    "options": {
-      "__error": "Forcing an error!"
-    }
-  }
-}
-```
-{% endtab %}
 {% endtabs %}
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-05 at 11.50.17 AM.png>)
@@ -41,20 +28,6 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% action "echo", foo: "bar", baz: "qux" %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "echo",
-    "options": {
-      "foo": "bar",
-      "baz": "qux"
-    }
-  }
-}
-```
-{% endtab %}
 {% endtabs %}
 
 {% tabs %}
@@ -63,38 +36,12 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 {% action "echo", "foo", "bar", "baz" %}
 ```
 {% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "echo",
-    "options": [
-      "foo",
-      "bar",
-      "baz"
-    ]
-  }
-}
-```
-{% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Liquid" %}
 ```liquid
 {% action "echo", "foo" %}
-```
-{% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "echo",
-    "options": "foo"
-  }
-}
 ```
 {% endtab %}
 {% endtabs %}
@@ -108,20 +55,6 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
     "baz": "qux"
   }
 {% endaction %}
-```
-{% endtab %}
-
-{% tab title="JSON" %}
-```javascript
-{
-  "action": {
-    "type": "echo",
-    "options": {
-      "foo": "bar",
-      "baz": "qux"
-    }
-  }
-}
 ```
 {% endtab %}
 {% endtabs %}
