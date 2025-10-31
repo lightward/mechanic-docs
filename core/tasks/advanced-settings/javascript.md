@@ -4,7 +4,7 @@ Shopify allows apps to inject JavaScript into the online storefront. (This is fa
 
 Mechanic supports this by allowing each task to specify its own JavaScript, to be injected into the online storefront.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Here, the developer can add in their own JavaScript code, taking advantage of Liquid for mixing in data from the current store, or from the current task's options.
 

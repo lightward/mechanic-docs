@@ -73,7 +73,7 @@ This action requires connecting a Google account with the appropriate  permissio
 
 1. Go to the Settings screen
 2. Click Authentication
-3. Follow the Google account connection flow
+3. Follow the Google account connection flow from the Google tab
 
 ## File Access
 

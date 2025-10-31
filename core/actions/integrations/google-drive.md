@@ -2,7 +2,7 @@
 
 The Google Drive action allows you to upload files to your Google Drive.
 
-It supports various file types and can generate files dynamically using [file generators](file-generators/), including text files, PDFs, CSVs, and HTML files. Mechanic interacts with Google Drive via the Google Drive API, using OAuth2 for authentication. \
+It supports various file types and can generate files dynamically using [file generators](../file-generators/), including text files, PDFs, CSVs, and HTML files. Mechanic interacts with Google Drive via the Google Drive API, using OAuth2 for authentication. \
 
 
 ## Options
@@ -13,7 +13,7 @@ It supports various file types and can generate files dynamically using [file ge
 
 The `uploads` hash supports these properties:
 
-<table><thead><tr><th width="174">Property</th><th width="93">Type</th><th>Description</th></tr></thead><tbody><tr><td>overwrite</td><td>boolean</td><td>Optional: when true, files with matching names will be overwritten. Defaults to false</td></tr><tr><td>[path/filename]</td><td>string | hash</td><td>One or more file paths mapped to their content. Paths can include folders (e.g., 'reports/monthly/file.txt'). Content can be either a direct string or a <a href="file-generators/">file generator object</a>.</td></tr></tbody></table>
+<table><thead><tr><th width="174">Property</th><th width="93">Type</th><th>Description</th></tr></thead><tbody><tr><td>overwrite</td><td>boolean</td><td>Optional: when true, files with matching names will be overwritten. Defaults to false</td></tr><tr><td>[path/filename]</td><td>string | hash</td><td>One or more file paths mapped to their content. Paths can include folders (e.g., 'reports/monthly/file.txt'). Content can be either a direct string or a <a href="../file-generators/">file generator object</a>.</td></tr></tbody></table>
 
 ## Authentication
 

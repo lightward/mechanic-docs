@@ -6,7 +6,7 @@
 \
 Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation  [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).\
 \
-Use the [GraphQL](../../../../core/actions/shopify.md#graphql) going forward. The [product](product.md) and [variant](variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API completely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
+Use the [GraphQL](../../../../core/actions/integrations/shopify.md#graphql) going forward. The [product](product.md) and [variant](variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API completely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
 
 \
 All of our [library tasks](https://tasks.mechanic.dev/) will be ported to use GraphQL only, which will provide a model for how you can update your custom tasks. You'll be able to update your non-customized library tasks with a click of a button :relaxed:\
@@ -58,4 +58,4 @@ Or, combine to be even more selective:\
 
 ## Notes
 
-Out of the box, only orders from the last 60 days are accessible. To give Mechanic access to your complete order history, [enable "read all orders"](https://help.usemechanic.com/tutorials/enabling-read\_all\_orders).
+Out of the box, only orders from the last 60 days are accessible. To give Mechanic access to your complete order history, [enable "read all orders"](https://help.usemechanic.com/tutorials/enabling-read_all_orders).

@@ -6,7 +6,7 @@ When the Run Task button is clicked the user is presented with a form that conta
 
 When submitted, an event is generated, to which only this task will respond. The event contains the user's input in its data, making user's input available in `event.data.`
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>User form on Run Task page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>User form on Run Task page</p></figcaption></figure>
 
 {% hint style="info" %}
 Click the link button beside the title of the form to copy a link to the form that you can share with your users

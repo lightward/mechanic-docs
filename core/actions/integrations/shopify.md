@@ -1,25 +1,11 @@
 # Shopify
 
-The **Shopify** action sends requests to the [Shopify admin API](https://shopify.dev/docs/admin-api). It supports both REST and GraphQL requests.
-
-{% hint style="danger" %}
-**Important Notice**
-
-\
-Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation  [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).\
-\
-Use the [GraphQL](shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API completely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
-
-\
-All of our [library tasks](https://tasks.mechanic.dev/) will be ported to use GraphQL only, which will provide a model for how you can update your custom tasks. You'll be able to update your non-customized library tasks with a click of a button :relaxed:\
-\
-Please see these [guides](../../resources/converting-tasks-from-shopify-rest-to-graphql/) for migrating your custom tasks to GraphQL.
-{% endhint %}
+The **Shopify** action sends requests to the [Shopify admin API](https://shopify.dev/docs/admin-api).&#x20;
 
 {% hint style="info" %}
-In Mechanic, writing data to Shopify must happen using an action. While the Shopify action is usually the right choice, the [HTTP](http.md) action can also be used for this purpose, by manually configuring authentication headers.
+In Mechanic, writing data to Shopify must happen using an action. While the Shopify action is usually the right choice, the [HTTP](../http.md) action can also be used for this purpose, by manually configuring authentication headers.
 
-To learn more, see [Interacting with Shopify](../shopify/).
+To learn more, see [Interacting with Shopify](../../shopify/).
 {% endhint %}
 
 ## Options
@@ -28,10 +14,10 @@ This action has several usage styles, each with a different set of constraints o
 
 ### GraphQL
 
-This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). In this style, a single GraphQL query string is supplied as the action options. The [action](../../platform/liquid/tags/action.md) tag has specific support for this action type, allowing this string to be provided as the contents of an action block.
+This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). In this style, a single GraphQL query string is supplied as the action options. The [action](../../../platform/liquid/tags/action.md) tag has specific support for this action type, allowing this string to be provided as the contents of an action block.
 
 {% hint style="info" %}
-To prepare complex query inputs, use the [graphql\_arguments](../../platform/liquid/filters/#graphql_arguments) Liquid filter.
+To prepare complex query inputs, use the [graphql\_arguments](../../../platform/liquid/filters/#graphql_arguments) Liquid filter.
 {% endhint %}
 
 {% tabs %}

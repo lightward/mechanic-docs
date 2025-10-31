@@ -8,7 +8,7 @@ Common use cases:
 
 * Evaluating [HTTP](../core/actions/http.md) response codes or payloads
   * See [Working with external APIs](working-with-external-apis/)
-* Evaluating the results of [Shopify](../core/actions/shopify.md) GraphQL mutations
+* Evaluating the results of [Shopify](../core/actions/integrations/shopify.md) GraphQL mutations
 * Using content from generated [Files](../core/actions/files.md)
 
 {% hint style="info" %}

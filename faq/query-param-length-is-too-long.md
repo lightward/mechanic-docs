@@ -5,7 +5,7 @@ This error is about the length of the GraphQL query as a whole (which Shopify li
 To work around this error, refactor your query so that any long string values are provided using GraphQL variables, instead of provided inline.
 
 {% hint style="info" %}
-Learn about this technique using the [Shopify action](../core/actions/shopify.md#graphql-with-variables), or with the [shopify Liquid filter](../platform/liquid/filters/#shopify).
+Learn about this technique using the [Shopify action](../core/actions/integrations/shopify.md#graphql-with-variables), or with the [shopify Liquid filter](../platform/liquid/filters/#shopify).
 {% endhint %}
 
 If your query _isn't_ using any particularly large string values, you may need to split your query into several pieces instead.

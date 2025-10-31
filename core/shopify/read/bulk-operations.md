@@ -18,7 +18,7 @@ This area deserves improvement! To discuss the future of this behavior, visit th
 
 ### Creating a bulk operation
 
-Use the [Shopify](../../actions/shopify.md) action to execute a bulkOperationRunQuery mutation (see [Shopify's tutorial](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api#bulk-query-overview)). Mechanic will detect this mutation, and will begin monitoring the bulk operation in progress.
+Use the [Shopify](../../actions/integrations/shopify.md) action to execute a bulkOperationRunQuery mutation (see [Shopify's tutorial](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api#bulk-query-overview)). Mechanic will detect this mutation, and will begin monitoring the bulk operation in progress.
 
 ### Subscribing to the results
 
