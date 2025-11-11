@@ -34,6 +34,8 @@ Finally, the `query` filter of a resources query gives the ability to drasticall
 If a query has the potential to return a very large number of resources (including connected resources) in a shop, then a [bulk operation](../../core/shopify/read/bulk-operations.md) query may be better suited than using paginated GraphQL queries.
 {% endhint %}
 
+### GraphQL Paginated Query
+
 {% code title="GraphQL - paginated products query" overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```liquid
 {% assign cursor = nil %}
