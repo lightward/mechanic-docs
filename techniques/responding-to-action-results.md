@@ -4,6 +4,8 @@ Action runs are performed asynchronously, [like all Mechanic runs](../core/runs/
 
 To respond to action results, add a task subscription to the **mechanic/actions/perform** event topic. When a task includes this subscription, Mechanic will generate an event with that topic for every action that the task completes. This event will only ever be responded to by the task that generated it; it will never be sent to other tasks.
 
+If you don't need the follow-up event for a particular action (for example, when you know the work is fire-and-forget or you're avoiding loops), set `__perform_event: false` on that action. The action still runs; Mechanic just skips emitting `mechanic/actions/perform` for it.
+
 Common use cases:
 
 * Evaluating [HTTP](../core/actions/http.md) response codes or payloads

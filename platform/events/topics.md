@@ -17,7 +17,7 @@ Incoming events may be selectively filtered out using [event filters](filters.md
 ### Actions
 
 * **mechanic/actions/perform**\
-  Occurs when an action has been performed, regardless of its success or failure. A task may subscribe to this topic to be notified when each of its actions have been performed, so that the task may then respond to the results.
+  Occurs when an action has been performed, regardless of its success or failure. A task may subscribe to this topic to be notified when each of its actions have been performed, so that the task may then respond to the results. To skip emitting this follow-up for a specific action, set `__perform_event: false` on that action.
 
 ### Emails
 

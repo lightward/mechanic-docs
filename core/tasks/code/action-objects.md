@@ -36,6 +36,22 @@ The action **type** is always a string, having a value that corresponds to [a su
 
 Action **options** vary by action type. Depending on the action type, its options may be another complete object, or an array, or a scalar value.
 
+#### Control parameters
+
+Mechanic reserves a small set of double-underscore parameters for controlling how an action is handled. The current control parameter is `__perform_event`. Set it to `false` to skip emitting the follow-up `mechanic/actions/perform` event for that specific action (the default is to emit it).
+
+Examples:
+
+```liquid
+{%- action "http", method: "get", url: "https://postman-echo.com/get", __perform_event: false -%}
+```
+
+```liquid
+{%- action "shopify", __perform_event: false -%}
+  mutation { shop { id } }
+{%- endaction -%}
+```
+
 ### Meta
 
 Actions may optionally include **meta** information, annotating the action with any JSON value.
