@@ -1,6 +1,7 @@
 # Table of contents
 
 * [⛩️ Introduction](README.md)
+* [🚀 Quickstart: Build your first task](quickstart.md)
 * [🤓 Hire a Mechanic developer](hire-a-developer.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)

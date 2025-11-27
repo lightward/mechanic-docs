@@ -10,6 +10,8 @@ Tasks may be written from scratch, or installed from the Mechanic library (avail
 
 {% hint style="info" %}
 Working on getting better at task-writing? See [Practicing writing tasks](../../resources/tutorials/practicing-writing-tasks.md), and [Writing a high-quality task](../../techniques/writing-a-high-quality-task.md).
+
+Using AI? Start with a short, specific prompt and verify the output against [our AI guide](../../ai.md) so subscriptions, options, and actions are all present.
 {% endhint %}
 
 ## Example

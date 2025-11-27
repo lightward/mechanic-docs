@@ -22,6 +22,113 @@ As of this writing (currently June 12, 2025), AI is getting better at Mechanic. 
 * AI code often fails to invoke necessary Mechanic features (like [subscriptions](core/tasks/subscriptions.md)!).
 * Intelligence is a game of guessing intelligently: AI often sort of just _guesses_ at what task code is supposed to generate.
 
+## Better prompts for Mechanic
+
+Copy/paste and tweak the **bold** parts. Keep the format exact so the AI doesn’t invent extras.
+
+**General (manual trigger + email)**
+
+```
+You are writing a Mechanic task. Return only two sections:
+Subscriptions:
+Code:
+
+Rules:
+- Use real Mechanic action types only: shopify, http, email, cache, files, ftp, event, slack, flow, google, airtable, report_toaster.
+- Use the action tag with {% action %}/{% endaction %}. No YAML. No invented tags.
+- Options must use Mechanic suffixes (__required, __boolean, __email, __multiline, etc.).
+- Shopify filter is read-only; use the shopify action for writes/mutations.
+- If you reference data, make it preview-safe (literals or guards for event.preview).
+
+Fill these in:
+Subscriptions:
+- **mechanic/user/trigger**  # change to real event(s)
+
+Options:
+- **recipient__email_required**  # change to real options
+
+Behavior:
+- On trigger, send an email summarizing the event topic and shop name.
+
+Example format (copy this shape):
+Subscriptions:
+mechanic/user/trigger
+
+Code:
+{% if event.topic == "mechanic/user/trigger" %}
+  {% action "email" %}
+    {
+      "to": {{ options.recipient__email_required | json }},
+      "subject": "Hello from Mechanic",
+      "body": {{ "Triggered: " | append: event.topic | append: " at " | append: shop.name | json }},
+      "from_display_name": {{ shop.name | json }}
+    }
+  {% endaction %}
+{% endif %}
+```
+
+**Shopify GraphQL variant (read + write)**
+
+```
+You are writing a Mechanic task. Return only two sections:
+Subscriptions:
+Code:
+
+Rules:
+- Real action types only (shopify/http/etc.).
+- shopify filter is for reading; shopify action is for GraphQL mutations/writes.
+- Use GraphQL for Shopify; no REST objects.
+- Add preview guards or literals if referencing event data.
+
+Fill these in:
+Subscriptions:
+- **shopify/orders/create**
+
+Options:
+- **tag_to_add__required**
+
+Behavior:
+- On order creation, add a tag via Shopify GraphQL.
+
+Example format:
+Subscriptions:
+shopify/orders/create
+
+Code:
+{% if event.preview %}
+  {% assign order_id = "gid://shopify/Order/123" %}
+{% else %}
+  {% assign order_id = order.admin_graphql_api_id %}
+{% endif %}
+
+{% capture mutation %}
+  mutation addTag($id: ID!, $tags: [String!]!) {
+    tagsAdd(id: $id, tags: $tags) { userErrors { field message } }
+  }
+{% endcapture %}
+
+{% action "shopify" %}
+  {
+    "query": {{ mutation | json }},
+    "variables": {
+      "id": {{ order_id | json }},
+      "tags": [{{ options.tag_to_add__required | json }}]
+    }
+  }
+{% endaction %}
+```
+
+## Quick checklist when AI generates a task
+
+- Are the **subscriptions** present and correct?
+- Are **options** named with Mechanic suffixes?
+- Does it use the **action tag** and only real action types?
+- If Shopify: GraphQL for writes; shopify filter only for reads; no REST objects.
+- Preview-safe? (stub data or `event.preview` guards.)
+- No invented features (YAML, fake tags, missing `{% action %}/{% endaction %}`).
+
+When in doubt, ask for the subscriptions block and the exact Liquid. Short, constrained prompts win.
+
 Mechanic, as a platform, is a place for solving things together. "Together" works best when everyone's honest about where they're at. Mechanic's a good place for that. :)
 
 The AI path with Mechanic is getting better, but it's not smooth yet. If you're having trouble with this, head to [learn.mechanic.dev/custom](https://learn.mechanic.dev/custom) — that page has an overview of the smooth paths that _do_ exist.
