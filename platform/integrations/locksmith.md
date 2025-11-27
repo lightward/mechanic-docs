@@ -38,6 +38,7 @@ Or, grant access using any custom condition by using a little Liquid code.
 Every time access is granted to a resource on a store using [Locksmith](https://apps.shopify.com/locksmith?utm\_source=mechanic\&utm\_medium=learn-mechanic-dev), an event is sent to Mechanic with the following payload for the `locksmith/sessions/ping` event topic
 
 {% code title="locksmith/sessions/ping" %}
+
 ```json
   "event": {
     "keys": [
@@ -114,6 +115,7 @@ Every time access is granted to a resource on a store using [Locksmith](https://
   }
 }
 ```
+
 {% endcode %}
 
 

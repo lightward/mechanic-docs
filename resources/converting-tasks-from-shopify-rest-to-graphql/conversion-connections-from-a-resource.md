@@ -5,6 +5,7 @@ Until further notice, Shopify will continue to send product webhook data in a RE
 This is a simple task to loop through a product's collections, check if the collection contains a certain tag, then log out the collection title.
 
 {% code title="REST - Looping through a product's collections" overflow="wrap" lineNumbers="true" %}
+
 ```liquid
 {% raw %}
 {% for collection in product.collections %}
@@ -16,6 +17,7 @@ This is a simple task to loop through a product's collections, check if the coll
 {% endfor %}
 {% endraw %}
 ```
+
 {% endcode %}
 
 ***

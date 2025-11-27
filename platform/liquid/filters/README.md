@@ -236,6 +236,7 @@ Order Name;Order ID;Order Date
 Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/docs/themes/liquid/reference/filters/additional-filters#date), and has several important extensions.
 
 {% code title="Quick reference" %}
+
 ```liquid
 {{ "now"
     | date: [format,]
@@ -261,6 +262,7 @@ Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/d
       [advance: "1 day 10 minutes",]
 }}
 ```
+
 {% endcode %}
 
 #### Format

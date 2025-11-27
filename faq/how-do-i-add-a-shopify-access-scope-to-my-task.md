@@ -3,9 +3,11 @@
 If you're reading this page, you might have encountered an error like this one:
 
 {% code overflow="wrap" %}
+
 ```
 {"message": "Access denied for metaobject field. Required access: `read_metaobjects` access scope."}
 ```
+
 {% endcode %}
 
 The solution is usually found in [**task previews**](../core/tasks/previews/)! Mechanic auto-applies access scopes as the need is demonstrated during task preview. If a scope is missing, it's usually because it wasn't used during task preview.

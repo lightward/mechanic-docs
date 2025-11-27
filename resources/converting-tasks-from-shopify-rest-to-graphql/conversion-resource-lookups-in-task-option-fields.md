@@ -3,6 +3,7 @@
 An oft utilized feature of Mechanic is the ability to add Liquid tags into task options fields, such as a configurable email body. Additionally, these Liquid tags (currently) support inline resource lookups for data not available in the event webhook. However, for products and variants this will no longer work as of the [Feb 1, 2025 REST deprecation date](../../platform/liquid/objects/shopify/).
 
 {% code title="REST - product resource lookup from line item" %}
+
 ```liquid
 {%- assign qualifying_product = nil -%}
 
@@ -17,6 +18,7 @@ An oft utilized feature of Mechanic is the ability to add Liquid tags into task 
   Special product notice for {{ qualifying_product.title }}...
 {%- endif -%}
 ```
+
 {% endcode %}
 
 The code above could be utilized directly in a [multiline task option field](../../core/tasks/options/#flags). and it would output a string of text (e.g. "Special product notice for Widget - Red...") into the assigned option field variable.
@@ -24,6 +26,7 @@ The code above could be utilized directly in a [multiline task option field](../
 One method of conversion for lookup fields is to utilize a GraphQL query _directly in the option field_, which naturally has some caveats.
 
 {% code title="GraphQL - order query with line item products" lineNumbers="true" %}
+
 ```liquid
 {%- assign order_id = order.admin_graphql_api_id | default: "gid://shopify/Order/12345" -%}
 
@@ -59,6 +62,7 @@ One method of conversion for lookup fields is to utilize a GraphQL query _direct
   Special product notice for {{ qualifying_product.title }}...
 {%- endif -%}
 ```
+
 {% endcode %}
 
 

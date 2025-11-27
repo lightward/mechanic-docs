@@ -132,6 +132,7 @@ shopify/orders/create
 A dynamic preview action is the natural result of exercising a task's code as completely as possible, without adding any business logic that responds to `event.preview`. Put another way, the idea is to make the preview (that appears during task editing) look as similar to a live event as possible.
 
 {% code title="Example" %}
+
 ```liquid
 {% if some_evaluated_condition %}
   {% action "shopify" %}
@@ -143,6 +144,7 @@ A dynamic preview action is the natural result of exercising a task's code as co
   {% endaction %}
 {% endif %}
 ```
+
 {% endcode %}
 
 There are two techniques available for "steering" the task towards desired outcomes during preview.
