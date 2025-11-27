@@ -147,7 +147,7 @@ Liquid code in task options have access to the same set of [environment variable
 | Product list   | `options.products__picker_product_array`        | `[ "gid://…/1", "gid://…/2" ]` |
 | Date           | `options.go_live__date_required`                | `"2025-05-06"`                 |
 | Time           | `options.quiet_at__time`                        | `"00:25"`                      |
-| Datetime       | options.party\_\_datetime                       | `"2031-04-22T15:13:00"`        |
+| Datetime       | options.party__datetime                       | `"2031-04-22T15:13:00"`        |
 
 ### Working with date options
 

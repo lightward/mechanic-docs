@@ -72,7 +72,7 @@ For example, consider this action:
 {% endaction %}
 ```
 
-The template named "order\_acknowledgement" could include the following Liquid, and get the expected results:
+The template named "order_acknowledgement" could include the following Liquid, and get the expected results:
 
 ```liquid
 This is the first item: {{ order_data.line_items.first.title }}

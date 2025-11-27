@@ -64,7 +64,7 @@ Stores a value. Requires `key` and `value`. The stored value may be any JSON obj
 Using a defined TTL (an expiration interval) given in seconds, stores a value. Requires `key`, `ttl`, and `value`. The stored value may be any JSON object.
 
 {% hint style="info" %}
-The "setex" command has the same net functionality as "set", but it does have one difference: because "setex" requires an explicit \`ttl\` value, it's possible to use "setex" to express an expiring value using a single line of Liquid. The same result could be achieved with "set", but it would require using verbose options.
+The "setex" command has the same net functionality as "set", but it does have one difference: because "setex" requires an explicit `ttl` value, it's possible to use "setex" to express an expiring value using a single line of Liquid. The same result could be achieved with "set", but it would require using verbose options.
 
 ```liquid
 {% action "cache", "setex", "foo", 5, "bar" %}
