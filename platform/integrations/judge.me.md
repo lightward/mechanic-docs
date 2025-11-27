@@ -13,6 +13,7 @@ The data for each review is available in an [environment variable](../../core/ta
 #### Event data samples
 
 {% code title="judgeme/review/created" %}
+
 ```json
 {
   "event": "review/created",
@@ -57,9 +58,11 @@ The data for each review is available in an [environment variable](../../core/ta
   "shop_domain": "foobar.myshopify.com"
 }
 ```
+
 {% endcode %}
 
 {% code title="judgeme/review/updated" %}
+
 ```json
 {
   "event": "review/updated",
@@ -104,6 +107,7 @@ The data for each review is available in an [environment variable](../../core/ta
   "shop_domain": "foobar.myshopify.com"
 }
 ```
+
 {% endcode %}
 
 {% hint style="info" %}
