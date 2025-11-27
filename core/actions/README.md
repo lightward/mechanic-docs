@@ -9,6 +9,8 @@ In Mechanic, actions are performed after their originating task run concludes. A
 
 To inspect and respond to the results of an HTTP action, add a task subscription to mechanic/actions/perform, allowing the action to re-invoke the task with the action result data.
 
+If you don't need the follow-up event for a particular action, add `__perform_event: false` to that action to skip emitting mechanic/actions/perform while still performing the action.
+
 Learn more: [Responding to action results](../../techniques/responding-to-action-results.md)
 {% endhint %}
 

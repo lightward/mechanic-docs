@@ -2,6 +2,8 @@
 
 The **action tag** renders an [**action object**](../../../core/tasks/code/action-objects.md) in JSON, which in turn defines work to be performed by an [**action**](../../../core/actions/).
 
+Mechanic also recognizes certain double-underscore control parameters on actions. The most common is `__perform_event: false`, which tells Mechanic _not_ to emit the follow-up `mechanic/actions/perform` event for that action. Control parameters work with every syntax shown below.
+
 ## Syntax
 
 This tag has several usage styles, each style resulting in valid JSON for an action object.
@@ -171,6 +173,32 @@ This usage style accepts two arguments: the action type, and the action options.
     }
   }
 }
+```
+{% endtab %}
+{% endtabs %}
+
+## Control parameters
+
+Control parameters adjust how Mechanic handles the resulting action. Add them inline with a double-underscore key. Today, `__perform_event: false` is available to skip emitting the follow-up `mechanic/actions/perform` event for that action while still running the action itself.
+
+{% tabs %}
+{% tab title="Positional" %}
+```liquid
+{% action "cache", "set", "foo", "bar", __perform_event: false %}
+```
+{% endtab %}
+
+{% tab title="Mapped" %}
+```liquid
+{% action "http", method: "get", url: "https://postman-echo.com/get", __perform_event: false %}
+```
+{% endtab %}
+
+{% tab title="Shopify GraphQL" %}
+```liquid
+{% action "shopify", __perform_event: false %}
+  mutation { shop { id } }
+{% endaction %}
 ```
 {% endtab %}
 {% endtabs %}
