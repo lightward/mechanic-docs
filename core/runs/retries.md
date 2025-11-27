@@ -43,4 +43,4 @@ During task development, it can be useful to set up a task to only render [log o
 
 Only failed action runs may be retried.
 
-![This example was generated from a task whose code contained only a \{% action "echo", \_\_error: "Oh no!" %\} tag.](<../../.gitbook/assets/Screen Shot 2022-05-05 at 3.55.10 PM.png>)
+![This example was generated from a task whose code contained only a \{% action "echo", __error: "Oh no!" %\} tag.](<../../.gitbook/assets/Screen Shot 2022-05-05 at 3.55.10 PM.png>)
