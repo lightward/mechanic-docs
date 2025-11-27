@@ -136,13 +136,16 @@ This task prompts the user for text input, and submits it to a public API that r
 
 {% tabs %}
 {% tab title="Subscriptions" %}
+
 ```
 mechanic/user/text
 mechanic/actions/perform
 ```
+
 {% endtab %}
 
 {% tab title="Code" %}
+
 ```liquid
 {% if event.topic == "mechanic/user/text" %}
   {% action "http" %}
@@ -159,5 +162,6 @@ mechanic/actions/perform
     response_body: action.run.result.body %}
 {% endif %}
 ```
+
 {% endtab %}
 {% endtabs %}

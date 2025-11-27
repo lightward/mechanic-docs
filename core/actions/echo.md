@@ -12,9 +12,11 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo", __error: "Forcing an error!" %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -24,30 +26,37 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo", foo: "bar", baz: "qux" %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo", "foo", "bar", "baz" %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo", "foo" %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo" %}
   {
@@ -56,5 +65,6 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}

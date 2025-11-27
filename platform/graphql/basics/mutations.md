@@ -10,6 +10,7 @@ This page discusses the general concept of a GraphQL mutation. For more detail o
 
 {% tabs %}
 {% tab title="GraphQL mutation" %}
+
 ```graphql
 mutation {
   productCreate(input: {title: "Red Ball", productType: "Toy", vendor: "Toys"}) {
@@ -19,9 +20,11 @@ mutation {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```cpp
 {
   "data": {
@@ -33,6 +36,7 @@ mutation {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -40,6 +44,7 @@ mutation {
 
 {% tabs %}
 {% tab title="GraphQL mutation" %}
+
 ```graphql
 mutation {
   productUpdate(input: {id: "gid://shopify/Product/13588", productType: "Ball"}) {
@@ -50,9 +55,11 @@ mutation {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```cpp
 {
   "data": {
@@ -65,6 +72,7 @@ mutation {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 

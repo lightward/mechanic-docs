@@ -54,6 +54,7 @@ One subscription is permitted per line. Blank lines and leading/trailing whitesp
 
 {% tabs %}
 {% tab title="Conditional subscription" %}
+
 ```liquid
 shopify/orders/create
 
@@ -61,21 +62,26 @@ shopify/orders/create
   shopify/orders/cancelled
 {% endif %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Dynamic offset" %}
+
 ```liquid
 shopify/orders/paid+{{ options.days_to_wait_before_followup__number_required }}.days
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Optional offset" %}
+
 ```liquid
 shopify/customers/create{% if options.wait_one_hour__boolean %}+1.hour{% endif %}
 ```
+
 {% endtab %}
 {% endtabs %}

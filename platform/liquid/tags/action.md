@@ -18,6 +18,7 @@ This usage style offers the lightest form of abstraction, in that it only abstra
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```javascript
 {% action %}
   {
@@ -33,9 +34,11 @@ This usage style offers the lightest form of abstraction, in that it only abstra
   }
 {% endaction %}
 ```
+
 {% endtab %}
 
 {% tab title="JSON" %}
+
 ```javascript
 {
   "action": {
@@ -51,6 +54,7 @@ This usage style offers the lightest form of abstraction, in that it only abstra
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -60,6 +64,7 @@ This usage style offers the lightest form of abstraction, in that it only abstra
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```javascript
 {% action "http" %}
   {
@@ -69,9 +74,11 @@ This usage style offers the lightest form of abstraction, in that it only abstra
   }
 {% endaction %}
 ```
+
 {% endtab %}
 
 {% tab title="JSON" %}
+
 ```javascript
 {
   "action": {
@@ -84,6 +91,7 @@ This usage style offers the lightest form of abstraction, in that it only abstra
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -93,12 +101,15 @@ Useful for action types that accept an array of options, this usage style accept
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```javascript
 {% action "cache", "set", "foo", "bar" %}
 ```
+
 {% endtab %}
 
 {% tab title="JSON" %}
+
 ```javascript
 {
   "action": {
@@ -111,6 +122,7 @@ Useful for action types that accept an array of options, this usage style accept
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -120,12 +132,15 @@ This usage style is appropriate for action types that accept a single-level, un-
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```javascript
 {% action "echo", foo: "bar", baz: "qux" %}
 ```
+
 {% endtab %}
 
 {% tab title="JSON" %}
+
 ```javascript
 {
   "action": {
@@ -137,6 +152,7 @@ This usage style is appropriate for action types that accept a single-level, un-
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -146,6 +162,7 @@ This usage style accepts two arguments: the action type, and the action options.
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```javascript
 {% action "echo", "foo" %}
 
@@ -154,9 +171,11 @@ This usage style accepts two arguments: the action type, and the action options.
 
 {% action "echo", action_options %}
 ```
+
 {% endtab %}
 
 {% tab title="" %}
+
 ```javascript
 {
   "action": {
@@ -174,6 +193,7 @@ This usage style accepts two arguments: the action type, and the action options.
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -183,22 +203,28 @@ Control parameters adjust how Mechanic handles the resulting action. Add them in
 
 {% tabs %}
 {% tab title="Positional" %}
+
 ```liquid
 {% action "cache", "set", "foo", "bar", __perform_event: false %}
 ```
+
 {% endtab %}
 
 {% tab title="Mapped" %}
+
 ```liquid
 {% action "http", method: "get", url: "https://postman-echo.com/get", __perform_event: false %}
 ```
+
 {% endtab %}
 
 {% tab title="Shopify GraphQL" %}
+
 ```liquid
 {% action "shopify", __perform_event: false %}
   mutation { shop { id } }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}

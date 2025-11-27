@@ -28,12 +28,14 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% assign data = hash %}
 {% assign data["foo"] = "bar" %}
 
 {% action "event", topic: "user/foo/bar", data: data %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -47,6 +49,7 @@ That task must be subscribed to the event topic being used.
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% assign data = hash %}
 {% assign data["foo"] = "bar" %}
@@ -55,6 +58,7 @@ That task must be subscribed to the event topic being used.
 
 {% action "event", topic: "user/foo/bar", data: data, task_id: task_id %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -72,6 +76,7 @@ This example uses the `run_at` option to run the task at a later scheduled time.
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% assign one_day_in_seconds = 60 | times: 60 | times: 24 %}
 
@@ -86,6 +91,7 @@ This example uses the `run_at` option to run the task at a later scheduled time.
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -93,13 +99,16 @@ This task emails a customer daily until their order is paid. It works by schedul
 
 {% tabs %}
 {% tab title="Subscriptions" %}
+
 ```liquid
 shopify/orders/create
 user/orders/unpaid_reminder
 ```
+
 {% endtab %}
 
 {% tab title="Code" %}
+
 ```javascript
 {% if event.preview %}
   {% assign order = hash %}
@@ -134,6 +143,7 @@ user/orders/unpaid_reminder
   {% endaction %}
 {% endunless %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -143,13 +153,16 @@ This task emails a customer daily until their order is paid. It works by firing 
 
 {% tabs %}
 {% tab title="Subscriptions" %}
+
 ```liquid
 shopify/orders/create
 user/orders/unpaid_reminder+1.day
 ```
+
 {% endtab %}
 
 {% tab title="Code" %}
+
 ```javascript
 {% if event.preview %}
   {% assign order = hash %}
@@ -183,5 +196,6 @@ user/orders/unpaid_reminder+1.day
   {% endaction %}
 {% endunless %}
 ```
+
 {% endtab %}
 {% endtabs %}

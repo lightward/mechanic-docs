@@ -12,6 +12,7 @@ GraphQL is a powerful query language that allows you to request data from a Grap
 
 {% tabs %}
 {% tab title="GraphQL Query" %}
+
 ```graphql
 query {
   product(id: "gid://shopify/Product/1925886804024") {
@@ -21,9 +22,11 @@ query {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```cpp
 {
   "data": {
@@ -35,6 +38,7 @@ query {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -42,6 +46,7 @@ query {
 
 {% tabs %}
 {% tab title="GraphQL Query" %}
+
 ```graphql
 query {
   products(first:3) {
@@ -62,9 +67,11 @@ query {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```cpp
 {
   "data": {
@@ -91,6 +98,7 @@ query {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -98,6 +106,7 @@ query {
 
 {% tabs %}
 {% tab title="GraphQL Query" %}
+
 ```graphql
 query {
   orders(first:2, query:"fulfillment_status:shipped") {
@@ -111,9 +120,11 @@ query {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```cpp
 {
   "data": {
@@ -138,6 +149,7 @@ query {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
