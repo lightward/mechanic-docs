@@ -3,7 +3,6 @@
 * [⛩️ Introduction](README.md)
 * [🤓 Hire a Mechanic developer](hire-a-developer.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
-* [📣 Shopify is deprecating the REST API](shopify-is-deprecating-the-rest-api.md)
 * [🙋 "I need something custom!"](custom.md)
 * [🧑‍💻 "I need help with my custom task!"](custom-help.md)
 * [🤖 "I need help with my AI-written task!"](ai.md)
