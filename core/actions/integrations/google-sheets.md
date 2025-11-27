@@ -57,7 +57,7 @@ Exports a spreadsheet in various formats.
 
 #### Optional Options
 
-* file\_type
+* file\_type&#x20;
   * xlsx (default)
   * csv
   * pdf
@@ -65,9 +65,11 @@ Exports a spreadsheet in various formats.
   * ods
   * tsv
 
+
+
 ## Authentication
 
-This action requires connecting a Google account with the appropriate permissions. To connect an account:
+This action requires connecting a Google account with the appropriate  permissions. To connect an account:
 
 1. Go to the Settings screen
 2. Click Authentication
@@ -195,31 +197,25 @@ mechanic/actions/perform
 ```
 {% endcode %}
 
-{% code title="Task code" %}
-```liquid
+<pre class="language-liquid" data-title="Task code"><code class="lang-liquid"><strong>{% if event.topic == "mechanic/user/trigger" %}
+</strong>  {% action "google_sheets" %}
+    {
+      "account": {{ options.google_account__required | json }},
+      "operation": "export_spreadsheet",
+      "spreadsheet_id":  {{ options.spreadsheet_id__required | json }},
+      "file_type": "csv"    
+    }
+  {% endaction %}
+{% endif %}
 
-
-
-
-  
-
-
-
-
-
-
-
-  
-
-
+{% if event.topic == "mechanic/actions/perform" %}
+  {% if action.type == "google_sheets" and action.run.ok %}
     {% assign sheet_data = action.run.result.data_base64 | 
     base64_decode | parse_csv: headers: true %}
       {% action "echo" sheet_data %}
-  
-
-
-```
-{% endcode %}
+  {% endif %}
+{% endif %}
+</code></pre>
 
 ## Action Responses
 
@@ -314,3 +310,4 @@ Example:
   "data_base64": "base64encodeddata..."
 }
 ```
+

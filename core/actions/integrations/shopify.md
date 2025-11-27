@@ -1,6 +1,6 @@
 # Shopify
 
-The **Shopify** action sends requests to the [Shopify admin API](https://shopify.dev/docs/admin-api).
+The **Shopify** action sends requests to the [Shopify admin API](https://shopify.dev/docs/admin-api).&#x20;
 
 {% hint style="info" %}
 In Mechanic, writing data to Shopify must happen using an action. While the Shopify action is usually the right choice, the [HTTP](../http.md) action can also be used for this purpose, by manually configuring authentication headers.
@@ -22,7 +22,25 @@ To prepare complex query inputs, use the [graphql\_arguments](../../../platform/
 
 {% tabs %}
 {% tab title="Liquid" %}
-\`\`\`liquid \{% action "shopify" %\} mutation { customerCreate( input: { email: "test@example.com" } ) { customer { id } userErrors { field message } } } \{% endaction %\} \`\`\`
+```liquid
+{% action "shopify" %}
+  mutation {
+    customerCreate(
+      input: {
+        email: "test@example.com"
+      }
+    ) {
+      customer {
+        id
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+{% endaction %}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -39,23 +57,40 @@ This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/doc
 
 {% tabs %}
 {% tab title="Liquid" %}
-\`\`\`javascript \{% capture query %\} mutation DeleteProduct($productId: ID!) { productDelete( input: { id: $productId } ) { userErrors { field message } } } \{% endcapture %\}
+```javascript
+{% capture query %}
+  mutation DeleteProduct($productId: ID!) {
+    productDelete(
+      input: {
+        id: $productId
+      }
+    ) {
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+{% endcapture %}
 
-\{% action "shopify" %\} { "query": \{{ query | json \}}, "variables": { "productId": "gid://shopify/Product/1234567890" } } \{% endaction %\}
-
-````
-
-</div>
-
-</div>
+{% action "shopify" %}
+  {
+    "query": {{ query | json }},
+    "variables": {
+      "productId": "gid://shopify/Product/1234567890"
+    }
+  }
+{% endaction %}
+```
+{% endtab %}
+{% endtabs %}
 
 #### Complex example
 
 This example shows how the query and variables may be built up separately, and provided to the action using concise tag syntax.
 
-<div data-gb-custom-block data-tag="tabs">
-
-<div data-gb-custom-block data-tag="tab" data-title='Liquid'>
+{% tabs %}
+{% tab title="Liquid" %}
 ```javascript
 {% assign metafield_owner_id = "gid://shopify/Customer/507332001849" %
 {% assign metafield_value = hash %}
@@ -93,6 +128,6 @@ This example shows how the query and variables may be built up separately, and p
 {% assign variables["metafields"] = metafields %}
 
 {% action "shopify" query: query, variables: variables %}
-````
+```
 {% endtab %}
 {% endtabs %}

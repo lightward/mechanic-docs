@@ -71,21 +71,48 @@ It can be useful to specify stub data using JSON, fed through the [parse\_json](
 
 {% tabs %}
 {% tab title="GraphQL with stub data" %}
-\`\`\`liquid \{% capture query %\} query { publications(first: 250) { edges { node { id name } } } } \{% endcapture %\}
+```liquid
+{% capture query %}
+  query {
+    publications(first: 250) {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+{% endcapture %}
 
-\{% assign result = query | shopify %\}
+{% assign result = query | shopify %}
 
-\{% if event.preview %\} \{% capture result\_json %\} { "data": { "publications": { "edges": \[ { "node": { "id": "gid://shopify/Publication/69217648807", "name": "Online Store" } } ] } } } \{% endcapture %\}
+{% if event.preview %}
+  {% capture result_json %}
+    {
+      "data": {
+        "publications": {
+          "edges": [
+            {
+              "node": {
+                "id": "gid://shopify/Publication/69217648807",
+                "name": "Online Store"
+              }
+            }
+          ]
+        }
+      }
+    }
+  {% endcapture %}
 
-\{% assign result = result\_json | parse\_json %\} \{% endif %\}
+  {% assign result = result_json | parse_json %}
+{% endif %}
 
-\{% log available\_publications: result.data.publications %\}
+{% log available_publications: result.data.publications %}
+```
+{% endtab %}
 
-````
-
-</div>
-
-<div data-gb-custom-block data-tag="tab" data-title='GraphQL pagination with stub data'>
+{% tab title="GraphQL pagination with stub data" %}
 ```liquid
 {% assign cursor = nil %}
 {% assign total_inventory = 0 %}
@@ -154,6 +181,6 @@ It can be useful to specify stub data using JSON, fed through the [parse\_json](
     {% break %}
   {% endif %}
 {% endfor %}
-````
+```
 {% endtab %}
 {% endtabs %}

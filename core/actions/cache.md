@@ -18,7 +18,16 @@ In this option style, the cache command is given as the root key of the options 
 
 {% tabs %}
 {% tab title="Liquid" %}
-\`\`\`liquid \{% action "cache" %\} { "incr": { "key": "foo", "ttl": 600 } } \{% endaction %\} \`\`\`
+```liquid
+{% action "cache" %}
+  {
+    "incr": {
+      "key": "foo",
+      "ttl": 600
+    }
+  }
+{% endaction %}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -28,7 +37,9 @@ In this option style, the cache command and its arguments are given in a list. U
 
 {% tabs %}
 {% tab title="Liquid" %}
-\`\`\`liquid \{% action "cache", "incr", "foo" %\} \`\`\`
+```liquid
+{% action "cache", "incr", "foo" %}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -53,7 +64,7 @@ Stores a value. Requires `key` and `value`. The stored value may be any JSON obj
 Using a defined TTL (an expiration interval) given in seconds, stores a value. Requires `key`, `ttl`, and `value`. The stored value may be any JSON object.
 
 {% hint style="info" %}
-The "setex" command has the same net functionality as "set", but it does have one difference: because "setex" requires an explicit \`ttl\` value, it's possible to use "setex" to express an expiring value using a single line of Liquid. The same result could be achieved with "set", but it would require using verbose options.
+The "setex" command has the same net functionality as "set", but it does have one difference: because "setex" requires an explicit `ttl` value, it's possible to use "setex" to express an expiring value using a single line of Liquid. The same result could be achieved with "set", but it would require using verbose options.
 
 ```liquid
 {% action "cache", "setex", "foo", 5, "bar" %}
@@ -86,11 +97,22 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 
 {% tabs %}
 {% tab title="Verbose options" %}
-\`\`\`liquid \{% action "cache" %\} { "set": { "key": "foo", "value": 5 } } \{% endaction %\} \`\`\`
+```liquid
+{% action "cache" %}
+  {
+    "set": {
+      "key": "foo",
+      "value": 5
+    }
+  }
+{% endaction %}
+```
 {% endtab %}
 
 {% tab title="Positional options" %}
-\`\`\`liquid \{% action "cache", "set", "foo", 5 %\} \`\`\`
+```liquid
+{% action "cache", "set", "foo", 5 %}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -98,11 +120,23 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 
 {% tabs %}
 {% tab title="Verbose options" %}
-\`\`\`liquid \{% action "cache" %\} { "setex": { "key": "foo", "ttl": 60, "value": 5 } } \{% endaction %\} \`\`\`
+```liquid
+{% action "cache" %}
+  {
+    "setex": {
+      "key": "foo",
+      "ttl": 60,
+      "value": 5
+    }
+  }
+{% endaction %}
+```
 {% endtab %}
 
 {% tab title="Positional options" %}
-\`\`\`liquid \{% action "cache", "setex", 60, "foo" %\} \`\`\`
+```liquid
+{% action "cache", "setex", 60, "foo" %}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -110,10 +144,20 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 
 {% tabs %}
 {% tab title="Verbose options" %}
-\`\`\`liquid \{% action "cache" %\} { "del": { "key": "foo" } } \{% endaction %\} \`\`\`
+```liquid
+{% action "cache" %}
+  {
+    "del": {
+      "key": "foo"
+    }
+  }
+{% endaction %}
+```
 {% endtab %}
 
 {% tab title="Positional options" %}
-\`\`\`liquid \{% action "cache", "del", "foo" %\} \`\`\`
+```liquid
+{% action "cache", "del", "foo" %}
+```
 {% endtab %}
 {% endtabs %}

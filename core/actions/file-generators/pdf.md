@@ -33,27 +33,42 @@ A screencast illustrating an HTML test, and a path for reaching Pdfcrowd support
 
 {% tabs %}
 {% tab title="Liquid" %}
-\`\`\`liquid \{% capture html %\}
+```liquid
+{% capture html %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<style>p { font-family: 'Liu Jian Mao Cao', cursive; }</style>
 
-Almost before we knew it, we had left the ground.
+<p>Almost before we knew it, we had left the ground.</p>
+<div id="tester" style="width:100%;height:40vh;"></div>
 
-\
-&#x20; // from https://plotly.com/javascript/getting-started/\
-&#x20; TESTER = document.getElementById('tester');\
-&#x9;Plotly.newPlot( TESTER, \[{\
-&#x9;x: \[1, 2, 3, 4, 5],\
-&#x9;y: \[1, 2, 4, 8, 16] }], {\
-&#x9;margin: { t: 0 } } );
+<script src="https://cdn.plot.ly/plotly-2.2.0.min.js"></script>
+<script>
+  // from https://plotly.com/javascript/getting-started/
+  TESTER = document.getElementById('tester');
+	Plotly.newPlot( TESTER, [{
+	x: [1, 2, 3, 4, 5],
+	y: [1, 2, 4, 8, 16] }], {
+	margin: { t: 0 } } );
+</script>
+{% endcapture %}
 
-\{% endcapture %\}
-
-\{% action "files" %\} { "file.pdf": { "pdf": { "html": \{{ html | json \}}, "page\_width": "7in", "page\_height": "5in", "margin\_top": "10mm", "margin\_right": "10mm", "margin\_bottom": "10mm", "margin\_left": "10mm" } } } \{% endaction %\}
-
-```
-
-</div>
-
-</div>
+{% action "files" %}
+  {
+    "file.pdf": {
+      "pdf": {
+        "html": {{ html | json }},
+        "page_width": "7in",
+        "page_height": "5in",
+        "margin_top": "10mm",
+        "margin_right": "10mm",
+        "margin_bottom": "10mm",
+        "margin_left": "10mm"
+      }
+    }
+  }
+{% endaction %}
 ```
 {% endtab %}
 {% endtabs %}

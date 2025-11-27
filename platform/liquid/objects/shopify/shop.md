@@ -4,7 +4,7 @@
 **Important Notice**
 
 \
-Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).\
+Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation  [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).\
 \
 Use the [GraphQL](../../../../core/actions/integrations/shopify.md#graphql) going forward. The [product](product.md) and [variant](variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API completely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
 
@@ -25,14 +25,14 @@ Please see these [guides](../../../../resources/converting-tasks-from-shopify-re
 ### Associated resources
 
 {% hint style="warning" %}
-Use caution when loading large sets of resources through the shop object. Using code like \`\{% product in shop.products %\}\` will result in Mechanic downloading the complete REST representation of all products in the store, which may be more data than is necessary or useful. When working with large amounts of data, consider \[using GraphQL]\(../../../../core/shopify/read/graphql-in-liquid.md) instead.
+Use caution when loading large sets of resources through the shop object. Using code like `{% product in shop.products %}` will result in Mechanic downloading the complete REST representation of all products in the store, which may be more data than is necessary or useful. When working with large amounts of data, consider [using GraphQL](../../../../core/shopify/read/graphql-in-liquid.md) instead.
 
-For clarity: looking up a single resource by ID will only result in a single REST API call, as in `{% assign product = shop.products[1234567890] %}`
 
-. If many of these requests are necessary, it may _still_ be useful to look to GraphQL, but this kind of usage does not load more than the specific, single resource identified.
+
+For clarity: looking up a single resource by ID will only result in a single REST API call, as in `{% assign product = shop.products[1234567890] %}`. If many of these requests are necessary, it may _still_ be useful to look to GraphQL, but this kind of usage does not load more than the specific, single resource identified.
 {% endhint %}
 
-* The admin URL of the shop (e.g. https://admin.shopify.com/store/mechanic-shop/)
+* The admin URL of the shop (e.g.  https://admin.shopify.com/store/mechanic-shop/)
   * `{{ shop.admin_url }}`
 * An index of [collection objects](collection.md)
   * `{{ shop.collections[1234567890] }}`

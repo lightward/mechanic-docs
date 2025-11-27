@@ -97,7 +97,17 @@ For more on this, see [File generators](file-generators/).
 
 {% tabs %}
 {% tab title="Liquid" %}
-\`\`\`liquid \{% action "email" %\} { "to": "hello@example.com", "subject": "Hello world", "body": "It's a mighty fine day!", "reply\_to": \{{ shop.customer\_email | json \}}, "from\_display\_name": \{{ shop.name | json \}} } \{% endaction %\} \`\`\`
+```liquid
+{% action "email" %}
+  {
+    "to": "hello@example.com",
+    "subject": "Hello world",
+    "body": "It's a mighty fine day!",
+    "reply_to": {{ shop.customer_email | json }},
+    "from_display_name": {{ shop.name | json }}
+  }
+{% endaction %}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -105,23 +115,28 @@ For more on this, see [File generators](file-generators/).
 
 {% tabs %}
 {% tab title="Liquid" %}
-\`\`\`liquid \{% capture email\_body %\} Hello!
+```liquid
+{% capture email_body %}
+  <b>Hello!</b>
 
-It's fantastic to see you! \{% endcapture %\}
+  It's fantastic to see you!
+{% endcapture %}
 
-\{% action "email" %\} { "to": "hello@example.com", "subject": "Hello world", "body": \{{ email\_body | unindent | strip | newline\_to\_br | json \}} } \{% endaction %\}
-
-````
-
-</div>
-
-</div>
+{% action "email" %}
+  {
+    "to": "hello@example.com",
+    "subject": "Hello world",
+    "body": {{ email_body | unindent | strip | newline_to_br | json }}
+  }
+{% endaction %}
+```
+{% endtab %}
+{% endtabs %}
 
 ### Using attachments
 
-<div data-gb-custom-block data-tag="tabs">
-
-<div data-gb-custom-block data-tag="tab" data-title='Liquid'>
+{% tabs %}
+{% tab title="Liquid" %}
 ```liquid
 {% action "email" %}
   {
@@ -135,6 +150,6 @@ It's fantastic to see you! \{% endcapture %\}
     }
   }
 {% endaction %}
-````
+```
 {% endtab %}
 {% endtabs %}

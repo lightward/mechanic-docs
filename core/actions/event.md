@@ -28,15 +28,14 @@ Tasks specified by `task_ids` or `task_id` must subscribe to the event topic bei
 
 {% tabs %}
 {% tab title="Liquid" %}
-\`\`\`liquid \{% assign data = hash %\} \{% assign data\["foo"] = "bar" %\}
+```liquid
+{% assign data = hash %}
+{% assign data["foo"] = "bar" %}
 
-\{% action "event", topic: "user/foo/bar", data: data %\}
-
-````
-
-</div>
-
-</div>
+{% action "event", topic: "user/foo/bar", data: data %}
+```
+{% endtab %}
+{% endtabs %}
 
 ### Using specific tasks
 
@@ -46,9 +45,8 @@ Uses the optional `task_id` parameter to control which **singular** task is allo
 
 That task must be subscribed to the event topic being used.
 
-<div data-gb-custom-block data-tag="tabs">
-
-<div data-gb-custom-block data-tag="tab" data-title='Liquid'>
+{% tabs %}
+{% tab title="Liquid" %}
 ```liquid
 {% assign data = hash %}
 {% assign data["foo"] = "bar" %}
@@ -56,7 +54,7 @@ That task must be subscribed to the event topic being used.
 {% comment %} For multiple tasks use `task_ids` {% endcomment %}
 
 {% action "event", topic: "user/foo/bar", data: data, task_id: task_id %}
-````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -74,71 +72,116 @@ This example uses the `run_at` option to run the task at a later scheduled time.
 
 {% tabs %}
 {% tab title="Liquid" %}
-\`\`\`liquid \{% assign one\_day\_in\_seconds = 60 | times: 60 | times: 24 %\}
+```liquid
+{% assign one_day_in_seconds = 60 | times: 60 | times: 24 %}
 
-\{% action "event" %\} { "topic": "user/foo/bar", "task\_id": \{{ task.id | json \}}, "run\_at": \{{ "now" | date: "%s" | plus: one\_day\_in\_seconds | json \}}, "data": { "foo": "bar" } } \{% endaction %\}
-
-````
-
-</div>
-
-</div>
+{% action "event" %}
+  {
+    "topic": "user/foo/bar",
+    "task_id": {{ task.id | json }},
+    "run_at": {{ "now" | date: "%s" | plus: one_day_in_seconds | json }},
+    "data": {
+      "foo": "bar"
+    }
+  }
+{% endaction %}
+```
+{% endtab %}
+{% endtabs %}
 
 This task emails a customer daily until their order is paid. It works by scheduling a follow-up run of the same task, one day in the future, using the `run_at` option.
 
-<div data-gb-custom-block data-tag="tabs">
-
-<div data-gb-custom-block data-tag="tab" data-title='Subscriptions'>
-
+{% tabs %}
+{% tab title="Subscriptions" %}
 ```liquid
 shopify/orders/create
 user/orders/unpaid_reminder
-````
+```
 {% endtab %}
 
 {% tab title="Code" %}
-\`\`\`javascript \{% if event.preview %\} \{% assign order = hash %\} \{% assign order\["id"] = 1234568790 %\} \{% assign order\["name"] = "#1234" %\} \{% elsif event.topic == "user/orders/unpaid\_reminder" %\} \{% assign order = shop.orders\[event.data.order\_id] %\} \{% endif %\}
+```javascript
+{% if event.preview %}
+  {% assign order = hash %}
+  {% assign order["id"] = 1234568790 %}
+  {% assign order["name"] = "#1234" %}
+{% elsif event.topic == "user/orders/unpaid_reminder" %}
+  {% assign order = shop.orders[event.data.order_id] %}
+{% endif %}
 
-\{% unless order.financial\_status == "paid" %\} \{% action "email" %\} { "to": \{{ order.email | json \}}, "reply\_to": \{{ shop.customer\_email | json \}}, "subject": "Order \{{ order.name \}} still needs to be paid", "body": "Please get in touch, stat!", "from\_display\_name": \{{ shop.name | json \}} } \{% endaction %\}
+{% unless order.financial_status == "paid" %}
+  {% action "email" %}
+    {
+      "to": {{ order.email | json }},
+      "reply_to": {{ shop.customer_email | json }},
+      "subject": "Order {{ order.name }} still needs to be paid",
+      "body": "Please get in touch, stat!",
+      "from_display_name": {{ shop.name | json }}
+    }
+  {% endaction %}
 
-\{% assign one\_day\_in\_seconds = 60 | times: 60 | times: 24 %\}
+  {% assign one_day_in_seconds = 60 | times: 60 | times: 24 %}
 
-\{% action "event" %\} { "topic": "user/orders/unpaid\_reminder", "task\_id": \{{ task.id | json \}}, "run\_at": \{{ "now" | date: "%s" | plus: one\_day\_in\_seconds | json \}}, "data": { "order\_id": \{{ order.id | json \}} } } \{% endaction %\} \{% endunless %\}
-
-````
-
-</div>
-
-</div>
+  {% action "event" %}
+    {
+      "topic": "user/orders/unpaid_reminder",
+      "task_id": {{ task.id | json }},
+      "run_at": {{ "now" | date: "%s" | plus: one_day_in_seconds | json }},
+      "data": {
+        "order_id": {{ order.id | json }}
+      }
+    }
+  {% endaction %}
+{% endunless %}
+```
+{% endtab %}
+{% endtabs %}
 
 #### Using subscription offsets
 
 This task emails a customer daily until their order is paid. It works by firing the follow-up event immediately, using a subscription offset to respond to it a day later.
 
-<div data-gb-custom-block data-tag="tabs">
-
-<div data-gb-custom-block data-tag="tab" data-title='Subscriptions'>
-
+{% tabs %}
+{% tab title="Subscriptions" %}
 ```liquid
 shopify/orders/create
 user/orders/unpaid_reminder+1.day
-````
+```
 {% endtab %}
 
 {% tab title="Code" %}
-\`\`\`javascript \{% if event.preview %\} \{% assign order = hash %\} \{% assign order\["id"] = 1234568790 %\} \{% assign order\["name"] = "#1234" %\} \{% elsif event.topic == "user/orders/unpaid\_reminder" %\} \{% assign order = shop.orders\[event.data.order\_id] %\} \{% endif %\}
+```javascript
+{% if event.preview %}
+  {% assign order = hash %}
+  {% assign order["id"] = 1234568790 %}
+  {% assign order["name"] = "#1234" %}
+{% elsif event.topic == "user/orders/unpaid_reminder" %}
+  {% assign order = shop.orders[event.data.order_id] %}
+{% endif %}
 
-\{% unless order.financial\_status == "paid" %\} \{% action "email" %\} { "to": \{{ order.email | json \}}, "reply\_to": \{{ shop.customer\_email | json \}}, "subject": "Order \{{ order.name \}} still needs to be paid", "body": "Please get in touch, stat!", "from\_display\_name": \{{ shop.name | json \}} } \{% endaction %\}
+{% unless order.financial_status == "paid" %}
+  {% action "email" %}
+    {
+      "to": {{ order.email | json }},
+      "reply_to": {{ shop.customer_email | json }},
+      "subject": "Order {{ order.name }} still needs to be paid",
+      "body": "Please get in touch, stat!",
+      "from_display_name": {{ shop.name | json }}
+    }
+  {% endaction %}
 
-\{% assign one\_day\_in\_seconds = 60 | times: 60 | times: 24 %\}
+  {% assign one_day_in_seconds = 60 | times: 60 | times: 24 %}
 
-\{% action "event" %\} { "topic": "user/orders/unpaid\_reminder", "task\_id": \{{ task.id | json \}}, "data": { "order\_id": \{{ order.id | json \}} } } \{% endaction %\} \{% endunless %\}
-
-```
-
-</div>
-
-</div>
+  {% action "event" %}
+    {
+      "topic": "user/orders/unpaid_reminder",
+      "task_id": {{ task.id | json }},
+      "data": {
+        "order_id": {{ order.id | json }}
+      }
+    }
+  {% endaction %}
+{% endunless %}
 ```
 {% endtab %}
 {% endtabs %}

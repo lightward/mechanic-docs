@@ -11,15 +11,36 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
 #### **Example: Skip Tagging if Tag Already Exists**
 
 {% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
-````
-
-</div>
+```liquid
+{% if event.topic == "shopify/products/update" or event.preview %}
+  {% assign existing_tags = product.tags | split: ", " %}
+  
+  {% unless existing_tags contains "NewTag" %}
+    {% action "shopify" %}
+      mutation {
+        tagsAdd(
+          id: {{ product.admin_graphql_api_id | json }},
+          tags: ["NewTag"]
+        ) {
+          userErrors {
+            field
+            message
+          }
+        }
+      }
+    {% endaction %}
+  {% else %}
+    {% log "break loop" %}
+  {% endunless %}
+{% endif %}
+```
+{% endcode %}
 
 #### 2. Timestamp-based Approach
 
 **Example: Using Timestamps to Prevent Loops**
 
-<div data-gb-custom-block data-tag="code" data-overflow='wrap' data-lineNumbers='true' data-fullWidth='false'>
+{% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```liquid
 {% if event.topic == "shopify/products/update" or event.preview %}
   {% assign current_timestamp = "now" | date: "%s" %}
@@ -54,7 +75,7 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
     {% log "not so fast" %}
   {% endif %}
 {% endif %}
-````
+```
 {% endcode %}
 
 ### Automated Prevention
