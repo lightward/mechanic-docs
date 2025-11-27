@@ -18,6 +18,7 @@ In this option style, the cache command is given as the root key of the options 
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "cache" %}
   {
@@ -28,6 +29,7 @@ In this option style, the cache command is given as the root key of the options 
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -37,9 +39,11 @@ In this option style, the cache command and its arguments are given in a list. U
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "cache", "incr", "foo" %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -97,6 +101,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 
 {% tabs %}
 {% tab title="Verbose options" %}
+
 ```liquid
 {% action "cache" %}
   {
@@ -107,12 +112,15 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
   }
 {% endaction %}
 ```
+
 {% endtab %}
 
 {% tab title="Positional options" %}
+
 ```liquid
 {% action "cache", "set", "foo", 5 %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -120,6 +128,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 
 {% tabs %}
 {% tab title="Verbose options" %}
+
 ```liquid
 {% action "cache" %}
   {
@@ -131,12 +140,15 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
   }
 {% endaction %}
 ```
+
 {% endtab %}
 
 {% tab title="Positional options" %}
+
 ```liquid
-{% action "cache", "setex", 60, "foo" %}
+{% action "cache", "setex", "foo", 60, 5 %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -144,6 +156,7 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
 
 {% tabs %}
 {% tab title="Verbose options" %}
+
 ```liquid
 {% action "cache" %}
   {
@@ -153,11 +166,14 @@ Decrements a numeric key by the value of your choice. Requires `key`, and an int
   }
 {% endaction %}
 ```
+
 {% endtab %}
 
 {% tab title="Positional options" %}
+
 ```liquid
 {% action "cache", "del", "foo" %}
 ```
+
 {% endtab %}
 {% endtabs %}
