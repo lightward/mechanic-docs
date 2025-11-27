@@ -85,6 +85,7 @@ Task code that reads webhook request headers should take these two possible repr
 {% endhint %}
 
 {% code title="Sample " %}
+
 ```json
 {
   "body_base64": "LS0tLS0[...]S0NCg==",
@@ -133,6 +134,7 @@ Task code that reads webhook request headers should take these two possible repr
   "webhook_id": "d166806f-1f79-4283-b4b4-80a38ee04431"
 }
 ```
+
 {% endcode %}
 
 ## Requests
@@ -160,6 +162,7 @@ Decode base64-encoded file content with Liquid, using Mechanic's \[decode\\\_bas
 {% endhint %}
 
 {% code title="File upload sample representation" %}
+
 ```json
 {
   "my_upload": {
@@ -170,6 +173,7 @@ Decode base64-encoded file content with Liquid, using Mechanic's \[decode\\\_bas
   }
 }
 ```
+
 {% endcode %}
 
 ### Client-specific endpoints

@@ -5,6 +5,7 @@ Until further notice, Shopify will continue to send product webhook data in a RE
 This is a simple task to loop through a product's collections, check if the collection contains a certain tag, then log out the collection title.
 
 {% code title="REST - Looping through a product" overflow="wrap" lineNumbers="true" %}
+
 ```liquid
 
 {% for collection in product.collections %}
@@ -15,6 +16,7 @@ This is a simple task to loop through a product's collections, check if the coll
   {% endif %}
 {% endfor %}
 ```
+
 {% endcode %}
 
 ***
@@ -24,6 +26,7 @@ The GraphQL version of the the task above use a paginated query to get all of th
 The event preview block in this task sample makes this code appear to be overly verbose, however the [preview block](../../core/tasks/previews/stub-data.md#stubbing-graphql-data) is often an important step to ensure that Mechanic prompts for the correct scopes for reading and writing Shopify API data.
 
 {% code title="GraphQL - Querying a product's collections with pagination" overflow="wrap" lineNumbers="true" %}
+
 ```liquid
 {% assign cursor = nil %}
 
@@ -90,6 +93,7 @@ The event preview block in this task sample makes this code appear to be overly 
   {% endif %}
 {% endfor %}
 ```
+
 {% endcode %}
 
 {% hint style="info" %}

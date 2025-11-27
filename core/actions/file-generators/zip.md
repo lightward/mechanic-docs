@@ -22,6 +22,7 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "files" %}
   {
@@ -44,5 +45,6 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}

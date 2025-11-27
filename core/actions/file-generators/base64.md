@@ -18,6 +18,7 @@ This file generator accepts a base64-encoded string. It does not support any oth
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "files" %}
   {
@@ -27,5 +28,6 @@ This file generator accepts a base64-encoded string. It does not support any oth
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
