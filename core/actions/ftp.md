@@ -168,41 +168,32 @@ mechanic/user/trigger
 {% endtab %}
 
 {% tab title="Code" %}
-```liquid
-{% assign csv_rows = array %}
+\`\`\`liquid \{% assign csv\_rows = array %\}
 
-{% assign header = "SKU,Title,Price" | split: "," %}
-{% assign csv_rows[0] = header %}
+\{% assign header = "SKU,Title,Price" | split: "," %\} \{% assign csv\_rows\[0] = header %\}
 
-{% for product in shop.products %}
-  {% for variant in product.variants %}
-    {% assign title = variant.title %}
-    {% if title == "Default Title" %}
-      {% assign title = product.title %}
-    {% endif %}
+\{% for product in shop.products %\} \{% for variant in product.variants %\} \{% assign title = variant.title %\} \{% if title == "Default Title" %\} \{% assign title = product.title %\} \{% endif %\}
 
-    {% assign row = array %}
-    {% assign row[row.size] = variant.sku %}
-    {% assign row[row.size] = title %}
-    {% assign row[row.size] = variant.price %}
+```
+{% assign row = array %}
+{% assign row[row.size] = variant.sku %}
+{% assign row[row.size] = title %}
+{% assign row[row.size] = variant.price %}
 
-    {% assign csv_rows[csv_rows.size] = row %}
-  {% endfor %}
-{% endfor %}
+{% assign csv_rows[csv_rows.size] = row %}
+```
 
-{% capture filename %}product-export-{{ "now" | date: "%Y-%m-%d" }}.csv{% endcapture %}
+\{% endfor %\} \{% endfor %\}
 
-{% action "ftp" %}
-  {
-    "host": "example.com",
-    "port": 21,
-    "user": "anonymous",
-    "password": null,
-    "uploads": {
-      {{ filename | json }}: {{ csv_rows | csv | json }}
-    }
-  }
-{% endaction %}
+\{% capture filename %\}product-export-\{{ "now" | date: "%Y-%m-%d" \}}.csv\{% endcapture %\}
+
+\{% action "ftp" %\} { "host": "example.com", "port": 21, "user": "anonymous", "password": null, "uploads": { \{{ filename | json \}}: \{{ csv\_rows | csv | json \}} } } \{% endaction %\}
+
+```
+
+</div>
+
+</div>
 ```
 {% endtab %}
 {% endtabs %}

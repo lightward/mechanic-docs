@@ -3,27 +3,15 @@
 An oft utilized feature of Mechanic is the ability to add Liquid tags into task options fields, such as a configurable email body. Additionally, these Liquid tags (currently) support inline resource lookups for data not available in the event webhook. However, for products and variants this will no longer work as of the [Feb 1, 2025 REST deprecation date](../../platform/liquid/objects/shopify/).
 
 {% code title="REST - product resource lookup from line item" %}
-```liquid
-{%- assign qualifying_product = nil -%}
+````
 
-{%- for line_item in order.line_items -%}
-  {%- if line_item.product.product_type == "Special" -%}
-    {% assign qualifying_product = line_item.product -%}
-    {%- break -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{%- if qualifying_product != blank -%}
-  Special product notice for {{ qualifying_product.title }}...
-{%- endif -%}
-```
-{% endcode %}
+</div>
 
 The code above could be utilized directly in a [multiline task option field](../../core/tasks/options/#flags). and it would output a string of text (e.g. "Special product notice for Widget - Red...") into the assigned option field variable.
 
 One method of conversion for lookup fields is to utilize a GraphQL query _directly in the option field_, which naturally has some caveats.
 
-{% code title="GraphQL - order query with line item products" lineNumbers="true" %}
+<div data-gb-custom-block data-tag="code" data-title='GraphQL - order query with line item products' data-lineNumbers='true'>
 ```liquid
 {%- assign order_id = order.admin_graphql_api_id | default: "gid://shopify/Order/12345" -%}
 
@@ -58,10 +46,8 @@ One method of conversion for lookup fields is to utilize a GraphQL query _direct
 {%- if qualifying_product != blank -%}
   Special product notice for {{ qualifying_product.title }}...
 {%- endif -%}
-```
+````
 {% endcode %}
-
-
 
 {% hint style="warning" %}
 Event preview blocks are not evaluated in task option fields. Instead, default values should be assigned to any webhook fields utilized by the query (e.g. _product.admin\_graphql\_api\_id_). This will keep the task parser happy and allow you to save the task. Be careful though to not assign a default value to a webhook field that can have a null or blank string as a valid value.

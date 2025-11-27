@@ -22,27 +22,10 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
 
 {% tabs %}
 {% tab title="Liquid" %}
-```liquid
-{% action "files" %}
-  {
-    "secure.zip": {
-      "zip": {
-        "password": "opensesame",
-        "files": {
-          "confirmations.txt": "this data is protected with zipcrypto encryption",
-          "image.png": {
-            "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-          },
-          "receipt.pdf": {
-            "pdf": {
-              "html": "<h1>!!</h1>"
-            }
-          }
-        }
-      }
-    }
-  }
-{% endaction %}
-```
+\`\`\`liquid \{% action "files" %\} { "secure.zip": { "zip": { "password": "opensesame", "files": { "confirmations.txt": "this data is protected with zipcrypto encryption", "image.png": { "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo\_color\_272x92dp.png" }, "receipt.pdf": { "pdf": { "html": "
+
+## !!
+
+" } } } } } } \{% endaction %\} \`\`\`
 {% endtab %}
 {% endtabs %}

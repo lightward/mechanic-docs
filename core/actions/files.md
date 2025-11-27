@@ -41,51 +41,33 @@ mechanic/actions/perform
 {% endtab %}
 
 {% tab title="Code" %}
-```liquid
-{% if event.topic == "mechanic/user/trigger" %}
-  {% action "files" %}
-    {
-      "journal.txt": "hello world!",
-      "table.csv": "Title,SKU\nRed T-Shirt,TEE-R",
-      "invoice.pdf": {
-        "pdf": {
-          "html": "<h1>Order #12345</h1>\n<p>It's due!</p>"
-        }
-      },
-      "secure.zip": {
-        "zip": {
-          "password": "opensesame",
-          "files": {
-            "confirmations.txt": "this data is protected with zipcrypto encryption"
-          }
-        }
-      },
-      "external.jpg": {
-        "url": "https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg"
-      }
-    }
-  {% endaction %}
-{% elsif event.topic == "mechanic/actions/perform" and action.type == "files" %}
-  {% capture email_body %}
-    <p>The following file(s) have been generated:</p>
-    <ul>
-      {% for keyval in action.run.result %}
-        {% assign filename = keyval[0] %}
-        {% assign file = keyval[1] %}
-        <li><a href="{{ file.url }}">{{ filename }}</a> ({{ file.size }} bytes)</li>
-      {% endfor %}
-    </ul>
-    <p>-Mechanic</p>
-  {% endcapture %}
+\`\`\`liquid \{% if event.topic == "mechanic/user/trigger" %\} \{% action "files" %\} { "journal.txt": "hello world!", "table.csv": "Title,SKU\nRed T-Shirt,TEE-R", "invoice.pdf": { "pdf": { "html": "
 
-  {% action "email" %}
-    {
-      "to": "isaac@lightward.com",
-      "subject": {{ action.run.result | size | append: " file(s) generated" | json }},
-      "body": {{ email_body | json }}
-    }
-  {% endaction %}
-{% endif %}
+## Order #12345
+
+\n
+
+It's due!
+
+" } }, "secure.zip": { "zip": { "password": "opensesame", "files": { "confirmations.txt": "this data is protected with zipcrypto encryption" } } }, "external.jpg": { "url": "https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg" } } \{% endaction %\} \{% elsif event.topic == "mechanic/actions/perform" and action.type == "files" %\} \{% capture email\_body %\}
+
+The following file(s) have been generated:
+
+* \{% for keyval in action.run.result %\} \{% assign filename = keyval\[0] %\} \{% assign file = keyval\[1] %\}
+* [\{{ filename \}}](%7B%7B%20file.url%20%7D%7D) (\{{ file.size \}} bytes)
+* \{% endfor %\}
+
+-Mechanic
+
+\{% endcapture %\}
+
+\{% action "email" %\} { "to": "isaac@lightward.com", "subject": \{{ action.run.result | size | append: " file(s) generated" | json \}}, "body": \{{ email\_body | json \}} } \{% endaction %\} \{% endif %\}
+
+```
+
+</div>
+
+</div>
 ```
 {% endtab %}
 {% endtabs %}

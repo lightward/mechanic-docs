@@ -41,7 +41,7 @@ For this tutorial, we'll use JavaScript. And because we're using Mechanic, we do
 
 For this tutorial, I created a development store and installed the [Debut theme](https://themes.shopify.com/themes/debut/styles/default). I use the contact form that comes with the theme as the form that submits to our webook. You can use any contact form on any theme, or create a form specifically for the purpose of submitting to our webhook.
 
-![](<../../.gitbook/assets/image (7) (1) (2) (2) (2) (2) (2) (2).png>)
+![](<../../.gitbook/assets/image (7) (1) (2) (2) (2) (2) (2) (1).png>)
 
 First things first: we're going to make sure of the element ID, for our contact form. This will be important for writing JavaScript that addresses this form. After investigating, we discover that the form ID is "ContactForm". Easy enough!
 
@@ -147,44 +147,29 @@ After that, we'll add an [Email](../../core/actions/email.md) action, configurin
 
 {% tabs %}
 {% tab title="Task code" %}
-```liquid
-{% assign rows = array %}
+\`\`\`liquid \{% assign rows = array %\}
 
-{% assign header = array %}
-{% assign header[0] = "Name" %}
-{% assign header[1] = "Email" %}
-{% assign header[2] = "Phone Number" %}
-{% assign header[3] = "Message" %}
-{% assign rows[rows.size] = header %}
+\{% assign header = array %\} \{% assign header\[0] = "Name" %\} \{% assign header\[1] = "Email" %\} \{% assign header\[2] = "Phone Number" %\} \{% assign header\[3] = "Message" %\} \{% assign rows\[rows.size] = header %\}
 
-{% assign row = array %}
-{% assign row[0] = event.data.contact.name %}
-{% assign row[1] = event.data.contact.email %}
-{% assign row[2] = event.data.contact.phone %}
-{% assign row[3] = event.data.contact.body %}
-{% assign rows[rows.size] = row %}
+\{% assign row = array %\} \{% assign row\[0] = event.data.contact.name %\} \{% assign row\[1] = event.data.contact.email %\} \{% assign row\[2] = event.data.contact.phone %\} \{% assign row\[3] = event.data.contact.body %\} \{% assign rows\[rows.size] = row %\}
 
-{% assign csv_data = rows | csv %}
+\{% assign csv\_data = rows | csv %\}
 
-{% action "email" %}
-  {
-    "to": {{ options.recipient_email_address__email_required | json }},
-    "subject": {{ options.email_subject__required | json }},
-    "body": {{ options.email_body__required_multiline | strip | newline_to_br | json }},
-    "attachments": {
-       {{ options.csv_attachment_filename__required | replace: ".csv", "" | append: ".csv" | json }}: {{ rows | csv | json }}
-     }
-   }
-{% endaction %}
-```
-{% endtab %}
-{% endtabs %}
+\{% action "email" %\} { "to": \{{ options.recipient\_email\_address\_\_email\_required | json \}}, "subject": \{{ options.email\_subject\_\_required | json \}}, "body": \{{ options.email\_body\_\_required\_multiline | strip | newline\_to\_br | json \}}, "attachments": { \{{ options.csv\_attachment\_filename\_\_required | replace: ".csv", "" | append: ".csv" | json \}}: \{{ rows | csv | json \}} } } \{% endaction %\}
 
-{% hint style="info" %}
+````
+
+</div>
+
+</div>
+
+<div data-gb-custom-block data-tag="hint" data-style='info'>
+
 When writing a task, it's important to think about [previews](../../core/tasks/previews/), and how they appear to the user (and to Mechanic itself). This task always sends a simple email for every event it receives, and doesn't require any special permissions, so we don't need to do any preview work here. If the task only sent an email under limited conditions, or if it needed to access the Shopify API, we'd need to do more work to make sure the task generates an intentional preview.
 
 To learn more about this, see [Previews](../../core/tasks/previews/).
-{% endhint %}
+
+</div>
 
 Here's how we'll configure the task, using the task option fields that automatically appear based on our task code:
 
@@ -208,4 +193,6 @@ If you'd like to quickly pull in all of the task code and configuration we used 
 
 ```javascript
 {"name":"Receive contact form for CRM","options":{"recipient_email_address__email_required":"crm_imports@example.com","email_subject__required":"Contact form submission for CRM: {{ \"now\" | date: \"%Y-%m-%d %H:%M\" }}","email_body__required_multiline":"Hello,\n\nPlease find the attached CSV. Thanks!\n\n-Mechanic, for {{ shop.name }}","csv_attachment_filename__required":"contact-form-for-crm-{{ \"now\" | date: \"%s\" }}","mechanic_webhook_url__required":"https://webhooks.mechanic.dev/00000000-0000-0000-0000-000000000000"},"subscriptions":["user/webhook/form"],"subscriptions_template":null,"script":"{% assign rows = array %}\n\n{% assign header = array %}\n{% assign header[0] = \"Name\" %}\n{% assign header[1] = \"Email\" %}\n{% assign header[2] = \"Phone Number\" %}\n{% assign header[3] = \"Message\" %}\n{% assign rows[rows.size] = header %}\n\n{% assign row = array %}\n{% assign row[0] = event.data.contact.name %}\n{% assign row[1] = event.data.contact.email %}\n{% assign row[2] = event.data.contact.phone %}\n{% assign row[3] = event.data.contact.body %}\n{% assign rows[rows.size] = row %}\n\n{% assign csv_data = rows | csv %}\n\n{% action \"email\" %}\n  {\n    \"to\": {{ options.recipient_email_address__email_required | json }},\n    \"subject\": {{ options.email_subject__required | json }},\n    \"body\": {{ options.email_body__required_multiline | strip | newline_to_br | json }},\n    \"attachments\": {\n       {{ options.csv_attachment_filename__required | replace: \".csv\", \"\" | append: \".csv\" | json }}: {{ rows | csv | json }}\n     }\n   }\n{% endaction %}","docs":null,"halt_action_run_sequence_on_error":false,"liquid_profiling":false,"online_store_javascript":"// This code will be loaded on all pages of our store. So, we'll need\n// to begin by seeing if the current page has a contact form on it,\n// to make sure we're not causing errors by trying to modify a form\n// that doesn't exist.\n\n// The `contactForm` variable will either be our form (if it's present\n// on this page), or will be null (if it isn't).\nconst contactForm = document.querySelector('#ContactForm');\n\n// Before Mechanic delivers this JavaScript to the storefront, it first\n// evaluates it for Liquid. This means that we get to use the `options`\n// object. By using {{ options.mechanic_webhook_url__required }}, we can\n// make the webhook URL configurable.\nconst mechanicWebhookUrl = {{ options.mechanic_webhook_url__required | json }};\n\n// We only want to run all of this if there's a contact form on the page.\nif (contactForm) {\n\n  // Setting up a flag for later - keep reading!\n  let submittedToMechanic = false;\n  \n  contactForm.addEventListener(\n    'submit',\n    (event) => {\n      // We're going to prevent the form submit from doing its normal\n      // normal. We'll re-submit the form in a second, after we've\n      // submitted data to Mechanic.\n      event.preventDefault();\n\n      // We'll use fetch to make our POST request:\n      // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API\n      fetch(\n        mechanicWebhookUrl,\n        {\n          method: 'POST', \n          body: new FormData(contactForm),\n        }\n      ).then((response) => {\n        console.log('Sending data to Mechanic: Success!', response);\n      }).catch((error) => {\n        console.error('Sending data to Mechanic: Error!', error);\n      }).finally(() => {\n        // Now that we're done with sending our data to Mechanic,\n        // we're going to manually submit the contact form. This won't\n        // trigger the \"submit\" event again; it'll just run the form's\n        // usual submit behavior.\n        contactForm.submit();\n      });\n    },\n  );\n}","order_status_javascript":null,"perform_action_runs_in_sequence":false,"shopify_api_version":"2021-01"}
-```
+````
+{% endtab %}
+{% endtabs %}

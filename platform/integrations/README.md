@@ -5,7 +5,7 @@ Mechanic maintains several official integration points:
 * [Airtable](airtable.md)
 * [Appstle Subscriptions](appstle-subscriptions.md)
 * [Google](google.md)
-* [Google Drive and Sheets ](google-drive-and-google-sheets.md)
+* [Google Drive and Sheets](google-drive-and-google-sheets.md)
 * [Judge.me](judge.me.md)
 * [Locksmith](locksmith.md)
 * [Report Toaster](report-toaster.md)
@@ -14,7 +14,7 @@ Mechanic maintains several official integration points:
 * [Run links](run-links.md)
 
 {% hint style="info" %}
-### Need a service that's not on this list?
+#### Need a service that's not on this list?
 
 Mechanic can be used with most HTTP APIs, via the [HTTP action](../../core/actions/http.md) (for sending and receiving data) and its [webhook system](../webhooks.md) (for receiving pushed data). This makes it possible for developers to manually integrate many more third-party services, as long as the service in question has an appropriate API.
 

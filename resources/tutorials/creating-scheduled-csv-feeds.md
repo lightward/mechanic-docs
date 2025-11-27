@@ -2,7 +2,7 @@
 
 In this tutorial, you'll learn how to create a feed of your shop's data, and make it available on your online store, at a URL like `https://example.com/pages/feed`[.](https://example.com/pages/feed)
 
-Tip: The data you generate can be imported directly into Google Sheets. Learn more: [Can I send data to Google Sheets?](../../faq/can-i-send-data-to-google-sheets.md)
+Tip: The data you generate can be imported directly into Google Sheets. Learn more: [Can I send data to Google Sheets?](/broken/pages/-MlVdfIGInpxYixSTk1K)
 
 {% hint style="warning" %}
 This technique has several limitations:
