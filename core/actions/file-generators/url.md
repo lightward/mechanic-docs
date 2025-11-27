@@ -18,7 +18,6 @@ This file generator accepts a string containing a valid HTTP or HTTPS URL. It do
 
 {% tabs %}
 {% tab title="Liquid" %}
-
 ```liquid
 {% action "files" %}
   {
@@ -28,6 +27,5 @@ This file generator accepts a string containing a valid HTTP or HTTPS URL. It do
   }
 {% endaction %}
 ```
-
 {% endtab %}
 {% endtabs %}

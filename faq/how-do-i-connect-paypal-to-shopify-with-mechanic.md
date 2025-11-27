@@ -11,12 +11,10 @@ To integrate PayPal transactions into your Shopify orders, leverage the [Import 
 
 ### 2. Setup PayPal to send you transactions to Mechanic
 
-*   [ ] Next, log in to your PayPal account and use [this link](https://www.paypal.com/merchantnotification/ipn/preference) to jump to the Instant Payment Notification (IPN) settings screen.\
+*   [ ] Next, log in to your PayPal account and use [this link](https://www.paypal.com/merchantnotification/ipn/preference) to jump to the Instant Payment Notification (IPN) settings screen.\\
 
-
-    <figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
-*   [ ] Click the Choose IPN Settings button and then paste in your Mechanic webhook URL from Step 1 and choose the option to Receive IPN Messages and click Save.\
-
+    <figure><img src="../.gitbook/assets/image (31) (1).png" alt=""><figcaption></figcaption></figure>
+*   [ ] Click the Choose IPN Settings button and then paste in your Mechanic webhook URL from Step 1 and choose the option to Receive IPN Messages and click Save.\\
 
     <figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 

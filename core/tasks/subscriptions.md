@@ -31,7 +31,7 @@ To illustrate: if a user creates a task at 9am Monday, subscribing to mechanic/s
 {% endhint %}
 
 {% hint style="warning" %}
-The [Shopify variables](code/environment-variables.md#shopify-variables) available to tasks always contain data drawn from the event itself. If a task has a offset event subscription, this data may be outdated by the time the task runs.
+The \[Shopify variables]\(code/environment-variables.md#shopify-variables) available to tasks always contain data drawn from the event itself. If a task has a offset event subscription, this data may be outdated by the time the task runs.
 
 To reload the data in a Shopify variable, use something like this:
 
@@ -54,7 +54,6 @@ One subscription is permitted per line. Blank lines and leading/trailing whitesp
 
 {% tabs %}
 {% tab title="Conditional subscription" %}
-
 ```liquid
 shopify/orders/create
 
@@ -62,26 +61,21 @@ shopify/orders/create
   shopify/orders/cancelled
 {% endif %}
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Dynamic offset" %}
-
 ```liquid
 shopify/orders/paid+{{ options.days_to_wait_before_followup__number_required }}.days
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Optional offset" %}
-
 ```liquid
 shopify/customers/create{% if options.wait_one_hour__boolean %}+1.hour{% endif %}
 ```
-
 {% endtab %}
 {% endtabs %}

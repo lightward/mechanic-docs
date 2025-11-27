@@ -4,10 +4,9 @@ Until further notice, Shopify will continue to send product webhook data in a RE
 
 This is a simple task to loop through a product's collections, check if the collection contains a certain tag, then log out the collection title.
 
-{% code title="REST - Looping through a product's collections" overflow="wrap" lineNumbers="true" %}
-
+{% code title="REST - Looping through a product" overflow="wrap" lineNumbers="true" %}
 ```liquid
-{% raw %}
+
 {% for collection in product.collections %}
   {% assign collection_tags = collection.tags | split: ", " %}
 
@@ -15,18 +14,18 @@ This is a simple task to loop through a product's collections, check if the coll
     {% log collection_with_my_tag: collection.title %}
   {% endif %}
 {% endfor %}
-{% endraw %}
 ```
-
 {% endcode %}
 
 ***
 
-The GraphQL version of the the task above use a paginated query to get all of the collections a product  is a member of. The outer loop upper range (e.g. the **10** in `{% for n in (1..10) %}`) is arbitrary, and you may adjust it to the approximate maximum number of collections any given product might have.
+The GraphQL version of the the task above use a paginated query to get all of the collections a product is a member of. The outer loop upper range (e.g. the **10** in `{% for n in (1..10) %}`) is arbitrary, and you may adjust it to the approximate maximum number of collections any given product might have.
 
 The event preview block in this task sample makes this code appear to be overly verbose, however the [preview block](../../core/tasks/previews/stub-data.md#stubbing-graphql-data) is often an important step to ensure that Mechanic prompts for the correct scopes for reading and writing Shopify API data.
 
-<pre class="language-liquid" data-title="GraphQL - Querying a product&#x27;s collections with pagination" data-overflow="wrap" data-line-numbers><code class="lang-liquid">{% assign cursor = nil %}
+{% code title="GraphQL - Querying a product's collections with pagination" overflow="wrap" lineNumbers="true" %}
+```liquid
+{% assign cursor = nil %}
 
 {% for n in (1..10) %}
   {% capture query %}
@@ -79,8 +78,8 @@ The event preview block in this task sample makes this code appear to be overly 
   {% endif %}
 
   {% for collection in result.data.product.collections.nodes %}
-<strong>    {% if collection.tags contains "my-tag" %}
-</strong>      {% log collection_with_my_tag: collection.title %}
+    {% if collection.tags contains "my-tag" %}
+      {% log collection_with_my_tag: collection.title %}
     {% endif %}
   {% endfor %}
 
@@ -90,7 +89,8 @@ The event preview block in this task sample makes this code appear to be overly 
     {% break %}
   {% endif %}
 {% endfor %}
-</code></pre>
+```
+{% endcode %}
 
 {% hint style="info" %}
 To assist with generating a paginated query block, you can use the ["paginated\_query" snippet](../../platform/liquid/mechanic-code-snippets.md#paginated_query) in the Mechanic code editor, and it will prompt you to choose the object type to paginate over (e.g. products).

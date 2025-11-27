@@ -10,7 +10,7 @@ There are three error topics that Mechanic can throw: `mechanic/errors/action`, 
 
 ## Subscriptions
 
-Any task may subscribe to error events.&#x20;
+Any task may subscribe to error events.
 
 If a task subscribes _only_ to error events, it's qualified to receive all such error events, across all runs in the same Mechanic account.
 
@@ -33,7 +33,6 @@ This occurs when a task run fails. (Examples: a task run exceeds Mechanic's memo
 ## Event data
 
 {% code lineNumbers="true" fullWidth="false" %}
-
 ```json
 {
   "message": "Received a Shopify error (resource invalid): Add at least 1 product",
@@ -144,7 +143,6 @@ This occurs when a task run fails. (Examples: a task run exceeds Mechanic's memo
   }
 }
 ```
-
 {% endcode %}
 
 ## Example task

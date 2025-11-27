@@ -97,7 +97,6 @@ For more on this, see [File generators](file-generators/).
 
 {% tabs %}
 {% tab title="Liquid" %}
-
 ```liquid
 {% action "email" %}
   {
@@ -109,7 +108,6 @@ For more on this, see [File generators](file-generators/).
   }
 {% endaction %}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -117,7 +115,6 @@ For more on this, see [File generators](file-generators/).
 
 {% tabs %}
 {% tab title="Liquid" %}
-
 ```liquid
 {% capture email_body %}
   <b>Hello!</b>
@@ -133,7 +130,6 @@ For more on this, see [File generators](file-generators/).
   }
 {% endaction %}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -141,7 +137,6 @@ For more on this, see [File generators](file-generators/).
 
 {% tabs %}
 {% tab title="Liquid" %}
-
 ```liquid
 {% action "email" %}
   {
@@ -156,6 +151,5 @@ For more on this, see [File generators](file-generators/).
   }
 {% endaction %}
 ```
-
 {% endtab %}
 {% endtabs %}

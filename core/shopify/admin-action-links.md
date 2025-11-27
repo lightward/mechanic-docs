@@ -93,7 +93,7 @@ After selecting a processing mode, select from the available compatible tasks â€
 
 To qualify a task to receive these events, subscribe to an event topic from the [Supported resources](admin-action-links.md#supported-resources) table above.
 
-For these events, Mechanic makes available an [environment variable](../tasks/code/environment-variables.md) named after the third term in the event topic. For example, a mechanic/user/order event will make available a variable called `order`, which contains an [Order object](../../platform/liquid/objects/shopify/order.md) with data pulled from the Shopify Admin REST API.&#x20;
+For these events, Mechanic makes available an [environment variable](../tasks/code/environment-variables.md) named after the third term in the event topic. For example, a mechanic/user/order event will make available a variable called `order`, which contains an [Order object](../../platform/liquid/objects/shopify/order.md) with data pulled from the Shopify Admin REST API.
 
 **Note**: For `product` and `variant`, as of Feb 1, 2025, only an `id` and `admin_graphql_api_id` are provided. Additional fields (e.g. `product.title`) must be fetched from Shopify GraphQL.
 
@@ -118,7 +118,6 @@ Additional changes may be necessary. Always test thoroughly, and follow [best pr
 The [Send a PDF invoice when an order is created](https://tasks.mechanic.dev/send-a-pdf-invoice-when-an-order-is-created) task, from the Mechanic task library, is well-suited to this kind of adaptation. To illustrate, here is the portion of the task code that addresses the order itself:
 
 {% code lineNumbers="true" %}
-
 ```liquid
 {% if order.email != blank and order.financial_status == "pending" %}
   {% action "email" %}
@@ -139,7 +138,6 @@ The [Send a PDF invoice when an order is created](https://tasks.mechanic.dev/sen
   {% endaction %}
 {% endif %}
 ```
-
 {% endcode %}
 
 Because this task straightforwardly references the `order` environment variable, this task is a good candidate for a subscription to mechanic/user/order. Once modified in that way, the task will be able to send PDF invoices on demand, whenever a user sends orders to the task via a "Send to Mechanic" link.

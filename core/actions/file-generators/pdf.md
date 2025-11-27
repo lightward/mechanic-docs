@@ -33,7 +33,6 @@ A screencast illustrating an HTML test, and a path for reaching Pdfcrowd support
 
 {% tabs %}
 {% tab title="Liquid" %}
-
 ```liquid
 {% capture html %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,6 +70,5 @@ A screencast illustrating an HTML test, and a path for reaching Pdfcrowd support
   }
 {% endaction %}
 ```
-
 {% endtab %}
 {% endtabs %}

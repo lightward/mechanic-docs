@@ -68,7 +68,6 @@ To authenticate a request using [the Authorization header](https://developer.moz
 The HTTP action supports HTTPS, HTTP, and SOCKS5 proxy connections via the `"proxy"` option, set to a URI string beginning with `https://`, `http://`, or `socks5://`. When configured, Mechanic will open a connection to your proxy server, and pass your request through that connection.
 
 {% code title="Example HTTP action using a proxy" %}
-
 ```liquid
 {% action "http" %}
   {
@@ -78,7 +77,6 @@ The HTTP action supports HTTPS, HTTP, and SOCKS5 proxy connections via the `"pro
   }
 {% endaction %}
 ```
-
 {% endcode %}
 
 {% hint style="warning" %}
@@ -138,16 +136,13 @@ This task prompts the user for text input, and submits it to a public API that r
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-
 ```
 mechanic/user/text
 mechanic/actions/perform
 ```
-
 {% endtab %}
 
 {% tab title="Code" %}
-
 ```liquid
 {% if event.topic == "mechanic/user/text" %}
   {% action "http" %}
@@ -164,6 +159,5 @@ mechanic/actions/perform
     response_body: action.run.result.body %}
 {% endif %}
 ```
-
 {% endtab %}
 {% endtabs %}
