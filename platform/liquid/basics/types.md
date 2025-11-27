@@ -50,21 +50,27 @@ In Liquid, `null` is not a keyword literal. But, because `null` is also typicall
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 email address: {{ order.email }}
 ```
+
 {% endtab %}
 
 {% tab title="Output when not nil" %}
+
 ```
 email address: joe@joegmail.com
 ```
+
 {% endtab %}
 
 {% tab title="Output when nil" %}
+
 ```
 email address:
 ```
+
 {% endtab %}
 {% endtabs %}
 

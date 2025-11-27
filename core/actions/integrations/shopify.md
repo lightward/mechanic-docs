@@ -22,6 +22,7 @@ To prepare complex query inputs, use the [graphql\_arguments](../../../platform/
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "shopify" %}
   mutation {
@@ -41,6 +42,7 @@ To prepare complex query inputs, use the [graphql\_arguments](../../../platform/
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -57,6 +59,7 @@ This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/doc
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```javascript
 {% capture query %}
   mutation DeleteProduct($productId: ID!) {
@@ -82,6 +85,7 @@ This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/doc
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -91,6 +95,7 @@ This example shows how the query and variables may be built up separately, and p
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```javascript
 {% assign metafield_owner_id = "gid://shopify/Customer/507332001849" %
 {% assign metafield_value = hash %}
@@ -129,5 +134,6 @@ This example shows how the query and variables may be built up separately, and p
 
 {% action "shopify" query: query, variables: variables %}
 ```
+
 {% endtab %}
 {% endtabs %}

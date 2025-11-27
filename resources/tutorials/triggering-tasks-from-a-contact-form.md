@@ -57,6 +57,7 @@ Copy in the JavaScript below, reading the comments for details on what's going o
 
 {% tabs %}
 {% tab title="JavaScript for online storefront" %}
+
 ```javascript
 // This code will be loaded on all pages of our store. So, we'll need
 // to begin by seeing if the current page has a contact form on it,
@@ -110,6 +111,7 @@ if (contactForm) {
   );
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -147,6 +149,7 @@ After that, we'll add an [Email](../../core/actions/email.md) action, configurin
 
 {% tabs %}
 {% tab title="Task code" %}
+
 ```liquid
 {% assign rows = array %}
 
@@ -177,6 +180,7 @@ After that, we'll add an [Email](../../core/actions/email.md) action, configurin
    }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
 

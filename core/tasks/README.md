@@ -18,12 +18,15 @@ This very basic task subscribes to shopify/customers/create, and renders an [Ema
 
 {% tabs %}
 {% tab title="Subscriptions" %}
+
 ```
 shopify/customers/create
 ```
+
 {% endtab %}
 
 {% tab title="Code" %}
+
 ```liquid
 {% action "email" %}
   {
@@ -34,12 +37,15 @@ shopify/customers/create
   }
 {% endaction %}
 ```
+
 {% endtab %}
 
 {% tab title="Export" %}
+
 ```
 {"name":"Customer signup alerts","options":{"email_recipient__email_required":"aesha@example.com","email_subject__required":"A new customer has signed up: {{ customer.email }}","email_body__multiline_required":"Hi! View this customer's details online:\n\nhttps://{{ shop.domain }}/admin/customers/{{ customer.id }}\n\n-Mechanic"},"script":"{% action \"email\" %}\n  {\n    \"to\": {{ options.email_recipient__email_required | json }},\n    \"subject\": {{ options.email_subject__required | json }},\n    \"body\": {{ options.email_body__multiline_required | newline_to_br | json }},\n    \"from_display_name\": {{ shop.name | json }}\n  }\n{% endaction %}","subscriptions":["shopify/customers/create"],"online_store_javascript":null,"order_status_javascript":null,"docs":null,"subscriptions_template":"shopify/customers/create","shopify_api_version":"2022-04","liquid_profiling":false,"perform_action_runs_in_sequence":false,"halt_action_run_sequence_on_error":false,"preview_event_definitions":[]}
 ```
+
 {% endtab %}
 {% endtabs %}
 

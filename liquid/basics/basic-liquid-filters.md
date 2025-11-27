@@ -36,15 +36,19 @@ String filters are used to change the output and variables of type String. We've
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {{ 'report' | append: '.pdf' }}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 report.pdf
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -54,16 +58,20 @@ report.pdf
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {{ 'great to meet you.' | prepend: 'It was ' }}
 
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 It was geat to meet you
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -71,18 +79,22 @@ It was geat to meet you
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {{ 'stop yelling it at me' | upcase }}
 {{ 'STOP YELLING AT ME' | downcase }}
 
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 STOP YELLING AT ME
 stop yelling at me
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,17 +104,21 @@ Removes substring from a string.
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {{ "Hi everyone! Nice to meet everyone!" | remove: "everyone" }}
 {{ "Hi everyone! Nice to meet everyone!" | remove_first: "everyone" }}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 Hi ! Nice to meet !
 Hi ! Nice to meet everyone!
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -110,18 +126,22 @@ Hi ! Nice to meet everyone!
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {{ "Matt and Megan love to travel and travel." | replace: 'travel', 'party' }}
 {{ "Matt and Megan love to travel and travel | replace_first : 'travel', 'party' }}
 
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 Matt and Megan love to party and party.
 Matt and Megan love to party and travel.
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -131,6 +151,7 @@ The `split` filter takes a substring and uses it split an string into an array.
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% assign quote = "love,is,all,you,need!" | split: ',' %}
 
@@ -138,9 +159,11 @@ The `split` filter takes a substring and uses it split an string into an array.
   {{ quote }}
 {% endfor %}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 love
 is
@@ -148,6 +171,7 @@ all
 you
 need!
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -155,16 +179,20 @@ need!
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {{ '   why do we have so many spaces?      ' | strip }}
 
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 why do we have so many spaces? 
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -180,6 +208,7 @@ Remember to check out the full collection of string filters [here](https://shopi
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {{ 25 | minus: 15 }}
 {{ 25 | plus: 15 }}
@@ -188,9 +217,11 @@ Remember to check out the full collection of string filters [here](https://shopi
 {{ 11 | modulo: 5 }}
 
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 10
 40
@@ -199,6 +230,7 @@ Remember to check out the full collection of string filters [here](https://shopi
 1
 
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -216,6 +248,7 @@ Creates a string from the elements of an array using a character passed as an ar
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% comment %} 
   product.tags = "VIP", "New", "Canada"
@@ -223,12 +256,15 @@ Creates a string from the elements of an array using a character passed as an ar
 
 {{ customer.tags | join: ', ' }}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 VIP, New, Canada
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -238,6 +274,7 @@ Returns the first or last element of an array. You can use `first` or `last` in 
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% comment %} 
   product.tags = "VIP", "New", "Canada"
@@ -255,9 +292,11 @@ Returns the first or last element of an array. You can use `first` or `last` in 
 {% endif %
 
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 VIP
 Canada
@@ -265,6 +304,7 @@ This customer is a VIP!
 Eh!
 
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -274,6 +314,7 @@ Concatenates two arrays into a single array.
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% assign lunch = "sandwich, apple, soup" | split: ", " %}
 {% assign dinner = "pasta, pizza, salad" | split: ", " %}
@@ -288,13 +329,16 @@ Concatenates two arrays into a single array.
 
 {{ meals | join: ", " }}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 sandwich, apple, soup, pasta, pizza, salad
 eggs, oatmeal, toast, sandwich, apple, soup, pasta, pizza, salad
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -304,6 +348,7 @@ Given an array of objects that contain attributes \(e.g. Name\) and values \(e.g
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% comment %} 
   product.titles = "Apple", "Orange", "Pepper", "Cheese"
@@ -313,12 +358,15 @@ Given an array of objects that contain attributes \(e.g. Name\) and values \(e.g
 
 {{ product_titles }}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 AppleOrangePepperCheese
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -329,6 +377,7 @@ Take an array of objects and create a new array with only those that have a  giv
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 All products:
 {% for product in collection.products %}
@@ -342,9 +391,11 @@ sports products:
 - {{ product.title }}
 {% endfor %}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 All products:
 - Ball
@@ -356,6 +407,7 @@ Sports products:
 - Ball
 - Batt
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -365,16 +417,20 @@ Removes any duplicate in an array.
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% assign cars = "Honda Ford Toyota Jeep VW Honda VW" %}
 {{ cars | split: ' ' | uniq | join: ' ' }}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 Honda Ford Toyota Jeep VW
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -384,19 +440,23 @@ Sorts an array by a given attribute.
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% assign big_spenders = customers | sort: 'total_spent' %}
 {% for customer in big_spenders %}
   <h4>{{ customer.email }}</h4>
 {% endfor %}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```
 <h4>jim@joe.com</h4>
 <h4>jack@joe.com</h4>
 ```
+
 {% endtab %}
 {% endtabs %}
 

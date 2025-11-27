@@ -50,15 +50,18 @@ This technique allows the array of objects to be quickly filtered by type:
 
 {% tabs %}
 {% tab title="Subscriptions" %}
+
 ```
 mechanic/user/trigger
 mechanic/shopify/bulk_operation
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% if event.topic == "mechanic/user/trigger" %}
   {% capture bulk_operation_query %}
@@ -97,6 +100,7 @@ mechanic/shopify/bulk_operation
   {% log emails: emails %}
 {% endif %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
