@@ -24,7 +24,7 @@ As of this writing (currently June 12, 2025), AI is getting better at Mechanic. 
 
 ## Better prompts for Mechanic
 
-Copy/paste and tweak the **bold** parts. Keep the format exact so the AI doesn’t invent extras.
+Copy/paste and tweak the **bold** parts. Keep the format exact so the AI doesn’t invent extras. Options are always accessed as `options.<name>` and option names use Mechanic suffixes (`__required`, `__email`, `__boolean`, etc.). The `shopify` filter is read-only; the `shopify` action is for GraphQL writes.
 
 **General (manual trigger + email)**
 
@@ -76,7 +76,7 @@ Code:
 
 Rules:
 - Real action types only (shopify/http/etc.).
-- shopify filter is for reading; shopify action is for GraphQL mutations/writes.
+- `shopify` filter is for reading; `shopify` action is for GraphQL writes/mutations.
 - Use GraphQL for Shopify; no REST objects.
 - Add preview guards or literals if referencing event data.
 
@@ -102,20 +102,18 @@ Code:
 {% endif %}
 
 {% capture mutation %}
-  mutation addTag($id: ID!, $tags: [String!]!) {
-    tagsAdd(id: $id, tags: $tags) { userErrors { field message } }
+  mutation {
+    tagsAdd(id: {{ order_id | json }}, tags: [{{ options.tag_to_add__required | json }}]) {
+      userErrors { field message }
+    }
   }
 {% endcapture %}
 
 {% action "shopify" %}
-  {
-    "query": {{ mutation | json }},
-    "variables": {
-      "id": {{ order_id | json }},
-      "tags": [{{ options.tag_to_add__required | json }}]
-    }
-  }
+  {{ mutation }}
 {% endaction %}
+
+# If you need to read before writing, use the shopify filter (read-only) upstream, then mutate with the shopify action.
 ```
 
 ## Quick checklist when AI generates a task
