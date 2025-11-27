@@ -4,10 +4,19 @@ Until further notice, Shopify will continue to send product webhook data in a RE
 
 This is a simple task to loop through a product's collections, check if the collection contains a certain tag, then log out the collection title.
 
-{% code title="REST - Looping through a product" overflow="wrap" lineNumbers="true" %}
-```
+{% code title="REST - Looping through a product's collections" overflow="wrap" lineNumbers="true" %}
+```liquid
+{% raw %}
+{% for collection in product.collections %}
+  {% assign collection_tags = collection.tags | split: ", " %}
 
-</div>
+  {% if collection_tags contains "my-tag" %}
+    {% log collection_with_my_tag: collection.title %}
+  {% endif %}
+{% endfor %}
+{% endraw %}
+```
+{% endcode %}
 
 ***
 
@@ -15,14 +24,10 @@ The GraphQL version of the the task above use a paginated query to get all of th
 
 The event preview block in this task sample makes this code appear to be overly verbose, however the [preview block](../../core/tasks/previews/stub-data.md#stubbing-graphql-data) is often an important step to ensure that Mechanic prompts for the correct scopes for reading and writing Shopify API data.
 
-<pre class="language-liquid" data-title="GraphQL - Querying a product&#x27;s collections with pagination" data-overflow="wrap" data-line-numbers><code class="lang-liquid"><div data-gb-custom-block data-tag="assign"></div>
+<pre class="language-liquid" data-title="GraphQL - Querying a product&#x27;s collections with pagination" data-overflow="wrap" data-line-numbers><code class="lang-liquid">{% assign cursor = nil %}
 
-<div data-gb-custom-block data-tag="for" data-0='1' data-1='1' data-2='1' data-3='1' data-4='0.1'>
-
-  
-
-<div data-gb-custom-block data-tag="capture">
-
+{% for n in (1..10) %}
+  {% capture query %}
     query {
       product(id: {{ product.admin_graphql_api_id | json }}) {
         collections(
@@ -41,17 +46,11 @@ The event preview block in this task sample makes this code appear to be overly 
         }
       }
     }
-  
+  {% endcapture %}
 
-</div>
+  {% assign result = query | shopify %}
 
-  
-
-<div data-gb-custom-block data-tag="assign"></div>
-
-  
-
-<div data-gb-custom-block data-tag="if" data-expression='event.preview'>
+  {% if event.preview %}
     {% capture result_json %}
       {
         "data": {
@@ -75,38 +74,22 @@ The event preview block in this task sample makes this code appear to be overly 
     {% endcapture %}
 
     {% assign result = result_json | parse_json %}
-  </div>
+  {% endif %}
 
-  
-
-<div data-gb-custom-block data-tag="for">
-
-<strong>    
-
-<div data-gb-custom-block data-tag="if" data-expression='collection.tags contains "my-tag"'></div>
-
-</strong>      
-
-<div data-gb-custom-block data-tag="log"></div>
+  {% for collection in result.data.product.collections.nodes %}
+<strong>    {% if collection.tags contains "my-tag" %}
+</strong>      {% log collection_with_my_tag: collection.title %}
     {% endif %}
-  </div>
+  {% endfor %}
 
-  
-
-<div data-gb-custom-block data-tag="if" data-expression='result.data.products.pageInfo.hasNextPage'>
+  {% if result.data.products.pageInfo.hasNextPage %}
     {% assign cursor = result.data.products.pageInfo.endCursor %}
-  <div data-gb-custom-block data-tag="else"></div>
+  {% else %}
     {% break %}
-  </div>
-
-</div>
-
+  {% endif %}
+{% endfor %}
 </code></pre>
 
-<div data-gb-custom-block data-tag="hint" data-style='info'>
-
+{% hint style="info" %}
 To assist with generating a paginated query block, you can use the ["paginated\_query" snippet](../../platform/liquid/mechanic-code-snippets.md#paginated_query) in the Mechanic code editor, and it will prompt you to choose the object type to paginate over (e.g. products).
-
-</div>
-```
-{% endcode %}
+{% endhint %}

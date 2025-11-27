@@ -46,7 +46,7 @@ In "Full request" mode, event data is set to a hash with the following keys:
 <table><thead><tr><th width="171.33333333333331">Key</th><th width="213">Type</th><th>Notes</th></tr></thead><tbody><tr><td><code>body_base64</code></td><td>Base64-encoded string</td><td>The raw request body, encoded in base64</td></tr><tr><td><code>body</code></td><td>Hash or null</td><td>The interpreted set of structured parameters from the request body, or null if parsing fails for any reason</td></tr><tr><td><code>client_ip</code></td><td>String</td><td>The IP address of the requesting client</td></tr><tr><td><code>headers</code></td><td>Hash</td><td>Represents the request headers, keyed by lowercased header names, containing arrays of string values (⚠️ see warning below)</td></tr><tr><td><code>mime_type</code></td><td>String or null</td><td>The MIME type of the request as interpreted from the <code>content-type</code> request header, or null if that header was not found</td></tr><tr><td><code>query_string</code></td><td>String or null</td><td>Contains everything after the "?" character in the request URL, or null if no such value was found</td></tr><tr><td><code>query</code></td><td>Hash or null</td><td>Contains the interpreted set of structured parameters from the query string, or null if none were found</td></tr><tr><td><code>request_id</code></td><td>UUID string</td><td>Uniquely identifies the request, having the same value found in the original webhook request response in the <code>x-request-id</code> header</td></tr><tr><td><code>webhook_id</code></td><td>UUID string</td><td>Identifies the Mechanic webhook which handled the request</td></tr></tbody></table>
 
 {% hint style="info" %}
-Decode the base64-encoded request body with Liquid, using Mechanic's \[decode\\\_base64]\(liquid/filters/#base64-decode\_base64) filter.
+Decode the base64-encoded request body with Liquid, using Mechanic's [decode\_base64](liquid/filters/#base64-decode_base64) filter.
 
 ```liquid
 {% assign raw_request_body = event.data.body_base64 | decode_base64 %}
@@ -84,7 +84,7 @@ When this issue is resolved, the header example above will be represented as fol
 Task code that reads webhook request headers should take these two possible representations into account.
 {% endhint %}
 
-{% code title="Sample " %}
+{% code title="Sample "Full request" event data" %}
 ```json
 {
   "body_base64": "LS0tLS0[...]S0NCg==",
@@ -151,7 +151,7 @@ File uploads are supported via multipart/form-data webhook requests. Each upload
 * `size` — An integer reflecting the size of the file in bytes
 
 {% hint style="info" %}
-Decode base64-encoded file content with Liquid, using Mechanic's \[decode\\\_base64]\(liquid/filters/#base64-decode\_base64) filter.
+Decode base64-encoded file content with Liquid, using Mechanic's [decode\_base64](liquid/filters/#base64-decode_base64) filter.
 
 ```liquid
 {% assign file = event.data.body.my_upload %}
@@ -249,7 +249,7 @@ If an active webhook ID was used, then an event will be created with the submitt
 
 ### Webhook request ID
 
-All POST requests to webhooks.mechanic.dev will receive an `x-request-id` response header, containing a UUID. This ID can be used as a search term when looking up a Mechanic event, and can be referenced in Liquid as a part of the [Event object](liquid/objects/event.md) via `event.webhook_request_id`.
+All POST requests to webhooks.mechanic.dev will receive an `x-request-id` response header, containing a UUID. This ID can be used as a search term when looking up a Mechanic event, and can be referenced in Liquid as a part of the [Event object](liquid/objects/event.md) via `event.webhook_request_id`.&#x20;
 
 ### Retrieving run results
 

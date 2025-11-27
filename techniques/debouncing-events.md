@@ -13,7 +13,16 @@ If you're new to the concept of debouncing: usually encountered in UI implementa
 To set up event debouncing, identify the event topic that's receiving excess traffic. In a new task subscribing to that topic (or updating an existing such task), add a Cache action that sets an expiring flag, like this:
 
 {% code title="Task code" %}
-```
+```liquid
+{% action "cache" %}
+  {
+    "setex": {
+      "key": "foobar_received",
+      "value": true,
+      "ttl": 10
+    }
+  }
+{% endaction %}
 ```
 {% endcode %}
 
@@ -22,7 +31,12 @@ Choose a cache key and ttl value (in seconds) that make sense for your scenario 
 Then, in the store's Mechanic settings, add a new event filter, which renders `false` only if the received event has the topic we're interested in, and if that cached value is still in place.
 
 {% code title="Event filter" %}
-```
+```liquid
+{% if event.topic == "user/foo/bar" and cache.foobar_received %}
+  false
+{% else %}
+  true
+{% endif %}
 ```
 {% endcode %}
 
@@ -37,13 +51,27 @@ The implementation described above identifies and filters events by topic. Howev
 To accomplish this, generate a "fingerprint" of events as you receive them, by assembling the data you're interested in and running it through the sha256 filter, generating a unique string based on the parts of your fingerprint.
 
 {% code title="Task code" %}
-````
+```liquid
+{% assign fingerprint_parts = hash %}
+{% assign fingerprint_parts["product_id"] = event.data.product_id %}
+{% assign fingerprint = fingerprint_parts | json | sha256 %}
+{% assign cache_key = "received_" | append: fingerprint %}
 
-</div>
+{% action "cache" %}
+  {
+    "setex": {
+      "key": {{ cache_key | json }},
+      "value": true,
+      "ttl": 10
+    }
+  }
+{% endaction %}
+```
+{% endcode %}
 
 Then, bring that logic and resulting cache key over to your event filter.
 
-<div data-gb-custom-block data-tag="code" data-title='Event filter'>
+{% code title="Event filter" %}
 ```liquid
 {% assign fingerprint_parts = hash %}
 {% assign fingerprint_parts["product_id"] = event.data.product_id %}
@@ -55,7 +83,7 @@ Then, bring that logic and resulting cache key over to your event filter.
 {% else %}
   true
 {% endif %}
-````
+```
 {% endcode %}
 
 Your fingerprint should be composed of data that identifies a resource as perfectly unique. By doing so, you'll be debouncing event resources, instead of an entire event stream.
