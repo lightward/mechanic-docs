@@ -3,15 +3,12 @@
 At its core, accessing a single resource via either API is effectively the same. Typically this involves passing the ID of the resource to the API and getting back the data for that resource.
 
 {% code title="REST - simple product lookup" %}
-
 ```liquid
 {% assign product = shop.products[product_id] %}
 ```
-
 {% endcode %}
 
 {% code title="GraphQL - simple product query" overflow="wrap" lineNumbers="true" %}
-
 ```liquid
 {% capture query %}
   query {
@@ -26,7 +23,6 @@ At its core, accessing a single resource via either API is effectively the same.
 
 {% assign product = result.data.product %}
 ```
-
 {% endcode %}
 
 ***
@@ -34,7 +30,6 @@ At its core, accessing a single resource via either API is effectively the same.
 In a REST call, every field of that resource will be returned, allowing the usage of simple dot notation to utilize whichever fields are desired without first requesting them.
 
 {% code title="REST - example product logging" lineNumbers="true" %}
-
 ```liquid
 {% assign product = shop.products[product_id] %}
 
@@ -47,7 +42,6 @@ In a REST call, every field of that resource will be returned, allowing the usag
   image: product.image.src
 %}
 ```
-
 {% endcode %}
 
 The equivalent query in GraphQL would need to be augmented to include the desired fields.
@@ -57,7 +51,6 @@ Occasionally, the REST and GraphQL APIs do not use the same field names. And in 
 {% endhint %}
 
 {% code title="GraphQL - example product logging" lineNumbers="true" %}
-
 ```liquid
 {% capture query %}
   query {
@@ -84,7 +77,6 @@ Occasionally, the REST and GraphQL APIs do not use the same field names. And in 
   image: product.featuredImage.url
 %}
 ```
-
 {% endcode %}
 
 ***
@@ -94,7 +86,6 @@ This is a basic task to check a product's status, type, and tags, and then outpu
 The preview block is only showing the fields from the REST product webhook that will be used in the task. In reality, there are about 150+ lines of detail from a product webhook which has only a single variant and image. This grows much larger as variants and images are added to the product.
 
 {% code title="REST - Basic product tagging task" overflow="wrap" lineNumbers="true" %}
-
 ```liquid
 {% if event.preview %}
   {% capture product_json %}
@@ -120,7 +111,6 @@ The preview block is only showing the fields from the REST product webhook that 
   {% endif %}
 {% endif %}
 ```
-
 {% endcode %}
 
 ***
@@ -130,7 +120,6 @@ The product id used in the GraphQL query below comes from the REST-like product 
 The preview block simulates the relevant shape of the returned data, which typically matches exactly what was requested in the query. This could vary though based on the task logic following the preview block.
 
 {% code title="GraphQL - Basic product tagging task" overflow="wrap" lineNumbers="true" %}
-
 ```liquid
 {% capture query %}
   query {
@@ -173,7 +162,6 @@ The preview block simulates the relevant shape of the returned data, which typic
   {% endif %}
 {% endif %}
 ```
-
 {% endcode %}
 
 {% hint style="info" %}

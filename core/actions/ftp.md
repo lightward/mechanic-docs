@@ -161,16 +161,13 @@ This task compiles all SKUs with their titles and prices, and uploads it as a CS
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-
 ```
 mechanic/scheduler/daily
 mechanic/user/trigger
 ```
-
 {% endtab %}
 
 {% tab title="Code" %}
-
 ```liquid
 {% assign csv_rows = array %}
 
@@ -207,6 +204,5 @@ mechanic/user/trigger
   }
 {% endaction %}
 ```
-
 {% endtab %}
 {% endtabs %}

@@ -3,7 +3,6 @@
 A typical REST products loop in Mechanic will have the structure below. While this is a concise format to get all products in shop, its main drawback is the inability to limit or filter the number of records and fields returned. This generates a significant amount of extra data for the task to manage in memory during a task run, especially if connected resources are looped as well (e.g. variants).
 
 {% code title="REST - shop.products resource loop" overflow="wrap" lineNumbers="true" fullWidth="false" %}
-
 ```liquid
 {% for product in shop.products %}
   {% comment %}
@@ -17,7 +16,6 @@ A typical REST products loop in Mechanic will have the structure below. While th
   {% endfor %}
 {% endfor %}
 ```
-
 {% endcode %}
 
 ***
@@ -41,7 +39,6 @@ If a query has the potential to return a very large number of resources (includi
 ### GraphQL Paginated Query
 
 {% code title="GraphQL - paginated products query" overflow="wrap" lineNumbers="true" fullWidth="false" %}
-
 ```liquid
 {% assign cursor = nil %}
 {% assign search_query = nil %}
@@ -122,7 +119,6 @@ If a query has the potential to return a very large number of resources (includi
   {% endif %}
 {% endfor %}
 ```
-
 {% endcode %}
 
 {% hint style="info" %}

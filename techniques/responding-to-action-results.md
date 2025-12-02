@@ -43,18 +43,15 @@ This example cycles between three different modes of operation, depending on the
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-
 ```
 mechanic/user/trigger
 mechanic/actions/perform
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```javascript
 {% if action.run.ok == false %}
   {% action "email" %}
@@ -96,6 +93,5 @@ mechanic/actions/perform
   {% action "echo", "done" %}
 {% endif %}
 ```
-
 {% endtab %}
 {% endtabs %}

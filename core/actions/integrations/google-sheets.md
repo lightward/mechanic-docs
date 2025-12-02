@@ -189,16 +189,13 @@ archives/exports/sheets   # Three levels deep
 ### Read Data From Google Sheet
 
 {% code title="Task subscriptions" %}
-
 ```liquid
 mechanic/user/trigger
 mechanic/actions/perform
 ```
-
 {% endcode %}
 
 {% code title="Task code" %}
-
 ```liquid
 
 
@@ -222,7 +219,6 @@ mechanic/actions/perform
 
 
 ```
-
 {% endcode %}
 
 ## Action Responses

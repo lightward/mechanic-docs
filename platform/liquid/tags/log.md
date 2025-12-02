@@ -10,7 +10,6 @@ This tag has several usage styles, each style resulting in a valid action object
 
 {% tabs %}
 {% tab title="Liquid" %}
-
 ```javascript
 {% log %}
   {
@@ -18,11 +17,9 @@ This tag has several usage styles, each style resulting in a valid action object
   }
 {% endlog %}
 ```
-
 {% endtab %}
 
 {% tab title="JSON" %}
-
 ```javascript
 {
   "log": {
@@ -30,7 +27,6 @@ This tag has several usage styles, each style resulting in a valid action object
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -38,21 +34,17 @@ This tag has several usage styles, each style resulting in a valid action object
 
 {% tabs %}
 {% tab title="Liquid" %}
-
 ```javascript
 {% log "foobar" %}
 ```
-
 {% endtab %}
 
 {% tab title="JSON" %}
-
 ```javascript
 {
   "log": "foobar"
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -60,18 +52,15 @@ This tag has several usage styles, each style resulting in a valid action object
 
 {% tabs %}
 {% tab title="Liquid" %}
-
 ```javascript
 {% assign details = hash %}
 {% assign details["foo"] = "bar" %}
 
 {% log message: "Something to remember", details: details %}
 ```
-
 {% endtab %}
 
 {% tab title="JSON" %}
-
 ```javascript
 {
   "log": {
@@ -82,6 +71,5 @@ This tag has several usage styles, each style resulting in a valid action object
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}

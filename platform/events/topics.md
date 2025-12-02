@@ -75,10 +75,10 @@ Not to be confused with events in the User domain, the mechanic/user event subje
 The following mechanic/user topics are typically used with [Shopify admin action links](../../core/shopify/admin-action-links.md), and are documented there more fully.
 
 * **mechanic/user/collection**\
-  Occurs when a user sends a collection to Mechanic&#x20;
+  Occurs when a user sends a collection to Mechanic
 * **mechanic/user/customer**\
   **mechanic/user/customers**\
-  Occurs when a user sends one or more customers to Mechanic&#x20;
+  Occurs when a user sends one or more customers to Mechanic
 * **mechanic/user/draft\_order**\
   **mechanic/user/draft\_orders**\
   Occurs when a user sends one or more draft orders to Mechanic
@@ -87,10 +87,10 @@ The following mechanic/user topics are typically used with [Shopify admin action
   Occurs when a user sends one or more orders to Mechanic
 * **mechanic/user/variant**\
   **mechanic/user/variants**\
-  Occurs when a user sends one or more product variants to Mechanic&#x20;
+  Occurs when a user sends one or more product variants to Mechanic
 * **mechanic/user/product**\
   **mechanic/user/products**\
-  Occurs when a user sends one or more products to Mechanic&#x20;
+  Occurs when a user sends one or more products to Mechanic
 
 ## Shopify
 
@@ -208,6 +208,7 @@ For a description of each topic's behavior, see Shopify's documentation:
 * shopify/inventory\_transfers/remove\_items
 * shopify/inventory\_transfers/update\_item\_quantities
 * shopify/locales/create
+* shopify/locales/destroy
 * shopify/locales/update
 * shopify/locations/activate
 * shopify/locations/create

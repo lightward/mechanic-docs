@@ -33,7 +33,6 @@ This occurs when a task run fails. (Examples: a task run exceeds Mechanic's memo
 ## Event data
 
 {% code lineNumbers="true" fullWidth="false" %}
-
 ```json
 {
   "message": "Received a Shopify error (resource invalid): Add at least 1 product",
@@ -144,7 +143,6 @@ This occurs when a task run fails. (Examples: a task run exceeds Mechanic's memo
   }
 }
 ```
-
 {% endcode %}
 
 ## Example task

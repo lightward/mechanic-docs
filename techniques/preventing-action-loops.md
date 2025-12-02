@@ -11,7 +11,6 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
 #### **Example: Skip Tagging if Tag Already Exists**
 
 {% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
-
 ```liquid
 {% if event.topic == "shopify/products/update" or event.preview %}
   {% assign existing_tags = product.tags | split: ", " %}
@@ -35,7 +34,6 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
   {% endunless %}
 {% endif %}
 ```
-
 {% endcode %}
 
 #### 2. Timestamp-based Approach
@@ -43,7 +41,6 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
 **Example: Using Timestamps to Prevent Loops**
 
 {% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
-
 ```liquid
 {% if event.topic == "shopify/products/update" or event.preview %}
   {% assign current_timestamp = "now" | date: "%s" %}
@@ -79,7 +76,6 @@ Action loops can occur when a Mechanic task triggers an action that, in turn, ge
   {% endif %}
 {% endif %}
 ```
-
 {% endcode %}
 
 ### Automated Prevention

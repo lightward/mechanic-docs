@@ -18,7 +18,6 @@ This filter converts a browser user agent string into an object that represents 
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% assign browser = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/79.0.259819395 Mobile/16G77 Safari/604.1" | browser %}
 
@@ -41,11 +40,9 @@ device name: {{ browser.device.name }}
 device brand: {{ browser.device.brand }}
 device model: {{ browser.device.model }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```
 Google 79.0.259819395
 
@@ -57,7 +54,6 @@ os: iOS 12.4<br>os name: iOS<br>os version: 12.4<br>os major version: 12<br>os m
 
 device: iPhone<br>device name: iPhone<br>device brand: Apple<br>device model: iPhone
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -72,41 +68,32 @@ Supports converting a two-dimensional array to a CSV string, and back again.
 
 {% tabs %}
 {% tab title="Default" %}
-
 ```liquid
 {{ data | csv }}
 ```
-
 {% endtab %}
 
 {% tab title="Custom Delimiter" %}
-
 ```javascript
 {{ data | csv: ";" }}
 ```
-
 {% endtab %}
 
 {% tab title="Include BOM" %}
-
 ```liquid
 {{ data | csv: include_bom: true }}
 ```
-
 {% endtab %}
 
 {% tab title="Custom Delimiter and BOM" %}
-
 ```liquid
 {{ data | csv: ";", include_bom: true }}
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Example Usage csv and parse_csv filters" %}
-
 ```liquid
 {% if event.preview %}
   {% capture shop_json %}
@@ -227,7 +214,6 @@ Order Name;Order ID;Order Date
 
 {% action "echo" orders_without_headers_custom_delimiter %}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -236,7 +222,6 @@ Order Name;Order ID;Order Date
 Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/docs/themes/liquid/reference/filters/additional-filters#date), and has several important extensions.
 
 {% code title="Quick reference" %}
-
 ```liquid
 {{ "now"
     | date: [format,]
@@ -262,7 +247,6 @@ Mechanic's date filter is based on [Shopify's date filter](https://shopify.dev/d
       [advance: "1 day 10 minutes",]
 }}
 ```
-
 {% endcode %}
 
 #### Format
@@ -477,7 +461,6 @@ Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-a
 
 {% tabs %}
 {% tab title="Usage" %}
-
 ```liquid
 {% capture query %}
   query {
@@ -493,11 +476,9 @@ Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-a
 
 {% log result %}
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 {
   "log": {
@@ -522,7 +503,6 @@ Use [Shopify's GraphiQL query builder](https://shopify.dev/apps/tools/graphiql-a
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -667,7 +647,6 @@ Use this filter on strings to remove indentation from strings.
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% capture message %}
   Hello, friend!
@@ -677,11 +656,9 @@ Use this filter on strings to remove indentation from strings.
 {{ message }}
 {{ message | unindent }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```
   Hello, friend!
   It's a mighty fine day!
@@ -690,7 +667,6 @@ Use this filter on strings to remove indentation from strings.
 Hello, friend!
 It's a mighty fine day!
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -747,25 +723,21 @@ A three-character ISO currency code may be specified as the first argument; curr
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {{ "100000.0" | currency }}
 {{ 100000.0 | currency: "EUR" }}
 {{ 100000 | currency: "EUR", locale: "fr" }}
 {{ 100000 | currency: locale: "fr" }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```
 $100,000.00
 €100,000.00
 €100 000,00
 $100 000,00
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -802,37 +774,29 @@ This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.o
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {{ "1,2,3" | split: "," | in_groups: 2 | json }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```javascript
 [["1","2"],["3",null]]
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {{ "1,2,3" | split: "," | in_groups: 2, fill_with: false | json }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```javascript
 [["1","2"],["3"]]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -844,37 +808,29 @@ This filter is particularly useful when performing work in batches, by making it
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {{ "1,2,3,4,5" | split: "," | in_groups_of: 2 | json }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```javascript
 [["1","2"],["3","4"],["5",null]]
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {{ "1,2,3,4,5" | split: "," | in_groups_of: 2, fill_with: false | json }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```
 [["1","2"],["3","4"],["5"]]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -884,7 +840,6 @@ This filter accepts the name of an object property or attribute, and returns a h
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% capture variants_json %}
   [
@@ -903,11 +858,9 @@ This filter accepts the name of an object property or attribute, and returns a h
 
 {{ variants | index_by: "sku" | json }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```javascript
 {
   "ONE": {
@@ -920,7 +873,6 @@ This filter accepts the name of an object property or attribute, and returns a h
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -930,7 +882,6 @@ This filter appends any number of arguments onto the provided array, returning a
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% assign count_to_three = "one,two,three" | split: "," %}
 
@@ -938,11 +889,9 @@ This filter appends any number of arguments onto the provided array, returning a
 
 {{ count_to_five | join: newline }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```
 one
 two
@@ -950,7 +899,6 @@ three
 four
 five
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -993,7 +941,6 @@ This filter complements Shopify Liquid's [sort](https://shopify.dev/docs/api/liq
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% assign set = "order #10.b,Order #10.a,Order #2.c,order #2.d" | split: "," %}
 
@@ -1006,11 +953,9 @@ sort_natural:
 sort_naturally:
   {{ set | sort_naturally | join: ", " }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```
 unsorted:
   order #10.b, Order #10.a, Order #2.c, order #2.d
@@ -1021,7 +966,6 @@ sort_natural:
 sort_naturally:
   Order #2.c, Order #10.a, order #2.d, order #10.b
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1031,20 +975,16 @@ Returns the sum of all elements in an array.
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% assign primes = array | push: 2, 3, 5, 7, 11 %}
 {{ primes | sum }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```
 28
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1055,21 +995,17 @@ Note that Mechanic's implementation of this filter predates [Shopify's sum filte
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 Original quantities: {{ cart.items | map: "quantity" | join: "," }}
 Sum of quantities:   {{ cart.items | map: "quantity" | sum }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```
 Original quantities: 1,1,2,1,1
 Sum of quantities:   6
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1079,7 +1015,6 @@ This filter prepends any number of arguments onto the provided array, returning 
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% assign count_two_three = "two,three" | split: "," %}
 
@@ -1087,18 +1022,15 @@ This filter prepends any number of arguments onto the provided array, returning 
 
 {{ count_to_three_and_start_at_zero | join: newline }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```
 zero
 one
 two
 three
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1129,7 +1061,6 @@ When applied to a hash, this filter returns a new hash which omits all keys havi
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% assign foo = hash %}
 {% assign foo["bar"] = "baz" %}
@@ -1137,16 +1068,13 @@ When applied to a hash, this filter returns a new hash which omits all keys havi
 {{ foo | json }}
 {{ foo | compact | json }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```javascript
 {"bar":"baz","qux":null}
 {"bar":"baz"}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1154,7 +1082,6 @@ Note that the filter only operates on the top-level keys, it does not affect key
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% assign foo = hash %}
 {% assign foo["bar"] = hash %}
@@ -1165,16 +1092,13 @@ Note that the filter only operates on the top-level keys, it does not affect key
 {% assign foo["bar"] = foo["bar"] | compact %}
 {{ foo | json }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```javascript
 {"bar":{"baz":"baz","quz":null}}
 {"bar":{"baz":"baz"}}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1184,7 +1108,6 @@ This filter accepts one or more string arguments, corresponding to keys that sho
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
@@ -1193,15 +1116,12 @@ This filter accepts one or more string arguments, corresponding to keys that sho
 
 {{ foo | except: "bar", "baz" | json }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```javascript
 {"qux":"qux"}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1215,7 +1135,6 @@ When applied to a hash, the slice filter accepts one or more string arguments, c
 
 {% tabs %}
 {% tab title="Code" %}
-
 ```liquid
 {% assign foo = hash %}
 {% assign foo["bar"] = "bar" %}
@@ -1224,15 +1143,12 @@ When applied to a hash, the slice filter accepts one or more string arguments, c
 
 {{ foo | slice: "bar", "baz" | json }}
 ```
-
 {% endtab %}
 
 {% tab title="Output" %}
-
 ```javascript
 {"bar":"bar","baz":"baz"}
 ```
-
 {% endtab %}
 {% endtabs %}
 

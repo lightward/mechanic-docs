@@ -15,16 +15,13 @@ When viewing any given event in Mechanic, look in the event details to find any 
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-
 ```
 mechanic/user/trigger
 user/fan/out
 ```
-
 {% endtab %}
 
 {% tab title="Code" %}
-
 ```liquid
 {% assign n = event.data | default: 0 | times: 1 %}
 
@@ -42,7 +39,6 @@ user/fan/out
   {% action "echo", event_data: event.data, parent_event_data: event.parent.data %}
 {% endif %}
 ```
-
 {% endtab %}
 {% endtabs %}
 

@@ -38,16 +38,13 @@ When run manually, this task sets an auto-expiring flag in the Mechanic cache, s
 
 {% tabs %}
 {% tab title="Subscriptions" %}
-
 ```
 mechanic/scheduler/10min
 mechanic/user/trigger
 ```
-
 {% endtab %}
 
 {% tab title="Code" %}
-
 ```liquid
 {% if event.topic contains "mechanic/scheduler" %}
   {% if cache["monitor-10min"] %}
@@ -66,6 +63,5 @@ mechanic/user/trigger
   {% action "cache", "setex", "monitor-10min", 600, now %}
 {% endif %}
 ```
-
 {% endtab %}
 {% endtabs %}
