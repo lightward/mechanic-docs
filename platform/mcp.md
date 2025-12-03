@@ -60,9 +60,19 @@ Add configuration code that tells your AI tool how to connect to and use the Mec
 
 #### Claude Desktop and Claude Code
 
-1. For **Claude Desktop**, open the app and access your configuration file through settings. For **Claude Code**, the configuration is managed through the same JSON format.
+**For Claude Desktop:**
+1. Open the app and access your configuration file through settings
+2. Add the JSON configuration below to your MCP servers section
+3. Save and restart Claude Desktop
 
-2. Add this configuration to your MCP servers section:
+**For Claude Code:**
+1. Run this command in your terminal:
+   ```bash
+   claude mcp add --scope user --transport stdio mechanic-mcp -- npx -y @lightward/mechanic-mcp@latest
+   ```
+2. Restart Claude Code to load the server
+
+**Manual JSON configuration (both):**
 
 {% tabs %}
 {% tab title="Configuration" %}
@@ -84,8 +94,6 @@ Add configuration code that tells your AI tool how to connect to and use the Mec
 {% hint style="info" %}
 For more information, read the [Claude Desktop MCP guide](https://modelcontextprotocol.io/quickstart/user).
 {% endhint %}
-
-3. Save your configuration and restart Claude Desktop or Claude Code.
 
 #### Cursor
 
