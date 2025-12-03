@@ -1,8 +1,12 @@
 # 🤖 "I need help with my AI-written task!"
 
+{% hint style="info" %}
+**Connect your AI assistant directly to our task library and documentation using the [Mechanic MCP Server](platform/mcp.md) — it's the best way to help your AI understand Mechanic.**
+
 AI thrives on good examples. Our task library — [tasks.mechanic.dev](https://tasks.mechanic.dev/) — is full of good examples.
 
 And if you get too stuck, hire a human. :) We've got those at [partners.mechanic.dev](https://partners.mechanic.dev/).
+{% endhint %}
 
 ***
 

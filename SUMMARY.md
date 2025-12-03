@@ -13,6 +13,7 @@
 * [🧑‍💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
+* [🤖 Mechanic MCP Server](platform/mcp.md)
 * [🚀 Slack community](resources/slack.md)
 * [🤝 Partner directory](https://partners.mechanic.dev)
 * [🧠 Tutorials](resources/tutorials/README.md)
