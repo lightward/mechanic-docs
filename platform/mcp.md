@@ -61,15 +61,19 @@ Add configuration code that tells your AI tool how to connect to and use the Mec
 #### Claude Desktop and Claude Code
 
 **For Claude Desktop:**
+
 1. Open the app and access your configuration file through settings
 2. Add the JSON configuration below to your MCP servers section
 3. Save and restart Claude Desktop
 
 **For Claude Code:**
+
 1. Run this command in your terminal:
+
    ```bash
    claude mcp add --scope user --transport stdio mechanic-mcp -- npx -y @lightward/mechanic-mcp@latest
    ```
+
 2. Restart Claude Code to load the server
 
 **Manual JSON configuration (both):**
@@ -122,7 +126,7 @@ For more information, read the [Claude Desktop MCP guide](https://modelcontextpr
 For more information, see the [Cursor MCP documentation](https://docs.cursor.com/context/model-context-protocol).
 {% endhint %}
 
-3. Save your configuration and restart Cursor.
+1. Save your configuration and restart Cursor.
 
 #### Codex CLI
 
@@ -144,7 +148,7 @@ args = ["-y", "@lightward/mechanic-mcp@latest"]
 Codex uses TOML format with `mcp_servers` (snake_case) instead of JSON with `mcpServers` (camelCase).
 {% endhint %}
 
-2. Restart Codex to load the new MCP server configuration.
+1. Restart Codex to load the new MCP server configuration.
 
 #### Gemini CLI
 
@@ -171,7 +175,7 @@ Codex uses TOML format with `mcp_servers` (snake_case) instead of JSON with `mcp
 By default, this adds the server to your project configuration. To make it available across all projects, add the `--scope user` flag. For more information, see the [Gemini CLI MCP documentation](https://google-gemini.github.io/gemini-cli/docs/tools/mcp-server.html).
 {% endhint %}
 
-2. Restart Gemini CLI to load the new MCP server configuration.
+1. Restart Gemini CLI to load the new MCP server configuration.
 
 ***
 
