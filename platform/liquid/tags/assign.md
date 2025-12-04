@@ -24,6 +24,7 @@ Arrays support assignment by index, using integer lookups.
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% assign x = array %}
 {% assign x[0] = "one" %}
@@ -34,12 +35,15 @@ Arrays support assignment by index, using integer lookups.
 
 {{ x | json }}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```javascript
 ["one","two","three"]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -49,6 +53,7 @@ Hashes support assignment by key, using string lookups.
 
 {% tabs %}
 {% tab title="Code" %}
+
 ```javascript
 {% assign x = hash %}
 {% assign x["one"] = 1 %}
@@ -59,11 +64,14 @@ Hashes support assignment by key, using string lookups.
 
 {{ x | json }}
 ```
+
 {% endtab %}
 
 {% tab title="Output" %}
+
 ```javascript
 {"one":1,"two":2,"three":3}
 ```
+
 {% endtab %}
 {% endtabs %}

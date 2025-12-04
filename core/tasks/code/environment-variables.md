@@ -15,7 +15,7 @@ Environment variables may be reassigned as needed. (When preparing a task previe
 | `options` | An object containing task [**options**](../options/), configured by the user                                                                               |
 
 {% hint style="info" %}
-The \\\[Shopify variables]\\(environment-variables.md#shopify-variables) available to tasks always contain data drawn from the event itself. If a task has a offset event subscription, this data may be outdated by the time the task runs.
+The \[Shopify variables]\(environment-variables.md#shopify-variables) available to tasks always contain data drawn from the event itself. If a task has a offset event subscription, this data may be outdated by the time the task runs.
 
 To reload the data in a Shopify variable, use something like this:
 

@@ -12,6 +12,7 @@ Because this file generator is used implicitly, when a string is given instead o
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "files" %}
   {
@@ -19,5 +20,6 @@ Because this file generator is used implicitly, when a string is given instead o
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
