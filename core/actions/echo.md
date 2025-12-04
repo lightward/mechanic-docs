@@ -11,10 +11,13 @@ This action accepts any and all options, restricted only in that they must be va
 If the Echo action is given a `"__error"` option, it will raise that error when the action run is performed. Use this feature when it's useful to indicate an issue with a task run, without marking the entire task run as a failure (as would be the case when using an [error object](../tasks/code/error-objects.md)).
 
 {% tabs %}
+
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo", __error: "Forcing an error!" %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -23,31 +26,42 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
 ## Examples
 
 {% tabs %}
+
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo", foo: "bar", baz: "qux" %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
+
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo", "foo", "bar", "baz" %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
+
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo", "foo" %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
+
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "echo" %}
   {
@@ -56,5 +70,6 @@ If the Echo action is given a `"__error"` option, it will raise that error when 
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}

@@ -71,6 +71,7 @@ It can be useful to specify stub data using JSON, fed through the [parse\_json](
 
 {% tabs %}
 {% tab title="GraphQL with stub data" %}
+
 ```liquid
 {% capture query %}
   query {
@@ -110,9 +111,11 @@ It can be useful to specify stub data using JSON, fed through the [parse\_json](
 
 {% log available_publications: result.data.publications %}
 ```
+
 {% endtab %}
 
 {% tab title="GraphQL pagination with stub data" %}
+
 ```liquid
 {% assign cursor = nil %}
 {% assign total_inventory = 0 %}
@@ -182,5 +185,6 @@ It can be useful to specify stub data using JSON, fed through the [parse\_json](
   {% endif %}
 {% endfor %}
 ```
+
 {% endtab %}
 {% endtabs %}

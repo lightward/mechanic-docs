@@ -72,7 +72,7 @@ For example, consider this action:
 {% endaction %}
 ```
 
-The template named "order\_acknowledgement" could include the following Liquid, and get the expected results:
+The template named "order_acknowledgement" could include the following Liquid, and get the expected results:
 
 ```liquid
 This is the first item: {{ order_data.line_items.first.title }}
@@ -97,6 +97,7 @@ For more on this, see [File generators](file-generators/).
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "email" %}
   {
@@ -108,6 +109,7 @@ For more on this, see [File generators](file-generators/).
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -115,6 +117,7 @@ For more on this, see [File generators](file-generators/).
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% capture email_body %}
   <b>Hello!</b>
@@ -130,6 +133,7 @@ For more on this, see [File generators](file-generators/).
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -137,6 +141,7 @@ For more on this, see [File generators](file-generators/).
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 {% action "email" %}
   {
@@ -151,5 +156,6 @@ For more on this, see [File generators](file-generators/).
   }
 {% endaction %}
 ```
+
 {% endtab %}
 {% endtabs %}
