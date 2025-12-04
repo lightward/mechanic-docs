@@ -116,16 +116,11 @@ Branching a task like this has two problems:
 {% endif %}
 ```
 
-{% endtab %}
-
-{% tab title="Subscriptions" %}
+**Subscriptions**
 
 ```
 shopify/orders/create
 ```
-
-{% endtab %}
-{% endtabs %}
 
 ### Dynamic preview actions
 

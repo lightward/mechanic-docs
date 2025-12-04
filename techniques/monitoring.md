@@ -36,17 +36,14 @@ It's generally preferable to use an external service for this sort of thing, rat
 
 When run manually, this task sets an auto-expiring flag in the Mechanic cache, set to expire in ten minutes. Separately, this task checks for the presence of that flag every ten minutes. If the flag is missing (indicating that the task was not run manually in the last ten minutes), the task sends an email.
 
-{% tabs %}
-{% tab title="Subscriptions" %}
+**Subscriptions**
 
 ```
 mechanic/scheduler/10min
 mechanic/user/trigger
 ```
 
-{% endtab %}
-
-{% tab title="Code" %}
+**Code**
 
 ```liquid
 {% if event.topic contains "mechanic/scheduler" %}
@@ -66,6 +63,3 @@ mechanic/user/trigger
   {% action "cache", "setex", "monitor-10min", 600, now %}
 {% endif %}
 ```
-
-{% endtab %}
-{% endtabs %}

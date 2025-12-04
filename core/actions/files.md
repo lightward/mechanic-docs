@@ -32,17 +32,14 @@ A Files action returns an object having the same keys (i.e. filenames) as its in
 
 This task generates a variety of files. It then re-invokes itself (via mechanic/actions/perform), sending an email containing links to each of the generated files.
 
-{% tabs %}
-{% tab title="Subscriptions" %}
+**Subscriptions**
 
 ```liquid
 mechanic/user/trigger
 mechanic/actions/perform
 ```
 
-{% endtab %}
-
-{% tab title="Code" %}
+**Code**
 
 ```liquid
 {% if event.topic == "mechanic/user/trigger" %}
@@ -90,6 +87,3 @@ mechanic/actions/perform
   {% endaction %}
 {% endif %}
 ```
-
-{% endtab %}
-{% endtabs %}

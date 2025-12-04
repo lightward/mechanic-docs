@@ -11,6 +11,8 @@ To inspect and respond to the results of an HTTP action, add a task subscription
 
 If you don't need the follow-up event for a particular action, add `__perform_event: false` to that action to skip emitting mechanic/actions/perform while still performing the action.
 
+To attach meta while using any of the action tag syntaxes, add `__meta` and Mechanic will move that value into the action's meta field.
+
 Learn more: [Responding to action results](../../techniques/responding-to-action-results.md)
 {% endhint %}
 

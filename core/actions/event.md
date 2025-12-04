@@ -97,17 +97,14 @@ This example uses the `run_at` option to run the task at a later scheduled time.
 
 This task emails a customer daily until their order is paid. It works by scheduling a follow-up run of the same task, one day in the future, using the `run_at` option.
 
-{% tabs %}
-{% tab title="Subscriptions" %}
+**Subscriptions**
 
 ```liquid
 shopify/orders/create
 user/orders/unpaid_reminder
 ```
 
-{% endtab %}
-
-{% tab title="Code" %}
+**Code**
 
 ```javascript
 {% if event.preview %}
@@ -144,24 +141,19 @@ user/orders/unpaid_reminder
 {% endunless %}
 ```
 
-{% endtab %}
-{% endtabs %}
 
 #### Using subscription offsets
 
 This task emails a customer daily until their order is paid. It works by firing the follow-up event immediately, using a subscription offset to respond to it a day later.
 
-{% tabs %}
-{% tab title="Subscriptions" %}
+**Subscriptions**
 
 ```liquid
 shopify/orders/create
 user/orders/unpaid_reminder+1.day
 ```
 
-{% endtab %}
-
-{% tab title="Code" %}
+**Code**
 
 ```javascript
 {% if event.preview %}
@@ -196,6 +188,3 @@ user/orders/unpaid_reminder+1.day
   {% endaction %}
 {% endunless %}
 ```
-
-{% endtab %}
-{% endtabs %}

@@ -38,7 +38,10 @@ Action **options** vary by action type. Depending on the action type, its option
 
 #### Control parameters
 
-Mechanic reserves a small set of double-underscore parameters for controlling how an action is handled. The current control parameter is `__perform_event`. Set it to `false` to skip emitting the follow-up `mechanic/actions/perform` event for that specific action (the default is to emit it).
+Mechanic reserves a small set of double-underscore parameters for controlling how an action is handled. These control parameters include:
+
+- `__perform_event`, which you can set to `false` to skip emitting the follow-up `mechanic/actions/perform` event for that specific action (the default is to emit it).
+- `__meta`, which moves the provided value into the action's `meta` field so you can attach meta data while using any action tag syntax.
 
 Examples:
 
@@ -47,14 +50,51 @@ Examples:
 ```
 
 ```liquid
-{%- action "shopify", __perform_event: false -%}
-  mutation { shop { id } }
-{%- endaction -%}
+{%- assign meta = hash -%}
+{%- assign meta["source"] = "cache" -%}
+{%- action "cache", "set", "foo", "bar", __meta: meta -%}
 ```
 
 ### Meta
 
 Actions may optionally include **meta** information, annotating the action with any JSON value.
+
+When you're using the action tag, you can attach meta in a few ways:
+
+- Provide a `meta` object alongside `options` when you're supplying an options hash.
+- Supply meta as the second positional argument when the options are a hash.
+- Use the `__meta` control parameter with any action tag syntax to move the value into the action's meta.
+
+```liquid
+{%- assign options = hash -%}
+{%- assign options["method"] = "post" -%}
+{%- assign options["url"] = "https://postman-echo.com/post" -%}
+{%- assign meta = hash -%}
+{%- assign meta["mode"] = "initial_request" -%}
+{%- action "http", options: options, meta: meta -%}
+```
+
+```liquid
+{%- assign options = hash -%}
+{%- assign options["method"] = "post" -%}
+{%- assign options["url"] = "https://postman-echo.com/post" -%}
+{%- assign meta = hash -%}
+{%- assign meta["mode"] = "initial_request" -%}
+{%- action "http", options, meta -%}
+```
+
+```liquid
+{%- assign meta = hash -%}
+{%- assign meta["note"] = "graphql" -%}
+{%- action "shopify", __meta: meta -%}
+  mutation {
+    tagsAdd(id: "gid://shopify/Customer/1234567890", tags: ["vip"]) {
+      node { id }
+      userErrors { field message }
+    }
+  }
+{%- endaction -%}
+```
 
 This information could be purely for record-keeping, making it easy to determine why an action was rendered, or to add helpful context:
 

@@ -41,19 +41,14 @@ Mechanic will step in and forcibly fail subsequent task runs that contain result
 
 This example cycles between three different modes of operation, depending on the [meta information](../core/tasks/code/action-objects.md#meta) recorded in the action definition. And, by checking on `action.run.ok` at the very beginning, the task is also able to "break" into failure-handling mode, in which an email is sent to an administrator.
 
-{% tabs %}
-{% tab title="Subscriptions" %}
+**Subscriptions**
 
 ```
 mechanic/user/trigger
 mechanic/actions/perform
 ```
 
-{% endtab %}
-{% endtabs %}
-
-{% tabs %}
-{% tab title="Code" %}
+**Code**
 
 ```javascript
 {% if action.run.ok == false %}
@@ -96,6 +91,3 @@ mechanic/actions/perform
   {% action "echo", "done" %}
 {% endif %}
 ```
-
-{% endtab %}
-{% endtabs %}

@@ -136,17 +136,14 @@ As with all runs, HTTP action errors are subject to [Mechanic's retry policy](..
 
 This task prompts the user for text input, and submits it to a public API that returns everything submitted to it. The task then re-invokes itself, using the [Echo](echo.md) action to display the response status, content type, and body.
 
-{% tabs %}
-{% tab title="Subscriptions" %}
+**Subscriptions**
 
 ```
 mechanic/user/text
 mechanic/actions/perform
 ```
 
-{% endtab %}
-
-{% tab title="Code" %}
+**Code**
 
 ```liquid
 {% if event.topic == "mechanic/user/text" %}
@@ -164,6 +161,3 @@ mechanic/actions/perform
     response_body: action.run.result.body %}
 {% endif %}
 ```
-
-{% endtab %}
-{% endtabs %}
