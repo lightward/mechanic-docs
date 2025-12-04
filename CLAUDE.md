@@ -125,12 +125,12 @@ Warning message
 
 ```markdown
 {% tabs %}
-{% tab title="Liquid" %}
+{% tab title="Example A" %}
 Code example
 {% endtab %}
 
-{% tab title="JSON" %}
-Output example
+{% tab title="Example B" %}
+Alternate example
 {% endtab %}
 {% endtabs %}
 ```

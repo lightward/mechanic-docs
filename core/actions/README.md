@@ -16,7 +16,7 @@ Learn more: [Responding to action results](../../techniques/responding-to-action
 
 ## Action types
 
-An **action type** determines the class of operation to be performed. While actions may vary greatly, there are only a few action types.
+An **action type** determines the class of operation to be performed. While actions may vary greatly, there are only a few action types. Shopify is treated as a first-class action because it's the primary API Mechanic automates against.
 
 | Action            | Purpose                                                                              |
 | ----------------- | ------------------------------------------------------------------------------------ |
@@ -27,10 +27,11 @@ An **action type** determines the class of operation to be performed. While acti
 | [Files](files.md) | Generating files of various types, storing them at a temporary Mechanic-provided URL |
 | [FTP](ftp.md)     | Performing FTP file uploads and downloads                                            |
 | [HTTP](http.md)   | Performing HTTP requests                                                             |
+| [Shopify](shopify.md) | Sending requests to the Shopify Admin API                                      |
 
 ### Integrations
 
-Mechanic maintains a set of integration actions, offering first-class support for several external services.
+Mechanic also maintains a set of integration actions for third-party services beyond Shopify.
 
 | Action                                           | Integrated service               | Purpose                                                                        |
 | ------------------------------------------------ | -------------------------------- | ------------------------------------------------------------------------------ |
@@ -40,5 +41,4 @@ Mechanic maintains a set of integration actions, offering first-class support fo
 | [Google Drive](integrations/google-drive.md)     | Google Drive                     | Upload files to Google Drive                                                   |
 | [Google Sheets](integrations/google-sheets.md)   | Google Sheets                    | Create, Update, Export Google Sheets                                           |
 | [Report Toaster](integrations/report-toaster.md) | Report Toaster                   | Requesting reports from Report Toaster, or updating data within Report Toaster |
-| [Shopify](integrations/shopify.md)               | Shopify Admin API                | Sending requests to the Shopify Admin API, supporting both REST and GraphQL    |
 | [Slack](integrations/slack.md)                   | Slack                            | Posting messages to Slack                                                      |
