@@ -2,7 +2,7 @@
 
 The **action tag** renders an [**action object**](../../../core/tasks/code/action-objects.md) in JSON, which in turn defines work to be performed by an [**action**](../../../core/actions/).
 
-Mechanic also recognizes certain double-underscore control parameters on actions. The most common is `__perform_event: false`, which tells Mechanic _not_ to emit the follow-up `mechanic/actions/perform` event for that action. Control parameters work with every syntax shown below.
+Mechanic also recognizes certain double-underscore control parameters on actions. For example, `__perform_event: false` tells Mechanic _not_ to emit the follow-up `mechanic/actions/perform` event for that action, and `__meta` lets you attach meta data without writing an explicit `meta` block. Control parameters work with every syntax shown below.
 
 ## Syntax
 
@@ -14,7 +14,7 @@ As with nearly all Liquid tags, the action tag supports Liquid variables. This m
 
 ### Block syntax
 
-This usage style offers the lightest form of abstraction, in that it only abstracts away `{ "action": ... }` layer of the resulting JSON object. Use this style when it's necessary to also provide [meta information for an action](../../../core/tasks/code/action-objects.md#meta), in addition to the action's type and options.
+This usage style offers the lightest form of abstraction, in that it only abstracts away `{ "action": ... }` layer of the resulting JSON object. It's one option for specifying [meta information for an action](../../../core/tasks/code/action-objects.md#meta) alongside the action's type and options, but you can just as easily add meta to the other syntaxes using `meta:` or the `__meta` control parameter (see below).
 
 ```liquid
 {% action %}
@@ -83,32 +83,38 @@ tag.
 
 ## Control parameters
 
-Control parameters adjust how Mechanic handles the resulting action. Add them inline with a double-underscore key. Today, `__perform_event: false` is available to skip emitting the follow-up `mechanic/actions/perform` event for that action while still running the action itself.
+Control parameters adjust how Mechanic handles the resulting action. Add them inline with a double-underscore key. Two are available today:
 
-{% tabs %}
-{% tab title="Positional" %}
+- `__perform_event: false` skips emitting the follow-up `mechanic/actions/perform` event for that action while still running the action itself.
+- `__meta` attaches meta to the action, even when you're using the tag syntaxes instead of an explicit `meta` object.
+
+**Positional options**
 
 ```liquid
-{% action "cache", "set", "foo", "bar", __perform_event: false %}
+{% assign meta = hash %}
+{% assign meta["source"] = "cache" %}
+{% action "cache", "set", "foo", "bar", __meta: meta, __perform_event: false %}
 ```
 
-{% endtab %}
-
-{% tab title="Mapped" %}
+**Mapped options**
 
 ```liquid
-{% action "http", method: "get", url: "https://postman-echo.com/get", __perform_event: false %}
+{% assign meta = hash %}
+{% assign meta["note"] = "http" %}
+{% action "http", method: "get", url: "https://postman-echo.com/get", __meta: meta %}
 ```
 
-{% endtab %}
-
-{% tab title="Shopify GraphQL" %}
+**Shopify GraphQL**
 
 ```liquid
-{% action "shopify", __perform_event: false %}
-  mutation { shop { id } }
+{% assign meta = hash %}
+{% assign meta["level"] = "info" %}
+{% action "shopify", __meta: meta %}
+  mutation {
+    tagsAdd(id: "gid://shopify/Customer/1234567890", tags: ["vip"]) {
+      node { id }
+      userErrors { field message }
+    }
+  }
 {% endaction %}
 ```
-
-{% endtab %}
-{% endtabs %}

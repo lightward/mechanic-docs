@@ -159,17 +159,14 @@ Uploads are processed before downloads; it can be useful to test by uploading a 
 
 This task compiles all SKUs with their titles and prices, and uploads it as a CSV every night or on demand.
 
-{% tabs %}
-{% tab title="Subscriptions" %}
+**Subscriptions**
 
 ```
 mechanic/scheduler/daily
 mechanic/user/trigger
 ```
 
-{% endtab %}
-
-{% tab title="Code" %}
+**Code**
 
 ```liquid
 {% assign csv_rows = array %}
@@ -207,6 +204,3 @@ mechanic/user/trigger
   }
 {% endaction %}
 ```
-
-{% endtab %}
-{% endtabs %}

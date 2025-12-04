@@ -13,17 +13,14 @@ When viewing any given event in Mechanic, look in the event details to find any 
 
 ## Example
 
-{% tabs %}
-{% tab title="Subscriptions" %}
+**Subscriptions**
 
 ```
 mechanic/user/trigger
 user/fan/out
 ```
 
-{% endtab %}
-
-{% tab title="Code" %}
+**Code**
 
 ```liquid
 {% assign n = event.data | default: 0 | times: 1 %}
@@ -42,9 +39,6 @@ user/fan/out
   {% action "echo", event_data: event.data, parent_event_data: event.parent.data %}
 {% endif %}
 ```
-
-{% endtab %}
-{% endtabs %}
 
 As written, this task will "fan out": it will generate 1 child event, which will then generate 2 child events, each of which will then generate 3 child events, and each of those will then generate 4 child events, and finally, each of those events will generate 5 child events of their own. The result: 154 events, created with a single click. 💪
 
