@@ -52,6 +52,6 @@ To see the results of the data retrieval you need to click on the **mechanic/act
 
 ### Next steps
 
-Using the reference information available in these docs, write your own Mechanic script to iterate over the rows of data (array of hashes) that is parsed from the CSV, and make useful [updates to your Shopify data](../../core/actions/integrations/shopify.md) using the GraphQL or REST APIs.
+Using the reference information available in these docs, write your own Mechanic script to iterate over the rows of data (array of hashes) that is parsed from the CSV, and make useful [updates to your Shopify data](../../core/actions/shopify.md) using the GraphQL or REST APIs.
 
 If you have any questions, head to [our community Slack](../slack.md).

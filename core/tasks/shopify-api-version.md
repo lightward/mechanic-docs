@@ -6,7 +6,7 @@ This version is used in all activity related to the current task, including:
 
 * REST API calls performed to support Liquid lookups
 * GraphQL calls performed by [the shopify Liquid filter](shopify-api-version.md)
-* All Shopify API calls performed by [the Shopify action](../actions/integrations/shopify.md), including [bulk operations](shopify-api-version.md)
+* All Shopify API calls performed by [the Shopify action](../actions/shopify.md), including [bulk operations](shopify-api-version.md)
 
 {% hint style="info" %}
 When a task run starts, it checks the Shopify API version configured for the task at that time. Action runs always inherit their Shopify API version from their task run. This means that changing a task's Shopify API version can affect queued task runs, but won't change queued action runs.

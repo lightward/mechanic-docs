@@ -2,7 +2,7 @@
 
 Mechanic has native awareness of Shopify's **Admin API rate limit**, and will accordingly manage the execution of operations that require access to the Shopify API. Mechanic users do not need to manage the API rate limit themselves.
 
-If the rate limit has been reached, any due task runs or [Shopify action](../actions/integrations/shopify.md) runs will wait to be enqueued until the rate limit has recovered.
+If the rate limit has been reached, any due task runs or [Shopify action](../actions/shopify.md) runs will wait to be enqueued until the rate limit has recovered.
 
 If the rate limit is reached _during_ a run's performance, Mechanic will automatically wait and retry any affected API queries until they succeed, up to a certain number of retries. If the API rate limit does not recover in a reasonable amount of time, Mechanic will raise a permanent error for the run.
 
