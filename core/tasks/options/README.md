@@ -1,15 +1,38 @@
 # Options
 
-[**Tasks**](https://learn.mechanic.dev/core/tasks) accept user configuration via **options**. Options are created dynamically, by reference: each option referenced in a task's [**code**](https://learn.mechanic.dev/core/tasks/code) results in that option being added to the task's configuration form. In the option reference `{{ options.foo_bar__required }}`, the option **key** is `foo_bar__required`. The appearance and behavior of the option's form element is based on **flags** in in the option key – in this example, only the "required" flag is in use.
+[**Tasks**](https://learn.mechanic.dev/core/tasks) can accept user configuration via **options**. Options are created automatically: when you reference `options.something` in your task's [**code**](https://learn.mechanic.dev/core/tasks/code), Mechanic adds an input field for it in the task configuration UI.
 
-Mechanic flags provide only limited option validation. A task may define [**custom validation**](https://learn.mechanic.dev/core/tasks/options/custom-validation), by rendering error objects according to the task's its own validation logic.
+You can add **flags** to an option key (like `__required` or `__select_...`) to control what kind of input is shown and how it's validated.
+
+Mechanic flags provide only limited option validation. For anything more advanced, a task can define [**custom validation**](https://learn.mechanic.dev/core/tasks/options/custom-validation).
+
+## Quick start
+
+Paste any of these into your task code (even inside a `{% comment %}` block) to create an option:
+
+Options flagged with `__userform` will also appear on the **Run task** form for tasks that subscribe to `mechanic/user/form`.
+
+```liquid
+{{ options.note }}
+{{ options.subject__required }}
+{{ options.body__multiline }}
+{{ options.reply_to__email_required }}
+{{ options.channels__multiselect_o1_email_o2_sms }}
+{{ options.enabled__boolean }}
+{{ options.count__number }}
+{{ options.tags__array }}
+{{ options.mode__select_o1_test_o2_live }}
+{{ options.run_mode__select_o1_test_o2_live__userform__required }}
+```
 
 ## 1. Keys
 
-Options are made available in the `options` variable, which is a hash having key-value pairs for each option key and option value. The option key must only contain ASCII numbers, lowercase letters, and underscores. The option key is reformatted for use as the option name presented to the user – underscores are replaced by spaces, and the entire line is sentence-cased.
+Options are available in the `options` Liquid variable. Each option key becomes one field in the UI, and one value at runtime.
+
+Option keys must contain only lowercase letters, numbers, and underscores. Mechanic uses the key to generate a label (underscores become spaces).
 
 ```
-<name>[__<flag>[ _<flag> ... ]]
+<name>[__<flag>[ _<flag> ... ]][__<flag>[ _<flag> ... ] ...]
 ```
 
 | Part   | Rules                                                    | Example                              |
@@ -17,7 +40,9 @@ Options are made available in the `options` variable, which is a hash having key
 | `name` | Lowercase letters, numbers, and underscores only.        | `send_after`                         |
 | `flag` | One or more tokens that customise the field (see below). | `required`, `date`, `picker_product` |
 
-Because option keys are registered via static analysis, options must each be referenced using a standard lookup (e.g. `options.foobar`) at least once.
+Flags are usually specified after the first `__`, separated with underscores (`_`). For complex option types (notably `select` / `choice` / `multiselect`), you may also append additional flag segments using `__` (e.g. `__userform__required`) to avoid accidentally changing the last choice value.
+
+Mechanic finds options by scanning your task code, so each option must be referenced at least once using a normal lookup like `options.foobar`.
 
 ***
 
@@ -47,14 +72,14 @@ Many flags may be combined with other flags, for more nuanced control.
 
 If no flags are used for an option, an option will be made available as a plain text field, and the option value will be a string.
 
-The special **`userform`** flag does not change the input type or validation; it simply marks an option as one that should appear on the _Run-task_ form (topic `mechanic/user/form`) in additions to the general task options screen.
+The special **`userform`** flag does not change the input type or validation; it simply marks an option as one that should appear on the **Run task** form (topic `mechanic/user/form`) in addition to the general task options screen.
 
 #### Flags fall into three categories:
 
 | Category            | Purpose                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **Input types**     | Choose a specific control and value type (date picker, slider, select list, …). Exactly **one** input‑type flag should be used. |
-| **Form modifiers**  | Fine‑tune how the control looks or validates (required, multiline, etc.).                                                       |
+| **Input types**     | Choose what kind of input you want (date picker, slider, select list, …). Pick exactly **one** input-type.                      |
+| **Form modifiers**  | Fine‑tune how the control validates or behaves (required, email, etc.).                                                         |
 | **Auxiliary flags** | Extra behaviour for certain input types (future‑only dates, multi‑select choices, etc.).                                        |
 
 ### 3.1 Input‑type flags
@@ -80,6 +105,20 @@ Use ordinal tokens to define values:
 
 Ordinals (`o1`, `o2`, …) determine display order. Underscores inside values are preserved.
 
+Because flags are parsed from underscore-separated tokens, avoid using flag words like `required` and `userform` as literal choice values.
+
+##### Combining choice/select with `userform` / `required`
+
+For `select`, `choice`, and `multiselect`, prefer appending modifier flags as additional `__` segments:
+
+* `options.aggregate__select_o1_first_o2_last_o3_sum__userform__required`
+
+Appending modifiers at the end of the same underscore-delimited segment also works:
+
+* `options.aggregate__select_o1_first_o2_last_o3_sum_userform_required`
+
+Do not put modifiers before the input-type flag (e.g. `options.aggregate__userform_select_...` or `options.aggregate__required_select_...`).
+
 #### Range grammar
 
 * `min<number>` – **required**
@@ -101,7 +140,7 @@ Ordinals (`o1`, `o2`, …) determine display order. Underscores inside values ar
 | ---------- | ---------- | ---------------------------------------------------------------- |
 | `required` | Any        | Field must be filled before Save.                                |
 | `email`    | `text`     | Adds email placeholder and basic email format check.             |
-| `userform` | Any        | Shows this option on  **Run task** form (`mechanic/user/form`).  |
+| `userform` | Any        | Shows this option on **Run task** form (`mechanic/user/form`).   |
 
 ### 3.3 Auxiliary flags
 
@@ -134,7 +173,8 @@ Liquid code in task options have access to the same set of [environment variable
 
 | Goal           | Key snippet                                     | Value example                  |
 | -------------- | ----------------------------------------------- | ------------------------------ |
-| Text input     | `options.subject__required`                     | `"Welcome!"`                   |
+| Text input     | `options.subject`                               | `"Welcome!"`                   |
+| Text input (required) | `options.subject__required`              | `"Welcome!"`                   |
 | Email input    | `options.reply_to__email_required`              | `"person@example.com"`         |
 | Checkbox       | `options.newsletter__boolean`                   | `false`                        |
 | Key–value map  | `options.headers__keyval`                       | `{ "X-Env": "staging" }`       |
@@ -142,16 +182,17 @@ Liquid code in task options have access to the same set of [environment variable
 | 0–100 slider   | `options.score__range_min0_max100`              | `42`                           |
 | Colour picker  | `options.bg__color`                             | `"#336699"`                    |
 | Dropdown       | `options.plan__select_o1_basic_o2_pro`          | `"basic"`                      |
+| Run task dropdown | `options.plan__select_o1_basic_o2_pro__userform__required` | `"basic"`                      |
 | Multi‑select   | `options.channels__multiselect_o1_email_o2_sms` | `["email","sms"]`              |
 | Product picker | `options.promo__picker_product`                 | `"gid://shopify/Product/123"`  |
 | Product list   | `options.products__picker_product_array`        | `[ "gid://…/1", "gid://…/2" ]` |
 | Date           | `options.go_live__date_required`                | `"2025-05-06"`                 |
 | Time           | `options.quiet_at__time`                        | `"00:25"`                      |
-| Datetime       | options.party__datetime                       | `"2031-04-22T15:13:00"`        |
+| Datetime       | `options.party__datetime`                       | `"2031-04-22T15:13:00"`        |
 
 ### Working with date options
 
-Getting a plain string (strip the offset)
+Formatting date/time option values
 
 ```
 {{ options.launch_date__date | date: "%Y-%m-%d" }}
