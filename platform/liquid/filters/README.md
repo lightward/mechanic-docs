@@ -954,6 +954,29 @@ five
 {% endtab %}
 {% endtabs %}
 
+### except
+
+This filter accepts one or more arguments, corresponding to values that should be left out of the output. The filter returns a new array, containing all the elements of the original array _except_ those values.
+
+{% tabs %}
+{% tab title="Code" %}
+
+```liquid
+{% assign items = array | push: "bar", "baz", "qux" %}
+{{ items | except: "bar", "baz" | json }}
+```
+
+{% endtab %}
+
+{% tab title="Output" %}
+
+```javascript
+["qux"]
+```
+
+{% endtab %}
+{% endtabs %}
+
 ### sample
 
 This filter can be used on any array. Used without any arguments, it returns a single random element from the array. Provide an integer argument to return another array of that size, containing a random subset of the input array.
