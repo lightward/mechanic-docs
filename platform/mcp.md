@@ -1,4 +1,4 @@
-# Mechanic MCP Server
+# 🤖 Mechanic MCP Server
 
 Connect your AI assistant to Mechanic's task library and documentation. The Mechanic Model Context Protocol (MCP) server enables your AI assistant to search tasks, explore documentation, and fetch task code.
 
@@ -68,19 +68,17 @@ Add configuration code that tells your AI tool how to connect to and use the Mec
 
 **For Claude Code:**
 
-1. Run this command in your terminal:
+1.  Run this command in your terminal:
 
-   ```bash
-   claude mcp add --scope user --transport stdio mechanic-mcp -- npx -y @lightward/mechanic-mcp@latest
-   ```
-
+    ```bash
+    claude mcp add --scope user --transport stdio mechanic-mcp -- npx -y @lightward/mechanic-mcp@latest
+    ```
 2. Restart Claude Code to load the server
 
 **Manual JSON configuration (both):**
 
 {% tabs %}
 {% tab title="Configuration" %}
-
 ```json
 {
   "mcpServers": {
@@ -91,7 +89,6 @@ Add configuration code that tells your AI tool how to connect to and use the Mec
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -102,12 +99,10 @@ For more information, read the [Claude Desktop MCP guide](https://modelcontextpr
 #### Cursor
 
 1. Open Cursor and go to **Cursor** > **Settings** > **Cursor Settings** > **Tools and integrations** > **New MCP server**.
-
 2. Add this configuration to your MCP servers:
 
 {% tabs %}
 {% tab title="Configuration" %}
-
 ```json
 {
   "mcpServers": {
@@ -118,7 +113,6 @@ For more information, read the [Claude Desktop MCP guide](https://modelcontextpr
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -134,18 +128,16 @@ For more information, see the [Cursor MCP documentation](https://docs.cursor.com
 
 {% tabs %}
 {% tab title="Configuration" %}
-
 ```toml
 [mcp_servers.mechanic-mcp]
 command = "npx"
 args = ["-y", "@lightward/mechanic-mcp@latest"]
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
-Codex uses TOML format with `mcp_servers` (snake_case) instead of JSON with `mcpServers` (camelCase).
+Codex uses TOML format with `mcp_servers` (snake\_case) instead of JSON with `mcpServers` (camelCase).
 {% endhint %}
 
 1. Restart Codex to load the new MCP server configuration.
@@ -156,7 +148,6 @@ Codex uses TOML format with `mcp_servers` (snake_case) instead of JSON with `mcp
 
 {% tabs %}
 {% tab title="Configuration" %}
-
 ```json
 {
   "mcpServers": {
@@ -167,7 +158,6 @@ Codex uses TOML format with `mcp_servers` (snake_case) instead of JSON with `mcp
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 

@@ -39,7 +39,7 @@ In most cases, every object that has an ID will appear as a separate object, in 
 The JSON objects returned from bulk operation queries each include a `"__parentId"` attribute for connected objects, containing the parent object's ID. To make managing task scripts easier, Mechanic allows you to simply call `{{ object.__parent }}` to look up an object's parent.
 
 {% hint style="info" %}
-Because all objects are returned as peers in a flat set, we've found that processing objects is easiest when you can easily identify each object by its type. To that end, try including `__typename` in the list of selections for each node, right alongside `id`.
+Because all objects are returned as peers in a flat set, we've found that processing objects is easiest when you can easily identify each object by its type. To that end, try including \`\_\_typename\` in the list of selections for each node, right alongside \`id\`.
 
 This technique allows the array of objects to be quickly filtered by type:
 
