@@ -39,9 +39,7 @@ If a variable reference comes up missing, Liquid will silently use `nil` instead
 {% endhint %}
 
 {% hint style="info" %}
-In Liquid, \`null\` is not a keyword literal. But, because \`null\` is also typically not used as a variable name in Mechanic Liquid code, and because Liquid uses \`nil\` when a variable is not found, it works out: \`\{% assign foo = null %\}\` results in assigning \`foo\` a value of \`nil\`. (Unless, of course, \`null\` was previously assigned to something else, e.g. \`\{% assign null = "something else" %\}\`
-
-.)
+In Liquid, `null` is not a keyword literal. But, because `null` is also typically not used as a variable name in Mechanic Liquid code, and because Liquid uses `nil` when a variable is not found, it works out: `{% assign foo = null %}` results in assigning `foo` a value of `nil`. (Unless, of course, `null` was previously assigned to something else, e.g. `{% assign null = "something else" %}`.)
 {% endhint %}
 
 ```liquid
@@ -52,21 +50,27 @@ In Liquid, \`null\` is not a keyword literal. But, because \`null\` is also typi
 
 {% tabs %}
 {% tab title="Liquid" %}
+
 ```liquid
 email address: {{ order.email }}
 ```
+
 {% endtab %}
 
 {% tab title="Output when not nil" %}
+
 ```
 email address: joe@joegmail.com
 ```
+
 {% endtab %}
 
 {% tab title="Output when nil" %}
+
 ```
 email address:
 ```
+
 {% endtab %}
 {% endtabs %}
 
