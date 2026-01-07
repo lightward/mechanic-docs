@@ -10,7 +10,7 @@ Mechanic flags provide only limited option validation. For anything more advance
 
 Paste any of these into your task code (even inside a `{% comment %}` block) to create an option:
 
-Options flagged with `__userform` will also appear on the **Run task** form for tasks that subscribe to `mechanic/user/form`.
+Options flagged with `__userform` will also appear on the **Run task** form for tasks that subscribe to `mechanic/user/form`, and on the Run tasks page for Shopify admin action links (mechanic/user/{resource} topics). Submitted values are available in Liquid as `input.<name>`.
 
 ```liquid
 {{ options.note }}
@@ -72,7 +72,7 @@ Many flags may be combined with other flags, for more nuanced control.
 
 If no flags are used for an option, an option will be made available as a plain text field, and the option value will be a string.
 
-The special **`userform`** flag does not change the input type or validation; it simply marks an option as one that should appear on the **Run task** form (topic `mechanic/user/form`) in addition to the general task options screen.
+The special **`userform`** flag does not change the input type or validation; it simply marks an option as one that should appear on the **Run task** form (topic `mechanic/user/form`) and the Run tasks page for Shopify admin action links, in addition to the general task options screen.
 
 #### Flags fall into three categories:
 
@@ -140,7 +140,7 @@ Do not put modifiers before the input-type flag (e.g. `options.aggregate__userfo
 | ---------- | ---------- | ---------------------------------------------------------------- |
 | `required` | Any        | Field must be filled before Save.                                |
 | `email`    | `text`     | Adds email placeholder and basic email format check.             |
-| `userform` | Any        | Shows this option on **Run task** form (`mechanic/user/form`).   |
+| `userform` | Any        | Shows this option on **Run task** form (`mechanic/user/form`) and on Shopify admin action link runs.   |
 
 ### 3.3 Auxiliary flags
 
