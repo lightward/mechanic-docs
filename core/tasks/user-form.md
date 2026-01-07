@@ -14,7 +14,7 @@ Click the link button beside the title of the form to copy a link to the form th
 
 ### Getting the user’s input in code
 
-During a `mechanic/user/form` event, the ad-hoc values arrive under event.data.
+During a `mechanic/user/form` event, ad-hoc values are available as `input.<name>`. `event.data` also contains these values for backward compatibility.
 
 ```liquid
 {% # These will appear on the run task user form %}
