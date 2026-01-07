@@ -35,8 +35,7 @@ During a `mechanic/user/form` event, ad-hoc values are available as `input.<name
 ```
 
 {% hint style="info" %}
-Tip: `event.data` contains the values for the fields you exposed; fall back to\
-`options.*` for everything else.
+Note: `event.data` contains submitted values for backward compatibility. Prefer `input.<name>` going forward, and use `options.*` for stored task options.
 {% endhint %}
 
 User form options also appear on the Run tasks page for Shopify admin action links (mechanic/user/{resource} topics). In that context, `input.<name>` is still the recommended way to access user input.
