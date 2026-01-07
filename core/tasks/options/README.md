@@ -10,7 +10,7 @@ Mechanic flags provide only limited option validation. For anything more advance
 
 Paste any of these into your task code (even inside a `{% comment %}` block) to create an option:
 
-Options flagged with `__userform` will also appear on the **Run task** form for tasks that subscribe to `mechanic/user/form`, and on the Run tasks page for Shopify admin action links (mechanic/user/{resource} topics). These are [User Form](../user-form.md) fields, and submitted values are available in Liquid as `input.<name>`.
+Options flagged with `__userform` will also appear on the **Run task** form for tasks that subscribe to `mechanic/user/form`, and on the Run tasks page for Shopify admin action links (mechanic/user/{resource} topics). These are [User Form](../user-form.md) fields, and submitted values are available in Liquid as `input.<name>`. See [Shopify admin action links](../../shopify/admin-action-links.md) for the end-user flow.
 
 ```liquid
 {{ options.note }}

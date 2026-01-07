@@ -55,3 +55,7 @@ Breaking this down, the URL consists of the following:
 Repeat the `ids[]` query parameter as needed, for each relevant resource ID.
 
 If the selected task includes any [User Form](../../core/tasks/user-form.md) options (`__userform`), the Run tasks page will present those fields. Submitted values are available in Liquid as `input.<name>`. For batch runs, the same input values apply to all selected resources.
+
+{% hint style="info" %}
+See [User Form](../../core/tasks/user-form.md) for how to define `__userform` fields, and [Shopify admin action links](../../core/shopify/admin-action-links.md) for the end-user flow.
+{% endhint %}
