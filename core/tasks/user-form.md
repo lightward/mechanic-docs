@@ -12,6 +12,15 @@ When submitted, an event is generated, to which only this task will respond. The
 Click the link button beside the title of the form to copy a link to the form that you can share with your users
 {% endhint %}
 
+### Where User Form fields appear
+
+User Form fields show up in:
+
+- The task-level Run Task button for `mechanic/user/form`.
+- The Run tasks page for Shopify admin action links (and equivalent run links) when exactly one task is selected.
+
+See [Shopify admin action links](../shopify/admin-action-links.md) and [Run links](../../platform/integrations/run-links.md) for details.
+
 ### Getting the user’s input in code
 
 During a `mechanic/user/form` event, ad-hoc values are available as `input.<name>`. `event.data` also contains these values for backward compatibility.
