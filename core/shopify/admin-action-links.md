@@ -89,6 +89,8 @@ Using a Shopify admin action link brings the user to the page shown below, in wh
 
 After selecting a processing mode, select from the available compatible tasks – i.e. from enabled tasks that subscribe to a relevant event topic. You can send this event to one or more tasks that subscribe to the correct event topic.
 
+If the selected task includes [User Form](../tasks/user-form.md) options (`__userform`), you will be prompted to fill them out before running. These values are available in Liquid as `input.<name>`. This input form only appears when exactly one task is selected. For batch mode, the same input values apply to all selected resources.
+
 ## Task usage
 
 To qualify a task to receive these events, subscribe to an event topic from the [Supported resources](admin-action-links.md#supported-resources) table above.
