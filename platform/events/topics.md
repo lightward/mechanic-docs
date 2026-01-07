@@ -70,7 +70,7 @@ Not to be confused with events in the User domain, the mechanic/user event subje
 * **mechanic/user/text**\
   When used, adds a "Run task" button to the task itself. This button prompts the user with a multi-line text box. When submitted, an event is generated, to which only this task will respond. The event contains the user's input in its data, making user's input available in `event.data`.
 * **mechanic/user/form**\
-  When used, adds a "Run task" button to the task itself. When Run Task button is clicked they are presented with form that contains any [task options](../../core/tasks/options/) that have the `_userform` flag. When submitted, an event is generated, to which only this task will respond. The user's input is available in Liquid as `input.<name>`.
+  When used, adds a "Run task" button to the task itself. When Run Task button is clicked they are presented with form that contains any [task options](../../core/tasks/options/) that have the `_userform` flag. When submitted, an event is generated, to which only this task will respond. See [User Form](../../core/tasks/user-form.md) for details. The user's input is available in Liquid as `input.<name>`.
 
 The following mechanic/user topics are typically used with [Shopify admin action links](../../core/shopify/admin-action-links.md), and are documented there more fully.
 
