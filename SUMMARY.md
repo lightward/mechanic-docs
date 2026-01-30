@@ -223,6 +223,7 @@
 * [Preventing action loops](techniques/preventing-action-loops.md)
 * [Writing a high-quality task](techniques/writing-a-high-quality-task.md)
 * [Tagging Shopify resources](techniques/tagging-shopify-resources.md)
+* [Batch processing of events](techniques/batch-processing-of-events.md)
 * [Debouncing events](techniques/debouncing-events.md)
 * [Responding to action results](techniques/responding-to-action-results.md)
 * [Working with external APIs](techniques/working-with-external-apis/README.md)

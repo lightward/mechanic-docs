@@ -8,13 +8,9 @@ This approach dodges the issues inherent in synchronous methods of reading data 
 This article reviews Mechanic's support for bulk operations. If this feature is new to you, start by reading Shopify's tutorial on the bulk operations API: [https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api)
 {% endhint %}
 
-{% hint style="warning" %}
-Shopify only permits apps to run a single bulk operation at a time, per store. Actions that create another bulk operation, while one is already running, will return an error.
-
-This area deserves improvement! To discuss the future of this behavior, visit the related feature request: [https://mechanic.canny.io/futures/p/bulk-operation-retries](https://mechanic.canny.io/futures/p/bulk-operation-retries)
+{% hint style="info" %}
+As of the 2026-01 API, Shopify permits apps to run up to five concurrent bulk operations, per store. Actions that create another bulk operation, while five are already running, will return a GraphQL error.
 {% endhint %}
-
-## Usage
 
 ### Creating a bulk operation
 
