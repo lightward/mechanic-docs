@@ -1,6 +1,6 @@
 # Can I control staff access for specific Mechanic tasks?
 
-Not within the app. Access to the Mechanic app (as it shows up within the Shopify admin) is all or nothing, for staff members of a Shopify store.
+Not with regard to the in-app Mechanic experience. Access to the Mechanic app (as it shows up within the Shopify admin) is all or nothing for staff members of a Shopify store.
 
 Like a machine shop, Mechanic is modeled as a trusted technical environment. If you're in, it's assumed you can be responsible with the tools within reach. We hold this to be an important aspect of Mechanic's natural posture.
 
