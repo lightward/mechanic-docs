@@ -35,7 +35,7 @@ A ChatGPT account is required (free or paid). You can bookmark this link or shar
 ## Limitations
 
 * **No live task library access.** The GPT doesn't search [tasks.mechanic.dev](https://tasks.mechanic.dev/) in real time. For task discovery and reference-based code generation, use the [MCP server](mcp.md) with an AI coding tool.
-* **For the best task code, combine MCP + Agent Skills.** The [MCP server](mcp.md) and [Agent Skills](agent-skills.md) give your AI assistant direct access to Mechanic's task library and documentation, which produces more reliable results for complex tasks.
+* **For the best results, use MCP + Agent Skills.** The [MCP server](mcp.md) provides research and reference, and [Agent Skills](agent-skills.md) provide the patterns for writing code — together they produce more reliable results for complex tasks.
 
 ***
 
