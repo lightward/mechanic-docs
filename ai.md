@@ -17,7 +17,9 @@ Mechanic offers dedicated AI tools that understand the platform's patterns, task
 
 The **[MCP server](platform/mcp.md)** and **[Agent Skills](platform/agent-skills.md)** are designed to work together. The MCP server gives your AI assistant access to Mechanic's task library and documentation at query time. Agent Skills install Mechanic's task-writing patterns directly into your AI's context, so it knows how to structure subscriptions, handle preview mode, use GraphQL, and produce complete importable task JSON.
 
-For the best results, use both: the MCP server for research and reference, and Agent Skills for writing code. Add the **[Shopify Dev MCP Server](platform/shopify-dev-mcp.md)** for GraphQL schema introspection and query validation.
+For the best results, use both: the MCP server for research and reference, and Agent Skills for writing code.
+
+The **[Shopify Dev MCP Server](platform/shopify-dev-mcp.md)** is also worth adding — it gives your AI assistant direct access to Shopify's GraphQL schema and query validation.
 
 If you're working in Shopify Admin, the **[Sidekick skill](platform/sidekick.md)** brings Mechanic task-writing expertise directly into Shopify's built-in AI assistant.
 

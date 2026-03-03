@@ -35,7 +35,7 @@ Run this command in your terminal:
 npx skills add lightward/mechanic-skills --skill mechanic-task-writer
 ```
 
-This installs the skill globally for your AI tool. You can also install all skills from the package by omitting the `--skill` flag:
+You can also install all skills from the package by omitting the `--skill` flag:
 
 ```bash
 npx skills add lightward/mechanic-skills

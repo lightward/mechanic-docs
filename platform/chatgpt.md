@@ -18,7 +18,7 @@ Open the Mechanic GPT in ChatGPT:
 
 [**Open Mechanic ChatGPT**](https://chatgpt.com/g/g-67e5a612935481919719536be52889ac-mechanic)
 
-A ChatGPT account is required (free or paid).
+A ChatGPT account is required (free or paid). You can bookmark this link or share it with your team.
 
 ***
 
