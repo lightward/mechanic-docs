@@ -12,7 +12,7 @@ Need something that you think others might need too? The Mechanic community acce
 
 ## If you're using AI...
 
-Tread lightly! We've got notes on this here: ["I need help with my AI-written task!"](ai.md).
+We have tools for this! Mechanic offers an [MCP server](platform/mcp.md), [Agent Skills](platform/agent-skills.md), and a [Sidekick skill](platform/sidekick.md) that give your AI assistant direct access to Mechanic's task library and development patterns. See [Using AI with Mechanic](ai.md) for the full overview.
 
 ## If you need a developer…
 

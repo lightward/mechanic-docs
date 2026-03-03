@@ -5,7 +5,7 @@
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)
 * [🧑‍💻 "I need help with my custom task!"](custom-help.md)
-* [🤖 "I need help with my AI-written task!"](ai.md)
+* [🤖 Using AI with Mechanic](ai.md)
 
 ## Resources
 
@@ -14,6 +14,10 @@
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
 * [🤖 Mechanic MCP Server](platform/mcp.md)
+* [🤖 Mechanic Agent Skills](platform/agent-skills.md)
+* [🛍️ Shopify Dev MCP Server](platform/shopify-dev-mcp.md)
+* [🤖 Mechanic Sidekick Skill](platform/sidekick.md)
+* [🤖 Mechanic ChatGPT](platform/chatgpt.md)
 * [🚀 Slack community](resources/slack.md)
 * [🤝 Partner directory](https://partners.mechanic.dev)
 * [🧠 Tutorials](resources/tutorials/README.md)
