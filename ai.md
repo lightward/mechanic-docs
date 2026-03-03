@@ -25,7 +25,7 @@ If you're working in Shopify Admin, the **[Sidekick skill](platform/sidekick.md)
 
 ### For ChatGPT users
 
-The **[Mechanic GPT](platform/chatgpt.md)** can write tasks, debug existing ones, and answer general Mechanic questions — all within ChatGPT. It's a good option if you prefer a conversational interface over a coding tool.
+The **[Mechanic GPT](platform/chatgpt.md)** can write and debug Mechanic tasks within ChatGPT. For agentic coding workflows, the MCP server and Agent Skills produce better results — but the GPT is a convenient option if ChatGPT is your primary tool.
 
 ***
 

@@ -1,14 +1,13 @@
 # 🤖 Mechanic GPT
 
-A custom GPT that can write Mechanic tasks and answer questions about the platform. This GPT understands Mechanic's Liquid runtime, event system, action types, and task structure, so it can help with both task development and general Mechanic questions.
+A custom GPT for writing and debugging Mechanic tasks within ChatGPT. This GPT understands Mechanic's Liquid runtime, event system, action types, and task structure.
 
 ***
 
 ## Best for
 
 * **ChatGPT users** — write and debug Mechanic tasks without switching to a coding tool
-* **Exploring what's possible** — describe what you want to automate and get guidance or working task code
-* **Learning Mechanic** — understand events, subscriptions, actions, and how they fit together
+* **Exploring what's possible** — describe what you want to automate and get working task code
 
 ***
 
@@ -28,7 +27,6 @@ A ChatGPT account is required (free or paid). You can bookmark this link or shar
 * "I need a scheduled task that emails me a CSV of unfulfilled orders every morning"
 * "Debug this task — it's not tagging customers correctly"
 * "How do I set up a two-pass workflow?"
-* "What's the difference between an event and an action?"
 
 ***
 
