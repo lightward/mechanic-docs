@@ -17,7 +17,7 @@
 * [🤖 Mechanic Agent Skills](platform/agent-skills.md)
 * [🛍️ Shopify Dev MCP Server](platform/shopify-dev-mcp.md)
 * [🤖 Mechanic Sidekick Skill](platform/sidekick.md)
-* [🤖 Mechanic ChatGPT](platform/chatgpt.md)
+* [🤖 Mechanic GPT](platform/chatgpt.md)
 * [🚀 Slack community](resources/slack.md)
 * [🤝 Partner directory](https://partners.mechanic.dev)
 * [🧠 Tutorials](resources/tutorials/README.md)

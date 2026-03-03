@@ -1,6 +1,6 @@
-# 🤖 Mechanic ChatGPT
+# 🤖 Mechanic GPT
 
-A custom ChatGPT that can write Mechanic tasks and answer questions about the platform. This GPT understands Mechanic's Liquid runtime, event system, action types, and task structure, so it can help with both task development and general Mechanic questions.
+A custom GPT that can write Mechanic tasks and answer questions about the platform. This GPT understands Mechanic's Liquid runtime, event system, action types, and task structure, so it can help with both task development and general Mechanic questions.
 
 ***
 
@@ -16,7 +16,7 @@ A custom ChatGPT that can write Mechanic tasks and answer questions about the pl
 
 Open the Mechanic GPT in ChatGPT:
 
-[**Open Mechanic ChatGPT**](https://chatgpt.com/g/g-67e5a612935481919719536be52889ac-mechanic)
+[**Open Mechanic GPT**](https://chatgpt.com/g/g-67e5a612935481919719536be52889ac-mechanic)
 
 A ChatGPT account is required (free or paid). You can bookmark this link or share it with your team.
 
