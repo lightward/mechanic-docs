@@ -138,7 +138,7 @@ Sidekick will ask clarifying questions before writing — what should happen, wh
 ## Limitations
 
 * **No live task library access.** Sidekick doesn't search [tasks.mechanic.dev](https://tasks.mechanic.dev/) in real time. For task discovery and reference, use the [MCP server](mcp.md) with an AI coding tool.
-* **Session-based.** The skill lasts for the current Sidekick session. Return to this page to copy the prompt again if needed.
+* **No live updates.** The skill prompt is a static snapshot. Return to this page to check for updated versions of the prompt.
 
 ***
 
