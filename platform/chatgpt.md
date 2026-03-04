@@ -38,7 +38,7 @@ A ChatGPT account is required (free or paid). You can bookmark this link or shar
 
 The GPT includes Mechanic's documentation as uploaded knowledge files, organized by topic. These cover the full platform — events, tasks, actions, runs, Shopify integration, Liquid reference, platform features, integrations, techniques, tutorials, FAQ, and more.
 
-These files are general reference material, not task-writing instructions. The GPT uses them to ground its answers in accurate, up-to-date Mechanic documentation.
+The GPT uses these files to ground its answers in accurate, current Mechanic documentation.
 
 ***
 
