@@ -9,6 +9,10 @@ Mechanic offers dedicated AI tools that understand the platform's patterns, task
 * **[Mechanic GPT](platform/chatgpt.md)** — get help and write tasks in ChatGPT
 {% endhint %}
 
+{% hint style="warning" %}
+Tasks created with AI assistance are [custom tasks](custom.md) and follow the same support policy. The Mechanic team provides support for the platform itself — Liquid runtime, actions, events, subscriptions — but not for debugging custom task logic. If you need help, ask in the [Mechanic Slack community](resources/slack.md) or hire a developer through [partners.mechanic.dev](https://partners.mechanic.dev/).
+{% endhint %}
+
 ***
 
 ## AI tools for Mechanic
@@ -26,17 +30,6 @@ If you're working in Shopify Admin, the **[Sidekick skill](platform/sidekick.md)
 ### For ChatGPT users
 
 The **[Mechanic GPT](platform/chatgpt.md)** has access to Mechanic's full documentation and can answer questions about the platform, explain concepts, and write or debug task code — all within ChatGPT. For agentic coding workflows, the MCP server and Agent Skills produce better results — but the GPT is a convenient option if ChatGPT is your primary tool.
-
-***
-
-## Support for AI-generated tasks
-
-Tasks created with AI assistance are [custom tasks](custom.md) and follow the same support policy. The Mechanic team provides support for the platform itself but not for debugging custom task logic.
-
-If you need help with a custom task, you can:
-
-* Ask in the [Mechanic Slack community](resources/slack.md)
-* Hire a developer through [partners.mechanic.dev](https://partners.mechanic.dev/)
 
 ***
 
