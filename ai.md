@@ -10,7 +10,7 @@ Mechanic offers dedicated AI tools that understand the platform's patterns, task
 {% endhint %}
 
 {% hint style="warning" %}
-Tasks created with AI assistance are [custom tasks](custom.md) and follow the same support policy. The Mechanic team provides support for the platform itself — Liquid runtime, actions, events, subscriptions — but not for debugging custom task logic. If you need help, ask in the [Mechanic Slack community](resources/slack.md) or hire a developer through [partners.mechanic.dev](https://partners.mechanic.dev/).
+Mechanic support covers the platform and tasks from the [task library](resources/task-library/). AI-generated tasks are [custom tasks](custom.md), and our support for custom tasks is limited to platform-level issues. For help with custom task logic, ask in the [Mechanic Slack community](resources/slack.md) or hire a developer through [partners.mechanic.dev](https://partners.mechanic.dev/).
 {% endhint %}
 
 ***
