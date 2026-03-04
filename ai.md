@@ -6,7 +6,7 @@ Mechanic offers dedicated AI tools that understand the platform's patterns, task
 * **[Mechanic MCP Server](platform/mcp.md)** — connect your AI coding tool to the task library and docs
 * **[Mechanic Agent Skills](platform/agent-skills.md)** — install task-writing expertise into your AI coding tool
 * **[Mechanic Sidekick Skill](platform/sidekick.md)** — write tasks with Shopify's built-in AI assistant
-* **[Mechanic GPT](platform/chatgpt.md)** — write tasks and get help in ChatGPT
+* **[Mechanic GPT](platform/chatgpt.md)** — get help and write tasks in ChatGPT
 {% endhint %}
 
 ***
@@ -25,7 +25,7 @@ If you're working in Shopify Admin, the **[Sidekick skill](platform/sidekick.md)
 
 ### For ChatGPT users
 
-The **[Mechanic GPT](platform/chatgpt.md)** can write and debug Mechanic tasks within ChatGPT. For agentic coding workflows, the MCP server and Agent Skills produce better results — but the GPT is a convenient option if ChatGPT is your primary tool.
+The **[Mechanic GPT](platform/chatgpt.md)** has access to Mechanic's full documentation and can answer questions about the platform, explain concepts, and write or debug task code — all within ChatGPT. For agentic coding workflows, the MCP server and Agent Skills produce better results — but the GPT is a convenient option if ChatGPT is your primary tool.
 
 ***
 

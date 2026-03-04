@@ -1,13 +1,14 @@
 # 🤖 Mechanic GPT
 
-A custom GPT for writing and debugging Mechanic tasks within ChatGPT. This GPT understands Mechanic's Liquid runtime, event system, action types, and task structure.
+A custom GPT for getting help with Mechanic within ChatGPT. This GPT has access to the full Mechanic documentation as a knowledge base, and can answer general questions about the platform, help you understand concepts, and write or debug task code.
 
 ***
 
 ## Best for
 
-* **ChatGPT users** — write and debug Mechanic tasks without switching to a coding tool
-* **Exploring what's possible** — describe what you want to automate and get working task code
+* **General Mechanic questions** — understand how events, actions, Liquid, and the platform work
+* **ChatGPT users** — get help with Mechanic without switching to a coding tool
+* **Exploring what's possible** — describe what you want to automate and get guidance or working task code
 
 ***
 
@@ -23,17 +24,28 @@ A ChatGPT account is required (free or paid). You can bookmark this link or shar
 
 ## What it can help with
 
+* "How does Mechanic's event system work?"
+* "What action types are available?"
 * "Write a task that auto-tags orders using a specific discount code"
 * "I need a scheduled task that emails me a CSV of unfulfilled orders every morning"
 * "Debug this task — it's not tagging customers correctly"
 * "How do I set up a two-pass workflow?"
+* "What integrations does Mechanic support?"
+
+***
+
+## Knowledge base
+
+The GPT includes Mechanic's documentation as uploaded knowledge files, organized by topic. These cover the full platform — events, tasks, actions, runs, Shopify integration, Liquid reference, platform features, integrations, techniques, tutorials, FAQ, and more.
+
+These files are general reference material, not task-writing instructions. The GPT uses them to ground its answers in accurate, up-to-date Mechanic documentation.
 
 ***
 
 ## Limitations
 
 * **No live task library access.** The GPT doesn't search [tasks.mechanic.dev](https://tasks.mechanic.dev/) in real time. For task discovery and reference-based code generation, use the [MCP server](mcp.md) with an AI coding tool.
-* **For the best results, use MCP + Agent Skills.** The [MCP server](mcp.md) provides research and reference, and [Agent Skills](agent-skills.md) provide the patterns for writing code — together they produce more reliable results for complex tasks.
+* **For the best results with complex tasks, use MCP + Agent Skills.** The [MCP server](mcp.md) provides research and reference, and [Agent Skills](agent-skills.md) provide the patterns for writing code — together they produce more reliable results for complex tasks.
 
 ***
 
