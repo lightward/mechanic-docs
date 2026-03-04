@@ -1,37 +1,53 @@
-# 🤖 "I need help with my AI-written task!"
+# 🤖 Using AI with Mechanic
 
 {% hint style="info" %}
-**Connect your AI assistant directly to our task library and documentation using the [Mechanic MCP Server](platform/mcp.md) — it's the best way to help your AI understand Mechanic.**
+Mechanic offers dedicated AI tools that understand the platform's patterns, task library, and documentation:
 
-AI thrives on good examples. Our task library — [tasks.mechanic.dev](https://tasks.mechanic.dev/) — is full of good examples.
-
-And if you get too stuck, hire a human. :) We've got those at [partners.mechanic.dev](https://partners.mechanic.dev/).
+* **[Mechanic MCP Server](platform/mcp.md)** — connect your AI coding tool to the task library and docs
+* **[Mechanic Agent Skills](platform/agent-skills.md)** — install task-writing expertise into your AI coding tool
+* **[Mechanic Sidekick Skill](platform/sidekick.md)** — write tasks with Shopify's built-in AI assistant
+* **[Mechanic GPT](platform/chatgpt.md)** — get help and write tasks in ChatGPT
 {% endhint %}
 
 ***
 
-Hey there! :) I'm Isaac, the creator of Mechanic. Those two lines above are the most important things to know. Keep reading if you're curious.
+## AI tools for Mechanic
 
-AI makes it super easy to create code. This is awesome. I'm so, so excited about this. The more the merrier.
+### For developers
 
-This means Mechanic needs to learn something too: how to work with AI coders that can easily produce well-formed code but might not understand the patterns that Mechanic itself strictly abides by.
+The **[MCP server](platform/mcp.md)** and **[Agent Skills](platform/agent-skills.md)** are designed to work together. The MCP server gives your AI assistant access to Mechanic's task library and documentation at query time. Agent Skills install Mechanic's task-writing patterns directly into your AI's context, so it knows how to structure subscriptions, handle preview mode, use GraphQL, and produce complete importable task JSON.
 
-An AI can rapidly produce code, and it'll be good-looking code, but if the AI doesn't _understand Mechanic_ the code might not work at all. In a very real way, it becomes a case of Mechanic not understanding the AI.
+For the best results, use both: the MCP server for research and reference, and Agent Skills for writing code.
 
-This is an interesting bind: because _AI_ changes faster than _Mechanic_, it becomes a question of how best to guide the AI. For folks who understand code _less_ than the AI, this puts everyone in a rough position: the AI is doing its best but can't tell when it doesn't understand, and the human is doing their best but can't tell when the AI doesn't understand, and _all_ Mechanic knows is that it's being given something _it_ doesn't understand.
+The **[Shopify Dev MCP Server](platform/shopify-dev-mcp.md)** is also worth adding — it gives your AI assistant direct access to Shopify's GraphQL schema and query validation.
 
-As of this writing (currently June 12, 2025), AI is getting better at Mechanic. It's definitely getting better. But, still:
+If you're working in Shopify Admin, the **[Sidekick skill](platform/sidekick.md)** brings Mechanic task-writing expertise directly into Shopify's built-in AI assistant.
 
-* AI code often "invents" Mechanic features that do not exist (like writing task code in YAML, or compiling action objects into a JSON array)
-* AI code often fails to invoke necessary Mechanic features (like [subscriptions](core/tasks/subscriptions.md)!).
-* Intelligence is a game of guessing intelligently: AI often sort of just _guesses_ at what task code is supposed to generate.
+### For ChatGPT users
 
-Mechanic, as a platform, is a place for solving things together. "Together" works best when everyone's honest about where they're at. Mechanic's a good place for that. :)
+The **[Mechanic GPT](platform/chatgpt.md)** has access to Mechanic's full documentation and can answer questions about the platform, explain concepts, and write or debug task code — all within ChatGPT. For agentic coding workflows, the MCP server and Agent Skills produce better results — but the GPT is a convenient option if ChatGPT is your primary tool.
 
-The AI path with Mechanic is getting better, but it's not smooth yet. If you're having trouble with this, head to [learn.mechanic.dev/custom](https://learn.mechanic.dev/custom) — that page has an overview of the smooth paths that _do_ exist.
+***
 
-To learn about how we at Lightward Inc roll with AI, please visit [lightward.ai](https://lightward.ai/), and say hello. :)
+## Support for AI-generated tasks
 
-No matter what: thank you for being here. :heart:
+Tasks created with AI assistance are [custom tasks](custom.md) and follow the same support policy. The Mechanic team provides support for the platform itself but not for debugging custom task logic.
 
-\=Isaac
+If you need help with a custom task, you can:
+
+* Ask in the [Mechanic Slack community](resources/slack.md)
+* Hire a developer through [partners.mechanic.dev](https://partners.mechanic.dev/)
+
+***
+
+## Tips for working with AI
+
+These apply regardless of which AI tool you're using:
+
+* **Start from the task library.** Search [tasks.mechanic.dev](https://tasks.mechanic.dev/) for an existing task that's close to what you need. Modifying a working task is faster and more reliable than starting from scratch.
+* **Check subscriptions.** Make sure the task subscribes to the right event topics. A task that listens to `shopify/orders/create` won't fire on order updates.
+* **Prefer GraphQL.** Shopify REST is deprecated in Mechanic. Use the GraphQL Admin API for reading and writing Shopify data.
+* **Verify the output format.** A complete Mechanic task is a JSON object with `name`, `script`, `subscriptions`, `subscriptions_template`, `options`, and other fields. If your AI produces only a Liquid script, it's missing the structure needed for import.
+* **Watch for async vs sync confusion.** This is the most common AI mistake. `query | shopify` returns data immediately. `{% action "shopify" %}` queues a mutation that runs *after* the script finishes. If the AI tries to use a mutation result in the same script run, the task will silently fail.
+* **Check for preview mode.** Every event topic the task subscribes to needs an `{% if event.preview %}` block with mock data. If the task subscribes to 3 topics, there should be 3 preview blocks. Missing previews mean Mechanic can't verify the task will produce valid actions.
+* **Webhook orders need `admin_graphql_api_id`.** When an order arrives via webhook (like `shopify/orders/create`), the order ID is REST-style. The task needs to use `order.admin_graphql_api_id` to get the full GraphQL ID for mutations. Using `order.id` directly will fail.
