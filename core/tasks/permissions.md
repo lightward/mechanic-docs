@@ -1,14 +1,22 @@
 # Permissions
 
-Mechanic requests Shopify API access scopes (like `read_orders` or `write_products`) on behalf of your tasks. When a task needs a new scope, Mechanic prompts you to approve it. This page explains how Mechanic determines which scopes a task needs.
+Mechanic determines Shopify API access scopes (like `read_orders` or `write_products`) from your task code. It can infer scopes from several places, including subscriptions, Shopify data access in task code, and actions rendered during preview. When your shop needs additional access, Mechanic will surface that in the app.
 
 There are two approaches, and both are fully supported:
 
-## Automatic detection from previews
+## Automatic detection
 
-By default, Mechanic infers the permissions a task needs by analyzing the actions and GraphQL queries it generates during [preview](previews/). For example, if a task renders a Shopify action containing a `customerCreate` mutation during preview, Mechanic will request the `write_customers` scope.
+By default, Mechanic infers the permissions a task needs automatically.
 
-This approach works well when your task's previews already generate realistic actions. To get the best results:
+This can happen through:
+
+* Shopify event subscriptions
+* Shopify data your task reads in Liquid
+* Shopify actions your task generates during [preview](previews/)
+
+Previews are valuable for more than permissions: they show users what the task will do, and they give developers a safe way to verify task behavior. They are still especially important when permission requirements depend on action arguments. For example, mutations like `tagsAdd` or `metafieldsSet` may require different scopes depending on the resource ID used, so realistic preview data still matters.
+
+To get the best results:
 
 * Make sure your preview actions include realistic resource IDs (e.g. `gid://shopify/Product/12345`), especially for mutations like `tagsAdd` or `metafieldsSet` that have multiple potential scope requirements.
 * Use [defined preview events](previews/events.md) and [stub data](previews/stub-data.md) to provide your task with realistic sample data during preview.
@@ -26,9 +34,9 @@ write_products
 {% endpermissions %}
 ```
 
-This tells Mechanic precisely which scopes to request, without relying on preview analysis. It's simpler and more predictable — useful when:
+This tells Mechanic precisely which scopes to request, without relying on automatic detection. It's simpler and more predictable — useful when:
 
-* Your task's permissions are hard to infer from previews alone
+* Your task's permissions are hard to infer automatically
 * You want to be explicit about what your task needs
 * Your task uses scopes that aren't easily demonstrated during preview
 
@@ -36,9 +44,9 @@ For full syntax details, see the [`permissions` tag reference](../../platform/li
 
 ## When to use which
 
-**Automatic detection** works well when your task previews already generate realistic actions that fully demonstrate the task's intent. Many tasks work this way out of the box, especially simpler tasks with straightforward Shopify mutations.
+**Automatic detection** works well for many tasks out of the box, especially when the task's subscriptions, Shopify data access, and previewed actions clearly demonstrate its intent.
 
-**Explicit declaration** is simpler when permissions are hard to infer, when Mechanic fails to auto-detect a permission your task needs, or when setting up realistic previews would be more work than just listing the scopes directly.
+**Explicit declaration** is simpler when permissions are hard to infer, when Mechanic fails to detect a permission your task needs, or when setting up realistic previews would be more work than just listing the scopes directly.
 
 Both approaches are valid, and you can choose whichever fits your task best.
 
