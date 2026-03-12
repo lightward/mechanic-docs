@@ -6,6 +6,7 @@ description: I'm glad you're here. :) –Isaac
 
 Mechanic is a Shopify development and automation platform.
 
+* [Build your first task](resources/tutorials/your-first-task.md) with our step-by-step tutorial
 * [Search the task library](resources/task-library/) for an off-the-shelf solution
 * [Learn about "going custom"](custom.md) for a task that fits you perfectly
 * [Ask in our community Slack workspace](resources/slack.md) if you need something else
