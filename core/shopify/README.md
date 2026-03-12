@@ -25,7 +25,7 @@ Learn more: [Reading data](read/)
 
 ## Writing data
 
-Use the [Shopify action](../actions/shopify.md) to create, update, or delete Shopify resources. Shopify actions are queued during the task run and **performed after the task script finishes**. This means you cannot use the result of a mutation in the same task run that creates it.
+Use the [Shopify action](../actions/shopify.md) to create, update, or delete Shopify resources. Shopify actions are queued during the task run and **performed after the task script finishes**. This means you cannot use the result of a mutation in the same task run that creates it. To act on the result of a Shopify action, subscribe a task to [mechanic/actions/perform](../../techniques/responding-to-action-results.md) and handle it in a follow-up run.
 
 ```liquid
 {% action "shopify" %}
