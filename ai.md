@@ -1,7 +1,9 @@
 # 🤖 Using AI with Mechanic
 
 {% hint style="info" %}
-Mechanic offers dedicated AI tools that understand the platform's patterns, task library, and documentation:
+**Ask Mechanic** is Mechanic's built-in AI assistant. Use it right inside the app to ask questions about the platform, find tasks, and get help — no setup required.
+
+For developers writing tasks, Mechanic also offers dedicated AI tools:
 
 * **[Mechanic MCP Server](platform/mcp.md)** — connect your AI coding tool to the task library and docs
 * **[Mechanic Agent Skills](platform/agent-skills.md)** — install task-writing expertise into your AI coding tool
@@ -16,6 +18,10 @@ Mechanic support covers the platform and tasks from the [task library](resources
 ***
 
 ## AI tools for Mechanic
+
+### Ask Mechanic (in-app)
+
+**Ask Mechanic** is Mechanic's built-in AI assistant, available directly inside the app. It can answer questions about the platform, help you find tasks in the library, explain how features work, and point you to the right documentation. Look for the **Ask Mechanic** button in the app to get started — no setup or external tools needed.
 
 ### For developers
 
