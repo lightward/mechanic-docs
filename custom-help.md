@@ -3,7 +3,9 @@
 {% hint style="info" %}
 #### What support is included with my Mechanic subscription?
 
-Our support team assists with platform issues and issues with tasks from [Mechanic task library](https://tasks.mechanic.dev/). For custom tasks not included in our task library, our support service is limited to Mechanic platform support.
+Our support team assists with **platform issues** and issues with tasks from the [Mechanic task library](https://tasks.mechanic.dev/). For these topics, contact us at [team@usemechanic.com](mailto:team@usemechanic.com).
+
+For custom tasks not included in our task library, our support service is limited to Mechanic platform support. See the options below for getting help with custom tasks.
 {% endhint %}
 
 ## Getting help with custom tasks

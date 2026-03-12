@@ -6,6 +6,7 @@
 * [🙋 "I need something custom!"](custom.md)
 * [🧑‍💻 "I need help with my custom task!"](custom-help.md)
 * [🤖 Using AI with Mechanic](ai.md)
+* [❓ Getting Help](support.md)
 
 ## Resources
 
@@ -38,6 +39,7 @@
     * [Send an email when a product's price goes below its cost](resources/video-walkthroughs/send-an-email-when-a-products-price-goes-below-its-cost.md)
     * [Auto-tag customers by sales channel](resources/video-walkthroughs/auto-tag-customers-by-sales-channel.md)
     * [Creating products in bulk](resources/video-walkthroughs/creating-products-in-bulk.md)
+  * [Your first task](resources/tutorials/your-first-task.md)
   * [Creating a Mechanic webhook](resources/tutorials/creating-a-mechanic-webhook.md)
   * [Practicing writing tasks](resources/tutorials/practicing-writing-tasks.md)
   * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)
@@ -69,6 +71,7 @@
     * [Defining preview events](core/tasks/previews/events.md)
     * [Stub data](core/tasks/previews/stub-data.md)
   * [Shopify API version](core/tasks/shopify-api-version.md)
+  * [Permissions](core/tasks/permissions.md)
   * [Advanced settings](core/tasks/advanced-settings/README.md)
     * [Documentation](core/tasks/advanced-settings/documentation.md)
     * [JavaScript](core/tasks/advanced-settings/javascript.md)
@@ -270,7 +273,7 @@
   * [Can my Mechanic concurrency limit be raised?](faq/can-my-mechanic-concurrency-limit-be-raised.md)
   * [What IP address does Mechanic use?](faq/what-ip-address-does-mechanic-use.md)
   * [Can Mechanic read or manage customer subscriptions?](faq/can-mechanic-read-or-manage-customer-subscriptions.md)
-  * [Why is everything harder now?](faq/why-is-everything-harder-now.md)
+
   * [Can task content be translated into multiple languages?](faq/can-task-content-be-translated-into-multiple-languages.md)
   * [Can I add a time delay to my task?](faq/can-i-add-a-time-delay-to-my-task.md)
   * [Can I add another store to my existing Mechanic subscription?](faq/can-i-add-another-store-to-my-existing-mechanic-subscription.md)

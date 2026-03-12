@@ -23,7 +23,7 @@ The solution is usually found in [**task previews**](../core/tasks/previews/)! M
      * Important: the platform team can't help with debugging custom code, but they _can_ help with platform issues. If you've reached this part, you might have found a platform issue!
 
 {% hint style="info" %}
-We highly recommend you stick with the task preview approach. But, if you get stuck we have now introduced a [permissions tag](../platform/liquid/tags/permissions.md) that allows you to explicitly state the permissions your task requires.
+As an alternative to previews, you can use the [`{% permissions %}` tag](../platform/liquid/tags/permissions.md) to explicitly declare the scopes your task needs. See [Permissions](../core/tasks/permissions.md) for a full overview of both approaches.
 {% endhint %}
 
 ## Getting more help

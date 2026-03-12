@@ -7,7 +7,7 @@ This issue can almost always be solved by generating the right preview actions, 
 **Start learning about previews here:** [**Core / Tasks / Previews**](../core/tasks/previews/)
 
 {% hint style="info" %}
-We highly recommend you stick with the task preview approach. But if you get stuck we have now introduced a [permissions tag](../platform/liquid/tags/permissions.md) that allows you to explicitly state the permissions your task requires.
+As an alternative to previews, you can use the [`{% permissions %}` tag](../platform/liquid/tags/permissions.md) to explicitly declare the scopes your task needs. See [Permissions](../core/tasks/permissions.md) for a full overview of both approaches.
 {% endhint %}
 
 {% hint style="info" %}
