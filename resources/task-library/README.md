@@ -6,7 +6,7 @@ Mechanic's **task library** is a compendium of e-commerce automation tasks and d
 
 ## Installing a task
 
-1. Browse [tasks.mechanic.dev](https://tasks.mechanic.dev/) and find a task that fits your needs
+1. Browse [tasks.mechanic.dev](https://tasks.mechanic.dev/) or navigate to the **Add task** page in the Mechanic app to find a task that fits your needs
 2. Click **"Try this task"** on the task page — this opens the task directly in your Mechanic account
 3. Configure any task options (settings fields) as needed
 4. Click **Save** to activate the task
