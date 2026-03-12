@@ -4,7 +4,7 @@ In Mechanic, a **task** is a bundle of logic and configuration, that responds to
 
 A task responds to events based on its [**subscriptions**](subscriptions.md). When an event is received that matches a subscription, the task processes the event using its [**code**](code/). The code has access to the event data; it also has access to the user's task configuration, through [**options**](options/). Task code is written in Liquid, and is responsible for rendering a series of JSON objects (including [**action**](code/action-objects.md), [**error**](code/error-objects.md), and [**log**](code/log-objects.md) objects), defining work to be performed once task rendering is complete.
 
-A task uses its [**preview**](previews/) to communicate ahead of time the work it intends to do. Previews are important for users, and are also important for Mechanic itself – Mechanic looks to the task preview to understand what permissions a task requires.
+A task uses its [**preview**](previews/) to communicate ahead of time the work it intends to do. Previews are important for users, and are also important for Mechanic itself – Mechanic looks to the task preview to understand what [**permissions**](permissions.md) a task requires. Tasks can also declare their permissions explicitly using the [`{% permissions %}` tag](../../platform/liquid/tags/permissions.md).
 
 Tasks may be written from scratch, or installed from the Mechanic library (available in-app and [on GitHub](https://github.com/lightward/mechanic-tasks)). Once installed, a task's code may be modified at any time.
 
