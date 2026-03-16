@@ -14,7 +14,7 @@ This can happen through:
 * Shopify data your task reads in Liquid
 * Shopify actions your task generates during [preview](previews/)
 
-Previews are valuable for more than permissions: they show users what the task will do, and they give developers a safe way to verify task behavior. They are still especially important when permission requirements depend on action arguments. For example, mutations like `tagsAdd` or `metafieldsSet` may require different scopes depending on the resource ID used, so realistic preview data still matters.
+A [preview](previews/) is Mechanic's safe, non-destructive rendering of your task. Previews are valuable for more than permissions: they show users what the task will do, and they give developers a safe way to verify task behavior. They are still especially important when permission requirements depend on action arguments. For example, mutations like `tagsAdd` or `metafieldsSet` may require different scopes depending on the resource ID used, so realistic preview data still matters.
 
 To get the best results:
 

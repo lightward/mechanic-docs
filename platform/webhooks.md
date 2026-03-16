@@ -182,10 +182,11 @@ When configuring an integration with external apps and services, some require sp
 
 A webhook invocation signals its client selection via a path suffix. Given a webhook URL of `webhooks.mechanic.dev/0000..0000`, a client-specific endpoint for Ship24 (for example) would be available at `webhooks.mechanic.dev/0000..0000/ship24`.
 
-| Client | Webhook suffix | Behavior notes                                              |                                                                                                       |
-| ------ | -------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Asana  | asana          | Supports the `X-Hook-Secret` header for the handshake phase | [Docs](https://developers.asana.com/docs/webhooks)                                                    |
-| Ship24 | ship24         | Supports HEAD requests for webhook verification             | [Docs](https://documenter.getpostman.com/view/14877026/Tz5s4Gtu#3c5245aa-a14e-4995-ba3a-9045b92524e3) |
+| Client    | Webhook suffix | Behavior notes                                                                            |                                                                                                       |
+| --------- | -------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Asana     | asana          | Supports the `X-Hook-Secret` header for the handshake phase                               | [Docs](https://developers.asana.com/docs/webhooks)                                                    |
+| Mailchimp | mailchimp      | Supports GET and POST requests; returns 200 OK response instead of 204 No Content         | [Docs](https://mailchimp.com/developer/transactional/docs/webhooks/)                                  |
+| Ship24    | ship24         | Supports HEAD requests for webhook verification                                           | [Docs](https://documenter.getpostman.com/view/14877026/Tz5s4Gtu#3c5245aa-a14e-4995-ba3a-9045b92524e3) |
 
 ### Examples
 
