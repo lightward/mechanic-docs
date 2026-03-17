@@ -1,6 +1,12 @@
+---
+description: "Tasks are automation rules that respond to Shopify events and perform actions like tagging, emailing, and syncing data."
+---
+
 # Tasks
 
-In Mechanic, a **task** is a bundle of logic and configuration, that responds to and interprets [**events**](../events/). The result of a task can define [**actions**](../actions/), which are the task's opportunities to have an effect on the world.
+A task is an automation rule — it watches for something to happen in your store and responds automatically. For example, a task might tag every order over $100, send a notification when inventory is low, or sync customer data to a spreadsheet.
+
+Technically, a **task** is a bundle of logic and configuration, that responds to and interprets [**events**](../events/). The result of a task can define [**actions**](../actions/), which are the task's opportunities to have an effect on the world.
 
 A task responds to events based on its [**subscriptions**](subscriptions.md). When an event is received that matches a subscription, the task processes the event using its [**code**](code/). The code has access to the event data; it also has access to the user's task configuration, through [**options**](options/). Task code is written in Liquid, and is responsible for rendering a series of JSON objects (including [**action**](code/action-objects.md), [**error**](code/error-objects.md), and [**log**](code/log-objects.md) objects), defining work to be performed once task rendering is complete.
 

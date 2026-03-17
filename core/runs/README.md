@@ -1,4 +1,10 @@
+---
+description: "Runs are how Mechanic processes work — every event, task, and action creates a run that moves through a queue."
+---
+
 # Runs
+
+When something happens in your store, Mechanic processes it as a series of runs. First it handles the event, then runs the matching tasks, then performs the resulting actions. You can see this activity on the Events page in the app — each entry shows the runs involved.
 
 [Events](../events/), [tasks](../tasks/), and [actions](../actions/) are all processed using queues, in which a piece of work is enqueued, and performed in its turn. Each piece of work is called a **run**. Thus, Mechanic performs work using event runs, task runs, and action runs.
 

@@ -1,3 +1,7 @@
+---
+description: "Get help with your custom Mechanic task \u2014 community Slack, developer hiring, and partner matchmaking."
+---
+
 # 🧑‍💻 "I need help with my custom task!"
 
 {% hint style="info" %}

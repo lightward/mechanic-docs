@@ -1,3 +1,7 @@
+---
+description: "Frequently asked questions about Mechanic — troubleshooting, billing, permissions, and more."
+---
+
 # FAQ
 
 Frequently asked questions about Mechanic. If you don't find your answer here, reach out to [team@usemechanic.com](mailto:team@usemechanic.com) for platform and task library support, or ask in the [Mechanic Slack community](../resources/slack.md).

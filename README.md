@@ -6,10 +6,10 @@ description: I'm glad you're here. :) –Isaac
 
 Mechanic is a Shopify development and automation platform.
 
-* [Build your first task](resources/tutorials/your-first-task.md) with our step-by-step tutorial
-* [Search the task library](resources/task-library/) for an off-the-shelf solution
-* [Learn about "going custom"](custom.md) for a task that fits you perfectly
-* [Ask in our community Slack workspace](resources/slack.md) if you need something else
+* [Browse the task library](https://tasks.mechanic.dev/) — hundreds of ready-to-use automations for tagging, emails, inventory, fulfillment, and more
+* [Get started](getting-started.md) — install Mechanic and set up your first task in minutes
+* [Build something custom](custom.md) — create a task tailored to your store's workflow
+* [Join our Slack community](resources/slack.md) — get help and share ideas with other merchants and developers
 
 {% hint style="info" %}
 Find Mechanic on the Shopify App Store: [apps.shopify.com/mechanic](https://apps.shopify.com/mechanic)
@@ -23,10 +23,10 @@ Mechanic is a Shopify development and automation platform, which comes with a ri
    * Mechanic is only available for Shopify.
 2. Is what you're looking for already available from [Mechanic's task library](https://tasks.mechanic.dev/)?
    * We have hundreds of common scenarios already handled with pre-written, open-source, modifiable, off-the-shelf tasks.
-3. As far as your problem concerns Shopify data, is what you want to do supported by the [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql)?
-   * Mechanic's toolkit goes beyond Shopify's APIs, but a Mechanic task can only interact with Shopify data in ways that Shopify supports.
-4. Are you open to [going custom](custom.md)?
-   * Whether you need a developer or already have that covered, the path to creating a custom Mechanic task is well-established.
+3. Is what you're trying to do something Shopify supports?
+   * Mechanic works through Shopify's own systems. If Shopify can do it, Mechanic can usually automate it. ([Here's what Shopify's Admin API covers.](https://shopify.dev/docs/api/admin-graphql))
+4. Need something tailored to your store?
+   * You can [build a custom task](custom.md) yourself, or [hire a developer](hire-a-developer.md) to create one for you. Either way, the path is well-established.
 
 That list wasn't exactly a formal flowchart, but we hope it's helpful as you're evaluating Mechanic for your purposes. At its best, Mechanic is a platform and toolkit that you go to, and return to, when you hit the limits of the Shopify admin. And it's a community that collectively has learned how to solve many, many kinds of problems. (Join our [community Slack workspace](resources/slack.md)!)
 

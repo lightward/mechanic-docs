@@ -1,3 +1,7 @@
+---
+description: "How Mechanic tasks read and write Shopify data using the Admin API."
+---
+
 # Interacting with Shopify
 
 Mechanic tasks interact with Shopify in two ways: **reading** data (inline, during a task run) and **writing** data (via actions, after the task run completes).

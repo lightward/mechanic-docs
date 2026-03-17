@@ -1,3 +1,7 @@
+---
+description: "Join the Mechanic Slack community to ask questions, share solutions, and connect with other developers and merchants."
+---
+
 # 🚀 Slack community
 
 Mechanic was made for working together. Our Slack workspace is where hundreds of folx compare implementation notes, collaborate on projects, and talk about the evolution of Mechanic itself – and it's the best place to ask your questions. You are always invited. :)

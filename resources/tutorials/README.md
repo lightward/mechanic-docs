@@ -1,10 +1,14 @@
+---
+description: "Step-by-step guides for building Mechanic tasks — from your first automation to advanced patterns."
+---
+
 # 🧠 Tutorials
 
 Step-by-step guides for common Mechanic development patterns. These tutorials walk through real-world scenarios, from setting up webhooks to building scheduled data feeds.
 
 ## Written tutorials
 
-* [Your first task](your-first-task.md) — build a complete task from scratch (start here if you're new)
+* [Your first custom task](your-first-custom-task.md) — build a complete task from scratch
 * [Creating a Mechanic webhook](creating-a-mechanic-webhook.md) — set up an endpoint that triggers Mechanic tasks from external services
 * [Practicing writing tasks](practicing-writing-tasks.md) — exercises for learning Mechanic's Liquid environment
 * [Triggering tasks from a contact form](triggering-tasks-from-a-contact-form.md) — connect a storefront form to a Mechanic task
@@ -18,4 +22,4 @@ For visual learners, our [video walkthroughs](../video-walkthroughs/) cover comm
 
 ## Getting started
 
-New to Mechanic? Start with [Your first task](your-first-task.md) to build a working task from scratch. Then browse the [task library](../task-library/) for tasks close to what you need, and use [Practicing writing tasks](practicing-writing-tasks.md) for more exercises. The [Core Concepts](../../core/events/) section of the docs covers the platform's execution model in detail.
+New to Mechanic? Start with the [Getting started](../../getting-started.md) guide to install Mechanic and find your first task from the library. When you're ready to build your own, work through [Your first custom task](your-first-custom-task.md), then try [Practicing writing tasks](practicing-writing-tasks.md) for more exercises. The [Core Concepts](../../core/events/) section of the docs covers the platform's execution model in detail.

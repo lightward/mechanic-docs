@@ -1,3 +1,7 @@
+---
+description: "Use AI tools to write and debug Mechanic tasks \u2014 MCP server, Agent Skills, Sidekick, and ChatGPT."
+---
+
 # 🤖 Using AI with Mechanic
 
 {% hint style="info" %}
