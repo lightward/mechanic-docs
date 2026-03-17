@@ -1,4 +1,4 @@
-# Your first task
+# Your first custom task
 
 This tutorial walks you through building a complete Mechanic task from scratch. By the end, you'll have a working task that automatically tags orders over $100 with a "high-value" tag.
 

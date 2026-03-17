@@ -1,6 +1,7 @@
 # Table of contents
 
 * [⛩️ Introduction](README.md)
+* [🚀 Getting started](getting-started.md)
 * [🤓 Hire a Mechanic developer](hire-a-developer.md)
 * [💯 status.mechanic.dev](https://status.mechanic.dev)
 * [🙋 "I need something custom!"](custom.md)
@@ -39,7 +40,7 @@
     * [Send an email when a product's price goes below its cost](resources/video-walkthroughs/send-an-email-when-a-products-price-goes-below-its-cost.md)
     * [Auto-tag customers by sales channel](resources/video-walkthroughs/auto-tag-customers-by-sales-channel.md)
     * [Creating products in bulk](resources/video-walkthroughs/creating-products-in-bulk.md)
-  * [Your first task](resources/tutorials/your-first-task.md)
+  * [Your first custom task](resources/tutorials/your-first-custom-task.md)
   * [Creating a Mechanic webhook](resources/tutorials/creating-a-mechanic-webhook.md)
   * [Practicing writing tasks](resources/tutorials/practicing-writing-tasks.md)
   * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)

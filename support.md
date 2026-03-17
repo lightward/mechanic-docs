@@ -1,3 +1,7 @@
+---
+description: "Get help with Mechanic \u2014 contact support, ask our AI assistant, join Slack, or hire a developer."
+---
+
 # ❓ Getting Help
 
 There are several ways to get help with Mechanic, whether you're troubleshooting a platform issue, looking for task development support, or need a developer for a custom project.
