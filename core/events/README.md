@@ -1,3 +1,7 @@
+---
+description: "Events are triggers that start Mechanic tasks — Shopify webhooks, schedules, or custom sources."
+---
+
 # Events
 
 In Mechanic, an **event** represents anything that happens. This could be an order being paid, or a customer record being created, or a fulfillment being delivered.
@@ -6,7 +10,17 @@ An event always has a [**topic**](topics.md), and **data** (even if the data is 
 
 Events may trigger any number of [**tasks**](../tasks/), resulting in any number of [**actions**](../actions/).
 
-Events are fed into Mechanic by the responsible party – for events that are about things in Shopify, for example, the events come to Mechanic from Shopify itself.
+## Where events come from
+
+Events reach Mechanic from several sources:
+
+* **Shopify webhooks** — Shopify sends events when something changes in your store. For example, `shopify/orders/create` fires when a new order is placed, and `shopify/products/update` fires when a product is edited. These are the most common event source.
+* **Schedules** — Mechanic can generate events on a schedule. A topic like `mechanic/scheduler/daily` fires once per day, useful for reporting, cleanup, or monitoring tasks.
+* **User events** — Events triggered manually from the Mechanic app interface or by other tasks using the [Event action](../actions/event.md). These use custom topics like `user/orders/export` and are useful for chaining tasks together or triggering workflows on demand.
+
+Each event carries **data** that tasks can use. For a Shopify webhook event, this is the resource data sent by Shopify (e.g. the order object). For scheduled events, the data is minimal. Tasks access this data through the [Event object](../../platform/liquid/objects/event.md) in Liquid.
+
+For a complete reference of available event topics, see [Topics](topics.md).
 
 {% hint style="info" %}
 Incoming events may be selectively skipped using [event filters](../../platform/events/filters.md).

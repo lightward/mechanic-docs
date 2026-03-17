@@ -1,3 +1,7 @@
+---
+description: "Connect Mechanic to third-party services like Google Sheets, Airtable, Slack, and more."
+---
+
 # Integrations
 
 Mechanic maintains several official integration points:

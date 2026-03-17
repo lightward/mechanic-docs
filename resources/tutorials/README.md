@@ -1,3 +1,7 @@
+---
+description: "Step-by-step guides for building Mechanic tasks — from your first automation to advanced patterns."
+---
+
 # 🧠 Tutorials
 
 Step-by-step guides for common Mechanic development patterns. These tutorials walk through real-world scenarios, from setting up webhooks to building scheduled data feeds.
