@@ -2,7 +2,7 @@
 description: "Find a developer to build or customize your Mechanic automation task."
 ---
 
-# 🤓 Hire a Mechanic developer
+# 🤓 Hire a Mechanic Partner
 
 Mechanic's automation tasks are written in Liquid, which is a template language used heavily in and around Shopify. This means that developers of all levels, with even a little Shopify development experience, can get started with Mechanic.
 

@@ -29,7 +29,7 @@ An **action type** determines the class of operation to be performed. While acti
 | [Cache](cache.md) | Performing operations on the store's Mechanic cache                                  |
 | [Echo](echo.md)   | Debugging; displays the options that it is provided, with no side-effects            |
 | [Email](email.md) | Sending transactional email                                                          |
-| [Event](event.md) | Generating custom user events                                                        |
+| [Event](event.md) | Generating custom events in the [User event domain](../../platform/events/topics.md#user) |
 | [Files](files.md) | Generating files of various types, storing them at a temporary Mechanic-provided URL |
 | [FTP](ftp.md)     | Performing FTP file uploads and downloads                                            |
 | [HTTP](http.md)   | Performing HTTP requests                                                             |

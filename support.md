@@ -2,7 +2,7 @@
 description: "Get help with Mechanic \u2014 contact support, ask our AI assistant, join Slack, or hire a developer."
 ---
 
-# ❓ Getting Help
+# ❓ Contact support
 
 There are several ways to get help with Mechanic, whether you're troubleshooting a platform issue, looking for task development support, or need a developer for a custom project.
 
@@ -18,7 +18,7 @@ Mechanic support covers the platform and [task library](resources/task-library/)
 
 ## Ask Mechanic
 
-Mechanic includes a built-in AI assistant that can answer questions about the platform, help you find tasks, and explain how features work. Look for the **Ask Mechanic** button inside the app.
+Mechanic includes a built-in AI assistant with access to Mechanic's full documentation and the [Shopify Dev MCP](platform/shopify-dev-mcp.md) (Shopify's GraphQL schema and API documentation). It can answer platform questions, help you find tasks, explain how features work, and assist with task code. Look for the **Ask Mechanic** button inside the app.
 
 ## Slack community
 
@@ -33,12 +33,13 @@ If you need hands-on help building or customizing a task, you can hire a develop
 * **Browse developers:** [partners.mechanic.dev](https://partners.mechanic.dev/)
 * **Get matched with a developer:** [partners.mechanic.dev/matchmaking](https://partners.mechanic.dev/matchmaking)
 
-Learn more: [Hire a Mechanic developer](hire-a-developer.md)
+Learn more: [Hire a Mechanic Partner](hire-a-developer.md)
 
 ## AI tools for developers
 
 Mechanic offers dedicated AI tools for developers writing tasks:
 
+* [**Ask Mechanic**](platform/ask-mechanic.md) — built-in AI assistant with access to Mechanic docs and Shopify's GraphQL schema and API documentation
 * [**Mechanic MCP Server**](platform/mcp.md) — connect your AI coding tool to the task library and docs
 * [**Mechanic Agent Skills**](platform/agent-skills.md) — install task-writing expertise into your AI coding tool
 * [**Mechanic Sidekick Skill**](platform/sidekick.md) — write tasks with Shopify's built-in AI assistant
@@ -54,7 +55,7 @@ Check current platform status and subscribe to incident notifications:
 
 ## Related pages
 
-* [🙋 "I need something custom!"](custom.md) — starting points for custom development
-* [🧑‍💻 "I need help with my custom task!"](custom-help.md) — options for custom task support
-* [🤓 Hire a Mechanic developer](hire-a-developer.md) — finding a developer
+* [🙋 I need something custom!](custom.md) — starting points for custom development
+* [🧑‍💻 Get help with a custom task](custom-help.md) — options for custom task support
+* [🤓 Hire a Mechanic Partner](hire-a-developer.md) — finding a developer
 * [🚀 Slack community](resources/slack.md) — joining the community

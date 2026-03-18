@@ -160,6 +160,12 @@ In this tutorial, you've worked with all of Mechanic's core concepts:
 * **Previews and stub data** — how tasks communicate their intent and permissions
 * **Actions** — side effects the task produces (tagging an order via GraphQL)
 
+## Getting help
+
+{% hint style="info" %}
+Mechanic support covers the platform and tasks from the [task library](../task-library/). Custom tasks you build yourself (including AI-generated tasks) are not covered by support. For help with custom task logic, ask in the [Mechanic Slack community](../slack.md) or [hire a developer](../../hire-a-developer.md).
+{% endhint %}
+
 ## Next steps
 
 * [Practicing writing tasks](practicing-writing-tasks.md) — more exercises to build your skills

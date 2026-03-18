@@ -1,3 +1,7 @@
+---
+description: Write Mechanic tasks with Shopify's built-in Sidekick AI assistant.
+---
+
 # 🤖 Mechanic Sidekick Skill
 
 Write Mechanic tasks directly in Shopify Admin using Sidekick, Shopify's built-in AI assistant. The Mechanic Sidekick skill teaches Sidekick how to write production-ready Mechanic tasks with correct subscriptions, preview mode, GraphQL queries, and complete importable JSON output.

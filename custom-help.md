@@ -2,7 +2,7 @@
 description: "Get help with your custom Mechanic task \u2014 community Slack, developer hiring, and partner matchmaking."
 ---
 
-# 🧑‍💻 "I need help with my custom task!"
+# 🧑‍💻 Get help with a custom task
 
 {% hint style="info" %}
 #### What support is included with my Mechanic subscription?

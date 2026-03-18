@@ -50,10 +50,11 @@ From here, you can:
 
 If the task library doesn't cover your use case, Mechanic is a full development platform. Tasks are written in [Liquid](platform/liquid/basics/) (a template language created by Shopify) and can interact with the [Shopify Admin API](core/actions/shopify.md), [send emails](core/actions/email.md), [call external APIs](core/actions/http.md), and more.
 
-* ["I need something custom!"](custom.md) — an overview of the path to a custom task, whether you're a developer or need to find one
+* [I need something custom!](custom.md) — an overview of the path to a custom task, whether you're a developer or need to find one
 * [Your first custom task](resources/tutorials/your-first-custom-task.md) — a step-by-step tutorial for building a task from scratch
 
 ## Get help
 
 * [Slack community](resources/slack.md) — ask questions and share solutions with other Mechanic users
-* [Getting Help](support.md) — how to reach the Mechanic support team
+* [Hire a Mechanic Partner](hire-a-developer.md) — find a developer to build or customize your task
+* [Contact support](support.md) — how to reach the Mechanic support team

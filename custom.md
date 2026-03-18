@@ -2,15 +2,19 @@
 description: Great! Mechanic is made for this. Here's where to start. :)
 ---
 
-# 🙋 "I need something custom!"
+# 🙋 I need something custom!
 
 Mechanic is a development platform – in the hands of a developer, it can be used to accomplish almost anything in Shopify. While our [task library](resources/task-library/) covers many use cases, Mechanic's true strength is in letting developers solve merchant problems quickly, giving merchants easy configuration forms for managing the resulting tasks.
+
+{% hint style="warning" %}
+Mechanic support covers the platform and tasks from the [task library](resources/task-library/). Custom tasks (including AI-generated tasks) are not covered by support — for help with custom task logic, ask in the [Mechanic Slack community](resources/slack.md) or [hire a developer](hire-a-developer.md).
+{% endhint %}
 
 {% hint style="info" %}
 Need something that you think others might need too? The Mechanic community accepts [task requests](resources/task-library/requesting.md), and the top-voted requests are regularly selected for implementation.
 {% endhint %}
 
-## If you're using AI...
+## If you're using AI
 
 We have tools for this! Mechanic offers an [MCP server](platform/mcp.md) for task library and docs access, [Agent Skills](platform/agent-skills.md) and a [Sidekick skill](platform/sidekick.md) for task-writing patterns, and the [Mechanic GPT](platform/chatgpt.md) for general help in ChatGPT. See [Using AI with Mechanic](ai.md) for the full overview.
 

@@ -1,9 +1,15 @@
+---
+description: Give your AI coding tool access to Shopify's GraphQL schema and API documentation.
+---
+
 # 🛍️ Shopify Dev MCP Server
 
 The Shopify Dev MCP server is built and maintained by Shopify. It gives your AI coding tool direct access to Shopify's API documentation, GraphQL schema introspection, and query validation — making it a useful companion to the [Mechanic MCP Server](mcp.md) when writing tasks.
 
 {% hint style="info" %}
 This is a Shopify tool, not a Mechanic tool. For Mechanic-specific task library access and documentation, use the [Mechanic MCP Server](mcp.md).
+
+The Shopify Dev MCP is also built into [Ask Mechanic](ask-mechanic.md), Mechanic's in-app AI assistant — no setup required.
 {% endhint %}
 
 ***

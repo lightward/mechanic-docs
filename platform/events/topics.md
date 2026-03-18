@@ -63,7 +63,7 @@ More specific times can be achieved by subscribing to an event topic with a dela
 
 ### User
 
-Not to be confused with events in the User domain, the mechanic/user event subject describes ways that the user expresses their intent – to Mechanic – to run the task. [Run links](../integrations/run-links.md) are available for these topics.
+Not to be confused with the [User event domain](#user) (for custom, developer-defined events like `user/foo/bar`), `mechanic/user` topics are for tasks that are run on demand — either from a button in the Mechanic app, or via [Shopify admin action links](../../core/shopify/admin-action-links.md). [Run links](../integrations/run-links.md) are available for these topics.
 
 * **mechanic/user/trigger**\
   When used, adds a "Run task" button to the task itself. This button generates a new event, to which only this task will respond.

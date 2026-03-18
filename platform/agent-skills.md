@@ -1,3 +1,7 @@
+---
+description: Install Mechanic task-writing expertise into your AI coding tool.
+---
+
 # 🤖 Mechanic Agent Skills
 
 Install Mechanic's task-writing expertise directly into your AI coding tool. The `mechanic-task-writer` skill teaches your AI assistant how to write production-ready Mechanic tasks with correct subscriptions, preview mode, GraphQL queries, bulk operations, and complete importable JSON output.
