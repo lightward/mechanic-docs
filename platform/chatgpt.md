@@ -1,3 +1,7 @@
+---
+description: Write and debug Mechanic tasks using the Mechanic GPT in ChatGPT.
+---
+
 # 🤖 Mechanic GPT
 
 A custom GPT for getting help with Mechanic within ChatGPT. This GPT has access to the full Mechanic documentation as a knowledge base, and can answer general questions about the platform, help you understand concepts, and write or debug task code.
@@ -29,7 +33,7 @@ A ChatGPT account is required (free or paid). You can bookmark this link or shar
 * "Write a task that auto-tags orders using a specific discount code"
 * "I need a scheduled task that emails me a CSV of unfulfilled orders every morning"
 * "Debug this task — it's not tagging customers correctly"
-* "How do I set up a two-pass workflow?"
+* "How do I respond to action results?"
 * "What integrations does Mechanic support?"
 
 ***

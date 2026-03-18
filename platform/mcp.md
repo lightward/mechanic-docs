@@ -1,3 +1,7 @@
+---
+description: Connect your AI coding tool to Mechanic's task library and documentation.
+---
+
 # 🤖 Mechanic MCP Server
 
 Connect your AI assistant to Mechanic's task library and documentation. The Mechanic Model Context Protocol (MCP) server enables your AI assistant to search tasks, explore documentation, and fetch task code.

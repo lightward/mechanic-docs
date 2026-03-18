@@ -22,7 +22,7 @@ When building a new task, it's often easier to start from an existing library ta
 {% endhint %}
 
 {% hint style="warning" %}
-Mechanic support covers **unmodified** tasks from the task library. Once you modify a library task's code, it becomes a custom task, and support is limited to platform-level issues. For help with custom tasks, see ["I need help with my custom task!"](../../custom-help.md)
+Mechanic support covers **unmodified** tasks from the task library. Once you modify a library task's code, it becomes a custom task, and support is limited to platform-level issues. For help with custom tasks, see [Get help with a custom task](../../custom-help.md)
 {% endhint %}
 
 ## What's in the library

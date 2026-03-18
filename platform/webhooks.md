@@ -1,3 +1,7 @@
+---
+description: Receive data from external services and trigger Mechanic tasks via webhooks.
+---
+
 # Webhooks
 
 A Mechanic **webhook** allows data to be submitted directly to Mechanic, resulting in a new [**event**](../core/events/) having a particular topic, containing the submitted data. Webhooks are called with simple HTTP POST requests, which means they can be called from any programming language, and from many applications.

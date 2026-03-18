@@ -12,7 +12,7 @@ Events can come from several places:
 
 * **Shopify webhooks** — triggered by activity in your store (orders, customers, products, fulfillments, etc.)
 * **Mechanic scheduler** — timed events like `mechanic/scheduler/daily` or `mechanic/scheduler/hourly`
-* **User triggers** — manual runs initiated from the Mechanic UI via `mechanic/user/trigger`
+* **On-demand runs** — tasks run manually via the Mechanic app (`mechanic/user/trigger`, `mechanic/user/text`, `mechanic/user/form`) or via [Shopify admin action links](../../core/shopify/admin-action-links.md) (`mechanic/user/order`, etc.)
 * **Custom events** — events fired by tasks using the [Event action](../../core/actions/event.md), enabling multi-step workflows
 * **Incoming email** — emails sent to your store's Mechanic address trigger `mechanic/emails/received`
 * **Error events** — `mechanic/errors/task`, `mechanic/errors/action`, and `mechanic/errors/event` fire when something goes wrong

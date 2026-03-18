@@ -7,5 +7,5 @@ To handle translations, some merchants install multiple copies of a task, and tu
 In other cases, task code can be customized to allow for specifying multiple translations within a single task, switching between them as appropriate. (Typically, this means adding a [keyval option](https://learn.mechanic.dev/core/tasks/options#flags) allowing the user to specify and identify content as needed.)
 
 {% hint style="info" %}
-New to task customization? Start here: ["I need something custom!"](https://learn.mechanic.dev/custom)
+New to task customization? Start here: [I need something custom!](https://learn.mechanic.dev/custom)
 {% endhint %}
