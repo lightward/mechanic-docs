@@ -1,5 +1,9 @@
 # Working with external APIs
 
+{% hint style="info" %}
+For a higher-level overview of connecting Mechanic to third-party services — including built-in integrations and authentication patterns — see [Connecting third-party apps](../../platform/integrations/connecting-third-party-apps.md).
+{% endhint %}
+
 ## Loading data into Mechanic
 
 Mechanic is an event-driven platform. This means that all data _used_ by Mechanic needs to arrive in the form of an event. (The only exception here is Shopify itself: see [Interacting with Shopify](../../core/shopify/)).

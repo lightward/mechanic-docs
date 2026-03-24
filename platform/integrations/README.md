@@ -20,7 +20,7 @@ Mechanic maintains several official integration points:
 {% hint style="info" %}
 #### Need a service that's not on this list?
 
-Mechanic can be used with most HTTP APIs, via the [HTTP action](../../core/actions/http.md) (for sending and receiving data) and its [webhook system](../webhooks.md) (for receiving pushed data). This makes it possible for developers to manually integrate many more third-party services, as long as the service in question has an appropriate API.
+Mechanic can connect to virtually any service that has an HTTP API or outbound webhooks. See [Connecting third-party apps](connecting-third-party-apps.md) for a complete guide to integrating external services.
 
 The [Mechanic task library](https://tasks.mechanic.dev/) has a limited selection of tasks integrating with third-party services.
 

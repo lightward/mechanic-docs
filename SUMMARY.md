@@ -154,6 +154,7 @@
   * [Shopify Flow](platform/integrations/shopify-flow.md)
   * [Slack](platform/integrations/slack.md)
   * [Run links](platform/integrations/run-links.md)
+  * [Connecting third-party apps](platform/integrations/connecting-third-party-apps.md)
 * [Liquid](platform/liquid/README.md)
   * [Basics](platform/liquid/basics/README.md)
     * [Syntax](platform/liquid/basics/syntax.md)
