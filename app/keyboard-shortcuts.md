@@ -23,10 +23,10 @@ Keyboard shortcuts are disabled when you're typing in an input field, textarea, 
 
 | Shortcut | Action |
 | --- | --- |
-| `G` then `G` | Go to Home |
-| `G` then `T` | Go to Task library |
-| `G` then `E` | Go to Events |
-| `G` then `S` | Go to Settings |
+| `G` then `G` | Go to [Home](home.md) |
+| `G` then `T` | Go to [Task library](../resources/task-library/) |
+| `G` then `E` | Go to [Events](events.md) |
+| `G` then `S` | Go to [Settings](settings.md) |
 | `G` then `H` | Go to Help |
 
 ### Create

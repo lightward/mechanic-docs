@@ -39,7 +39,7 @@ Learn more: [Hire a Mechanic Partner](hire-a-developer.md)
 
 Mechanic offers dedicated AI tools for developers writing tasks:
 
-* [**Ask Mechanic**](platform/ask-mechanic.md) — built-in AI assistant with access to Mechanic docs and Shopify's GraphQL schema and API documentation
+* [**Ask Mechanic**](app/ask-mechanic.md) — built-in AI assistant with access to Mechanic docs and Shopify's GraphQL schema and API documentation
 * [**Mechanic MCP Server**](platform/mcp.md) — connect your AI coding tool to the task library and docs
 * [**Mechanic Agent Skills**](platform/agent-skills.md) — install task-writing expertise into your AI coding tool
 * [**Mechanic Sidekick Skill**](platform/sidekick.md) — write tasks with Shopify's built-in AI assistant

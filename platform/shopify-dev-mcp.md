@@ -9,7 +9,7 @@ The Shopify Dev MCP server is built and maintained by Shopify. It gives your AI 
 {% hint style="info" %}
 This is a Shopify tool, not a Mechanic tool. For Mechanic-specific task library access and documentation, use the [Mechanic MCP Server](mcp.md).
 
-The Shopify Dev MCP is also built into [Ask Mechanic](ask-mechanic.md), Mechanic's in-app AI assistant — no setup required.
+The Shopify Dev MCP is also built into [Ask Mechanic](../app/ask-mechanic.md), Mechanic's in-app AI assistant — no setup required.
 {% endhint %}
 
 ***

@@ -15,7 +15,7 @@
 * [🧑‍💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
-* [💬 Ask Mechanic](platform/ask-mechanic.md)
+* [💬 Ask Mechanic](app/ask-mechanic.md)
 * [🤖 Mechanic MCP Server](platform/mcp.md)
 * [🤖 Mechanic Agent Skills](platform/agent-skills.md)
 * [🚀 Slack community](resources/slack.md)
@@ -51,6 +51,16 @@
   * [Conversion: Connections from a resource](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-connections-from-a-resource.md)
   * [Conversion: Metafield lookups from a resource](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-metafield-lookups-from-a-resource.md)
   * [Conversion: Resource lookups in task option fields](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-resource-lookups-in-task-option-fields.md)
+
+## Using the app <a href="#app" id="app"></a>
+
+* [Home](app/home.md)
+* [Task editor](app/task-editor.md)
+* [Events](app/events.md)
+* [Settings](app/settings.md)
+* [💬 Ask Mechanic](app/ask-mechanic.md)
+* [Liquid console](app/liquid-console.md)
+* [⌨️ Keyboard shortcuts](app/keyboard-shortcuts.md)
 
 ## Core Concepts <a href="#core" id="core"></a>
 
@@ -167,7 +177,6 @@
       * [Condition](platform/liquid/basics/control-flow/condition.md)
       * [Iteration](platform/liquid/basics/control-flow/iteration.md)
     * [Whitespace](platform/liquid/basics/whitespace.md)
-  * [Liquid console](platform/liquid/console.md)
   * [Mechanic filters](platform/liquid/filters/README.md)
     * [Deprecated filters](platform/liquid/filters/deprecated.md)
   * [Mechanic keyword literals](platform/liquid/keyword-literals/README.md)
@@ -223,7 +232,6 @@
 * [Shopify](platform/shopify/README.md)
   * [Custom authentication](platform/shopify/custom-authentication.md)
   * ["Read all orders"](platform/shopify/read-all-orders.md)
-* [⌨️ Keyboard shortcuts](platform/keyboard-shortcuts.md)
 * [Webhooks](platform/webhooks.md)
 
 ## Techniques
