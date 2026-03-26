@@ -10,11 +10,11 @@ Prevents an expression from being rendered or output.
 
 Any text inside `comment` tags won't be output, and any Liquid code will be parsed, but not executed.
 
-```javascript
+```liquid
 {% comment %} This is a comment in Liquid {% endcomment %}
 ```
 
-```javascript
+```liquid
 {% comment %} 
   This is a comment in Liquid 
 {% endcomment %}

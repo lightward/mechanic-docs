@@ -12,7 +12,7 @@ In Mechanic's Liquid implementation, a hash can only have string keys.
 
 ## Example
 
-```javascript
+```liquid
 {% assign sizes = hash %}
 {% assign sizes["S"] = "Small" %}
 {% assign sizes["M"] = "Medium" %}

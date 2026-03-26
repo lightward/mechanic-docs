@@ -25,7 +25,7 @@ Arrays support assignment by index, using integer lookups.
 {% tabs %}
 {% tab title="Code" %}
 
-```javascript
+```liquid
 {% assign x = array %}
 {% assign x[0] = "one" %}
 {% assign x[x.size] = "two" %}
@@ -40,7 +40,7 @@ Arrays support assignment by index, using integer lookups.
 
 {% tab title="Output" %}
 
-```javascript
+```liquid
 ["one","two","three"]
 ```
 
@@ -54,7 +54,7 @@ Hashes support assignment by key, using string lookups.
 {% tabs %}
 {% tab title="Code" %}
 
-```javascript
+```liquid
 {% assign x = hash %}
 {% assign x["one"] = 1 %}
 {% assign x["two"] = 2 %}
@@ -69,7 +69,7 @@ Hashes support assignment by key, using string lookups.
 
 {% tab title="Output" %}
 
-```javascript
+```liquid
 {"one":1,"two":2,"three":3}
 ```
 

@@ -17,7 +17,7 @@ Learn more from Shopify: see [Whitespace control](https://shopify.dev/docs/theme
 
 ## Example
 
-```javascript
+```liquid
 {%- capture message -%}
   This is a message.
 {%- endcapture -%}
