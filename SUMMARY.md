@@ -9,15 +9,15 @@
 * [🤖 Using AI with Mechanic](ai.md)
 * [❓ Contact support](support.md)
 
-## Using the app <a href="#app" id="app"></a>
+## App screens <a href="#app" id="app"></a>
 
-* [Home](app/home.md)
+* [Task list](app/home.md)
 * [Task editor](app/task-editor.md)
 * [Events](app/events.md)
 * [Settings](app/settings.md)
-* [💬 Ask Mechanic](app/ask-mechanic.md)
+* [Ask Mechanic](app/ask-mechanic.md)
 * [Liquid console](app/liquid-console.md)
-* [⌨️ Keyboard shortcuts](app/keyboard-shortcuts.md)
+* [Keyboard shortcuts](app/keyboard-shortcuts.md)
 
 ## Resources
 

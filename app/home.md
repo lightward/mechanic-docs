@@ -1,10 +1,10 @@
 ---
-description: The Mechanic home screen — view your installed tasks, monitor current activity, and see recent Shopify automation events.
+description: The Mechanic task list — view installed tasks, monitor current activity, and see recent Shopify automation events.
 ---
 
-# Home
+# Task list
 
-The Mechanic home screen is your dashboard. It shows your installed tasks, current processing activity, and a live feed of recent events.
+The task list is the first screen you see when you open Mechanic. It shows your installed tasks, current processing activity, and a live feed of recent events.
 
 <figure><img src="../.gitbook/assets/home_mechanic.jpg" alt="The Mechanic home screen showing the task list, current activity, and recent events"><figcaption></figcaption></figure>
 
