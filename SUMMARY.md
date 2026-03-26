@@ -9,13 +9,22 @@
 * [🤖 Using AI with Mechanic](ai.md)
 * [❓ Contact support](support.md)
 
+## Using the app <a href="#app" id="app"></a>
+
+* [Home](app/home.md)
+* [Task editor](app/task-editor.md)
+* [Events](app/events.md)
+* [Settings](app/settings.md)
+* [💬 Ask Mechanic](app/ask-mechanic.md)
+* [Liquid console](app/liquid-console.md)
+* [⌨️ Keyboard shortcuts](app/keyboard-shortcuts.md)
+
 ## Resources
 
 * [⬇️ Install Mechanic](https://apps.shopify.com/mechanic)
 * [🧑‍💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
-* [💬 Ask Mechanic](platform/ask-mechanic.md)
 * [🤖 Mechanic MCP Server](platform/mcp.md)
 * [🤖 Mechanic Agent Skills](platform/agent-skills.md)
 * [🚀 Slack community](resources/slack.md)
@@ -167,7 +176,6 @@
       * [Condition](platform/liquid/basics/control-flow/condition.md)
       * [Iteration](platform/liquid/basics/control-flow/iteration.md)
     * [Whitespace](platform/liquid/basics/whitespace.md)
-  * [Liquid console](platform/liquid/console.md)
   * [Mechanic filters](platform/liquid/filters/README.md)
     * [Deprecated filters](platform/liquid/filters/deprecated.md)
   * [Mechanic keyword literals](platform/liquid/keyword-literals/README.md)

@@ -5,7 +5,7 @@ The Event object describes an incoming [event](../../../core/events/).
 ## How to access it
 
 * Use `event` in any task code
-* Use `event` in the [Liquid console](../console.md) when viewing an event in Mechanic
+* Use `event` in the [Liquid console](../../../app/liquid-console.md) when viewing an event in Mechanic
 
 ## What it contains
 

@@ -5,7 +5,7 @@ description: "Use AI tools to write and debug Mechanic tasks \u2014 MCP server, 
 # 🤖 Using AI with Mechanic
 
 {% hint style="info" %}
-**[Ask Mechanic](platform/ask-mechanic.md)** is Mechanic's built-in AI assistant, with access to Mechanic's docs and Shopify's GraphQL schema and API documentation. Use it right inside the app to ask questions, find tasks, and get help with task code — no setup required.
+**[Ask Mechanic](app/ask-mechanic.md)** is Mechanic's built-in AI assistant, with access to Mechanic's docs and Shopify's GraphQL schema and API documentation. Use it right inside the app to ask questions, find tasks, and get help with task code — no setup required.
 
 For developers writing tasks, Mechanic also offers dedicated AI tools:
 
