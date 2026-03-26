@@ -35,7 +35,7 @@ Can't find exactly what you need? You can [request a task](resources/task-librar
 
 Once you save a task, it's live — Mechanic will run it automatically when the matching event occurs. For example, a task that subscribes to `shopify/orders/create` will run every time a new order is placed.
 
-To confirm it's working, open the **Events** page in the Mechanic app. You'll see incoming events and the task runs they trigger, including any actions that were performed or errors that occurred.
+To confirm it's working, open the [**Events**](app/events.md) page in the Mechanic app. You'll see incoming events and the task runs they trigger, including any actions that were performed or errors that occurred.
 
 {% endstep %}
 {% endstepper %}

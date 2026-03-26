@@ -1,5 +1,5 @@
 ---
-description: Get answers about Mechanic directly inside the app — no setup required.
+description: Ask Mechanic is a built-in AI assistant that answers platform questions, explains features, and helps you find tasks — no setup required.
 ---
 
 # Ask Mechanic

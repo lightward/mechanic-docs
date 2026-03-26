@@ -1,5 +1,5 @@
 ---
-description: Your Mechanic dashboard — tasks, activity, and recent events at a glance.
+description: The Mechanic home screen — view your installed tasks, monitor current activity, and see recent Shopify automation events.
 ---
 
 # Home
@@ -28,4 +28,4 @@ The right sidebar shows real-time processing status — how many of your tasks a
 
 ## Recent events
 
-A live feed of the most recent [events](events.md) — use it to spot if tasks are triggering unexpectedly or encountering errors. Click **View more** to go to the full [Events](events.md) page.
+A live feed of the most recent [events](events.md) — use it to see if tasks are triggering unexpectedly or encountering errors. Click **View more** to go to the full [Events](events.md) page.

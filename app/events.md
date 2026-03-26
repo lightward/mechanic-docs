@@ -1,5 +1,5 @@
 ---
-description: Monitor and investigate the events flowing through your Mechanic account.
+description: Monitor Shopify webhook events, filter by topic or error, and investigate task run results in the Mechanic Events page.
 ---
 
 # Events

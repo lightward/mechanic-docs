@@ -9,13 +9,22 @@
 * [🤖 Using AI with Mechanic](ai.md)
 * [❓ Contact support](support.md)
 
+## Using the app <a href="#app" id="app"></a>
+
+* [Home](app/home.md)
+* [Task editor](app/task-editor.md)
+* [Events](app/events.md)
+* [Settings](app/settings.md)
+* [💬 Ask Mechanic](app/ask-mechanic.md)
+* [Liquid console](app/liquid-console.md)
+* [⌨️ Keyboard shortcuts](app/keyboard-shortcuts.md)
+
 ## Resources
 
 * [⬇️ Install Mechanic](https://apps.shopify.com/mechanic)
 * [🧑‍💻 Task library](resources/task-library/README.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
-* [💬 Ask Mechanic](app/ask-mechanic.md)
 * [🤖 Mechanic MCP Server](platform/mcp.md)
 * [🤖 Mechanic Agent Skills](platform/agent-skills.md)
 * [🚀 Slack community](resources/slack.md)
@@ -51,16 +60,6 @@
   * [Conversion: Connections from a resource](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-connections-from-a-resource.md)
   * [Conversion: Metafield lookups from a resource](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-metafield-lookups-from-a-resource.md)
   * [Conversion: Resource lookups in task option fields](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-resource-lookups-in-task-option-fields.md)
-
-## Using the app <a href="#app" id="app"></a>
-
-* [Home](app/home.md)
-* [Task editor](app/task-editor.md)
-* [Events](app/events.md)
-* [Settings](app/settings.md)
-* [💬 Ask Mechanic](app/ask-mechanic.md)
-* [Liquid console](app/liquid-console.md)
-* [⌨️ Keyboard shortcuts](app/keyboard-shortcuts.md)
 
 ## Core Concepts <a href="#core" id="core"></a>
 

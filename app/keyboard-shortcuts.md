@@ -1,5 +1,5 @@
 ---
-description: Navigate Mechanic faster with built-in keyboard shortcuts.
+description: Keyboard shortcuts for navigating Mechanic, creating tasks, and toggling Ask Mechanic — with a full shortcut reference.
 ---
 
 # Keyboard shortcuts

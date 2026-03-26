@@ -1,5 +1,9 @@
 # Liquid console
 
+{% hint style="info" %}
+This page has moved. See [Liquid console](../../app/liquid-console.md) in the Using the app section.
+{% endhint %}
+
 Mechanic's **Liquid console** is available in the footer of every page of the Mechanic Shopify app. It's a useful scratchpad for testing [**Mechanic Liquid**](./), without having to think about the output restrictions of [task previews](../../core/tasks/previews/). The console includes information about the final rendering **context** for each Liquid submission, which can be useful in understanding how Mechanic Liquid works.
 
 {% hint style="info" %}

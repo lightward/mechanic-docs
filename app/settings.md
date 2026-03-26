@@ -1,5 +1,5 @@
 ---
-description: Configure your Mechanic account, permissions, email, and integrations.
+description: Configure your Mechanic account — contact email, Shopify permissions, outbound email, webhooks, integrations, and more.
 ---
 
 # Settings
