@@ -4,46 +4,50 @@ description: Create, edit, and test Mechanic tasks with the built-in code editor
 
 # Task editor
 
-The task editor is where you write and configure Mechanic [tasks](../core/tasks/). It has two modes: **Basic** for simple configuration, and **Advanced** for full access to code, preview events, JavaScript, runtime settings, permissions, and documentation.
+The task editor is where you configure and write Mechanic [tasks](../core/tasks/). It has two modes: **Basic** for adjusting a task's settings, and **Advanced** for editing code, testing with preview events, and managing runtime behavior.
 
-Switch between modes using the **Advanced/Basic mode** toggle in the page actions menu. You can set your default mode in [Settings](settings.md).
+Switch between modes using the **Advanced/Basic mode** toggle in the page actions menu. You can set your default in [Settings](settings.md).
+
+{% hint style="info" %}
+If you're using tasks from the [task library](../resources/task-library/) and only need to adjust their settings, Basic mode is all you need. Advanced mode is for writing or editing task code.
+{% endhint %}
 
 ## Basic mode
 
 <figure><img src="../.gitbook/assets/basic_task_mechanic.jpg" alt="The task editor in Basic mode, showing options and documentation"><figcaption></figcaption></figure>
 
-Basic mode shows the task's [options](../core/tasks/options/) and documentation. This is the default view for merchants using pre-built tasks who don't need to edit code.
+Basic mode displays the task's settings and documentation, with no code visible. Use it to configure a task's [options](../core/tasks/options/) — the fields that control how the task behaves (e.g., which tag to apply, which email to send to).
 
 ## Advanced mode
 
 <figure><img src="../.gitbook/assets/advanced_task_mechanic.jpg" alt="The task editor in Advanced mode, showing the code tab with subscriptions, Liquid editor, options sidebar, and preview"><figcaption></figcaption></figure>
 
-Advanced mode provides a tabbed editor with a sidebar showing **Options** and a live **Preview** of the actions your task will generate.
+Advanced mode provides a tabbed editor with a sidebar showing **Options** and a live **Preview** of the actions your task will perform based on your code.
 
 ### Code tab
 
 The main editing surface:
 
-* **Subscriptions** — define which [event topics](../core/events/topics.md) trigger this task, one per line
-* **Code** — write the task's [Liquid script](../platform/liquid/)
+* **Subscriptions** — the Shopify events (like order creation or fulfillment) that trigger this task, one per line. Supports [offsets](../core/tasks/subscriptions.md) for delays (e.g., `shopify/orders/create+1.hour`).
+* **Code** — the task's [Liquid script](../platform/liquid/), which is Mechanic's scripting language (related to but distinct from Shopify theme Liquid)
 
 ### Preview events tab
 
-Create test events to see how your task will behave. The task [preview](../core/tasks/previews/) updates automatically as you edit, showing generated actions, errors, and any Shopify permission changes.
+Create test events to see how your task will behave without affecting real data. The task [preview](../core/tasks/previews/) updates automatically as you edit, showing generated actions, errors, and any Shopify permission changes.
 
 ### JavaScript tab
 
-Add JavaScript that runs in your customers' browser (on the online storefront or order status page). Supports Liquid templating within the JavaScript.
+Add JavaScript that runs in your customers' browser on the online storefront or order status page. Most tasks don't use this — it's for tasks that need client-side interactivity.
 
 ### Runtime tab
 
 * **Shopify Admin API version** — which [API version](../core/shopify/api-versions.md) the task uses
-* **Perform action runs in sequence** — execute actions one at a time instead of in parallel
+* **Perform action runs in sequence** — by default, Mechanic runs all of a task's actions in parallel. Enable this to run them one at a time, which is useful when later actions depend on earlier ones.
 * **Halt the sequence when one fails** — stop processing remaining actions if one fails
 
 ### Permissions tab
 
-A read-only view of the Shopify API [permissions](../core/tasks/permissions.md) your task requires, automatically detected from your code and preview.
+A read-only view of the Shopify API [permissions](../core/tasks/permissions.md) your task requires. Mechanic scans your code and preview events to determine these automatically — you don't need to manage them manually.
 
 ### Docs & Tags tab
 
@@ -54,7 +58,7 @@ Add tags to organize your task, and write Markdown documentation with a live pre
 The actions menu in the page header includes:
 
 * **Events** — view all events processed by this task
-* **Import / Export** — paste a JSON task export, or copy this task as JSON
+* **Import / Export** — paste a JSON task export, or copy this task as JSON. Learn more in [Import and export](../core/tasks/import-and-export.md).
 * **Duplicate** — create a copy of the task
 * **Versions** — view and restore previous versions of the task
 

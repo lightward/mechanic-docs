@@ -4,7 +4,7 @@ description: Get answers about Mechanic directly inside the app — no setup req
 
 # Ask Mechanic
 
-**Ask Mechanic** is Mechanic's built-in AI assistant, available directly inside the app. It has access to Mechanic's full documentation and the [Shopify Dev MCP](../platform/shopify-dev-mcp.md) (Shopify's GraphQL schema and API documentation), so it can answer platform questions, help you find tasks, and explain how features work — all without leaving the app.
+**Ask Mechanic** is Mechanic's built-in AI assistant. It can answer platform questions, help you find tasks, and explain how features work — all without leaving the app. It has access to Mechanic's full documentation and Shopify's API documentation.
 
 Look for the **Ask Mechanic** button in the Mechanic app to get started, or press `Cmd/Ctrl + J` to toggle it from anywhere (see [Keyboard shortcuts](keyboard-shortcuts.md)). No setup or external tools needed.
 
@@ -22,9 +22,9 @@ Mechanic support covers the platform and tasks from the [task library](../resour
 * "What integrations does Mechanic support?"
 * "Find a task that auto-tags orders by discount code"
 
-Ask Mechanic is also available as a full-screen terminal view:
+Ask Mechanic is also available as a dedicated full-screen view:
 
-<figure><img src="../.gitbook/assets/ask_mechanic_terminal.jpg" alt="Ask Mechanic in full-screen terminal mode"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ask_mechanic_terminal.jpg" alt="Ask Mechanic in full-screen view"><figcaption></figcaption></figure>
 
 ## For developers
 
