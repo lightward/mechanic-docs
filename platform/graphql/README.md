@@ -1,6 +1,10 @@
-# GraphQL
+---
+description: "Use Shopify's GraphQL Admin API in Mechanic tasks to read and write store data — orders, products, customers, metafields, and more."
+---
 
-**GraphQL** is Shopify's preferred API language – it's the way developers are encouraged to query for and submit Shopify data. Mechanic tasks frequently use GraphQL to efficiently retrieve and write data from Shopify.
+# GraphQL in Mechanic
+
+Mechanic tasks have direct inline access to Shopify's GraphQL Admin API. Run queries during task execution to read data, and use GraphQL mutations via the Shopify action to write data — giving you the same level of API access you'd have in a custom app, without the infrastructure.
 
 {% hint style="warning" %}
 Shopify REST is deprecated in Mechanic. All new tasks should use the GraphQL Admin API. See [Converting tasks from Shopify REST to GraphQL](../../resources/converting-tasks-from-shopify-rest-to-graphql/) for migration guidance.
@@ -60,8 +64,10 @@ Learn more: [Mutations](basics/mutations.md)
 
 ## Learn more
 
+* [GraphQL in Liquid](../../core/shopify/read/graphql-in-liquid.md) — the complete guide to using GraphQL queries in task code
 * [Shopify Admin API GraphiQL explorer](basics/shopify-admin-api-graphiql-explorer.md) — test queries interactively
 * [Queries](basics/queries.md) — reading data with GraphQL
 * [Mutations](basics/mutations.md) — writing data with GraphQL
 * [Pagination](basics/pagination.md) — handling paginated results
 * [Bulk operations](bulk-operations.md) — processing large datasets
+* [Converting tasks from Shopify REST to GraphQL](../../resources/converting-tasks-from-shopify-rest-to-graphql/) — migration guide for existing tasks

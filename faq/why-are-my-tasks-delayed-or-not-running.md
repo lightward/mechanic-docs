@@ -1,3 +1,7 @@
+---
+description: "Troubleshoot delayed or stuck Mechanic tasks — check queue status, Shopify webhook delivery, and concurrency limits."
+---
+
 # Why are my tasks delayed or not running?
 
 In general, there are two reasons why a task might be delayed, or might not be appearing to run:

@@ -1,4 +1,8 @@
-# Shopify
+---
+description: "Run Shopify GraphQL mutations from Mechanic tasks — create orders, update products, manage customers, and more via the Shopify action."
+---
+
+# Shopify Action
 
 The **Shopify** action sends requests to the [Shopify admin API](https://shopify.dev/docs/admin-api). Use the [`shopify` Liquid filter](../../platform/liquid/filters/#shopify) to read data; use this action to write or update data.
 

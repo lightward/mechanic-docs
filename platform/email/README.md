@@ -21,6 +21,10 @@ By default, emails are sent from a Mechanic-managed address on your behalf. You 
 * [**DMARC**](dmarc.md) — configure DMARC alignment for improved deliverability
 * **Attachments** — attach [generated files](../../core/actions/file-generators/) (PDFs, CSVs, etc.) to outgoing emails
 
+{% hint style="info" %}
+Common questions: [How do I send images with my emails?](../../faq/how-do-i-send-images-with-my-emails.md) · [How do I preview email attachments?](../../faq/how-do-i-preview-email-attachments.md)
+{% endhint %}
+
 ## Receiving email
 
 Stores using Mechanic can receive email using the [mechanic/emails/received](receiving-email.md) event topic. When an email is received at your store's Mechanic email address, Mechanic creates an event containing the email's subject, body, sender, and any attachments.

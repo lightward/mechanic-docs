@@ -1,10 +1,10 @@
 ---
-description: I'm glad you're here. :) –Isaac
+description: "Mechanic is a programmable automation platform for Shopify — hundreds of ready-to-use tasks plus a Liquid scripting environment for custom workflows."
 ---
 
 # ⛩️ Introduction
 
-Mechanic is a Shopify development and automation platform.
+Mechanic is a programmable automation platform for Shopify. Write Liquid scripts that respond to store events, query the Shopify Admin API, call external services, and perform complex multi-step workflows — with no servers to manage.
 
 * [Browse the task library](https://tasks.mechanic.dev/) — hundreds of ready-to-use automations for tagging, emails, inventory, fulfillment, and more
 * [Get started](getting-started.md) — install Mechanic and set up your first task in minutes
@@ -17,7 +17,7 @@ Find Mechanic on the Shopify App Store: [apps.shopify.com/mechanic](https://apps
 
 ## Can Mechanic help me?
 
-Mechanic is a Shopify development and automation platform, which comes with a rich [library of pre-written automation tasks](https://tasks.mechanic.dev/) – and our users write their own custom tasks every day. Let's find out if Mechanic might work for you.
+Mechanic gives you a task library with hundreds of ready-to-use automations — and a full development environment for building your own. Tasks are real code: Liquid scripts with direct access to Shopify's GraphQL API, external HTTP services, and composable event-driven workflows. Here's how to tell if it fits your use case.
 
 1. Are you working on something Shopify-related?
    * Mechanic is only available for Shopify.
@@ -28,7 +28,7 @@ Mechanic is a Shopify development and automation platform, which comes with a ri
 4. Need something tailored to your store?
    * You can [build a custom task](custom.md) yourself, or [hire a developer](hire-a-developer.md) to create one for you. Either way, the path is well-established.
 
-That list wasn't exactly a formal flowchart, but we hope it's helpful as you're evaluating Mechanic for your purposes. At its best, Mechanic is a platform and toolkit that you go to, and return to, when you hit the limits of the Shopify admin. And it's a community that collectively has learned how to solve many, many kinds of problems. (Join our [community Slack workspace](resources/slack.md)!)
+Mechanic is where Shopify merchants and developers go when they've outgrown the Shopify admin. It handles the workflows that are too complex for built-in tools, backed by a community that has collectively solved hundreds of distinct automation problems. (Join our [community Slack workspace](resources/slack.md)!)
 
 {% hint style="info" %}
 Got a question you need answered now? [Join our Slack workspace.](https://join.slack.com/t/usemechanic/shared_invite/zt-cq84nrs7-ggYbYTbf~CrCjTg8nmHP2A) 💬
@@ -38,7 +38,7 @@ Got a question you need answered now? [Join our Slack workspace.](https://join.s
 
 ### Tasks, events, and actions
 
-A developer writes [**tasks**](core/tasks/) – Mechanic's term for a piece of automation. These tasks can respond to many different [**events**](core/events/), like a Shopify webhook, a manual trigger, a regular interval (e.g. hourly, daily), or an incoming email. Tasks use [**subscriptions**](core/tasks/subscriptions.md) to signal their interest in specific event types.
+A developer writes [**tasks**](core/tasks/) – Liquid scripts that respond to [**events**](core/events/), like a Shopify webhook, a manual trigger, a regular interval (e.g. hourly, daily), or an incoming email. Tasks use [**subscriptions**](core/tasks/subscriptions.md) to signal their interest in specific event types.
 
 When a task receives an incoming event, it can choose to generate an [**action**](core/actions/) – an operation that has an effect.
 
@@ -52,9 +52,9 @@ For a complete list of supported actions, see [Actions](core/actions/).
 
 ### Liquid
 
-Mechanic makes heavy use of [**Liquid**](platform/liquid/basics/) – a template language created by Shopify. Its primary use is in [**task code**](core/tasks/code/). In the same way that a Liquid theme receives browser requests and renders HTML, a Mechanic task receives events, and renders actions (by defining them with JSON).
+Tasks are written in [**Liquid**](platform/liquid/basics/) – the template language created by Shopify. But Mechanic extends Liquid well beyond templating: tasks can loop through paginated API results, transform complex data structures, branch on conditions, emit events that trigger other tasks, and construct arbitrarily complex action sequences. In the same way that a Liquid theme receives browser requests and renders HTML, a Mechanic task receives events and renders actions (by defining them with JSON).
 
-In Mechanic, our Liquid implementation includes additional support for constructing [arrays](platform/liquid/basics/types.md#array) and [hashes](platform/liquid/basics/types.md#hash), and includes many useful [filters](platform/liquid/filters/), making data processing more efficient.
+In Mechanic, Liquid is extended with filters for [parsing JSON, generating CSV, computing HMACs](platform/liquid/filters/), and manipulating complex data structures — including first-class support for [arrays](platform/liquid/basics/types.md#array) and [hashes](platform/liquid/basics/types.md#hash).
 
 ### Run queues
 

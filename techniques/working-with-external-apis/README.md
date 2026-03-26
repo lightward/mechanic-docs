@@ -1,4 +1,10 @@
+---
+description: "Connect Mechanic to external REST and JSON APIs — load data via HTTP requests, receive data via webhooks, and integrate Shopify with any service."
+---
+
 # Working with external APIs
+
+Mechanic tasks can interact with any HTTP-accessible service. Use the [HTTP action](../../core/actions/http.md) to call REST APIs, send webhooks, or post data to external systems. Use Mechanic's [incoming webhooks](../../platform/webhooks.md) to receive data from external services and trigger tasks. This makes Mechanic suitable for integration workflows that go beyond Shopify — syncing data with ERPs, CRMs, fulfillment services, or any system with an API.
 
 {% hint style="info" %}
 For a higher-level overview of connecting Mechanic to third-party services — including built-in integrations and authentication patterns — see [Connecting third-party apps](../../platform/integrations/connecting-third-party-apps.md).

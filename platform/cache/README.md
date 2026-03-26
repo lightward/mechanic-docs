@@ -1,3 +1,7 @@
+---
+description: "Store and retrieve data between Mechanic task runs using the key-value cache — with configurable expiration up to 60 days."
+---
+
 # Cache
 
 Each Mechanic account has a simple key-value cache, which may be written to using [Cache](../../core/actions/cache.md) actions, and read from using the [cache object](../liquid/objects/cache.md) and [cache endpoints](endpoints.md).

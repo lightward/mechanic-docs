@@ -1,3 +1,7 @@
+---
+description: "Secure Mechanic webhooks with HMAC signatures and replay prevention — protect webhook endpoints used in online store forms."
+---
+
 # Securing Mechanic webhooks
 
 [Mechanic webhooks](../platform/webhooks.md) are configured properly for CORS, which makes them suitable for submissions from your online store's frontend.

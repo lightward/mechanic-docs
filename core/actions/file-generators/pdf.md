@@ -1,3 +1,7 @@
+---
+description: "Generate PDF files from HTML in Mechanic tasks — invoices, packing slips, receipts, and reports with modern CSS and web fonts."
+---
+
 # PDF
 
 The **PDF** file generator accepts an object containing an HTML string, and uses [Pdfcrowd](https://pdfcrowd.com/) to render it as a PDF document. Pdfcrowd employs the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework) for HTML rendering, which uses the same foundation as Google Chrome. This allows Mechanic to generate PDFs with modern CSS and JavaScript features, including chart libraries and web fonts.

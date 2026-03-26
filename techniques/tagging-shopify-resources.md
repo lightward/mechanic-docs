@@ -1,3 +1,7 @@
+---
+description: "Auto-tag Shopify orders, customers, and products using Mechanic tasks — add or remove tags via the GraphQL Admin API."
+---
+
 # Tagging Shopify resources
 
 Merchants commonly use Mechanic for adding or removing tags from customers, orders, products, and other Shopify resources.

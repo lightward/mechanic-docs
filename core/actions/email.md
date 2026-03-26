@@ -1,4 +1,8 @@
-# Email
+---
+description: "Send automated transactional emails from Shopify using Mechanic — HTML templates, attachments, and custom sender domains."
+---
+
+# Email Action
 
 The **Email** action is for sending email. ✅ It supports the store's [**email templates**](../../platform/email/templates.md), and supports attachments constructed by [**file generators**](file-generators/).
 

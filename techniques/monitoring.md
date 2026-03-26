@@ -1,3 +1,7 @@
+---
+description: "Monitor Mechanic task health and platform status — set up alerts, track queue delays, and diagnose Shopify webhook delivery issues."
+---
+
 # Monitoring Mechanic
 
 Mechanic is frequently used for business-critical operations. The Mechanic team closely monitors the platform (and shares status information at [status.mechanic.dev](https://status.mechanic.dev/)), but it can be useful to set up task-specific monitoring, specific to the visibility needs of each business.
@@ -5,7 +9,7 @@ Mechanic is frequently used for business-critical operations. The Mechanic team 
 {% hint style="info" %}
 Mechanic is a highly available system with built-in redundancies. It processes data asynchronously, using queues — this means that, generally, any failures simply result in a delay, rather than resulting in lost data.
 
-If you're experiencing delayed events, start here: [Why are my tasks delayed or not running?](https://learn.mechanic.dev/faq/why-are-my-tasks-delayed-or-not-running)
+If you're experiencing delayed events, start here: [Why are my tasks delayed or not running?](../faq/why-are-my-tasks-delayed-or-not-running.md)
 {% endhint %}
 
 ## Monitoring the Mechanic platform
@@ -24,13 +28,13 @@ Learn more: [Error handling](../platform/error-handling.md)
 
 ### Action runs
 
-To monitor actions, subscribe to the mechanic/actions/perform event, which re-invokes a task with the results of each action run. Use this opportunity to inspect the status of the action, responding accordingly. To learn more, see [Responding to action results](https://learn.mechanic.dev/techniques/responding-to-action-results).
+To monitor actions, subscribe to the mechanic/actions/perform event, which re-invokes a task with the results of each action run. Use this opportunity to inspect the status of the action, responding accordingly. To learn more, see [Responding to action results](responding-to-action-results.md).
 
 ### Task runs
 
 To monitor tasks, use the [HTTP action](../core/actions/http.md) to ping a service like [Cronitor](https://cronitor.io/) when critical tasks run, configuring that service to send alerts should the pings ever miss their schedule.
 
-It's generally preferable to use an external service for this sort of thing, rather than using Mechanic to monitor itself. Still, monitoring tasks _are_ viable, by using [a scheduler event](https://learn.mechanic.dev/platform/events/topics#scheduler) to check on an expiring flag in the [Mechanic cache](https://learn.mechanic.dev/platform/cache). This way, by setting that flag during sensitive task runs (using the[ Cache action](https://learn.mechanic.dev/core/actions/cache)), a sort of [dead man's switch](https://en.wikipedia.org/wiki/Dead_man's_switch) can be created: if the scheduled run ever finds that the flag is not present, that task could then send an email (or post to Slack, or whatever's useful).
+It's generally preferable to use an external service for this sort of thing, rather than using Mechanic to monitor itself. Still, monitoring tasks _are_ viable, by using [a scheduler event](../platform/events/topics.md#scheduler) to check on an expiring flag in the [Mechanic cache](../platform/cache/). This way, by setting that flag during sensitive task runs (using the [Cache action](../core/actions/cache.md)), a sort of [dead man's switch](https://en.wikipedia.org/wiki/Dead_man's_switch) can be created: if the scheduled run ever finds that the flag is not present, that task could then send an email (or post to Slack, or whatever's useful).
 
 #### Example
 

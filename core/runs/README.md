@@ -1,5 +1,5 @@
 ---
-description: "Runs are how Mechanic processes work — every event, task, and action creates a run that moves through a queue."
+description: "Mechanic processes Shopify automations as runs — event runs, task runs, and action runs move through queues for reliable execution."
 ---
 
 # Runs
@@ -36,7 +36,7 @@ Critically, this means that tasks do not have direct access to the effects of th
 
 In general, given a mix of event, task, and action runs that are all due, Mechanic will perform due action runs first, then due task runs, and finally due event runs.
 
-If Shopify's rate limit for _either_ the GraphQL or REST Admin API has been reached, Mechanic will skip over task runs and over [Shopify action](../actions/shopify.md) runs, until _both_ rate limits have been recovered. In these cases, Mechanic may choose to perform due runs of a lower priority, while it waits for the Shopify API rate limits to recover sufficiently to perform the higher priority runs.
+If Shopify's [rate limit](../shopify/api-rate-limit.md) for _either_ the GraphQL or REST Admin API has been reached, Mechanic will skip over task runs and over [Shopify action](../actions/shopify.md) runs, until _both_ rate limits have been recovered. In these cases, Mechanic may choose to perform due runs of a lower priority, while it waits for the Shopify API rate limits to recover sufficiently to perform the higher priority runs.
 
 ## Run states
 

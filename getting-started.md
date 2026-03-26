@@ -4,7 +4,7 @@ description: Install Mechanic and set up your first Shopify automation in minute
 
 # Getting started
 
-Mechanic is a Shopify automation platform with hundreds of ready-to-use tasks — and a full development environment for building your own.
+Mechanic is a Shopify automation and development platform. Get started with hundreds of ready-to-use tasks from the library, or build your own — Mechanic provides a code editor, preview mode, structured logging, and direct access to the Shopify Admin API.
 
 {% stepper %}
 {% step %}
@@ -48,7 +48,7 @@ From here, you can:
 
 ## Go custom
 
-If the task library doesn't cover your use case, Mechanic is a full development platform. Tasks are written in [Liquid](platform/liquid/basics/) (a template language created by Shopify) and can interact with the [Shopify Admin API](core/actions/shopify.md), [send emails](core/actions/email.md), [call external APIs](core/actions/http.md), and more.
+If the task library doesn't cover your use case, Mechanic is a full development platform. Tasks are written in [Liquid](platform/liquid/basics/) with Mechanic-specific extensions for data manipulation, API access, and workflow composition. You get direct [GraphQL access](core/shopify/read/graphql-in-liquid.md) to the Shopify Admin API, [HTTP actions](core/actions/http.md) for calling any external service, and the ability to chain tasks together through [custom events](core/actions/event.md) — all without managing servers or deployments.
 
 * [I need something custom!](custom.md) — an overview of the path to a custom task, whether you're a developer or need to find one
 * [Your first custom task](resources/tutorials/your-first-custom-task.md) — a step-by-step tutorial for building a task from scratch

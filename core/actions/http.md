@@ -1,4 +1,8 @@
-# HTTP
+---
+description: "Make HTTP requests from Mechanic tasks to call external APIs, send webhooks, and integrate Shopify with third-party services."
+---
+
+# HTTP Action
 
 The **HTTP** action performs HTTP requests. It is commonly used to invoke third-party APIs.
 

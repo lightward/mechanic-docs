@@ -1,5 +1,5 @@
 ---
-description: A code-optimization strategy for avoiding chatty event topics.
+description: "Replace high-frequency Shopify webhook subscriptions with scheduled GraphQL scans to reduce queue volume and improve reliability."
 ---
 
 # Batch processing of events

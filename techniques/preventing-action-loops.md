@@ -1,8 +1,12 @@
+---
+description: "Prevent infinite loops in Mechanic tasks — guard against re-triggers when a task modifies the same Shopify resource it subscribes to."
+---
+
 # Preventing action loops
 
-### How to Prevent Action Loops in Mechanic Tasks
+Action loops occur when a task writes to a Shopify resource, triggering an update webhook that re-triggers the same task. For example, a task subscribed to `shopify/products/update` that adds a tag to a product will cause Shopify to fire another `shopify/products/update` event, creating a loop. This can lead to excessive API calls, duplicated data, or rate-limiting issues.
 
-Action loops can occur when a Mechanic task triggers an action that, in turn, generates an event that re-triggers the same task. This can lead to unintended consequences like excessive API calls, duplicated data, or even rate-limiting issues. This guide aims to provide you with strategies to prevent such action loops in your Mechanic tasks.
+This guide covers strategies to prevent action loops in your Mechanic tasks.
 
 ### Manual Prevention
 
