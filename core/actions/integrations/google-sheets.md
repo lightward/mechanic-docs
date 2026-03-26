@@ -14,7 +14,7 @@ See this great [example](https://tasks.mechanic.dev/demonstration-add-new-orders
 
 ## Options
 
-<table><thead><tr><th width="165">Option</th><th width="90">Type</th><th>Description</th></tr></thead><tbody><tr><td>account</td><td>string</td><td>Required: the Google account email address to authenticate with</td></tr><tr><td>operation</td><td>string</td><td>Required: the operation to perform. One of: "append_rows", "create_spreadsheet", "export_spreadsheet"</td></tr><tr><td>spreadsheet_id</td><td>string</td><td>Required: for append_rows and export_spreadsheet; the ID of the target spreadsheet</td></tr><tr><td>title</td><td>string</td><td>Required: for create_spreadsheet; the title for the new spreadsheet</td></tr><tr><td>rows</td><td>array</td><td>Required: for append_rows and optional for create_spreadsheet; array of arrays containing the data to write</td></tr><tr><td>sheet_name</td><td>string</td><td>Optional: for append_rows; defaults to "Sheet1"</td></tr><tr><td>file_type</td><td>string</td><td>Optional: for export_spreadsheet; the format to export. One of: "xlsx" (default), "csv", "pdf", "html", "ods", "tsv"</td></tr><tr><td>folder_path</td><td>string</td><td>Optional: for create_spreadsheet; the folder path where the spreadsheet should be created (e.g., "reports/2024/monthly")</td></tr></tbody></table>
+<table><thead><tr><th width="165">Option</th><th width="90">Type</th><th>Description</th></tr></thead><tbody><tr><td>account</td><td>string</td><td>Required: the Google account email address to authenticate with</td></tr><tr><td>operation</td><td>string</td><td>Required: the operation to perform. One of: "append_rows", "create_spreadsheet", "export_spreadsheet"</td></tr><tr><td>spreadsheet_id</td><td>string</td><td>Required: for append_rows and export_spreadsheet; the ID of the target spreadsheet</td></tr><tr><td>title</td><td>string</td><td>Required: for create_spreadsheet; the title for the new spreadsheet</td></tr><tr><td>rows</td><td>array</td><td>Required: for append_rows and optional for create_spreadsheet; array of arrays containing the data to write</td></tr><tr><td>sheet_name</td><td>string</td><td>Optional: for append_rows; defaults to "Sheet1"</td></tr><tr><td>file_type</td><td>string</td><td>Optional: for export_spreadsheet; the format to export. One of: "xlsx" (default), "csv", "pdf", "html", "ods", "tsv"</td></tr><tr><td>folder_path</td><td>string</td><td>Optional: for create_spreadsheet; the folder path where the spreadsheet should be created (e.g., "reports/2024/monthly")</td></tr><tr><td>retry_on_transient_errors</td><td>boolean</td><td>Optional: for append_rows; when set to true, allows Mechanic to automatically retry the operation on transient errors (e.g. timeouts, rate limits). Defaults to false.</td></tr></tbody></table>
 
 ## Operations
 
@@ -31,6 +31,11 @@ Adds new rows to an existing spreadsheet.
 #### Optional Options
 
 * sheet\_name (defaults to "Sheet1")
+* retry\_on\_transient\_errors (defaults to false)
+
+{% hint style="warning" %}
+The `retry_on_transient_errors` option is opt-in because some transient failures are ambiguous — for example, a timeout or connection reset may occur after Google has already accepted the write but before Mechanic receives confirmation. Retrying in that case can result in duplicate rows. Other transient errors like rate limits (`429`) are safe to retry since the request was rejected, but because this option enables retries for all transient errors as a group, callers should be prepared for occasional duplicates.
+{% endhint %}
 
 ### create\_spreadsheet
 
@@ -140,6 +145,24 @@ archives/exports/sheets   # Three levels deep
     "operation": "export_spreadsheet",
     "spreadsheet_id": "1234567890abcdef",
     "file_type": "pdf"
+  }
+{% endaction %}
+```
+
+### Append Rows with Transient Error Retries
+
+```liquid
+{% action "google_sheets" %}
+  {
+    "account": "user@example.com",
+    "operation": "append_rows",
+    "spreadsheet_id": "1234567890abcdef",
+    "sheet_name": "Sheet1",
+    "retry_on_transient_errors": true,
+    "rows": [
+      ["Order ID", "Customer Email", "Total"],
+      [{{ order.id | json }}, {{ order.email | json }}, {{ order.total_price | json }}]
+    ]
   }
 {% endaction %}
 ```
