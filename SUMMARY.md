@@ -223,6 +223,7 @@
 * [Shopify](platform/shopify/README.md)
   * [Custom authentication](platform/shopify/custom-authentication.md)
   * ["Read all orders"](platform/shopify/read-all-orders.md)
+* [⌨️ Keyboard shortcuts](platform/keyboard-shortcuts.md)
 * [Webhooks](platform/webhooks.md)
 
 ## Techniques
