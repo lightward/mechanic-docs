@@ -130,7 +130,7 @@ An FTP action returns the following data structure, most useful in combination w
 }
 ```
 
-Note that each uploaded and downloaded file is keyed by the path provided for that file in the action's options. Downloaded file data is available as a UTF-8 string; for binary data that cannot be represented in UTF-8, use the base64-encoded version, possibly in concert with the [decode\_base64](https://learn.mechanic.dev/platform/liquid/filters#base-64-decode_base64) filter.
+Note that each uploaded and downloaded file is keyed by the path provided for that file in the action's options. Downloaded file data is available as a UTF-8 string; for binary data that cannot be represented in UTF-8, use the base64-encoded version, possibly in concert with the [decode\_base64](../../platform/liquid/filters/#base-64-decode_base64) filter.
 
 ## Testing
 

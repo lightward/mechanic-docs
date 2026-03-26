@@ -58,4 +58,4 @@ Or, combine to be even more selective:\
 
 ## Notes
 
-Out of the box, only orders from the last 60 days are accessible. To give Mechanic access to your complete order history, [enable "read all orders"](https://help.usemechanic.com/tutorials/enabling-read_all_orders).
+Out of the box, only orders from the last 60 days are accessible. To give Mechanic access to your complete order history, [enable "read all orders"](../../../../platform/shopify/read-all-orders.md).

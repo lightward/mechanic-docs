@@ -1,10 +1,10 @@
 # Options
 
-[**Tasks**](https://learn.mechanic.dev/core/tasks) can accept user configuration via **options**. Options are created automatically: when you reference `options.something` in your task's [**code**](https://learn.mechanic.dev/core/tasks/code), Mechanic adds an input field for it in the task configuration UI.
+[**Tasks**](../) can accept user configuration via **options**. Options are created automatically: when you reference `options.something` in your task's [**code**](../code/), Mechanic adds an input field for it in the task configuration UI.
 
 You can add **flags** to an option key (like `__required` or `__select_...`) to control what kind of input is shown and how it's validated.
 
-Mechanic flags provide only limited option validation. For anything more advanced, a task can define [**custom validation**](https://learn.mechanic.dev/core/tasks/options/custom-validation).
+Mechanic flags provide only limited option validation. For anything more advanced, a task can define [**custom validation**](custom-validation.md).
 
 ## Quick start
 
@@ -165,7 +165,7 @@ Custom rules? Learn more about [custom validation](custom-validation.md).
 
 Options that allow text input are evaluated for Liquid when a task processes an event. Liquid evaluation for options occurs before it occurs for task code, which means that any Liquid variables created by task code are not available to task options.
 
-Liquid code in task options have access to the same set of [environment variables](https://learn.mechanic.dev/core/tasks/code/environment-variables) that are made available to the task code, including `event`, `shop`, `cache`, and any event subject variables.
+Liquid code in task options have access to the same set of [environment variables](../code/environment-variables.md) that are made available to the task code, including `event`, `shop`, `cache`, and any event subject variables.
 
 ***
 

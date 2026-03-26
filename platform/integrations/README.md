@@ -27,8 +27,8 @@ The [Mechanic task library](https://tasks.mechanic.dev/) has a limited selection
 If you don't find a match in the task library, consider a custom task to achieve your integration. Start here: [I need something custom!](../../custom.md)
 {% endhint %}
 
-### oAuth
+### OAuth
 
-Mechanic supports OAuth 2.0, enhancing its integration capabilities with popular services like Airtable, Google Drive, and Slack. This feature enables streamlined authentication processes, allowing users to seamlessly connect and authorize these services within Mechanic.
+Mechanic supports OAuth 2.0 for services like Airtable, Google Drive, and Slack — connect and authorize directly from the Mechanic app, no API keys needed.
 
-Need a service not on the list, put in a feature request [here](https://mechanic.canny.io/futures).
+Need a service not on the list? Put in a feature request [here](https://mechanic.canny.io/futures).
