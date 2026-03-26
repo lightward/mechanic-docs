@@ -7,7 +7,7 @@ description: "Run Shopify GraphQL mutations from Mechanic tasks — create order
 The **Shopify** action sends requests to the [Shopify admin API](https://shopify.dev/docs/admin-api). Use the [`shopify` Liquid filter](../../platform/liquid/filters/#shopify) to read data; use this action to write or update data.
 
 {% hint style="info" %}
-In Mechanic, writing data to Shopify must happen using an action. While the Shopify action is usually the right choice, the [HTTP](../http.md) action can also be used for this purpose, by manually configuring authentication headers. Reading data should use the [`shopify` Liquid filter](../../platform/liquid/filters/#shopify) unless you're running a bulk read that has to happen after the run.
+In Mechanic, writing data to Shopify must happen using an action. While the Shopify action is usually the right choice, the [HTTP](http.md) action can also be used for this purpose, by manually configuring authentication headers. Reading data should use the [`shopify` Liquid filter](../../platform/liquid/filters/#shopify) unless you're running a bulk read that has to happen after the run.
 
 To learn more, see [Interacting with Shopify](../shopify/).
 {% endhint %}

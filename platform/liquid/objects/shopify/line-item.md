@@ -20,7 +20,7 @@ Please see these [guides](../../../../resources/converting-tasks-from-shopify-re
 
 ## What it contains
 
-* [Every property from Orders.line\_items in the Shopify REST Admin API](https://docs.usemechanic.com/article/400-the-line-item-object)
+* Every property from Orders.line\_items in the Shopify REST Admin API
 * The related [product object](product.md): `{{ line_item.product }}`&#x20;
 * The related [variant object](variant.md): `{{ line_item.variant }}`&#x20;
 * An array of properties, that also supports lookups by attribute name: `{% for prop in line_item.properties %}{% if prop.name == "Delivery window" %}{{ prop.value }}{% endif %}{% endfor %}`, or `{{ line_item.properties["Delivery window"] }}`&#x20;

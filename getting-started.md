@@ -4,7 +4,7 @@ description: Install Mechanic and set up your first Shopify automation in minute
 
 # Getting started
 
-Mechanic is a Shopify automation and development platform. Get started with hundreds of ready-to-use tasks from the library, or build your own — Mechanic provides a code editor, preview mode, structured logging, and direct access to the Shopify Admin API.
+Mechanic is a Shopify automation and development platform with hundreds of ready-to-use tasks — and a full development environment for building your own.
 
 {% stepper %}
 {% step %}

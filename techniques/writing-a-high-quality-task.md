@@ -4,7 +4,7 @@ description: "Best practices for writing Mechanic tasks — previews, action loo
 
 # Writing a high-quality task
 
-Mechanic tasks are code, and like all code, they benefit from deliberate engineering practices. These guidelines come from the Mechanic community's collective experience building production automation for Shopify stores.
+Here are some best practices we've found, as a community, about writing tasks that improve life for everyone. These guidelines come from the Mechanic community's collective experience building production Shopify automation.
 
 {% hint style="info" %}
 Working on getting better at task-writing? See [Practicing writing tasks](../resources/tutorials/practicing-writing-tasks.md).

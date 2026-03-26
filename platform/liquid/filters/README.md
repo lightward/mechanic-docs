@@ -446,7 +446,7 @@ The parse\_jsonl filter raises an error when invalid JSONL is received.
 
 ### parse\_xml
 
-Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
+Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from_xml).) Useful for processing output from third-party APIs, either by [responding to](../../../techniques/responding-to-action-results.md) "http" actions, or by parsing content from [inbound webhooks](../../webhooks.md).
 
 ```liquid
 {% capture xml_string %}

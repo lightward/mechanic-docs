@@ -32,4 +32,4 @@ If you're familiar with Liquid and Shopify's Admin APIs, you're ready to build. 
 
 The [Core Concepts](core/events/) section covers the event-task-action model, and [Interacting with Shopify](core/shopify/) covers how tasks read and write Shopify data. The [Techniques](techniques/writing-a-high-quality-task.md) section covers patterns that experienced Mechanic developers use.
 
-Join Mechanic's [Slack workspace](resources/slack.md) to exchange support with the community — the #general channel is filled with people solving problems every day.
+Join Mechanic's [Slack workspace](resources/slack.md) to exchange support with the community — the #general channel is a great place to start, and it's filled with people solving problems every day. :)

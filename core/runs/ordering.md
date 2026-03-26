@@ -19,5 +19,5 @@ The best tool to leverage here is the [Event action](../actions/event.md), coupl
 3. Having added that "event" action, update the second task so that it subscribes to your new event topic, _instead of_ the original event topic. If there is a third task that should follow this one, repeat step 2 for this task as well, in preparation for kicking off the third task.
 4. Repeat until you reach the final task in your list. This task does not need an "event" action at its conclusion; it only needs to have its subscription updated to listen for the penultimate task's generated event.
 
-One more tool is worth mentioning: tasks may subscribe to mechanic/actions/perform to be re-triggered when each of their own actions are performed. For more on this strategy, see [Responding to action results](https://docs.usemechanic.com/article/431-responding-to-action-results).
+One more tool is worth mentioning: tasks may subscribe to mechanic/actions/perform to be re-triggered when each of their own actions are performed. For more on this strategy, see [Responding to action results](../../techniques/responding-to-action-results.md).
 

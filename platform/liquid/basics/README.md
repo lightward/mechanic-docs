@@ -12,7 +12,7 @@ Mechanic's use of Liquid comes with a few extra features. It has all the core fe
 
 Shopify offers an excellent [Liquid cheat sheet](https://www.shopify.com/partners/shopify-cheat-sheet), a quick reference for the fundamentals. Note, however, that Liquid objects documented here do not mirror the objects offered in Mechanic-flavored Liquid. When using this cheat sheet for Mechanic work, ignore the "Objects" section entirely. :\)
 
-Learn more about the difference between Shopify Theme Liquid objects and Mechanic objects here: [Why aren't my Liquid variables giving me the Shopify data I expect?](https://docs.usemechanic.com/article/477-why-arent-my-liquid-variables-giving-me-the-shopify-data-i-expect)
+Learn more about the difference between Shopify Theme Liquid objects and Mechanic objects here: [Mechanic objects](../objects/)
 
 ## Shopify's introduction to Liquid
 

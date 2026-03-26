@@ -28,7 +28,7 @@ Mechanic gives you a task library with hundreds of ready-to-use automations — 
 4. Need something tailored to your store?
    * You can [build a custom task](custom.md) yourself, or [hire a developer](hire-a-developer.md) to create one for you. Either way, the path is well-established.
 
-Mechanic is where Shopify merchants and developers go when they've outgrown the Shopify admin. It handles the workflows that are too complex for built-in tools, backed by a community that has collectively solved hundreds of distinct automation problems. (Join our [community Slack workspace](resources/slack.md)!)
+That list wasn't exactly a formal flowchart, but we hope it's helpful as you're evaluating Mechanic. :) The short version: Mechanic handles the workflows that are too complex for built-in Shopify tools, backed by a community that has collectively solved hundreds of distinct automation problems. (Join our [community Slack workspace](resources/slack.md)!)
 
 {% hint style="info" %}
 Got a question you need answered now? [Join our Slack workspace.](https://join.slack.com/t/usemechanic/shared_invite/zt-cq84nrs7-ggYbYTbf~CrCjTg8nmHP2A) 💬

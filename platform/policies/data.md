@@ -27,7 +27,7 @@ Retained event information includes:
 For the purposes of data retention, an event is considered "complete" when all of the following are true:
 
 1. The event has no related runs which are pending (i.e. event/task/action runs that have neither succeeded nor failed)
-2. The event's descendent events, up to five generations, have no related runs that are pending (see [Parent and child events](https://docs.usemechanic.com/article/331-parent-and-child-events))
+2. The event's descendent events, up to five generations, have no related runs that are pending (see [Parent and child events](../../core/events/parent-and-child-events.md))
 
 The content of event data varies based on the tasks configured for your Mechanic account. A task that monitors customer events will result in Mechanic storing customer data, for example. Similarly, a task that monitors order events will result in Mechanic storing order data (which includes customer data). However, tasks that simply scan orders or customers in bulk (perhaps on a schedule, or upon request) may not necessarily store order or customer data.
 

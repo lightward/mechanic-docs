@@ -54,7 +54,7 @@ mechanic/actions/perform
 
 **Code**
 
-```javascript
+```liquid
 {% if action.run.ok == false %}
   {% action "email" %}
     {

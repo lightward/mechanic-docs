@@ -1,6 +1,6 @@
 # Perform action runs in sequence
 
-Mechanic's [run system](https://docs.usemechanic.com/article/425-an-introduction-to-runs) works asynchronously, performing as much work as possible, as quickly as possible. However, there are cases where it's important that actions run in a sequence – one after the other.
+Mechanic's [run system](../../runs/) works asynchronously, performing as much work as possible, as quickly as possible. However, there are cases where it's important that actions run in a sequence – one after the other.
 
 We support this with an advanced task setting called "Perform action runs in sequence", configured in two parts:
 
