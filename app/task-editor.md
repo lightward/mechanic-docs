@@ -33,7 +33,7 @@ The main editing surface:
 
 ### Preview events tab
 
-Create test events to see how your task will behave without affecting real data. The task [preview](../core/tasks/previews/) updates automatically as you edit, showing generated actions, errors, and any Shopify permission changes.
+Create test events to see how your task will behave without affecting real data. You can define multiple preview events per topic to test different scenarios, label them with descriptions, and use [stub data](../core/tasks/previews/stub-data.md) to mock Shopify API responses. The task [preview](../core/tasks/previews/) updates automatically as you edit, showing generated actions, errors, and any Shopify permission changes.
 
 ### JavaScript tab
 

@@ -26,7 +26,7 @@ Mechanic automatically detects the Shopify API [permissions](../core/tasks/permi
 
 ## Webhooks
 
-Create [webhooks](../platform/webhooks.md) to trigger Mechanic tasks from external apps or systems. For example, you can create a webhook so that when a form is submitted on your website, Mechanic runs a task in response. Each webhook gets a unique URL you can POST data to.
+Only needed if external apps need to trigger your tasks. Create [webhooks](../platform/webhooks.md) to send events to Mechanic from outside Shopify — for example, when a form is submitted on your website. Each webhook gets a unique URL you can POST data to.
 
 ## Email
 
@@ -39,12 +39,12 @@ Create reusable HTML [email templates](../platform/email/templates.md) for use i
 
 ## Cache endpoints
 
-Create URLs that external apps can visit to retrieve data saved by your tasks. Each endpoint maps a [cache](../platform/cache/) key to a URL that returns the current value as JSON.
+Only needed if external apps need to read data from your tasks. Create URLs that return [cached](../platform/cache/) task data as JSON — useful for dashboards or integrations that need to pull information from Mechanic.
 
 ## Event filters
 
-Liquid scripts that run before tasks to decide whether an event should be processed. Returning `false` skips the event entirely — useful for filtering out test orders or pausing processing during maintenance. See [Event filters](../platform/events/filters.md).
+Advanced. Liquid scripts that run before tasks to decide whether an event should be processed — for example, skipping test orders or pausing processing during maintenance. See [Event filters](../platform/events/filters.md).
 
 ## Authentication
 
-Connect your Google, Airtable, and Slack accounts so your tasks can interact with those services. Credentials are encrypted and stored securely. See [Integrations](../platform/integrations/).
+Only needed if your tasks use Google Sheets, Airtable, or Slack integrations. Connect your accounts here so tasks can interact with those services. Credentials are encrypted and stored securely. See [Integrations](../platform/integrations/).

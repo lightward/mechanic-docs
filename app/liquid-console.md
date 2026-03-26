@@ -8,6 +8,10 @@ The **Liquid console** is a scratchpad for testing [Mechanic Liquid](../platform
 
 Type any Liquid code, submit it, and see the output immediately. This is useful for experimenting with filters, testing snippets from a task, or inspecting data available for a specific event.
 
+{% hint style="info" %}
+Most Mechanic users don't need the Liquid console day-to-day. It's mainly useful when writing or debugging task code, or when support asks you to inspect event data.
+{% endhint %}
+
 <figure><img src="../.gitbook/assets/liquid_console_mechanic.jpg" alt="The Liquid console with a sample Liquid expression and its output"><figcaption></figcaption></figure>
 
 {% hint style="info" %}

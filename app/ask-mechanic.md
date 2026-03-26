@@ -28,4 +28,4 @@ Ask Mechanic is also available as a dedicated full-screen view:
 
 ## For developers
 
-If you're writing tasks in an AI coding tool, check out the full suite of [AI tools for Mechanic](../ai.md) — including the [MCP server](../platform/mcp.md) and [Agent Skills](../platform/agent-skills.md) for deeper integration.
+If you're writing tasks in an external AI coding tool (like Claude Code or Cursor), Mechanic also offers tools that connect your editor to the task library and docs. See [Using AI with Mechanic](../ai.md).
