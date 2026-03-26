@@ -34,7 +34,7 @@ Adds new rows to an existing spreadsheet.
 * retry\_on\_transient\_errors (defaults to false)
 
 {% hint style="warning" %}
-The `retry_on_transient_errors` option is opt-in because retrying `append_rows` can result in duplicate rows. This can happen when Google accepts the write but Mechanic doesn't receive confirmation before the connection fails. If your workflow can tolerate occasional duplicate rows, set this to `true` to improve resilience against transient errors like timeouts and rate limits.
+The `retry_on_transient_errors` option is opt-in because some transient failures are ambiguous — for example, a timeout or connection reset may occur after Google has already accepted the write but before Mechanic receives confirmation. Retrying in that case can result in duplicate rows. Other transient errors like rate limits (`429`) are safe to retry since the request was rejected, but because this option enables retries for all transient errors as a group, callers should be prepared for occasional duplicates.
 {% endhint %}
 
 ### create\_spreadsheet
