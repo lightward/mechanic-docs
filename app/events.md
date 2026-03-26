@@ -8,6 +8,8 @@ The Events screen shows a live stream of [events](../core/events/) — the trigg
 
 ## Event list
 
+<figure><img src="../.gitbook/assets/events_mechanic.jpg" alt="The Events list showing recent events with their topics and task run results"><figcaption></figcaption></figure>
+
 Events are displayed in reverse chronological order. Each row shows:
 
 * **Time** — when the event occurred
@@ -41,6 +43,8 @@ The **Errors** tab provides quick access to all events where something went wron
 You can save filter combinations as **custom views** for quick access.
 
 ## Event detail
+
+<figure><img src="../.gitbook/assets/event_detail_mechanic.jpg" alt="An event detail view showing event runs, task runs, action runs, logs, and event data"><figcaption></figcaption></figure>
 
 Clicking an event opens the detail view, which shows:
 

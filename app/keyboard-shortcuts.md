@@ -10,6 +10,8 @@ Mechanic includes app-wide keyboard shortcuts for quick navigation, creating tas
 Keyboard shortcuts are disabled when you're typing in an input field, textarea, or the code editor — so they won't interfere with your work. The one exception is `Cmd/Ctrl + J`, which toggles Ask Mechanic from anywhere, including the code editor.
 {% endhint %}
 
+<figure><img src="../.gitbook/assets/keyboard_shortcuts_mechanic.jpg" alt="The keyboard shortcuts modal showing all available shortcuts"><figcaption></figcaption></figure>
+
 ## Available shortcuts
 
 ### Help

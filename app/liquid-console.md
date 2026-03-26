@@ -14,7 +14,7 @@ Unlike task previews, the Liquid console _does_ permit access to the Shopify Adm
 The Liquid console has much tighter restrictions than actual task runs. If you run into a memory limit error, or an error relating to the number of Shopify Admin API requests made, try testing your code in a new task subscribing to mechanic/user/trigger. This will allow you to experiment with your code in Mechanic's full runtime environment.
 {% endhint %}
 
-![](<../.gitbook/assets/Screen Shot 2022-05-17 at 3.52.18 PM.png>)
+<figure><img src="../.gitbook/assets/liquid_console_mechanic.jpg" alt="The Liquid console with a sample Liquid expression and its output"><figcaption></figcaption></figure>
 
 ## Context
 

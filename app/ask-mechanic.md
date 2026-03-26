@@ -8,6 +8,8 @@ description: Get answers about Mechanic directly inside the app — no setup req
 
 Look for the **Ask Mechanic** button in the Mechanic app to get started, or press `Cmd/Ctrl + J` to toggle it from anywhere (see [Keyboard shortcuts](keyboard-shortcuts.md)). No setup or external tools needed.
 
+<figure><img src="../.gitbook/assets/ask_mechanic.jpg" alt="The Ask Mechanic panel open inside the Mechanic app"><figcaption></figcaption></figure>
+
 {% hint style="warning" %}
 Mechanic support covers the platform and tasks from the [task library](../resources/task-library/). Custom tasks (including AI-generated tasks) are not covered by support — for help with custom task logic, ask in the [Mechanic Slack community](../resources/slack.md) or [hire a developer](../hire-a-developer.md).
 {% endhint %}
@@ -19,6 +21,10 @@ Mechanic support covers the platform and tasks from the [task library](../resour
 * "How do I respond to action results?"
 * "What integrations does Mechanic support?"
 * "Find a task that auto-tags orders by discount code"
+
+Ask Mechanic is also available as a full-screen terminal view:
+
+<figure><img src="../.gitbook/assets/ask_mechanic_terminal.jpg" alt="Ask Mechanic in full-screen terminal mode"><figcaption></figcaption></figure>
 
 ## For developers
 

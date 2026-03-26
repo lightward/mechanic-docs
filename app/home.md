@@ -6,6 +6,8 @@ description: Your Mechanic dashboard — tasks, activity, and recent events at a
 
 The Mechanic home screen is your dashboard. It shows your installed tasks, current processing activity, and a live feed of recent events.
 
+<figure><img src="../.gitbook/assets/home_mechanic.jpg" alt="The Mechanic home screen showing the task list, current activity, and recent events"><figcaption></figcaption></figure>
+
 ## Tasks
 
 The main area of the home screen lists all the tasks installed on your store.

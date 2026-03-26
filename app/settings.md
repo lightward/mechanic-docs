@@ -6,6 +6,8 @@ description: Configure your Mechanic account, permissions, email, and integratio
 
 The Settings page is organized into tabs covering different areas of your Mechanic configuration.
 
+<figure><img src="../.gitbook/assets/mechanic_settings.jpg" alt="The Mechanic Settings page showing the General tab"><figcaption></figcaption></figure>
+
 ## General
 
 * **System contact email** — the email address that receives Mechanic system notifications (rate limit warnings, service announcements). Supports multiple addresses separated by commas.

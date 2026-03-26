@@ -10,6 +10,8 @@ Switch between modes using the **Advanced/Basic mode** toggle in the page action
 
 ## Basic mode
 
+<figure><img src="../.gitbook/assets/basic_task_mechanic.jpg" alt="The task editor in Basic mode, showing options and documentation"><figcaption></figcaption></figure>
+
 Basic mode shows a simplified view with two sections:
 
 * **Options** — configure the task's input parameters (the fields defined by the task's [options](../core/tasks/options/))
@@ -18,6 +20,8 @@ Basic mode shows a simplified view with two sections:
 This is the default mode for merchants who are using pre-built tasks and don't need to edit code.
 
 ## Advanced mode
+
+<figure><img src="../.gitbook/assets/advanced_task_mechanic.jpg" alt="The task editor in Advanced mode, showing the code tab with subscriptions, Liquid editor, options sidebar, and preview"><figcaption></figcaption></figure>
 
 Advanced mode provides a tabbed editor with a resizable sidebar.
 
