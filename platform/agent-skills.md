@@ -20,7 +20,7 @@ Think of it like a reference manual that your AI always has open. The `mechanic-
 
 When installed, the `mechanic-task-writer` skill gives your assistant deep knowledge of Mechanic's patterns:
 
-* Complete importable JSON task output — not just a Liquid script
+* Complete importable JSON task output — not just the Liquid code
 * Correct async/sync patterns (read with `| shopify`, write with `{% action %}`)
 * Preview blocks for every subscribed event topic
 * GraphQL-first Shopify API usage

@@ -28,7 +28,7 @@ Lastly: if you already have a developer on your team, or have an existing connec
 
 ## If you are a developer…
 
-If you're familiar with Liquid and Shopify's Admin APIs, you're ready to build. Mechanic tasks are Liquid scripts with direct GraphQL access to Shopify, HTTP actions for external APIs, and custom events for composing multi-step workflows. Start by browsing the [task library](resources/task-library/) for patterns close to what you need, then modify or build from scratch using the code editor.
+If you're familiar with Liquid and Shopify's Admin APIs, you're ready to build. Mechanic tasks are Liquid code with direct GraphQL access to Shopify, HTTP actions for external APIs, and custom events for composing multi-step workflows. Start by browsing the [task library](resources/task-library/) for patterns close to what you need, then modify or build from scratch using the code editor.
 
 The [Core Concepts](core/events/) section covers the event-task-action model, and [Interacting with Shopify](core/shopify/) covers how tasks read and write Shopify data. The [Techniques](techniques/writing-a-high-quality-task.md) section covers patterns that experienced Mechanic developers use.
 

@@ -29,7 +29,7 @@ Advanced mode provides a tabbed editor with a sidebar showing **Options** and a 
 The main editing surface:
 
 * **Subscriptions** — the Shopify events (like order creation or fulfillment) that trigger this task, one per line. Supports [offsets](../core/tasks/subscriptions.md) for delays (e.g., `shopify/orders/create+1.hour`).
-* **Code** — the task's [Liquid script](../platform/liquid/), which is Mechanic's scripting language (related to but distinct from Shopify theme Liquid)
+* **Code** — the task's [Liquid code](../platform/liquid/), written in Mechanic's implementation of the Liquid language (related to but distinct from Shopify theme Liquid)
 
 ### Preview events tab
 

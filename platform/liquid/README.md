@@ -4,7 +4,7 @@ description: "Write Shopify automations in Liquid with Mechanic's custom tags, f
 
 # Liquid Scripting in Mechanic
 
-Everything in Mechanic is about [**tasks**](../../core/tasks/), and tasks are written in **Liquid** — the template language created by Shopify. But Mechanic extends Liquid into a scripting environment: tasks can query the Shopify Admin API inline, loop through paginated results, transform data, and render complex action sequences — all in one script.
+Everything in Mechanic is about [**tasks**](../../core/tasks/), and tasks are written in **Liquid** — the template language created by Shopify. But Mechanic extends Liquid into a scripting environment: tasks can query the Shopify Admin API inline, loop through paginated results, transform data, and render complex action sequences — all in one task.
 
 Fundamentally, [**task code**](../../core/tasks/code/) renders JSON instructions for [**actions**](../../core/actions/). In the same way that a Liquid theme takes store data and renders HTML, Mechanic task code takes incoming [**events**](../../core/events/) and uses them to render JSON objects defining work to be performed. The difference is that Mechanic Liquid has the control flow and data manipulation capabilities needed for real automation logic.
 

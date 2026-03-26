@@ -1,5 +1,5 @@
 ---
-description: "Use Shopify's GraphQL Admin API in Mechanic tasks to read and write store data — orders, products, customers, metafields, and more."
+description: "Use Shopify's GraphQL Admin API in Mechanic Shopify automation tasks to read and write store data — orders, products, customers, metafields, and more."
 ---
 
 # GraphQL in Mechanic
@@ -42,7 +42,7 @@ Learn more: [Queries](basics/queries.md)
 
 ## Writing data with GraphQL
 
-Use the [Shopify action](../../core/actions/shopify.md) to run GraphQL mutations. Mutations are queued during the task run and **performed after the script finishes**.
+Use the [Shopify action](../../core/actions/shopify.md) to run GraphQL mutations. Mutations are queued during the task run and **performed after the task code finishes**.
 
 ```liquid
 {% action "shopify" %}

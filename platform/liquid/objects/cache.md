@@ -8,7 +8,7 @@ Cache data is unavailable during [task preview](../../../core/tasks/previews/).
 
 ## How to access it
 
-* Use `{{ cache["some_key"] }}` or  `{{ cache.some_key }}` in any task script
+* Use `{{ cache["some_key"] }}` or  `{{ cache.some_key }}` in any task code
 * Use `{% for keyval in cache %}` to iterate through the keys and values in your account's cache
 
 ### Related articles

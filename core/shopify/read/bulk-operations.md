@@ -32,7 +32,7 @@ The set of objects returned by the bulk operation is made available as `bulkOper
 
 In most cases, every object that has an ID will appear as a separate object, in the same set of objects. For example, if a product and five variants are returned, there will be six objects returned – the variants are not nested inside of the product object.
 
-The JSON objects returned from bulk operation queries each include a `"__parentId"` attribute for connected objects, containing the parent object's ID. To make managing task scripts easier, Mechanic allows you to simply call `{{ object.__parent }}` to look up an object's parent.
+The JSON objects returned from bulk operation queries each include a `"__parentId"` attribute for connected objects, containing the parent object's ID. To make managing task code easier, Mechanic allows you to simply call `{{ object.__parent }}` to look up an object's parent.
 
 {% hint style="info" %}
 Because all objects are returned as peers in a flat set, we've found that processing objects is easiest when you can easily identify each object by its type. To that end, try including `__typename` in the list of selections for each node, right alongside `id`.

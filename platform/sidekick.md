@@ -45,7 +45,7 @@ If vague, ask what repetitive Shopify task they want to automate. Check https://
 
 ## Step 2: Write Complete JSON
 
-Always output full importable JSON — never just a script:
+Always output full importable JSON — never just the Liquid code:
 ```json
 {"name":"Task name","docs":"Summary.\n\nDetails.","script":"...","subscriptions":["shopify/orders/create"],"subscriptions_template":"shopify/orders/create","options":{},"online_store_javascript":null,"order_status_javascript":null,"perform_action_runs_in_sequence":false,"halt_action_run_sequence_on_error":false}
 ```
@@ -55,9 +55,9 @@ Always output full importable JSON — never just a script:
 
 ```liquid
 {% assign result = query | shopify %}  {% comment %} SYNC read — result now {% endcomment %}
-{% action "shopify" %}mutation{...}{% endaction %}  {% comment %} ASYNC — runs AFTER script {% endcomment %}
+{% action "shopify" %}mutation{...}{% endaction %}  {% comment %} ASYNC — runs AFTER task code {% endcomment %}
 ```
-READ = `query | shopify` (sync). WRITE = `{% action %}` (async, queued). You CANNOT use an action's result in the same run. To chain actions, subscribe to `mechanic/actions/perform` (two-pass pattern).
+READ = `query | shopify` (sync). WRITE = `{% action %}` (async, queued). You CANNOT use an action's result in the same task run. To chain actions, subscribe to `mechanic/actions/perform` (two-pass pattern).
 
 ## Preview Mode (Required for EVERY event topic)
 

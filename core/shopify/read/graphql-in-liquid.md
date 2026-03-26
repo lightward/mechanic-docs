@@ -94,7 +94,7 @@ If you're working with multiple pages of data, you might use set up a forloop, u
 ```
 
 {% hint style="info" %}
-You'll note that this code includes stub data when running during a preview event. This technique is extremely useful for generating [dynamic preview actions](../../tasks/previews/), by allowing you to exercise your entire task script.
+You'll note that this code includes stub data when running during a preview event. This technique is extremely useful for generating [dynamic preview actions](../../tasks/previews/), by allowing you to exercise your entire task code.
 {% endhint %}
 
 The hardest part of using GraphQL in Mechanic is writing the query itself. :) For help with this, we recommend installing [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/). It provides an environment where, using auto-complete and built-in documentation, you can rapidly build the right query for your task.

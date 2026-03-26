@@ -1,5 +1,5 @@
 ---
-description: "How Mechanic tasks read and write Shopify data — inline GraphQL queries for reads, and Shopify actions for mutations."
+description: "How Mechanic Shopify automation tasks read and write store data — inline GraphQL queries for reads, and Shopify actions for mutations."
 ---
 
 # Interacting with Shopify
@@ -29,7 +29,7 @@ Learn more: [Reading data](read/)
 
 ## Writing data
 
-Use the [Shopify action](../actions/shopify.md) to create, update, or delete Shopify resources. Shopify actions are queued during the task run and **performed after the task script finishes**, so you cannot use the result of a mutation in the same task run that creates it.
+Use the [Shopify action](../actions/shopify.md) to create, update, or delete Shopify resources. Shopify actions are queued during the task run and **performed after the task code finishes**, so you cannot use the result of a mutation in the same task run that creates it.
 
 ```liquid
 {% action "shopify" %}

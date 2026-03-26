@@ -39,6 +39,6 @@ Deprecation details are available in the advanced task editor, in the Runtime ta
 Deprecation warnings can be dismissed by doing one of the following:
 
 * Selecting a new Shopify API version for the task
-* Updating the task script
+* Updating the task code
 * Disabling the task
 * Deleting the task

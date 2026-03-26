@@ -1,10 +1,10 @@
 ---
-description: "Mechanic is a programmable automation platform for Shopify — hundreds of ready-to-use tasks plus a Liquid scripting environment for custom workflows."
+description: "Mechanic is a Shopify automation platform — hundreds of ready-to-use tasks plus a Liquid development environment for custom workflows."
 ---
 
 # ⛩️ Introduction
 
-Mechanic is a programmable automation platform for Shopify. Write Liquid scripts that respond to store events, query the Shopify Admin API, call external services, and perform complex multi-step workflows — with no servers to manage.
+Mechanic is a Shopify automation and development platform. Write Liquid code that responds to store events, queries the Shopify Admin API, calls external services, and performs complex multi-step workflows — with no servers to manage.
 
 * [Browse the task library](https://tasks.mechanic.dev/) — hundreds of ready-to-use automations for tagging, emails, inventory, fulfillment, and more
 * [Get started](getting-started.md) — install Mechanic and set up your first task in minutes
@@ -17,7 +17,7 @@ Find Mechanic on the Shopify App Store: [apps.shopify.com/mechanic](https://apps
 
 ## Can Mechanic help me?
 
-Mechanic gives you a task library with hundreds of ready-to-use automations — and a full development environment for building your own. Tasks are real code: Liquid scripts with direct access to Shopify's GraphQL API, external HTTP services, and composable event-driven workflows. Here's how to tell if it fits your use case.
+Mechanic gives you a task library with hundreds of ready-to-use automations — and a full development environment for building your own. Tasks are real code: Liquid with direct access to Shopify's GraphQL API, external HTTP services, and composable event-driven workflows. Here's how to tell if it fits your use case.
 
 1. Are you working on something Shopify-related?
    * Mechanic is only available for Shopify.
@@ -38,7 +38,7 @@ Got a question you need answered now? [Join our Slack workspace.](https://join.s
 
 ### Tasks, events, and actions
 
-A developer writes [**tasks**](core/tasks/) – Liquid scripts that respond to [**events**](core/events/), like a Shopify webhook, a manual trigger, a regular interval (e.g. hourly, daily), or an incoming email. Tasks use [**subscriptions**](core/tasks/subscriptions.md) to signal their interest in specific event types.
+A developer writes [**tasks**](core/tasks/) – Liquid code that responds to [**events**](core/events/), like a Shopify webhook, a manual trigger, a regular interval (e.g. hourly, daily), or an incoming email. Tasks use [**subscriptions**](core/tasks/subscriptions.md) to signal their interest in specific event types.
 
 When a task receives an incoming event, it can choose to generate an [**action**](core/actions/) – an operation that has an effect.
 

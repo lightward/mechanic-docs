@@ -6,7 +6,7 @@ description: "Actions are how Mechanic tasks make changes \u2014 Shopify mutatio
 
 An **action** is an operation with an effect: a Shopify API mutation, an HTTP request, an email, a generated file, or a custom event. Tasks produce actions by rendering JSON action definitions in Liquid, which means a single task can dynamically generate any number of actions based on the data it processes.
 
-Actions run after the task script completes. Each action has a **type** (specifying the operation) and **options** (providing specifics). Action definitions can be constructed using the [**action tag**](../../platform/liquid/tags/action.md) or as raw [**action objects**](../tasks/code/action-objects.md) in JSON.
+Actions run after the task code completes. Each action has a **type** (specifying the operation) and **options** (providing specifics). Action definitions can be constructed using the [**action tag**](../../platform/liquid/tags/action.md) or as raw [**action objects**](../tasks/code/action-objects.md) in JSON.
 
 {% hint style="info" %}
 In Mechanic, actions are performed after their originating task run concludes. Actions are not performed inline during the task's Liquid rendering.

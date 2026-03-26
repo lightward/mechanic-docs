@@ -36,7 +36,7 @@ Common sources of information for followup task runs:
 * `action.meta` — the [meta information](../core/tasks/code/action-objects.md#meta) given in the action's definition
 
 {% hint style="warning" %}
-It's important to specifically account for the mechanic/actions/perform topic when writing a task script, minding the fact that improper composition could result in an infinite loop.
+It's important to specifically account for the mechanic/actions/perform topic when writing task code, minding the fact that improper composition could result in an infinite loop.
 
 Mechanic will step in and forcibly fail subsequent task runs that contain results identical to their predecessors.
 {% endhint %}
