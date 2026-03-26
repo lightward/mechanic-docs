@@ -4,7 +4,7 @@ Log objects are useful for recording information for later reference. They have 
 
 A log object is a plain JSON object, having the following structure:
 
-```javascript
+```json
 {
   "log": LOG_DETAILS
 }

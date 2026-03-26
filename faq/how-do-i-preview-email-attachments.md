@@ -21,7 +21,7 @@ The best way to approach this is by creating a brand new task, which...
 
 In order to make this work, you may need to pull in data needed for your files. For example, if you're working on an email attachment based on order data, you may need to pull in a sample order object, like this:
 
-```javascript
+```liquid
 {% assign order = shop.orders[1234567890] %}
 ```
 

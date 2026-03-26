@@ -64,7 +64,7 @@ This usage style invokes the [Shopify GraphQL Admin API](https://shopify.dev/doc
 {% tabs %}
 {% tab title="Liquid" %}
 
-```javascript
+```liquid
 {% capture query %}
   mutation DeleteProduct($productId: ID!) {
     productDelete(
@@ -100,7 +100,7 @@ This example shows how the query and variables may be built up separately, and p
 {% tabs %}
 {% tab title="Liquid" %}
 
-```javascript
+```liquid
 {% assign metafield_owner_id = "gid://shopify/Customer/507332001849" %}
 {% assign metafield_value = hash %}
 {% assign metafield_value["foo"] = "bar" %}

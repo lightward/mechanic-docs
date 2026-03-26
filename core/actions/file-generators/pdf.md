@@ -10,7 +10,7 @@ The **PDF** file generator accepts an object containing an HTML string, and uses
 
 <table data-header-hidden><thead><tr><th width="145">Option</th><th>Description</th></tr></thead><tbody><tr><td>Option</td><td>Description</td></tr><tr><td><code>html</code></td><td>Required; a string containing the HTML, CSS and JavaScript to be rendered</td></tr><tr><td>...</td><td>Additional Pdfcrowd API options supported; see below</td></tr></tbody></table>
 
-```javascript
+```json
 {
   "pdf": {
     "html": HTML,

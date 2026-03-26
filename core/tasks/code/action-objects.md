@@ -4,7 +4,7 @@ An action object defines work to be performed by an [**action**](../../actions/)
 
 An action object is a plain JSON object, having the following structure:
 
-```javascript
+```json
 {
   "action": {
     "type": ACTION_TYPE,
@@ -98,7 +98,7 @@ When you're using the action tag, you can attach meta in a few ways:
 
 This information could be purely for record-keeping, making it easy to determine why an action was rendered, or to add helpful context:
 
-```javascript
+```json
 {
   "action": {
     "type": "shopify",

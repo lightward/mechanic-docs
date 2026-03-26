@@ -8,7 +8,7 @@ Downloaded files may be a maximum of 20 megabytes, even when used within other f
 
 This file generator accepts a string containing a valid HTTP or HTTPS URL. It does not support any other options.
 
-```javascript
+```json
 {
   "url": URL
 }

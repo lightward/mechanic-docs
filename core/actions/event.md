@@ -106,7 +106,7 @@ user/orders/unpaid_reminder
 
 **Code**
 
-```javascript
+```liquid
 {% if event.preview %}
   {% assign order = hash %}
   {% assign order["id"] = 1234568790 %}
@@ -155,7 +155,7 @@ user/orders/unpaid_reminder+1.day
 
 **Code**
 
-```javascript
+```liquid
 {% if event.preview %}
   {% assign order = hash %}
   {% assign order["id"] = 1234568790 %}

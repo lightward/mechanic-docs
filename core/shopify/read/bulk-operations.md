@@ -39,7 +39,7 @@ Because all objects are returned as peers in a flat set, we've found that proces
 
 This technique allows the array of objects to be quickly filtered by type:
 
-```javascript
+```liquid
 {% assign customers = bulkOperation.objects | where: "__typename", "Customer" %}
 ```
 {% endhint %}
@@ -55,7 +55,7 @@ mechanic/shopify/bulk_operation
 
 **Code**
 
-```javascript
+```liquid
 {% if event.topic == "mechanic/user/trigger" %}
   {% capture bulk_operation_query %}
     query {
