@@ -1,5 +1,5 @@
 ---
-description: "Find a developer to build or customize your Mechanic automation task."
+description: "Find a Shopify automation developer to build or customize Mechanic tasks — browse Mechanic Partners or bring your own developer."
 ---
 
 # 🤓 Hire a Mechanic Partner

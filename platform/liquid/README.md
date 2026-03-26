@@ -1,12 +1,12 @@
 ---
-description: Liquid is the template language Mechanic uses to process events and generate actions.
+description: "Write Shopify automations in Liquid with Mechanic's custom tags, filters, and objects — including inline GraphQL queries and action definitions."
 ---
 
-# Liquid
+# Liquid Scripting in Mechanic
 
-Everything in Mechanic is about [**tasks**](../../core/tasks/), and tasks are written in **Liquid** – the same template language that Shopify uses for their online store themes, and for many other purposes.
+Everything in Mechanic is about [**tasks**](../../core/tasks/), and tasks are written in **Liquid** — the template language created by Shopify. But Mechanic extends Liquid into a scripting environment: tasks can query the Shopify Admin API inline, loop through paginated results, transform data, and render complex action sequences — all in one task.
 
-Fundamentally, [**task code**](../../core/tasks/code/) is a Liquid template for rendering JSON instructions for [**actions**](../../core/actions/). In the same way that a Liquid theme might take Shopify store data and render HTML for a web browser, Mechanic task code takes incoming [**events**](../../core/events/), and uses them as variables to render JSON objects, defining work to be performed.
+Fundamentally, [**task code**](../../core/tasks/code/) renders JSON instructions for [**actions**](../../core/actions/). In the same way that a Liquid theme takes store data and renders HTML, Mechanic task code takes incoming [**events**](../../core/events/) and uses them to render JSON objects defining work to be performed. The difference is that Mechanic Liquid has the control flow and data manipulation capabilities needed for real automation logic.
 
 ## What does this look like?
 
@@ -48,3 +48,7 @@ If you've worked with Shopify themes, Mechanic Liquid will feel familiar — but
 * [**Mechanic keyword literals**](keyword-literals/) create support for [arrays](keyword-literals/array.md) and [hashes](keyword-literals/hash.md).
 * [**Mechanic objects**](objects/) represent specific Mechanic and Shopify resources.
 * [**Mechanic tags**](tags/) make it easier for task writers to render JSON objects. These tags include [action](tags/action.md), [log](tags/log.md), and [error](tags/error.md). We've also enhanced the [assign](tags/assign.md) tag to support assigning values within arrays and hashes.
+
+{% hint style="info" %}
+Want to experiment? The [Liquid console](../../app/liquid-console.md) is a live scratchpad for testing Mechanic Liquid, available in the footer of every page of the app.
+{% endhint %}

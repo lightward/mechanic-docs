@@ -1,5 +1,5 @@
 ---
-description: "Use AI tools to write and debug Mechanic tasks \u2014 MCP server, Agent Skills, Sidekick, and ChatGPT."
+description: "Use AI tools to write and debug Shopify automation tasks in Mechanic \u2014 MCP server, Agent Skills, Sidekick, and ChatGPT."
 ---
 
 # 🤖 Using AI with Mechanic
@@ -50,7 +50,7 @@ These apply regardless of which AI tool you're using:
 * **Start from the task library.** Search [tasks.mechanic.dev](https://tasks.mechanic.dev/) for an existing task that's close to what you need. Modifying a working task is faster and more reliable than starting from scratch.
 * **Check subscriptions.** Make sure the task subscribes to the right event topics. A task that listens to `shopify/orders/create` won't fire on order updates.
 * **Prefer GraphQL.** Shopify REST is deprecated in Mechanic. Use the GraphQL Admin API for reading and writing Shopify data.
-* **Verify the output format.** A complete Mechanic task is a JSON object with `name`, `script`, `subscriptions`, `subscriptions_template`, `options`, and other fields. If your AI produces only a Liquid script, it's missing the structure needed for import.
-* **Watch for async vs sync confusion.** This is the most common AI mistake. `query | shopify` returns data immediately. `{% action "shopify" %}` queues a mutation that runs *after* the script finishes. If the AI tries to use a mutation result in the same script run, the task will silently fail.
+* **Verify the output format.** A complete Mechanic task is a JSON object with `name`, `script`, `subscriptions`, `subscriptions_template`, `options`, and other fields. If your AI produces only the Liquid code, it's missing the structure needed for import.
+* **Watch for async vs sync confusion.** This is the most common AI mistake. `query | shopify` returns data immediately. `{% action "shopify" %}` queues a mutation that runs *after* the task code finishes. If the AI tries to use a mutation result in the same task run, the task will silently fail.
 * **Check for preview mode.** Every event topic the task subscribes to needs an `{% if event.preview %}` block with mock data. If the task subscribes to 3 topics, there should be 3 preview blocks. Missing previews mean Mechanic can't verify the task will produce valid actions.
 * **Webhook orders need `admin_graphql_api_id`.** When an order arrives via webhook (like `shopify/orders/create`), the order ID is REST-style. The task needs to use `order.admin_graphql_api_id` to get the full GraphQL ID for mutations. Using `order.id` directly will fail.

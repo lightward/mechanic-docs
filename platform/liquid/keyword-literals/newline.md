@@ -14,7 +14,7 @@ Under the hood, each of these scenarios uses the regular expression `/\r?\n/`.
 
 ## Example
 
-```javascript
+```liquid
 {% assign message = "Hello!" | append: newline | append: newline %}
 {% assign message = message | append: "This is a new paragraph!" %}
 

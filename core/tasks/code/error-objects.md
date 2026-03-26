@@ -14,7 +14,7 @@ This also means that rendering an error object will not prevent the task from re
 
 An error object is a plain JSON object, having the following structure:
 
-```javascript
+```json
 {
   "error": ERROR_DETAILS
 }

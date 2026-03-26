@@ -43,7 +43,7 @@ Only needed if external apps need to read data from your tasks. Create URLs that
 
 ## Event filters
 
-Advanced. Liquid scripts that run before tasks to decide whether an event should be processed — for example, skipping test orders or pausing processing during maintenance. See [Event filters](../platform/events/filters.md).
+Advanced. Liquid code that runs before tasks to decide whether an event should be processed — for example, skipping test orders or pausing processing during maintenance. See [Event filters](../platform/events/filters.md).
 
 ## Authentication
 

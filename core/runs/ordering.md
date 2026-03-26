@@ -15,9 +15,9 @@ Each task has an advanced option called "[Perform action runs in sequence](../ta
 The best tool to leverage here is the [Event action](../actions/event.md), coupled with action sequences \(see above\).
 
 1. Begin by making a list of the tasks for which you need to guarantee run order, sorted by the desired run order. For these purposes, all of these tasks should subscribe to the same event topic.
-2. Beginning with the task that should run first, \(a\) enable "Perform action runs in sequence", and \(b\) add an "event" action at the very end of your task script. The intent here is for this action to kick off a unique event topic that the _second_ task should the subscribe to.
+2. Beginning with the task that should run first, \(a\) enable "Perform action runs in sequence", and \(b\) add an "event" action at the very end of your task code. The intent here is for this action to kick off a unique event topic that the _second_ task should then subscribe to.
 3. Having added that "event" action, update the second task so that it subscribes to your new event topic, _instead of_ the original event topic. If there is a third task that should follow this one, repeat step 2 for this task as well, in preparation for kicking off the third task.
 4. Repeat until you reach the final task in your list. This task does not need an "event" action at its conclusion; it only needs to have its subscription updated to listen for the penultimate task's generated event.
 
-One more tool is worth mentioning: tasks may subscribe to mechanic/actions/perform to be re-triggered when each of their own actions are performed. For more on this strategy, see [Responding to action results](https://docs.usemechanic.com/article/431-responding-to-action-results).
+One more tool is worth mentioning: tasks may subscribe to mechanic/actions/perform to be re-triggered when each of their own actions are performed. For more on this strategy, see [Responding to action results](../../techniques/responding-to-action-results.md).
 

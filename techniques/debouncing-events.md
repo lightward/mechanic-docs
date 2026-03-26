@@ -1,3 +1,7 @@
+---
+description: "Debounce high-frequency Shopify webhook events in Mechanic using event filters and the cache to avoid duplicate processing."
+---
+
 # Debouncing events
 
 There are cases when events unavoidably come in more often than is strictly useful. (We've seen this happen when used with [**webhooks**](../platform/webhooks.md), called by a vendor – the vendor may call that webhook far more often than desired.)

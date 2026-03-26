@@ -14,7 +14,7 @@ All of our [library tasks](https://tasks.mechanic.dev/) will be ported to use Gr
 Please see these [guides](../../../../resources/converting-tasks-from-shopify-rest-to-graphql/) for migrating your custom tasks to GraphQL.
 {% endhint %}
 
-Note: This API is only available to Shopify Plus stores, who have configured their Mechanic account with [a custom Shopify API password](https://help.usemechanic.com/en/articles/3486326-using-a-custom-shopify-api-password).
+Note: This API is only available to Shopify Plus stores, who have configured their Mechanic account with [a custom Shopify API password](../../../../platform/shopify/custom-authentication.md).
 
 ## How to access it
 

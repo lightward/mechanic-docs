@@ -1,8 +1,12 @@
+---
+description: "React to Mechanic action results using mechanic/actions/perform — build multi-step workflows that inspect HTTP responses, mutation results, and more."
+---
+
 # Responding to action results
 
-Action runs are performed asynchronously, [like all Mechanic runs](../core/runs/). This means their results aren't available to the Liquid task code that defined them.
+Tasks can react to the results of their own actions by subscribing to the **mechanic/actions/perform** event topic. This enables multi-step workflows: a task makes an HTTP request, then inspects the response and decides what to do next. Or a task creates a Shopify resource, then uses the returned ID in a follow-up action.
 
-To respond to action results, add a task subscription to the **mechanic/actions/perform** event topic. When a task includes this subscription, Mechanic will generate an event with that topic for every action that the task completes. This event will only ever be responded to by the task that generated it; it will never be sent to other tasks.
+Because actions run asynchronously ([like all Mechanic runs](../core/runs/)), their results aren't available during the Liquid rendering that defined them. Instead, Mechanic delivers action results back to the task as a new event. To use this, add a task subscription to the **mechanic/actions/perform** event topic. When a task includes this subscription, Mechanic will generate an event with that topic for every action that the task completes. This event will only ever be responded to by the task that generated it; it will never be sent to other tasks.
 
 If you don't need the follow-up event for a particular action (for example, when you know the work is fire-and-forget or you're avoiding loops), set `__perform_event: false` on that action. The action still runs; Mechanic just skips emitting `mechanic/actions/perform` for it.
 
@@ -32,7 +36,7 @@ Common sources of information for followup task runs:
 * `action.meta` — the [meta information](../core/tasks/code/action-objects.md#meta) given in the action's definition
 
 {% hint style="warning" %}
-It's important to specifically account for the mechanic/actions/perform topic when writing a task script, minding the fact that improper composition could result in an infinite loop.
+It's important to specifically account for the mechanic/actions/perform topic when writing task code, minding the fact that improper composition could result in an infinite loop.
 
 Mechanic will step in and forcibly fail subsequent task runs that contain results identical to their predecessors.
 {% endhint %}
@@ -50,7 +54,7 @@ mechanic/actions/perform
 
 **Code**
 
-```javascript
+```liquid
 {% if action.run.ok == false %}
   {% action "email" %}
     {

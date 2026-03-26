@@ -9,15 +9,15 @@
 * [🤖 Using AI with Mechanic](ai.md)
 * [❓ Contact support](support.md)
 
-## Using the app <a href="#app" id="app"></a>
+## App screens <a href="#app" id="app"></a>
 
-* [Home](app/home.md)
+* [Task list](app/home.md)
 * [Task editor](app/task-editor.md)
 * [Events](app/events.md)
 * [Settings](app/settings.md)
-* [💬 Ask Mechanic](app/ask-mechanic.md)
+* [Ask Mechanic](app/ask-mechanic.md)
 * [Liquid console](app/liquid-console.md)
-* [⌨️ Keyboard shortcuts](app/keyboard-shortcuts.md)
+* [Keyboard shortcuts](app/keyboard-shortcuts.md)
 
 ## Resources
 
@@ -27,6 +27,9 @@
   * [Requesting](resources/task-library/requesting.md)
 * [🤖 Mechanic MCP Server](platform/mcp.md)
 * [🤖 Mechanic Agent Skills](platform/agent-skills.md)
+* [🤖 Mechanic Sidekick Skill](platform/sidekick.md)
+* [🤖 Shopify Dev MCP Server](platform/shopify-dev-mcp.md)
+* [🤖 Mechanic GPT](platform/chatgpt.md)
 * [🚀 Slack community](resources/slack.md)
 * [🤝 Partner directory](https://partners.mechanic.dev)
 * [🧠 Tutorials](resources/tutorials/README.md)

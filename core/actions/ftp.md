@@ -101,7 +101,7 @@ Learn more: [Responding to action results](../../techniques/responding-to-action
 
 An FTP action returns the following data structure, most useful in combination with mechanic/actions/perform (see [Responding to action results](../../techniques/responding-to-action-results.md)):
 
-```javascript
+```json
 {
   "log": "connect: ftp.couchdrop.io, 21\n< 220 Couchdrop FTPD\n> USER ********\n< 331 Username ok, send password.\n> PASS ********\n< 230 Welcome ********\n> TYPE I\n< 200 Type set to: Binary.\n> TYPE I\n< 200 Type set to: Binary.\n> PASV\n< 227 Entering passive mode (178,128,9,71,234,153).\n> STOR journal.txt\n< 125 Data connection already open. Transfer starting.\n< 226 Transfer complete.\n> TYPE I\n< 200 Type set to: Binary.\n> TYPE I\n< 200 Type set to: Binary.\n> PASV\n< 227 Entering passive mode (178,128,9,71,234,98).\n> STOR table.csv\n< 125 Data connection already open. Transfer starting.\n< 226 Transfer complete.\n> TYPE I\n< 200 Type set to: Binary.\n> TYPE I\n< 200 Type set to: Binary.\n> PASV\n< 227 Entering passive mode (178,128,9,71,234,135).\n> STOR invoice.pdf\n< 125 Data connection already open. Transfer starting.\n< 226 Transfer complete.\n> TYPE I\n< 200 Type set to: Binary.\n> TYPE I\n< 200 Type set to: Binary.\n> PASV\n< 227 Entering passive mode (178,128,9,71,234,101).\n> STOR secure.zip\n< 125 Data connection already open. Transfer starting.\n< 226 Transfer complete.\n> TYPE I\n< 200 Type set to: Binary.\n> TYPE I\n< 200 Type set to: Binary.\n> PASV\n< 227 Entering passive mode (178,128,9,71,234,100).\n> STOR external.jpg\n< 125 Data connection already open. Transfer starting.\n< 226 Transfer complete.\n> TYPE I\n< 200 Type set to: Binary.\n> TYPE I\n< 200 Type set to: Binary.\n> PASV\n< 227 Entering passive mode (178,128,9,71,234,183).\n> RETR journal.txt\n< 125 Data connection already open. Transfer starting.\n< 226 Transfer complete.\n> TYPE I\n< 200 Type set to: Binary.\n> TYPE I\n< 200 Type set to: Binary.\n> PASV\n< 227 Entering passive mode (178,128,9,71,234,149).\n> RETR table.csv\n< 125 Data connection already open. Transfer starting.\n< 226 Transfer complete.\n> TYPE I\n< 200 Type set to: Binary.\n",
   "uploads": {
@@ -130,7 +130,7 @@ An FTP action returns the following data structure, most useful in combination w
 }
 ```
 
-Note that each uploaded and downloaded file is keyed by the path provided for that file in the action's options. Downloaded file data is available as a UTF-8 string; for binary data that cannot be represented in UTF-8, use the base64-encoded version, possibly in concert with the [decode\_base64](https://learn.mechanic.dev/platform/liquid/filters#base-64-decode_base64) filter.
+Note that each uploaded and downloaded file is keyed by the path provided for that file in the action's options. Downloaded file data is available as a UTF-8 string; for binary data that cannot be represented in UTF-8, use the base64-encoded version, possibly in concert with the [decode\_base64](../../platform/liquid/filters/#base-64-decode_base64) filter.
 
 ## Testing
 

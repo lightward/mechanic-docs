@@ -2,7 +2,7 @@
 
 In this tutorial, you'll learn how to create a feed of your shop's data, and make it available on your online store, at a URL like `https://example.com/pages/feed`[.](https://example.com/pages/feed)
 
-Tip: The data you generate can be imported directly into Google Sheets. Learn more: [Can I send data to Google Sheets?](../../faq/can-i-send-data-to-google-sheets.md)
+Tip: The data you generate can be imported directly into Google Sheets. Learn more: [Google Sheets integration](../../platform/integrations/google-drive-and-google-sheets.md)
 
 {% hint style="warning" %}
 This technique has several limitations:
@@ -23,7 +23,7 @@ Start with our example task, using the "Try this task" button to add it to your 
 
 Immediately after adding the task, run it by clicking the "Run task" button. This will populate your shop's records with the initial value of the feed.
 
-This task replicates Shopify's own product inventory CSV export. Feel free to make changes to the script, and don't hesitate to get in touch if you have questions. :)
+This task replicates Shopify's own product inventory CSV export. Feel free to make changes to the task code, and don't hesitate to get in touch if you have questions. :)
 
 ### 2. Create a page template, called "page.feed.liquid".
 

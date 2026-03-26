@@ -65,7 +65,7 @@ Trigger → Event → EventRun → TaskRun(s) → ActionRun(s)
 ```
 
 * **Events**: Represent anything that happens (Shopify webhooks, schedules, custom events)
-* **Tasks**: Liquid scripts that respond to events via subscriptions
+* **Tasks**: Liquid code that responds to events via subscriptions
 * **Actions**: Side effects produced by tasks (Shopify API calls, emails, HTTP requests, files)
 * **Runs**: Execution units processed through queues (event runs → task runs → action runs)
 

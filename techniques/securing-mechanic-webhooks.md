@@ -1,3 +1,7 @@
+---
+description: "Secure Mechanic webhooks with HMAC signatures and replay prevention — protect webhook endpoints used in online store forms."
+---
+
 # Securing Mechanic webhooks
 
 [Mechanic webhooks](../platform/webhooks.md) are configured properly for CORS, which makes them suitable for submissions from your online store's frontend.
@@ -24,7 +28,7 @@ One might use something like this in the Shopify theme code:
 
 ... and then something like this, in the corresponding Mechanic task code:
 
-```javascript
+```liquid
 {% assign customer_id = event.data.customer_id %}
 {% assign customer_id_signature = event.data.customer_id_signature %}
 
@@ -45,7 +49,7 @@ The best approach for preventing this is to ensure that the Mechanic task code i
 
 One way to solve this is to leverage [the Mechanic cache](../platform/cache/) to remember that a given request has already been processed. Here's an example:
 
-```javascript
+```liquid
 {% assign cache_key = event.data | json | sha256 %}
 
 {% if cache[cache_key] %}
@@ -64,7 +68,7 @@ In this way, later submissions of the same webhook data will be ignored.
 
 To prevent a replay of the same request _much_ later, add a rounded representation of the current time to the signature calculation. Here's an example, on the theme code side:
 
-```javascript
+```liquid
 {% assign time_rounded = "now" | date: "%s" | times: 1.0 | divided_by: 60 | round %}
 {% assign signature_data = customer.id | append: time_rounded %}
 {% assign signature = hmac_sha256: "some-secret-value" %}
@@ -72,7 +76,7 @@ To prevent a replay of the same request _much_ later, add a rounded representati
 
 And here's how this might be validated in task code:
 
-```javascript
+```liquid
 {% assign customer_id = event.data.customer_id %}
 {% assign customer_id_signature = event.data.customer_id_signature %}
 

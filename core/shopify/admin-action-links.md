@@ -120,7 +120,7 @@ Event data for these topics is often very similar to data from [Shopify events](
 Tasks that already subscribe to related Shopify event topics lend themselves well to invocation via Shopify admin action links. For example, a task subscribing to shopify/orders/create may be adapted to these action links by adding mechanic/user/order to the task's subscriptions.
 
 {% hint style="danger" %}
-Additional changes may be necessary. Always test thoroughly, and follow [best practices](https://learn.mechanic.dev/techniques/writing-a-high-quality-task).
+Additional changes may be necessary. Always test thoroughly, and follow [best practices](../../techniques/writing-a-high-quality-task.md).
 {% endhint %}
 
 #### Example

@@ -1,6 +1,10 @@
+---
+description: "Query the Shopify GraphQL Admin API directly in Liquid using Mechanic's shopify filter — read orders, products, customers, and more inline during task execution."
+---
+
 # 🏆 GraphQL in Liquid
 
-Tasks may use the [shopify Liquid filter](../../../platform/liquid/filters/#shopify) to convert GraphQL query strings into simple result objects, by sending the query to the [Shopify GraphQL Admin API](https://shopify.dev/docs/admin-api/graphql). The easiest way to build these queries is via the [Shopify Admin API GraphiQL explorer](https://shopify.dev/tools/graphiql-admin-api), which allows queries to be interactively constructed.
+Tasks can query the Shopify GraphQL Admin API inline during execution using the [`shopify` Liquid filter](../../../platform/liquid/filters/#shopify). Write a GraphQL query, pipe it through the filter, and use the results immediately in your task logic — for conditional branching, data lookups, pagination, or any other purpose. The easiest way to build these queries is via the [Shopify Admin API GraphiQL explorer](https://shopify.dev/tools/graphiql-admin-api).
 
 {% hint style="info" %}
 The shopify filter does not support running mutations (i.e. writing Shopify data via GraphQL). To run mutations, use the [Shopify action](../../actions/shopify.md).
@@ -90,7 +94,7 @@ If you're working with multiple pages of data, you might use set up a forloop, u
 ```
 
 {% hint style="info" %}
-You'll note that this code includes stub data when running during a preview event. This technique is extremely useful for generating [dynamic preview actions](../../tasks/previews/), by allowing you to exercise your entire task script.
+You'll note that this code includes stub data when running during a preview event. This technique is extremely useful for generating [dynamic preview actions](../../tasks/previews/), by allowing you to exercise your entire task code.
 {% endhint %}
 
 The hardest part of using GraphQL in Mechanic is writing the query itself. :) For help with this, we recommend installing [Shopify's GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/). It provides an environment where, using auto-complete and built-in documentation, you can rapidly build the right query for your task.

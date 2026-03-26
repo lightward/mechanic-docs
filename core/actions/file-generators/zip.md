@@ -9,7 +9,7 @@ The **ZIP** file generator accepts an options object, specifying a set of files 
 | `files`    | Required; an object specifying a set of filenames mapped to file generators |
 | `password` | Optional; a string specifying a password to use for encrypting the file     |
 
-```javascript
+```json
 {
   "zip": {
     "files": FILENAMES_AND_FILE_GENERATORS,

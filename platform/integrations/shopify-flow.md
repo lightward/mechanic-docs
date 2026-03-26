@@ -1,3 +1,7 @@
+---
+description: "Connect Mechanic with Shopify Flow — send triggers to Flow workflows and receive Flow events in Mechanic tasks."
+---
+
 # Shopify Flow
 
 Mechanic allows developers to integrate their work with [Shopify Flow](https://apps.shopify.com/flow) via an official Flow connector, sending triggers to Shopify using Mechanic's [Flow action](../../core/actions/integrations/flow.md), and receiving events from Shopify using custom event topics in [the user domain](../events/topics.md#user-1).

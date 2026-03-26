@@ -1,10 +1,10 @@
 ---
-description: "How Mechanic tasks read and write Shopify data using the Admin API."
+description: "How Mechanic Shopify automation tasks read and write store data — inline GraphQL queries for reads, and Shopify actions for mutations."
 ---
 
 # Interacting with Shopify
 
-Mechanic tasks interact with Shopify in two ways: **reading** data (inline, during a task run) and **writing** data (via actions, after the task run completes).
+Mechanic tasks have full access to the Shopify Admin API. Tasks can **read** data inline during execution — running GraphQL queries to fetch additional context beyond the triggering event — and **write** data via actions that run Shopify GraphQL mutations after the task completes. This gives tasks the same level of API access available to custom apps, without requiring you to build or host app infrastructure.
 
 ## Reading data
 
@@ -29,7 +29,7 @@ Learn more: [Reading data](read/)
 
 ## Writing data
 
-Use the [Shopify action](../actions/shopify.md) to create, update, or delete Shopify resources. Shopify actions are queued during the task run and **performed after the task script finishes**, so you cannot use the result of a mutation in the same task run that creates it.
+Use the [Shopify action](../actions/shopify.md) to create, update, or delete Shopify resources. Shopify actions are queued during the task run and **performed after the task code finishes**, so you cannot use the result of a mutation in the same task run that creates it.
 
 ```liquid
 {% action "shopify" %}

@@ -66,7 +66,7 @@ That task must be subscribed to the event topic being used.
 
 You can limit a task to itself by referencing it's own task.id
 
-See [**options**](https://github.com/lightward/mechanic-docs/tree/34e0af545410cf0aa59d77a6e259266942f50aab/tasks/options/README.md) to have a user configurable input instead of hardcoding the task id(s).
+See [**options**](../tasks/options/) to have a user configurable input instead of hardcoding the task id(s).
 
 ### Scheduling future events
 
@@ -106,7 +106,7 @@ user/orders/unpaid_reminder
 
 **Code**
 
-```javascript
+```liquid
 {% if event.preview %}
   {% assign order = hash %}
   {% assign order["id"] = 1234568790 %}
@@ -155,7 +155,7 @@ user/orders/unpaid_reminder+1.day
 
 **Code**
 
-```javascript
+```liquid
 {% if event.preview %}
   {% assign order = hash %}
   {% assign order["id"] = 1234568790 %}

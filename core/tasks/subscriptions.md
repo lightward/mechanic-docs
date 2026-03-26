@@ -1,3 +1,7 @@
+---
+description: "Configure Mechanic task subscriptions to respond to Shopify webhooks, scheduled events, and custom triggers — with optional time delays."
+---
+
 # Subscriptions
 
 A task **subscription** is the expression of a task's intent to receive certain [**events**](../events/), filtering by [**topic**](../events/topics.md). A subscription consists of an event topic, optionally combined with a time **offset**, which creates a delay.

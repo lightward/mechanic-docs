@@ -1,6 +1,6 @@
 # Basics
 
-GraphQL is a query language used to request data from APIs and it is also a runtime for fulfilling these requests. When working with GraphQL, you'll use [queries](https://github.com/lightward/mechanic-docs/tree/8880357b48cbbdaa848a8a5beb0c8fc984407d4f/@lightward/s/mechanic/\~/drafts/-MV-OYSE8kOiQkCgnIKN/graphql/basics/queries/README.md) and [mutations](https://github.com/lightward/mechanic-docs/tree/8880357b48cbbdaa848a8a5beb0c8fc984407d4f/@lightward/s/mechanic/\~/drafts/-MV-OYSE8kOiQkCgnIKN/graphql/basics/mutations/README.md) to query a GraphQL serve and responses will come back in JSON format. GraphQL is the future of Shopify APIs, and Shopify has said: "You should expect that there absolutely will be more features that will be only on GraphQL in the future."
+GraphQL is a query language used to request data from APIs and it is also a runtime for fulfilling these requests. When working with GraphQL, you'll use [queries](queries.md) and [mutations](mutations.md) to query a GraphQL serve and responses will come back in JSON format. GraphQL is the future of Shopify APIs, and Shopify has said: "You should expect that there absolutely will be more features that will be only on GraphQL in the future."
 
 {% hint style="info" %}
 This section summarizes Shopify's documentation: [GraphQL and its benefits](https://shopify.dev/concepts/graphql/benefits), [https://graphql.org/](https://graphql.org/), and [https://www.howtographql.com](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/), visit these links for more in-depth information.

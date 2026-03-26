@@ -81,7 +81,7 @@ Supports converting a two-dimensional array to a CSV string, and back again.
 
 {% tab title="Custom Delimiter" %}
 
-```javascript
+```liquid
 {{ data | csv: ";" }}
 ```
 
@@ -446,7 +446,7 @@ The parse\_jsonl filter raises an error when invalid JSONL is received.
 
 ### parse\_xml
 
-Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from_xml).) Useful for processing output from third-party APIs, either by [responding to](https://docs.usemechanic.com/article/431-responding-to-action-results) "http" actions, or by parsing content from [inbound webhooks](https://docs.usemechanic.com/article/439-creating-events-with-webhooks).
+Use this filter to parse an XML string. (Under the hood, this filter calls [Hash::from\_xml](https://api.rubyonrails.org/classes/Hash.html#method-c-from_xml).) Useful for processing output from third-party APIs, either by [responding to](../../../techniques/responding-to-action-results.md) "http" actions, or by parsing content from [inbound webhooks](../../webhooks.md).
 
 ```liquid
 {% capture xml_string %}
@@ -811,7 +811,7 @@ This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.o
 
 {% tab title="Output" %}
 
-```javascript
+```json
 [["1","2"],["3",null]]
 ```
 
@@ -829,7 +829,7 @@ This filter is an implementation of [Array#in\_groups](https://api.rubyonrails.o
 
 {% tab title="Output" %}
 
-```javascript
+```json
 [["1","2"],["3"]]
 ```
 
@@ -853,7 +853,7 @@ This filter is particularly useful when performing work in batches, by making it
 
 {% tab title="Output" %}
 
-```javascript
+```json
 [["1","2"],["3","4"],["5",null]]
 ```
 
@@ -908,7 +908,7 @@ This filter accepts the name of an object property or attribute, and returns a h
 
 {% tab title="Output" %}
 
-```javascript
+```json
 {
   "ONE": {
     "id": 12345,
@@ -970,7 +970,7 @@ This filter accepts one or more arguments, corresponding to values that should b
 
 {% tab title="Output" %}
 
-```javascript
+```json
 ["qux"]
 ```
 
@@ -1165,7 +1165,7 @@ When applied to a hash, this filter returns a new hash which omits all keys havi
 
 {% tab title="Output" %}
 
-```javascript
+```json
 {"bar":"baz","qux":null}
 {"bar":"baz"}
 ```
@@ -1193,7 +1193,7 @@ Note that the filter only operates on the top-level keys, it does not affect key
 
 {% tab title="Output" %}
 
-```javascript
+```json
 {"bar":{"baz":"baz","quz":null}}
 {"bar":{"baz":"baz"}}
 ```
@@ -1221,7 +1221,7 @@ This filter accepts one or more string arguments, corresponding to keys that sho
 
 {% tab title="Output" %}
 
-```javascript
+```json
 {"qux":"qux"}
 ```
 
@@ -1252,7 +1252,7 @@ When applied to a hash, the slice filter accepts one or more string arguments, c
 
 {% tab title="Output" %}
 
-```javascript
+```json
 {"bar":"bar","baz":"baz"}
 ```
 

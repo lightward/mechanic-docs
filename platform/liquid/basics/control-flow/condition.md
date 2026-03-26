@@ -12,7 +12,7 @@ For further discussion on how Liquid treats values, see their documentation: [Tr
 
 An `if` tag is always paired with an `endif` tag. The code between these tags only runs if the condition in the `if` tag evaluates to something truthy.
 
-```javascript
+```liquid
 {% if options.test_mode__boolean %}
   {% action "echo" summaries %}
 {% endif %}
@@ -22,7 +22,7 @@ An `if` tag is always paired with an `endif` tag. The code between these tags on
 
 Identical in style to the `if` tag, the `unless` tag only executes the code it contains if the condition is falsey.
 
-```javascript
+```liquid
 {% unless options.default_tracking_url_template contains "TRACKING_NUMBER" %}
   {% error %}{{ "Placeholder 'TRACKING_NUMBER' is missing." | json }}{% enderror %}
 {% endunless %}
@@ -32,7 +32,7 @@ Identical in style to the `if` tag, the `unless` tag only executes the code it c
 
 An `else` tag can be added within `if`, `unless`, and `case` blocks. The code that follows the `else` tag is run if the condition above it does not run.
 
-```javascript
+```liquid
 {% if customer.email != empty %}
   {% assign email = customer.email %}
 {% else %}
@@ -40,7 +40,7 @@ An `else` tag can be added within `if`, `unless`, and `case` blocks. The code th
 {% endif %}
 ```
 
-```javascript
+```liquid
 {% unless customer.email == empty %}
   {% assign email = customer.email %}
 {% else %}
@@ -54,7 +54,7 @@ An `elsif` tag adds a second condition to an `if` or `unless` block. If the cond
 
 Any number of `elsif` tags may be added within `if` or `unless` blocks.
 
-```javascript
+```liquid
 {% assign today = "tuesday" %}
 
 {% if today == "monday" %}
@@ -64,7 +64,7 @@ Any number of `elsif` tags may be added within `if` or `unless` blocks.
 {% endif %}
 ```
 
-```javascript
+```liquid
 {% assign today = "tuesday" %}
 
 {% unless today == "tuesday" %}
@@ -78,7 +78,7 @@ Any number of `elsif` tags may be added within `if` or `unless` blocks.
 
 The `case` and `endcase` tag pair contain a series of `when` tags, and optionally an `else` tag. The value specified in the `case` tag is inspected, and Liquid then looks for a `when` tag that has a matching value. If one is found, that `when` tag gets to run its code. If no match is found, the code for the `else` tag (if given) is run.
 
-```javascript
+```liquid
 {% case order.cancel_reason    %}
   {% when "customer" %}
     {% assign cancel_reason = "It was the customer." %}

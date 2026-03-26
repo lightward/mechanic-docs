@@ -1,3 +1,7 @@
+---
+description: "Migrate Shopify notification templates to Mechanic for custom order emails, PDF invoices, and on-demand transactional messages."
+---
+
 # Migrating templates from Shopify to Mechanic
 
 Shopify notification templates can be manually migrated over to Mechanic in order to generate order-related material on-demand in Mechanic. This could look like [triggering an order confirmation email](../faq/can-i-resend-order-confirmation-emails-with-mechanic.md), or [generating a PDF invoice](../core/actions/file-generators/pdf.md).

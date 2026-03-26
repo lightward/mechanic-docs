@@ -49,7 +49,7 @@ The MCP server provides access to:
 
 * **350+ pre-built automation tasks** from [tasks.mechanic.dev](https://tasks.mechanic.dev)
 * **Complete Mechanic documentation** from [learn.mechanic.dev](https://learn.mechanic.dev)
-* Task subscriptions, options, and full Liquid scripts
+* Task subscriptions, options, and full Liquid code
 * Documentation on Liquid templating, actions, events, and integrations
 
 ***
@@ -212,7 +212,7 @@ Best for learning about Mechanic concepts, Liquid templating, actions, and platf
 
 ### `get_task`
 
-Retrieve complete task details including subscriptions, Liquid script, options, and JavaScript blocks. Use this to see the full implementation of a specific task.
+Retrieve complete task details including subscriptions, Liquid code, options, and JavaScript blocks. Use this to see the full implementation of a specific task.
 
 **Parameters:**
 
@@ -222,13 +222,13 @@ Retrieve complete task details including subscriptions, Liquid script, options, 
 
 * Task metadata (name, tags, URL)
 * Event subscriptions and subscription template
-* Complete Liquid script
+* Complete Liquid code
 * Task options with defaults
 * Online store JavaScript (if present)
 * Order status JavaScript (if present)
 
 {% hint style="info" %}
-When sharing task code, return only the relevant parts (subscriptions and script), not the full JSON export. Always include the public task URL.
+When sharing task code, return only the relevant parts (subscriptions and Liquid code), not the full JSON export. Always include the public task URL.
 {% endhint %}
 
 ***
@@ -277,7 +277,7 @@ When working with your AI assistant and the Mechanic MCP server:
 * **Discover before building**: Search for existing tasks before creating custom solutions. The library contains 350+ battle-tested tasks.
 * **Use GraphQL**: Prefer Shopify's GraphQL Admin API in task code. REST is deprecated in Mechanic.
 * **Reference public URLs**: Always cite tasks using their public URLs (tasks.mechanic.dev) and docs using learn.mechanic.dev URLs.
-* **Get full task details**: Use `get_task` to see complete implementations, including subscriptions, scripts, and options.
+* **Get full task details**: Use `get_task` to see complete implementations, including subscriptions, code, and options.
 * **Find related work**: Use `similar_tasks` to discover alternative approaches or complementary automations.
 
 ***

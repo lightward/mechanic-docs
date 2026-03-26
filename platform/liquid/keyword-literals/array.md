@@ -6,7 +6,7 @@ Arrays support [assignment by index](../tags/assign.md#assigning-into-arrays). M
 
 ## Example
 
-```javascript
+```liquid
 {% assign weekdays = array %}
 {% assign weekdays[0] = "Monday" %}
 {% assign weekdays[1] = "Tuesday" %}

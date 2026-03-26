@@ -48,7 +48,7 @@ For clarity: looking up a single resource by ID will only result in a single RES
   * `{{ shop.orders[1234567890] }}`
   * `{% for order in shop.orders %}`
   * `{% for order in shop.orders.paid %}`
-* An index of [draft order objects](https://docs.usemechanic.com/article/386-the-draft-order-object)
+* An index of [draft order objects](draft-order.md)
   * `{{ shop.draft_orders[1234567890] }}`
   * `{% for draft_order in shop.draft_orders.invoice_sent %}`
 * An index of [customer objects](customer-object.md)

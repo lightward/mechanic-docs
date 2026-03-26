@@ -1,4 +1,8 @@
-# Topics
+---
+description: "Reference for Mechanic event topics — Shopify webhook events, scheduled events, user-triggered events, and custom event topics."
+---
+
+# Event Topics
 
 To make events easy to identify, each event has a **topic**. Tasks signal their interest in specific event topics using [**subscriptions**](../tasks/subscriptions.md).
 

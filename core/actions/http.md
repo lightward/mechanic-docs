@@ -1,4 +1,8 @@
-# HTTP
+---
+description: "Make HTTP requests from Mechanic tasks to call external APIs, send webhooks, and integrate Shopify with third-party services."
+---
+
+# HTTP Action
 
 The **HTTP** action performs HTTP requests. It is commonly used to invoke third-party APIs.
 
@@ -114,7 +118,7 @@ Because HTTP allows for the same header name to be present multiple times, this 
 
 To retrieve a specific header in a task responding to [mechanic/actions/perform](../../techniques/responding-to-action-results.md), use something like this:
 
-```javascript
+```liquid
 {% log response_type_header: action.run.result.headers['content-type'][0] %}
 ```
 

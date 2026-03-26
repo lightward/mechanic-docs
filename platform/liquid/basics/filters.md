@@ -12,7 +12,7 @@ Liquid filters should not be confused with [event filters](../../events/filters.
 
 ## Example syntax
 
-```javascript
+```liquid
 {{ order.billing_address.zip | upcase }}
 
 {% assign full_name = customer.first_name | append: " " | append: customer.last_name %}

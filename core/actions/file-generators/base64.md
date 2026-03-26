@@ -8,7 +8,7 @@ This generator is useful when producing images, or other binary content that can
 
 This file generator accepts a base64-encoded string. It does not support any other options.
 
-```javascript
+```json
 {
   "base64": BASE64_ENCODED_VALUE
 }

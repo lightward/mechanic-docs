@@ -4,9 +4,9 @@ description: Receive data from external services and trigger Mechanic tasks via 
 
 # Webhooks
 
-A Mechanic **webhook** allows data to be submitted directly to Mechanic, resulting in a new [**event**](../core/events/) having a particular topic, containing the submitted data. Webhooks are called with simple HTTP POST requests, which means they can be called from any programming language, and from many applications.
+A Mechanic **webhook** allows data to be submitted directly to Mechanic, resulting in a new [**event**](../core/events/) having a particular topic, containing the submitted data. Webhooks are called with simple HTTP POST requests, which means they can be called from any programming language, and from many applications. This makes Mechanic an integration endpoint for your Shopify stack — any system that can make an HTTP POST (an ERP, a CRM, a fulfillment service, a form builder) can trigger Mechanic tasks and pass along data. Combined with the [HTTP action](../core/actions/http.md) for outbound requests, this gives you bidirectional integration with any API-accessible service.
 
-Mechanic's webhook API includes CORS support for all origins, making these requests available for use in online user experiences.
+Mechanic's webhook API includes CORS support for all origins, making these requests available for use in online user experiences. For securing webhooks against unauthorized access, see [Securing Mechanic webhooks](../techniques/securing-mechanic-webhooks.md).
 
 {% hint style="info" %}
 This article is an introduction to webhooks. To get started quickly, see [Creating a Mechanic webhook](../resources/tutorials/creating-a-mechanic-webhook.md).
