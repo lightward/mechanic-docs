@@ -1,3 +1,8 @@
+---
+description: >-
+  Share and back up Mechanic tasks as JSON — import individually or in bulk, and contribute to the task library.
+---
+
 # Import and export
 
 Mechanic tasks may be imported and exported as JSON, using the "Import" or "Export" button below the task editor. The JSON schema used for representing tasks is identical to that used by the **task library**, making it suitable for [contributing to the task library](../../resources/task-library/contributing.md).

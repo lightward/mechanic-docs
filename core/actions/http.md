@@ -165,3 +165,9 @@ mechanic/actions/perform
     response_body: action.run.result.body %}
 {% endif %}
 ```
+
+## Related
+
+* [Working with external APIs](../../techniques/working-with-external-apis/) — patterns for authenticating and integrating with third-party services
+* [Responding to action results](../../techniques/responding-to-action-results.md) — inspect HTTP responses and react to them in a follow-up task run
+* [Preventing action loops](../../techniques/preventing-action-loops.md) — guard against re-triggers when combining HTTP actions with event subscriptions

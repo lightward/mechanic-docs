@@ -21,6 +21,12 @@ Each event carries **data** that tasks can use. For a Shopify webhook event, thi
 
 For a complete reference of available event topics, see [Topics](topics.md).
 
+## What happens next
+
+When an event arrives, Mechanic creates a [**run**](../runs/) to process it. Each run evaluates every [task](../tasks/) that subscribes to that event's topic. If a task generates [actions](../actions/) (like a Shopify API call or an email), those actions are queued and performed after the task run completes.
+
+This is the core execution flow: **Event** → **Task Run** → **Action Run(s)**. To learn more, see [Runs](../runs/).
+
 {% hint style="info" %}
 Incoming events may be selectively skipped using [event filters](../../platform/events/filters.md). For handling high-frequency events, see [Debouncing events](../../techniques/debouncing-events.md).
 {% endhint %}

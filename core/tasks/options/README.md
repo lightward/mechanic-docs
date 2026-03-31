@@ -1,3 +1,8 @@
+---
+description: >-
+  Add user-facing configuration to your Mechanic tasks — input fields, validation flags, and custom option types.
+---
+
 # Options
 
 [**Tasks**](../) can accept user configuration via **options**. Options are created automatically: when you reference `options.something` in your task's [**code**](../code/), Mechanic adds an input field for it in the task configuration UI.

@@ -1,3 +1,8 @@
+---
+description: >-
+  Custom Liquid tags in Mechanic — action, log, error, permissions, and more for producing task output.
+---
+
 # Mechanic tags
 
 Mechanic extends Liquid with custom tags that go beyond what standard Liquid provides. These tags are how tasks produce output — defining actions, logging data, raising errors, and more.

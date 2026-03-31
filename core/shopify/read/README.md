@@ -1,3 +1,8 @@
+---
+description: >-
+  Read Shopify store data in Mechanic tasks — GraphQL queries, bulk operations, and the shopify Liquid filter.
+---
+
 # Reading data
 
 Mechanic supports several methods of reading data. The following articles discuss usage, and when each technique might \(or might not\) be appropriate:

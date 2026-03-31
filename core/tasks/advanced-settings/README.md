@@ -1,3 +1,8 @@
+---
+description: >-
+  Per-task configuration beyond code and options — documentation, JavaScript, and action sequencing.
+---
+
 # Advanced settings
 
 Advanced settings are per-task configuration options beyond the task's code and user-facing options. They control how the task is documented, how its code is executed, and how its actions are performed.

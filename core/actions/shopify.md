@@ -141,3 +141,10 @@ This example shows how the query and variables may be built up separately, and p
 
 {% endtab %}
 {% endtabs %}
+
+## Related
+
+* [Reading Shopify data](../shopify/read/) — query products, orders, customers, and more using GraphQL in Liquid
+* [Writing Shopify data](../shopify/write.md) — overview of writing data to Shopify
+* [Responding to action results](../../techniques/responding-to-action-results.md) — inspect Shopify mutation results in a follow-up task run
+* [Preventing action loops](../../techniques/preventing-action-loops.md) — guard against re-triggers when modifying resources you subscribe to

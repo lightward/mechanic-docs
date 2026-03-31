@@ -163,3 +163,9 @@ For more on this, see [File generators](file-generators/).
 
 {% endtab %}
 {% endtabs %}
+
+## Related
+
+* [Email](../../platform/email/) — email platform features, including custom domains, DMARC, and receiving inbound email
+* [Email templates](../../platform/email/templates.md) — reusable email layouts and styling
+* [File generators](file-generators/) — generate PDFs, CSVs, and other attachments for your emails

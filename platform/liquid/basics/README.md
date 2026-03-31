@@ -1,3 +1,8 @@
+---
+description: >-
+  Learn the fundamentals of Liquid in Mechanic — syntax, data types, variables, filters, operators, and control flow.
+---
+
 # Basics
 
 Mechanic uses [**Liquid**](../), a template language created by Shopify. If you have worked with the code behind Shopify themes, you've worked with Liquid.

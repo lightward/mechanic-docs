@@ -1,3 +1,8 @@
+---
+description: >-
+  Complete reference of Liquid filters available in Mechanic — shopify, parse_json, csv, hmac_sha256, and more.
+---
+
 # Mechanic filters
 
 This page defines all of the [**Liquid filters**](../basics/filters.md) that are available in Mechanic Liquid. Mechanic supports many of our own filters, as well as an array of filters drawn from Shopify Liquid.

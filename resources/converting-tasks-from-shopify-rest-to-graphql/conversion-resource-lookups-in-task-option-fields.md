@@ -1,6 +1,6 @@
 # Conversion: Resource lookups in task option fields
 
-An oft utilized feature of Mechanic is the ability to add Liquid tags into task options fields, such as a configurable email body. Additionally, these Liquid tags (currently) support inline resource lookups for data not available in the event webhook. However, for products and variants this will no longer work as of the [Feb 1, 2025 REST deprecation date](../../platform/liquid/objects/shopify/).
+An oft utilized feature of Mechanic is the ability to add Liquid tags into task options fields, such as a configurable email body. Additionally, these Liquid tags (currently) support inline resource lookups for data not available in the event webhook. However, for products and variants this no longer works as of the [Feb 1, 2025 REST deprecation](../../platform/liquid/objects/shopify/).
 
 {% code title="REST - product resource lookup from line item" %}
 

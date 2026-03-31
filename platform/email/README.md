@@ -1,3 +1,8 @@
+---
+description: >-
+  Send automated emails from Mechanic — templates, custom domains, DMARC, and receiving inbound email.
+---
+
 # Email
 
 Mechanic email is powered by [Postmark](https://postmarkapp.com/).
