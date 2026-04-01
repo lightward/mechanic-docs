@@ -1,3 +1,8 @@
+---
+description: >-
+  Mechanic's keyword literals for Liquid — array, hash, and newline for working with data structures and formatting.
+---
+
 # Keyword literals
 
 Mechanic adds several keyword literals to Liquid — special values that can be used directly in expressions without needing to be assigned or constructed. These make it easier to work with common data structures and formatting.

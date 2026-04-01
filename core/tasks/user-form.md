@@ -1,3 +1,8 @@
+---
+description: >-
+  Create custom input forms for manually-triggered Mechanic tasks — collect user input and pass it to your task code.
+---
+
 # User Form
 
 When a task subscribes to the **mechanic/user/form** event topic a "Run task" button is added to the task.

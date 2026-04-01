@@ -1,3 +1,8 @@
+---
+description: >-
+  Generate files from Mechanic tasks — PDF, CSV, ZIP, plaintext, and base64 formats for attachments and downloads.
+---
+
 # File generators
 
 **File generators** are invoked by [**actions**](../) to create new files, using options provided by the action, and handing the resulting file back to the action for further use. In this way, [**tasks**](../../tasks/) can make choices about what files to generate, and what to do with the results.

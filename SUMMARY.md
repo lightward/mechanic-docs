@@ -68,6 +68,7 @@
 
 * [Events](core/events/README.md)
   * [Topics](core/events/topics.md)
+  * [Event topics list](platform/events/topics.md)
   * [Parent and child events](core/events/parent-and-child-events.md)
 * [Tasks](core/tasks/README.md)
   * [Subscriptions](core/tasks/subscriptions.md)

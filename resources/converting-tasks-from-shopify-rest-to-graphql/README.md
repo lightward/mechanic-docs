@@ -1,11 +1,16 @@
-# 🏆 Converting tasks from Shopify REST to GraphQL
+---
+description: >-
+  Step-by-step guides for migrating Mechanic tasks from Shopify's deprecated REST API to GraphQL.
+---
+
+# Converting tasks from Shopify REST to GraphQL
 
 {% hint style="danger" %}
 **Important Notice**
 
-Shopify is deprecating the Shopify Admin REST API which the Mechanic REST objects depend on. The first round of deprecations involve the product and variant endpoints. Read about the deprecation [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).
+Shopify has deprecated the REST Admin API that Mechanic's REST objects depend on. The product and variant endpoints were removed on Feb 1, 2025, and Shopify is phasing out the remaining REST endpoints over time. Read more [here](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model#whats-changing) and [here](https://shopify.dev/docs/apps/build/graphql/migrate).
 
-Use the [GraphQL](../../core/actions/shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects will cease to work on on Feb 1, 2025 due to the changes being made by Shopify. Shopify will phase out the REST API completely over time, you can read more about this [here](https://shopify.dev/docs/apps/build/graphql/migrate).
+Use [GraphQL](../../core/actions/shopify.md#graphql) going forward. The [product](../../platform/liquid/objects/shopify/product.md) and [variant](../../platform/liquid/objects/shopify/variant.md) objects no longer work. The remaining REST objects will follow as Shopify continues the migration.
 
 
 {% endhint %}

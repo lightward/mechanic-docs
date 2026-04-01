@@ -1,6 +1,6 @@
 # Conversion: Metafield lookups from a resource
 
-For every Shopify resource object that supports metafields, Mechanic has traditionally provided a way to directly access those metafields from the resource using [dot notation](../../platform/liquid/objects/shopify/metafields/metafield-collection.md). This shortcut will no longer be accessible for product and variant REST resources once they are fully deprecated.
+For every Shopify resource object that supports metafields, Mechanic has traditionally provided a way to directly access those metafields from the resource using [dot notation](../../platform/liquid/objects/shopify/metafields/metafield-collection.md). This shortcut is no longer accessible for product and variant REST resources, which were deprecated on Feb 1, 2025.
 
 {% code title="REST - product metafield value check" lineNumbers="true" %}
 

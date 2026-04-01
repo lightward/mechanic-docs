@@ -1,3 +1,8 @@
+---
+description: >-
+  Mechanic's Liquid objects — event, task, options, cache, action, and Shopify resource objects available in your task code.
+---
+
 # Mechanic objects
 
 Mechanic makes a variety of [**Liquid environment variables**](../../../core/tasks/code/environment-variables.md) available, containing specific Liquid objects. (The `shop` variable, for example, is always available and always contains the [Shop object](shopify/shop.md).)

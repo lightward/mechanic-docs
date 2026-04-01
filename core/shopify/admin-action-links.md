@@ -9,7 +9,7 @@ description: >-
 For supported resources, you'll find **"Send to Mechanic"** links within the Shopify admin. These links point to a Mechanic app URL that translates selected Shopify resources into Mechanic events for on-demand processing. Depending on the user's resource and task selections, their submission may result in one or more new events. Event data consists of the latest stable REST Admin API representation of the selected resource(s).
 
 {% hint style="warning" %}
-**Important**: Starting **Feb 1, 2025**, the `product` and `variant` resource types will no longer include full REST Admin API data in these events. Instead, only resource IDs (`id` and `admin_graphql_api_id`) will be included, due to Shopify REST API deprecations. If you need additional product or variant details (e.g. title, vendor, etc.), you must fetch them via Shopify's GraphQL API.
+**Important**: As of **Feb 1, 2025**, the `product` and `variant` resource types no longer include full REST Admin API data in these events. Only resource IDs (`id` and `admin_graphql_api_id`) are included, due to Shopify REST API deprecations. If you need additional product or variant details (e.g. title, vendor, etc.), fetch them via Shopify's GraphQL API.
 {% endhint %}
 
 Tasks can qualify for this style of on-demand Shopify resource processing by subscribing to event topics like **mechanic/user/{resource}** (singular) for individual processing, and **mechanic/user/{resources}** (plural) for batch processing. See [Supported resources](admin-action-links.md#supported-resources) below for a complete table of resources and event topics.
@@ -21,7 +21,7 @@ Shopify admin action links are a form of [**run link**](../../platform/integrati
 <table><thead><tr><th width="175.33333333333331">Resource object</th><th width="173">URL parameter</th><th width="255">Individual mode event topic</th><th width="325">Batch mode event topic</th></tr></thead><tbody><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/customer#resource-object">Customer</a></td><td><code>customer</code></td><td>mechanic/user/customer</td><td>mechanic/user/customers</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/order#resource-object">Order</a></td><td><code>order</code></td><td>mechanic/user/order</td><td>mechanic/user/orders</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/draftorder#resource-object">Draft order</a></td><td><code>draft_order</code></td><td>mechanic/user/draft_order</td><td>mechanic/user/draft_orders</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/product#resource-object">Product</a></td><td><code>product</code></td><td>mechanic/user/product</td><td>mechanic/user/products</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/product-variant#resource-object">Product variant</a></td><td><code>variant</code></td><td>mechanic/user/variant</td><td>mechanic/user/variants</td></tr><tr><td><a href="https://shopify.dev/api/admin-rest/latest/resources/collection#resource-object">Collection</a></td><td><code>collection</code></td><td>mechanic/user/collection</td><td></td></tr></tbody></table>
 
 {% hint style="warning" %}
-**Note**: After **Feb 1, 2025**, `product` and `variant` events will only include resource IDs:
+**Note**: As of **Feb 1, 2025**, `product` and `variant` events only include resource IDs:
 
 ```
 {

@@ -1,3 +1,8 @@
+---
+description: >-
+  Test Mechanic tasks safely before they run on real data — preview actions, request Shopify permissions, and define sample events.
+---
+
 # Previews
 
 A task uses its **preview** to demonstrate what actions the task intends to generate. Among other purposes (see below), this is also how tasks request the Shopify permissions they require.

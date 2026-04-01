@@ -1,3 +1,8 @@
+---
+description: >-
+  Build your first Mechanic task from scratch — a step-by-step tutorial for auto-tagging high-value Shopify orders.
+---
+
 # Your first custom task
 
 This tutorial walks you through building a complete Mechanic task from scratch. By the end, you'll have a working task that automatically tags orders over $100 with a "high-value" tag.

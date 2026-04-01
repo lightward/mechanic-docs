@@ -1,3 +1,8 @@
+---
+description: >-
+  GraphQL fundamentals for Mechanic — queries, mutations, pagination, and the Shopify Admin API.
+---
+
 # Basics
 
 GraphQL is a query language used to request data from APIs and it is also a runtime for fulfilling these requests. When working with GraphQL, you'll use [queries](queries.md) and [mutations](mutations.md) to query a GraphQL serve and responses will come back in JSON format. GraphQL is the future of Shopify APIs, and Shopify has said: "You should expect that there absolutely will be more features that will be only on GraphQL in the future."
