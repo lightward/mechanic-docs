@@ -21,7 +21,7 @@ This integration supports these Airtable API scopes.
 This action requires connecting an Airtable account with the appropriate permissions. To connect an account:
 
 1. Go to the Settings screen
-2. Click Authentication
+2. Open the **Authentication** section in the sidebar
 3. Follow the Airtable account connection flow from the Airtable tab
 
 ## Examples

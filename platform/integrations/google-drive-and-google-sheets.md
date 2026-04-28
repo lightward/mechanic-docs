@@ -11,7 +11,7 @@ You can connect more than one Google account choosing which account to use when 
 Before using Google integrations connect your Google accounts:
 
 1. Go to your Mechanic Settings screen
-2. Click on Authentication
+2. Open the **Authentication** section in the sidebar
 3. Connect your Google account from the Google tab
 4. Grant the necessary permissions when prompted
 

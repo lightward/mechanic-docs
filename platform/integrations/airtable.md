@@ -11,7 +11,7 @@ You can connect more than one Airtable account choosing which account to use whe
 Before using Airtable integrations connect your Airtable accounts:
 
 1. Go to your Mechanic Settings screen
-2. Click on Authentication
+2. Open the **Authentication** section in the sidebar
 3. Connect your Airtable account from the Airtable tab
 
 ### Basic Usage
