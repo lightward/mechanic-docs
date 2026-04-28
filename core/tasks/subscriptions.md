@@ -11,7 +11,7 @@ A task may have any number of subscriptions.
 ![](<../../.gitbook/assets/Screen Shot 2022-05-05 at 10.09.07 AM.png>)
 
 {% hint style="info" %}
-Subscriptions to `user/...` topics may be backed by a [Custom Shopify webhook](../../platform/shopify/custom-webhooks.md), which routes Shopify-side filtered or trimmed deliveries onto a Mechanic topic of your choosing. Events arriving via a custom Shopify webhook also carry `event.shopify_topic` (the original Shopify topic), making `{% if event.shopify_topic %}` the canonical "is this from a custom route?" check.
+Subscriptions to `user/...` topics may be backed by a [Custom Shopify webhook](../../platform/shopify/custom-webhooks.md), which routes Shopify-side filtered or trimmed deliveries onto a Mechanic topic of your choosing. Events arriving from a custom Shopify webhook carry `event.shopify_topic` (the original Shopify topic) and have `event.source` set to `custom_shopify_webhook_subscription:<id>`.
 {% endhint %}
 
 ## Delays

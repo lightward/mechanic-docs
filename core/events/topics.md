@@ -24,4 +24,4 @@ Mechanic allows developers several ways to generate custom User events:
 
 * The [Event action](../actions/event.md) can be used with any User event topic
 * [Mechanic webhooks](../../platform/webhooks.md) may be configured to generate events using any User event topic
-* [Custom Shopify webhooks](../../platform/shopify/custom-webhooks.md) deliver Shopify webhook events onto a User event topic, with optional filtering and payload customization. Events from a custom Shopify webhook also carry `event.shopify_topic`, which preserves the original Shopify topic.
+* [Custom Shopify webhooks](../../platform/shopify/custom-webhooks.md) deliver Shopify webhook events onto a User event topic, with optional filtering and payload customization. As with native Shopify deliveries, `event.shopify_topic` carries the original Shopify topic.
