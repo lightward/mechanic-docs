@@ -27,9 +27,6 @@
   * [Requesting](resources/task-library/requesting.md)
 * [🤖 Mechanic MCP Server](platform/mcp.md)
 * [🤖 Mechanic Agent Skills](platform/agent-skills.md)
-* [🤖 Mechanic Sidekick Skill](platform/sidekick.md)
-* [🤖 Shopify Dev MCP Server](platform/shopify-dev-mcp.md)
-* [🤖 Mechanic GPT](platform/chatgpt.md)
 * [🚀 Slack community](resources/slack.md)
 * [🤝 Partner directory](https://partners.mechanic.dev)
 * [🧠 Tutorials](resources/tutorials/README.md)
@@ -235,7 +232,8 @@
 * [Shopify](platform/shopify/README.md)
   * [Custom authentication](platform/shopify/custom-authentication.md)
   * ["Read all orders"](platform/shopify/read-all-orders.md)
-* [Webhooks](platform/webhooks.md)
+  * [Custom Shopify webhooks](platform/shopify/custom-webhooks.md)
+* [Mechanic webhooks](platform/webhooks.md)
 
 ## Techniques
 
