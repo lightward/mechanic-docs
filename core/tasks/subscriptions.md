@@ -10,6 +10,10 @@ A task may have any number of subscriptions.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-05 at 10.09.07 AM.png>)
 
+{% hint style="info" %}
+Subscriptions to `user/...` topics may be backed by a [Custom Shopify webhook](../../platform/shopify/custom-webhooks.md), which routes Shopify-side filtered or trimmed deliveries onto a Mechanic topic of your choosing. Events arriving via a custom Shopify webhook also carry `event.shopify_topic` (the original Shopify topic), making `{% if event.shopify_topic %}` the canonical "is this from a custom route?" check.
+{% endhint %}
+
 ## Delays
 
 ... are accomplished using subscription offsets, as described below. This heading is here for folks searching for a way to delay their tasks. ;)

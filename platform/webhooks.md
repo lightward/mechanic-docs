@@ -2,7 +2,7 @@
 description: Receive data from external services and trigger Mechanic tasks via webhooks.
 ---
 
-# Webhooks
+# Mechanic webhooks
 
 A Mechanic **webhook** allows data to be submitted directly to Mechanic, resulting in a new [**event**](../core/events/) having a particular topic, containing the submitted data. Webhooks are called with simple HTTP POST requests, which means they can be called from any programming language, and from many applications. This makes Mechanic an integration endpoint for your Shopify stack — any system that can make an HTTP POST (an ERP, a CRM, a fulfillment service, a form builder) can trigger Mechanic tasks and pass along data. Combined with the [HTTP action](../core/actions/http.md) for outbound requests, this gives you bidirectional integration with any API-accessible service.
 
@@ -15,6 +15,15 @@ This article is an introduction to webhooks. To get started quickly, see [Creati
 {% hint style="info" %}
 Tools like [Postman](https://www.postman.com/) ([docs](https://learning.postman.com/docs/sending-requests/requests/)) can be useful for exercising Mechanic webhooks without code, for verifying their behavior.
 {% endhint %}
+
+## Looking for Custom Shopify webhooks?
+
+Two different features in Mechanic share the word "webhooks" — make sure you're on the right page.
+
+* **This page (Mechanic webhooks)** — inbound HTTP from any system. Any service that can POST to a URL (a form builder, an ERP, a CRM, a fulfillment service) can trigger Mechanic tasks via these. Creates `user/...` events.
+* **[Custom Shopify webhooks](shopify/custom-webhooks.md)** — Shopify-side filtering and payload customization for Shopify's own webhook deliveries. Trim payloads with `include_fields`, filter at Shopify (e.g. only `status:active` products), receive metafields and metaobject events. Also creates `user/...` events.
+
+Quick decision: data coming from Shopify? You probably want [Custom Shopify webhooks](shopify/custom-webhooks.md). From anything else? Stay here.
 
 ## Configuration
 

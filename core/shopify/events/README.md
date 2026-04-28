@@ -11,6 +11,18 @@ Shopify uses webhooks to notify apps like Mechanic about new activity. Mechanic 
 Note that Shopify does not strictly guarantee webhook delivery. See [Reconciling missing events](reconciling-missing-events.md) for more on this subject.
 {% endhint %}
 
+## How Shopify events reach Mechanic
+
+There are two paths Shopify webhooks can take into Mechanic. Most tasks use the first; reach for the second when you need filtering, payload customization, or metaobject events.
+
+### Native subscriptions
+
+When a task subscribes to a `shopify/...` topic (e.g. `on: shopify/products/update`), Mechanic registers and maintains the corresponding webhook subscription with Shopify automatically. Deliveries are unfiltered, full-shape payloads. This is the path used by every task in the [task library](https://tasks.mechanic.dev/) and the default for every example in these docs. The complete topic list lives in [Event topics](../../../platform/events/topics.md#shopify).
+
+### Custom Shopify webhooks
+
+When you need filtered deliveries (only active products, only orders with a specific tag), slimmer payloads (`include_fields`), Shopify-side metafield delivery (`metafield_namespaces`, `metafields`), or **metaobject events** (which aren't in the native topic set), configure a [Custom Shopify webhook](../../../platform/shopify/custom-webhooks.md). Each custom webhook routes Shopify deliveries onto a `user/...` topic of your choosing.
+
 ## Responding to changes in specific data
 
 Shopify's "update" webhooks do not contain information about what piece of data has changed. (For example, a product update webhook does not specify what attribute of the product has changed.) For this reason, it's not possible to subscribe to changes in specific resource attributes (like product SKUs, or order tags).
