@@ -20,9 +20,9 @@ Currently, these are the only Slack API methods supported by this integration.
 
 This action requires installing the Mechanic Slack app in your Slack account with the appropriate permissions. To install the app:
 
-1. Go to the Settings screen
-2. Open the **Authentication** section in the sidebar
-3. Install the Mechanic Slack app from the Slack tab
+1. Go to **Settings → Authentication**
+2. Select **Slack** in the provider list
+3. Install the Mechanic Slack app
 
 ## Examples
 

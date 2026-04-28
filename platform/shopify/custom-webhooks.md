@@ -5,11 +5,11 @@ description: >-
 
 # Custom Shopify webhooks
 
-**Custom Shopify webhooks** let you reshape Shopify's own webhook deliveries — filter them, slim their payloads, route them to your own Mechanic topic — before they ever hit a task. Configure one in **Settings → Custom Shopify webhooks**.
+A **custom Shopify webhook** is a Shopify webhook delivery, but reshaped — filtered, trimmed, and routed onto a Mechanic topic of your choosing — before it ever hits a task. Configure one in **Settings → Custom Shopify webhooks**.
 
 A custom Shopify webhook can do four things native task subscriptions can't: send only the records you care about (filter), trim the payload (`include_fields`), include metafields alongside the resource (`metafield_namespaces`, `metafields`), and — for the first time in Mechanic — receive **metaobject** webhooks (`metaobjects/create`, `metaobjects/update`, `metaobjects/delete`). Each route delivers events onto a `user/...` topic of your choosing.
 
-**Status legend** (full reference [below](#status-states)): **Draft** · **Receiving** · **Not receiving** · **Needs permissions** · **Needs filter** · **Sync error** · **Disabled**.
+**Status legend** (full reference [below](#what-each-status-badge-means)): **Draft** · **Receiving** · **Not receiving** · **Needs permissions** · **Needs filter** · **Sync error** · **Disabled**.
 
 ## The 60-second version
 
@@ -25,8 +25,11 @@ Here's the smallest interesting example — a route that delivers `product_revie
 **Task** with a subscription to `user/metaobjects/product_review_update` and this script:
 
 ```liquid
-{% log shopify_topic: event.shopify_topic %}
-{% log data: event.data %}
+{% log
+  metaobject_handle: event.data.handle,
+  metaobject_type: event.data.type,
+  fields: event.data.fields
+%}
 ```
 
 Update a `product_review` metaobject in Shopify Admin and watch the event arrive. That's the shape. Read on for the full reference, or jump to [If a custom route isn't behaving](#if-a-custom-route-isnt-behaving) if you're already stuck.
@@ -49,7 +52,7 @@ If the data is coming from Shopify, you probably want a **Custom Shopify webhook
 
 ## When to reach for it
 
-Concrete moments where a custom Shopify webhook earns its keep:
+A few real moments these earn their keep:
 
 * **Stop firing tasks on draft orders you don't ship** — Filter `status:active` on `orders/updated`.
 * **Get notified when a `product_review` metaobject changes** — `metaobjects/update` + Filter `type:product_review`. (Native subscriptions don't cover metaobject topics at all.)
@@ -68,7 +71,7 @@ Open **Settings → Custom Shopify webhooks** and click **New**. The form has th
 * **Metafield namespaces** — include all metafields under a namespace.
 * **Metafields** — include specific metafields by `namespace.key`.
 
-**At least one of Filter / Include fields / Metafield namespaces / Metafields is required.** A route with no customization would just be a duplicate of native delivery, so Mechanic doesn't allow it.
+**You need at least one of Filter / Include fields / Metafield namespaces / Metafields.** Without any of those, the route would be a duplicate of native delivery — so Mechanic gently declines.
 
 ### Try it
 
@@ -107,7 +110,7 @@ If your filter references a field, that field also needs to be in `include_field
 
 #### "Include fields must contain "{field}" because the filter references it."
 
-Add the field to `include_fields` and save again. (Without `include_fields` set, this rule doesn't apply — Shopify sees the full payload and can evaluate any filter field.)
+Add the field to `include_fields` and save again. The check is prefix-matching, so `variants` in `include_fields` satisfies a filter referencing `variants.price` — list the parent field, not every leaf. (Without `include_fields` set, this rule doesn't apply: Shopify sees the full payload and can evaluate any filter field.)
 
 ### Metaobject topics require a `type:` filter
 
@@ -133,6 +136,10 @@ When the filter references fields, Mechanic checks them against Shopify's sample
 
 If you're confident the field is valid (e.g. it exists in a Shopify API version newer than what the sample payload reflects), save anyway. Shopify will reject the subscription if the filter is actually invalid.
 
+#### "Mechanic could not verify which fields this filter references from Shopify's sample payload. Shopify will still validate the subscription on save."
+
+A different version of the same warning: the filter is non-blank but Mechanic couldn't parse any field references out of it (a filter like `id:*` triggers this). Same advice — Shopify is the authority on save.
+
 ### Verifying a filter
 
 1. Save the route.
@@ -148,7 +155,7 @@ Three fields control the payload Shopify delivers. Each is optional, and they ca
 
 * **`include_fields`** — top-level payload field whitelist. Example: `["id", "title", "variants"]`. The shape is determined by Shopify, not Mechanic — see Shopify's [modify-payloads docs](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads) for what's included alongside the listed fields. The simplest way to be sure: configure your route, trigger a real event, and look at `event.data` on the resulting Mechanic event.
 * **`metafield_namespaces`** — include all metafields in a namespace. Example: `["custom"]`. The metafields appear under `event.data.metafields`.
-* **`metafields`** — include specific metafields by `namespace.key`. Example: `["custom.pack_size", "custom.lead_time_days"]`.
+* **`metafields`** — include specific metafields by `namespace.key`. Example: `["custom.pack_size", "custom.lead_time_days"]`. Each entry must contain exactly one dot — `custom.foo.bar` is rejected ("must use namespace.key format, like \"custom.color\"").
 
 Shopify's authority on payload customization: [Customize webhook subscriptions: modify payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads).
 
@@ -169,19 +176,21 @@ Example: `include_fields: ["id", "title", "metafields"]` + `metafields: ["custom
 
 ## When a custom route blocks native delivery
 
-This is the gotcha worth understanding deeply. Shopify treats a webhook subscription as unique by `(shop, app, destination, Shopify topic, filter)`. Mechanic's native task subscriptions on `shopify/...` topics are **unfiltered**. So an unfiltered custom route on the same Shopify topic collides with native delivery — Shopify will only keep one.
+This is the gotcha. Read it slowly the first time. Shopify treats a webhook subscription as unique by `(shop, app, destination, Shopify topic, filter)`. Mechanic's native task subscriptions on `shopify/...` topics are **unfiltered**. So an unfiltered custom route on the same Shopify topic collides with native delivery — Shopify will only keep one. (This applies whenever `filter` is blank, regardless of payload customization — `include_fields` / `metafields` / `metafield_namespaces` alone don't disambiguate.)
 
 ### Direction A: an unfiltered route lands while a task already has the native subscription
 
 The route saves but stays in **Needs filter** state, with this banner:
 
-#### "Without a filter, this custom webhook cannot receive alongside native shopify/{topic} task subscriptions. Add a filter, even id:\*, if you want this custom webhook to stay separate from native delivery."
+#### "Without a filter, this custom webhook cannot receive alongside native {topic} task subscriptions. Add a filter, even id:\*, if you want this custom webhook to stay separate from native delivery."
+
+(Where `{topic}` is the bare Shopify topic, e.g. `products/update` — this is what Shopify and Mechanic both use for native subscription matching.)
 
 Add a filter to the route — even [`id:*`](#the-id-workaround) — to lift it out of this state.
 
 ### Direction B: enabling a task while an unfiltered route is active
 
-If a custom route on `shopify/<topic>` is enabled and unfiltered, saving a task with `on: shopify/<topic>` is blocked at the API. The error names the conflicting route:
+If a custom route on `shopify/<topic>` is enabled and unfiltered, saving a task that subscribes to `shopify/<topic>` is blocked. The task editor's **Code** tab surfaces the conflict under "These Shopify subscriptions would stop unfiltered custom Shopify webhooks from receiving," followed by the per-route message:
 
 #### "would stop {route name} from receiving its custom Shopify webhook. Add a filter to {route name}, disable it, or subscribe this task to {route's Mechanic topic} instead."
 
@@ -189,7 +198,7 @@ Three ways out: filter the route, disable the route, or migrate the task to subs
 
 ### The `id:*` workaround
 
-`id:*` is an always-true filter — it matches every record, so it doesn't reduce delivery, but it counts as a non-empty filter for Shopify's uniqueness rule. Use it when you genuinely want a custom route to receive everything alongside native task subscriptions on the same topic. Mechanic itself recommends `id:*` in the **Needs filter** banner; it works on the standard topics. (Metaobject topics are the exception — they require a `type:` filter, not `id:*`.)
+`id:*` is an always-true filter — it matches every record, so it doesn't reduce delivery, but it counts as a non-empty filter for Shopify's uniqueness rule. Use it when you genuinely want a custom route to receive everything alongside native task subscriptions on the same topic. Yes, this looks ridiculous. Yes, it works — Mechanic itself recommends `id:*` in the **Needs filter** banner. (Metaobject topics are the exception — they require a `type:` filter, not `id:*`.)
 
 ### What's allowed
 
@@ -210,26 +219,31 @@ Already have a task subscribed to `shopify/products/update` and want to move it 
 1. Create the custom route with the desired filter and customization. Save.
 2. Trigger the source event in Shopify and confirm the new `user/...` event appears in your events list.
 3. Update the task's subscription from `shopify/<topic>` to the route's `user/...` topic.
-4. If no other task needs the unfiltered native delivery, the native subscription falls off automatically once no enabled task uses it. Otherwise, the native and custom deliveries can coexist as long as the custom route is filtered.
+4. If no other enabled task needs the unfiltered native delivery, the native subscription falls off automatically once no task uses it — but the next sync runs in a background job (within ~1 minute), and there's a brief window where both native and custom routes deliver. If your task is idempotent, you're fine; otherwise migrate during a quiet period or dedupe on the resource ID.
 5. Verify required scopes still match in **Settings → Permissions** — auto-detection covers both task subscriptions and active routes.
 
 To roll back: disable the route in **Settings → Custom Shopify webhooks** and revert the task subscription. The route's local config persists for re-enabling later.
 
 ## What it looks like in tasks
 
-Four worked examples covering the realistic shapes:
+Four worked examples — the shapes you'll actually meet:
 
 {% tabs %}
 {% tab title="A · Metaobject delivery" %}
 
-Route on `metaobjects/update` with filter `type:product_review`, delivering to `user/metaobjects/product_review_update`. Task subscribes to that Mechanic topic.
+Route on `metaobjects/update` with filter `type:product_review`, delivering to `user/metaobjects/product_review_update`. Task subscribes to that Mechanic topic. The metaobject payload's `fields` is a hash keyed by field handle, not a list:
 
 ```liquid
 {% log
-  shopify_topic: event.shopify_topic,
+  metaobject_id: event.data.id,
   metaobject_handle: event.data.handle,
-  fields: event.data.fields
+  metaobject_type: event.data.type
 %}
+
+{% assign rating = event.data.fields["rating"] %}
+{% assign body = event.data.fields["body"] %}
+
+{% log rating: rating, body: body %}
 ```
 
 {% endtab %}
@@ -284,13 +298,13 @@ Same task script, before and after migrating from a native subscription to a fil
 {% endtab %}
 {% endtabs %}
 
-`event.shopify_topic` carries the original Shopify topic (e.g. `products/update`) on every Shopify-sourced event — both native and custom-route deliveries. For tasks, the discriminator that matters is the topic the task is subscribed to: `shopify/...` is native; `user/...` backed by an enabled route is custom. If you really need to detect the source in Liquid, `event.source` is `"shopify"` for native deliveries and `custom_shopify_webhook_subscription:<id>` for custom-route deliveries.
+`event.shopify_topic` carries the source Shopify topic in canonical Mechanic form (e.g. `shopify/products/update`) on every Shopify-sourced event — both native and custom-route deliveries. For native deliveries it equals `event.topic`; for custom-route deliveries `event.topic` is the route's `user/...` topic and `event.shopify_topic` is the original Shopify side. If you really need to detect the source in Liquid, `event.source` is `"shopify"` for native deliveries and `custom_shopify_webhook_subscription:<uuid>` for custom-route deliveries.
 
 Subscription offsets work on `user/...` topics backed by routes the same way they do on native topics — e.g. `user/products/active-update+1.hour`. Monaco autocomplete in the task editor suggests `user/...` topics backed by enabled custom routes.
 
 ## If a custom route isn't behaving
 
-Three failure modes, and how to recover from each:
+Three ways this goes sideways, and how to recover from each:
 
 **Stuck on Needs filter.** A native task subscription on the same Shopify topic is winning the uniqueness check. Add a filter to the route — see [When a custom route blocks native delivery](#when-a-custom-route-blocks-native-delivery), or use [`id:*`](#the-id-workaround) if you want the route to receive everything anyway.
 
@@ -303,13 +317,13 @@ Three failure modes, and how to recover from each:
 When in doubt, work this checklist:
 
 1. Is at least one **enabled** task subscribed to the route's `user/...` topic? (No subscribers means the route is healthy but not delivering — it'll show **Not receiving**.)
-2. Is the Shopify subscription present in **Shopify Admin → Settings → Notifications → Webhooks** under the name `mechanic_route_{uuid}`?
+2. Is the Shopify subscription registered? EventBridge-backed subscriptions don't appear under Shopify Admin → Settings → Notifications → Webhooks — to confirm, run a `webhookSubscriptions(first: 250)` query in the Shopify Admin GraphiQL explorer and look for an entry named `mechanic_route_<32 hex chars>`.
 3. Does the event detail page in Mechanic show the **Custom Shopify webhook** provenance card?
 4. Trigger a real Shopify mutation (don't rely on preview mode for end-to-end testing).
 
 Stuck after that? Paste the error or status into [Ask Mechanic](../../app/ask-mechanic.md) — it has full context on this feature, or ask in the [Mechanic Slack community](../../resources/slack.md).
 
-## Status states
+## What each status badge means
 
 Every route shows one of seven status badges. Row headers below match the badges verbatim — paste the badge text into search if you land here looking for one specific state.
 
@@ -323,23 +337,28 @@ Every route shows one of seven status badges. Row headers below match the badges
 | **Sync error** | Shopify rejected the last sync attempt. *Saved in Mechanic, but Shopify is still using the last successful remote configuration if one exists.* | Read the inline detail and adjust the route. (When a disabled route fails cleanup: *Mechanic saved this custom Shopify webhook as disabled, but Shopify cleanup failed. The previous remote subscription may still exist.*) |
 | **Disabled** | *This custom Shopify webhook is disabled. Shopify will not keep a remote subscription for it.* | Re-enable to resume delivery. |
 
-## Lifecycle and sync
+## How routes stay in sync
 
-A few behaviors worth knowing once you're using this feature regularly:
+A few behaviors that show up once you've been using this for a while:
 
 * **Subscriber-gated.** A route stays subscribed to Shopify only while at least one *enabled* task subscribes to its Mechanic topic. With zero subscribers, the route shows **Not receiving** and the remote Shopify subscription is removed. The local route config persists.
-* **Auto-reconciliation.** Subscribing a task to the route's Mechanic topic re-creates the remote Shopify subscription automatically.
+* **Sync is async.** Sync runs in a background Sidekiq job (deduplicated for ~1 minute), so changes you make — disabling a route, subscribing a task, granting a scope — propagate to Shopify within seconds-to-a-minute, not synchronously.
+* **Auto-reconciliation.** Subscribing a task to the route's Mechanic topic re-creates the remote Shopify subscription automatically (on the next sync run).
 * **Permissions are auto-detected.** Routes contribute to Mechanic's required-scope set the same way task subscriptions do. The scope set is recomputed when a route is created, when its `enabled`, `event_topic`, or `shopify_topic` changes, or when the route is destroyed. A route in **Needs permissions** state lists the missing scopes inline with a link into Permissions.
-* **Don't edit routes in Shopify Admin.** Routes appear in the merchant's Shopify Admin webhook list as `mechanic_route_{uuid}`. Manage them in Mechanic only — Mechanic's sync worker owns reconciliation and will undo manual edits the next time it runs.
+* **Topic changes recreate the remote subscription, with a brief gap.** If you change a saved route's Shopify topic, Mechanic deletes the existing remote subscription before creating the new one. A Shopify event that fires in that window won't be delivered to either name.
+* **Suspension and uninstall.** When the shop is suspended or uninstalled, Mechanic deletes all remote custom-route subscriptions; local config persists. On unsuspension or reinstall, routes re-sync automatically once tasks are subscribing.
+* **Sync worker retries.** Shopify rate limits (429) and 5xx errors are retried with backoff. Authorization-style errors (401/402/403/404/423) are terminal — fix the underlying issue and re-save the route to trigger a fresh sync.
+* **Don't edit routes in Shopify.** Each route registers a Shopify webhook subscription named `mechanic_route_<32 hex chars>` (the route's UUID with dashes removed). It's reachable via Shopify's GraphQL Admin API but not under Settings → Notifications → Webhooks, since these are EventBridge-backed. Manage them in Mechanic only — the sync worker owns reconciliation and will undo manual edits next time it runs.
 * **Disabling a route stops future deliveries, not in-flight runs.** When you disable or delete a route, Mechanic deletes the remote Shopify subscription so no further deliveries arrive. Events Mechanic already received continue through the run queue normally — you'll see the last events finish even after the route is off.
-* **Deleted routes degrade soft.** If a route is deleted after delivering events, those historical events stay readable; the source provenance card just disappears from event detail.
-* **Two routes can share a Mechanic topic.** Each route has its own Shopify subscription and creates events independently, so two routes with different filters routing to the same `user/...` topic will both fire — tasks subscribed to that topic see both deliveries. There's no deduplication. The events differ in `event.source` (each carries the route's own identifier) but otherwise look the same.
+* **Deleted routes degrade soft.** Historical events stay readable; the events list labels them as "Shopify route" or "(Unknown Shopify route)" rather than the original name.
+* **Two routes can share a Mechanic topic.** Each route has its own Shopify subscription and creates events independently, so two routes with different filters routing to the same `user/...` topic will both fire — tasks subscribed to that topic see both deliveries. There's no deduplication. Mechanic surfaces a lint warning when you set this up, but it's allowed. Tell the deliveries apart by `event.source` — each route carries its own `custom_shopify_webhook_subscription:<uuid>` identifier.
 
 ## Import / export
 
 Single routes can be exported and imported from a route's detail view. The list view supports importing a single route or an array of routes, and exporting selected routes.
 
-* **Imports always land disabled.** Imported routes need explicit review and enable in the target shop.
+* **List-view imports always land disabled.** Routes created via list-view import are explicitly disabled — they need review and a manual enable in the target shop.
+* **Detail-view imports preserve the existing enabled state.** When you import into an existing route from its detail view, the new configuration replaces the old one but the route stays enabled if it was enabled, disabled if it was disabled.
 * **Exact duplicates are skipped.**
 * **Bulk import is sequential** — best for handfuls of routes at a time, not large catalogs.
 
@@ -363,11 +382,15 @@ Yes — through custom Shopify webhooks. Native Mechanic subscriptions don't cov
 
 #### Where is `event.shopify_topic` set?
 
-On every Shopify-sourced event — both native subscription deliveries and custom-route deliveries. It contains the original Shopify topic (e.g. `products/update`). For tasks, the topic you subscribe to is what tells you the source: `shopify/...` is native, `user/...` backed by an enabled route is custom. If you need to detect the source in Liquid directly, `event.source` is `"shopify"` for native and `custom_shopify_webhook_subscription:<id>` for custom routes.
+On every Shopify-sourced event — both native and custom-route deliveries. The value is the source Shopify topic in Mechanic's canonical form (e.g. `shopify/products/update`). For native deliveries it equals `event.topic`; for custom-route deliveries `event.topic` is the route's `user/...` topic. If you need to detect the source in Liquid, `event.source` is `"shopify"` for native and `custom_shopify_webhook_subscription:<uuid>` for custom routes.
 
-#### Why did enabling my task break a custom Shopify webhook?
+#### Why did enabling a task break my custom Shopify webhook?
 
 Because the task subscribes to `shopify/<topic>` (unfiltered), and an unfiltered custom route on the same topic was already enabled. Shopify can't keep both. Add a filter to the route (even `id:*`), disable it, or migrate the task to subscribe to the route's Mechanic topic.
+
+#### Can I have two routes deliver to the same `user/...` topic?
+
+Yes. Each route has its own Shopify subscription and creates its own events; tasks subscribed to the shared topic see deliveries from both. Mechanic surfaces a lint warning when you set this up, but it's allowed. Tell deliveries apart by `event.source` — each route carries its own `custom_shopify_webhook_subscription:<uuid>` identifier.
 
 ## Related
 

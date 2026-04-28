@@ -19,9 +19,9 @@ The `uploads` hash supports these properties:
 
 This action requires connecting a Google account with the appropriate Drive permissions. To connect an account:
 
-1. Go to the Settings screen
-2. Open the **Authentication** section in the sidebar
-3. Follow the Google account connection flow from the Google tab
+1. Go to **Settings → Authentication**
+2. Select **Google** in the provider list
+3. Follow the Google account connection flow
 
 ## Folder Support
 
