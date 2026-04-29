@@ -22,7 +22,7 @@ The Settings page is organized into sections, accessed from the sidebar on the l
 
 ## Permissions
 
-Mechanic automatically detects the Shopify API [permissions](../core/tasks/permissions.md) your tasks need — you don't need to manage this manually. This section shows which permissions are currently granted and which are required (including any required by [custom Shopify webhooks](../platform/shopify/custom-webhooks.md)).
+Shows which Shopify API access scopes are currently granted, and which scopes Mechanic needs next. Required scopes can come from task subscriptions, Shopify data access, previewed Shopify actions, explicit declarations using the [`permissions` tag](../platform/liquid/tags/permissions.md), and active [custom Shopify webhooks](../platform/shopify/custom-webhooks.md). See [Permissions](../core/tasks/permissions.md) for how Mechanic detects and requests scopes.
 
 ## Mechanic webhooks
 
