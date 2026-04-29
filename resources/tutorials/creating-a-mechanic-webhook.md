@@ -12,7 +12,7 @@ Let's review a detailed example.
 
 ### 1. Create a Mechanic webhook.
 
-Start by opening Mechanic, from the "Apps" section of Shopify. Once in Mechanic, click the "Settings" button in the upper-right corner, then open the **Mechanic webhooks** section in the sidebar.
+Start by opening Mechanic from the **Apps** section of Shopify. Once in Mechanic, open **Settings**, then choose **Mechanic webhooks** from the sidebar.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.55.25 PM.png>)
 
