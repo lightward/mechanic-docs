@@ -27,7 +27,7 @@ Quick decision: data coming from Shopify? Start with a regular `shopify/...` tas
 
 ## Configuration
 
-![](<../.gitbook/assets/Screenshot 2023-03-07 at 11.04.17 AM.png>)
+<figure><img src="../.gitbook/assets/mechanic-webhooks.png" alt="The Mechanic webhooks section in Settings, showing webhook name, event topic, event data mode, and webhook URL fields"><figcaption></figcaption></figure>
 
 * Name — Something to remember this webhook by ✨
 * Event topic — The [topic](../core/events/topics.md) used for events created via this webhook
@@ -37,8 +37,6 @@ Quick decision: data coming from Shopify? Start with a regular `shopify/...` tas
 ### Event data mode
 
 Each webhook has a choice of modes used to translate request data into event data.
-
-<figure><img src="../.gitbook/assets/Screenshot 2023-03-08 at 1.23.17 PM.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Changing a webhook's event data mode takes effect immediately for all incoming requests. It does not apply retroactively, i.e. it has no impact on webhook events that were received prior to the change.

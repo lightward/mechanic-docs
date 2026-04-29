@@ -30,6 +30,4 @@ This feature is also useful for accessing Plus-only APIs, which are only availab
 
 This setting can be found in the Mechanic account settings, in the Permissions area. (This setting is only shown for Shopify Plus accounts.) Before adding your API token, you must ensure that the private app has every access scope that Mechanic requires. A list of current required access scopes is provided just below the token field.
 
-![](<../../.gitbook/assets/Screen Shot 2022-05-29 at 10.15.30 AM.png>)
-
 Once configured, this custom API token will be used for all user-configured Shopify operations, wherever supported. (It will _not_ be used when querying for publications, since this resource is only accessible to public apps like Mechanic.)

@@ -14,15 +14,13 @@ Let's review a detailed example.
 
 Start by opening Mechanic from the **Apps** section of Shopify. Once in Mechanic, open **Settings**, then choose **Mechanic webhooks** from the sidebar.
 
-![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.55.25 PM.png>)
+<figure><img src="../../.gitbook/assets/mechanic-webhooks.png" alt="The Mechanic webhooks section in Settings, where a new webhook can be created"><figcaption></figcaption></figure>
 
 Webhooks should be named after the service that will be sending you data, with an event topic that makes sense, using the format `user/subject/verb`.
 
 For this example, we'll simply call ours "Example", with an event topic of "user/webhook/test".
 
 Click the submit button to save the webhook, and use the copy button to copy the resulting webhook URL.
-
-![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.56.31 PM.png>)
 
 The URL will look something like this:
 
