@@ -5,11 +5,23 @@ description: >-
 
 # Responding to events
 
-Shopify uses webhooks to notify apps like Mechanic about new activity. Mechanic supports every type of Shopify webhook in its set of [**Shopify event topics**](../../../platform/events/topics.md#shopify). By setting up [**subscriptions**](../../tasks/subscriptions.md) to these topics, a task may respond to any supported type of Shopify activity.
+Shopify uses webhooks to notify apps like Mechanic about new activity. Mechanic supports Shopify webhooks through native [**Shopify event topics**](../../../platform/events/topics.md#shopify) and [custom Shopify webhooks](../../../platform/shopify/custom-webhooks.md). By setting up [**subscriptions**](../../tasks/subscriptions.md), a task may respond to supported Shopify activity.
 
 {% hint style="warning" %}
 Note that Shopify does not strictly guarantee webhook delivery. See [Reconciling missing events](reconciling-missing-events.md) for more on this subject.
 {% endhint %}
+
+## How Shopify events reach Mechanic
+
+There are two paths Shopify webhooks can take into Mechanic. Most tasks use the first; reach for the second when you need filtering, payload customization, or metaobject events.
+
+### Native subscriptions
+
+When a task subscribes to a `shopify/...` topic (e.g. `on: shopify/products/update`), Mechanic registers and maintains the corresponding webhook subscription with Shopify automatically. Deliveries are unfiltered, full-shape payloads. This is the path used by every task in the [task library](https://tasks.mechanic.dev/) and the default for every example in these docs. The complete topic list lives in [Event topics](../../../platform/events/topics.md#shopify).
+
+### Custom Shopify webhooks
+
+When you need filtered deliveries (only active products, only orders with a specific tag), slimmer payloads (`include_fields`), Shopify-side metafield delivery (`metafield_namespaces`, `metafields`), or **metaobject events** (which aren't in the native topic set), configure a [Custom Shopify webhook](../../../platform/shopify/custom-webhooks.md). Each custom webhook routes Shopify deliveries onto a `user/...` topic of your choosing.
 
 ## Responding to changes in specific data
 

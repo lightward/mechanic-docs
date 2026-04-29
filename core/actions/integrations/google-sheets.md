@@ -74,9 +74,9 @@ Exports a spreadsheet in various formats.
 
 This action requires connecting a Google account with the appropriate permissions. To connect an account:
 
-1. Go to the Settings screen
-2. Click Authentication
-3. Follow the Google account connection flow from the Google tab
+1. Go to **Settings → Authentication**
+2. Select **Google** in the provider list
+3. Follow the Google account connection flow
 
 ## File Access
 

@@ -17,7 +17,7 @@ An event filter has two parts:
 * Name – any descriptive string
 * Template – a Liquid template that renders `false` for events that should be ignored
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mechanic-event-filters.png" alt="The Event filters section in Mechanic settings"><figcaption></figcaption></figure>
 
 ## Operation
 

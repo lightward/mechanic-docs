@@ -4,10 +4,10 @@ To integrate PayPal transactions into your Shopify orders, leverage the [Import 
 
 ### 1. Setup a Mechanic webhook that PayPal can send your transactions to
 
-* [ ] Under settings in the Mechanic app setup a new webhook. You'll give the webhook a name (PayPal) and a topic (user/payppal/ipn) as shown below.
-* [ ] One you click save you'll have **copy the webhook URL** which you'll need to configure PayPal to send your transactions.
+* [ ] In Mechanic settings, create a new webhook. Give the webhook a name (`PayPal`) and a topic (`user/paypal/ipn`), as shown below.
+* [ ] After saving, **copy the webhook URL**. You'll need it when configuring PayPal to send transactions to Mechanic.
 
-<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/mechanic-webhooks.png" alt="The Mechanic webhooks section in Settings, where a webhook can be created for PayPal IPN deliveries"><figcaption></figcaption></figure>
 
 ### 2. Setup PayPal to send you transactions to Mechanic
 

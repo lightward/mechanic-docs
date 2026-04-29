@@ -10,9 +10,9 @@ You can install the Mechanic Slack app on more than one Slack workspace, choosin
 
 Before using the Slack integration install the Mechanic Slack app in your Slack workspace:
 
-1. Go to your Mechanic Settings screen
-2. Click on Authentication
-3. Install the Mechanic Slack app from the Slack tab
+1. Go to **Settings → Authentication** in Mechanic
+2. Select **Slack** in the provider list
+3. Install the Mechanic Slack app
 
 ### Basic Usage
 

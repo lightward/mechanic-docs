@@ -4,8 +4,6 @@ In extraordinary cases, Mechanic can be configured to route Shopify API requests
 
 ## Configuration
 
-Shopify Plus accounts can configure this in the store's Mechanic settings.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-07 at 11.19.27 AM.png" alt=""><figcaption></figcaption></figure>
+Shopify Plus accounts can configure this in the Permissions section of the store's Mechanic settings.
 
 Before saving a new access token, you must ensure that the custom app has every access scope that Mechanic requires.

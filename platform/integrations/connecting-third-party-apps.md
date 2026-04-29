@@ -10,7 +10,7 @@ Mechanic's [built-in integrations](./) cover popular services like Slack, Airtab
 
 ### OAuth-managed integrations
 
-These integrations are authenticated via **Settings > Authentication** in Mechanic, so you don't need to manage API keys yourself.
+These integrations are authenticated via **Settings → Authentication** in Mechanic, so you don't need to manage API keys yourself.
 
 | Integration | What it does |
 |---|---|
@@ -39,10 +39,12 @@ Any app with an HTTP API or webhook support can be connected to Mechanic using t
 
 #### Webhooks
 
-Most third-party apps can send outbound webhooks. Create a webhook in Mechanic (**Settings > Webhooks**), then point the external app at the resulting URL. Incoming data arrives as a `user/` event that your tasks can subscribe to.
+Most third-party apps can send outbound webhooks. Create a webhook in Mechanic (**Settings → Mechanic webhooks**), then point the external app at the resulting URL. Incoming data arrives as a `user/` event that your tasks can subscribe to.
 
 {% hint style="info" %}
-See [Webhooks](../webhooks.md) for setup details, and [Creating a Mechanic webhook](../../resources/tutorials/creating-a-mechanic-webhook.md) for a step-by-step tutorial.
+See [Mechanic webhooks](../webhooks.md) for setup details, and [Creating a Mechanic webhook](../../resources/tutorials/creating-a-mechanic-webhook.md) for a step-by-step tutorial.
+
+For Shopify-side filtering or payload customization (including metaobject events), see [Custom Shopify webhooks](../shopify/custom-webhooks.md) instead — that's a different feature for routing Shopify deliveries onto Mechanic topics.
 {% endhint %}
 
 #### Scheduled polling
@@ -85,7 +87,7 @@ This example shows how to connect a subscription management app (like Recharge o
 
 ### Receiving subscription events
 
-1. In Mechanic, go to **Settings > Webhooks** and create a new webhook — for example, named `recharge`.
+1. In Mechanic, go to **Settings → Mechanic webhooks** and create a new webhook — for example, named `recharge`.
 2. Copy the webhook URL and configure it in the subscription app's webhook settings.
 3. Create a Mechanic task subscribed to the resulting event topic (e.g. `user/webhook/recharge`).
 

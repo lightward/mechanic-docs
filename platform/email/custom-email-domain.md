@@ -16,7 +16,7 @@ Changing the sender _name_ doesn't require a custom outgoing email address. For 
 
 To change the email address used for outgoing email, open the Mechanic email settings for your store. Or, jump directly to [https://admin.shopify.com/apps/mechanic/settings/email](https://admin.shopify.com/apps/mechanic/settings/email).
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-03-09 at 4.41.31 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mechanic-email-settings.png" alt="The Email section in Mechanic settings, including custom sender address and DNS records"><figcaption></figcaption></figure>
 
 ## Approval
 

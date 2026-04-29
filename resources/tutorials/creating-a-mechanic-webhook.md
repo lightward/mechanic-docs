@@ -12,17 +12,15 @@ Let's review a detailed example.
 
 ### 1. Create a Mechanic webhook.
 
-Start by opening Mechanic, from the "Apps" section of Shopify. Once in Mechanic, click the "Settings" button in the upper-right corner, then navigate to the "Webhooks" tab.
+Start by opening Mechanic from the **Apps** section of Shopify. Once in Mechanic, open **Settings**, then choose **Mechanic webhooks** from the sidebar.
 
-![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.55.25 PM.png>)
+<figure><img src="../../.gitbook/assets/mechanic-webhooks.png" alt="The Mechanic webhooks section in Settings, where a new webhook can be created"><figcaption></figcaption></figure>
 
 Webhooks should be named after the service that will be sending you data, with an event topic that makes sense, using the format `user/subject/verb`.
 
 For this example, we'll simply call ours "Example", with an event topic of "user/webhook/test".
 
 Click the submit button to save the webhook, and use the copy button to copy the resulting webhook URL.
-
-![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.56.31 PM.png>)
 
 The URL will look something like this:
 
@@ -44,7 +42,7 @@ Then, click the "Start a blank task" button.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.59.33 PM.png>)
 
-Keeping things simple for this example, we'll title the task "Webhook test", with a subscription to "user/webhook/text" (to match the webhook configuration), and a simple [Echo action](../../core/actions/echo.md) in the task code.
+Keeping things simple for this example, we'll title the task "Webhook test", with a subscription to "user/webhook/test" (to match the webhook configuration), and a simple [Echo action](../../core/actions/echo.md) in the task code.
 
 ![](<../../.gitbook/assets/2022-04-01 18.01.16.gif>)
 

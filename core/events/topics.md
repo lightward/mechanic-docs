@@ -23,4 +23,5 @@ The User event domain is for custom, user-generated events, having any subject a
 Mechanic allows developers several ways to generate custom User events:
 
 * The [Event action](../actions/event.md) can be used with any User event topic
-* [Webhooks](../../platform/webhooks.md) may be configured to generate events using any User event topic
+* [Mechanic webhooks](../../platform/webhooks.md) may be configured to generate events using any User event topic
+* [Custom Shopify webhooks](../../platform/shopify/custom-webhooks.md) deliver Shopify webhook events onto a User event topic, with optional filtering and payload customization. For these events, `event.topic` is the `user/...` topic and `event.shopify_topic` stores the source Shopify topic; on native Shopify deliveries, those two values match.
