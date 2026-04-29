@@ -22,7 +22,7 @@ The Settings page is organized into sections, accessed from the sidebar on the l
 
 ## Permissions
 
-Shows which Shopify API access scopes are currently granted, and which scopes Mechanic needs next. Required scopes can come from task subscriptions, Shopify data access, previewed Shopify actions, explicit declarations using the [`permissions` tag](../platform/liquid/tags/permissions.md), and active [custom Shopify webhooks](../platform/shopify/custom-webhooks.md). See [Permissions](../core/tasks/permissions.md) for how Mechanic detects and requests scopes.
+Most of the time, Mechanic figures out the Shopify API scopes your tasks need from subscriptions, Shopify data access, and previewed Shopify actions. This section shows which scopes are already granted and which ones still need approval. When a task's needs are hard to prove during preview — for example, when a mutation's scope depends on a realistic resource ID, or logic only runs in a live branch — you can declare scopes directly with the [`permissions` tag](../platform/liquid/tags/permissions.md). Active [custom Shopify webhooks](../platform/shopify/custom-webhooks.md) can also contribute required scopes. See [Permissions](../core/tasks/permissions.md) for the full model.
 
 ## Mechanic webhooks
 
