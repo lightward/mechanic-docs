@@ -9,7 +9,9 @@ Custom Shopify webhooks let Mechanic receive Shopify webhook deliveries with Sho
 
 Use them when you want Shopify to filter webhook deliveries, send a smaller payload, include metafields in the webhook payload, or deliver **metaobject** webhook events. Mechanic receives matching deliveries and turns them into custom `user/...` events, which your tasks subscribe to like any other event topic.
 
-Most tasks should keep using native `shopify/...` subscriptions. Reach for a custom Shopify webhook when the Shopify-side behavior matters before the event reaches Mechanic.
+{% hint style="info" %}
+Custom Shopify webhooks are an advanced tool. Most Shopify-triggered tasks should use regular `shopify/...` subscriptions. Reach for a custom Shopify webhook when the Shopify-side behavior matters before the event reaches Mechanic.
+{% endhint %}
 
 ## At a glance
 
