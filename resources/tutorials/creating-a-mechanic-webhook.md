@@ -44,7 +44,7 @@ Then, click the "Start a blank task" button.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 5.59.33 PM.png>)
 
-Keeping things simple for this example, we'll title the task "Webhook test", with a subscription to "user/webhook/text" (to match the webhook configuration), and a simple [Echo action](../../core/actions/echo.md) in the task code.
+Keeping things simple for this example, we'll title the task "Webhook test", with a subscription to "user/webhook/test" (to match the webhook configuration), and a simple [Echo action](../../core/actions/echo.md) in the task code.
 
 ![](<../../.gitbook/assets/2022-04-01 18.01.16.gif>)
 

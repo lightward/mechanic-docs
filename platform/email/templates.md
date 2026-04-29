@@ -6,7 +6,7 @@ Unless configured otherwise, each email will use the email template named "defau
 
 ## Configuration
 
-Navigate to your Mechanic settings (it's the "Settings" link in the upper right), and head to the "Email templates" tab. Click the "New email template" link to start editing your new template.
+Navigate to your Mechanic settings (it's the "Settings" link in the upper right), and choose **Email templates**. Click the "New email template" link to start editing your new template.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-02-27 at 10.53.14 AM.png>)
 

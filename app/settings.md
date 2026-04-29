@@ -4,9 +4,9 @@ description: Configure your Mechanic account — contact email, Shopify permissi
 
 # Settings
 
-The Settings page is organized into sections, accessed from the sidebar on the left (or a dropdown on smaller screens). General and User cover the everyday stuff; the rest only matter if you're using the feature they're named after.
+The Settings page is organized into sections, accessed from the sidebar on the left or a dropdown on smaller screens. General and User cover common account preferences; the rest only matter if you're using the feature they're named after.
 
-<figure><img src="../.gitbook/assets/mechanic_settings.jpg" alt="The Mechanic Settings page"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/mechanic-settings.png" alt="The Mechanic Settings page, organized by section"><figcaption></figcaption></figure>
 
 ## General
 
@@ -30,9 +30,9 @@ Inbound HTTP webhooks that let any external system (a form builder, a CRM, an ER
 
 ## Custom Shopify webhooks
 
-Shopify-side filters and payload customization for any supported Shopify webhook topic, routed onto a custom Mechanic event topic. Reach for this when you want filtered deliveries, slim payloads, Shopify-side metafield delivery, or [metaobject webhooks](../platform/shopify/custom-webhooks.md#when-to-reach-for-it) (which native subscriptions don't cover). See [Custom Shopify webhooks](../platform/shopify/custom-webhooks.md).
+Advanced Shopify-side filters and payload customization for supported Shopify webhook topics, routed onto a custom Mechanic event topic. Most tasks should use regular `shopify/...` subscriptions; reach for this when you want filtered deliveries, slim payloads, Shopify-side metafield delivery, or [metaobject webhooks](../platform/shopify/custom-webhooks.md#how-do-i-receive-shopify-metaobject-webhooks-in-mechanic) (which native subscriptions don't cover). See [Custom Shopify webhooks](../platform/shopify/custom-webhooks.md).
 
-(If you're not sure which webhook concept you want: data coming from Shopify → Custom Shopify webhooks. Data coming from anywhere else → Mechanic webhooks.)
+If you're not sure which path you want: most data coming from Shopify should use a regular `shopify/...` task subscription. Use Custom Shopify webhooks only when Shopify should filter or reshape the delivery before Mechanic receives it. Data coming from anywhere else should use Mechanic webhooks.
 
 ## Event filters
 

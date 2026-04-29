@@ -31,6 +31,10 @@ The main editing surface:
 * **Subscriptions** — the Shopify events (like order creation or fulfillment) that trigger this task, one per line. Supports [offsets](../core/tasks/subscriptions.md) for delays (e.g., `shopify/orders/create+1.hour`).
 * **Code** — the task's [Liquid code](../platform/liquid/), written in Mechanic's implementation of the Liquid language (related to but distinct from Shopify theme Liquid)
 
+When a subscription uses a `user/...` topic backed by a [custom Shopify webhook](../platform/shopify/custom-webhooks.md), the task editor shows the matching webhook source and status. It also warns when a `user/...` subscription looks like it should be backed by a custom Shopify webhook but no enabled source is receiving, and when a native `shopify/...` subscription would conflict with an enabled unfiltered custom Shopify webhook.
+
+<figure><img src="../.gitbook/assets/custom-shopify-webhook-task-editor.png" alt="The Mechanic task editor showing a user topic backed by a custom Shopify webhook source"><figcaption></figcaption></figure>
+
 ### Preview events tab
 
 Create test events to see how your task will behave without affecting real data. You can define multiple preview events per topic to test different scenarios, label them with descriptions, and use [stub data](../core/tasks/previews/stub-data.md) (hardcoded sample data that stands in for real API responses) to mock Shopify API responses. The task [preview](../core/tasks/previews/) updates automatically as you edit, showing generated actions, errors, and any Shopify permission changes.

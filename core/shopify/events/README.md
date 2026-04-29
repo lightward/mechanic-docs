@@ -5,7 +5,7 @@ description: >-
 
 # Responding to events
 
-Shopify uses webhooks to notify apps like Mechanic about new activity. Mechanic supports every type of Shopify webhook in its set of [**Shopify event topics**](../../../platform/events/topics.md#shopify). By setting up [**subscriptions**](../../tasks/subscriptions.md) to these topics, a task may respond to any supported type of Shopify activity.
+Shopify uses webhooks to notify apps like Mechanic about new activity. Mechanic supports Shopify webhooks through native [**Shopify event topics**](../../../platform/events/topics.md#shopify) and [custom Shopify webhooks](../../../platform/shopify/custom-webhooks.md). By setting up [**subscriptions**](../../tasks/subscriptions.md), a task may respond to supported Shopify activity.
 
 {% hint style="warning" %}
 Note that Shopify does not strictly guarantee webhook delivery. See [Reconciling missing events](reconciling-missing-events.md) for more on this subject.

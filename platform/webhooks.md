@@ -16,14 +16,14 @@ This article is an introduction to webhooks. To get started quickly, see [Creati
 Tools like [Postman](https://www.postman.com/) ([docs](https://learning.postman.com/docs/sending-requests/requests/)) can be useful for exercising Mechanic webhooks without code, for verifying their behavior.
 {% endhint %}
 
-## Looking for Custom Shopify webhooks?
+## Looking for custom Shopify webhooks?
 
 Two different features in Mechanic share the word "webhooks" — make sure you're on the right page.
 
 * **This page (Mechanic webhooks)** — inbound HTTP from any system. Any service that can POST to a URL (a form builder, an ERP, a CRM, a fulfillment service) can trigger Mechanic tasks via these. Creates `user/...` events.
 * **[Custom Shopify webhooks](shopify/custom-webhooks.md)** — Shopify-side filtering and payload customization for Shopify's own webhook deliveries. Trim payloads with `include_fields`, filter at Shopify (e.g. only `status:active` products), receive metafields and metaobject events. Also creates `user/...` events.
 
-Quick decision: data coming from Shopify? You probably want [Custom Shopify webhooks](shopify/custom-webhooks.md). From anything else? Stay here.
+Quick decision: data coming from Shopify? Start with a regular `shopify/...` task subscription. Use [Custom Shopify webhooks](shopify/custom-webhooks.md) only when Shopify needs to filter or reshape the delivery first. Data coming from anywhere else? Stay here.
 
 ## Configuration
 
