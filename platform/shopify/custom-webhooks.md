@@ -130,6 +130,19 @@ line_items.properties.name:_gift_message
 
 Filters use Shopify's webhook filter syntax. Nested fields use dots, boolean operators like `AND`, `OR`, and `NOT` are supported, and values with spaces should be quoted. For arrays of objects, Shopify matches when at least one nested object satisfies the filter.
 
+{% hint style="warning" %}
+Shopify webhook filters are not exactly the same as Shopify Admin search queries. In webhook filters, `:` is the equality operator.
+
+Some money fields need to be filtered as the string value Shopify sends in the webhook payload. For exact matches, quote the decimal string:
+
+```text
+total_price:"0.00"
+variants.price:"0.00"
+```
+
+Do not assume a numeric-looking webhook payload field can be matched without quotes. For range filters, Shopify's examples use numeric comparisons like `variants.price:>=10.00`. This is Shopify webhook filter behavior, not a Mechanic limitation.
+{% endhint %}
+
 {% hint style="info" %}
 Shopify filters are state filters, not "changed field" filters. A `products/update` filter like `variants.price:>=10.00` means the product currently has a variant at that price or higher. It does not mean the variant price changed in this update.
 {% endhint %}
@@ -345,6 +358,8 @@ For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the s
 **Enabled does not always mean receiving.** A custom Shopify webhook is only kept active in Shopify while at least one enabled task subscribes to its Mechanic topic.
 
 **Blank filters can conflict with native subscriptions.** Shopify cannot keep an unfiltered native subscription and an unfiltered custom subscription for the same app, destination, and topic. This includes native task subscriptions and Shopify webhooks Mechanic keeps for platform behavior. Add a real filter, or use `id:*` when you need every delivery. For metaobjects, use a concrete `type:` filter instead.
+
+**Some money fields behave like strings.** Shopify webhook payloads often represent prices and totals as strings, like `"0.00"`. For exact money matches, quote the decimal string in the Shopify filter, e.g. `total_price:"0.00"` or `variants.price:"0.00"`. Test against a real Shopify event when exact field typing matters.
 
 **Shopify does not treat payload customization as part of webhook uniqueness.** Shopify only allows one enabled webhook for the same app, destination, Shopify topic, and filter. Two custom Shopify webhooks with the same topic and filter still conflict even if their **Include fields** or metafields are different. This is a Shopify limitation.
 
