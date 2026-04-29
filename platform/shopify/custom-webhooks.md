@@ -207,6 +207,14 @@ Use the payload customization fields:
 * **Metafield namespaces** — includes all metafields in a namespace, such as `custom`.
 * **Metafields** — includes exact metafields, such as `custom.pack_size`.
 
+{% hint style="danger" %}
+Payload customization does not make a webhook unique.
+
+Shopify only distinguishes subscriptions by Shopify topic and filter for Mechanic's app and destination. The **Name**, **Mechanic topic**, **Include fields**, **Metafield namespaces**, and **Metafields** can all differ, and Shopify will still reject the second enabled webhook if the Shopify topic and filter are the same.
+
+If you export/import a webhook to make a variant, change the **Filter** too. If the variants need the same delivery set, use one custom Shopify webhook and branch inside the subscribed task.
+{% endhint %}
+
 When **Include fields** is blank, Shopify sends the normal payload shape. When **Include fields** has values, Shopify sends only those fields.
 
 For update topics, include `updated_at` when practical. It makes trimmed payloads easier to inspect, and it helps avoid cases where repeated updates look identical after payload trimming.
@@ -228,6 +236,10 @@ Use **Metafields** for exact metafields:
 Metafields:
 custom.pack_size
 ```
+
+{% hint style="warning" %}
+Metafields can be added to the payload, but they are not Shopify filter fields. Use **Metafields** or **Metafield namespaces** to receive metafield data after Shopify delivers the webhook. Filter on ordinary webhook payload fields, then check metafields in Liquid.
+{% endhint %}
 
 If you are also using **Include fields**, add `metafields` there too:
 
@@ -361,7 +373,7 @@ For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the s
 
 **Some money fields behave like strings.** Shopify webhook payloads often represent prices and totals as strings, like `"0.00"`. For exact money matches, quote the decimal string in the Shopify filter, e.g. `total_price:"0.00"` or `variants.price:"0.00"`. Test against a real Shopify event when exact field typing matters.
 
-**Shopify does not treat payload customization as part of webhook uniqueness.** Shopify only allows one enabled webhook for the same app, destination, Shopify topic, and filter. Two custom Shopify webhooks with the same topic and filter still conflict even if their **Include fields** or metafields are different. This is a Shopify limitation.
+**Payload customization does not make a webhook unique.** Shopify only allows one enabled webhook for the same app, destination, Shopify topic, and filter. Two custom Shopify webhooks with the same topic and filter still conflict even if the **Name**, **Mechanic topic**, **Include fields**, **Metafield namespaces**, or **Metafields** are different. This is a Shopify limitation, and it often appears after duplicating a webhook with import/export.
 
 **Two webhooks can share one Mechanic topic.** This is allowed, but tasks subscribed to that topic will receive deliveries from both webhooks. Use `event.shopify_topic` and `event.source` if the task needs to tell them apart.
 
@@ -390,6 +402,8 @@ Custom Shopify webhooks can be imported and exported from the custom Shopify web
 Exports include configuration only: `name`, `shopify_topic`, `event_topic`, `filter`, `include_fields`, `metafield_namespaces`, and `metafields`. They do not include enabled state, Shopify subscription IDs, sync status, subscriber counts, or delivery status.
 
 List imports are created disabled for review. Imports into an existing webhook keep that webhook's current enabled or disabled state.
+
+If an imported webhook is a variant of an existing webhook, give it a different **Filter** before enabling it. Changing only payload customization is not enough for Shopify to treat it as a separate subscription.
 
 ## Related
 

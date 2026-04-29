@@ -42,6 +42,10 @@ custom
 ```
 
 {% hint style="warning" %}
+These settings add metafields to the delivered webhook payload. Shopify does not currently treat metafields as webhook filter fields, so filter on ordinary webhook payload fields first, then inspect metafields in Liquid.
+{% endhint %}
+
+{% hint style="warning" %}
 `include_fields` is not a metafield selector. If you use **Include fields** and also want metafields, include `metafields` as one of the fields, then choose the namespace or exact metafields below.
 {% endhint %}
 
