@@ -384,5 +384,7 @@ List imports are created disabled for review. Imports into an existing webhook k
 * [Permissions](../../core/tasks/permissions.md)
 * [Event object](../liquid/objects/event.md)
 * [Mechanic webhooks](../webhooks.md)
+* [Include metafields in Shopify webhook events](../../techniques/include-metafields-in-shopify-webhook-events.md)
+* [Subscribe to Shopify metaobject events](../../techniques/subscribe-to-shopify-metaobject-events.md)
 * Shopify: [Filter your events](https://shopify.dev/docs/apps/build/webhooks/customize/filters)
 * Shopify: [Modify your payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads)

@@ -240,6 +240,8 @@
 * [Preventing action loops](techniques/preventing-action-loops.md)
 * [Writing a high-quality task](techniques/writing-a-high-quality-task.md)
 * [Tagging Shopify resources](techniques/tagging-shopify-resources.md)
+* [Include metafields in Shopify webhook events](techniques/include-metafields-in-shopify-webhook-events.md)
+* [Subscribe to Shopify metaobject events](techniques/subscribe-to-shopify-metaobject-events.md)
 * [Batch processing of events](techniques/batch-processing-of-events.md)
 * [Debouncing events](techniques/debouncing-events.md)
 * [Responding to action results](techniques/responding-to-action-results.md)
