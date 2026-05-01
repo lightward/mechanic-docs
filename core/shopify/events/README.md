@@ -17,7 +17,7 @@ There are two paths Shopify webhooks can take into Mechanic. Most tasks use the 
 
 ### Native subscriptions
 
-When a task subscribes to a `shopify/...` topic (e.g. `on: shopify/products/update`), Mechanic registers and maintains the corresponding webhook subscription with Shopify automatically. Deliveries are unfiltered, full-shape payloads. This is the path used by every task in the [task library](https://tasks.mechanic.dev/) and the default for every example in these docs. The complete topic list lives in [Event topics](../../../platform/events/topics.md#shopify).
+When a task subscribes to a `shopify/...` topic (e.g. `on: shopify/products/update`), Mechanic registers and maintains the corresponding webhook subscription with Shopify automatically. Deliveries are unfiltered, full-shape payloads. This is the path used by every task in the [task library](https://tasks.mechanic.dev/) and the default for most task examples in these docs. The complete topic list lives in [Event topics](../../../platform/events/topics.md#shopify).
 
 ### Custom Shopify webhooks
 
