@@ -116,7 +116,7 @@ The [Event topics](../events/topics.md#shopify) reference lists native `shopify/
 
 ## How do I filter Shopify webhooks in Mechanic?
 
-Add a Shopify webhook filter to the custom webhook. Shopify evaluates the filter before sending anything to Mechanic.
+Add a Shopify webhook filter to the custom webhook. Shopify evaluates the filter as part of the webhook subscription before Mechanic receives the delivery.
 
 Examples:
 
@@ -148,6 +148,19 @@ Do not assume a numeric-looking webhook payload field can be matched without quo
 Shopify filters are state filters, not "changed field" filters. A `products/update` filter like `variants.price:>=10.00` means the product currently has a variant at that price or higher. It does not mean the variant price changed in this update.
 {% endhint %}
 
+### When a filter does not behave as expected
+
+Shopify filter problems do not all fail the same way:
+
+* Incorrect syntax is usually rejected when you save.
+* A field path that does not exist for that Shopify topic can save, but never match.
+* A value compared with the wrong type, like an unquoted exact money value, can save, but never match.
+* A field used in **Filter** but missing from **Include fields**, when **Include fields** is set, should be rejected when you save.
+* A metafield used in **Filter** but missing from **Metafield namespaces** or **Metafields** should be rejected when you save.
+* A matching update that only changed fields outside **Include fields** may be debounced if the trimmed payload would be the same as a recent delivery.
+
+When troubleshooting, inspect a real Shopify webhook payload for the topic, then build the filter from fields that are present in that payload. For tags on topics like products and orders, treat the tag list as string-like: filter for the tag keyword Shopify sends, and test with a real event.
+
 ### Filtering by metafields
 
 To filter by metafield data, select the metafield in **Metafield namespaces** or **Metafields**, then use `metafields.namespace`, `metafields.key`, and `metafields.value` in the filter:
@@ -170,7 +183,7 @@ variants.metafields.namespace:custom AND variants.metafields.key:hide_from_store
 
 Metafield filters use Shopify webhook filter syntax, not Shopify Admin search syntax. For example, use `metafields.namespace:custom AND metafields.key:track_with_mechanic`; do not use a GraphQL search query shape like `metafields.custom.track_with_mechanic:true`.
 
-Mechanic runs a local preflight check for common filter mistakes, then Shopify validates the subscription on save. If you also set **Include fields**, include every field your filter references. For example, a filter using `variants.price` needs `variants` or `variants.price` in **Include fields**. For metafield filters, choose the namespace or exact metafield in **Metafield namespaces** or **Metafields**, and include `metafields` in **Include fields** if your task needs the metafields in `event.data`.
+Mechanic runs a local preflight check for common filter mistakes, then Shopify validates the subscription on save. If you also set **Include fields**, include every field your filter references. For example, a filter using `variants.price` needs `variants` or `variants.price` in **Include fields**. For metafield filters, choose the namespace or exact metafield in **Metafield namespaces** or **Metafields**. If **Include fields** is set, include `metafields` too.
 
 For Shopify's full syntax and edge cases, see [Filter your events](https://shopify.dev/docs/apps/build/webhooks/customize/filters).
 
@@ -397,6 +410,10 @@ For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the s
 
 **Some money fields behave like strings.** Shopify webhook payloads often represent prices and totals as strings, like `"0.00"`. For exact money matches, quote the decimal string in the Shopify filter, e.g. `total_price:"0.00"` or `variants.price:"0.00"`. Test against a real Shopify event when exact field typing matters.
 
+**Filter problems fail in different ways.** Shopify usually rejects incorrect syntax and filters whose fields are missing from **Include fields**, **Metafield namespaces**, or **Metafields**. Shopify may accept a filter that references a field path the topic never sends, or that compares a field with the wrong value type, but then send no matching webhooks. If a custom webhook is enabled but never receives, test the filter against a real Shopify event payload.
+
+**Include fields can affect repeat update deliveries.** **Include fields** is not a "fire only when these fields change" switch, but Shopify may skip a recent update delivery when the payload after trimming would be identical. Include `updated_at` when you want every matching update to arrive. Leave it out when you intentionally want Shopify to reduce repeat deliveries where only fields outside your payload changed.
+
 **Payload customization does not make a webhook unique.** Shopify only allows one enabled webhook for the same app, destination, Shopify topic, and filter. Two custom Shopify webhooks with the same topic and filter still conflict even if the **Name**, **Mechanic topic**, **Include fields**, **Metafield namespaces**, or **Metafields** are different. This is a Shopify limitation, and it often appears after duplicating a webhook with import/export.
 
 **Two webhooks can share one Mechanic topic.** This is allowed, but tasks subscribed to that topic will receive deliveries from both webhooks. Use `event.shopify_topic` and `event.source` if the task needs to tell them apart.
@@ -416,6 +433,8 @@ Check these first:
 3. Does the webhook show **Needs filter**? Add a filter, even `id:*` for non-metaobject topics.
 4. Does the task subscribe to the `user/...` topic exactly?
 5. Did you trigger a real Shopify event that matches the filter?
+6. Does the filter use fields that exist for that Shopify topic, with the value types Shopify sends?
+7. If **Include fields** is set, would the trimmed payload differ from a recent delivery, or did you include `updated_at`?
 
 Open the resulting event in Mechanic and check `event.data`, `event.topic`, and `event.shopify_topic`. The event detail page also shows the custom Shopify webhook source when Mechanic knows which webhook delivered it.
 
