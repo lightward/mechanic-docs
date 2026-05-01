@@ -21,7 +21,7 @@ When a task subscribes to a `shopify/...` topic (e.g. `on: shopify/products/upda
 
 ### Custom Shopify webhooks
 
-When you need filtered deliveries (only active products, only orders with a specific tag), slimmer payloads (`include_fields`), Shopify-side metafield delivery (`metafield_namespaces`, `metafields`), or **metaobject events** (which aren't in the native topic set), configure a [Custom Shopify webhook](../../../platform/shopify/custom-webhooks.md). Each custom webhook routes Shopify deliveries onto a `user/...` topic of your choosing.
+When you need filtered deliveries (only active products, only orders with a specific tag), slimmer payloads (`include_fields`), Shopify-side metafield filtering or delivery (`metafield_namespaces`, `metafields`), or **metaobject events** (which aren't in the native topic set), configure a [Custom Shopify webhook](../../../platform/shopify/custom-webhooks.md). Each custom webhook routes Shopify deliveries onto a `user/...` topic of your choosing.
 
 ## Responding to changes in specific data
 

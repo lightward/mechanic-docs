@@ -72,7 +72,7 @@ Use a custom Shopify webhook when the task needs Shopify to do something before 
 
 * send only matching resources, like active products
 * deliver a smaller payload with **Include fields**
-* include specific metafields in the webhook payload
+* filter by, or include, specific metafields
 * receive Shopify metaobject webhooks
 
 If the task can receive the normal Shopify webhook and decide what to do in Liquid, use a regular `shopify/...` subscription.
@@ -126,6 +126,7 @@ status:active AND tags:VIP
 vendor:"Nike Inc"
 variants.price:>=10.00
 line_items.properties.name:_gift_message
+metafields.namespace:custom AND metafields.key:track_with_mechanic AND metafields.value:true
 ```
 
 Filters use Shopify's webhook filter syntax. Nested fields use dots, boolean operators like `AND`, `OR`, and `NOT` are supported, and values with spaces should be quoted. For arrays of objects, Shopify matches when at least one nested object satisfies the filter.
@@ -147,7 +148,29 @@ Do not assume a numeric-looking webhook payload field can be matched without quo
 Shopify filters are state filters, not "changed field" filters. A `products/update` filter like `variants.price:>=10.00` means the product currently has a variant at that price or higher. It does not mean the variant price changed in this update.
 {% endhint %}
 
-Mechanic runs a local preflight check for common filter mistakes, then Shopify validates the subscription on save. If you also set **Include fields**, include every field your filter references. For example, a filter using `variants.price` needs `variants` or `variants.price` in **Include fields**.
+### Filtering by metafields
+
+To filter by metafield data, select the metafield in **Metafield namespaces** or **Metafields**, then use `metafields.namespace`, `metafields.key`, and `metafields.value` in the filter:
+
+```text
+metafields.namespace:custom AND metafields.key:track_with_mechanic AND metafields.value:true
+```
+
+For a value that only needs to exist:
+
+```text
+metafields.namespace:custom AND metafields.key:track_with_mechanic AND metafields.value:*
+```
+
+For variant metafields on a product webhook, prefix the metafield path with `variants.`:
+
+```text
+variants.metafields.namespace:custom AND variants.metafields.key:hide_from_storefront AND variants.metafields.value:true
+```
+
+Metafield filters use Shopify webhook filter syntax, not Shopify Admin search syntax. For example, use `metafields.namespace:custom AND metafields.key:track_with_mechanic`; do not use a GraphQL search query shape like `metafields.custom.track_with_mechanic:true`.
+
+Mechanic runs a local preflight check for common filter mistakes, then Shopify validates the subscription on save. If you also set **Include fields**, include every field your filter references. For example, a filter using `variants.price` needs `variants` or `variants.price` in **Include fields**. For metafield filters, choose the namespace or exact metafield in **Metafield namespaces** or **Metafields**, and include `metafields` in **Include fields** if your task needs the metafields in `event.data`.
 
 For Shopify's full syntax and edge cases, see [Filter your events](https://shopify.dev/docs/apps/build/webhooks/customize/filters).
 
@@ -217,11 +240,11 @@ If you export/import a webhook to make a variant, change the **Filter** too. If 
 
 When **Include fields** is blank, Shopify sends the normal payload shape. When **Include fields** has values, Shopify sends only those fields.
 
-For update topics, include `updated_at` when practical. It makes trimmed payloads easier to inspect, and it helps avoid cases where repeated updates look identical after payload trimming.
+For update topics, include `updated_at` when you want every matching update to arrive. Shopify may skip repeated deliveries when **Include fields** produces the same trimmed payload as a recent delivery. Leave `updated_at` out when you intentionally want Shopify to reduce repeat deliveries where only fields outside your payload changed.
 
 For Shopify's payload rules, see [Modify your payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads).
 
-### The metafields gotcha
+### The metafields gotchas
 
 `include_fields` is not a metafield selector. This will not include the `custom.pack_size` metafield:
 
@@ -238,7 +261,7 @@ custom.pack_size
 ```
 
 {% hint style="warning" %}
-Metafields can be added to the payload, but they are not Shopify filter fields. Use **Metafields** or **Metafield namespaces** to receive metafield data after Shopify delivers the webhook. Filter on ordinary webhook payload fields, then check metafields in Liquid.
+Metafields can also be used in filters. Select the namespace or exact metafield here, then filter with fields like `metafields.namespace`, `metafields.key`, and `metafields.value`.
 {% endhint %}
 
 If you are also using **Include fields**, add `metafields` there too:
@@ -305,38 +328,39 @@ Include fields:
 
 Remember: this filter means the product has at least one variant priced at or above 10.00. It does not prove the price changed in this specific update.
 
-### Product updates with a metafield in the payload
+### Product updates filtered by a metafield
 
-Use this when you want to avoid a follow-up GraphQL lookup for a known metafield.
+Use this when only products with a known metafield should reach the task.
 
 ```text
-Name:           Product pack size updates
+Name:           Products tracked by Mechanic
 Shopify topic:  shopify/products/update
-Mechanic topic: user/products/pack_size_update
-Filter:         id:*
+Mechanic topic: user/products/tracked_update
+Filter:         metafields.namespace:custom AND metafields.key:track_with_mechanic AND metafields.value:true
 Include fields:
   id
   title
+  updated_at
   metafields
 Metafields:
-  custom.pack_size
+  custom.track_with_mechanic
 ```
 
 Task code:
 
 ```liquid
-{% assign pack_size = nil %}
+{% assign tracked_by_mechanic = false %}
 
 {% for metafield in product.metafields %}
-  {% if metafield.namespace == "custom" and metafield.key == "pack_size" %}
-    {% assign pack_size = metafield.value %}
+  {% if metafield.namespace == "custom" and metafield.key == "track_with_mechanic" %}
+    {% assign tracked_by_mechanic = metafield.value %}
   {% endif %}
 {% endfor %}
 
-{% log product_id: product.id, pack_size: pack_size %}
+{% log product_id: product.id, tracked_by_mechanic: tracked_by_mechanic %}
 ```
 
-`id:*` is an always-true filter. It does not reduce delivery volume, but it gives Shopify a non-empty filter so the custom webhook can exist alongside native `shopify/products/update` task subscriptions.
+This is a state filter. The task receives product updates while the metafield has this value; the filter does not prove the metafield changed in that update.
 
 ## What the task receives
 
@@ -417,3 +441,4 @@ If an imported webhook is a variant of an existing webhook, give it a different 
 * [Subscribe to Shopify metaobject events](../../techniques/subscribe-to-shopify-metaobject-events.md)
 * Shopify: [Filter your events](https://shopify.dev/docs/apps/build/webhooks/customize/filters)
 * Shopify: [Modify your payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads)
+* Shopify: [WebhookSubscriptionInput](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/WebhookSubscriptionInput)

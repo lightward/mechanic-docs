@@ -32,7 +32,7 @@ Inbound HTTP webhooks that let any external system (a form builder, a CRM, an ER
 
 ## Custom Shopify webhooks
 
-Advanced Shopify-side filters and payload customization for supported Shopify webhook topics, routed onto a custom Mechanic event topic. Most tasks should use regular `shopify/...` subscriptions; reach for this when you want filtered deliveries, slim payloads, Shopify-side metafield delivery, or [metaobject webhooks](../platform/shopify/custom-webhooks.md#how-do-i-receive-shopify-metaobject-webhooks-in-mechanic) (which native subscriptions don't cover). See [Custom Shopify webhooks](../platform/shopify/custom-webhooks.md).
+Advanced Shopify-side filters and payload customization for supported Shopify webhook topics, routed onto a custom Mechanic event topic. Most tasks should use regular `shopify/...` subscriptions; reach for this when you want filtered deliveries, slim payloads, Shopify-side metafield filtering or delivery, or [metaobject webhooks](../platform/shopify/custom-webhooks.md#how-do-i-receive-shopify-metaobject-webhooks-in-mechanic) (which native subscriptions don't cover). See [Custom Shopify webhooks](../platform/shopify/custom-webhooks.md).
 
 If you're not sure which path you want: most data coming from Shopify should use a regular `shopify/...` task subscription. Use Custom Shopify webhooks only when Shopify should filter or reshape the delivery before Mechanic receives it. Data coming from anywhere else should use Mechanic webhooks.
 
