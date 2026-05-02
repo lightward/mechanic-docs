@@ -2,7 +2,7 @@
 description: A complete index
 ---
 
-# Event topics
+# Event topic list
 
 Mechanic supports a variety of [**event topics**](../../core/events/topics.md), each a classification of an [**event**](../../core/events/). Each [**task**](../../core/tasks/) can signal its interest in specific topics by using [**subscriptions**](../../core/tasks/subscriptions.md).
 
@@ -93,6 +93,8 @@ The following mechanic/user topics are typically used with [Shopify admin action
 * **mechanic/user/product**\
   **mechanic/user/products**\
   Occurs when a user sends one or more products to Mechanic
+
+<a id="shopify"></a>
 
 ## Shopify
 
