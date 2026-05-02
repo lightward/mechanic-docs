@@ -9,16 +9,6 @@
 * [🤖 Using AI with Mechanic](ai.md)
 * [❓ Contact support](support.md)
 
-## App screens <a href="#app" id="app"></a>
-
-* [Task list](app/home.md)
-* [Task editor](app/task-editor.md)
-* [Events](app/events.md)
-* [Settings](app/settings.md)
-* [Ask Mechanic](app/ask-mechanic.md)
-* [Liquid console](app/liquid-console.md)
-* [Keyboard shortcuts](app/keyboard-shortcuts.md)
-
 ## Resources
 
 * [⬇️ Install Mechanic](https://apps.shopify.com/mechanic)
@@ -252,6 +242,16 @@
 * [Migrating templates from Shopify to Mechanic](techniques/migrating-templates-from-shopify-to-mechanic.md)
 * [Securing Mechanic webhooks](techniques/securing-mechanic-webhooks.md)
 * [Monitoring Mechanic](techniques/monitoring.md)
+
+## App screens <a href="#app" id="app"></a>
+
+* [Task list](app/home.md)
+* [Task editor](app/task-editor.md)
+* [Events](app/events.md)
+* [Settings](app/settings.md)
+* [Ask Mechanic](app/ask-mechanic.md)
+* [Liquid console](app/liquid-console.md)
+* [Keyboard shortcuts](app/keyboard-shortcuts.md)
 
 ***
 
