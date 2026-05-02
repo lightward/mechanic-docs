@@ -233,7 +233,7 @@ Task code:
 %}
 ```
 
-Native Mechanic `shopify/...` subscriptions do not include metaobject topics. Use custom Shopify webhooks for metaobjects. If the webhook shows **Needs permissions**, open **Settings → Permissions** and grant the required metaobject scope.
+Native Mechanic `shopify/...` subscriptions do not include metaobject topics. Use custom Shopify webhooks for metaobjects.
 
 ## How do I customize a Shopify webhook payload?
 
@@ -429,7 +429,7 @@ For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the s
 Check these first:
 
 1. Is at least one enabled task subscribed to the custom Mechanic topic?
-2. Does the webhook show **Needs permissions**? If so, open **Settings → Permissions** and grant the missing Shopify scopes.
+2. Does the webhook show **Needs permissions**? Mechanic should prompt you to update Shopify access when it detects missing scopes. If a needed scope is not being detected from the task or webhook, declare it in the subscribed task with the [`permissions` tag](../liquid/tags/permissions.md).
 3. Does the webhook show **Needs filter**? Add a filter, even `id:*` for non-metaobject topics.
 4. Does the task subscribe to the `user/...` topic exactly?
 5. Did you trigger a real Shopify event that matches the filter?

@@ -5,7 +5,7 @@ description: >-
 
 # Permissions
 
-Mechanic determines Shopify API access scopes (like `read_orders` or `write_products`) from your task code. It can infer scopes from several places, including subscriptions, Shopify data access in task code, and actions rendered during preview. When your shop needs additional access, Mechanic will surface that in the app.
+Mechanic determines Shopify API access scopes (like `read_orders` or `write_products`) from your task code. It can infer scopes from several places, including subscriptions, Shopify data access in task code, and actions rendered during preview. When your shop needs additional access, Mechanic will surface that in the app. The Permissions area in Settings shows granted and required scopes; it does not grant scopes directly.
 
 There are two approaches, and both are fully supported:
 
