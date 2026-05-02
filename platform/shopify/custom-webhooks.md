@@ -357,7 +357,7 @@ For a custom Shopify webhook event:
 
 Mechanic also builds the usual Shopify subject variable from the source Shopify topic. A custom `shopify/products/update` webhook provides `product`, `shopify/orders/create` provides `order`, and `shopify/metaobjects/update` provides `metaobject`. These variables start with the payload Shopify delivered, so **Include fields** and metafield settings affect what is immediately present.
 
-For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the same. For non-Shopify events, `event.shopify_topic` is blank.
+For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the same. For non-Shopify events, `event.shopify_topic` is `nil`.
 
 ## Delivery statuses
 
