@@ -24,5 +24,6 @@ Events can come from several places:
 
 ## In this section
 
-* [Event topics](topics.md) — a complete index of all available event topics
+* [Event topic list](topics.md) — a complete index of all available event topics
+* [Shopify topics](topics.md#shopify) — native Shopify webhook topics that tasks can subscribe to directly
 * [Event filters](filters.md) — selectively skip events before they reach your tasks

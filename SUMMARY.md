@@ -54,8 +54,7 @@
 ## Core Concepts <a href="#core" id="core"></a>
 
 * [Events](core/events/README.md)
-  * [Topics](core/events/topics.md)
-  * [Event topics list](platform/events/topics.md)
+  * [How event topics work](core/events/topics.md)
   * [Parent and child events](core/events/parent-and-child-events.md)
 * [Tasks](core/tasks/README.md)
   * [Subscriptions](core/tasks/subscriptions.md)
@@ -134,7 +133,8 @@
   * [Email templates](platform/email/templates.md)
 * [Error handling](platform/error-handling.md)
 * [Events](platform/events/README.md)
-  * [Event topics](platform/events/topics.md)
+  * [Event topic list](platform/events/topics.md)
+    * [Shopify topics](platform/events/topics.md#shopify)
   * [Event filters](platform/events/filters.md)
 * [GraphQL](platform/graphql/README.md)
   * [Basics](platform/graphql/basics/README.md)

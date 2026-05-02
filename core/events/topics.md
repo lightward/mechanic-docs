@@ -13,7 +13,7 @@ A topic looks like "shopify/customers/create", and it has three parts:
 * The **verb** describes what has just occurred. Events that are about creating resources generally have "create" as their verb, and events that are about deleting resources generally have "delete".
 
 {% hint style="info" %}
-[Looking for an index of event topics? Start here.](../../platform/events/topics.md)
+[Looking for the event topic list? Start here.](../../platform/events/topics.md) Need Shopify topics? Jump to [Shopify](../../platform/events/topics.md#shopify).
 {% endhint %}
 
 ## User-defined topics
