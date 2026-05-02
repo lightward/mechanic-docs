@@ -71,9 +71,9 @@ Mechanic keeps the source Shopify topic in `event.shopify_topic`, and builds a `
 {% endstep %}
 {% step %}
 
-## Grant permissions and test a real change
+## Update access if prompted, then test a real change
 
-If the webhook shows **Needs permissions**, open **Settings -> Permissions** and approve the required metaobject scope.
+If the webhook shows **Needs permissions**, Mechanic should prompt you to update Shopify access when it detects missing scopes. The Permissions screen shows granted and required scopes, but it does not grant scopes directly. If a needed scope is not being detected from the task or webhook, declare it in the subscribed task with the [`permissions` tag](../platform/liquid/tags/permissions.md).
 
 Then create, update, or delete a matching metaobject in Shopify. Open the resulting Mechanic event and confirm:
 

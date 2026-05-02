@@ -19,7 +19,7 @@ Events reach Mechanic from several sources:
 
 Each event carries **data** that tasks can use. For a Shopify webhook event, this is the resource data sent by Shopify (e.g. the order object). For scheduled events, the data is minimal. Tasks access this data through the [Event object](../../platform/liquid/objects/event.md) in Liquid.
 
-For a complete reference of available event topics, see [Topics](topics.md).
+For a complete reference of available event topics, see the [Event topic list](../../platform/events/topics.md).
 
 ## What happens next
 

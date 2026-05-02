@@ -23,17 +23,7 @@ Custom Shopify webhooks are an advanced tool. Most Shopify-triggered tasks shoul
 | What is in `event.data`? | The Shopify webhook payload after Shopify applies the filter and payload customization. |
 | Can this receive metaobject webhooks? | Yes, for `shopify/metaobjects/create`, `shopify/metaobjects/update`, and `shopify/metaobjects/delete`, with an explicit `type:` filter. |
 
-## Can Mechanic receive Shopify metaobject webhooks?
-
-Yes. Native `shopify/...` task subscriptions do not include metaobject topics, but custom Shopify webhooks can receive:
-
-* `shopify/metaobjects/create`
-* `shopify/metaobjects/update`
-* `shopify/metaobjects/delete`
-
-Each metaobject webhook needs a concrete `type:` filter, like `type:product_review`.
-
-## What are custom Shopify webhooks?
+## How routing works
 
 A custom Shopify webhook connects one Shopify webhook topic to one Mechanic topic:
 
@@ -43,30 +33,11 @@ Mechanic topic: user/products/active_update
 Filter:         status:active
 ```
 
-When Shopify sends a matching `products/update` webhook, Mechanic creates an event on `user/products/active_update`. Your task subscribes to `user/products/active_update`, not `shopify/products/update`.
-
-## How does routing work?
-
-A custom Shopify webhook has two topics:
-
-* **Shopify topic** — the source Shopify webhook, like `shopify/products/update`.
-* **Mechanic topic** — the custom `user/...` topic Mechanic creates for matching deliveries, like `user/products/active_update`.
-
-Tasks subscribe to the Mechanic topic. In Liquid, `event.topic` is the Mechanic topic, and `event.shopify_topic` keeps the source Shopify topic.
-
-## Choose the right webhook
-
-| Use this | When |
-|---|---|
-| Native Shopify subscription | A task should respond to every delivery for a supported native `shopify/...` topic. |
-| Custom Shopify webhook | Advanced: Shopify should filter delivery, customize the payload, include metafields, or send metaobject events. |
-| [Mechanic webhook](../webhooks.md) | Something outside Shopify should send an HTTP POST directly to Mechanic. |
-
-Custom Shopify webhooks are still Shopify webhooks. They are different from Mechanic webhooks, which are public inbound URLs for external systems like forms, ERPs, CRMs, and fulfillment services.
-
-If your task only needs the normal Shopify webhook payload for a supported `shopify/...` topic, use a native Shopify subscription instead.
+When Shopify sends a matching `products/update` webhook, Mechanic creates an event on `user/products/active_update`. Your task subscribes to that Mechanic topic, not `shopify/products/update`. In Liquid, `event.topic` is the Mechanic topic, and `event.shopify_topic` keeps the source Shopify topic.
 
 ## When should I use custom Shopify webhooks?
+
+If your task can receive the normal Shopify webhook payload and decide what to do in Liquid, use a regular native `shopify/...` subscription.
 
 Use a custom Shopify webhook when the task needs Shopify to do something before delivery:
 
@@ -75,7 +46,7 @@ Use a custom Shopify webhook when the task needs Shopify to do something before 
 * filter by, or include, specific metafields
 * receive Shopify metaobject webhooks
 
-If the task can receive the normal Shopify webhook and decide what to do in Liquid, use a regular `shopify/...` subscription.
+Custom Shopify webhooks are different from [Mechanic webhooks](../webhooks.md), which are public inbound URLs for external systems like forms, ERPs, CRMs, and fulfillment services.
 
 ## How do I create a custom Shopify webhook?
 
@@ -110,7 +81,7 @@ In the task editor, Mechanic shows when a `user/...` subscription is backed by a
 
 ## Which Shopify webhook topics can I use?
 
-Use the **Shopify topic** picker in Settings for the current supported list. It includes supported Shopify webhook topics plus the metaobject topics listed above.
+Use the **Shopify topic** picker in Settings for the current supported list. It includes supported Shopify webhook topics plus the metaobject topics covered below.
 
 The [Event topics](../events/topics.md#shopify) reference lists native `shopify/...` task subscriptions. Custom Shopify webhooks are configured separately, and they deliver onto `user/...` topics.
 
@@ -233,7 +204,7 @@ Task code:
 %}
 ```
 
-Native Mechanic `shopify/...` subscriptions do not include metaobject topics. Use custom Shopify webhooks for metaobjects. If the webhook shows **Needs permissions**, open **Settings → Permissions** and grant the required metaobject scope.
+Native Mechanic `shopify/...` subscriptions do not include metaobject topics. Use custom Shopify webhooks for metaobjects.
 
 ## How do I customize a Shopify webhook payload?
 
@@ -386,7 +357,7 @@ For a custom Shopify webhook event:
 
 Mechanic also builds the usual Shopify subject variable from the source Shopify topic. A custom `shopify/products/update` webhook provides `product`, `shopify/orders/create` provides `order`, and `shopify/metaobjects/update` provides `metaobject`. These variables start with the payload Shopify delivered, so **Include fields** and metafield settings affect what is immediately present.
 
-For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the same. For non-Shopify events, `event.shopify_topic` is blank.
+For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the same. For non-Shopify events, `event.shopify_topic` is `nil`.
 
 ## Delivery statuses
 
@@ -410,7 +381,7 @@ For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the s
 
 **Some money fields behave like strings.** Shopify webhook payloads often represent prices and totals as strings, like `"0.00"`. For exact money matches, quote the decimal string in the Shopify filter, e.g. `total_price:"0.00"` or `variants.price:"0.00"`. Test against a real Shopify event when exact field typing matters.
 
-**Filter problems fail in different ways.** Shopify usually rejects incorrect syntax and filters whose fields are missing from **Include fields**, **Metafield namespaces**, or **Metafields**. Shopify may accept a filter that references a field path the topic never sends, or that compares a field with the wrong value type, but then send no matching webhooks. If a custom webhook is enabled but never receives, test the filter against a real Shopify event payload.
+**Filter problems fail in different ways.** Shopify rejects some filter problems when you save, while others save but never match a delivery. See [When a filter does not behave as expected](#when-a-filter-does-not-behave-as-expected).
 
 **Include fields can affect repeat update deliveries.** **Include fields** is not a "fire only when these fields change" switch, but Shopify may skip a recent update delivery when the payload after trimming would be identical. Include `updated_at` when you want every matching update to arrive. Leave it out when you intentionally want Shopify to reduce repeat deliveries where only fields outside your payload changed.
 
@@ -429,7 +400,7 @@ For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the s
 Check these first:
 
 1. Is at least one enabled task subscribed to the custom Mechanic topic?
-2. Does the webhook show **Needs permissions**? If so, open **Settings → Permissions** and grant the missing Shopify scopes.
+2. Does the webhook show **Needs permissions**? Mechanic should prompt you to update Shopify access when it detects missing scopes. If a needed scope is not being detected from the task or webhook, declare it in the subscribed task with the [`permissions` tag](../liquid/tags/permissions.md).
 3. Does the webhook show **Needs filter**? Add a filter, even `id:*` for non-metaobject topics.
 4. Does the task subscribe to the `user/...` topic exactly?
 5. Did you trigger a real Shopify event that matches the filter?

@@ -30,5 +30,3 @@ Shopify's "update" webhooks do not contain information about what piece of data 
 If a task needs to react to a specific attribute change, the task must scan for and "remember" the original value of that attribute, so as to compare incoming updates with that remembered value. A task could use the [Cache](../../actions/cache.md) action to store these values in the Mechanic cache, or it could use the [Shopify](../../actions/shopify.md) action to save the remembered value in a metafield.
 
 For an example implementation, see the [Auto-tag products when their variants change](https://usemechanic.com/task/auto-tag-products-when-their-skus-change) task.
-
-##
