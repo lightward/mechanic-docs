@@ -102,6 +102,8 @@ These are the native `shopify/...` topics that tasks can subscribe to directly. 
 
 For a description of when each topic fires, see [Shopify's webhook documentation](https://shopify.dev/docs/api/webhooks).
 
+Need metaobject events, metafield filters, customized payloads, or custom routing? See [Advanced Shopify topic notes](#advanced-shopify-topic-notes).
+
 * shopify/carts/create
 * shopify/carts/update
 * shopify/channels/delete
@@ -270,6 +272,8 @@ For a description of when each topic fires, see [Shopify's webhook documentation
 * shopify/themes/update
 * shopify/variants/in\_stock
 * shopify/variants/out\_of\_stock
+
+<a id="advanced-shopify-topic-notes"></a>
 
 ### Advanced Shopify topic notes
 
