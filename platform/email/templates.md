@@ -1,6 +1,10 @@
+---
+description: Configure reusable Mechanic email templates for transactional email actions, including shared layouts and custom Liquid variables.
+---
+
 # Email templates
 
-A Mechanic account may be configured with one or more **email templates**, used by the [**Email action**](../../core/actions/email.md) to render email content using a Liquid that can be shared across tasks. Email templates have access to Liquid [**template variables**](../../core/actions/email.md#creating-template-variables) named after each option in the Email action, including any custom options added by the task author.
+A Mechanic account may be configured with one or more **email templates**, used by the [**Email action**](../../core/actions/email.md) to render email content using Liquid that can be shared across tasks. Email templates have access to Liquid [**template variables**](../../core/actions/email.md#creating-email-template-variables) named after each option in the Email action, including any custom options added by the task author.
 
 Unless configured otherwise, each email will use the email template named "default", if it exists.
 
@@ -15,7 +19,7 @@ To learn more about formatting messages with HTML, CSS, and images, see [Message
 {% endhint %}
 
 {% hint style="info" %}
-To pass custom variables along to the email template, specify them as additional options to the Email action. To learn more about this technique, see [Creating template variables](../../core/actions/email.md#creating-template-variables).
+To pass custom variables along to the email template, specify them as additional options to the Email action. To learn more about this technique, see [Creating template variables](../../core/actions/email.md#creating-email-template-variables).
 {% endhint %}
 
 ## Specifying a template

@@ -16,7 +16,7 @@ The Settings page is organized into sections, accessed from the sidebar on the l
 
 ## User
 
-* **Use Advanced mode by default** — open the [task editor](task-editor.md) in Advanced mode (for editing code) instead of Basic mode (for adjusting settings)
+* **Use the task editor’s Advanced mode by default** — open the [task editor](task-editor.md) in Advanced mode (for editing code) instead of Basic mode (for adjusting settings)
 * **Show shop identity banner** — display a banner identifying the current shop (helpful when managing multiple stores)
 * **Use dark theme for code editor** — apply a dark theme to all code editors in the app
 

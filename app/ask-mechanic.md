@@ -22,9 +22,9 @@ Mechanic support covers the platform and tasks from the [task library](../resour
 * "What integrations does Mechanic support?"
 * "Find a task that auto-tags orders by discount code"
 
-Ask Mechanic is also available as a dedicated full-screen view:
+Ask Mechanic can also expand for more room or dock to the bottom of the app in a terminal-style view:
 
-<figure><img src="../.gitbook/assets/ask_mechanic_terminal.jpg" alt="Ask Mechanic in full-screen view"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ask_mechanic_terminal.jpg" alt="Ask Mechanic docked to the bottom of the Mechanic app"><figcaption></figcaption></figure>
 
 ## For developers
 

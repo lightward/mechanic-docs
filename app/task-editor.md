@@ -62,9 +62,12 @@ Add tags to organize your task, and write Markdown documentation with a live pre
 The actions menu in the page header includes:
 
 * **Events** — view all events processed by this task
-* **Import / Export** — paste a JSON task export, or copy this task as JSON. Learn more in [Import and export](../core/tasks/import-and-export.md).
+* **Help** — open task-specific help and support options
+* **Import** — paste a JSON task export. Learn more in [Import and export](../core/tasks/import-and-export.md).
+* **Export** — copy this task as JSON. Learn more in [Import and export](../core/tasks/import-and-export.md).
 * **Duplicate** — create a copy of the task
 * **Versions** — view and restore previous versions of the task
+* **Advanced mode / Basic mode** — switch between editor modes
 
 ## Running a task
 

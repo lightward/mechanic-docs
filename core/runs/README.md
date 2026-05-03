@@ -13,7 +13,7 @@ When performed, a run has a **result**. Depending on the type of run, this resul
 * **Event runs**, when performed, may result in a set of enqueued task runs.
 * **Task runs**, when performed, may result in a set of enqueued action runs.
 * **Action runs**, when performed, have behaviors that vary by [action type](../actions/#action-types).
-  * If the originating task [subscribes to mechanic/actions/perform](../../techniques/responding-to-action-results.md), each action run will spawn a new event containing that action's results. This new event will be processed in an enqueued event run, creating an opportunity for the task to respond to the action's results.
+  * If the originating task [subscribes to mechanic/actions/perform](../../techniques/responding-to-action-results.md), most action runs will spawn a new event containing that action's results. This new event will be processed in an enqueued event run, creating an opportunity for the task to respond to the action's results. Echo actions do not emit these events, and any action can opt out by setting `__perform_event` to `false`.
 
 Most runs are scheduled to be performed immediately. Some runs may be [scheduled](scheduling.md) for the future. Some runs may be [retried](retries.md), once performed.
 

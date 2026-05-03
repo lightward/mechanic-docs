@@ -6,7 +6,7 @@ description: Test Mechanic Liquid code in a live scratchpad — experiment with 
 
 The **Liquid console** is a scratchpad for testing [Mechanic Liquid](../platform/liquid/) code. It's available in the footer of every page of the Mechanic app — look for it at the bottom of the screen.
 
-Type any Liquid code, submit it, and see the output immediately. This is useful for experimenting with filters, testing snippets from a task, or inspecting data available for a specific event.
+Type any Liquid code and the console runs it after you edit, showing the output after a short delay. This is useful for experimenting with filters, testing snippets from a task, or inspecting data available for a specific event. Use **Reset** to clear your scratchpad, **Documentation** to open the Liquid docs, or **Ask Mechanic** when you want help using the console.
 
 {% hint style="info" %}
 Most Mechanic users don't need the Liquid console day-to-day. It's mainly useful when writing or debugging task code, or when support asks you to inspect event data.
