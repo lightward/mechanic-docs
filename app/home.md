@@ -12,7 +12,7 @@ The task list is the first screen you see when you open Mechanic. It shows your 
 
 The main area of the home screen lists all the tasks installed on your store. Each task shows its name, the events it responds to, tags, and last modified date. Click any task to open it in the [task editor](task-editor.md).
 
-Use the **Add task** button to create a new blank task (or press `N` then `T`), browse the [task library](../resources/task-library/), or import tasks from JSON.
+Use **Add task** to browse the [task library](../resources/task-library/) or start a **New blank task**. To create a blank task directly from the keyboard, press `N` then `T`. Use **Import tasks** when you have a task export in JSON.
 
 ### Filtering and search
 
@@ -20,7 +20,7 @@ Search across task names, code, and options, or filter by enabled status, event 
 
 ### Bulk actions
 
-Select multiple tasks to add or remove tags in bulk, or export tasks as JSON.
+Select tasks to add or remove tags in bulk, enable or disable tasks, delete tasks, export tasks as JSON, or duplicate a single selected task.
 
 ## Current activity
 

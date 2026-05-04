@@ -20,7 +20,7 @@ Install Mechanic from the [Shopify App Store](https://apps.shopify.com/mechanic)
 
 The fastest way to get started is to browse the [task library](https://tasks.mechanic.dev/) — a collection of hundreds of pre-built automations covering common Shopify workflows like auto-tagging, scheduled emails, inventory management, and more.
 
-To install a task, browse the [task library](https://tasks.mechanic.dev/) and click **Try this task** — or use the [**Add task**](https://admin.shopify.com/apps/mechanic/tasks/add) page inside the app. Review the task's description, configure any options, and click **Save** to activate it.
+To install a task, use the [**Add task**](https://admin.shopify.com/apps/mechanic/tasks/add) page inside the app, open a task that fits your workflow, and click **Install this task**. Review the task's description, configure any options, and click **Save** to activate it. You can also browse [tasks.mechanic.dev](https://tasks.mechanic.dev/) to explore the library.
 
 Many tasks have configurable options (like thresholds, tag names, or email templates) that let you customize behavior without writing any code.
 

@@ -21,7 +21,7 @@ An oft utilized feature of Mechanic is the ability to add Liquid tags into task 
 
 {% endcode %}
 
-The code above could be utilized directly in a [multiline task option field](../../core/tasks/options/#flags). and it would output a string of text (e.g. "Special product notice for Widget - Red...") into the assigned option field variable.
+The code above could be utilized directly in a [multiline task option field](../../core/tasks/options/#3-flags), and it would output a string of text (e.g. "Special product notice for Widget - Red...") into the assigned option field variable.
 
 One method of conversion for lookup fields is to utilize a GraphQL query _directly in the option field_, which naturally has some caveats.
 
