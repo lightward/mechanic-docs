@@ -6,6 +6,8 @@ description: "Mechanic is a Shopify automation platform — hundreds of ready-to
 
 Mechanic is a Shopify automation and development platform. Write Liquid code that responds to store events, queries the Shopify Admin API, calls external services, and performs complex multi-step workflows — with no servers to manage.
 
+> I'm glad you're here. :) –Isaac
+
 * [Browse the task library](https://tasks.mechanic.dev/) — hundreds of ready-to-use automations for tagging, emails, inventory, fulfillment, and more
 * [Get started](getting-started.md) — install Mechanic and set up your first task in minutes
 * [Build something custom](custom.md) — create a task tailored to your store's workflow
