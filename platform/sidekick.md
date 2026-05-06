@@ -107,7 +107,7 @@ Every subscribed topic needs its own preview block. 3 topics = 3 previews. Missi
 
 **Liquid syntax:** All tags need `{% %}` — never bare `else`, `endif`, `endfor`.
 
-**Bulk ops:** Pass query/mutation strings with `{{ value | json }}`. For query results, include `__typename` on every node and use `__parentId` on children. Subscribe to `mechanic/shopify/bulk_operation`. Use `bulkOperation.type` to distinguish `QUERY` from `MUTATION`.
+**Bulk ops:** Pass query/mutation strings with `{{ value | json }}`. For query results, include `__typename` on every node and use `__parentId` on children. Subscribe to `mechanic/shopify/bulk_operation`. Use `bulkOperation.type` to distinguish `QUERY` from `MUTATION`; for mutation results, inspect per-line `errors` and `userErrors`.
 
 **Bulk __typename:** Use CONCRETE types, never interfaces. `AutomaticDiscountApplication` not `DiscountApplication`. Interface names match zero objects in JSONL.
 

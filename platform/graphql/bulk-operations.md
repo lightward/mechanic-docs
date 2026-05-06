@@ -15,6 +15,8 @@ Mechanic supports both Shopify bulk operation types:
 
 Both operation types are delivered back to the originating task using `mechanic/shopify/bulk_operation`. Use `bulkOperation.type` to distinguish `QUERY` from `MUTATION`.
 
+For mutation results, remember that a completed operation means Shopify finished processing the file. It does not mean every line succeeded. Each JSONL result line should be checked for GraphQL errors and mutation `userErrors`.
+
 ## Great resources for learning Shopify GraphQL bulk operations
 
 ### Key concepts

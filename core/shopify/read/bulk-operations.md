@@ -9,7 +9,7 @@ This article reviews Mechanic's support for bulk operations. For Shopify's own r
 {% endhint %}
 
 {% hint style="info" %}
-Shopify allows one bulk query operation and one bulk mutation operation to run at the same time per shop. If another operation of the same type is already running, Shopify will return a GraphQL error.
+Shopify's concurrency limits vary by API version. In API versions `2026-01` and higher, Shopify allows up to five bulk query operations and up to five bulk mutation operations at the same time per shop. In earlier API versions, Shopify allows one operation of each type (`bulkOperationRunQuery` or `bulkOperationRunMutation`) at a time per shop. If Shopify rejects a new operation because of a concurrency limit, the Shopify action will return a GraphQL error.
 {% endhint %}
 
 ## Bulk operation types
@@ -37,12 +37,14 @@ Use the [Shopify](../../actions/shopify.md) action to execute a `bulkOperationRu
 
 Use the [Shopify](../../actions/shopify.md) action to execute a `bulkOperationRunMutation` mutation. This requires a `stagedUploadPath`, which comes from first creating a Shopify staged upload and uploading a JSONL variables file.
 
+Shopify allows most Admin API mutations in `bulkOperationRunMutation`, except recursive bulk operation mutations such as `bulkOperationRunMutation` and `bulkOperationRunQuery` themselves. Shopify also limits the mutation string to one connection field. Mechanic still applies the Shopify action's mutation safety checks; if a mutation is not allowed in Mechanic, the action run will fail with an error.
+
 Because staged uploads require both Shopify GraphQL and an HTTP multipart file upload, mutation bulk operations usually use a multi-step Mechanic flow:
 
 1. Use the Shopify action to run `stagedUploadsCreate`.
-2. Use the [HTTP action](../../actions/http.md) to upload the JSONL file to Shopify.
-3. Use the Shopify action to run `bulkOperationRunMutation`.
-4. Subscribe to `mechanic/shopify/bulk_operation` to process the results.
+2. Subscribe to `mechanic/actions/perform` and use the [HTTP action](../../actions/http.md) to upload the JSONL file to Shopify.
+3. Subscribe to `mechanic/actions/perform` again and use the Shopify action to run `bulkOperationRunMutation`.
+4. Subscribe to `mechanic/shopify/bulk_operation` to process the completed result file.
 
 For a complete walkthrough, see [Running bulk operation mutations](../../../resources/tutorials/bulk-operation-mutations.md).
 
@@ -67,6 +69,8 @@ The set of objects returned by the bulk operation is made available as `bulkOper
 For query bulk operations, every object that has an ID usually appears as a separate object in the same set. For example, if a product and five variants are returned, there will be six objects returned; the variants are not nested inside of the product object.
 
 The JSON objects returned from bulk operation queries each include a `"__parentId"` attribute for connected objects, containing the parent object's ID. To make managing task code easier, Mechanic allows you to call `{{ object.__parent }}` to look up an object's parent.
+
+For mutation bulk operations, each object represents the GraphQL response for one JSONL input line. Completed bulk mutations can still contain per-line GraphQL errors or mutation `userErrors`, so inspect each result before treating the write as successful. Shopify includes fields like `data`, `errors`, and `__lineNumber` in the result JSONL.
 
 {% hint style="info" %}
 Because query bulk operation objects are returned as peers in a flat set, processing query results is easiest when you can identify each object by its type. Include `__typename` in the list of selections for each node, right alongside `id`.
@@ -142,7 +146,7 @@ For a complete mutation example, see [Running bulk operation mutations](../../..
 
 * ... your task needs to collect and process a lot of data.
 * ... paginating for data would be too complicated.
-* ... you need to run the same supported Shopify mutation many times from a JSONL variables file.
+* ... you need to run the same Shopify-supported and Mechanic-allowed mutation many times from a JSONL variables file.
 * ... your task needs the higher memory allowance available to task runs responding to `mechanic/shopify/bulk_operation`.
 
 ## Don't use bulk operations when...
