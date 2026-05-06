@@ -48,6 +48,8 @@ Because staged uploads require both Shopify GraphQL and an HTTP multipart file u
 
 For a complete walkthrough, see [Running bulk operation mutations](../../resources/tutorials/bulk-operation-mutations.md).
 
+In the task code editor, use the `boilerplate:bulk_operation_query` and `boilerplate:bulk_operation_mutation` snippets for starter code. Use `boilerplate:staged_upload_jsonl` when you only need the staged JSONL upload portion.
+
 ## Subscribing to the results
 
 Add a [subscription](../tasks/subscriptions.md) to `mechanic/shopify/bulk_operation`.

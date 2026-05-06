@@ -53,6 +53,8 @@ Mechanic can often infer permissions from Shopify actions, but staged JSONL file
 
 Use the importable example below if you need to test the full staged upload and bulk mutation flow.
 
+When writing your own task, the task code editor includes a `boilerplate:bulk_operation_mutation` snippet for this full pattern, plus `boilerplate:staged_upload_jsonl` if you only need the staged upload portion.
+
 After importing it:
 
 1. Run the task manually.
