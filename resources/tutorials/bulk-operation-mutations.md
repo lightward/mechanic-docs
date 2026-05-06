@@ -51,7 +51,7 @@ Mechanic can often infer permissions from Shopify actions, but staged JSONL file
 
 ## Try it now
 
-This example should live as a task library task once it is published. Until then, use the temporary export below if you need to test the full staged upload and bulk mutation flow.
+Use the importable example below if you need to test the full staged upload and bulk mutation flow.
 
 After importing it:
 
@@ -62,7 +62,7 @@ After importing it:
 
 <details>
 
-<summary>Temporary importable task export</summary>
+<summary>Importable task export</summary>
 
 ```json
 {
