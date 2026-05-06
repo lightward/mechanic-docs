@@ -24,4 +24,4 @@ A single task run has a limited amount of memory available to it, but you can ge
 
 ## Consider bulk operations.
 
-Task runs responding to [mechanic/shopify/bulk\_operation](../core/shopify/read/bulk-operations.md) are allocated more memory than regular task runs. If you aren't already using one, consider whether your use case could be achieved using a bulk operation.
+Task runs responding to [mechanic/shopify/bulk\_operation](../core/shopify/bulk-operations.md) are allocated more memory than regular task runs. If you aren't already using one, consider whether your use case could be achieved using a bulk operation.

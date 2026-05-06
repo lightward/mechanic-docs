@@ -37,7 +37,7 @@ Some good questions to answer before refactoring a task:
 * What level of immediacy is **actually** needed by this task for processing updated products? (i.e. what is the longest acceptable interval between scheduled task runs?)
 * How many products on average would be updated in this interval?
 
-If a task can get away with a daily scheduled run to process all recently updated products, then using [bulk operations](../core/shopify/read/bulk-operations.md) might be a good idea. With this approach the task could optionally continue to listen on `products/create` if that is useful (i.e. this specific task would do useful work on a newly created product).
+If a task can get away with a daily scheduled run to process all recently updated products, then using [bulk operations](../core/shopify/bulk-operations.md) might be a good idea. With this approach the task could optionally continue to listen on `products/create` if that is useful (i.e. this specific task would do useful work on a newly created product).
 
 ### Task scenario
 
