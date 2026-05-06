@@ -142,6 +142,15 @@ This example shows how the query and variables may be built up separately, and p
 {% endtab %}
 {% endtabs %}
 
+## Bulk operations
+
+The Shopify action can start Shopify bulk operations using `bulkOperationRunQuery` or `bulkOperationRunMutation`. Mechanic detects the returned bulk operation, monitors it, and re-invokes the same task with `mechanic/shopify/bulk_operation` when Shopify finishes.
+
+Bulk operation mutations require a staged JSONL variables upload before calling `bulkOperationRunMutation`. Use the [HTTP action](http.md) for the multipart upload step.
+
+* [Bulk operations](../shopify/read/bulk-operations.md)
+* [Running bulk operation mutations](../../resources/tutorials/bulk-operation-mutations.md)
+
 ## Related
 
 * [Reading Shopify data](../shopify/read/) — query products, orders, customers, and more using GraphQL in Liquid

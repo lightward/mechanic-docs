@@ -1,41 +1,75 @@
 # Bulk operations
 
-Mechanic supports Shopify's bulk operations GraphQL API, allows developers to submit a query to Shopify for asynchronous processing, and making the results available to the task once complete.
+Mechanic supports Shopify's bulk operations GraphQL API, allowing tasks to ask Shopify to process large jobs asynchronously and then return to the task when the job completes.
 
-This approach dodges the issues inherent in synchronous methods of reading data (like GraphQL via the shopify filter, or REST via Liquid objects). Unlike these methods, the bulk operations API does not exhaust Shopify API limit for your Mechanic account, and therefore does not slow down other tasks. It also does not require any special logic for pagination, since Shopify handles all data collection.
+Bulk operations are useful for reading large amounts of Shopify data, and for running the same mutation many times using JSONL input. In both cases, Shopify produces a JSONL result file, and Mechanic makes that result available to the task.
 
 {% hint style="info" %}
-This article reviews Mechanic's support for bulk operations. If this feature is new to you, start by reading Shopify's tutorial on the bulk operations API: [https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api)
+This article reviews Mechanic's support for bulk operations. For Shopify's own reference, see [bulkOperationRunQuery](https://shopify.dev/docs/api/admin-graphql/latest/mutations/bulkOperationRunQuery) and [bulkOperationRunMutation](https://shopify.dev/docs/api/admin-graphql/latest/mutations/bulkOperationRunMutation).
 {% endhint %}
 
 {% hint style="info" %}
-As of the 2026-01 API, Shopify permits apps to run up to five concurrent bulk operations, per store. Actions that create another bulk operation, while five are already running, will return a GraphQL error.
+Shopify allows one bulk query operation and one bulk mutation operation to run at the same time per shop. If another operation of the same type is already running, Shopify will return a GraphQL error.
 {% endhint %}
 
-### Creating a bulk operation
+## Bulk operation types
 
-Use the [Shopify](../../actions/shopify.md) action to execute a bulkOperationRunQuery mutation (see [Shopify's tutorial](https://shopify.dev/tutorials/perform-bulk-operations-with-admin-api#bulk-query-overview)). Mechanic will detect this mutation, and will begin monitoring the bulk operation in progress.
+| Operation | Use it for | Mechanic behavior |
+| --------- | ---------- | ----------------- |
+| `bulkOperationRunQuery` | Reading a large set of Shopify data | Mechanic detects the returned bulk operation, monitors it, and invokes the same task with `mechanic/shopify/bulk_operation` when it completes. |
+| `bulkOperationRunMutation` | Running one mutation for each JSONL variables line uploaded to Shopify | Mechanic detects the returned bulk operation, monitors it, and invokes the same task with `mechanic/shopify/bulk_operation` when it completes. |
 
-### Subscribing to the results
+The completed bulk operation object includes a `type` field. Use `bulkOperation.type` when a task needs to branch between query results and mutation results:
 
-Add a [subscription](../../tasks/subscriptions.md) to mechanic/shopify/bulk\_operation.
+```liquid
+{% if bulkOperation.type == "MUTATION" %}
+  {% log message: "Bulk mutation complete" %}
+{% elsif bulkOperation.type == "QUERY" %}
+  {% log message: "Bulk query complete" %}
+{% endif %}
+```
 
-Once Mechanic detects that the bulk operation has been completed, the platform will automatically re-invoked the same task with an event having the topic "mechanic/shopify/bulk\_operation", containing the bulk operation's data, when the bulk operation is complete. (As with [mechanic/actions/perform](../../../techniques/responding-to-action-results.md), Mechanic will only invoke the current task when the bulk operation completes; no other task will be notified.)
+## Creating a query bulk operation
 
-### Accessing the results
+Use the [Shopify](../../actions/shopify.md) action to execute a `bulkOperationRunQuery` mutation. Mechanic will detect the returned bulk operation, and will begin monitoring it.
 
-When processing a mechanic/shopify/bulk\_operation event, the task will have access to an [environment variable](../../tasks/code/environment-variables.md) called `bulkOperation`, containing all attributes of the bulk operation ([docs](https://shopify.dev/docs/admin-api/graphql/reference/bulk-operations/bulkoperation)).
+## Creating a mutation bulk operation
 
-The set of objects returned by the bulk operation is made available as `bulkOperation.objects`, allowing you to scan returned data immediately, using an expression like `{% for object in bulkOperation.objects %}`
+Use the [Shopify](../../actions/shopify.md) action to execute a `bulkOperationRunMutation` mutation. This requires a `stagedUploadPath`, which comes from first creating a Shopify staged upload and uploading a JSONL variables file.
 
-.
+Because staged uploads require both Shopify GraphQL and an HTTP multipart file upload, mutation bulk operations usually use a multi-step Mechanic flow:
 
-In most cases, every object that has an ID will appear as a separate object, in the same set of objects. For example, if a product and five variants are returned, there will be six objects returned – the variants are not nested inside of the product object.
+1. Use the Shopify action to run `stagedUploadsCreate`.
+2. Use the [HTTP action](../../actions/http.md) to upload the JSONL file to Shopify.
+3. Use the Shopify action to run `bulkOperationRunMutation`.
+4. Subscribe to `mechanic/shopify/bulk_operation` to process the results.
 
-The JSON objects returned from bulk operation queries each include a `"__parentId"` attribute for connected objects, containing the parent object's ID. To make managing task code easier, Mechanic allows you to simply call `{{ object.__parent }}` to look up an object's parent.
+For a complete walkthrough, see [Running bulk operation mutations](../../../resources/tutorials/bulk-operation-mutations.md).
+
+## Subscribing to the results
+
+Add a [subscription](../../tasks/subscriptions.md) to `mechanic/shopify/bulk_operation`.
+
+Once Mechanic detects that the bulk operation has completed, the platform will automatically re-invoke the same task with an event having the topic `mechanic/shopify/bulk_operation`, containing the bulk operation's data. As with [mechanic/actions/perform](../../../techniques/responding-to-action-results.md), Mechanic will only invoke the current task when the bulk operation completes; no other task will be notified.
+
+## Accessing the results
+
+When processing a `mechanic/shopify/bulk_operation` event, the task will have access to an [environment variable](../../tasks/code/environment-variables.md) called `bulkOperation`, containing all attributes of the bulk operation ([Shopify docs](https://shopify.dev/docs/api/admin-graphql/latest/objects/BulkOperation)).
+
+The set of objects returned by the bulk operation is made available as `bulkOperation.objects`, allowing you to scan returned data immediately:
+
+```liquid
+{% for object in bulkOperation.objects %}
+  {% log object: object %}
+{% endfor %}
+```
+
+For query bulk operations, every object that has an ID usually appears as a separate object in the same set. For example, if a product and five variants are returned, there will be six objects returned; the variants are not nested inside of the product object.
+
+The JSON objects returned from bulk operation queries each include a `"__parentId"` attribute for connected objects, containing the parent object's ID. To make managing task code easier, Mechanic allows you to call `{{ object.__parent }}` to look up an object's parent.
 
 {% hint style="info" %}
-Because all objects are returned as peers in a flat set, we've found that processing objects is easiest when you can easily identify each object by its type. To that end, try including `__typename` in the list of selections for each node, right alongside `id`.
+Because query bulk operation objects are returned as peers in a flat set, processing query results is easiest when you can identify each object by its type. Include `__typename` in the list of selections for each node, right alongside `id`.
 
 This technique allows the array of objects to be quickly filtered by type:
 
@@ -44,7 +78,7 @@ This technique allows the array of objects to be quickly filtered by type:
 ```
 {% endhint %}
 
-## Example
+## Query example
 
 **Subscriptions**
 
@@ -94,7 +128,11 @@ mechanic/shopify/bulk_operation
 {% endif %}
 ```
 
-### More examples
+## Mutation example
+
+For a complete mutation example, see [Running bulk operation mutations](../../../resources/tutorials/bulk-operation-mutations.md).
+
+## More examples
 
 * [Task: Calculate total quantities purchased by SKU](https://usemechanic.com/task/calculate-total-quantities-purchased-by-sku)
 * [Task: Sync order timeline comments to the customer note](https://usemechanic.com/task/sync-order-timeline-comments-to-the-customer-note)
@@ -102,10 +140,13 @@ mechanic/shopify/bulk_operation
 
 ## Use bulk operations when...
 
-* ... your task needs to collect and process a lot of data. Tasks responding to bulk operations operate with a higher memory allowance than other tasks, decreasing the chances of your task being terminated for memory exhaustion.
-* ... paginating for data would be too complicated. Pagination in GraphQL can be tricky when using nested resources.
+* ... your task needs to collect and process a lot of data.
+* ... paginating for data would be too complicated.
+* ... you need to run the same supported Shopify mutation many times from a JSONL variables file.
+* ... your task needs the higher memory allowance available to task runs responding to `mechanic/shopify/bulk_operation`.
 
 ## Don't use bulk operations when...
 
 * ... you only need a little bit of data. Use the [shopify](../../../platform/liquid/filters/#shopify) filter instead.
 * ... you're responding to a Shopify event, and the data you need comes along with the event data. Use [Liquid objects](liquid-objects.md) instead.
+* ... you need action results immediately in the same task run. Bulk operation results are delivered later, using `mechanic/shopify/bulk_operation`.

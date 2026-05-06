@@ -42,6 +42,7 @@
   * [Practicing writing tasks](resources/tutorials/practicing-writing-tasks.md)
   * [Triggering tasks from a contact form](resources/tutorials/triggering-tasks-from-a-contact-form.md)
   * [Creating scheduled CSV feeds](resources/tutorials/creating-scheduled-csv-feeds.md)
+  * [Running bulk operation mutations](resources/tutorials/bulk-operation-mutations.md)
   * [Fetching data from a shared Google sheet](resources/tutorials/fetching-data-from-a-shared-google-sheet.md)
   * [Query analytics data with ShopifyQL](resources/tutorials/query-analytics-data-with-shopifyql.md)
 * [🏆 Converting tasks from Shopify REST to GraphQL](resources/converting-tasks-from-shopify-rest-to-graphql/README.md)
