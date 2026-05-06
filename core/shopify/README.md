@@ -49,6 +49,10 @@ Use the [Shopify action](../actions/shopify.md) to create, update, or delete Sho
 
 Learn more: [Writing data](write.md)
 
+## Bulk operations
+
+Use [bulk operations](bulk-operations.md) when Shopify should process a large read or write asynchronously. Bulk operation queries read large datasets into JSONL results; bulk operation mutations run the same mutation many times using a staged JSONL variables file.
+
 {% hint style="warning" %}
 Shopify REST is deprecated in Mechanic. Use the GraphQL Admin API for all new tasks. See [Converting tasks from Shopify REST to GraphQL](../../resources/converting-tasks-from-shopify-rest-to-graphql/) for migration guidance.
 {% endhint %}
@@ -63,4 +67,5 @@ Learn more: [Responding to events](events/)
 
 * [API rate limit](api-rate-limit.md) — how Mechanic manages Shopify's rate limits
 * [API versions](api-versions.md) — how tasks select a Shopify API version
+* [Bulk operations](bulk-operations.md) — asynchronous Shopify reads and writes
 * [Shopify admin action links](admin-action-links.md)

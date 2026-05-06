@@ -7,7 +7,7 @@ icon: person-running-fast
 
 ### `bulk_operation_query` - GraphQL bulk operation query template <a href="#bulk_operation_query" id="bulk_operation_query"></a>
 
-This snippet expands to provide a complete template for initiating a bulk operation query and responding to the results (see [bulk-operations.md](../../core/shopify/read/bulk-operations.md "mention")). Use it from the top level of a new task after defining the task option fields.
+This snippet expands to provide a complete template for initiating a bulk operation query and responding to the results (see [bulk-operations.md](../../core/shopify/bulk-operations.md "mention")). Use it from the top level of a new task after defining the task option fields.
 
 Once the snippet is selected, you will be prompted to select a resource name, which must be in camel case (e.g. `productVariant`). You can type in your own resource name if it doesn't appear in the list. This value will be propagated throughout most of the snippet block.
 

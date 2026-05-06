@@ -187,7 +187,7 @@ For bulk mutations, each result object is the GraphQL response for one JSONL inp
 
 ## Related
 
-* [Bulk operations](../../core/shopify/read/bulk-operations.md)
+* [Bulk operations](../../core/shopify/bulk-operations.md)
 * [Shopify action](../../core/actions/shopify.md)
 * [HTTP action](../../core/actions/http.md)
 * [Responding to action results](../../techniques/responding-to-action-results.md)

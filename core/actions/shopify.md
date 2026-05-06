@@ -148,7 +148,7 @@ The Shopify action can start Shopify bulk operations using `bulkOperationRunQuer
 
 Bulk operation mutations require a staged JSONL variables upload before calling `bulkOperationRunMutation`. Use the [HTTP action](http.md) for the multipart upload step, and use `mechanic/actions/perform` to move between the staged upload, file upload, and mutation-start steps.
 
-* [Bulk operations](../shopify/read/bulk-operations.md)
+* [Bulk operations](../shopify/bulk-operations.md)
 * [Running bulk operation mutations](../../resources/tutorials/bulk-operation-mutations.md)
 
 ## Related

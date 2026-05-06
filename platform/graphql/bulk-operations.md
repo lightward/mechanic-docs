@@ -5,7 +5,7 @@ Fetching or writing large amounts of Shopify data can exhaust normal API limits,
 To solve this general problem, Shopify offers the bulk operations GraphQL API. Bulk operations let you submit work to Shopify for asynchronous processing, and Shopify stores the results in a JSONL file.
 
 {% hint style="info" %}
-For a review of how Mechanic uses bulk operations, start here: [Reading data / Bulk operations](../../core/shopify/read/bulk-operations.md).
+For a review of how Mechanic uses bulk operations, start here: [Shopify / Bulk operations](../../core/shopify/bulk-operations.md).
 {% endhint %}
 
 Mechanic supports both Shopify bulk operation types:
