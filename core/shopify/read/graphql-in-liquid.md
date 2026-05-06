@@ -108,4 +108,4 @@ Note: GraphQL queries (excluding whitespace) are limited to 50,000 characters. T
 ## Don't use GraphQL when...
 
 * ... it's easier and more readable to use Liquid objects, _unless_ performance becomes an issue. Ultimately, the most important thing is that your task works well tomorrow – and that includes making sure that whoever works on it next understands what you're doing. If that means using a quick-and-simple Liquid lookup over a moderately-more-complex GraphQL lookup, go for it.
-* ... you find yourself staring at nested loops. Looping through all orders is one thing – it's quite another to loop through pages of orders _and_ loop through pages of line items _within each order_. For those scenarios, whenever possible, use a bulk operation.
+* ... you find yourself staring at nested loops. Looping through all orders is one thing – it's quite another to loop through pages of orders _and_ loop through pages of line items _within each order_. For those scenarios, whenever possible, use a [bulk operation](../bulk-operations.md).

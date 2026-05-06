@@ -1,6 +1,6 @@
 ---
 description: >-
-  Read Shopify store data in Mechanic tasks — GraphQL queries, bulk operations, and the shopify Liquid filter.
+  Read Shopify store data in Mechanic tasks — GraphQL queries and the shopify Liquid filter.
 ---
 
 # Reading data
@@ -13,5 +13,5 @@ Read using the [`shopify` Liquid filter](../../../platform/liquid/filters/#shopi
 
 * [Liquid objects](liquid-objects.md)
 * [GraphQL in Liquid](graphql-in-liquid.md)
-* [Bulk operations](bulk-operations.md)
+* [Bulk operation queries](../bulk-operations.md)
 * [The Shopify action](the-shopify-action.md)

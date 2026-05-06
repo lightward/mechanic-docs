@@ -128,7 +128,7 @@ Combine the external API call with Shopify actions to keep your store in sync:
 ## Limitations and best practices
 
 * **No arbitrary OAuth** — Interactive OAuth authorization flows are only available for built-in integrations. For other services, use API keys or tokens.
-* **Execution limits** — Mechanic tasks run within memory and time limits. For large data sets, use [bulk operations](../../core/shopify/read/bulk-operations.md) or paginated polling.
+* **Execution limits** — Mechanic tasks run within memory and time limits. For large data sets, use [bulk operations](../../core/shopify/bulk-operations.md) or paginated polling.
 * **Validate webhook payloads** — When receiving data from external services, consider [securing your Mechanic webhooks](../../techniques/securing-mechanic-webhooks.md) to verify authenticity.
 
 {% hint style="info" %}

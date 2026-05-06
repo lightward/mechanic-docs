@@ -28,6 +28,8 @@ If the Content-Type header is unspecified or set to `application/json`, and if t
 
 If the `files` option is given, its contents will be evaluated for [file generators](file-generators/), and the results will be used to construct a `multipart/form-data` upload request, combining generated files with any key-value pairs found in the `body` option.
 
+This is also the pattern to use when Shopify gives you a staged upload URL, such as when preparing JSONL variables for a [bulk operation mutation](../../resources/tutorials/bulk-operation-mutations.md). Do not manually set the multipart `Content-Type` header; Mechanic sets the multipart boundary automatically. Generated files have a [20MB per-file limit](file-generators/#maximum-filesize).
+
 ```liquid
 {% action "http" %}
   {

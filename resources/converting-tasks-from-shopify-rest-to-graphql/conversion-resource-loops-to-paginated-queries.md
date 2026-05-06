@@ -35,7 +35,7 @@ Shopify limits most GraphQL resources to 250 records per query, so this will be 
 Finally, the `query` filter of a resources query gives the ability to drastically reduce the number of records returned, allowing for very targeted inclusion and exclusion rules (e.g. products having a certain tag). Each resource has its own list of query filters, which can be reviewed in the [GraphQL Admin API](https://shopify.dev/docs/api/admin-graphql/) docs
 
 {% hint style="warning" %}
-If a query has the potential to return a very large number of resources (including connected resources) in a shop, then a [bulk operation](../../core/shopify/read/bulk-operations.md) query may be better suited than using paginated GraphQL queries.
+If a query has the potential to return a very large number of resources (including connected resources) in a shop, then a [bulk operation](../../core/shopify/bulk-operations.md) query may be better suited than using paginated GraphQL queries.
 {% endhint %}
 
 ### GraphQL Paginated Query

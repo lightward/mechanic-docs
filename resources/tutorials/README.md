@@ -13,6 +13,7 @@ Step-by-step guides for common Mechanic development patterns. These tutorials wa
 * [Practicing writing tasks](practicing-writing-tasks.md) — exercises for learning Mechanic's Liquid environment
 * [Triggering tasks from a contact form](triggering-tasks-from-a-contact-form.md) — connect a storefront form to a Mechanic task
 * [Creating scheduled CSV feeds](creating-scheduled-csv-feeds.md) — generate and deliver CSV files on a schedule
+* [Running bulk operation mutations](bulk-operation-mutations.md) — upload JSONL variables and run Shopify bulk mutations
 * [Fetching data from a shared Google sheet](fetching-data-from-a-shared-google-sheet.md) — pull spreadsheet data into a task
 * [Query analytics data with ShopifyQL](query-analytics-data-with-shopifyql.md) — use ShopifyQL to access analytics in Mechanic
 

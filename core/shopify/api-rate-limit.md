@@ -16,7 +16,7 @@ Learn more about the Admin API rate limit from Shopify, at [https://shopify.dev/
 
 When querying for data within a task, use [GraphQL](read/graphql-in-liquid.md) whenever possible, rather than using [Liquid objects](read/liquid-objects.md). GraphQL is much more resource-efficient, and usually results in greater operational throughput.
 
-When working with large volumes of data, use a [bulk operation](read/bulk-operations.md). This way, Shopify bears the burden of collecting all relevant data, without in any way playing against the Shopify API rate limit for Mechanic.
+When working with large volumes of data, use a [bulk operation](bulk-operations.md). This way, Shopify bears the burden of collecting all relevant data, without in any way playing against the Shopify API rate limit for Mechanic.
 
 ### Task configuration
 
