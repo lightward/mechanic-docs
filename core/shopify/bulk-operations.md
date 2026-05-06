@@ -151,6 +151,7 @@ For a complete mutation example, see [Running bulk operation mutations](../../re
 
 ## Don't use bulk operations when...
 
-* ... you only need a little bit of data. Use the [shopify](../../platform/liquid/filters/#shopify) filter instead.
+* ... you only need to read a little bit of data. Use the [shopify](../../platform/liquid/filters/#shopify) filter instead.
+* ... you only need to write a small number of records. Use the [Shopify action](../actions/shopify.md) directly instead.
 * ... you're responding to a Shopify event, and the data you need comes along with the event data. Use [Liquid objects](read/liquid-objects.md) instead.
 * ... you need action results immediately in the same task run. Bulk operation results are delivered later, using `mechanic/shopify/bulk_operation`.
