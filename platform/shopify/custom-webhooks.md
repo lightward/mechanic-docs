@@ -1,6 +1,7 @@
 ---
 description: >-
-  Filter Shopify webhooks in Mechanic, customize Shopify webhook payloads, include metafields, and receive metaobject webhook events.
+  Filter Shopify webhooks in Mechanic, customize Shopify webhook payloads,
+  include metafields, and receive metaobject webhook events.
 ---
 
 # Custom Shopify webhooks
@@ -15,19 +16,19 @@ Custom Shopify webhooks are an advanced tool. Most Shopify-triggered tasks shoul
 
 ## At a glance
 
-| Question | Answer |
-|---|---|
-| Should most tasks use this? | No. Most Shopify-triggered tasks should use native `shopify/...` subscriptions. |
-| What does a task subscribe to? | The custom Mechanic topic, like `user/products/active_update`. |
-| Where is the original Shopify topic? | `event.shopify_topic`, like `shopify/products/update`. |
-| What is in `event.data`? | The Shopify webhook payload after Shopify applies the filter and payload customization. |
+| Question                              | Answer                                                                                                                                  |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Should most tasks use this?           | No. Most Shopify-triggered tasks should use native `shopify/...` subscriptions.                                                         |
+| What does a task subscribe to?        | The custom Mechanic topic, like `user/products/active_update`.                                                                          |
+| Where is the original Shopify topic?  | `event.shopify_topic`, like `shopify/products/update`.                                                                                  |
+| What is in `event.data`?              | The Shopify webhook payload after Shopify applies the filter and payload customization.                                                 |
 | Can this receive metaobject webhooks? | Yes, for `shopify/metaobjects/create`, `shopify/metaobjects/update`, and `shopify/metaobjects/delete`, with an explicit `type:` filter. |
 
 ## How routing works
 
 A custom Shopify webhook connects one Shopify webhook topic to one Mechanic topic:
 
-```text
+```
 Shopify topic:  shopify/products/update
 Mechanic topic: user/products/active_update
 Filter:         status:active
@@ -65,13 +66,13 @@ Fill in:
 
 After saving, create or update a task so it subscribes to the Mechanic topic. Until an enabled task subscribes, the webhook may be enabled but **Not receiving**.
 
-```text
+```
 user/products/active_update
 ```
 
 Subscription offsets work too:
 
-```text
+```
 user/products/active_update+1.hour
 ```
 
@@ -91,7 +92,7 @@ Add a Shopify webhook filter to the custom webhook. Shopify evaluates the filter
 
 Examples:
 
-```text
+```
 status:active
 status:active AND tags:VIP
 vendor:"Nike Inc"
@@ -107,7 +108,7 @@ Shopify webhook filters are not exactly the same as Shopify Admin search queries
 
 Some money fields need to be filtered as the string value Shopify sends in the webhook payload. For exact matches, quote the decimal string:
 
-```text
+```
 total_price:"0.00"
 variants.price:"0.00"
 ```
@@ -136,19 +137,19 @@ When troubleshooting, inspect a real Shopify webhook payload for the topic, then
 
 To filter by metafield data, select the metafield in **Metafield namespaces** or **Metafields**, then use `metafields.namespace`, `metafields.key`, and `metafields.value` in the filter:
 
-```text
+```
 metafields.namespace:custom AND metafields.key:track_with_mechanic AND metafields.value:true
 ```
 
 For a value that only needs to exist:
 
-```text
+```
 metafields.namespace:custom AND metafields.key:track_with_mechanic AND metafields.value:*
 ```
 
 For variant metafields on a product webhook, prefix the metafield path with `variants.`:
 
-```text
+```
 variants.metafields.namespace:custom AND variants.metafields.key:hide_from_storefront AND variants.metafields.value:true
 ```
 
@@ -168,19 +169,19 @@ Create a custom Shopify webhook using one of these Shopify topics:
 
 Metaobject webhooks require a `type:` filter. Shopify does not support `type:*`, so list the exact metaobject definition type you want.
 
-```text
+```
 type:product_review
 ```
 
 To listen for more than one type:
 
-```text
+```
 type:product_review OR type:faq_entry
 ```
 
 Example configuration:
 
-```text
+```
 Name:           Product review updates
 Shopify topic:  shopify/metaobjects/update
 Mechanic topic: user/metaobjects/product_review_update
@@ -189,7 +190,7 @@ Filter:         type:product_review
 
 Task subscription:
 
-```text
+```
 user/metaobjects/product_review_update
 ```
 
@@ -232,14 +233,14 @@ For Shopify's payload rules, see [Modify your payloads](https://shopify.dev/docs
 
 `include_fields` is not a metafield selector. This will not include the `custom.pack_size` metafield:
 
-```text
+```
 Include fields:
 custom.pack_size
 ```
 
 Use **Metafields** for exact metafields:
 
-```text
+```
 Metafields:
 custom.pack_size
 ```
@@ -250,7 +251,7 @@ Metafields can also be used in filters. Select the namespace or exact metafield 
 
 If you are also using **Include fields**, add `metafields` there too:
 
-```text
+```
 Include fields:
 id
 title
@@ -266,7 +267,7 @@ custom.pack_size
 
 Use this when a task only cares about active products.
 
-```text
+```
 Name:           Active product updates
 Shopify topic:  shopify/products/update
 Mechanic topic: user/products/active_update
@@ -280,7 +281,7 @@ Include fields:
 
 Task subscription:
 
-```text
+```
 user/products/active_update
 ```
 
@@ -298,7 +299,7 @@ Task code:
 
 Use this when the task only needs variant IDs and prices.
 
-```text
+```
 Name:           Product variant price updates
 Shopify topic:  shopify/products/update
 Mechanic topic: user/products/variant_price_update
@@ -316,7 +317,7 @@ Remember: this filter means the product has at least one variant priced at or ab
 
 Use this when only products with a known metafield should reach the task.
 
-```text
+```
 Name:           Products tracked by Mechanic
 Shopify topic:  shopify/products/update
 Mechanic topic: user/products/tracked_update
@@ -361,15 +362,15 @@ For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the s
 
 ## Delivery statuses
 
-| Status | What it means |
-|---|---|
-| **Draft** | The custom Shopify webhook has not been saved yet. |
-| **Receiving** | It is enabled, synced with Shopify, and at least one enabled task subscribes to its Mechanic topic. |
-| **Not receiving** | It is enabled, but no enabled task subscribes to its Mechanic topic yet. |
-| **Needs permissions** | Mechanic needs additional Shopify permissions before Shopify can activate the subscription. |
-| **Needs filter** | The webhook has no filter and conflicts with a native `shopify/...` task subscription for the same Shopify topic. |
-| **Sync error** | Shopify rejected the last sync attempt, or cleanup failed. Read the inline error and adjust the configuration. |
-| **Disabled** | Mechanic keeps the configuration, but does not keep a matching Shopify subscription active. |
+| Status                | What it means                                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Draft**             | The custom Shopify webhook has not been saved yet.                                                                |
+| **Receiving**         | It is enabled, synced with Shopify, and at least one enabled task subscribes to its Mechanic topic.               |
+| **Not receiving**     | It is enabled, but no enabled task subscribes to its Mechanic topic yet.                                          |
+| **Needs permissions** | Mechanic needs additional Shopify permissions before Shopify can activate the subscription.                       |
+| **Needs filter**      | The webhook has no filter and conflicts with a native `shopify/...` task subscription for the same Shopify topic. |
+| **Sync error**        | Shopify rejected the last sync attempt, or cleanup failed. Read the inline error and adjust the configuration.    |
+| **Disabled**          | Mechanic keeps the configuration, but does not keep a matching Shopify subscription active.                       |
 
 ## Common issues and gotchas
 
@@ -381,7 +382,7 @@ For native Shopify deliveries, `event.topic` and `event.shopify_topic` are the s
 
 **Some money fields behave like strings.** Shopify webhook payloads often represent prices and totals as strings, like `"0.00"`. For exact money matches, quote the decimal string in the Shopify filter, e.g. `total_price:"0.00"` or `variants.price:"0.00"`. Test against a real Shopify event when exact field typing matters.
 
-**Filter problems fail in different ways.** Shopify rejects some filter problems when you save, while others save but never match a delivery. See [When a filter does not behave as expected](#when-a-filter-does-not-behave-as-expected).
+**Filter problems fail in different ways.** Shopify rejects some filter problems when you save, while others save but never match a delivery. See [When a filter does not behave as expected](custom-webhooks.md#when-a-filter-does-not-behave-as-expected).
 
 **Include fields can affect repeat update deliveries.** **Include fields** is not a "fire only when these fields change" switch, but Shopify may skip a recent update delivery when the payload after trimming would be identical. Include `updated_at` when you want every matching update to arrive. Leave it out when you intentionally want Shopify to reduce repeat deliveries where only fields outside your payload changed.
 
@@ -421,7 +422,7 @@ If an imported webhook is a variant of an existing webhook, give it a different 
 
 ## Related
 
-* [How Shopify events reach Mechanic](../../core/shopify/events/README.md)
+* [How Shopify events reach Mechanic](../../core/shopify/events/)
 * [Event topics](../events/topics.md)
 * [Subscriptions](../../core/tasks/subscriptions.md)
 * [Permissions](../../core/tasks/permissions.md)
@@ -432,3 +433,4 @@ If an imported webhook is a variant of an existing webhook, give it a different 
 * Shopify: [Filter your events](https://shopify.dev/docs/apps/build/webhooks/customize/filters)
 * Shopify: [Modify your payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads)
 * Shopify: [WebhookSubscriptionInput](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/WebhookSubscriptionInput)
+* [custom-webhook-imports.md](../../resources/task-library/custom-webhook-imports.md "mention")
