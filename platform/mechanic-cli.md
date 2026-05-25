@@ -30,17 +30,26 @@ In short:
 
 ## Set up a local task project
 
+{% stepper %}
+{% step %}
+
 ### Install the CLI
 
 ```bash
 npm install -g @lightward/mechanic-cli
 ```
 
+{% endstep %}
+{% step %}
+
 ### Create an API token
 
 In the Mechanic app, open **Settings > API tokens** and create a token for this device, repository, or automation.
 
 Copy the token immediately. Mechanic only shows it once.
+
+{% endstep %}
+{% step %}
 
 ### Initialize the project
 
@@ -51,6 +60,9 @@ mechanic init --shop example.myshopify.com
 ```
 
 When prompted, paste the API token from Mechanic. The CLI stores it outside the project folder.
+
+{% endstep %}
+{% step %}
 
 ### Pull tasks from Mechanic
 
@@ -66,13 +78,26 @@ If you only want one task later, pass a task selector:
 mechanic tasks pull tasks/order-tagger.json
 ```
 
-## Edit one task
+{% endstep %}
+{% endstepper %}
+
+## Edit, preview, and publish one task
+
+{% stepper %}
+{% step %}
+
+### Choose a task
 
 Pick a task file from `tasks/`, or run:
 
 ```bash
 mechanic tasks list
 ```
+
+{% endstep %}
+{% step %}
+
+### Unbundle it for editing
 
 Unbundle the task before editing Liquid or docs:
 
@@ -92,11 +117,21 @@ tasks/
     subscriptions.liquid
 ```
 
+{% endstep %}
+{% step %}
+
+### Edit and bundle
+
 Edit the helper files, then bundle them back into the JSON file:
 
 ```bash
 mechanic tasks bundle tasks/order-tagger
 ```
+
+{% endstep %}
+{% step %}
+
+### Check status
 
 Check where things stand:
 
@@ -106,28 +141,56 @@ mechanic tasks status
 
 If a helper folder has changes that have not been bundled, the CLI will stop before publishing and tell you what to run.
 
-## Preview, diff, and publish
+{% endstep %}
+{% step %}
 
-Use previews and dry runs before publishing:
-
-```bash
-mechanic tasks preview tasks/order-tagger.json
-mechanic tasks diff tasks/order-tagger.json
-mechanic tasks publish tasks/order-tagger.json --dry-run
-mechanic tasks publish tasks/order-tagger.json
-```
+### Preview locally
 
 `tasks preview` sends the local task content to Mechanic's preview engine without saving it. It reports validation errors, previewed actions, and Shopify permissions detected by the previewed paths. Missing Shopify permissions are approved in the Mechanic app after publishing or enabling the task.
 
+```bash
+mechanic tasks preview tasks/order-tagger.json
+```
+
+{% endstep %}
+{% step %}
+
+### Review the diff
+
 `tasks diff` compares your local task with the current task in Mechanic.
+
+```bash
+mechanic tasks diff tasks/order-tagger.json
+```
+
+{% endstep %}
+{% step %}
+
+### Dry run the publish
 
 `tasks publish --dry-run` validates the selected task, checks for helper-folder drift, checks the current remote task, and prints what would happen without writing to Mechanic.
 
+```bash
+mechanic tasks publish tasks/order-tagger.json --dry-run
+```
+
+{% endstep %}
+{% step %}
+
+### Publish intentionally
+
 `tasks publish` writes the selected local task to Mechanic. New tasks are created disabled, so you can review and enable them in the app when they are ready.
+
+```bash
+mechanic tasks publish tasks/order-tagger.json
+```
 
 {% hint style="warning" %}
 Use `--force` only when you intentionally want the local file to win over changes made in Mechanic or another checkout. The default workflow is designed to stop before stale local files overwrite newer remote changes.
 {% endhint %}
+
+{% endstep %}
+{% endstepper %}
 
 ## Before publishing
 
