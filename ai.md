@@ -9,6 +9,7 @@ description: "Use AI tools to write and debug Shopify automation tasks in Mechan
 
 For developers writing tasks, Mechanic also offers dedicated AI tools:
 
+* **[Mechanic CLI](platform/mechanic-cli.md)** — preview, diff, and publish local task files safely
 * **[Mechanic MCP Server](platform/mcp.md)** — connect your AI coding tool to the task library and docs
 * **[Mechanic Agent Skills](platform/agent-skills.md)** — install task-writing expertise into your AI coding tool
 * **[Mechanic Sidekick Skill](platform/sidekick.md)** — write tasks with Shopify's built-in AI assistant
@@ -29,9 +30,11 @@ Mechanic support covers the platform and tasks from the [task library](resources
 
 ### For developers
 
+The **[Mechanic CLI](platform/mechanic-cli.md)** gives AI and agent workflows a safe local loop: pull task files, edit them in a repo, preview local changes, review diffs, and publish intentionally. Use it when an assistant is making changes that should be checked before they reach Mechanic.
+
 The **[MCP server](platform/mcp.md)** and **[Agent Skills](platform/agent-skills.md)** are designed to work together. The MCP server gives your AI assistant access to Mechanic's task library and documentation at query time. Agent Skills install Mechanic's task-writing patterns directly into your AI's context, so it knows how to structure subscriptions, handle preview mode, use GraphQL, and produce complete importable task JSON.
 
-For the best results, use both: the MCP server for research and reference, and Agent Skills for writing code.
+For the best results, use all three where they fit: the MCP server for research and reference, Agent Skills for writing code, and the CLI for previewing, diffing, and publishing local task files.
 
 The **[Shopify Dev MCP Server](platform/shopify-dev-mcp.md)** is also worth adding — it gives your AI assistant direct access to Shopify's GraphQL schema and query validation.
 

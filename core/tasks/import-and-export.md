@@ -7,6 +7,8 @@ description: >-
 
 Mechanic tasks may be imported and exported as JSON, using the "Import" or "Export" button below the task editor. The JSON schema used for representing tasks is identical to that used by the **task library**, making it suitable for [contributing to the task library](../../resources/task-library/contributing.md).
 
+For local editing, Git history, previews, diffs, and safer publishing back to Mechanic, use [local task development with the Mechanic CLI](../../platform/mechanic-cli.md). The CLI uses the same task JSON shape, with helper folders for editing Liquid and docs in separate files.
+
 ## Importing
 
 Mechanic has the ability to import tasks from JSON individually and in bulk, from the "Import tasks" screen.

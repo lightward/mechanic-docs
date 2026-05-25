@@ -284,6 +284,7 @@ When working with your AI assistant and the Mechanic MCP server:
 
 ## Related resources
 
+* [Local task development with the Mechanic CLI](mechanic-cli.md) - Preview, diff, and publish local task files
 * [Task library](../resources/task-library/) - Browse and contribute to Mechanic's task library
 * [Writing tasks](../core/tasks/) - Learn how to write Mechanic tasks
 * [Liquid templating](liquid/) - Mechanic's Liquid implementation

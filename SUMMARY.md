@@ -16,6 +16,8 @@
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
   * [Custom webhook imports](resources/task-library/custom-webhook-imports.md)
+* [🧑‍💻 Local task development](platform/mechanic-cli.md)
+  * [API tokens and task sync API](platform/mechanic-task-sync-api.md)
 * [🤖 Mechanic MCP Server](platform/mcp.md)
 * [🤖 Mechanic Agent Skills](platform/agent-skills.md)
 * [🚀 Slack community](resources/slack.md)

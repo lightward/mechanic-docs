@@ -9,6 +9,8 @@ A task uses its **preview** to demonstrate what actions the task intends to gene
 
 Mechanic generates a task preview by rendering the task code using a **preview event**, which resembles a live event that the task may see. The task is then responsible for rendering **preview actions** in response to the preview event, actions which are visually presented to the user and are analyzed by the platform, but are never actually performed.
 
+If you are editing tasks locally, the [Mechanic CLI](../../../platform/mechanic-cli.md) can preview a local task file without saving it to Mechanic.
+
 {% hint style="info" %}
 **Task previews cannot access the Mechanic cache or the Shopify Admin API.** This restriction is made to increase the predictability and performance of task previews.
 

@@ -165,12 +165,13 @@ Your assistant will produce complete, importable task JSON with correct subscrip
 
 ## Using with the MCP server
 
-For the best results, use Agent Skills together with the [Mechanic MCP Server](mcp.md). The MCP server gives your AI assistant access to the task library and documentation at query time, while Agent Skills provide the patterns and conventions for writing correct task code. Together, they cover both reference and execution.
+For the best results, use Agent Skills together with the [Mechanic MCP Server](mcp.md) and the [Mechanic CLI](mechanic-cli.md). The MCP server gives your AI assistant access to the task library and documentation at query time, Agent Skills provide the patterns and conventions for writing correct task code, and the CLI previews, diffs, and publishes local task files.
 
 ***
 
 ## Related resources
 
+* [Local task development with the Mechanic CLI](mechanic-cli.md) — preview, diff, and publish local task files
 * [Mechanic MCP Server](mcp.md) — connect your AI to the task library and docs
 * [Using AI with Mechanic](../ai.md) — overview of all Mechanic AI tools
 * [Task library](../resources/task-library/) — browse 350+ pre-built automation tasks
