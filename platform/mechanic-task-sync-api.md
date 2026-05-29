@@ -25,7 +25,7 @@ Tokens are:
 
 Treat tokens like passwords. A token can read task sync payloads and can preview and publish tasks for its shop until revoked.
 
-Use one token per device, repository, or automation. If a token is leaked, revoke it and create a replacement.
+Use one token per device, repository, or automation. Each shop can have up to five active API tokens. If a token is leaked, revoke it and create a replacement.
 
 {% hint style="warning" %}
 API tokens are not granularly scoped in this version. Do not share a token with untrusted repositories, third-party scripts, or agents you would not trust to read and publish tasks for the shop.
@@ -82,7 +82,7 @@ mechanic shop status
 
 Preview requests do not create, update, save, enable, or run a task. They ask Mechanic to evaluate local or remote task content through preview mode and return the result.
 
-Publishing writes task content to Mechanic. New tasks created through task sync are created disabled. Review and enable them in the app when they are ready.
+Publishing writes task content to Mechanic. It does not enable or disable an existing task. New tasks created through task sync are created disabled. Review and enable them in the app when they are ready.
 
 The update endpoint supports remote-change protection. The CLI sends the last known remote content hash so Mechanic can reject stale updates instead of overwriting newer changes.
 
@@ -90,7 +90,7 @@ The update endpoint supports remote-change protection. The CLI sends the last kn
 
 The task sync API has its own rate limits, separate from Shopify Admin API rate limits. If Mechanic returns `429 Too Many Requests`, respect the `Retry-After` response and retry later.
 
-Avoid tight preview loops in CI or agents. Preview is safe, but it still uses Mechanic compute.
+Preview has additional protection because it uses Mechanic compute: at most two previews may run concurrently for one API token, and at most four previews may run concurrently for one shop through the task sync API. Avoid tight preview loops in CI or agents.
 
 Common responses:
 

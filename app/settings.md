@@ -57,6 +57,10 @@ Only needed if external apps need to read data from your tasks. Create URLs that
 
 Only needed if you are using [local task development with the Mechanic CLI](../platform/mechanic-cli.md), GitHub Actions, scripts, or agents that sync tasks for this shop. API tokens can read, preview, and publish tasks for the shop until revoked. Mechanic only shows a token once, when it is created; if a token is lost or exposed, revoke it and create a new one.
 
+Use a separate token for each device, repository, or automation. Each shop can have up to five active API tokens; revoke unused tokens before creating more.
+
+<figure><img src="../.gitbook/assets/mechanic-api-tokens-settings.png" alt="The API tokens section in Mechanic settings, showing one active API token"><figcaption></figcaption></figure>
+
 See [API tokens and task sync API](../platform/mechanic-task-sync-api.md) for token safety and automation details.
 
 ## Authentication

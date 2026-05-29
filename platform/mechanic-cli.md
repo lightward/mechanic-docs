@@ -70,13 +70,15 @@ When prompted, paste the API token from Mechanic. The CLI stores it outside the 
 mechanic tasks pull
 ```
 
-This creates local JSON files in `tasks/` and records links to the matching tasks in Mechanic.
+This creates local JSON files in `tasks/` and records links to the matching tasks in Mechanic. Running `tasks pull` without a task selector pulls every task for the shop.
 
 If you only want one task later, pass a task selector:
 
 ```bash
 mechanic tasks pull tasks/order-tagger.json
 ```
+
+A task selector can be a task JSON file, helper folder, unique local slug, or linked remote task ID. When in doubt, use the full `tasks/<name>.json` path.
 
 {% endstep %}
 {% endstepper %}
@@ -91,8 +93,10 @@ mechanic tasks pull tasks/order-tagger.json
 Pick a task file from `tasks/`, or run:
 
 ```bash
-mechanic tasks list
+mechanic tasks list --verbose
 ```
+
+`--verbose` shows remote task IDs, linked local files, and hashes.
 
 {% endstep %}
 {% step %}
@@ -152,6 +156,12 @@ If a helper folder has changes that have not been bundled, the CLI will stop bef
 mechanic tasks preview tasks/order-tagger.json
 ```
 
+Use `--verbose` if you want the terminal to show event, task run, and action run details without switching to JSON output:
+
+```bash
+mechanic tasks preview tasks/order-tagger.json --verbose
+```
+
 {% endstep %}
 {% step %}
 
@@ -179,7 +189,7 @@ mechanic tasks publish tasks/order-tagger.json --dry-run
 
 ### Publish intentionally
 
-`tasks publish` writes the selected local task to Mechanic. New tasks are created disabled, so you can review and enable them in the app when they are ready.
+`tasks publish` writes the selected local task to Mechanic. Publishing does not enable or disable an existing task. New tasks are created disabled, so you can review and enable them in the app when they are ready.
 
 ```bash
 mechanic tasks publish tasks/order-tagger.json
@@ -206,6 +216,12 @@ mechanic tasks publish tasks/order-tagger.json --dry-run
 
 `shop status` shows whether the shop has running or waiting runs. It is a useful check before publishing changes to a busy shop.
 
+Use `tasks open` to jump from a local task file, helper folder, slug, or remote task ID to the task in Mechanic:
+
+```bash
+mechanic tasks open tasks/order-tagger.json
+```
+
 ## Git and GitHub Actions
 
 You can commit `mechanic.json`, `.mechanic/links.json`, and `tasks/` to Git. This gives your task changes history, review, and rollback.
@@ -216,11 +232,13 @@ Once the local workflow is working, the CLI can generate optional GitHub Actions
 mechanic github init
 ```
 
-The generated workflows can validate task files on pull requests, run a manual dry-run/deploy, and open a sync-back PR for changes pulled from Mechanic.
+The generated workflows can validate task files on pull requests, run a manual dry-run/deploy, and open a sync-back PR for changes pulled from Mechanic. After a deploy, the workflow also opens or updates a sync-state PR so `.mechanic/links.json` and task hashes stay current.
 
 {% hint style="warning" %}
 Only add deploy or sync workflows to repositories maintained by people you trust. Those workflows use `MECHANIC_API_TOKEN`, which can read, preview, and publish tasks for the shop.
 {% endhint %}
+
+The sync-from-app workflow is update-only in this version. It does not delete local files for tasks deleted in Mechanic.
 
 ## AI and agent workflows
 
