@@ -143,7 +143,7 @@ Check where things stand:
 mechanic tasks status
 ```
 
-If a helper folder has changes that have not been bundled, the CLI will stop before publishing and tell you what to run.
+This checks local files and linked tasks in Mechanic, so you can see whether a task is ready, changed locally, unchanged, or conflicted. If a helper folder has changes that have not been bundled, the CLI will stop before publishing and tell you what to run. Use `--local` only when you want to skip the network check.
 
 {% endstep %}
 {% step %}
@@ -207,7 +207,7 @@ Use `--force` only when you intentionally want the local file to win over change
 For a normal task change, this is the confidence loop:
 
 ```bash
-mechanic tasks status --remote
+mechanic tasks status
 mechanic shop status
 mechanic tasks preview tasks/order-tagger.json
 mechanic tasks diff tasks/order-tagger.json
