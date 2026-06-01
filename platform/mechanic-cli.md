@@ -98,12 +98,20 @@ mechanic tasks list --verbose
 
 `--verbose` shows remote task IDs, linked local files, and hashes.
 
+To start from scratch instead, create a local starter task:
+
+```bash
+mechanic tasks new order-tagger
+```
+
+This creates both `tasks/order-tagger.json` and `tasks/order-tagger/`. Nothing is created in Mechanic until you publish.
+
 {% endstep %}
 {% step %}
 
 ### Unbundle it for editing
 
-Unbundle the task before editing Liquid or docs:
+If you pulled an existing task and only have the JSON file, unbundle it before editing Liquid or docs:
 
 ```bash
 mechanic tasks unbundle tasks/order-tagger.json
@@ -120,6 +128,8 @@ tasks/
     docs.md
     subscriptions.liquid
 ```
+
+Tasks created with `tasks new` already have this helper folder.
 
 {% endstep %}
 {% step %}
