@@ -69,6 +69,10 @@ This API is intentionally narrow. It covers task sync, task preview, and shop st
 | `POST` | `/v1/tasks` | Create a task from sync payload |
 | `PUT` | `/v1/tasks/:id` | Update a task from sync payload |
 
+{% hint style="info" %}
+There is no `tasks new` API endpoint. `mechanic tasks new` is a local CLI command that creates a starter task file and helper folder in an initialized project. When that new local task is published, the CLI uses `POST /v1/tasks`, and Mechanic creates the remote task disabled.
+{% endhint %}
+
 For most automation, prefer the CLI commands that wrap these endpoints:
 
 ```bash

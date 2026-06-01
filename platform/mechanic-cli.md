@@ -108,7 +108,7 @@ To start from scratch instead, create a new blank local task:
 mechanic tasks new order-tagger
 ```
 
-This creates a blank starter task in both `tasks/order-tagger.json` and `tasks/order-tagger/`. Nothing is created in Mechanic until you publish.
+This creates a blank starter task in both `tasks/order-tagger.json` and `tasks/order-tagger/`. You can use it any time in an initialized CLI project; it does not require a fresh repository. Nothing is created in Mechanic until you publish, and the command will not overwrite existing local task files unless you pass `--force`.
 
 {% endstep %}
 {% step %}
@@ -133,7 +133,7 @@ tasks/
     subscriptions.liquid
 ```
 
-Tasks created with `tasks new` already have this helper folder.
+Tasks created with `tasks new` already have this helper folder, so you can edit them without running `tasks unbundle` first.
 
 {% endstep %}
 {% step %}
