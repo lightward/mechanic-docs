@@ -80,6 +80,10 @@ mechanic tasks pull order-tagger
 
 For most commands, the simplest selector is the local task slug, like `order-tagger`. The CLI also accepts a task JSON file, helper folder, or linked remote task ID. If a slug matches more than one local file, the CLI will ask for the full `tasks/<name>.json` path.
 
+Task names and local file names are related, but they are not the same identity. When the CLI first pulls or creates a task, it uses the task name to choose a readable local slug like `order-tagger`, which becomes `tasks/order-tagger.json`. After that, the remote task ID stored in `.mechanic/links.json` is the sync identity.
+
+If you rename the task in Mechanic, the next pull keeps the existing local file name and updates the `name` field inside the JSON. If you rename the local JSON file or helper folder by hand, the CLI treats that as a new local slug and the task may appear unlinked. Keep local filenames stable unless you also intentionally update `.mechanic/links.json` and verify with `tasks status` and `tasks publish --dry-run`.
+
 {% endstep %}
 {% endstepper %}
 
