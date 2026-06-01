@@ -182,6 +182,9 @@ mechanic tasks preview order-tagger --verbose
 ### Review the diff
 
 `tasks diff` compares your local task with the current task in Mechanic.
+If the task changed in Mechanic since your last pull, the diff shows what would
+change if your local file replaced the current Mechanic task: `-` is current
+Mechanic, and `+` is your local file.
 
 ```bash
 mechanic tasks diff order-tagger
