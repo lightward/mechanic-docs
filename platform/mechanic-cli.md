@@ -102,13 +102,13 @@ mechanic tasks list --verbose
 
 `--verbose` shows remote task IDs, linked local files, and hashes.
 
-To start from scratch instead, create a local starter task:
+To start from scratch instead, create a new blank local task:
 
 ```bash
 mechanic tasks new order-tagger
 ```
 
-This creates both `tasks/order-tagger.json` and `tasks/order-tagger/`. Nothing is created in Mechanic until you publish.
+This creates a blank starter task in both `tasks/order-tagger.json` and `tasks/order-tagger/`. Nothing is created in Mechanic until you publish.
 
 {% endstep %}
 {% step %}
