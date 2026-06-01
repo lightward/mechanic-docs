@@ -186,9 +186,9 @@ mechanic tasks diff tasks/order-tagger.json
 {% endstep %}
 {% step %}
 
-### Dry run the publish
+### Check the publish plan
 
-`tasks publish --dry-run` validates the selected task, checks for helper-folder drift, checks the current remote task, and prints what would happen without writing to Mechanic.
+`tasks publish --dry-run` is a publish preflight. It checks whether publishing would be safe, including helper-folder drift and remote conflicts, then prints what would create, update, stay unchanged, or stop before writing anything to Mechanic.
 
 ```bash
 mechanic tasks publish tasks/order-tagger.json --dry-run
