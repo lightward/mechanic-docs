@@ -75,10 +75,10 @@ This creates local JSON files in `tasks/` and records links to the matching task
 If you only want one task later, pass a task selector:
 
 ```bash
-mechanic tasks pull tasks/order-tagger.json
+mechanic tasks pull order-tagger
 ```
 
-A task selector can be a task JSON file, helper folder, unique local slug, or linked remote task ID. When in doubt, use the full `tasks/<name>.json` path.
+For most commands, the simplest selector is the local task slug, like `order-tagger`. The CLI also accepts a task JSON file, helper folder, or linked remote task ID. If a slug matches more than one local file, the CLI will ask for the full `tasks/<name>.json` path.
 
 {% endstep %}
 {% endstepper %}
@@ -114,7 +114,7 @@ This creates both `tasks/order-tagger.json` and `tasks/order-tagger/`. Nothing i
 If you pulled an existing task and only have the JSON file, unbundle it before editing Liquid or docs:
 
 ```bash
-mechanic tasks unbundle tasks/order-tagger.json
+mechanic tasks unbundle order-tagger
 ```
 
 This creates a helper folder:
@@ -139,7 +139,7 @@ Tasks created with `tasks new` already have this helper folder.
 Edit the helper files, then bundle them back into the JSON file:
 
 ```bash
-mechanic tasks bundle tasks/order-tagger
+mechanic tasks bundle order-tagger
 ```
 
 {% endstep %}
@@ -163,13 +163,13 @@ This checks local files and linked tasks in Mechanic, so you can see whether a t
 `tasks preview` sends the local task content to Mechanic's preview engine without saving it. It reports validation errors, previewed actions, and Shopify permissions detected by the previewed paths. Missing Shopify permissions are approved in the Mechanic app after publishing or enabling the task.
 
 ```bash
-mechanic tasks preview tasks/order-tagger.json
+mechanic tasks preview order-tagger
 ```
 
 Use `--verbose` if you want the terminal to show event, task run, and action run details without switching to JSON output:
 
 ```bash
-mechanic tasks preview tasks/order-tagger.json --verbose
+mechanic tasks preview order-tagger --verbose
 ```
 
 {% endstep %}
@@ -180,7 +180,7 @@ mechanic tasks preview tasks/order-tagger.json --verbose
 `tasks diff` compares your local task with the current task in Mechanic.
 
 ```bash
-mechanic tasks diff tasks/order-tagger.json
+mechanic tasks diff order-tagger
 ```
 
 {% endstep %}
@@ -191,7 +191,7 @@ mechanic tasks diff tasks/order-tagger.json
 `tasks publish --dry-run` is a publish preflight. It checks whether publishing would be safe, including helper-folder drift and remote conflicts, then prints what would create, update, stay unchanged, or stop before writing anything to Mechanic.
 
 ```bash
-mechanic tasks publish tasks/order-tagger.json --dry-run
+mechanic tasks publish order-tagger --dry-run
 ```
 
 {% endstep %}
@@ -202,7 +202,7 @@ mechanic tasks publish tasks/order-tagger.json --dry-run
 `tasks publish` writes the selected local task to Mechanic. Publishing does not enable or disable an existing task. New tasks are created disabled, so you can review and enable them in the app when they are ready.
 
 ```bash
-mechanic tasks publish tasks/order-tagger.json
+mechanic tasks publish order-tagger
 ```
 
 {% hint style="warning" %}
@@ -219,9 +219,9 @@ For a normal task change, this is the confidence loop:
 ```bash
 mechanic tasks status
 mechanic shop status
-mechanic tasks preview tasks/order-tagger.json
-mechanic tasks diff tasks/order-tagger.json
-mechanic tasks publish tasks/order-tagger.json --dry-run
+mechanic tasks preview order-tagger
+mechanic tasks diff order-tagger
+mechanic tasks publish order-tagger --dry-run
 ```
 
 `shop status` shows whether the shop has running or waiting runs. It is a useful check before publishing changes to a busy shop.
@@ -229,7 +229,7 @@ mechanic tasks publish tasks/order-tagger.json --dry-run
 Use `tasks open` to jump from a local task file, helper folder, slug, or remote task ID to the task in Mechanic:
 
 ```bash
-mechanic tasks open tasks/order-tagger.json
+mechanic tasks open order-tagger
 ```
 
 ## Git and GitHub Actions
@@ -261,7 +261,7 @@ The CLI pairs well with AI coding tools:
 For agent-friendly output, many commands support machine-readable or automation-friendly flows, such as:
 
 ```bash
-mechanic tasks preview tasks/order-tagger.json --json
+mechanic tasks preview order-tagger --json
 ```
 
 ## Related

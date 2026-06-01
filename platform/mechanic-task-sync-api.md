@@ -72,9 +72,9 @@ This API is intentionally narrow. It covers task sync, task preview, and shop st
 For most automation, prefer the CLI commands that wrap these endpoints:
 
 ```bash
-mechanic tasks preview tasks/order-tagger.json --json
-mechanic tasks publish tasks/order-tagger.json --dry-run
-mechanic tasks publish tasks/order-tagger.json
+mechanic tasks preview order-tagger --json
+mechanic tasks publish order-tagger --dry-run
+mechanic tasks publish order-tagger
 mechanic shop status
 ```
 
