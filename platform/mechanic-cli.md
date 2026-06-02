@@ -80,9 +80,9 @@ mechanic tasks pull order-tagger
 
 For most commands, the simplest selector is the local task slug, like `order-tagger`. The CLI also accepts a task JSON file, helper folder, or linked remote task ID. If a slug matches more than one local file, the CLI will ask for the full `tasks/<name>.json` path.
 
-Task names and local file names are related, but they are not the same identity. When the CLI first pulls or creates a task, it uses the task name to choose a readable local slug like `order-tagger`, which becomes `tasks/order-tagger.json`. After that, the remote task ID stored in `.mechanic/links.json` is the sync identity.
+Task names and local file names are related, but they are not the same thing. When the CLI first pulls or creates a task, it uses the task name to choose a readable local slug like `order-tagger`, which becomes `tasks/order-tagger.json`.
 
-If you rename the task in Mechanic, the next pull keeps the existing local file name and updates the `name` field inside the JSON. If you rename the local JSON file or helper folder by hand, the CLI treats that as a new local slug and the task may appear unlinked. Keep local filenames stable unless you also intentionally update `.mechanic/links.json` and verify with `tasks status` and `tasks publish --dry-run`.
+If you rename the task in Mechanic, the next pull keeps the existing local file name and updates the `name` field inside the JSON. If you rename the local JSON file or helper folder by hand, the task may appear unlinked. Prefer keeping local filenames stable, and run `tasks status` after renaming anything.
 
 {% endstep %}
 {% endstepper %}
@@ -100,7 +100,7 @@ Pick a task file from `tasks/`, or run:
 mechanic tasks list --verbose
 ```
 
-`--verbose` shows remote task IDs, linked local files, and hashes.
+`--verbose` shows remote task IDs, linked local files, and sync details.
 
 To start from scratch instead, create a new blank local task:
 
@@ -187,10 +187,13 @@ mechanic tasks preview order-tagger --verbose
 
 ### Review the diff
 
-`tasks diff` compares your local task with the current task in Mechanic.
-If the task changed in Mechanic since your last pull, the diff shows what would
-change if your local file replaced the current Mechanic task: `-` is current
-Mechanic, and `+` is your local file.
+`tasks diff` compares the version currently saved in Mechanic with your local
+file. In diff output, `-` is Mechanic and `+` is your local file.
+
+If Mechanic changed and your local file has not, pull normally to bring the
+Mechanic version into your repo. If both changed, the CLI stops instead of
+guessing. Decide whether to keep the Mechanic version or your local version
+before using `--force`.
 
 ```bash
 mechanic tasks diff order-tagger
