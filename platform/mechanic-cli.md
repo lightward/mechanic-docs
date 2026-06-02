@@ -35,6 +35,8 @@ In short:
 
 ### Install the CLI
 
+The Mechanic CLI requires Node.js 22 or higher.
+
 ```bash
 npm install -g @lightward/mechanic-cli
 ```
@@ -64,7 +66,11 @@ When prompted, paste the API token from Mechanic. The CLI stores it outside the 
 {% endstep %}
 {% step %}
 
-### Pull tasks from Mechanic
+### Choose how to start
+
+After initializing the project, choose one path.
+
+**Bring existing tasks into local files:**
 
 ```bash
 mechanic tasks pull
@@ -72,11 +78,20 @@ mechanic tasks pull
 
 This creates local JSON files in `tasks/` and records links to the matching tasks in Mechanic. Running `tasks pull` without a task selector pulls every task for the shop.
 
-If you only want one task later, pass a task selector:
+If you only want one existing task, first find its remote task ID:
 
 ```bash
-mechanic tasks pull order-tagger
+mechanic tasks list --verbose
+mechanic tasks pull <remote-task-id>
 ```
+
+**Start from a new local task:**
+
+```bash
+mechanic tasks new order-tagger
+```
+
+This creates a starter task in `tasks/order-tagger.json` and `tasks/order-tagger/`. Nothing is created in Mechanic until you publish.
 
 For most commands, the simplest selector is the local task slug, like `order-tagger`. The CLI also accepts a task JSON file, helper folder, or linked remote task ID. If a slug matches more than one local file, the CLI will ask for the full `tasks/<name>.json` path.
 
@@ -190,10 +205,20 @@ mechanic tasks preview order-tagger --verbose
 `tasks diff` compares the version currently saved in Mechanic with your local
 file. In diff output, `-` is Mechanic and `+` is your local file.
 
-If Mechanic changed and your local file has not, pull normally to bring the
-Mechanic version into your repo. If both changed, the CLI stops instead of
-guessing. Decide whether to keep the Mechanic version or your local version
-before using `--force`.
+If only your local file changed, continue to the publish preflight. If Mechanic
+changed and your local file has not, pull normally to bring the Mechanic version
+into your repo. If both changed, reconcile the changes first when you can.
+
+When you intentionally need one version to replace the other, the command tells
+the CLI which version to keep:
+
+```bash
+mechanic tasks pull <remote-task-id> --force
+mechanic tasks publish order-tagger --force
+```
+
+`pull --force` keeps the current Mechanic version. `publish --force` keeps your
+local file.
 
 ```bash
 mechanic tasks diff order-tagger
@@ -221,8 +246,17 @@ mechanic tasks publish order-tagger --dry-run
 mechanic tasks publish order-tagger
 ```
 
+After publishing, open the task in Mechanic to review the saved version:
+
+```bash
+mechanic tasks open order-tagger
+```
+
+Approve any Shopify permissions if Mechanic prompts for them. If this is a new
+task, enable it in Mechanic when it is ready to run.
+
 {% hint style="warning" %}
-Use `--force` only when you intentionally want the local file to win over changes made in Mechanic or another checkout. The default workflow is designed to stop before stale local files overwrite newer remote changes.
+Use `publish --force` only when you intentionally want the local file to replace changes made in Mechanic or another checkout. The default workflow is designed to stop before stale local files overwrite newer remote changes.
 {% endhint %}
 
 {% endstep %}
@@ -258,7 +292,22 @@ Once the local workflow is working, the CLI can generate optional GitHub Actions
 mechanic github init
 ```
 
-The generated workflows can validate task files on pull requests, run a manual dry-run/deploy, and open a sync-back PR for changes pulled from Mechanic. After a deploy, the workflow also opens or updates a sync-state PR so `.mechanic/links.json` and task hashes stay current.
+Local CLI usage works without GitHub Actions. If you add them, the generated
+workflows can validate task files on pull requests, run a manual dry-run/deploy,
+and open a sync-back PR for changes pulled from Mechanic. After a deploy, the
+workflow also opens or updates a sync-state PR so `.mechanic/links.json` and
+task hashes stay current.
+
+`mechanic github init` creates:
+
+```text
+.github/workflows/mechanic-validate.yml
+.github/workflows/mechanic-deploy.yml
+.github/workflows/mechanic-sync-from-app.yml
+```
+
+Pull request validation does not need a Mechanic token. Deploy and sync
+workflows do. Store that token as a GitHub secret named `MECHANIC_API_TOKEN`.
 
 {% hint style="warning" %}
 Only add deploy or sync workflows to repositories maintained by people you trust. Those workflows use `MECHANIC_API_TOKEN`, which can read, preview, and publish tasks for the shop.

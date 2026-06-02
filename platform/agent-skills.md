@@ -43,7 +43,7 @@ The `mechanic-cli` skill teaches your assistant how to work safely in a local ta
 
 ## Requirements
 
-* **Node.js 18 or higher** installed on your system.
+* **Node.js 18 or higher** installed on your system for the skill installer. The Mechanic CLI itself requires Node.js 22 or higher.
 * An **AI coding tool** that supports Agent Skills, such as Claude Code, Cursor, Codex CLI, or Gemini CLI.
 
 ***
@@ -81,7 +81,7 @@ The CLI will then place the skill file in the correct directory for each selecte
 {% tabs %}
 {% tab title="Claude Code" %}
 
-In Claude Code, type `/skills` to see your installed skills. You should see `mechanic-task-writer` listed.
+In Claude Code, type `/skills` to see your installed skills. You should see `mechanic-task-writer` and `mechanic-cli` listed.
 
 {% hint style="info" %}
 The `/skills` command requires the native Claude Code build. If you installed Claude Code via npm, run `claude install` first to switch to the native version.
@@ -105,13 +105,13 @@ Check that the skill file exists:
 ls ~/.cursor/skills/
 ```
 
-You should see a `mechanic-task-writer` file or directory. If you installed at the project level, check `.agents/skills/` in your project directory instead.
+You should see `mechanic-task-writer` and `mechanic-cli` files or directories. If you installed at the project level, check `.agents/skills/` in your project directory instead.
 
 {% endtab %}
 
 {% tab title="Codex CLI" %}
 
-In Codex, type `$skill` to see available skills. You should see `$mechanic-task-writer` listed.
+In Codex, type `$skill` to see available skills. You should see `$mechanic-task-writer` and `$mechanic-cli` listed.
 
 You can also check the file directly:
 
@@ -129,7 +129,7 @@ Check that the skill file exists:
 ls ~/.gemini/skills/
 ```
 
-The skill may also be in `~/.agents/skills/`.
+You should see `mechanic-task-writer` and `mechanic-cli`. The skills may also be in `~/.agents/skills/`.
 
 {% endtab %}
 

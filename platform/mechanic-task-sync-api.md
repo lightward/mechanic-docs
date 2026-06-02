@@ -73,12 +73,14 @@ This API is intentionally narrow. It covers task sync, task preview, and shop st
 | `GET` | `/v1/tasks` | List tasks available to sync |
 | `GET` | `/v1/tasks/:id` | Read one task for sync |
 | `POST` | `/v1/tasks/preview` | Preview local task content without saving |
-| `POST` | `/v1/tasks/:id/preview` | Preview the current remote task without saving |
+| `POST` | `/v1/tasks/:id/preview` | Preview the current saved task without saving |
 | `POST` | `/v1/tasks` | Create a task from sync payload |
 | `PUT` | `/v1/tasks/:id` | Update a task from sync payload |
 
 {% hint style="info" %}
 There is no `tasks new` API endpoint. `mechanic tasks new` is a local CLI command that creates a starter task file and helper folder in an initialized project. When that new local task is published, the CLI uses `POST /v1/tasks`, and Mechanic creates the remote task disabled.
+
+`POST /v1/tasks` always creates a new task. It does not update an existing task by matching the task name or local slug. For direct HTTP creates, send a stable `Idempotency-Key` header so retries do not create duplicate tasks.
 {% endhint %}
 
 For most automation, prefer the CLI commands that wrap these endpoints:
@@ -96,7 +98,7 @@ Preview requests do not create, update, save, enable, or run a task. They ask Me
 
 Publishing writes task content to Mechanic. It does not enable or disable an existing task. New tasks created through task sync are created disabled. Review and enable them in the app when they are ready.
 
-The update endpoint supports remote-change protection. The CLI sends the last known remote content hash so Mechanic can reject stale updates instead of overwriting newer changes.
+Updates require remote-change protection. Send `previous_content_hash` with `PUT /v1/tasks/:id` so Mechanic can reject stale updates instead of overwriting newer changes. Use `force` only as an intentional bypass when your local payload should replace the current Mechanic task.
 
 ## Rate limits and errors
 
@@ -119,6 +121,7 @@ Common responses:
 | --- | --- |
 | `401` | Missing, invalid, or revoked API token |
 | `403` | Token is not allowed to access this shop or API surface |
+| `400` | Required update guard is missing, such as `previous_content_hash` or `force` |
 | `404` | Task not found for this shop |
 | `409` | Remote task changed since the last known content hash |
 | `422` | Invalid task payload or validation error |
