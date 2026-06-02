@@ -32,7 +32,7 @@ Mechanic support covers the platform and tasks from the [task library](resources
 
 The **[Mechanic CLI](platform/mechanic-cli.md)** gives AI and agent workflows a safe local loop: pull task files, edit them in a repo, preview local changes, review diffs, and publish intentionally. Use it when an assistant is making changes that should be checked before they reach Mechanic.
 
-The **[MCP server](platform/mcp.md)** and **[Agent Skills](platform/agent-skills.md)** are designed to work together. The MCP server gives your AI assistant access to Mechanic's task library and documentation at query time. Agent Skills install Mechanic's task-writing patterns directly into your AI's context, so it knows how to structure subscriptions, handle preview mode, use GraphQL, and produce complete importable task JSON.
+The **[MCP server](platform/mcp.md)** and **[Agent Skills](platform/agent-skills.md)** are designed to work together. The MCP server gives your AI assistant access to Mechanic's task library and documentation at query time. Agent Skills install Mechanic's task-writing and CLI workflow patterns directly into your AI's context, so it knows how to structure subscriptions, handle preview mode, use GraphQL, and use the CLI to preview, diff, and publish local task files.
 
 For the best results, use all three where they fit: the MCP server for research and reference, Agent Skills for writing code, and the CLI for previewing, diffing, and publishing local task files.
 

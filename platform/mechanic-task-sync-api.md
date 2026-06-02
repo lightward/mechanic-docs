@@ -46,6 +46,14 @@ curl https://api.mechanic.dev/v1/auth/verify \
   -H "Authorization: Bearer $MECHANIC_API_TOKEN"
 ```
 
+Without an expected shop, this only confirms that the token is valid. To verify that a token is valid for the shop your automation intends to use, include the shop domain:
+
+```bash
+curl https://api.mechanic.dev/v1/auth/verify \
+  -H "Authorization: Bearer $MECHANIC_API_TOKEN" \
+  -H "X-Mechanic-Shop-Domain: example.myshopify.com"
+```
+
 For local CLI use, store the token outside the project with:
 
 ```bash
@@ -60,7 +68,7 @@ This API is intentionally narrow. It covers task sync, task preview, and shop st
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| `GET` | `/v1/auth/verify` | Verify the API token and shop access |
+| `GET` | `/v1/auth/verify` | Verify the API token; include an expected shop to receive shop and token context |
 | `GET` | `/v1/shop/status` | Read current queue and backlog status |
 | `GET` | `/v1/tasks` | List tasks available to sync |
 | `GET` | `/v1/tasks/:id` | Read one task for sync |
@@ -94,7 +102,16 @@ The update endpoint supports remote-change protection. The CLI sends the last kn
 
 The task sync API has its own rate limits, separate from Shopify Admin API rate limits. If Mechanic returns `429 Too Many Requests`, respect the `Retry-After` response and retry later.
 
-Preview has additional protection because it uses Mechanic compute: at most two previews may run concurrently for one API token, and at most four previews may run concurrently for one shop through the task sync API. Avoid tight preview loops in CI or agents.
+Current task sync limits:
+
+* unauthenticated public API requests: 120/min per IP
+* authenticated API token requests: 300/min per token
+* task writes: 120/min per token
+* shop status requests: 60/min per token
+* task previews: 30/min per token
+* preview concurrency: at most 2 running previews per token, and at most 4 running previews per shop through the task sync API
+
+Avoid tight preview loops in CI or agents.
 
 Common responses:
 

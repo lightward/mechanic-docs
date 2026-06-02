@@ -157,7 +157,13 @@ Check where things stand:
 mechanic tasks status
 ```
 
-This checks local files and linked tasks in Mechanic, so you can see whether a task is ready, changed locally, unchanged, or conflicted. If a helper folder has changes that have not been bundled, the CLI will stop before publishing and tell you what to run. Use `--local` only when you want to skip the network check.
+This checks local files and task links, so you can see whether a task is ready or needs bundling. For smaller projects, it also checks the current linked tasks in Mechanic. For larger projects, repo-wide status stays local to avoid hundreds of API calls; pass a task selector when you want to check one task's remote state:
+
+```bash
+mechanic tasks status order-tagger
+```
+
+If a helper folder has changes that have not been bundled, the CLI will stop before publishing and tell you what to run. Use `--local` when you explicitly want to skip remote checks.
 
 {% endstep %}
 {% step %}
@@ -224,7 +230,7 @@ Use `--force` only when you intentionally want the local file to win over change
 For a normal task change, this is the confidence loop:
 
 ```bash
-mechanic tasks status
+mechanic tasks status order-tagger
 mechanic shop status
 mechanic tasks preview order-tagger
 mechanic tasks diff order-tagger
