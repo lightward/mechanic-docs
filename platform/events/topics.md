@@ -176,10 +176,12 @@ Need metaobject events, metafield filters, customized payloads, or custom routin
 * shopify/fulfillment\_orders/hold\_released
 * shopify/fulfillment\_orders/line\_items\_prepared\_for\_local\_delivery
 * shopify/fulfillment\_orders/line\_items\_prepared\_for\_pickup
+* shopify/fulfillment\_orders/manually\_reported\_progress\_stopped
 * shopify/fulfillment\_orders/merged
 * shopify/fulfillment\_orders/moved
 * shopify/fulfillment\_orders/order\_routing\_complete
 * shopify/fulfillment\_orders/placed\_on\_hold
+* shopify/fulfillment\_orders/progress\_reported
 * shopify/fulfillment\_orders/rescheduled
 * shopify/fulfillment\_orders/scheduled\_fulfillment\_order\_ready
 * shopify/fulfillment\_orders/split
