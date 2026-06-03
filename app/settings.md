@@ -53,6 +53,16 @@ Optional. Reusable HTML [email templates](../platform/email/templates.md) for us
 
 Only needed if external apps need to read data from your tasks. Create URLs that return [cached](../platform/cache/) task data as JSON — useful for dashboards or integrations that need to pull information from Mechanic.
 
+## API tokens
+
+Only needed if you are using [local task development with the Mechanic CLI](../platform/mechanic-cli.md), GitHub Actions, scripts, or agents that sync tasks for this shop. API tokens can read, preview, and publish tasks for the shop until revoked. Mechanic only shows a token once, when it is created; if a token is lost or exposed, revoke it and create a new one.
+
+Use a separate token for each device, repository, or automation. Each shop can have up to five active API tokens; revoke unused tokens before creating more.
+
+<figure><img src="../.gitbook/assets/mechanic-api-tokens-settings.png" alt="The API tokens section in Mechanic settings, showing one active API token"><figcaption></figcaption></figure>
+
+See [API tokens and task sync API](../platform/mechanic-task-sync-api.md) for token safety and automation details.
+
 ## Authentication
 
 Only needed if your tasks use Google Sheets, Airtable, or Slack integrations. Connect your accounts here so tasks can interact with those services. Credentials are encrypted and stored securely. See [Integrations](../platform/integrations/).

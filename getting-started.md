@@ -52,6 +52,7 @@ If the task library doesn't cover your use case, Mechanic is a full development 
 
 * [I need something custom!](custom.md) — an overview of the path to a custom task, whether you're a developer or need to find one
 * [Your first custom task](resources/tutorials/your-first-custom-task.md) — a step-by-step tutorial for building a task from scratch
+* [Local task development with the Mechanic CLI](platform/mechanic-cli.md) — edit, preview, diff, and publish tasks from your own editor
 
 ## Get help
 
