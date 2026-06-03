@@ -305,6 +305,8 @@ mechanic shop status --json
 
 This can be used with a service like Cronitor, UptimeRobot, Better Stack, or
 your own monitoring system. It is not required for publishing task changes.
+For integrations that prefer direct HTTP requests, use
+[`GET /v1/shop/status`](mechanic-task-sync-api.md) with a Mechanic API token.
 
 ## Git and GitHub Actions
 
