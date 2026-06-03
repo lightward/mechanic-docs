@@ -26,6 +26,26 @@ Mechanic can spawn error events when an event, task, or action fails. Use the da
 Learn more: [Error handling](../platform/error-handling.md)
 {% endhint %}
 
+### Shop queue lag
+
+To monitor whether a shop's Mechanic queue is falling behind, use the [Mechanic CLI](../platform/mechanic-cli.md):
+
+```bash
+mechanic shop status
+```
+
+For automated monitoring, run the command from a scheduled job with JSON output:
+
+```bash
+mechanic shop status --json
+```
+
+The result includes the shop's current running and waiting runs, queue lag, and
+the top waiting tasks, actions, and event topics. Send that JSON to a service
+like Cronitor, UptimeRobot, Better Stack, or your own monitoring system, and
+alert when waiting runs or queue lag exceed the threshold that matters for your
+shop.
+
 ### Action runs
 
 To monitor actions, subscribe to the mechanic/actions/perform event, which re-invokes a task with the results of each action run. Use this opportunity to inspect the status of the action, responding accordingly. To learn more, see [Responding to action results](responding-to-action-results.md).

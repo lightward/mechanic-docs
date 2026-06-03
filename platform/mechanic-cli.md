@@ -273,19 +273,38 @@ For a normal task change, this is the confidence loop:
 
 ```bash
 mechanic tasks status order-tagger
-mechanic shop status
 mechanic tasks preview order-tagger
 mechanic tasks diff order-tagger
 mechanic tasks publish order-tagger --dry-run
 ```
-
-`shop status` shows whether the shop has running or waiting runs. It is a useful check before publishing changes to a busy shop.
 
 Use `tasks open` to jump from a local task file, helper folder, slug, or remote task ID to the task in Mechanic:
 
 ```bash
 mechanic tasks open order-tagger
 ```
+
+## Monitor queue lag
+
+`shop status` shows the shop's current Mechanic queue and backlog: running
+runs, waiting runs, queue lag, and the tasks, actions, or event topics that are
+contributing to the wait.
+
+Use it when you want to monitor whether a shop is falling behind:
+
+```bash
+mechanic shop status
+```
+
+For external monitoring tools, use JSON output from a scheduled job and alert on
+waiting runs or queue lag:
+
+```bash
+mechanic shop status --json
+```
+
+This can be used with a service like Cronitor, UptimeRobot, Better Stack, or
+your own monitoring system. It is not required for publishing task changes.
 
 ## Git and GitHub Actions
 

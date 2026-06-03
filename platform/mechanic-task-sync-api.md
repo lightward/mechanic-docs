@@ -64,12 +64,12 @@ For CI jobs, store the token as a secret named `MECHANIC_API_TOKEN` and expose i
 
 ## Endpoints
 
-This API is intentionally narrow. It covers task sync, task preview, and shop status for the authenticated shop.
+This API is intentionally narrow. It covers task sync, task preview, and shop queue status for the authenticated shop.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
 | `GET` | `/v1/auth/verify` | Verify the API token; include an expected shop to receive shop and token context |
-| `GET` | `/v1/shop/status` | Read current queue and backlog status |
+| `GET` | `/v1/shop/status` | Read current queue, backlog, and lag status |
 | `GET` | `/v1/tasks` | List tasks available to sync |
 | `GET` | `/v1/tasks/:id` | Read one task for sync |
 | `POST` | `/v1/tasks/preview` | Preview local task content without saving |
@@ -91,6 +91,9 @@ mechanic tasks publish order-tagger --dry-run
 mechanic tasks publish order-tagger
 mechanic shop status
 ```
+
+Use `mechanic shop status --json`, or `GET /v1/shop/status` directly, when you
+want an external monitor to alert on queue lag or waiting runs for the shop.
 
 ## Preview and publish behavior
 
