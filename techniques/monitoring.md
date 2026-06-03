@@ -28,20 +28,31 @@ Learn more: [Error handling](../platform/error-handling.md)
 
 ### Shop queue lag
 
-To monitor whether a shop's Mechanic queue is falling behind, use the [Mechanic CLI](../platform/mechanic-cli.md):
+To monitor whether a shop's Mechanic queue is falling behind, check the shop's
+queue status from the [Mechanic CLI](../platform/mechanic-cli.md) or the
+[task sync API](../platform/mechanic-task-sync-api.md).
+
+For a quick manual check, use:
 
 ```bash
 mechanic shop status
 ```
 
-For automated monitoring, run the command from a scheduled job with JSON output:
+For scheduled scripts or monitoring tools, either run the CLI with JSON output:
 
 ```bash
 mechanic shop status --json
 ```
 
-The result includes the shop's current running and waiting runs, queue lag, and
-the top waiting tasks, actions, and event topics. Send that JSON to a service
+Or call the API endpoint directly with a Mechanic API token:
+
+```bash
+curl https://api.mechanic.dev/v1/shop/status \
+  -H "Authorization: Bearer $MECHANIC_API_TOKEN"
+```
+
+Both responses include the shop's current running and waiting runs, queue lag,
+and the top waiting tasks, actions, and event topics. Send that JSON to a service
 like Cronitor, UptimeRobot, Better Stack, or your own monitoring system, and
 alert when waiting runs or queue lag exceed the threshold that matters for your
 shop.
