@@ -146,12 +146,12 @@ Close and reopen your AI coding tool. Skills are loaded when a session starts, s
 
 ***
 
-## Using the skill
+## Using the skills
 
-Once installed, the skill works automatically. You can use it in two ways:
+Once installed, the skills work automatically. You can use them in two ways:
 
 * **Just ask naturally.** Say something like "help me build a Mechanic task that auto-tags orders over $100" and your assistant will use the skill's patterns automatically.
-* **Use a slash command.** In Claude Code, type `/mechanic-task-writer` to explicitly invoke the skill. In Codex, use `$mechanic-task-writer`.
+* **Use a slash command.** In Claude Code, type `/mechanic-task-writer` to explicitly invoke task-writing help, or `/mechanic-cli` for local task repo workflows. In Codex, use `$mechanic-task-writer` or `$mechanic-cli`.
 
 For task-writing requests, your assistant will produce complete, importable task JSON with correct subscriptions, preview blocks, and GraphQL queries. In a local task repo, the `mechanic-cli` skill helps the assistant use commands like `mechanic tasks preview order-tagger`, `mechanic tasks diff order-tagger`, and `mechanic tasks publish order-tagger --dry-run` before publishing.
 

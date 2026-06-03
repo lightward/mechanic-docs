@@ -73,14 +73,14 @@ This API is intentionally narrow. It covers task sync, task preview, and shop st
 | `GET` | `/v1/tasks` | List tasks available to sync |
 | `GET` | `/v1/tasks/:id` | Read one task for sync |
 | `POST` | `/v1/tasks/preview` | Preview local task content without saving |
-| `POST` | `/v1/tasks/:id/preview` | Preview the current saved task without saving |
+| `POST` | `/v1/tasks/:id/preview` | Preview local draft content against an existing task, or preview the current saved task, without saving |
 | `POST` | `/v1/tasks` | Create a task from sync payload |
 | `PUT` | `/v1/tasks/:id` | Update a task from sync payload |
 
 {% hint style="info" %}
 There is no `tasks new` API endpoint. `mechanic tasks new` is a local CLI command that creates a starter task file and helper folder in an initialized project. When that new local task is published, the CLI uses `POST /v1/tasks`, and Mechanic creates the remote task disabled.
 
-`POST /v1/tasks` always creates a new task. It does not update an existing task by matching the task name or local slug. For direct HTTP creates, send a stable `Idempotency-Key` header so retries do not create duplicate tasks.
+`POST /v1/tasks` always creates a new task. It does not update an existing task by matching the task name or local slug. For direct HTTP creates, send an `Idempotency-Key` header with a UUID generated for the task you intend to create. Mechanic uses that UUID as the created task ID. Retrying with the same UUID returns the existing task instead of creating a duplicate, so use a different UUID for each intended task.
 {% endhint %}
 
 For most automation, prefer the CLI commands that wrap these endpoints:
@@ -96,9 +96,11 @@ mechanic shop status
 
 Preview requests do not create, update, save, enable, or run a task. They ask Mechanic to evaluate local or remote task content through preview mode and return the result.
 
+Use `POST /v1/tasks/preview` for local task content that is not linked to an existing Mechanic task. Use `POST /v1/tasks/:id/preview` when you want to preview draft local content in the context of an existing task. If no task body is sent to `/v1/tasks/:id/preview`, Mechanic previews the current saved task.
+
 Publishing writes task content to Mechanic. It does not enable or disable an existing task. New tasks created through task sync are created disabled. Review and enable them in the app when they are ready.
 
-Updates require remote-change protection. Send `previous_content_hash` with `PUT /v1/tasks/:id` so Mechanic can reject stale updates instead of overwriting newer changes. Use `force` only as an intentional bypass when your local payload should replace the current Mechanic task.
+Updates require remote-change protection. Send `previous_content_hash` with `PUT /v1/tasks/:id` so Mechanic can reject stale updates instead of overwriting newer changes. This must be the `content_hash` from the task version your client last read from Mechanic, not a hash of the outgoing local payload. Use `force` only as an intentional bypass when your local payload should replace the current Mechanic task.
 
 ## Rate limits and errors
 
@@ -106,7 +108,7 @@ The task sync API has its own rate limits, separate from Shopify Admin API rate 
 
 Current task sync limits:
 
-* unauthenticated public API requests: 120/min per IP
+* public API requests: 120/min per IP, checked before token authentication
 * authenticated API token requests: 300/min per token
 * task writes: 120/min per token
 * shop status requests: 60/min per token
@@ -121,10 +123,9 @@ Common responses:
 | --- | --- |
 | `401` | Missing, invalid, or revoked API token |
 | `403` | Token is not allowed to access this shop or API surface |
-| `400` | Required update guard is missing, such as `previous_content_hash` or `force` |
+| `400` | Invalid request, validation error, or missing update guard such as `previous_content_hash` or `force` |
 | `404` | Task not found for this shop |
 | `409` | Remote task changed since the last known content hash |
-| `422` | Invalid task payload or validation error |
 | `429` | Rate limit reached; retry after the indicated delay |
 
 ## GitHub Actions

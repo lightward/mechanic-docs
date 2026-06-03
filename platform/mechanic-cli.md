@@ -58,6 +58,8 @@ Copy the token immediately. Mechanic only shows it once.
 Create a folder for the shop's task files, then initialize it:
 
 ```bash
+mkdir example-mechanic-tasks
+cd example-mechanic-tasks
 mechanic init --shop example.myshopify.com
 ```
 
@@ -70,20 +72,22 @@ When prompted, paste the API token from Mechanic. The CLI stores it outside the 
 
 After initializing the project, choose one path.
 
-**Bring existing tasks into local files:**
-
-```bash
-mechanic tasks pull
-```
-
-This creates local JSON files in `tasks/` and records links to the matching tasks in Mechanic. Running `tasks pull` without a task selector pulls every task for the shop.
-
-If you only want one existing task, first find its remote task ID:
+**Bring one existing task into local files:**
 
 ```bash
 mechanic tasks list --verbose
 mechanic tasks pull <remote-task-id>
 ```
+
+This creates one local JSON file in `tasks/` and records the link to the matching task in Mechanic. Use this when you want to start with a specific task.
+
+**Bootstrap the repo with every task in the shop:**
+
+```bash
+mechanic tasks pull
+```
+
+Running `tasks pull` without a task selector pulls every task for the shop. Use this when you are intentionally setting up a Git repo for all of a shop's tasks.
 
 **Start from a new local task:**
 
@@ -240,7 +244,9 @@ mechanic tasks publish order-tagger --dry-run
 
 ### Publish intentionally
 
-`tasks publish` writes the selected local task to Mechanic. Publishing does not enable or disable an existing task. New tasks are created disabled, so you can review and enable them in the app when they are ready.
+`tasks publish` writes the selected local task to Mechanic. If the task is already enabled, the newly published version is live for future runs immediately. Publishing does not turn enabled tasks off or disabled tasks on.
+
+New tasks are created disabled, so you can review and enable them in the app when they are ready.
 
 ```bash
 mechanic tasks publish order-tagger
@@ -252,8 +258,7 @@ After publishing, open the task in Mechanic to review the saved version:
 mechanic tasks open order-tagger
 ```
 
-Approve any Shopify permissions if Mechanic prompts for them. If this is a new
-task, enable it in Mechanic when it is ready to run.
+In Mechanic, confirm the saved version, approve any Shopify permissions if prompted, and enable the task if it was newly created. Existing enabled tasks keep running with the published version.
 
 {% hint style="warning" %}
 Use `publish --force` only when you intentionally want the local file to replace changes made in Mechanic or another checkout. The default workflow is designed to stop before stale local files overwrite newer remote changes.

@@ -1,5 +1,5 @@
 ---
-description: "Use AI tools to write and debug Shopify automation tasks in Mechanic \u2014 MCP server, Agent Skills, Sidekick, and ChatGPT."
+description: "Use AI tools to write, preview, diff, and publish Shopify automation tasks in Mechanic \u2014 CLI, MCP server, Agent Skills, Sidekick, and ChatGPT."
 ---
 
 # 🤖 Using AI with Mechanic
