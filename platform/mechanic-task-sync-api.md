@@ -64,12 +64,13 @@ For CI jobs, store the token as a secret named `MECHANIC_API_TOKEN` and expose i
 
 ## Endpoints
 
-This API is intentionally narrow. It covers task sync, task preview, and shop queue status for the authenticated shop.
+This API is intentionally narrow. It covers task sync, task preview, shop queue status, and Shopify API deprecation visibility for the authenticated shop.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
 | `GET` | `/v1/auth/verify` | Verify the API token; include an expected shop to receive shop and token context |
 | `GET` | `/v1/shop/status` | Read current queue, backlog, and lag status |
+| `GET` | `/v1/shop/deprecations` | Read unresolved Shopify API deprecations reported by the shop's tasks |
 | `GET` | `/v1/tasks` | List tasks available to sync |
 | `GET` | `/v1/tasks/:id` | Read one task for sync |
 | `POST` | `/v1/tasks/preview` | Preview local task content without saving |
@@ -90,10 +91,30 @@ mechanic tasks preview order-tagger --json
 mechanic tasks publish order-tagger --dry-run
 mechanic tasks publish order-tagger
 mechanic shop status
+mechanic shop deprecations
 ```
 
 Use `mechanic shop status --json`, or `GET /v1/shop/status` directly, when you
 want an external monitor to alert on queue lag or waiting runs for the shop.
+
+Use `mechanic shop deprecations --json`, or `GET /v1/shop/deprecations`
+directly, when you want to inventory unresolved Shopify API deprecations for the
+shop. Add `task_id` to focus on one task:
+
+```bash
+curl "https://api.mechanic.dev/v1/shop/deprecations?task_id=<task-id>" \
+  -H "Authorization: Bearer $MECHANIC_API_TOKEN"
+```
+
+The response is capped and includes `total_count`, `limit`, and `truncated`.
+Deprecation entries include task identity, task Shopify API version, request API
+version, request method/path, occurrence count, and first/last occurrence times.
+They do not include request bodies, request headers, response headers, tokens, or
+other raw payload data.
+
+`GET /v1/tasks` and `GET /v1/tasks/:id` also include `shopify_api_version` in
+task sync envelopes, so scripts can see the configured API version without
+fetching or parsing the task JSON separately.
 
 ## Preview and publish behavior
 
