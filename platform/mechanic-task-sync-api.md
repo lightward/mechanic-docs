@@ -64,7 +64,9 @@ For CI jobs, store the token as a secret named `MECHANIC_API_TOKEN` and expose i
 
 ## Endpoints
 
-This API is intentionally narrow. It covers task sync, task preview, shop queue status, and Shopify API deprecation visibility for the authenticated shop.
+This API is intentionally narrow. It covers task sync, task preview, shop queue
+status, and Shopify API deprecation visibility for the authenticated shop. Use
+direct HTTP only for trusted automation that can safely store a shop API token.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -84,7 +86,7 @@ There is no `tasks new` API endpoint. `mechanic tasks new` is a local CLI comman
 `POST /v1/tasks` always creates a new task. It does not update an existing task by matching the task name or local slug. For direct HTTP creates, send an `Idempotency-Key` header with a UUID generated for the task you intend to create. Mechanic uses that UUID as the created task ID. Retrying with the same UUID returns the existing task instead of creating a duplicate, so use a different UUID for each intended task.
 {% endhint %}
 
-For most automation, prefer the CLI commands that wrap these endpoints:
+For most local task work, prefer the CLI commands that wrap these endpoints:
 
 ```bash
 mechanic tasks preview order-tagger --json
@@ -97,9 +99,10 @@ mechanic shop deprecations
 Use `mechanic shop status --json`, or `GET /v1/shop/status` directly, when you
 want an external monitor to alert on queue lag or waiting runs for the shop.
 
-Use `mechanic shop deprecations --json`, or `GET /v1/shop/deprecations`
-directly, when you want to inventory unresolved Shopify API deprecations for the
-shop. Add `task_id` to focus on one task:
+Use `mechanic shop deprecations --json` when a trusted script, agent, or
+dashboard needs structured deprecation data. Use `GET /v1/shop/deprecations`
+directly only when the automation needs to make HTTP requests itself. Add
+`task_id` to focus on one task:
 
 ```bash
 curl "https://api.mechanic.dev/v1/shop/deprecations?task_id=<task-id>" \

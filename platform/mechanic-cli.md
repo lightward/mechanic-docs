@@ -121,7 +121,8 @@ Pick a task file from `tasks/`, or run:
 mechanic tasks list --verbose
 ```
 
-`--verbose` shows remote task IDs, linked local files, and sync details.
+`--verbose` shows remote task IDs, linked local files, configured Shopify API
+versions, and sync details.
 
 To start from scratch instead, create a new blank local task:
 

@@ -24,9 +24,15 @@ Shopify supports each version for 12 months (except for "unstable", which is alw
 
 Shopify may, at times, mark certain API features as deprecated. If a Mechanic account calls a deprecated API, Mechanic will display the deprecation notice in the app. Learn more about [Shopify API deprecations](../shopify/api-versions.md#deprecations).
 
+## Listing versions
+
+For local task development, `mechanic tasks list` shows each task's configured
+Shopify API version. The [task sync API](../../platform/mechanic-task-sync-api.md)
+also includes `shopify_api_version` in task sync envelopes, for trusted scripts
+and automation.
+
 ## Changing versions
 
 The selector for a task's Shopify API version is available in Advanced mode, below the task code area.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-04-01 at 7.19.33 PM.png>)
-
