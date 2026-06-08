@@ -249,6 +249,7 @@
 ## App screens <a href="#app" id="app"></a>
 
 * [Task list](app/home.md)
+* [Activity](app/activity.md)
 * [Task editor](app/task-editor.md)
 * [Events](app/events.md)
 * [Settings](app/settings.md)
