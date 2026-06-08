@@ -28,4 +28,4 @@ The right sidebar shows real-time processing status — how many of your tasks a
 
 ## Recent events
 
-A live feed of the most recent [events](events.md) — use it to see if tasks are triggering unexpectedly or encountering errors. Click **View more** to go to the full [Events](events.md) page.
+A live feed of the most recent [events](events.md) — use it to see if tasks are triggering unexpectedly or encountering errors. Click **View more** to go to the full [Events](events.md) page, or use [Activity](activity.md) to review trends over time.

@@ -32,6 +32,9 @@ To monitor whether a shop's Mechanic queue is falling behind, check the shop's
 queue status from the [Mechanic CLI](../platform/mechanic-cli.md) or the
 [task sync API](../platform/mechanic-task-sync-api.md).
 
+For a visual in-app view of recent automation volume, failures, and drilldowns,
+use the [Activity](../app/activity.md) page.
+
 For a quick manual check, use:
 
 ```bash
