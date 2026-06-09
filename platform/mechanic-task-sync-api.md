@@ -70,7 +70,7 @@ direct HTTP only for trusted automation that can safely store a shop API token.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| `GET` | `/v1/auth/verify` | Verify the API token; include an expected shop to receive shop and token context |
+| `GET` | `/v1/auth/verify` | Verify the API token; include an expected shop so mismatched tokens are rejected without revealing another shop |
 | `GET` | `/v1/shop/status` | Read current queue, backlog, and lag status |
 | `GET` | `/v1/shop/deprecations` | Read unresolved Shopify API deprecations reported by the shop's tasks |
 | `GET` | `/v1/tasks` | List tasks available to sync |
