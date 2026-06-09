@@ -80,6 +80,8 @@ mechanic tasks pull <remote-task-id>
 ```
 
 This creates one local JSON file in `tasks/` and records the link to the matching task in Mechanic. Use this when you want to start with a specific task.
+The task list also shows each task's configured Shopify API version, which is
+useful when deciding which tasks may need an API version review.
 
 **Bootstrap the repo with every task in the shop:**
 
@@ -119,7 +121,8 @@ Pick a task file from `tasks/`, or run:
 mechanic tasks list --verbose
 ```
 
-`--verbose` shows remote task IDs, linked local files, and sync details.
+`--verbose` shows remote task IDs, linked local files, configured Shopify API
+versions, and sync details.
 
 To start from scratch instead, create a new blank local task:
 
@@ -307,6 +310,29 @@ This can be used with a service like Cronitor, UptimeRobot, Better Stack, or
 your own monitoring system. It is not required for publishing task changes.
 For integrations that prefer direct HTTP requests, use
 [`GET /v1/shop/status`](mechanic-task-sync-api.md) with a Mechanic API token.
+
+## Review Shopify API deprecations
+
+`shop deprecations` shows unresolved Shopify API deprecations reported by tasks
+in the configured shop:
+
+```bash
+mechanic shop deprecations
+```
+
+Use it when you want to find tasks that are still calling deprecated Shopify API
+surfaces. The output includes the task's configured Shopify API version, the API
+version seen in the deprecated request, the request path, and the last time
+Mechanic saw it.
+
+To focus on one linked task, pass the same task selector you would use for
+preview, diff, or publish:
+
+```bash
+mechanic shop deprecations order-tagger
+```
+
+Use `--json` when a script, agent, or dashboard needs structured output.
 
 ## Git and GitHub Actions
 

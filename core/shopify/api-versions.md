@@ -26,13 +26,25 @@ Deprecations are ignored for the latest stable version of the Shopify API, i.e. 
 
 ### Identifying deprecations
 
-If support for a task's Shopify API version will be pulled soon, its deprecations will be shown above the main task list.
+If support for a task's Shopify API version will be pulled soon, its
+deprecations will be shown above the main task list in Mechanic.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-09-02 at 5.05.59 PM.png" alt=""><figcaption></figcaption></figure>
 
 Deprecation details are available in the advanced task editor, in the Runtime tab.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-09-02 at 5.09.01 PM.png" alt=""><figcaption></figcaption></figure>
+
+For local task development, use the [Mechanic CLI](../../platform/mechanic-cli.md)
+to list unresolved deprecations for the shop:
+
+```bash
+mechanic shop deprecations
+```
+
+Trusted scripts and monitoring tools can use
+[`GET /v1/shop/deprecations`](../../platform/mechanic-task-sync-api.md) with a
+Mechanic API token.
 
 ### Resolving deprecation warnings
 
