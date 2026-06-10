@@ -49,7 +49,7 @@ See in-depth documentation of the Google Drive action [here](../../core/actions/
 
 ### Google Sheets Integration
 
-The Google Sheets action enables focused interaction with spreadsheets, including sheet creation, appending data, and data exports. \
+The Google Sheets action enables focused interaction with spreadsheets, including creating spreadsheets with one or many sheets, reading and writing data, deleting rows, managing sheets (tabs), and exporting. \
 
 
 See in-depth documentation of the Google Sheets action [here](../../core/actions/integrations/google-sheets.md).
@@ -73,8 +73,15 @@ See in-depth documentation of the Google Sheets action [here](../../core/actions
 
 #### Supported Operations
 
-* `create_spreadsheet`: Create new spreadsheets
+* `create_spreadsheet`: Create new spreadsheets, with one or many named sheets
 * `append_rows`: Add data to existing spreadsheets
+* `update_rows`: Overwrite data at a specific range
+* `clear_values`: Clear values from a range or a whole sheet
+* `get_values`: Read values from a spreadsheet into the action result
+* `delete_rows`: Delete a span of rows from a sheet
+* `add_sheet`: Add a sheet (tab) to an existing spreadsheet
+* `rename_sheet`: Rename a sheet (tab)
+* `delete_sheet`: Delete a sheet (tab)
 * `export_spreadsheet`: Export spreadsheets in various formats
 
 ### File Type Support
