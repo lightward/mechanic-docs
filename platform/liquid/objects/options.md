@@ -32,4 +32,4 @@ Options can also render dropdowns for selecting existing shop globals and secret
 
 A global option returns the selected global's value at runtime.
 
-A secret option returns an opaque secret reference, not the raw secret value. The reference can be resolved only by supported secret-aware paths, such as HTTP actions, FTP actions, and HMAC or related digest filters. See [Globals and secrets](../../globals-and-secrets.md) for details.
+A secret option returns an opaque secret reference, not the raw secret value. The reference can be resolved only by supported secret-aware paths, such as HTTP actions, specific FTP connection fields, and signing filters like `hmac_sha256` or `rsa_sha256`. See [Globals and secrets](../../globals-and-secrets.md) for details.

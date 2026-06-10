@@ -71,7 +71,7 @@ To authenticate a request using [the Authorization header](https://developer.moz
 
 ### Using secrets
 
-The HTTP action is secret-aware. It can resolve [shop secrets](../../platform/globals-and-secrets.md) immediately before sending the request, while stored action data, previews, errors, and logs keep placeholders or redacted values.
+The HTTP action is secret-aware. It can resolve [shop secrets](../../platform/globals-and-secrets.md) in action options immediately before sending the request, while stored action data, previews, errors, and logs keep placeholders or redacted values.
 
 ```liquid
 {% action "http" %}
@@ -89,7 +89,7 @@ The HTTP action is secret-aware. It can resolve [shop secrets](../../platform/gl
 {% endaction %}
 ```
 
-Secret references may come directly from `secrets.some_key` or from a task option such as `options.api_token__secret_required`. HTTP validation runs after supported secret references are resolved, so invalid resolved header values or URLs still fail validation.
+Secret references may come directly from `secrets.some_key` or from a task option such as `options.api_token__secret_required`. This applies to HTTP request options such as `url`, `headers`, `body`, and `proxy`. HTTP validation runs after supported secret references are resolved, so invalid resolved header values or URLs still fail validation.
 
 If an HTTP action resolves any secret, base64 diagnostic fields such as `body_base64` may be replaced with `__mechanic_secret_value_redacted__` to avoid exposing encoded secret values.
 

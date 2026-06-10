@@ -61,13 +61,13 @@ Secrets are available through the `secrets` Liquid object.
 
 This does not return the raw secret value during normal Liquid rendering. It returns an opaque secret reference that only supported secret-aware paths can resolve. Echoing, logging, or sending that value through unsupported actions shows the placeholder, not the secret.
 
-For this release, task authors should use secrets only in reviewed sinks:
+For this release, task authors should use secrets only in these reviewed sinks:
 
-* HTTP actions
-* FTP actions
-* HMAC and related digest filters
+* HTTP actions, where secret references in action options are resolved immediately before sending the request.
+* FTP actions, for the connection fields `host`, `user`, `password`, `private_key`, `private_key_pem`, and `known_hosts`.
+* Signing filters that accept secret material: `hmac_sha1`, `hmac_sha256`, `hmac_sha512`, `rsa_sha256`, and `rsa_sha512`.
 
-Built-in integrations such as Google Drive, Google Sheets, Slack, Airtable, Flow, and Shopify do not use shop secrets as credentials in this release. Other actions and persistence-oriented paths, including Echo, Email, Files, Event, and Cache, keep secret references as placeholders until they receive separate leak review.
+Built-in integrations such as Google Drive, Google Sheets, Slack, Airtable, Flow, and Shopify do not use shop secrets as connection credentials in this release. Other actions and persistence-oriented paths, including Echo, Email, Files, Event, Cache, and FTP upload/download content, keep secret references as placeholders until they receive separate leak review.
 
 When a supported action resolves a secret, Mechanic redacts the raw value before storing or showing action data, errors, logs, previews, or encoded response fields. For secret-bearing actions, base64 diagnostic fields such as `body_base64` or `data_base64` may be replaced with `__mechanic_secret_value_redacted__`.
 
