@@ -26,6 +26,8 @@ Options flagged with `__userform` will also appear on the **Run task** form for 
 {{ options.enabled__boolean }}
 {{ options.count__number }}
 {{ options.tags__array }}
+{{ options.shared_username__global_required }}
+{{ options.api_token__secret_required }}
 {{ options.mode__select_o1_test_o2_live }}
 {{ options.run_mode__select_o1_test_o2_live__userform__required }}
 ```
@@ -90,6 +92,17 @@ The special **`userform`** flag does not change the input type or validation; it
 ### 3.1 Input‑type flags
 
 <table><thead><tr><th>Flag</th><th>UI control</th><th width="197.44140625">Value returned</th><th>Key examples</th></tr></thead><tbody><tr><td> <em>(none - default)</em></td><td>Single‑line text</td><td><code>string</code></td><td><code>options.subject</code></td></tr><tr><td><code>multiline</code></td><td>Multiline text box</td><td><code>string</code></td><td><code>options.body__multiline</code></td></tr><tr><td><code>boolean</code></td><td>Checkbox</td><td><code>true/false</code></td><td><code>options.enabled__boolean</code></td></tr><tr><td><code>number</code></td><td>Numeric input (<code>step=1</code>)</td><td><code>number</code></td><td><code>options.count__number</code></td></tr><tr><td><code>code</code></td><td>Code‑formatted text area</td><td><code>string</code></td><td><code>options.script_snippet__code_multiline</code></td></tr><tr><td><code>keyval</code></td><td>Key → value repeater</td><td><code>hash</code></td><td><code>options.headers__keyval</code></td></tr><tr><td><code>array</code></td><td>Value repeater</td><td><code>array</code></td><td><code>options.tags__array</code></td></tr><tr><td><code>date</code></td><td>Calendar picker</td><td><code>"YYYY‑MM‑DD"</code></td><td><code>options.launch_date__date</code></td></tr><tr><td><code>datetime</code></td><td>Date+time picker</td><td><code>"YYYY‑MM‑DDTHH:MM"</code></td><td><code>options.send_at__datetime</code></td></tr><tr><td><code>time</code></td><td>Time‑only picker</td><td><code>"HH:MM"</code></td><td><code>options.quiet_time__time</code></td></tr><tr><td><code>color</code></td><td>Hex colour picker</td><td><code>"#RRGGBB"</code></td><td><code>options.theme_color__color</code></td></tr><tr><td><code>range_minX_maxY_stepZ</code></td><td>Slider + number box</td><td><code>number</code></td><td><code>options.qty__range_min0_max100_step5</code></td></tr><tr><td><code>select</code></td><td>Single‑choice dropdown</td><td><code>string</code></td><td><code>options.plan__select_o1_basic_o2_pro</code></td></tr><tr><td><code>choice</code></td><td>Radio buttons</td><td><code>string</code></td><td><code>options.tier__choice_o1_gold_o2_silver</code></td></tr><tr><td><code>multiselect</code></td><td>Checkbox list</td><td><code>array[string]</code></td><td><code>options.channels__multiselect_o1_email_o2_sms</code></td></tr><tr><td><code>picker_&#x3C;resource></code></td><td>Shopify resource picker</td><td><code>gid string</code></td><td><code>options.product__picker_product</code></td></tr><tr><td><code>picker_&#x3C;resource>_array</code></td><td>Multi‑select resource picker</td><td><code>array[gid]</code></td><td><code>options.products__picker_product_array</code></td></tr></tbody></table>
+
+Shop configuration input types are also available:
+
+| Flag | UI control | Value returned | Key examples |
+| --- | --- | --- | --- |
+| `global` | Dropdown of shop globals | selected global value | `options.shared_username__global_required` |
+| `secret` | Dropdown of shop secrets | opaque secret reference | `options.api_token__secret_required` |
+
+See [Globals and secrets](../../../platform/globals-and-secrets.md) for setup, supported secret-aware actions, and safety details.
+
+When an option key uses a structured input type, that type wins before `global` or `secret` are considered. For example, `options.mode__select_o1_global_o2_secret_o3_local` is still a select dropdown whose choices are the literal strings `"global"`, `"secret"`, and `"local"`.
 
 {% hint style="info" %}
 Array options have a hidden feature: once the user-configured array reaches 5 elements in size, a new "Manage in bulk" button will appear for that option. Clicking it will open a modal which allows the user to manage the array's input using a single multiline text field, in which each line represents an array element. This is a convenient way to configure larger arrays.
@@ -161,6 +174,7 @@ Do not put modifiers before the input-type flag (e.g. `options.aggregate__userfo
 2. **Range sliders** need both `min` and `max`.
 3. **Pickers** only allow `product`, `variant`, or `collection`.
 4. **Email** inputs are matched against a basic regex.
+5. **Secret** options cannot be combined with `userform`.
 
 Custom rules? Learn more about [custom validation](custom-validation.md).
 
@@ -184,6 +198,8 @@ Liquid code in task options have access to the same set of [environment variable
 | Checkbox       | `options.newsletter__boolean`                   | `false`                        |
 | Key–value map  | `options.headers__keyval`                       | `{ "X-Env": "staging" }`       |
 | String list    | `options.tags__array`                           | `["vip","wholesale"]`          |
+| Global selector | `options.shared_username__global_required`     | `"matt"`                       |
+| Secret selector | `options.api_token__secret_required`           | secret reference               |
 | 0–100 slider   | `options.score__range_min0_max100`              | `42`                           |
 | Colour picker  | `options.bg__color`                             | `"#336699"`                    |
 | Dropdown       | `options.plan__select_o1_basic_o2_pro`          | `"basic"`                      |

@@ -11,6 +11,8 @@ Environment variables may be reassigned as needed. (When preparing a task previe
 | `shop`    | An object containing [Shopify's REST representation of the current Shopify store](https://shopify.dev/docs/admin-api/rest/reference/store-properties/shop) |
 | `event`   | An object containing information about the current event                                                                                                   |
 | `cache`   | The current store's [Mechanic cache](../../../platform/liquid/objects/cache.md) object, supporting lookups for cached values                               |
+| `globals` | The current store's visible [globals](../../../platform/liquid/objects/globals.md), for reusable JSON configuration                                        |
+| `secrets` | The current store's write-only [secrets](../../../platform/liquid/objects/secrets.md), returned as opaque references unless used by supported sinks        |
 | `task`    | An object containing information about the current task                                                                                                    |
 | `options` | An object containing task [**options**](../options/), configured by the user                                                                               |
 

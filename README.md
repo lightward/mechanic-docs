@@ -56,7 +56,7 @@ For a complete list of supported actions, see [Actions](core/actions/).
 
 Tasks are written in [**Liquid**](platform/liquid/basics/) – the template language created by Shopify. But Mechanic extends Liquid well beyond templating: tasks can loop through paginated API results, transform complex data structures, branch on conditions, emit events that trigger other tasks, and construct arbitrarily complex action sequences. In the same way that a Liquid theme receives browser requests and renders HTML, a Mechanic task receives events and renders actions (by defining them with JSON).
 
-In Mechanic, Liquid is extended with filters for [parsing JSON, generating CSV, computing HMACs](platform/liquid/filters/), and manipulating complex data structures — including first-class support for [arrays](platform/liquid/basics/types.md#array) and [hashes](platform/liquid/basics/types.md#hash).
+In Mechanic, Liquid is extended with filters for [parsing JSON, generating CSV, computing HMACs](platform/liquid/filters/), manipulating complex data structures — including first-class support for [arrays](platform/liquid/basics/types.md#array) and [hashes](platform/liquid/basics/types.md#hash) — and using shop-level [globals and secrets](platform/globals-and-secrets.md) for reusable task configuration.
 
 ### Run queues
 

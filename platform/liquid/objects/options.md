@@ -21,3 +21,15 @@ This object is always a hash. The keys always correspond to lookups \(i.e. `{{ o
 
 For more on using this object \(and implicitly constructing the merchant-facing configuration form\), see [Task options](../../../core/tasks/options/).
 
+## Global and secret options
+
+Options can also render dropdowns for selecting existing shop globals and secrets:
+
+```liquid
+{{ options.shared_username__global_required }}
+{{ options.api_token__secret_required }}
+```
+
+A global option returns the selected global's value at runtime.
+
+A secret option returns an opaque secret reference, not the raw secret value. The reference can be resolved only by supported secret-aware paths, such as HTTP actions, FTP actions, and HMAC or related digest filters. See [Globals and secrets](../../globals-and-secrets.md) for details.

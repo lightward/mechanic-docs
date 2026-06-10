@@ -69,6 +69,30 @@ To authenticate a request using [the Authorization header](https://developer.moz
 {% endaction %}
 ```
 
+### Using secrets
+
+The HTTP action is secret-aware. It can resolve [shop secrets](../../platform/globals-and-secrets.md) immediately before sending the request, while stored action data, previews, errors, and logs keep placeholders or redacted values.
+
+```liquid
+{% action "http" %}
+  {
+    "method": "post",
+    "url": "https://api.example.com/orders",
+    "headers": {
+      "Authorization": {{ "Bearer " | append: secrets.api_token | json }}
+    },
+    "body": {
+      "username": {{ globals.account_username | json }},
+      "password": {{ secrets.account_password | json }}
+    }
+  }
+{% endaction %}
+```
+
+Secret references may come directly from `secrets.some_key` or from a task option such as `options.api_token__secret_required`. HTTP validation runs after supported secret references are resolved, so invalid resolved header values or URLs still fail validation.
+
+If an HTTP action resolves any secret, base64 diagnostic fields such as `body_base64` may be replaced with `__mechanic_secret_value_redacted__` to avoid exposing encoded secret values.
+
 ### Using a proxy
 
 The HTTP action supports HTTPS, HTTP, and SOCKS5 proxy connections via the `"proxy"` option, set to a URI string beginning with `https://`, `http://`, or `socks5://`. When configured, Mechanic will open a connection to your proxy server, and pass your request through that connection.

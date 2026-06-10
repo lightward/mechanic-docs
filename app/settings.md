@@ -53,9 +53,17 @@ Optional. Reusable HTML [email templates](../platform/email/templates.md) for us
 
 Only needed if external apps need to read data from your tasks. Create URLs that return [cached](../platform/cache/) task data as JSON — useful for dashboards or integrations that need to pull information from Mechanic.
 
+## Globals and secrets
+
+Reusable shop-level values for tasks. Globals are visible JSON values that can be shared with task repos and the CLI. Secrets are write-only string values for credentials, tokens, signing keys, and other sensitive data.
+
+Tasks can read globals with `globals.some_key` and reference secrets with `secrets.some_key`. Task options can also render dropdowns for selecting existing globals or secrets. See [Globals and secrets](../platform/globals-and-secrets.md).
+
+<figure><img src="../.gitbook/assets/mechanic-globals-secrets-settings.png" alt="The Globals and secrets section in Mechanic settings, showing one global and one secret"><figcaption></figcaption></figure>
+
 ## API tokens
 
-Only needed if you are using [local task development with the Mechanic CLI](../platform/mechanic-cli.md), GitHub Actions, scripts, or agents that sync tasks for this shop. API tokens can read, preview, and publish tasks for the shop until revoked. Mechanic only shows a token once, when it is created; if a token is lost or exposed, revoke it and create a new one.
+Only needed if you are using [local task development with the Mechanic CLI](../platform/mechanic-cli.md), GitHub Actions, scripts, or agents that sync tasks or manage globals and secrets for this shop. API tokens can read, preview, and publish tasks, and can manage shop globals and secrets, until revoked. Mechanic only shows a token once, when it is created; if a token is lost or exposed, revoke it and create a new one.
 
 Use a separate token for each device, repository, or automation. Each shop can have up to five active API tokens; revoke unused tokens before creating more.
 

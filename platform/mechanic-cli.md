@@ -334,6 +334,54 @@ mechanic shop deprecations order-tagger
 
 Use `--json` when a script, agent, or dashboard needs structured output.
 
+## Manage shop globals and secrets
+
+The CLI can also manage [shop globals and secrets](globals-and-secrets.md).
+
+Globals are visible JSON values. They can be pulled into a repo-safe file:
+
+```bash
+mechanic globals pull
+```
+
+This writes `mechanic.globals.json` by default. The file may be committed to Git, reviewed, and shared with the task repo.
+
+If the output file already exists and differs, `globals pull` stops before overwriting it. Use `--force` only when you mean to replace the local file:
+
+```bash
+mechanic globals pull --force
+```
+
+To push globals from a file:
+
+```bash
+mechanic globals push --dry-run
+mechanic globals push --force
+```
+
+`globals push` validates the file before writing anything to Mechanic. It updates listed keys and does not delete remote globals that are missing from the file. If an existing remote global has a different value, the command stops unless you pass `--force`.
+
+For one-off global changes:
+
+```bash
+mechanic globals list
+mechanic globals set warehouse_id --json '"main"'
+mechanic globals set shipping_rules --json '{"regions":["CA","US"]}'
+mechanic globals delete warehouse_id --force
+```
+
+Secrets are write-only. The CLI lists secret metadata, but never prints secret values and never creates a secrets file.
+
+```bash
+mechanic secrets list
+mechanic secrets set api_token
+mechanic secrets set api_token --value-env API_TOKEN
+printf %s "$API_TOKEN" | mechanic secrets set api_token --from-stdin --force
+mechanic secrets delete api_token --force
+```
+
+`secrets set --from-stdin` preserves exact stdin content, including leading or trailing whitespace and trailing newlines. `secrets set --force` is required when replacing an existing secret. Deleting or replacing a secret can break tasks until they are updated.
+
 ## Git and GitHub Actions
 
 You can commit `mechanic.json`, `.mechanic/links.json`, and `tasks/` to Git. This gives your task changes history, review, and rollback.
@@ -362,10 +410,10 @@ Pull request validation does not need a Mechanic token. Deploy and sync
 workflows do. Store that token as a GitHub secret named `MECHANIC_API_TOKEN`.
 
 {% hint style="warning" %}
-Only add deploy or sync workflows to repositories maintained by people you trust. Those workflows use `MECHANIC_API_TOKEN`, which can read, preview, and publish tasks for the shop.
+Only add deploy or sync workflows to repositories maintained by people you trust. Those workflows use `MECHANIC_API_TOKEN`, which can read, preview, and publish tasks for the shop, and can manage globals and secrets through the v1 API.
 {% endhint %}
 
-The sync-from-app workflow is update-only in this version. It does not delete local files for tasks deleted in Mechanic.
+The sync-from-app workflow is update-only in this version. It does not delete local files for tasks deleted in Mechanic. Generated GitHub workflows do not sync `mechanic.globals.json` automatically; add that explicitly if your repo needs it.
 
 ## AI and agent workflows
 
