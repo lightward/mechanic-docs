@@ -66,7 +66,7 @@ pZ/WFoT82brhooSfJDue14C0Y=
 {% endaction %}
 ```
 
-The FTP action is secret-aware for connection settings. Prefer storing passwords and private keys as [shop secrets](../../platform/globals-and-secrets.md), then referencing them from the action:
+The FTP action supports [shop secrets](../../platform/globals-and-secrets.md) for connection settings. Prefer storing passwords and private keys as shop secrets, then referencing them from the action:
 
 ```liquid
 {% action "ftp" %}

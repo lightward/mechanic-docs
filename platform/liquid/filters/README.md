@@ -640,7 +640,7 @@ These signing filters can resolve [shop secret](../../globals-and-secrets.md) re
 {{ jwt_input | rsa_sha256: secrets.rsa_private_key | base64_url_safe_encode }}
 ```
 
-The filter receives the raw secret value internally, but normal Liquid output, logs, and unsupported actions still receive only the secret reference placeholder.
+The filter receives the raw secret value internally, but normal Liquid output, logs, and actions that do not support shop secrets still receive only the secret reference placeholder.
 
 ### rsa\_sha256, rsa\_sha512
 

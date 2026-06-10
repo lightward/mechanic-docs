@@ -100,7 +100,7 @@ Shop configuration input types are also available:
 | `global` | Dropdown of shop globals | selected global value | `options.shared_username__global_required` |
 | `secret` | Dropdown of shop secrets | opaque secret reference | `options.api_token__secret_required` |
 
-See [Globals and secrets](../../../platform/globals-and-secrets.md) for setup, supported secret-aware actions, and safety details.
+See [Globals and secrets](../../../platform/globals-and-secrets.md) for setup, the supported actions and filters, and safety details.
 
 When an option key uses a structured input type, that type wins before `global` or `secret` are considered. For example, `options.mode__select_o1_global_o2_secret_o3_local` is still a select dropdown whose choices are the literal strings `"global"`, `"secret"`, and `"local"`.
 

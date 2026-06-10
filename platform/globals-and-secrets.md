@@ -18,7 +18,7 @@ Use **globals** for visible configuration, like usernames, warehouse IDs, thresh
 | Visible after saving | Yes | No |
 | Available in task repos and CLI sync | Yes, in `mechanic.globals.json` | No secrets file is created |
 | Liquid access | `globals.some_key` | `secrets.some_key` |
-| Missing key behavior | Returns `nil` | Fails when a supported secret-aware sink tries to resolve it |
+| Missing key behavior | Returns `nil` | The task fails if a supported action or filter tries to use a missing secret |
 | Best for | Shared visible config | Credentials and signing material |
 
 Keys use lower snake case, start with a letter, and may contain lowercase letters, numbers, and underscores. For example: `warehouse_id`, `api_token`, `shipping_rules`.
@@ -59,15 +59,15 @@ Secrets are available through the `secrets` Liquid object.
 {{ secrets.api_token }}
 ```
 
-This does not return the raw secret value during normal Liquid rendering. It returns an opaque secret reference that only supported secret-aware paths can resolve. Echoing, logging, or sending that value through unsupported actions shows the placeholder, not the secret.
+This does not return the raw secret value during normal Liquid rendering. It returns an opaque secret reference. Mechanic turns that reference into the real value only inside supported actions and signing filters, at the moment the value is needed. Echoing it, logging it, or passing it to actions that do not support shop secrets shows the placeholder, not the secret.
 
-For this release, task authors should use secrets only in these reviewed sinks:
+For this release, task authors should use secrets only with these supported actions and filters:
 
 * HTTP actions, where secret references in action options are resolved immediately before sending the request.
 * FTP actions, for the connection fields `host`, `user`, `password`, `private_key`, `private_key_pem`, and `known_hosts`.
 * Signing filters that accept secret material: `hmac_sha1`, `hmac_sha256`, `hmac_sha512`, `rsa_sha256`, and `rsa_sha512`.
 
-Built-in integrations such as Google Drive, Google Sheets, Slack, Airtable, Flow, and Shopify do not use shop secrets as connection credentials in this release. Other actions and persistence-oriented paths, including Echo, Email, Files, Event, Cache, and FTP upload/download content, keep secret references as placeholders until they receive separate leak review.
+Built-in integrations such as Google Drive, Google Sheets, Slack, Airtable, Flow, and Shopify do not use shop secrets as connection credentials in this release. Echo, Email, Files, Event, Cache, and FTP upload/download content also do not receive raw secret values. They keep secret references as placeholders until support is added for those places.
 
 When a supported action resolves a secret, Mechanic redacts the raw value before storing or showing action data, errors, logs, previews, or encoded response fields. For secret-bearing actions, base64 diagnostic fields such as `body_base64` or `data_base64` may be replaced with `__mechanic_secret_value_redacted__`.
 
@@ -82,7 +82,7 @@ Task options can ask a merchant to select one existing global or secret from the
 
 A `global` option renders a dropdown of shop globals. At runtime, the option returns the selected global's value.
 
-A `secret` option renders a dropdown of shop secrets. At runtime, the option returns the same opaque secret reference as `secrets.api_token`. The raw value is only resolved by supported secret-aware sinks.
+A `secret` option renders a dropdown of shop secrets. At runtime, the option returns the same opaque secret reference as `secrets.api_token`. The raw value is only used by supported actions and signing filters.
 
 Secret options can be combined with `required`, in any order:
 

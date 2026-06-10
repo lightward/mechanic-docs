@@ -71,7 +71,7 @@ To authenticate a request using [the Authorization header](https://developer.moz
 
 ### Using secrets
 
-The HTTP action is secret-aware. It can resolve [shop secrets](../../platform/globals-and-secrets.md) in action options immediately before sending the request, while stored action data, previews, errors, and logs keep placeholders or redacted values.
+The HTTP action supports [shop secrets](../../platform/globals-and-secrets.md). It turns secret references in action options into raw values immediately before sending the request, while stored action data, previews, errors, and logs keep placeholders or redacted values.
 
 ```liquid
 {% action "http" %}
