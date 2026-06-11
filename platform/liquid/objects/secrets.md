@@ -12,7 +12,9 @@ Use secrets for credentials and signing material:
 {{ secrets.api_token }}
 ```
 
-This returns an opaque secret reference, not the raw secret value. Mechanic turns that reference into the real value only inside supported actions and filters, such as HTTP actions, specific FTP connection fields, and signing filters like `hmac_sha256` or `rsa_sha256`.
+If the secret exists, this returns an opaque secret reference, not the raw secret value. Mechanic turns that reference into the real value only inside supported actions and filters, such as HTTP actions, specific FTP connection fields, and signing filters like `hmac_sha256` or `rsa_sha256`.
+
+Missing secrets return `nil`, so guards like `{% if secrets.api_token %}` work as expected.
 
 Actions that do not support shop secrets, logs, and ordinary Liquid output receive the placeholder. This lets tasks pass references around without exposing secret values in previews, stored action options, logs, or task output.
 

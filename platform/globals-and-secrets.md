@@ -18,7 +18,7 @@ Use **globals** for visible configuration, like usernames, warehouse IDs, thresh
 | Visible after saving | Yes | No |
 | Available in task repos and CLI sync | Yes, in `mechanic.globals.json` | No secrets file is created |
 | Liquid access | `globals.some_key` | `secrets.some_key` |
-| Missing key behavior | Returns `nil` | The task fails if a supported action or filter tries to use a missing secret |
+| Missing key behavior | Returns `nil` | Returns `nil` |
 | Best for | Shared visible config | Credentials and signing material |
 
 Keys use lower snake case, start with a letter, and may contain lowercase letters, numbers, and underscores. For example: `warehouse_id`, `api_token`, `shipping_rules`.
@@ -59,7 +59,9 @@ Secrets are available through the `secrets` Liquid object.
 {{ secrets.api_token }}
 ```
 
-This does not return the raw secret value during normal Liquid rendering. It returns an opaque secret reference. Mechanic turns that reference into the real value only inside supported actions and signing filters, at the moment the value is needed. Echoing it, logging it, or passing it to actions that do not support shop secrets shows the placeholder, not the secret.
+This does not return the raw secret value during normal Liquid rendering. If the secret exists, it returns an opaque secret reference. Mechanic turns that reference into the real value only inside supported actions and signing filters, at the moment the value is needed. Echoing it, logging it, or passing it to actions that do not support shop secrets shows the placeholder, not the secret.
+
+Missing secrets return `nil`, so guards like `{% if secrets.api_token %}` work as expected.
 
 For this release, task authors should use secrets only with these supported actions and filters:
 
