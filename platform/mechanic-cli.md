@@ -41,6 +41,12 @@ The Mechanic CLI requires Node.js 22 or higher.
 npm install -g @lightward/mechanic-cli
 ```
 
+To check your installed CLI version against the latest published version:
+
+```bash
+mechanic version
+```
+
 {% endstep %}
 {% step %}
 
