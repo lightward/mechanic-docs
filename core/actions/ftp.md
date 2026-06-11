@@ -66,6 +66,29 @@ pZ/WFoT82brhooSfJDue14C0Y=
 {% endaction %}
 ```
 
+The FTP action supports [shop secrets](../../platform/globals-and-secrets.md) for connection settings. Prefer storing passwords and private keys as shop secrets, then referencing them from the action:
+
+```liquid
+{% action "ftp" %}
+  {
+    "protocol": "sftp",
+    "host": "example.com",
+    "port": 22,
+    "user": {{ globals.sftp_username | json }},
+    "password": {{ secrets.sftp_password | json }},
+    "uploads": {
+      "success.txt": "hooray!"
+    }
+  }
+{% endaction %}
+```
+
+Secret references may come directly from `secrets.some_key` or from a task option such as `options.sftp_password__secret_required`.
+
+The FTP action resolves secrets only for these connection fields: `host`, `user`, `password`, `private_key`, `private_key_pem`, and `known_hosts`. Upload paths, download paths, filenames, generated file contents, and other FTP options keep secret references as placeholders.
+
+Stored action data, errors, previews, and logs keep placeholders or redacted values. If an FTP action resolves any secret, base64 diagnostic fields such as `data_base64` may be replaced with `__mechanic_secret_value_redacted__`.
+
 ### Uploads and downloads
 
 Both `uploads` and `downloads` allow the task author to define file paths. If only the filename is given (e.g. `"sample.pdf"`), the file will be resolved in the home directory of the user. If a relative path (e.g. `"subdirectory/sample.pdf"`) or absolute path (e.g. `"/tmp/sample.pdf"`) is given, it will be respected accordingly.

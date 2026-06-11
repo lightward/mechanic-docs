@@ -6,6 +6,8 @@ For more general information on third-party APIs, including more options for rea
 
 Mechanic only has first-class API support for Shopify. However, you can use the [HTTP](../core/actions/http.md) action to fetch data from any source that's accessible with an HTTP URL. (APIs that require authentication via query param or header - basic auth, for example - are all supported. APIs that require authentication via OAuth are generally not supported.)
 
+For API keys, passwords, signing keys, and other reusable credentials, store the value as a [shop secret](../platform/globals-and-secrets.md) and reference it from the HTTP action with `secrets.some_key`.
+
 {% hint style="info" %}
 Tip: use [Couchdrop's Shared Links](https://couchdrop.io/features/shared-links) to make any file available via a secret URL, from an FTP server or cloud storage provider.
 {% endhint %}

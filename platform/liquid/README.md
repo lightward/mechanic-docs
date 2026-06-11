@@ -46,7 +46,7 @@ If you've worked with Shopify themes, Mechanic Liquid will feel familiar — but
 
 * [**Mechanic filters**](filters/) make it easier to manage data in the context of Mechanic tasks. Mechanic Liquid also includes support for many Shopify Liquid filters!
 * [**Mechanic keyword literals**](keyword-literals/) create support for [arrays](keyword-literals/array.md) and [hashes](keyword-literals/hash.md).
-* [**Mechanic objects**](objects/) represent specific Mechanic and Shopify resources.
+* [**Mechanic objects**](objects/) represent specific Mechanic and Shopify resources, including shop-level [globals and secrets](../globals-and-secrets.md).
 * [**Mechanic tags**](tags/) make it easier for task writers to render JSON objects. These tags include [action](tags/action.md), [log](tags/log.md), and [error](tags/error.md). We've also enhanced the [assign](tags/assign.md) tag to support assigning values within arrays and hashes.
 
 {% hint style="info" %}

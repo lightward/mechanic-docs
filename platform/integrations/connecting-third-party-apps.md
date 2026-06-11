@@ -77,6 +77,8 @@ Most third-party APIs require authentication. The HTTP action supports several c
 * **Basic auth** — Supported natively by the HTTP action. Supply a username and password.
 * **Query string tokens** — Some APIs accept a key as a URL parameter.
 
+Store reusable credentials in [Globals and secrets](../globals-and-secrets.md). Use globals for visible configuration, and use secrets for API keys, passwords, and signing keys. HTTP and FTP actions can resolve secret references immediately before sending requests while keeping stored action data redacted.
+
 {% hint style="warning" %}
 OAuth-based APIs that require interactive user authorization are only supported for Mechanic's [built-in OAuth integrations](./#oauth). You cannot perform an OAuth authorization flow for arbitrary third-party services.
 {% endhint %}
@@ -101,7 +103,7 @@ Use the HTTP action with an API key header to call the app's API:
     "method": "GET",
     "url": "https://api.example-app.com/subscriptions/{{ subscription_id }}",
     "headers": {
-      "X-Api-Key": "{{ options.api_key__required }}"
+      "X-Api-Key": {{ secrets.example_app_api_key | json }}
     }
   }
 {% endaction %}

@@ -623,6 +623,25 @@ This filter only returns the first match found. To find all available matches in
 
 Works like [hmac\_sha256 from Shopify Liquid](https://shopify.dev/docs/api/liquid/filters/hmac_sha256), but uses SHA-512 instead.
 
+#### Signing keys from secrets
+
+These signing filters can resolve [shop secret](../../globals-and-secrets.md) references when the secret is used as the key argument:
+
+* `hmac_sha1`
+* `hmac_sha256`
+* `hmac_sha512`
+* `rsa_sha256`
+* `rsa_sha512`
+
+```liquid
+{{ body | hmac_sha1: secrets.webhook_signing_key }}
+{{ body | hmac_sha256: secrets.webhook_signing_key }}
+{{ body | hmac_sha512: options.signing_key__secret_required }}
+{{ jwt_input | rsa_sha256: secrets.rsa_private_key | base64_url_safe_encode }}
+```
+
+The filter receives the raw secret value internally, but normal Liquid output, logs, and actions that do not support shop secrets still receive only the secret reference placeholder.
+
 ### rsa\_sha256, rsa\_sha512
 
 Accepts string input, given an RSA PEM key string as a filter option.

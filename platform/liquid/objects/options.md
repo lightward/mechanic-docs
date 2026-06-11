@@ -21,3 +21,15 @@ This object is always a hash. The keys always correspond to lookups \(i.e. `{{ o
 
 For more on using this object \(and implicitly constructing the merchant-facing configuration form\), see [Task options](../../../core/tasks/options/).
 
+## Global and secret options
+
+Options can also render dropdowns for selecting existing shop globals and secrets:
+
+```liquid
+{{ options.shared_username__global_required }}
+{{ options.api_token__secret_required }}
+```
+
+A global option returns the selected global's value at runtime.
+
+A secret option returns an opaque secret reference, not the raw secret value. Mechanic turns that reference into the real value only inside supported actions and filters, such as HTTP actions, specific FTP connection fields, and signing filters like `hmac_sha256` or `rsa_sha256`. See [Globals and secrets](../../globals-and-secrets.md) for details.

@@ -1,11 +1,21 @@
 ---
 description: >-
-  Mechanic's Liquid objects — event, task, options, cache, action, and Shopify resource objects available in your task code.
+  Mechanic's Liquid objects — event, task, options, globals, secrets, cache, action, and Shopify resource objects available in your task code.
 ---
 
 # Mechanic objects
 
 Mechanic makes a variety of [**Liquid environment variables**](../../../core/tasks/code/environment-variables.md) available, containing specific Liquid objects. (The `shop` variable, for example, is always available and always contains the [Shop object](shopify/shop.md).)
+
+Shop-level configuration is available through globals and secrets:
+
+{% content-ref url="globals.md" %}
+[globals.md](globals.md)
+{% endcontent-ref %}
+
+{% content-ref url="secrets.md" %}
+[secrets.md](secrets.md)
+{% endcontent-ref %}
 
 Mechanic's Liquid objects mapping to Shopify resources all contain data pulled from the [Shopify's REST Admin API reference](https://shopify.dev/docs/admin-api/rest/reference). These objects are listed here:
 

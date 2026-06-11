@@ -1,10 +1,10 @@
 ---
-description: Use Mechanic API tokens with the task sync API for trusted scripts, agents, CI, and the Mechanic CLI.
+description: Use Mechanic API tokens with the v1 API for trusted scripts, agents, CI, and the Mechanic CLI.
 ---
 
 # API tokens and task sync API
 
-Mechanic API tokens authenticate task sync workflows for one shop. They are used by the [Mechanic CLI](mechanic-cli.md), and may also be used by trusted scripts, agents, and CI jobs that need direct HTTP access to the same task sync surface.
+Mechanic API tokens authenticate v1 API workflows for one shop. They are used by the [Mechanic CLI](mechanic-cli.md), and may also be used by trusted scripts, agents, and CI jobs that need direct HTTP access to task sync, shop status, Shopify API deprecation visibility, and [globals and secrets](globals-and-secrets.md).
 
 {% hint style="info" %}
 The CLI is the recommended client. It wraps this API with local task validation, content hashes, idempotency keys, preview commands, diff output, and safer publish flows. Direct HTTP use is for CLI-compatible automation, not a broad public API platform.
@@ -23,12 +23,12 @@ Tokens are:
 * accepted as `Authorization: Bearer <token>`
 * usable as `MECHANIC_API_TOKEN` for the CLI and CI jobs
 
-Treat tokens like passwords. A token can read task sync payloads and can preview and publish tasks for its shop until revoked.
+Treat tokens like passwords. A token can read task sync payloads, preview and publish tasks, read and write globals, and set, replace, or delete secrets for its shop until revoked.
 
 Use one token per device, repository, or automation. Each shop can have up to five active API tokens. If a token is leaked, revoke it and create a replacement.
 
 {% hint style="warning" %}
-API tokens are not granularly scoped in this version. Do not share a token with untrusted repositories, third-party scripts, or agents you would not trust to read and publish tasks for the shop.
+API tokens are not granularly scoped in this version. Do not share a token with untrusted repositories, third-party scripts, or agents you would not trust to read and publish tasks or manage globals and secrets for the shop.
 {% endhint %}
 
 ## Base URL and authentication
@@ -65,7 +65,7 @@ For CI jobs, store the token as a secret named `MECHANIC_API_TOKEN` and expose i
 ## Endpoints
 
 This API is intentionally narrow. It covers task sync, task preview, shop queue
-status, and Shopify API deprecation visibility for the authenticated shop. Use
+status, Shopify API deprecation visibility, and shop globals and secrets for the authenticated shop. Use
 direct HTTP only for trusted automation that can safely store a shop API token.
 
 | Method | Path | Purpose |
@@ -79,6 +79,12 @@ direct HTTP only for trusted automation that can safely store a shop API token.
 | `POST` | `/v1/tasks/:id/preview` | Preview local draft content against an existing task, or preview the current saved task, without saving |
 | `POST` | `/v1/tasks` | Create a task from sync payload |
 | `PUT` | `/v1/tasks/:id` | Update a task from sync payload |
+| `GET` | `/v1/globals` | List shop globals, including values |
+| `PUT` | `/v1/globals/:key` | Create or replace one shop global |
+| `DELETE` | `/v1/globals/:key` | Delete one shop global |
+| `GET` | `/v1/secrets` | List shop secret metadata only |
+| `PUT` | `/v1/secrets/:key` | Create or replace one shop secret |
+| `DELETE` | `/v1/secrets/:key` | Delete one shop secret |
 
 {% hint style="info" %}
 There is no `tasks new` API endpoint. `mechanic tasks new` is a local CLI command that creates a starter task file and helper folder in an initialized project. When that new local task is published, the CLI uses `POST /v1/tasks`, and Mechanic creates the remote task disabled.
@@ -118,6 +124,63 @@ other raw payload data.
 `GET /v1/tasks` and `GET /v1/tasks/:id` also include `shopify_api_version` in
 task sync envelopes, so scripts can see the configured API version without
 fetching or parsing the task JSON separately.
+
+## Globals and secrets
+
+Globals and secrets are shop-level configuration values. See [Globals and secrets](globals-and-secrets.md) for task-author usage and safety details.
+
+Globals store visible JSON values. `GET /v1/globals` returns those values:
+
+```json
+{
+  "globals": [
+    {
+      "key": "warehouse_id",
+      "value": "main",
+      "created_at": "2026-06-10T12:00:00Z",
+      "updated_at": "2026-06-10T12:00:00Z"
+    }
+  ]
+}
+```
+
+Set or replace a global with:
+
+```bash
+curl https://api.mechanic.dev/v1/globals/warehouse_id \
+  -X PUT \
+  -H "Authorization: Bearer $MECHANIC_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"global":{"value":"main"}}'
+```
+
+Secrets store write-only string values. Secret responses never include the saved value. `GET /v1/secrets` returns metadata only:
+
+```json
+{
+  "secrets": [
+    {
+      "key": "api_token",
+      "value_present": true,
+      "approximate_task_reference_count": 2,
+      "created_at": "2026-06-10T12:00:00Z",
+      "updated_at": "2026-06-10T12:00:00Z"
+    }
+  ]
+}
+```
+
+Set or replace a secret by sending this JSON shape to `PUT /v1/secrets/:key`:
+
+```json
+{
+  "secret": {
+    "value": "<secret-value>"
+  }
+}
+```
+
+Avoid putting raw secret values in shell history. For most workflows, prefer the CLI's `mechanic secrets set --value-env` or `mechanic secrets set --from-stdin` commands.
 
 ## Preview and publish behavior
 
@@ -167,6 +230,6 @@ Use deploy and sync workflows only in trusted repositories. Consider GitHub envi
 
 ## What is not included yet
 
-This is not a general-purpose Mechanic API reference. This version does not document SDKs, token scopes, task deletion, task enabling/disabling, event APIs, run APIs, webhook management APIs, fleet management, or formal public API versioning beyond the task sync surface.
+This is not a general-purpose Mechanic API reference. This version does not document SDKs, token scopes, task deletion, task enabling/disabling, event APIs, run APIs, webhook management APIs, fleet management, or formal public API versioning beyond the documented v1 surface.
 
 Start with [Local task development with the Mechanic CLI](mechanic-cli.md) unless you specifically need direct HTTP automation.
