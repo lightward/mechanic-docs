@@ -210,6 +210,8 @@ Use `--verbose` if you want the terminal to show event, task run, and action run
 mechanic tasks preview order-tagger --verbose
 ```
 
+`tasks preview --stdin` reads task JSON from stdin instead of local files. See [AI and agent workflows](mechanic-cli.md#ai-and-agent-workflows) for editor and automation use.
+
 {% endstep %}
 {% step %}
 
@@ -434,6 +436,22 @@ For agent-friendly output, many commands support machine-readable or automation-
 ```bash
 mechanic tasks preview order-tagger --json
 ```
+
+Editors and other tools can preview in-memory task content without writing it to disk first. `tasks preview --stdin` reads task JSON from stdin. Pass a task selector to preview the piped content in that linked task's context, or omit the selector to preview it as a new unlinked task:
+
+```bash
+cat build/order-tagger.json | mechanic tasks preview order-tagger --stdin --json
+```
+
+`--stdin` treats the piped content as the source of truth, so it skips the stale helper directory check. Preview exits `0` when the preview passes, `1` when sample runs fail, and `2` when the task is invalid.
+
+When a `--json` command fails before producing its normal output (auth problems, network failures, rate limits), it prints a JSON error envelope to stdout instead, with exit codes unchanged:
+
+```json
+{ "error": { "message": "Mechanic API rate limit exceeded.", "status": 429, "retry_after_seconds": 7 } }
+```
+
+With `--json`, stdout is always a single JSON document: the command's normal output, or this error envelope. Previews are [rate limited](mechanic-task-sync-api.md#rate-limits-and-errors) per token; tools that preview on every edit should debounce, keep one preview in flight, and wait `retry_after_seconds` before retrying.
 
 ## Related
 
