@@ -103,7 +103,7 @@ Reads values from a range into the action's result, where a task subscribing to 
 Deletes a span of rows entirely — rows below shift up. Row numbers are 1-based and inclusive, matching what you see in the Sheets UI.
 
 {% hint style="warning" %}
-This operation is destructive, and is never retried automatically: if a deletion fails ambiguously after Google may have applied it, retrying could remove different rows. `sheet_name` is always required, so a reordering of tabs can never redirect a deletion to the wrong sheet.
+This operation is destructive, and is never retried automatically: if a deletion fails ambiguously after Google may have applied it, retrying could remove different rows. (Rate-limited rejections are the one exception — Google refuses those before applying anything, so they are safe to retry.) `sheet_name` is always required, so a reordering of tabs can never redirect a deletion to the wrong sheet.
 {% endhint %}
 
 #### Required Options
