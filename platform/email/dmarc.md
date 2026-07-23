@@ -18,7 +18,8 @@ We recommend using DMARC configuration and monitoring by Postmark. (They're Mech
 
 ## Verify DMARC configuration
 
-Once you've got your DMARC policy configured (no matter what strategy or tooling you've adopted), you can use this tool to make sure that it's set up properly.
+Once you've got your DMARC policy configured (no matter what strategy or tooling you've adopted), you can use these tools to make sure that it's set up properly.
 
 * [https://dmarcian.com/dmarc-inspector/](https://dmarcian.com/dmarc-inspector/)
+* [https://www.suped.com/tools/dmarc-checker](https://www.suped.com/tools/dmarc-checker)
 
