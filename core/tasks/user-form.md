@@ -9,6 +9,14 @@ When a task subscribes to the **mechanic/user/form** event topic a "Run task" bu
 
 When the Run Task button is clicked the user is presented with a form that contains any [task options](options/) that have the `_userform` flag.&#x20;
 
+Form fields intentionally start blank: the form collects ad-hoc input for a single run, while the values saved on the task's options remain the task's configuration for its other subscriptions. Your task code decides what blank input means — a common pattern is falling back to the saved option value:
+
+```liquid
+{% assign recipients = input.email_recipients | default: options.email_recipients__array__userform %}
+```
+
+Submitting the form never changes the task's saved options.
+
 When submitted, an event is generated, to which only this task will respond. The user's input is available in Liquid as `input.<name>`.
 
 <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>User form on Run Task page</p></figcaption></figure>
