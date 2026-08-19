@@ -142,6 +142,7 @@ Need metaobject events, metafield filters, customized payloads, or custom routin
 * shopify/customers/update
 * shopify/customers\_email\_marketing\_consent/update
 * shopify/customers\_marketing\_consent/update
+* shopify/customers\_whats\_app\_marketing\_consent/update
 * shopify/delivery\_promise\_settings/update
 * shopify/discounts/create
 * shopify/discounts/delete
@@ -176,10 +177,12 @@ Need metaobject events, metafield filters, customized payloads, or custom routin
 * shopify/fulfillment\_orders/hold\_released
 * shopify/fulfillment\_orders/line\_items\_prepared\_for\_local\_delivery
 * shopify/fulfillment\_orders/line\_items\_prepared\_for\_pickup
+* shopify/fulfillment\_orders/manually\_reported\_progress\_stopped
 * shopify/fulfillment\_orders/merged
 * shopify/fulfillment\_orders/moved
 * shopify/fulfillment\_orders/order\_routing\_complete
 * shopify/fulfillment\_orders/placed\_on\_hold
+* shopify/fulfillment\_orders/progress\_reported
 * shopify/fulfillment\_orders/rescheduled
 * shopify/fulfillment\_orders/scheduled\_fulfillment\_order\_ready
 * shopify/fulfillment\_orders/split
@@ -205,6 +208,7 @@ Need metaobject events, metafield filters, customized payloads, or custom routin
 * shopify/inventory\_transfers/ready\_to\_ship
 * shopify/inventory\_transfers/remove\_items
 * shopify/inventory\_transfers/update\_item\_quantities
+* shopify/inventory\_transfers/updated
 * shopify/locales/create
 * shopify/locales/destroy
 * shopify/locales/update
@@ -213,6 +217,7 @@ Need metaobject events, metafield filters, customized payloads, or custom routin
 * shopify/locations/deactivate
 * shopify/locations/delete
 * shopify/locations/update
+* shopify/machine\_translation\_batch/completed
 * shopify/markets/create
 * shopify/markets/delete
 * shopify/markets/update
