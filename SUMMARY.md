@@ -124,7 +124,9 @@
 ## Platform
 
 * [🔆 Policies](platform/policies/README.md)
+  * [Terms of Service](platform/policies/terms.md)
   * [Data](platform/policies/data.md)
+  * [Data Processing Addendum](platform/policies/dpa.md)
   * [Plans](platform/policies/plans.md)
   * [Pricing](platform/policies/pricing.md)
   * [Privacy](platform/policies/privacy.md)
