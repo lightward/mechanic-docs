@@ -5,7 +5,7 @@ description: >-
 
 # Terms of Service
 
-*Last updated: August 26, 2026*
+*Last updated: August 27, 2026*
 
 These terms describe the legal relationship between you and Lightward Inc. when you use Mechanic. We've written them to be readable, because we mean them. The plain-language notes are part of how we communicate, but the numbered terms are what governs.
 
@@ -67,7 +67,7 @@ Mechanic is provided **"as is" and "as available."** To the fullest extent permi
 To the fullest extent permitted by law:
 
 - Neither party is liable to the other for indirect, incidental, special, consequential, or punitive damages, or for lost profits, revenue, or data, however arising.
-- Lightward's total aggregate liability arising out of or relating to the service is limited to the greater of (a) the amounts you paid us in the **twelve (12) months** before the event giving rise to the claim, or (b) **USD $100**.
+- Each party's total aggregate liability arising out of or relating to the service is limited to the greater of (a) the amounts the customer paid Lightward in the **twelve (12) months** before the event giving rise to the claim, or (b) **USD $100**.
 
 Nothing in these terms limits liability that cannot be limited by law.
 
