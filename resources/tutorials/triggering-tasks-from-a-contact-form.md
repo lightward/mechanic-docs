@@ -51,7 +51,7 @@ Next, we're going to write some JavaScript that listens for the`submit` event of
 
 Let's get started on our JavaScript. In the advanced task editor, open the **JavaScript** tab and find **JavaScript for Online Storefront**. This is where we'll add the code that runs on our shop frontend.
 
-After saving the task with JavaScript and leaving it enabled, complete theme setup if Mechanic prompts you: click **Enable Mechanic in your theme**, make sure Mechanic's **Online store JavaScript** is turned on under **App embeds**, and click **Save** in Shopify. Return to Mechanic to confirm setup. This setting serves all your enabled tasks that use storefront JavaScript, so you won't need to repeat it if it's already enabled in your published theme. [See the setup guide](../../core/tasks/advanced-settings/javascript.md#enable-mechanic-in-your-theme).
+After saving the task with JavaScript and leaving it enabled, complete theme setup if Mechanic prompts you: click **Enable Mechanic in your theme**, make sure Mechanic's **Online store JavaScript** is turned on under **App embeds**, and click **Save** in the theme editor. Return to Mechanic to confirm setup. This setting serves all your enabled tasks that use storefront JavaScript, so you won't need to repeat it if it's already enabled in your published theme. [See the setup guide](../../core/tasks/advanced-settings/javascript.md#enable-mechanic-in-your-theme).
 
 You'll still need to configure the webhook and match the JavaScript to your contact form, as described below. Test the finished form on the storefront outside the theme editor after saving your changes.
 
