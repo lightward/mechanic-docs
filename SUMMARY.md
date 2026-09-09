@@ -21,6 +21,7 @@
 * [🤖 Mechanic MCP Server](platform/mcp.md)
 * [🤖 Mechanic Agent Skills](platform/agent-skills.md)
 * [🚀 Slack community](resources/slack.md)
+* [📣 Changelog](https://mechanic.canny.io/changelog)
 * [🤝 Partner directory](https://partners.mechanic.dev)
 * [🧠 Tutorials](resources/tutorials/README.md)
   * [Video walkthroughs](resources/video-walkthroughs/README.md)

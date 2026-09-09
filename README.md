@@ -12,6 +12,7 @@ Mechanic is a Shopify automation and development platform. Write Liquid code tha
 * [Get started](getting-started.md) — install Mechanic and set up your first task in minutes
 * [Build something custom](custom.md) — create a task tailored to your store's workflow
 * [Join our Slack community](resources/slack.md) — get help and share ideas with other merchants and developers
+* [Read the changelog](https://mechanic.canny.io/changelog) — see what’s new in Mechanic
 
 {% hint style="info" %}
 Find Mechanic on the Shopify App Store: [apps.shopify.com/mechanic](https://apps.shopify.com/mechanic)
