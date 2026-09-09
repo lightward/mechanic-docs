@@ -6,11 +6,15 @@ Tasks can use JavaScript to add functionality to your online store, such as disp
 
 When an enabled task needs JavaScript in your online store, Mechanic shows a **Mechanic in your theme** card if setup needs your attention. You'll find it on the task page and on the Mechanic homepage, where it lists the tasks that need it.
 
+![The Mechanic homepage naming the enabled tasks that need JavaScript in the online store.](../../../.gitbook/assets/mechanic-in-your-theme-home.png)
+
 ![A task page showing which task needs JavaScript and the Enable Mechanic in your theme button.](../../../.gitbook/assets/mechanic-in-your-theme-task.png)
 
 1. Click **Enable Mechanic in your theme**. This opens your published theme in Shopify's theme editor in a new tab.
 2. Make sure Mechanic's **Online store JavaScript** is turned on in **App embeds**, then click **Save** in Shopify.
 3. Return to Mechanic. The setup card disappears once Mechanic confirms the saved setting. If it hasn't refreshed, click **Check theme status**.
+
+If setup still can't be confirmed, check that you saved the setting in your published theme and try **Check theme status** again. If the problem continues, [contact Mechanic support](../../../support.md) with your shop domain and what you're seeing. Support can also help with the older integration's background cleanup; leave that cleanup to Mechanic.
 
 You only need to do this once for your current theme. The same setting loads JavaScript for all your enabled tasks, including tasks you add later. Enabling it doesn't require editing theme code. Some tasks have additional setup of their own, such as adding a button or configuring a webhook; follow the task's instructions too.
 
