@@ -1,5 +1,5 @@
 ---
-description: Build storefront forms that send answers to your Mechanic tasks through webhooks.
+description: Collect quote requests, wholesale applications, service inquiries, and more with forms connected to your Mechanic tasks.
 ---
 
 # Forms
@@ -27,6 +27,18 @@ Use **Try form** to check the flow. Visitors can go Back without losing their an
 
 Your theme supplies the form’s fonts and colors. You do not need to edit theme code or write storefront JavaScript to use a form block.
 
+## Collect leads and inquiries
+
+Use a form to learn what a potential customer needs, then let your tasks deliver the details to the people and systems that will handle the request. These starters are ready to customize:
+
+| Start with | What you can learn | Connect tasks to |
+| --- | --- | --- |
+| **Request a quote** | The product or project, quantity, requirements, and needed-by date. | Email your sales team and save each inquiry in a Google Sheet for follow-up. |
+| **Wholesale application** | The business, how it sells, products of interest, and estimated order quantity. | Email the team that reviews applications and keep a record in Shopify metaobjects. |
+| **Service or repair request** | The service needed, product or item, supporting photos, and preferred date. | Email your service team, including attachments when enabled, and save requests for review. |
+
+Use the [email and storage tasks](#put-submissions-to-work) below, or subscribe your own tasks to the same webhook. The starters collect the information; your team or your configured tasks decide how to qualify and follow up on each inquiry. Start with the [quote-request walkthrough](#example-collect-and-follow-up-on-quote-requests).
+
 ## Connect your tasks
 
 Open **Submission settings** and choose a webhook under **Send submissions to**. Its event topic determines which tasks receive the submission. The form does not have a separate event topic.
@@ -52,6 +64,17 @@ After choosing a webhook, you can use these tasks on its event topic:
 Install the tasks you need; they can run together. Copy the webhook's **Event topic** into the task's **Webhook event topic** option. To handle just this form, copy its form code into **Form ID**; otherwise the task handles all Mechanic forms on that topic. Complete the task's destination setup, save and enable it, then return to the form and refresh the connection. The task should appear in the subscribed-task list. Installing a task does not reconnect the form or complete its setup automatically.
 
 **Choose what happens to uploaded files.** The Google Sheets task can save them to Google Drive when its upload option is enabled, and the email task can include them as attachments. Without those options, you receive file details only. The metaobject task stores answers and file details, not the files themselves. Files in the original Mechanic event follow its normal retention.
+
+### Example: collect and follow up on quote requests
+
+1. Create a form from **Request a quote**. Adapt the product, quantity, requirements, and date questions to what your team needs to prepare a quote. Keep the name and email fields so your team can respond.
+2. In **Submission settings**, choose a webhook. Install the **Email task** linked above and copy that webhook's exact **Event topic** into the task's **Webhook event topic** option. Set **Form ID** to this form's code if the webhook serves other forms too.
+3. Set **Email recipients** to your sales team's addresses, **Email subject** to “New quote request,” and **Reply to email field key** to `email`. When the submission contains a valid email address, staff can reply to the notification to contact the person who submitted it. Enable **Include uploaded files** if the team should receive reference files as attachments. Complete the task's setup, including [Mechanic email approval](../platform/email/README.md), then save and enable it.
+4. To keep a shared list, install the **Google Sheets task** on the same webhook topic and set the same **Form ID**. Complete its Google account and spreadsheet setup. In **Column headings and field keys**, map `Name → name`, `Email → email`, `Product or project → product_or_project`, `Quantity → quantity`, `Requirements → requirements`, and `Needed by → needed_by`. These keys match the starter; adjust the mapping if you change them. The email and storage tasks can run together. You can use the **Shopify metaobjects task** instead if you want to keep the answers in Shopify.
+5. Return to the form and choose **Refresh connection**. Confirm the tasks are listed and enabled. Use a confirmation such as “Thanks! Your quote request has been submitted.” Publish the form and [add it to your theme](#add-the-form-to-your-theme).
+6. Submit a sample from the storefront using test contact details. Choose **View events for this webhook topic**, open the event, and check the email and storage action results. Confirm the notification arrives, its reply address is correct, and the saved record contains the answers. Your team can then review the request and reply with a quote.
+
+The same setup works for wholesale and service inquiries: choose the relevant starter, notification recipients, and storage fields. Extra routing, customer updates, or automated follow-up require tasks configured for those actions. Marketing signup, if wanted, needs its own consent question and task setup.
 
 ### Example: a warranty request
 
