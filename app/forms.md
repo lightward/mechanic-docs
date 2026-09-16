@@ -33,13 +33,15 @@ Open **Submission settings** and choose a webhook under **Send submissions to**.
 
 Choose **Create or manage webhooks** to open webhook settings in a separate tab. [Create the webhook](../resources/tutorials/creating-a-mechanic-webhook.md), return to your form, and choose **Refresh connection** to select it. Your form edits stay in the original tab.
 
-**Tasks subscribed to this topic** lists the connected tasks, with links to open them. Disabled tasks are marked and will not run. If the list is empty, add the webhook’s topic to the subscriptions of a task you want to run. One webhook can serve several forms and tasks.
+**Tasks subscribed to this topic** lists the connected tasks, with links to open them. Disabled tasks are marked and will not run. If the list is empty, add the webhook’s topic to the subscriptions of a task you want to run. One webhook can serve several forms and tasks. If no enabled tasks subscribe to its topic, submissions can create events, but no tasks will process them. You can still publish while setting up the tasks.
+
+Choose **View events for this webhook topic** to see its events. Open an event to inspect the answers and task results. Other forms or integrations using the same topic can appear in this list too.
 
 Write a **Confirmation message** such as “Thanks! We received your request.” Tasks run in the background, so the message should confirm receipt without promising that a task has already finished.
 
 For task authors, answers appear under `event.data.fields`, using each field’s data key. Full-request webhooks use `event.data.body.fields`. The payload also identifies the form and submission. Keep data keys stable once tasks depend on them; labels can change independently. These are ordinary multipart form submissions: scalar answers are strings, including numbers and checkbox values (`"true"` or `"false"`). Checkbox groups are arrays; empty groups and unselected files are omitted. Treat all submitted data as visitor input and validate what your task needs.
 
-## Save your submissions
+## Put submissions to work
 
 After choosing a webhook, you can use these tasks on its event topic:
 
@@ -94,6 +96,10 @@ Use **Show this field** to ask a question based on an earlier answer. Hidden que
 **File upload** accepts one file per field. Choose allowed extensions and a per-file limit from 1 to 3 MB. All files together must fit within **3 MB per submission**. Tasks receive the name, type, size, and base64 contents in the normal webhook file format; no separate file hosting is needed.
 
 Other fields include text, email, phone, website, numbers, dates, time, date and time, addresses, dropdowns, radio choices, single and multiple checkboxes, ratings, and headings. Time values represent the time entered by the visitor and do not include a timezone.
+
+## Duplicate a form
+
+Save or discard any edits, then choose **Form actions → Duplicate form**. The copy starts as an unpublished draft in the same shop. It keeps the saved questions, data keys, steps, conditions, text, and available webhook connection. It does not copy submissions or theme placements. Review its webhook and tasks before publishing; using the same webhook means the same subscribed tasks can process both forms.
 
 ## Copy a form to another shop
 
