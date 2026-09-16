@@ -41,14 +41,15 @@ For task authors, answers appear under `event.data.fields`, using each field’s
 
 ## Save your submissions
 
-After choosing a webhook, **Save your submissions** in Submission settings links to two optional tasks:
+After choosing a webhook, you can use these tasks on its event topic:
 
-- [Google Sheets task](https://tasks.mechanic.dev/save-mechanic-form-submissions-to-a-google-sheet): save the answer fields you select as spreadsheet columns.
+- [Google Sheets task](https://tasks.mechanic.dev/save-mechanic-form-submissions-to-a-google-sheet): save answers as spreadsheet columns, with an option to upload files to Google Drive and save their links. Files are not automatically shared publicly.
+- [Email task](https://tasks.mechanic.dev/email-mechanic-form-submissions): send answers to your team, with an option to include uploaded files as attachments.
 - [Shopify metaobjects task](https://tasks.mechanic.dev/save-mechanic-form-submissions-to-shopify-metaobjects): save all answers in a standard Shopify entry, with storefront access off.
 
-Install either or both. Copy the webhook's **Event topic** into the task's **Webhook event topic** option. To handle just this form, copy its form code into **Form ID**; otherwise the task handles all Mechanic forms on that topic. Complete the task's destination setup, save and enable it, then return to the form and refresh the connection. The task should appear in the subscribed-task list. Installing a task does not reconnect the form or complete its setup automatically.
+Install the tasks you need; they can run together. Copy the webhook's **Event topic** into the task's **Webhook event topic** option. To handle just this form, copy its form code into **Form ID**; otherwise the task handles all Mechanic forms on that topic. Complete the task's destination setup, save and enable it, then return to the form and refresh the connection. The task should appear in the subscribed-task list. Installing a task does not reconnect the form or complete its setup automatically.
 
-**These tasks save answers and attachment details, not uploaded files.** Files remain in the original Mechanic event and follow its retention. The saved details explicitly say that contents were not copied. Use a separate file-archiving task if you need to keep uploads longer.
+**Choose what happens to uploaded files.** The Google Sheets task can save them to Google Drive when its upload option is enabled, and the email task can include them as attachments. Without those options, you receive file details only. The metaobject task stores answers and file details, not the files themselves. Files in the original Mechanic event follow its normal retention.
 
 ### Example: a warranty request
 
@@ -60,18 +61,29 @@ Install either or both. Copy the webhook's **Event topic** into the task's **Web
 
 Google Sheets appends may duplicate a row when an event is rerun or a visitor resends. The task includes IDs for finding repeats and disables ambiguous-write retries; inspect the sheet before manually retrying a failed append. The metaobject task updates the same entry when the same Mechanic event is rerun. A new HTTP submission creates a new event and a separate entry, even with the same browser submission ID.
 
+When **Include uploaded files** is off in the email task, the message contains file names and sizes, with no download links. Turn it on to receive the files as attachments, or use the Google Sheets task’s Google Drive upload option for lasting storage. Metaobject submission records store file details, not the uploaded files. Files in the original event follow Mechanic’s normal event retention; Forms does not provide separate file hosting or expiring download links.
+
 ## Add the form to your theme
 
-1. Save your draft, then choose **Publish form**.
-2. In **Add this form to your theme**, copy the form code.
-3. Choose **Add to home page**, or **Open theme editor** to choose another page or template.
-4. Add or select the **Mechanic form** block. Paste the code into **Form code** and place the block where you want it.
-5. Click **Save** in the theme editor.
-6. Open the actual storefront page and send a test submission. Check the resulting event and task runs in Mechanic.
+1. Save your draft, then choose **Publish form**. Mechanic opens the **Theme** tab, which you can return to at any time.
+2. Choose **Add to home page**, or **Open theme editor** to choose another template.
+3. Add or select the **Mechanic form** block. Choose your published form in its **Form** picker and place the block where you want it.
+4. Click **Save** in the theme editor.
+5. Open the storefront page in a separate tab and send a test submission. Check the resulting event and task runs in Mechanic.
 
-The link opens the editor; it does not save the theme or fill in the code. Your theme must support app blocks at the chosen location. The same form can have several placements.
+The link opens the editor; it does not save the theme or select a form for you. Your theme must support app blocks at the chosen location. The same form can have several placements. Older blocks with a form code keep working. Clear an existing code before switching that block to the picker. If the picker is unavailable, Mechanic provides form-code instructions.
 
-Trying a form inside the theme editor does not send submissions. Test delivery from the actual storefront.
+### Where is this form used?
+
+In the **Theme** tab, **Where this form is used** checks saved placements in your live theme. Choose another theme to check its placements, including unpublished themes. Each result identifies the template or section group and links to the theme editor. Hidden blocks are marked. A template may serve several pages; the list does not enumerate individual page URLs.
+
+Saving a form adds permission to read your themes to Mechanic’s required access. If an update is needed, choose **Update access** and approve the Shopify permission request. This lets Mechanic find where your forms are placed without changing theme files. You can see **Forms** listed as the reason on Mechanic’s Permissions page. Deleting your last form removes this requirement unless a task or another feature still needs it. Your forms continue working while you complete the step. After granting access, return to the form’s Theme tab.
+
+Choose **Refresh** after saving a theme. Results can take up to 30 seconds to update. Unsaved editor changes are not included. Blocks that choose their form through connected data can vary by page and cannot be attributed to one form; Mechanic explains when a check includes those blocks. A failed check is not evidence that the form is unused.
+
+### Test without surprises
+
+The preview inside Mechanic and the form inside Shopify’s theme editor do not send submissions or run tasks. **A storefront opened in a separate tab, including an unpublished theme preview, sends real submissions and can run tasks.** Use a test webhook and test destinations when trying delivery.
 
 ## Steps, conditions, and files
 
@@ -89,7 +101,7 @@ Choose **Export JSON** to download the current form, including any valid unsaved
 
 In the destination shop, open **Forms → Import form** and upload or paste the JSON. Review it, select that shop’s webhook or **Choose later**, then choose **Import as draft**. The new form starts unpublished and gets a new form code. It needs a webhook before publishing.
 
-Set up the destination shop’s webhook and subscribed tasks separately. Publish the form and place its new code in that shop’s theme. Importing does not reconnect the form to the original shop.
+Set up the destination shop’s webhook and subscribed tasks separately. Publish the form and select it in that shop’s theme. Importing does not reconnect the form to the original shop.
 
 ## Update or stop a form
 
