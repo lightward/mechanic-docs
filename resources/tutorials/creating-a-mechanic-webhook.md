@@ -8,6 +8,8 @@ This is a tutorial for getting started quickly. To learn more about webhooks the
 
 When Mechanic receives data via a webhook, it fires off an event with the user topic of your choice. (For example, if you've set up an IFTTT webhook that sends you tweets, you might choose the Mechanic topic `user/ifttt/tweet`.) To make use of these events, create one or more tasks that subscribe to this topic. That's it!
 
+Building a form for your online store? [Storefront forms](../../app/forms.md) provides a visual builder and theme block. Create a webhook as described below, then choose it in the form's Submission settings and connect your tasks to its event topic.
+
 Let's review a detailed example.
 
 ### 1. Create a Mechanic webhook.

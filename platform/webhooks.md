@@ -25,6 +25,24 @@ Two different features in Mechanic share the word "webhooks" — make sure you'r
 
 Quick decision: data coming from Shopify? Start with a regular `shopify/...` task subscription. Use [Custom Shopify webhooks](shopify/custom-webhooks.md) only when Shopify needs to filter or reshape the delivery first. Data coming from anywhere else? Stay here.
 
+## Storefront form submissions
+
+[Storefront forms](../app/forms.md) let you build customer-facing forms visually in Mechanic and place them in your theme. In Submission settings, select an ordinary Mechanic webhook. The storefront posts to that webhook URL, and its event topic determines which subscribed tasks receive the answers. Forms uses the same webhook ingress and event processing as any other sender.
+
+For task authors, answers appear under `event.data.fields` in Auto mode, or `event.data.body.fields` in Full request mode. Each answer uses the field's data key. Keep those keys stable once tasks depend on them; labels can change independently.
+
+These are multipart form submissions:
+
+* Scalar answers are strings, including numbers and checkbox values (`"true"` or `"false"`).
+* Checkbox groups are arrays; empty groups and unselected files are omitted. Hidden conditional fields are omitted too.
+* Address fields contain their component values in a nested hash.
+* Uploaded files use the [standard webhook file format](#file-uploads). The Forms builder limits files to **3 MB total per submission**.
+* `form.id` identifies the form, `form.revision` identifies its published version, and `submission_id` identifies the browser's submission attempt. In Full request mode, these are under `event.data.body` along with the answers.
+
+Treat all submitted data as visitor input and validate what your task needs. A submitted email address or identifier does not establish the visitor's identity. The browser's submission ID is useful for correlation; it does not make webhook delivery or task actions run exactly once.
+
+The form's confirmation acknowledges receipt, not completed task actions. See [Responses](#responses) for how queued processing works, and the [Forms guide](../app/forms.md#put-submissions-to-work) for email, Google Sheets/Drive, and Shopify metaobject tasks.
+
 ## Configuration
 
 <figure><img src="../.gitbook/assets/mechanic-webhooks.png" alt="The Mechanic webhooks section in Settings, showing webhook name, event topic, event data mode, and webhook URL fields"><figcaption></figcaption></figure>
