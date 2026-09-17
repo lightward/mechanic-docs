@@ -31,6 +31,10 @@ There are seven starters: **Warranty request**, **Service or repair request**, *
 
 Templates provide questions, not an approval or booking workflow. Your subscribed tasks handle each request. Changes to the starter library do not overwrite forms you have already created.
 
+<figure><img src="../.gitbook/assets/storefront-forms-templates.png" alt="Storefront form templates in Mechanic, including quote requests, wholesale applications, and service requests"><figcaption><p>Start with the workflow you need, then make the questions your own.</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/storefront-forms-builder.png" alt="The quote-request form builder with a field list, live preview, and settings for the selected question"><figcaption><p>Edit questions beside a live preview. This quote-request starter groups its questions into two steps.</p></figcaption></figure>
+
 ### Choose a layout
 
 Under **Form layout**, choose **Grouped steps** to show the questions in each step together, or **One question at a time** to guide visitors through individual questions. Address fields and multiple-choice options stay together. Both layouts support conditional questions and file uploads.
@@ -64,6 +68,8 @@ Choose **View events for this webhook topic** to see its events. Open an event t
 Write a **Confirmation message** such as “Thanks! We received your request.” Tasks run in the background, so the message should confirm receipt without promising that a task has already finished.
 
 Writing your own task? See [Storefront form submissions](../platform/webhooks.md#storefront-form-submissions) for answer fields, file uploads, and submission metadata.
+
+<figure><img src="../.gitbook/assets/storefront-forms-submission-settings.png" alt="Submission settings showing the selected webhook, its event topic, and a link to its events"><figcaption><p>The webhook connects the form to your tasks. Its topic determines which tasks receive submissions.</p></figcaption></figure>
 
 ## Put submissions to work
 
@@ -112,6 +118,8 @@ When **Include uploaded files** is off in the email task, the message contains f
 
 The link opens the editor; it does not save the theme or select a form for you. Your theme must support app blocks at the chosen location. The same form can have several placements. Older blocks with a form code keep working. Clear an existing code before switching that block to the picker. Publishing adds the form to the picker in the background. If it is still being added, choose **Check form picker**. If there is an error or a longer delay, **Use a form code instead** reveals instructions for placing it by code.
 
+<figure><img src="../.gitbook/assets/storefront-forms-theme-picker.png" alt="Shopify's theme editor with the Mechanic form block and its picker for published forms"><figcaption><p>Choose the published form in the block's Form setting, then save your theme.</p></figcaption></figure>
+
 Placements belong to each theme. If you publish a different theme, add the form block to that theme too; the saved form and connected tasks can stay the same. The form block works independently of the **Online store JavaScript** app embed used by some tasks.
 
 ### Where is this form used?
@@ -121,6 +129,8 @@ In the **Theme** tab, **Where this form is used** checks saved placements in you
 Saving a form adds permission to read your themes to Mechanic’s required access. If an update is needed, choose **Update access** and approve the Shopify permission request. This lets Mechanic find where your forms are placed without changing theme files. The [Permissions page](settings.md#permissions) lists **Forms** as the reason for this access. Deleting your last form removes this requirement unless a task or another feature still needs it. Your forms continue working while you complete the step. After granting access, return to the form’s Theme tab.
 
 Choose **Refresh** after saving a theme. Results can take up to 30 seconds to update. Unsaved editor changes are not included. Blocks that choose their form through connected data can vary by page and cannot be attributed to one form; Mechanic explains when a check includes those blocks. A failed check is not evidence that the form is unused.
+
+<figure><img src="../.gitbook/assets/storefront-forms-theme.png" alt="The form's Theme tab showing placement instructions and an explanation of the theme-read permission"><figcaption><p>The Theme tab brings setup and placement checks together. If access is needed, Mechanic explains why before you approve it.</p></figcaption></figure>
 
 ### Test without surprises
 
