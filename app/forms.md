@@ -130,7 +130,7 @@ Saving a form adds permission to read your themes to Mechanic’s required acces
 
 Choose **Refresh** after saving a theme. Results can take up to 30 seconds to update. Unsaved editor changes are not included. Blocks that choose their form through connected data can vary by page and cannot be attributed to one form; Mechanic explains when a check includes those blocks. A failed check is not evidence that the form is unused.
 
-<figure><img src="../.gitbook/assets/storefront-forms-theme.png" alt="The form's Theme tab showing placement instructions and an explanation of the theme-read permission"><figcaption><p>The Theme tab brings setup and placement checks together. If access is needed, Mechanic explains why before you approve it.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/storefront-forms-theme.png" alt="The quote form's Theme tab showing a saved Home page placement in an unpublished copy of Dawn"><figcaption><p>Choose a theme to see its saved placements. This quote form is on the Home page of an unpublished theme; the link opens that theme in the editor.</p></figcaption></figure>
 
 ### Test without surprises
 
