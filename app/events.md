@@ -18,6 +18,10 @@ Use the **Filters** button to narrow results by search text, date range, error t
 
 Save filter combinations as **custom views** to quickly return to filtered lists you use often.
 
+### Storefront form submissions
+
+For a [storefront form](forms.md), open **Submission settings → View events for this webhook topic**. The list can include other forms or integrations that share the same topic. Open an event to inspect its answers and the resulting task and action runs. The form's confirmation means the webhook received the submission; check action results to confirm an email or storage task finished successfully.
+
 ## Event detail
 
 <figure><img src="../.gitbook/assets/event_detail_mechanic.jpg" alt="An event detail view showing event runs, task runs, action runs, logs, and event data"><figcaption></figcaption></figure>

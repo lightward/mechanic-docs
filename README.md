@@ -10,6 +10,7 @@ Mechanic is a Shopify automation and development platform. Write Liquid code tha
 
 * [Browse the task library](https://tasks.mechanic.dev/) — hundreds of ready-to-use automations for tagging, emails, inventory, fulfillment, and more
 * [Get started](getting-started.md) — install Mechanic and set up your first task in minutes
+* [Build a storefront form](app/forms.md) — collect quote requests, wholesale applications, and other customer inquiries, then let your tasks handle the response
 * [Build something custom](custom.md) — create a task tailored to your store's workflow
 * [Join our Slack community](resources/slack.md) — get help and share ideas with other merchants and developers
 * [Read the changelog](https://mechanic.canny.io/changelog) — see what’s new in Mechanic
@@ -41,7 +42,7 @@ Got a question you need answered now? [Join our Slack workspace.](https://join.s
 
 ### Tasks, events, and actions
 
-A developer writes [**tasks**](core/tasks/) – Liquid code that responds to [**events**](core/events/), like a Shopify webhook, a manual trigger, a regular interval (e.g. hourly, daily), or an incoming email. Tasks use [**subscriptions**](core/tasks/subscriptions.md) to signal their interest in specific event types.
+A developer writes [**tasks**](core/tasks/) – Liquid code that responds to [**events**](core/events/), like a Shopify webhook, a manual trigger, a regular interval (e.g. hourly, daily), an incoming email, or a [storefront form submission](app/forms.md). Tasks use [**subscriptions**](core/tasks/subscriptions.md) to signal their interest in specific event types.
 
 When a task receives an incoming event, it can choose to generate an [**action**](core/actions/) – an operation that has an effect.
 
