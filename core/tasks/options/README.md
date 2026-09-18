@@ -99,8 +99,11 @@ Shop configuration input types are also available:
 | --- | --- | --- | --- |
 | `global` | Dropdown of shop globals | selected global value | `options.shared_username__global_required` |
 | `secret` | Dropdown of shop secrets | opaque secret reference | `options.api_token__secret_required` |
+| `storefrontform` | Dropdown of published storefront forms | form ID string | `options.form__storefrontform_required` |
 
 See [Globals and secrets](../../../platform/globals-and-secrets.md) for setup, the supported actions and filters, and safety details.
+
+A `storefrontform` option lets the merchant choose a published [storefront form](../../../app/forms.md) from their shop. It returns the selected form's ID. It can combine with `required`, but not array, key-value, or `userform` modifiers. If a selected form is later unpublished or deleted, its ID stays selected until the merchant changes it; this prevents a task filter from becoming empty unexpectedly. A plain option named `form` or an existing `__form` suffix keeps its previous meaning.
 
 When an option key uses a structured input type, that type wins before `global` or `secret` are considered. For example, `options.mode__select_o1_global_o2_secret_o3_local` is still a select dropdown whose choices are the literal strings `"global"`, `"secret"`, and `"local"`.
 

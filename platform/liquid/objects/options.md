@@ -33,3 +33,15 @@ Options can also render dropdowns for selecting existing shop globals and secret
 A global option returns the selected global's value at runtime.
 
 A secret option returns an opaque secret reference, not the raw secret value. Mechanic turns that reference into the real value only inside supported actions and filters, such as HTTP actions, specific FTP connection fields, and signing filters like `hmac_sha256` or `rsa_sha256`. See [Globals and secrets](../../globals-and-secrets.md) for details.
+
+## Storefront form options
+
+Use a `storefrontform` option to let the merchant choose a published form from their shop:
+
+```liquid
+{{ options.form__storefrontform }}
+```
+
+The value is the selected form's ID, which a task can compare with a [form submission's metadata](../../webhooks.md#storefront-form-submissions). Add `required` if the merchant must choose a form. An optional empty selection returns nil; the task decides what that means. Selecting a form does not subscribe the task to its webhook topic.
+
+An unpublished or deleted form keeps its saved ID until the merchant changes the option. This avoids silently widening a filter to other forms. No separate form Liquid object is required.
