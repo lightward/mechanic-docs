@@ -185,6 +185,8 @@ Saving edits updates the draft. Visitors keep seeing the published version until
 
 When a published form has saved edits, the form list and editor show an amber **Unpublished changes** badge. The editor also shows **Your changes aren’t live yet**, reminding you that visitors still see the last published version. Choose **Publish changes** to make the saved edits live. If you have made more edits since saving, save those first. You can dismiss the reminder while continuing to work; the **Unpublished changes** badge stays visible. The reminder returns after another successful save or when you reopen the editor. After publishing succeeds, the notice disappears and the status returns to **Published**.
 
+<figure><img src="../.gitbook/assets/storefront-forms-unpublished-changes.png" alt="Form editor with an amber Unpublished changes badge, a dismissible publishing reminder, and the Publish changes button"><figcaption><p>Saving preserves your draft. Publish changes makes those edits visible to visitors.</p></figcaption></figure>
+
 Choose **Form actions → Unpublish form** to stop showing the form to new visitors. It can take up to 30 seconds for the published version to stop loading. Unpublished forms are hidden on the storefront; the theme editor explains why the block is unavailable. Someone with the form already open can still send it, and the reusable webhook stays available. Disabling or deleting the webhook stops it from creating events, but affects every form or integration using that webhook. Previously received events continue through the normal task queue.
 
 **Form actions → Delete form** removes the saved form after confirmation. Its webhook and previously received events remain. Remove any blocks you no longer need from your themes.
