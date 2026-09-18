@@ -44,4 +44,4 @@ Use a `storefrontform` option to let the merchant choose a published form from t
 
 The value is the selected form's ID, which a task can compare with a [form submission's metadata](../../webhooks.md#storefront-form-submissions). Add `required` if the merchant must choose a form. An optional empty selection returns nil; the task decides what that means. Selecting a form does not subscribe the task to its webhook topic.
 
-An unpublished or deleted form keeps its saved ID until the merchant changes the option. This avoids silently widening a filter to other forms. No separate form Liquid object is required.
+An unpublished or deleted form keeps its saved ID until the merchant changes the option. This avoids silently widening a filter to other forms.

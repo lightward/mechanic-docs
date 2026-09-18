@@ -202,6 +202,7 @@ Liquid code in task options have access to the same set of [environment variable
 | Key–value map  | `options.headers__keyval`                       | `{ "X-Env": "staging" }`       |
 | String list    | `options.tags__array`                           | `["vip","wholesale"]`          |
 | Global selector | `options.shared_username__global_required`     | `"matt"`                       |
+| Storefront form selector | `options.form__storefrontform` | form ID string |
 | Secret selector | `options.api_token__secret_required`           | secret reference               |
 | 0–100 slider   | `options.score__range_min0_max100`              | `42`                           |
 | Colour picker  | `options.bg__color`                             | `"#336699"`                    |
