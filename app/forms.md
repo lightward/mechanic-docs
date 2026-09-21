@@ -135,7 +135,7 @@ Google Sheets appends may duplicate a row when an event is rerun or a visitor re
 
 1. Create a form from **Request a quote from your cart**. Keep its contact email field. In **Submission settings**, **Include the cart with each submission** is already selected.
 2. Create and select a webhook for quote requests, then save and publish the form.
-3. Install [Create a draft order from the cart](https://tasks.mechanic.dev/create-a-draft-order-from-the-cart). Set **Mechanic webhook event topic** to the webhook’s topic, choose the published form in **Form**, and leave **Email field key** as `email` unless you changed that field’s key. Leave **Shared secret** and **Mechanic webhook URL** empty for this form setup. Save and enable the task, completing Mechanic’s normal permission update if requested.
+3. Install [Create a draft order from the cart](https://tasks.mechanic.dev/create-a-draft-order-from-the-cart). Set **Mechanic webhook event topic** to the webhook’s topic, choose the published form in **Form**, and leave **Email field key** as `email` unless you changed that field’s key. Save and enable the task, completing Mechanic’s normal permission update if requested.
 4. In the form’s **Theme** tab, choose **Add to cart page**. Select the form in its block, position the Apps section near the cart summary, and save the theme. The cart page must support app blocks or an Apps section. This does not add the form to a cart drawer; that needs separate theme customization.
 5. Add a product to the cart, open the form, and submit a test request. Inspect the Mechanic event, the task’s Shopify action, and the resulting draft order. Test as both a guest and a signed-in customer.
 
@@ -145,7 +145,7 @@ Shopify supplies signed customer context automatically. The task verifies it bef
 
 The customer’s confirmation means the request was received. Creating the draft happens in the background; this task does not send an invoice or clear the cart. Your team reviews the draft before proceeding. Add the email or Google Sheets/Drive task on the same topic if you want uploaded files: draft notes contain file details, not the files themselves.
 
-Existing custom-button users can keep their current setup. When updating that task, follow its **Existing custom cart button** instructions to preserve the shared secret and webhook URL. This remains the same task in the library.
+This task’s current setup uses a storefront form. If you are updating an older installation that uses a custom theme button, connect and test the form before enabling the updated task, then remove the old button from your theme. The updated task does not accept the old button’s payload.
 
 ## Add the form to your theme
 
