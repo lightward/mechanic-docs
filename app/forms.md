@@ -33,11 +33,11 @@ These forms appear in your online store. To collect input from staff using **Run
 
 You can add up to 50 fields. Under a selected field’s **Field data**, its **Field key** identifies the answer for your tasks. Keep this key stable once a task uses it; you can still change the question’s label.
 
-There are eight starters: **Warranty request**, **Service or repair request**, **Request a quote**, **Bulk order quote**, **Wholesale application**, **Customization request**, **Customer feedback**, and **Basic form**. Longer starters have two or three steps; some include conditional questions and optional uploads. Every field and message is editable. **Bulk order quote** also starts with a visibility condition: show the form when the cart contains at least 12 items. Change the threshold in **Visibility** and place the form in your theme. This condition does not include the cart’s contents in the submission; the template asks visitors to describe the products and quantities they want. Choose your own webhook in Submission settings before publishing.
+There are eight starters: **Warranty request**, **Service or repair request**, **Request a quote**, **Request a quote from your cart**, **Wholesale application**, **Customization request**, **Customer feedback**, and **Basic form**. Longer starters have two or three steps; some include conditional questions and optional uploads. Every field and message is editable. **Request a quote from your cart** starts with a button that opens the form, includes the current cart with the submission, and stays hidden while the cart is empty. Place it on your cart page and connect the draft-order task described below. Change its conditions in **Visibility** to suit your workflow. Choose your own webhook in Submission settings before publishing.
 
 Templates provide questions, not an approval or booking workflow. Your subscribed tasks handle each request. Changes to the starter library do not overwrite forms you have already created.
 
-<figure><img src="../.gitbook/assets/storefront-forms-templates.png" alt="Storefront form templates in Mechanic, including quote requests, wholesale applications, and service requests"><figcaption><p>Start with the workflow you need, then make the questions your own.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/storefront-forms-templates.png" alt="Storefront form templates in Mechanic, including quote requests, cart quotes, warranties, and service requests"><figcaption><p>Start with the workflow you need, then make the questions your own.</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/storefront-forms-builder.png" alt="The quote-request form builder with a field list, live preview, and heading and text settings"><figcaption><p>Edit questions beside a live preview. This quote-request starter groups its questions into two steps.</p></figcaption></figure>
 
@@ -49,12 +49,19 @@ Use **Try form** to check the flow. Visitors can go Back without losing their an
 
 Your theme supplies the form’s fonts and colors. You do not need to edit theme code or write storefront JavaScript to use a form block.
 
+### Open the form from a button
+
+In **Build form → Heading and text**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page. Visitors can close and reopen it without losing their answers. Choose **Full form** to display the questions immediately.
+
+This option works with any form. Visibility conditions apply to both the button and the form, and your theme still supplies the fonts and colors. Save and publish to change the storefront.
+
 ## Collect leads and inquiries
 
 Use a form to learn what a potential customer needs, then let your tasks deliver the details to the people and systems that will handle the request. These starters are ready to customize:
 
 | Start with | What you can learn | Connect tasks to |
 | --- | --- | --- |
+| **Request a quote from your cart** | The products and quantities in the current cart, plus contact details and requirements. | Create a Shopify draft order for your team to review. |
 | **Request a quote** | The product or project, quantity, requirements, and needed-by date. | Email your sales team and save each inquiry in a Google Sheet for follow-up. |
 | **Wholesale application** | The business, how it sells, products of interest, and estimated order quantity. | Email the team that reviews applications and keep a record in Shopify metaobjects. |
 | **Service or repair request** | The service needed, product or item, supporting photos, and preferred date. | Email your service team, including attachments when enabled, and save requests for review. |
@@ -81,6 +88,7 @@ Writing your own task? See [Storefront form submissions](../platform/webhooks.md
 
 After choosing a webhook, you can use these tasks on its event topic. Saving or publishing a form does not install these tasks automatically:
 
+- [Create a draft order from the cart](https://tasks.mechanic.dev/create-a-draft-order-from-the-cart): turn a cart quote request into a Shopify draft order for review. Requires cart contents to be enabled on the form.
 - [Google Sheets task](https://tasks.mechanic.dev/save-mechanic-form-submissions-to-a-google-sheet): save answers as spreadsheet columns, with an option to upload files to Google Drive and save their links. Files are not automatically shared publicly.
 - [Email task](https://tasks.mechanic.dev/email-mechanic-form-submissions): send answers to your team, with an option to include uploaded files as attachments.
 - [Shopify metaobjects task](https://tasks.mechanic.dev/save-mechanic-form-submissions-to-shopify-metaobjects): save all answers in a standard Shopify entry, with storefront access off.
@@ -123,6 +131,22 @@ The same setup works for wholesale and service inquiries: choose the relevant st
 
 Google Sheets appends may duplicate a row when an event is rerun or a visitor resends. The task includes IDs for finding repeats and disables ambiguous-write retries; inspect the sheet before manually retrying a failed append. The metaobject task updates the same entry when the same Mechanic event is rerun. A new HTTP submission creates a new event and a separate entry, even with the same browser submission ID.
 
+### Example: request a quote from the cart
+
+1. Create a form from **Request a quote from your cart**. Keep its contact email field. In **Submission settings**, **Include the cart with each submission** is already selected.
+2. Create and select a webhook for quote requests, then save and publish the form.
+3. Install [Create a draft order from the cart](https://tasks.mechanic.dev/create-a-draft-order-from-the-cart). Set **Mechanic webhook event topic** to the webhook’s topic, choose the published form in **Form**, and leave **Email field key** as `email` unless you changed that field’s key. Leave **Shared secret** and **Mechanic webhook URL** empty for this form setup. Save and enable the task, completing Mechanic’s normal permission update if requested.
+4. In the form’s **Theme** tab, choose **Add to cart page**. Select the form in its block, position the Apps section near the cart summary, and save the theme. The cart page must support app blocks or an Apps section. This does not add the form to a cart drawer; that needs separate theme customization.
+5. Add a product to the cart, open the form, and submit a test request. Inspect the Mechanic event, the task’s Shopify action, and the resulting draft order. Test as both a guest and a signed-in customer.
+
+The form includes products, variants, quantities, and line item properties from the cart when submitted. Shopify supplies current variant prices when the task creates the draft. Cart discounts, shipping rates, and displayed checkout totals are not copied. The task supports up to 100 ordinary variant lines; subscription and bundle items stop for separate review.
+
+Shopify supplies signed customer context automatically. The task verifies it before linking a signed-in customer’s account; a guest’s entered email is contact information, not proof of an account. There is no signing key to enter in form settings.
+
+The customer’s confirmation means the request was received. Creating the draft happens in the background; this task does not send an invoice or clear the cart. Your team reviews the draft before proceeding. Add the email or Google Sheets/Drive task on the same topic if you want uploaded files: draft notes contain file details, not the files themselves.
+
+Existing custom-button users can keep their current setup. When updating that task, follow its **Existing custom cart button** instructions to preserve the shared secret and webhook URL. This remains the same task in the library.
+
 ## Add the form to your theme
 
 1. Save your draft, then choose **Publish form**. Mechanic opens the **Theme** tab, which you can return to at any time.
@@ -151,7 +175,7 @@ Choose **Refresh** after saving a theme. Results can take up to 30 seconds to up
 
 ## Choose when a form appears
 
-Placement decides **where** a form can appear. Visibility decides **when** it appears there. For example, you could place a quote form on a product page and show it once the cart contains at least 12 items. The condition does not move the form into the cart.
+Placement decides **where** a form can appear. Visibility decides **when** it appears there. For example, place a cart quote form on the cart page and show it only when the cart contains items. A visibility condition alone does not move a form into the cart or include cart contents; placement and **Include the cart with each submission** control those separately.
 
 1. Open the form’s **Visibility** tab.
 2. Leave **Show form on the storefront** selected. With no conditions, everyone can see the form wherever you have placed its block. Turning this off hides every placement after you save and publish.
@@ -159,7 +183,7 @@ Placement decides **where** a form can appear. Visibility decides **when** it ap
 4. Save the draft, then **Publish changes**. As with questions and text, saving alone does not change the storefront.
 5. Once the form picker has synchronized, open a fresh storefront page to test both a matching and a nonmatching case. Reload already-open pages after publishing a new policy.
 
-<figure><img src="../.gitbook/assets/storefront-forms-visibility.png" alt="Visibility settings with Show form on the storefront selected and a condition requiring at least 12 items in the cart"><figcaption><p>The Bulk order quote starter includes this condition. Change the threshold, then save and publish to apply it wherever the form is placed.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/storefront-forms-visibility.png" alt="Visibility settings with Show form on the storefront selected and a condition requiring at least one item in the cart"><figcaption><p>The cart quote starter stays hidden while the cart is empty. Change the threshold, then save and publish to apply it wherever the form is placed.</p></figcaption></figure>
 
 ### Available conditions
 
@@ -180,7 +204,7 @@ Shopify checks customer tags while rendering the theme; the customer’s tag lis
 
 ### Examples
 
-- **Bulk quote:** start with **Bulk order quote**, which shows a quote form when **Number of items in cart** is **At least 12**, wherever you have placed that form.
+- **Cart quote:** start with **Request a quote from your cart**, which appears when **Number of items in cart** is **At least 1**. Place it on the cart page. For bulk inquiries only, increase the threshold, for example to 12.
 - **Product-specific service:** show a service request on a selected product’s page using **Product being viewed**.
 - **Wholesale inquiries:** show a form to signed-in customers whose **Customer tag** is `wholesale`. A tag condition already excludes signed-out visitors.
 
@@ -214,11 +238,11 @@ Other fields include text, email, phone, website, numbers, dates, time, date and
 
 ## Duplicate a form
 
-Save or discard any edits, then choose **Form actions → Duplicate form**. The copy starts as an unpublished draft in the same shop. It keeps the saved questions, data keys, steps, field conditions, visibility rules, text, and available webhook connection. Product, variant, and collection selections stay connected to this shop. It does not copy submissions or theme placements. Review its webhook and tasks before publishing; using the same webhook means the same subscribed tasks can process both forms.
+Save or discard any edits, then choose **Form actions → Duplicate form**. The copy starts as an unpublished draft in the same shop. It keeps the saved questions, data keys, steps, field conditions, visibility rules, button presentation, cart setting, text, and available webhook connection. Product, variant, and collection selections stay connected to this shop. It does not copy submissions or theme placements. Review its webhook and tasks before publishing; using the same webhook means the same subscribed tasks can process both forms.
 
 ## Copy a form to another shop
 
-Choose **Export JSON** to download the current form, including any valid unsaved edits. Fields, data keys, settings, steps, field conditions, visibility rules, and text are included. Answers, files, tasks, webhook credentials, and theme placements are not included.
+Choose **Export JSON** to download the current form, including any valid unsaved edits. Fields, data keys, settings, steps, field conditions, visibility rules, button presentation, cart setting, and text are included. Answers, files, tasks, webhook credentials, and theme placements are not included.
 
 In the destination shop, open **Storefront forms → Import form** and upload or paste the JSON. Review it, select that shop’s webhook or **Choose later**, then choose **Import as draft**. The new form starts unpublished and gets a new form ID. It needs a webhook before publishing.
 

@@ -43,6 +43,14 @@ Treat all submitted data as visitor input and validate what your task needs. [Fo
 
 The form's confirmation acknowledges receipt, not completed task actions. See [Responses](#responses) for how queued processing works, and the [Forms guide](../app/forms.md#put-submissions-to-work) for email, Google Sheets/Drive, and Shopify metaobject tasks.
 
+### Cart contents and customer context
+
+With **Include the cart with each submission** enabled, the multipart body also contains `cart` as a JSON string and `customer_context` as a signed string. In Auto mode, read `event.data.cart`; in Full request mode, read `event.data.body.cart`. Parse the cart with `parse_json`. It contains up to 100 lines and 64 KB, including product/variant IDs, quantities, properties, and subscription/bundle indicators. Prices, discounts, and the private cart token are omitted.
+
+Cart contents and answers remain visitor input. To link a Shopify customer, use [`event.storefront_form_customer`](liquid/objects/event.md#storefront-form-customer) rather than trusting an entered email or customer ID. This helper verifies the context only when your task reads it. The submission is still an ordinary webhook event; other subscribed tasks are unaffected.
+
+The [cart quote walkthrough](../app/forms.md#example-request-a-quote-from-the-cart) uses the existing draft-order task, which validates the cart and lets Shopify supply prices.
+
 ## Configuration
 
 <figure><img src="../.gitbook/assets/mechanic-webhooks.png" alt="The Mechanic webhooks section in Settings, showing webhook name, event topic, event data mode, and webhook URL fields"><figcaption></figcaption></figure>
