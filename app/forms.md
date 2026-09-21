@@ -88,7 +88,7 @@ Writing your own task? See [Storefront form submissions](../platform/webhooks.md
 
 After choosing a webhook, you can use these tasks on its event topic. Saving or publishing a form does not install these tasks automatically:
 
-- [Create a draft order from the cart](https://tasks.mechanic.dev/create-a-draft-order-from-the-cart): turn a cart quote request into a Shopify draft order for review. Requires cart contents to be enabled on the form.
+- [Create a draft order from a storefront form](https://tasks.mechanic.dev/create-a-draft-order-from-a-storefront-form): turn a cart quote request into a Shopify draft order for review. Requires cart contents to be enabled on the form.
 - [Google Sheets task](https://tasks.mechanic.dev/save-mechanic-form-submissions-to-a-google-sheet): save answers as spreadsheet columns, with an option to upload files to Google Drive and save their links. Files are not automatically shared publicly.
 - [Email task](https://tasks.mechanic.dev/email-mechanic-form-submissions): send answers to your team, with an option to include uploaded files as attachments.
 - [Shopify metaobjects task](https://tasks.mechanic.dev/save-mechanic-form-submissions-to-shopify-metaobjects): save all answers in a standard Shopify entry, with storefront access off.
@@ -135,7 +135,7 @@ Google Sheets appends may duplicate a row when an event is rerun or a visitor re
 
 1. Create a form from **Request a quote from your cart**. Keep its contact email field. In **Submission settings**, **Include the cart with each submission** is already selected.
 2. Create and select a webhook for quote requests, then save and publish the form.
-3. Install [Create a draft order from the cart](https://tasks.mechanic.dev/create-a-draft-order-from-the-cart). Set **Mechanic webhook event topic** to the webhook’s topic, choose the published form in **Form**, and leave **Email field key** as `email` unless you changed that field’s key. Save and enable the task, completing Mechanic’s normal permission update if requested.
+3. Install [Create a draft order from a storefront form](https://tasks.mechanic.dev/create-a-draft-order-from-a-storefront-form). Set **Mechanic webhook event topic** to the webhook’s topic, choose the published form in **Form**, and leave **Email field key** as `email` unless you changed that field’s key. Save and enable the task, completing Mechanic’s normal permission update if requested.
 4. In the form’s **Theme** tab, choose **Add to cart page**. Select the form in its block, position the Apps section near the cart summary, and save the theme. The cart page must support app blocks or an Apps section. This does not add the form to a cart drawer; that needs separate theme customization.
 5. Add a product to the cart, open the form, and submit a test request. Inspect the Mechanic event, the task’s Shopify action, and the resulting draft order. Test as both a guest and a signed-in customer.
 
@@ -145,7 +145,7 @@ Shopify supplies signed customer context automatically. The task verifies it bef
 
 The customer’s confirmation means the request was received. Creating the draft happens in the background; this task does not send an invoice or clear the cart. Your team reviews the draft before proceeding. Add the email or Google Sheets/Drive task on the same topic if you want uploaded files: draft notes contain file details, not the files themselves.
 
-This task’s current setup uses a storefront form. If you are updating an older installation that uses a custom theme button, connect and test the form before enabling the updated task, then remove the old button from your theme. The updated task does not accept the old button’s payload.
+This is a separate task from [Create a draft order from the cart](https://tasks.mechanic.dev/create-a-draft-order-from-the-cart), which remains available for existing custom-button integrations. New form setups use the task above and require no custom button code or shared secret.
 
 ## Add the form to your theme
 
