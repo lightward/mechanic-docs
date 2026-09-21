@@ -39,7 +39,7 @@ These are multipart form submissions:
 * Uploaded files use the [standard webhook file format](#file-uploads). The Forms builder limits files to **3 MB total per submission**.
 * `form.id` identifies the form, `form.revision` identifies its published version, and `submission_id` identifies the browser's submission attempt. In Full request mode, these are under `event.data.body` along with the answers.
 
-Treat all submitted data as visitor input and validate what your task needs. A submitted email address or identifier does not establish the visitor's identity. The browser's submission ID is useful for correlation; it does not make webhook delivery or task actions run exactly once.
+Treat all submitted data as visitor input and validate what your task needs. [Form visibility](../app/forms.md#choose-when-a-form-appears) determines whether the theme shows a form; it does not authenticate requests to its public webhook. A submitted email address or identifier does not establish the visitor's identity. The browser's submission ID is useful for correlation; it does not make webhook delivery or task actions run exactly once.
 
 The form's confirmation acknowledges receipt, not completed task actions. See [Responses](#responses) for how queued processing works, and the [Forms guide](../app/forms.md#put-submissions-to-work) for email, Google Sheets/Drive, and Shopify metaobject tasks.
 

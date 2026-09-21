@@ -6,6 +6,8 @@ description: Collect quote requests, wholesale applications, service inquiries, 
 
 Storefront forms connect the people visiting your online store to your Mechanic tasks. Build a form for a quote request, wholesale application, warranty claim, or another workflow, and place it in your theme. When a visitor submits it, your tasks can email your team, save the answers, update Shopify, or connect to another service.
 
+Place the form where it belongs in your theme, then use **Visibility** to choose when it appears there: for a particular customer, page, or cart.
+
 You build the questions visually in Mechanic. Your theme provides the fonts and colors, and the tasks you connect decide what happens with each response. You can start with a template and ready-to-use tasks, or build your own workflow.
 
 Submissions appear as ordinary Mechanic events and follow the [usual event retention policy](../platform/policies/data.md#retention-of-events). Connect an email or storage task if you want a lasting record outside those events.
@@ -31,7 +33,7 @@ These forms appear in your online store. To collect input from staff using **Run
 
 You can add up to 50 fields. Under a selected field’s **Field data**, its **Field key** identifies the answer for your tasks. Keep this key stable once a task uses it; you can still change the question’s label.
 
-There are seven starters: **Warranty request**, **Service or repair request**, **Request a quote**, **Wholesale application**, **Customization request**, **Customer feedback**, and **Basic form**. Longer starters have two or three steps; some include conditional questions and optional uploads. Every field and message is editable. Choose your own webhook in Submission settings before publishing.
+There are eight starters: **Warranty request**, **Service or repair request**, **Request a quote**, **Bulk order quote**, **Wholesale application**, **Customization request**, **Customer feedback**, and **Basic form**. Longer starters have two or three steps; some include conditional questions and optional uploads. Every field and message is editable. **Bulk order quote** also starts with a visibility condition: show the form when the cart contains at least 12 items. Change the threshold in **Visibility** and place the form in your theme. This condition does not include the cart’s contents in the submission; the template asks visitors to describe the products and quantities they want. Choose your own webhook in Submission settings before publishing.
 
 Templates provide questions, not an approval or booking workflow. Your subscribed tasks handle each request. Changes to the starter library do not overwrite forms you have already created.
 
@@ -147,6 +149,49 @@ Choose **Refresh** after saving a theme. Results can take up to 30 seconds to up
 
 <figure><img src="../.gitbook/assets/storefront-forms-theme.png" alt="Theme settings showing where the quote form is placed and explaining which previews send real submissions"><figcaption><p>Choose a theme to see its saved placements. This quote form is on the Home page of an unpublished theme; the link opens that theme in the editor.</p></figcaption></figure>
 
+## Choose when a form appears
+
+Placement decides **where** a form can appear. Visibility decides **when** it appears there. For example, you could place a quote form on a product page and show it once the cart contains at least 12 items. The condition does not move the form into the cart.
+
+1. Open the form’s **Visibility** tab.
+2. Leave **Show form on the storefront** selected. With no conditions, everyone can see the form wherever you have placed its block. Turning this off hides every placement after you save and publish.
+3. Choose **Add condition**, then select what to check and its comparison. Add up to 10 conditions; choose **All conditions match** or **Any condition matches** when combining them.
+4. Save the draft, then **Publish changes**. As with questions and text, saving alone does not change the storefront.
+5. Once the form picker has synchronized, open a fresh storefront page to test both a matching and a nonmatching case. Reload already-open pages after publishing a new policy.
+
+<figure><img src="../.gitbook/assets/storefront-forms-visibility.png" alt="Visibility settings with Show form on the storefront selected and a condition requiring at least 12 items in the cart"><figcaption><p>The Bulk order quote starter includes this condition. Change the threshold, then save and publish to apply it wherever the form is placed.</p></figcaption></figure>
+
+### Available conditions
+
+| Condition | What it checks |
+| --- | --- |
+| **Customer sign-in status** | Whether the visitor is signed in or signed out. |
+| **Customer tag** | Whether a signed-in customer has, or does not have, a tag. Tag comparisons ignore capitalization and surrounding spaces. Signed-out visitors match neither comparison. |
+| **Page type** | Home, product, collection, collection list, page, cart, search, blog, or article. |
+| **Product being viewed** | A selected product. Both **Is** and **Is not** apply only on product pages. |
+| **Collection being viewed** | A selected collection. Both comparisons apply only on collection pages. |
+| **Product in cart** | Whether the cart contains any variant of a selected product. |
+| **Variant in cart** | Whether the cart contains the selected variant specifically. |
+| **Number of items in cart** | At least, or fewer than, a number of items. This counts units, not distinct products or cart lines. **Fewer than 1** means an empty cart. |
+
+Choose products, variants, and collections from Shopify’s picker. These conditions require product read access through Mechanic’s [normal permissions flow](../core/tasks/permissions.md#permissions-for-other-mechanic-features). Both saved draft rules and published rules count toward that requirement. Customer sign-in and tag conditions do not request extra customer API access.
+
+Shopify checks customer tags while rendering the theme; the customer’s tag list is not sent to Mechanic or included in the form block. The rule values you configure are publicly readable theme data, so do not put secrets in them.
+
+### Examples
+
+- **Bulk quote:** start with **Bulk order quote**, which shows a quote form when **Number of items in cart** is **At least 12**, wherever you have placed that form.
+- **Product-specific service:** show a service request on a selected product’s page using **Product being viewed**.
+- **Wholesale inquiries:** show a form to signed-in customers whose **Customer tag** is `wholesale`. A tag condition already excludes signed-out visitors.
+
+Cart conditions update within a few seconds while the page is open. If a cart change hides the form, entered answers stay available when it appears again. A cart drawer can affect those conditions, but placing the form inside the drawer depends on your theme’s support for app blocks there.
+
+The builder preview and Shopify theme editor keep the form visible so you can edit and place it. Test visibility on a storefront page opened in a separate tab, with signed-in and signed-out sessions where relevant. That page can send real submissions, including when previewing an unpublished theme.
+
+{% hint style="info" %}
+Visibility controls display, not authorization. The webhook remains public, and someone can send it a request without using the visible form. Tasks must validate submissions before granting benefits or changing orders. See [Storefront form submissions](../platform/webhooks.md#storefront-form-submissions).
+{% endhint %}
+
 ### Test without surprises
 
 | Where you try the form | Does it send submissions? |
@@ -169,19 +214,21 @@ Other fields include text, email, phone, website, numbers, dates, time, date and
 
 ## Duplicate a form
 
-Save or discard any edits, then choose **Form actions → Duplicate form**. The copy starts as an unpublished draft in the same shop. It keeps the saved questions, data keys, steps, conditions, text, and available webhook connection. It does not copy submissions or theme placements. Review its webhook and tasks before publishing; using the same webhook means the same subscribed tasks can process both forms.
+Save or discard any edits, then choose **Form actions → Duplicate form**. The copy starts as an unpublished draft in the same shop. It keeps the saved questions, data keys, steps, field conditions, visibility rules, text, and available webhook connection. Product, variant, and collection selections stay connected to this shop. It does not copy submissions or theme placements. Review its webhook and tasks before publishing; using the same webhook means the same subscribed tasks can process both forms.
 
 ## Copy a form to another shop
 
-Choose **Export JSON** to download the current form, including any valid unsaved edits. Fields, data keys, settings, steps, conditions, and text are included. Answers, files, tasks, webhook credentials, and theme placements are not included.
+Choose **Export JSON** to download the current form, including any valid unsaved edits. Fields, data keys, settings, steps, field conditions, visibility rules, and text are included. Answers, files, tasks, webhook credentials, and theme placements are not included.
 
 In the destination shop, open **Storefront forms → Import form** and upload or paste the JSON. Review it, select that shop’s webhook or **Choose later**, then choose **Import as draft**. The new form starts unpublished and gets a new form ID. It needs a webhook before publishing.
+
+Imported visibility rules keep their conditions and readable resource names, but clear product, variant, and collection selections. Reselect those resources from the destination shop before publishing. This also applies when importing back into the same shop; use **Duplicate form** for a same-shop copy that keeps its selections.
 
 Set up the destination shop’s webhook and subscribed tasks separately. Publish the form and select it in that shop’s theme. Importing does not reconnect the form to the original shop.
 
 ## Update or stop a form
 
-Saving edits updates the draft. Visitors keep seeing the published version until you choose **Publish changes**. Published changes apply everywhere that form is placed.
+Saving edits updates the draft. Visitors keep seeing the published version until you choose **Publish changes**. Published changes apply everywhere that form is placed, including its visibility rules. Reload storefront pages after publishing changes to visibility.
 
 When a published form has saved edits, the form list and editor show an amber **Unpublished changes** badge. The editor also shows **Your changes aren’t live yet**, reminding you that visitors still see the last published version. Choose **Publish changes** to make the saved edits live. If you have made more edits since saving, save those first. You can dismiss the reminder while continuing to work; the **Unpublished changes** badge stays visible. The reminder returns after another successful save or when you reopen the editor. After publishing succeeds, the notice disappears and the status returns to **Published**.
 

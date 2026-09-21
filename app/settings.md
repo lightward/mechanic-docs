@@ -24,7 +24,7 @@ The Settings page is organized into sections, accessed from the sidebar on the l
 
 Most of the time, Mechanic figures out the Shopify API scopes your tasks need from subscriptions, Shopify data access, and previewed Shopify actions. This section shows which scopes are already granted and which ones still need approval; it does not grant scopes directly. When scopes need approval, Mechanic prompts you to update Shopify access. When a task's needs are hard to prove during preview — for example, when a mutation's scope depends on a realistic resource ID, or logic only runs in a live branch — you can declare scopes directly with the [`permissions` tag](../platform/liquid/tags/permissions.md). Active [custom Shopify webhooks](../platform/shopify/custom-webhooks.md) can also contribute required scopes.
 
-Saved [storefront forms](forms.md) also require permission to read themes, so Mechanic can show where each form is placed. This uses the same access approval flow and does not allow Forms to change theme files. See [Permissions](../core/tasks/permissions.md) for the full model.
+Saved [storefront forms](forms.md) also require permission to read themes, so Mechanic can show where each form is placed. Visibility conditions that select products, variants, or collections also require product read access. These requirements use the same access approval flow; theme read access does not allow Forms to change theme files. See [Permissions](../core/tasks/permissions.md) for the full model.
 
 <figure><img src="../.gitbook/assets/mechanic-permissions.png" alt="The Permissions section in Mechanic settings, showing required and available Shopify API scopes"><figcaption></figcaption></figure>
 
