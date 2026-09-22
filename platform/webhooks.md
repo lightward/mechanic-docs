@@ -49,7 +49,7 @@ With **Include the cart with each submission** enabled, the multipart body also 
 
 Cart contents and answers remain visitor input. To link a Shopify customer, use [`event.storefront_form_customer`](liquid/objects/event.md#storefront-form-customer) rather than trusting an entered email or customer ID. This helper verifies the context only when your task reads it. The submission is still an ordinary webhook event; other subscribed tasks are unaffected.
 
-The [cart quote walkthrough](../app/forms.md#example-request-a-quote-from-the-cart) uses the existing draft-order task, which validates the cart and lets Shopify supply prices.
+The [cart quote walkthrough](../app/forms.md#example-request-a-quote-from-the-cart) uses the **Create a draft order from a storefront form** task, which validates the cart and lets Shopify supply prices.
 
 ## Configuration
 

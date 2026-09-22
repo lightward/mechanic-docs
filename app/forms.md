@@ -39,7 +39,7 @@ Templates provide questions, not an approval or booking workflow. Your subscribe
 
 <figure><img src="../.gitbook/assets/storefront-forms-templates.png" alt="Storefront form templates in Mechanic, including quote requests, cart quotes, warranties, and service requests"><figcaption><p>Start with the workflow you need, then make the questions your own.</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/storefront-forms-builder.png" alt="The quote-request form builder with a field list, live preview, and heading and text settings"><figcaption><p>Edit questions beside a live preview. This quote-request starter groups its questions into two steps.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/storefront-forms-builder.png" alt="The cart quote form builder with Display settings above the field list, live preview, and heading and text settings"><figcaption><p>Edit questions beside a live preview. This cart quote starter groups its questions into two steps. Display controls whether visitors see the full form or a button first.</p></figcaption></figure>
 
 ### Choose a layout
 
@@ -51,7 +51,7 @@ Your theme supplies the form’s fonts and colors. You do not need to edit theme
 
 ### Open the form from a button
 
-In **Build form → Heading and text**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page. Visitors can close and reopen it without losing their answers. Choose **Full form** to display the questions immediately.
+In the **Display** section at the top of **Build form**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page, and the opening button changes to **Hide form**. Visitors can close and reopen it without losing their answers. The **Submit button text** setting under **Heading and text** controls the separate button that sends the completed form. Choose **Full form** to display the questions immediately.
 
 This option works with any form. Visibility conditions apply to both the button and the form, and your theme still supplies the fonts and colors. Save and publish to change the storefront.
 
