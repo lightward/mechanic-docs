@@ -56,6 +56,16 @@ For full syntax details, see the [`permissions` tag reference](../../platform/li
 
 Both approaches are valid, and you can choose whichever fits your task best.
 
+## Permissions for other Mechanic features
+
+Task requirements share an access approval flow with other Mechanic features. The [Permissions page](../../app/settings.md#permissions) shows why each scope is needed.
+
+Saving a [storefront form](../../app/forms.md) adds `read_themes` so Mechanic can find its saved placements in Shopify themes. This includes draft forms. Reading placements does not change theme files, and form delivery continues to work while you approve access. Deleting your last form removes this requirement unless another feature or task still needs it; that does not automatically revoke access already granted in Shopify.
+
+[Visibility conditions](../../app/forms.md#choose-when-a-form-appears) that select a product, variant, or collection also require `read_products`. Both the saved draft and published form count: removing a condition from the draft does not remove access still needed by the live form. Customer sign-in and tag conditions are evaluated by the theme and do not add customer API scopes.
+
+Forms uses Mechanic’s app access for placement discovery and these resource checks. It does not add these scopes to a custom Shopify API token supplied for your tasks.
+
 ## Troubleshooting
 
 If your task is failing because of a missing permission, see [My task is failing because of a permissions problem](../../faq/my-task-is-failing-because-of-a-permissions-problem.md) for debugging steps. For general questions about managing Shopify scopes, see [How do I add a Shopify access scope to my task?](../../faq/how-do-i-add-a-shopify-access-scope-to-my-task.md)

@@ -257,6 +257,7 @@
 * [Task list](app/home.md)
 * [Activity](app/activity.md)
 * [Task editor](app/task-editor.md)
+* [Forms](app/forms.md)
 * [Events](app/events.md)
 * [Settings](app/settings.md)
 * [Ask Mechanic](app/ask-mechanic.md)
