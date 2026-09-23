@@ -55,7 +55,7 @@ Your theme supplies the form’s fonts and colors. You do not need to edit theme
 
 In the **Display** section at the top of **Build form**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page, and the opening button changes to **Hide form**. Visitors can close and reopen it without losing their answers. The **Submit button text** setting under **Heading and text** controls the separate button that sends the completed form. Cart-saving forms save complete answers automatically and have no final Save button. Choose **Full form** to display the questions immediately.
 
-For cart-saving forms, these settings are **Link that opens the form** and **Open form link text**. The opener looks like an understated text link, such as **Add a gift message**, and reveals the questions inline when chosen.
+For cart-saving forms, these settings are **Link that opens the form** and **Open form link text**. The opener looks like an understated text link, such as **Add a gift message**, and reveals the questions inline when chosen. The **Introduction**, under **Heading and text**, appears beneath the link while the form is closed, so customers can understand what it does before opening it. Once opened, the introduction appears beneath the form heading instead. Leave the introduction empty if you only want the link.
 
 This option works with any form. Visibility conditions apply to both the button and the form, and your theme still supplies the fonts and colors. Save and publish to change the storefront.
 
