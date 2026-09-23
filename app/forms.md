@@ -47,13 +47,15 @@ Templates provide questions, not an approval or booking workflow. Your subscribe
 
 Under **Form layout**, choose **Grouped steps** to show the questions in each step together, or **One question at a time** to guide visitors through individual questions. Address fields and multiple-choice options stay together. Both layouts support conditional questions. Webhook forms also support file uploads.
 
-Use **Try form** to check the flow. Visitors can go Back without losing their answers or selected files. Nothing is submitted until the final submit button. Save and publish to update the layout in your theme; existing forms keep their current layout until you change it. The layout also travels with JSON exports.
+Use **Try form** to check the flow. Visitors can go Back without losing their answers or selected files. Webhook forms send answers only when visitors choose the final submit button; cart-saving forms save complete answers automatically. Save and publish to update the layout in your theme; existing forms keep their current layout until you change it. The layout also travels with JSON exports.
 
 Your theme supplies the form’s fonts and colors. You do not need to edit theme code or write storefront JavaScript to use a form block.
 
 ### Open the form from a button
 
 In the **Display** section at the top of **Build form**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page, and the opening button changes to **Hide form**. Visitors can close and reopen it without losing their answers. The **Submit button text** setting under **Heading and text** controls the separate button that sends the completed form. Cart-saving forms save complete answers automatically and have no final Save button. Choose **Full form** to display the questions immediately.
+
+For cart-saving forms, these settings are **Link that opens the form** and **Open form link text**. The opener looks like an understated text link, such as **Add a gift message**, and reveals the questions inline when chosen.
 
 This option works with any form. Visibility conditions apply to both the button and the form, and your theme still supplies the fonts and colors. Save and publish to change the storefront.
 
@@ -103,7 +105,7 @@ If you keep a drawer, ask your theme developer to add a clear **Add a gift messa
 
 Follow the illustrated tutorial: [Add a gift message form to your Shopify theme and email recipients after fulfillment](../resources/tutorials/add-a-gift-message-form-to-your-shopify-theme.md).
 
-Start with **Add a gift message**. It collects the sender's name, recipient's name and email, and a personal note. Its button opens the form on the cart page, and its visibility condition requires at least one item in the cart.
+Start with **Add a gift message**. It collects the sender's name, recipient's name and email, and a personal note. Its optional **Add a gift message** link opens the form inline on the cart page, and its visibility condition requires at least one item in the cart. Shoppers who leave it untouched can check out normally without adding a gift message.
 
 Publish and place the form, then install [Add a gift message form to your Shopify theme and email recipients after fulfillment](https://tasks.mechanic.dev/add-a-gift-message-form-to-your-shopify-theme-and-email-recipients-after-fulfillment). Choose that published form in the task's **Form** option, customize the email, and enable the task. Keep the starter's field data keys or update the task's field key options. Mechanic must be approved to send email, and the task requests order access through the usual permissions flow.
 
@@ -271,7 +273,7 @@ Use a test webhook and test destinations when checking delivery. For cart-saving
 
 ## Steps, conditions, and files
 
-Use **Manage steps** to name and arrange up to 10 steps, then use each field’s **Step** setting to place it. Visitors keep their answers and selected files when moving between steps. Only the final submit button sends the form; partial answers are not sent after each step.
+Use **Manage steps** to name and arrange up to 10 steps, then use each field’s **Step** setting to place it. Visitors keep their answers and selected files when moving between steps. For webhook forms, only the final submit button sends the form; partial answers are not sent after each step. Cart-saving forms save when all required details across the steps are complete.
 
 Use **Show this field** to ask a question based on an earlier answer. Hidden questions are not required, and their old answers or files are left out of the submission. Empty conditional steps are skipped. If reordering a question leaves a condition needing attention, correct it before saving.
 
