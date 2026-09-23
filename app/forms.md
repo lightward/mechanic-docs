@@ -53,7 +53,7 @@ Your theme supplies the form’s fonts and colors. You do not need to edit theme
 
 ### Open the form from a button
 
-In the **Display** section at the top of **Build form**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page, and the opening button changes to **Hide form**. Visitors can close and reopen it without losing their answers. The **Submit button text** setting under **Heading and text** controls the separate button that sends the completed form. Cart-saving forms use **Save button text** instead. Choose **Full form** to display the questions immediately.
+In the **Display** section at the top of **Build form**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page, and the opening button changes to **Hide form**. Visitors can close and reopen it without losing their answers. The **Submit button text** setting under **Heading and text** controls the separate button that sends the completed form. Cart-saving forms save complete answers automatically and have no final Save button. Choose **Full form** to display the questions immediately.
 
 This option works with any form. Visibility conditions apply to both the button and the form, and your theme still supplies the fonts and colors. Save and publish to change the storefront.
 
@@ -74,28 +74,38 @@ Use the [email and storage tasks](#put-submissions-to-work) below, or subscribe 
 
 Use this destination for details that should travel with the customer's order, such as a gift recipient and personal message.
 
-**Customer saves answers → Shopify cart → checkout → order → tasks respond to an order event.**
+**Customer fills out a form → answers save automatically to the Shopify cart → checkout → order → tasks respond to an order event.**
 
-1. Open **Submission settings** and set **When someone submits** to **Save answers to the cart**. No webhook is needed. This replaces the webhook destination; a single save does not also send a webhook.
-2. Under **Heading and text**, choose a clear **Save button text**, such as “Save gift message”. Write a confirmation that describes the save, not a completed task.
+1. Open **Submission settings** and set **Save or send answers** to **Automatically save to the cart**. No webhook is needed. This replaces the webhook destination; a single save does not also send a webhook.
+2. Write a confirmation that describes the save, not a completed task. Cart forms save automatically and do not have a final Save button. Next and Back still guide customers through forms with multiple steps.
 3. Save and publish the form, then add its block to the cart page from the **Theme** tab. Save the theme. As with other forms, use a section that supports app blocks.
-4. Have customers click Save and wait for confirmation **before checkout**. They can reopen the form to edit or remove its saved answers. Changes are not saved automatically.
+4. Customers fill in the form and their complete answers save automatically. They can reopen it to edit the details or choose **Remove answers** to clear them from the cart. Normal cart checkout waits for the latest save; incomplete details or a failed save keep the customer on the cart page to fix, retry, or remove those answers. An untouched form stays optional.
 
-<figure><img src="../.gitbook/assets/storefront-forms-cart-settings.jpg" alt="Gift form submission settings with Save answers to the cart selected and a link to the gift email task"><figcaption><p>Save with the cart now, then use an order event to run your tasks later.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/storefront-forms-cart-settings.png" alt="Gift form submission settings with Automatically save to the cart selected and a link to the gift email task"><figcaption><p>Save with the cart now, then use an order event to run your tasks later.</p></figcaption></figure>
 
 Saving succeeds only after Shopify confirms the answers. It does not create a Mechanic event or send email. The cart must contain an item. A failed save keeps the answers available for retry. If saved answers cannot be loaded, the form asks the customer to retry before editing.
 
-**Checkout routes that bypass the form also bypass these questions.** This includes Buy it now and cart drawers without the form. A required field prevents saving an incomplete form; it does not block Shopify checkout. Make the form easy to find on the cart page.
+**Checkout routes that bypass the form also bypass these questions.** This includes Buy it now and cart drawers without the form. Accelerated payment buttons and custom theme checkout behavior may also bypass the save checks. These checks are a convenience on the cart page, not a checkout validation rule. Make the form easy to find and test the normal checkout button in your theme.
 
 Answers are stored as cart attributes named `mechanic_form_<form ID>_<field key>` and become order custom attributes at checkout. The form changes only its own attributes, leaving the cart note and other apps' attributes alone. Conditional answers that are no longer visible are removed on the next save. Addresses and multiple selections are stored as JSON text. Saved answers are limited to 32 KiB per update, including attribute names; file uploads are not supported.
 
 Cart attributes are customer-editable storefront data, not secrets, verified identity, or access controls. Tasks must validate them. **Emptying a cart does not clear its saved answers.** They stay with that cart until removed or replaced; customers can review them by reopening the form. Unpublishing or deleting a form does not erase answers already saved to carts or orders.
 
+### Cart drawers
+
+Place cart-saving forms on the full cart page. Adding a form there does not add it to a cart drawer. A customer who goes directly from a drawer to checkout may never see the form.
+
+In Dawn, the theme editor's **Theme settings → Cart → Cart type** setting includes a **Page** option. Use that for a cart-page experience. Other themes may offer a similar setting; check with your theme developer.
+
+If you keep a drawer, ask your theme developer to add a clear **Add a gift message** link to the cart page. This link is a theme customization, not something Mechanic inserts automatically. Test the full journey from adding an item to finding the form and checking out on both desktop and mobile. The form remains optional; direct checkout is still possible.
+
 ### Example: email a gift message after fulfillment
+
+Follow the illustrated tutorial: [Add a gift message form to your Shopify theme and email recipients after fulfillment](../resources/tutorials/add-a-gift-message-form-to-your-shopify-theme.md).
 
 Start with **Add a gift message**. It collects the sender's name, recipient's name and email, and a personal note. Its button opens the form on the cart page, and its visibility condition requires at least one item in the cart.
 
-Publish and place the form, then install [Email gift recipients when orders are fulfilled](https://tasks.mechanic.dev/email-gift-recipients-when-orders-are-fulfilled). Choose that published form in the task's **Form** option, customize the email, and enable the task. Keep the starter's field data keys or update the task's field key options. Mechanic must be approved to send email, and the task requests order access through the usual permissions flow.
+Publish and place the form, then install [Add a gift message form to your Shopify theme and email recipients after fulfillment](https://tasks.mechanic.dev/add-a-gift-message-form-to-your-shopify-theme-and-email-recipients-after-fulfillment). Choose that published form in the task's **Form** option, customize the email, and enable the task. Keep the starter's field data keys or update the task's field key options. Mechanic must be approved to send email, and the task requests order access through the usual permissions flow.
 
 This starter uses **one recipient and one message for the whole order**. It waits until Shopify marks the whole order fulfilled; split shipments wait for their final fulfillment. Saving the gift form does not trigger that email. The task checks the order's current status and records a send claim on the order before queuing the email, to prevent repeated fulfillment events from sending it again. See the task's recovery instructions if an action fails or its outcome is uncertain.
 
@@ -103,7 +113,7 @@ Test the complete path using an inbox you control: save a message, complete a te
 
 ## Connect your tasks
 
-Open **Submission settings**, leave **When someone submits** set to **Send to Mechanic tasks**, and choose a webhook under **Send submissions to**. Its event topic determines which tasks receive the submission. The form does not have a separate event topic.
+Open **Submission settings**, leave **Save or send answers** set to **Send to Mechanic tasks**, and choose a webhook under **Send submissions to**. Its event topic determines which tasks receive the submission. The form does not have a separate event topic.
 
 Choose **Create or manage webhooks** to open webhook settings in a separate tab. [Create the webhook](../resources/tutorials/creating-a-mechanic-webhook.md), return to your form, and choose **Refresh connection** to select it. Your form edits stay in the original tab.
 
