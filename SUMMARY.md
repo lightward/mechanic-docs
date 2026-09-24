@@ -13,6 +13,7 @@
 
 * [⬇️ Install Mechanic](https://apps.shopify.com/mechanic)
 * [🧑‍💻 Task library](resources/task-library/README.md)
+  * [Updating library tasks](resources/task-library/updating-tasks.md)
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
   * [Custom webhook imports](resources/task-library/custom-webhook-imports.md)
