@@ -60,6 +60,19 @@ like Cronitor, UptimeRobot, Better Stack, or your own monitoring system, and
 alert when waiting runs or queue lag exceed the threshold that matters for your
 shop.
 
+If you use [background tasks](../core/tasks/advanced-settings/background-tasks.md),
+note how the queue fields treat them: `queue.waiting` counts *all* waiting runs,
+background included, while queue lag (`queue.oldest_waiting_ms`, and the `lag`
+values for task and action runs) measures the normal lane only — a
+deliberately-waiting backfill isn't your queue running behind. Background work
+is reported separately, via `queue.waiting_background` and
+`queue.background_oldest_waiting_ms` (both zero when nothing is waiting in the
+background). A shop draining a large background backlog can show a high
+`waiting` count alongside near-zero lag for hours; that's the background
+setting working as intended. Alert on lag rather than on the raw waiting
+count — unless you also want to hear about backfill backlogs, in which case
+monitor `waiting_background` as its own signal with its own threshold.
+
 ### Action runs
 
 To monitor actions, subscribe to the mechanic/actions/perform event, which re-invokes a task with the results of each action run. Use this opportunity to inspect the status of the action, responding accordingly. To learn more, see [Responding to action results](responding-to-action-results.md).
