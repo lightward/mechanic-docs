@@ -26,7 +26,7 @@ Changes you've made to the code or execution settings can require individual att
 
     ![The task editor shows a Library update available banner above the saved bundle options.](../../.gitbook/assets/task-library-single-notice.png)
 
-2. Expand **Review changes for…** to inspect the differences. Opening the review doesn't save anything. When you're ready, click **Update 1 task**.
+2. Expand **Review changes for…** to inspect the differences. Removed lines are red with a minus sign (`-`); added lines are green with a plus sign (`+`). Opening the review doesn't save anything. When you're ready, click **Update 1 task**.
 
     ![The single-task review shows the code differences and the Update 1 task button.](../../.gitbook/assets/task-library-single-review.png)
 
@@ -71,6 +71,8 @@ Select the tasks using the checkboxes in the task list, then choose **Update fro
 The review works the same way as the library-task group: inspect the changes, apply updates to the ready copies, and check the results. Selected tasks can come from different library tasks.
 
 ## When a task needs individual review
+
+Click the title of a task marked **Needs review** in the review window to open that task in a new tab. You can inspect its code and options while keeping the original review open. Any updates already running continue in the original tab.
 
 Mechanic may leave a copy unchanged for several reasons:
 
