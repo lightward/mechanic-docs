@@ -10,9 +10,9 @@ Place the form where it belongs in your theme, then use **Visibility** to choose
 
 You build the questions visually in Mechanic. Your theme provides the fonts and colors, and the tasks you connect decide what happens with each response. You can start with a template and ready-to-use tasks, or build your own workflow.
 
-Submissions appear as ordinary Mechanic events and follow the [usual event retention policy](../platform/policies/data.md#retention-of-events). Connect an email or storage task if you want a lasting record outside those events.
+With the default **Send to Mechanic tasks** destination, submissions appear as ordinary Mechanic events and follow the [usual event retention policy](../platform/policies/data.md#retention-of-events). Connect an email or storage task if you want a lasting record outside those events.
 
-The connection uses Mechanic's existing events, tasks, and actions:
+For these forms, the connection uses Mechanic's existing events, tasks, and actions:
 
 **Customer submits a form → webhook creates an event → subscribed tasks run.**
 
@@ -21,6 +21,8 @@ Choose a [Mechanic webhook](../platform/webhooks.md) in the form's Submission se
 {% hint style="info" %}
 These forms appear in your online store. To collect input from staff using **Run task** inside Mechanic or Shopify admin, see [User Form](../core/tasks/user-form.md).
 {% endhint %}
+
+You can also [save answers to the cart](#save-answers-to-the-cart), for gift messages and other details that belong with the order. These forms save directly to Shopify; tasks can use the answers after checkout.
 
 ## Build your form
 
@@ -33,7 +35,7 @@ These forms appear in your online store. To collect input from staff using **Run
 
 You can add up to 50 fields. Under a selected field’s **Field data**, its **Field key** identifies the answer for your tasks. Keep this key stable once a task uses it; you can still change the question’s label.
 
-There are eight starters: **Warranty request**, **Service or repair request**, **Request a quote**, **Request a quote from your cart**, **Wholesale application**, **Customization request**, **Customer feedback**, and **Basic form**. Longer starters have two or three steps; some include conditional questions and optional uploads. Every field and message is editable. **Request a quote from your cart** starts with a button that opens the form, includes the current cart with the submission, and stays hidden while the cart is empty. Place it on your cart page and connect the draft-order task described below. Change its conditions in **Visibility** to suit your workflow. Choose your own webhook in Submission settings before publishing.
+There are nine starters: **Warranty request**, **Service or repair request**, **Request a quote**, **Request a quote from your cart**, **Add a gift message**, **Wholesale application**, **Customization request**, **Customer feedback**, and **Basic form**. Longer starters have two or three steps; some include conditional questions and optional uploads. Every field and message is editable. **Request a quote from your cart** starts with a button that opens the form, includes the current cart with the submission, and stays hidden while the cart is empty. Place it on your cart page and connect the draft-order task described below. Change its conditions in **Visibility** to suit your workflow. Choose your own webhook in Submission settings before publishing a form that sends to tasks. **Add a gift message** saves to the cart instead and does not need a webhook.
 
 Templates provide questions, not an approval or booking workflow. Your subscribed tasks handle each request. Changes to the starter library do not overwrite forms you have already created.
 
@@ -43,15 +45,17 @@ Templates provide questions, not an approval or booking workflow. Your subscribe
 
 ### Choose a layout
 
-Under **Form layout**, choose **Grouped steps** to show the questions in each step together, or **One question at a time** to guide visitors through individual questions. Address fields and multiple-choice options stay together. Both layouts support conditional questions and file uploads.
+Under **Form layout**, choose **Grouped steps** to show the questions in each step together, or **One question at a time** to guide visitors through individual questions. Address fields and multiple-choice options stay together. Both layouts support conditional questions. Webhook forms also support file uploads.
 
-Use **Try form** to check the flow. Visitors can go Back without losing their answers or selected files. Nothing is submitted until the final submit button. Save and publish to update the layout in your theme; existing forms keep their current layout until you change it. The layout also travels with JSON exports.
+Use **Try form** to check the flow. Visitors can go Back without losing their answers or selected files. Webhook forms send answers only when visitors choose the final submit button; cart-saving forms save complete answers automatically. Save and publish to update the layout in your theme; existing forms keep their current layout until you change it. The layout also travels with JSON exports.
 
 Your theme supplies the form’s fonts and colors. You do not need to edit theme code or write storefront JavaScript to use a form block.
 
 ### Open the form from a button
 
-In the **Display** section at the top of **Build form**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page, and the opening button changes to **Hide form**. Visitors can close and reopen it without losing their answers. The **Submit button text** setting under **Heading and text** controls the separate button that sends the completed form. Choose **Full form** to display the questions immediately.
+In the **Display** section at the top of **Build form**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page, and the opening button changes to **Hide form**. Visitors can close and reopen it without losing their answers. The **Submit button text** setting under **Heading and text** controls the separate button that sends the completed form. Cart-saving forms save complete answers automatically and have no final Save button. Choose **Full form** to display the questions immediately.
+
+For cart-saving forms, these settings are **Link that opens the form** and **Open form link text**. The opener looks like an understated text link, such as **Add a gift message**, and reveals the questions inline when chosen. The **Introduction**, under **Heading and text**, appears beneath the link while the form is closed, so customers can understand what it does before opening it. Once opened, the introduction appears beneath the form heading instead. Leave the introduction empty if you only want the link.
 
 This option works with any form. Visibility conditions apply to both the button and the form, and your theme still supplies the fonts and colors. Save and publish to change the storefront.
 
@@ -68,9 +72,50 @@ Use a form to learn what a potential customer needs, then let your tasks deliver
 
 Use the [email and storage tasks](#put-submissions-to-work) below, or subscribe your own tasks to the same webhook. The starters collect the information; your team or your configured tasks decide how to qualify and follow up on each inquiry. Start with the [quote-request walkthrough](#example-collect-and-follow-up-on-quote-requests).
 
+## Save answers to the cart
+
+Use this destination for details that should travel with the customer's order, such as a gift recipient and personal message.
+
+**Customer fills out a form → answers save automatically to the Shopify cart → checkout → order → tasks respond to an order event.**
+
+1. Open **Submission settings** and set **Save or send answers** to **Automatically save to the cart**. No webhook is needed. This replaces the webhook destination; a single save does not also send a webhook.
+2. Write a confirmation that describes the save, not a completed task. Cart forms save automatically and do not have a final Save button. Next and Back still guide customers through forms with multiple steps.
+3. Save and publish the form, then add its block to the cart page from the **Theme** tab. Save the theme. As with other forms, use a section that supports app blocks.
+4. Customers fill in the form and their complete answers save automatically. They can reopen it to edit the details or choose **Remove answers** to clear them from the cart. Normal cart checkout waits for the latest save; incomplete details or a failed save keep the customer on the cart page to fix, retry, or remove those answers. An untouched form stays optional.
+
+<figure><img src="../.gitbook/assets/storefront-forms-cart-settings.png" alt="Gift form submission settings with Automatically save to the cart selected and a link to the gift email task"><figcaption><p>Save with the cart now, then use an order event to run your tasks later.</p></figcaption></figure>
+
+Saving succeeds only after Shopify confirms the answers. It does not create a Mechanic event or send email. The cart must contain an item. A failed save keeps the answers available for retry. If saved answers cannot be loaded, the form asks the customer to retry before editing.
+
+**Checkout routes that bypass the form also bypass these questions.** This includes Buy it now and cart drawers without the form. Accelerated payment buttons and custom theme checkout behavior may also bypass the save checks. These checks are a convenience on the cart page, not a checkout validation rule. Make the form easy to find and test the normal checkout button in your theme.
+
+Answers are stored as cart attributes named `mechanic_form_<form ID>_<field key>` and become order custom attributes at checkout. The form changes only its own attributes, leaving the cart note and other apps' attributes alone. Conditional answers that are no longer visible are removed on the next save. Addresses and multiple selections are stored as JSON text. Saved answers are limited to 32 KiB per update, including attribute names; file uploads are not supported.
+
+Cart attributes are customer-editable storefront data, not secrets, verified identity, or access controls. Tasks must validate them. **Emptying a cart does not clear its saved answers.** They stay with that cart until removed or replaced; customers can review them by reopening the form. Unpublishing or deleting a form does not erase answers already saved to carts or orders.
+
+### Cart drawers
+
+Place cart-saving forms on the full cart page. Adding a form there does not add it to a cart drawer. A customer who goes directly from a drawer to checkout may never see the form.
+
+In Dawn, the theme editor's **Theme settings → Cart → Cart type** setting includes a **Page** option. Use that for a cart-page experience. Other themes may offer a similar setting; check with your theme developer.
+
+If you keep a drawer, ask your theme developer to add a clear **Add a gift message** link to the cart page. This link is a theme customization, not something Mechanic inserts automatically. Test the full journey from adding an item to finding the form and checking out on both desktop and mobile. The form remains optional; direct checkout is still possible.
+
+### Example: email a gift message after fulfillment
+
+Follow the illustrated tutorial: [Add a gift message form to your Shopify theme and email recipients after fulfillment](../resources/tutorials/add-a-gift-message-form-to-your-shopify-theme.md).
+
+Start with **Add a gift message**. It collects the sender's name, recipient's name and email, and a personal note. Its optional **Add a gift message** link opens the form inline on the cart page, and its visibility condition requires at least one item in the cart. Shoppers who leave it untouched can check out normally without adding a gift message.
+
+Publish and place the form, then install [Add a gift message form to your Shopify theme and email recipients after fulfillment](https://tasks.mechanic.dev/add-a-gift-message-form-to-your-shopify-theme-and-email-recipients-after-fulfillment). Choose that published form in the task's **Form** option, customize the email, and enable the task. Keep the starter's field data keys or update the task's field key options. Mechanic must be approved to send email, and the task requests order access through the usual permissions flow.
+
+This starter uses **one recipient and one message for the whole order**. It waits until Shopify marks the whole order fulfilled; split shipments wait for their final fulfillment. Saving the gift form does not trigger that email. The task checks the order's current status and records a send claim on the order before queuing the email, to prevent repeated fulfillment events from sending it again. See the task's recovery instructions if an action fails or its outcome is uncertain.
+
+Test the complete path using an inbox you control: save a message, complete a test checkout, confirm the answers on the order, fulfill only part of it (no email), then fulfill the rest and check the email action and inbox. The email omits prices, billing details, and links to the buyer's order status page.
+
 ## Connect your tasks
 
-Open **Submission settings** and choose a webhook under **Send submissions to**. Its event topic determines which tasks receive the submission. The form does not have a separate event topic.
+Open **Submission settings**, leave **Save or send answers** set to **Send to Mechanic tasks**, and choose a webhook under **Send submissions to**. Its event topic determines which tasks receive the submission. The form does not have a separate event topic.
 
 Choose **Create or manage webhooks** to open webhook settings in a separate tab. [Create the webhook](../resources/tutorials/creating-a-mechanic-webhook.md), return to your form, and choose **Refresh connection** to select it. Your form edits stay in the original tab.
 
@@ -213,42 +258,42 @@ Cart conditions update within a few seconds while the page is open. If a cart ch
 The builder preview and Shopify theme editor keep the form visible so you can edit and place it. Test visibility on a storefront page opened in a separate tab, with signed-in and signed-out sessions where relevant. That page can send real submissions, including when previewing an unpublished theme.
 
 {% hint style="info" %}
-Visibility controls display, not authorization. The webhook remains public, and someone can send it a request without using the visible form. Tasks must validate submissions before granting benefits or changing orders. See [Storefront form submissions](../platform/webhooks.md#storefront-form-submissions).
+Visibility controls display, not authorization. For webhook forms, the webhook remains public, and someone can send it a request without using the visible form. Cart-saving forms use editable cart attributes. Tasks must validate submissions before granting benefits or changing orders. See [Storefront form submissions](../platform/webhooks.md#storefront-form-submissions).
 {% endhint %}
 
 ### Test without surprises
 
-| Where you try the form | Does it send submissions? |
+| Where you try the form | Does it save or send answers? |
 | --- | --- |
 | **Try form** or a template **Preview** inside Mechanic | No. Use it to check questions, conditions, and validation. |
 | Inside Shopify’s theme editor | No. Use it to check the form’s placement and appearance. |
-| A storefront page opened in a separate tab, including an unpublished theme preview | **Yes.** It uses the selected webhook and can run tasks. |
+| A storefront page opened in a separate tab, including an unpublished theme preview | **Yes.** It uses the selected webhook and can run tasks, or saves to the real cart if that destination is selected. |
 
-Use a test webhook and test destinations when checking delivery. After submitting, inspect the event and its task/action results as well as the destination. A confirmation message alone does not prove that an email was delivered or a record was saved.
+Use a test webhook and test destinations when checking delivery. For cart-saving forms, use a test cart and order; a saved confirmation does not mean a later order task has run. After submitting, inspect the event and its task/action results as well as the destination. A confirmation message alone does not prove that an email was delivered or a record was saved.
 
 ## Steps, conditions, and files
 
-Use **Manage steps** to name and arrange up to 10 steps, then use each field’s **Step** setting to place it. Visitors keep their answers and selected files when moving between steps. Only the final submit button sends the form; partial answers are not sent after each step.
+Use **Manage steps** to name and arrange up to 10 steps, then use each field’s **Step** setting to place it. Visitors keep their answers and selected files when moving between steps. For webhook forms, only the final submit button sends the form; partial answers are not sent after each step. Cart-saving forms save when all required details across the steps are complete.
 
 Use **Show this field** to ask a question based on an earlier answer. Hidden questions are not required, and their old answers or files are left out of the submission. Empty conditional steps are skipped. If reordering a question leaves a condition needing attention, correct it before saving.
 
-**File upload** accepts one file per field. Choose allowed extensions and a per-file limit from 1 to 3 MB. All files together must fit within **3 MB per submission**. Tasks receive uploads in the normal webhook file format. Choose an [email or storage task](#save-or-receive-uploaded-files) if you want to keep the files outside the event.
+**File upload** is available for webhook forms and accepts one file per field. Choose allowed extensions and a per-file limit from 1 to 3 MB. All files together must fit within **3 MB per submission**. Tasks receive uploads in the normal webhook file format. Choose an [email or storage task](#save-or-receive-uploaded-files) if you want to keep the files outside the event.
 
 Other fields include text, email, phone, website, numbers, dates, time, date and time, addresses, dropdowns, radio choices, single and multiple checkboxes, ratings, and headings. Time values represent the time entered by the visitor and do not include a timezone.
 
 ## Duplicate a form
 
-Save or discard any edits, then choose **Form actions → Duplicate form**. The copy starts as an unpublished draft in the same shop. It keeps the saved questions, data keys, steps, field conditions, visibility rules, button presentation, cart setting, text, and available webhook connection. Product, variant, and collection selections stay connected to this shop. It does not copy submissions or theme placements. Review its webhook and tasks before publishing; using the same webhook means the same subscribed tasks can process both forms.
+Save or discard any edits, then choose **Form actions → Duplicate form**. The copy starts as an unpublished draft in the same shop. It keeps the saved questions, data keys, steps, field conditions, visibility rules, button presentation, cart setting, text, and available webhook connection. Product, variant, and collection selections stay connected to this shop. It does not copy submissions or theme placements. The copy gets a new form ID, so it has separate cart attributes when using the cart destination. Select the copy in any order task that should read those answers. Review its webhook and tasks before publishing; using the same webhook means the same subscribed tasks can process both forms.
 
 ## Copy a form to another shop
 
 Choose **Export JSON** to download the current form, including any valid unsaved edits. Fields, data keys, settings, steps, field conditions, visibility rules, button presentation, cart setting, and text are included. Answers, files, tasks, webhook credentials, and theme placements are not included.
 
-In the destination shop, open **Forms → Import form** and upload or paste the JSON. Review it, select that shop’s webhook or **Choose later**, then choose **Import as draft**. The new form starts unpublished and gets a new form ID. It needs a webhook before publishing.
+In the destination shop, open **Forms → Import form** and upload or paste the JSON. Review it, select that shop’s webhook or **Choose later**, then choose **Import as draft**. The new form starts unpublished and gets a new form ID. Webhook forms need a webhook before publishing. Cart-saving forms keep that destination and do not ask for a webhook.
 
 Imported visibility rules keep their conditions and readable resource names, but clear product, variant, and collection selections. Reselect those resources from the destination shop before publishing. This also applies when importing back into the same shop; use **Duplicate form** for a same-shop copy that keeps its selections.
 
-Set up the destination shop’s webhook and subscribed tasks separately. Publish the form and select it in that shop’s theme. Importing does not reconnect the form to the original shop.
+Set up the destination shop’s tasks separately. For cart-saving forms, select the newly published form in the order task; existing saved cart answers do not move with the form. For webhook forms, choose the destination shop’s webhook and subscribe the tasks to its topic. Publish the form and select it in that shop’s theme. Importing does not reconnect the form to the original shop.
 
 ## Update or stop a form
 
@@ -258,10 +303,10 @@ When a published form has saved edits, the form list and editor show an amber **
 
 <figure><img src="../.gitbook/assets/storefront-forms-unpublished-changes.png" alt="Form editor with an amber Unpublished changes badge, a dismissible publishing reminder, and the Publish changes button"><figcaption><p>Saving preserves your draft. Publish changes makes those edits visible to visitors.</p></figcaption></figure>
 
-Choose **Form actions → Unpublish form** to stop showing the form to new visitors. It can take up to 30 seconds for the published version to stop loading. Unpublished forms are hidden on the storefront; the theme editor explains why the block is unavailable. Someone with the form already open can still send it, and the reusable webhook stays available. Disabling or deleting the webhook stops it from creating events, but affects every form or integration using that webhook. Previously received events continue through the normal task queue.
+Choose **Form actions → Unpublish form** to stop showing the form to new visitors. It can take up to 30 seconds for the published version to stop loading. Unpublished forms are hidden on the storefront; the theme editor explains why the block is unavailable. Someone with the form already open may still use it. For cart forms, previously saved answers and connected order tasks remain; disable the task separately to stop processing those answers. For webhook forms, the reusable webhook stays available. Disabling or deleting the webhook stops it from creating events, but affects every form or integration using that webhook. Previously received events continue through the normal task queue.
 
-**Form actions → Delete form** removes the saved form after confirmation. Its webhook and previously received events remain. Remove any blocks you no longer need from your themes.
+**Form actions → Delete form** removes the saved form after confirmation. Its webhook, previously received events, and any answers already saved to carts or orders remain. Remove any blocks you no longer need from your themes.
 
 Disabling a task stops that task from running; it does not unpublish the form. Other enabled tasks subscribed to the same webhook can still run. Unpublish the form and remove its block from the theme when it is no longer needed.
 
-If a visitor loses the confirmation, their answers stay on screen. **Send again** warns that the earlier submission may have arrived and another attempt could send it twice. The form does not retry automatically. The normal webhook acknowledgment confirms receipt at the webhook service; it does not confirm a task ran, and it also acknowledges disabled or invalid webhook URLs.
+For webhook forms, if a visitor loses the confirmation, their answers stay on screen. **Send again** warns that the earlier submission may have arrived and another attempt could send it twice. The form does not retry automatically. The normal webhook acknowledgment confirms receipt at the webhook service; it does not confirm a task ran, and it also acknowledges disabled or invalid webhook URLs.

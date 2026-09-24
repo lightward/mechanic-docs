@@ -41,6 +41,7 @@
     * [Send an email when a product's price goes below its cost](resources/video-walkthroughs/send-an-email-when-a-products-price-goes-below-its-cost.md)
     * [Auto-tag customers by sales channel](resources/video-walkthroughs/auto-tag-customers-by-sales-channel.md)
     * [Creating products in bulk](resources/video-walkthroughs/creating-products-in-bulk.md)
+  * [Add a gift message form to your Shopify theme and email recipients after fulfillment](resources/tutorials/add-a-gift-message-form-to-your-shopify-theme.md)
   * [Your first custom task](resources/tutorials/your-first-custom-task.md)
   * [Creating a Mechanic webhook](resources/tutorials/creating-a-mechanic-webhook.md)
   * [Practicing writing tasks](resources/tutorials/practicing-writing-tasks.md)
