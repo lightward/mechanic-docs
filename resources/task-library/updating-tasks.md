@@ -10,11 +10,15 @@ You can update one task, all installed copies of a particular library task, or a
 
 The screenshots below use an example store with several copies of **Maintain inventory for a product bundle**.
 
-## What an update preserves
+## What an update changes and preserves
 
-Each copy keeps its name, saved option values, enabled or disabled state, tags, documentation, and Shopify API version. Its previous code remains in its version history.
+Each copy keeps its name, saved option values, enabled or disabled state, and tags. Its previous code, documentation, and settings remain in its version history.
 
-The update replaces the library's code and related execution settings, such as subscriptions, JavaScript, sequencing settings, and preview definitions. Mechanic offers this update only when those parts of your copy match a known library version and the new version uses the same option fields.
+The update replaces the library's code, documentation, and related execution settings, such as subscriptions, JavaScript, sequencing settings, and preview definitions. It also sets the Shopify API version to the version Mechanic uses for newly installed tasks, so the updated code is previewed and saved using that version. Documentation and API version changes appear in the review alongside code changes.
+
+Mechanic offers this update only when your copy's code and execution settings match a known library version and the new version uses the same option fields. An update can also be available when the code is already current but the documentation or API version differs.
+
+If you've added your own notes to the task's documentation, review the documentation changes before updating. The update replaces those notes with the library's documentation; the previous documentation remains in version history.
 
 Changing option values or renaming a task doesn't by itself prevent an update. For example, if you have a separate copy of **Maintain inventory for a product bundle** for each bundle, each eligible copy keeps its own bundle settings when updated.
 
