@@ -33,7 +33,7 @@ Change the question labels, introduction, and help text to suit your store. Keep
 
 <figure><img src="../../.gitbook/assets/gift-message-form-builder.png" alt="Mechanic gift form builder with four gift questions, the form preview, and field settings"><figcaption><p>The starter provides the questions. Edit the wording without changing the field data keys used by the email task.</p></figcaption></figure>
 
-Under **Display**, the starter uses **Link that opens the form**, with **Add a gift message** as its link text. Customers choose this optional link to open the fields inline on the cart page. Shoppers who leave it untouched can check out normally without adding a gift message. Choose **Try form** to check the questions; the builder preview does not change a cart or send email.
+Under **Display**, the starter uses **Link that opens the form**, with **Add a gift message** as its link text. Customers choose this optional link to open the fields inline on the cart page. You can choose **Button that opens the form** instead; either choice keeps answers saving to the cart. Shoppers who leave it untouched can check out normally without adding a gift message. Choose **Try form** to check the questions; the builder preview does not change a cart or send email.
 
 The introduction appears beneath the link before the form is opened: “We’ll email your message to the recipient once your order has shipped.” Edit **Introduction** under **Heading and text** to match your store and the task you connect. Opening the form moves this explanation beneath the heading.
 

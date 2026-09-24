@@ -41,7 +41,7 @@ Templates provide questions, not an approval or booking workflow. Your subscribe
 
 <figure><img src="../.gitbook/assets/storefront-forms-templates.png" alt="Storefront form templates in Mechanic, including quote requests, cart quotes, warranties, and service requests"><figcaption><p>Start with the workflow you need, then make the questions your own.</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/storefront-forms-builder.png" alt="The cart quote form builder with Display settings above the field list, live preview, and heading and text settings"><figcaption><p>Edit questions beside a live preview. This cart quote starter groups its questions into two steps. Display controls whether visitors see the full form or a button first.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/storefront-forms-builder.png" alt="The cart quote form builder with Display settings above the field list, live preview, and heading and text settings"><figcaption><p>Edit questions beside a live preview. This cart quote starter groups its questions into two steps. Display controls whether visitors see the full form, a button, or a link first.</p></figcaption></figure>
 
 ### Choose a layout
 
@@ -51,13 +51,17 @@ Use **Try form** to check the flow. Visitors can go Back without losing their an
 
 Your theme supplies the form’s fonts and colors. You do not need to edit theme code or write storefront JavaScript to use a form block.
 
-### Open the form from a button
+### Open the form from a button or link
 
-In the **Display** section at the top of **Build form**, set **Show on the page** to **Button that opens the form** and choose the **Open form button text**. The form opens in the same place on the page, and the opening button changes to **Hide form**. Visitors can close and reopen it without losing their answers. The **Submit button text** setting under **Heading and text** controls the separate button that sends the completed form. Cart-saving forms save complete answers automatically and have no final Save button. Choose **Full form** to display the questions immediately.
+In the **Display** section at the top of **Build form**, set **Show on the page** to **Button that opens the form** or **Link that opens the form**, then choose the opening text. Either style works whether answers go to Mechanic tasks or save to the cart. The gift message starter uses a link; the cart quote starter uses a button. Choose **Full form** to display the questions immediately.
 
-For cart-saving forms, these settings are **Link that opens the form** and **Open form link text**. The opener looks like an understated text link, such as **Add a gift message**, and reveals the questions inline when chosen. The **Introduction**, under **Heading and text**, appears beneath the link while the form is closed, so customers can understand what it does before opening it. Once opened, the introduction appears beneath the form heading instead. Leave the introduction empty if you only want the link.
+<figure><img src="../.gitbook/assets/forms-display-link.png" alt="Display settings with Link that opens the form selected and Ask us a question as its opening text"><figcaption><p>Choose a button or link independently of where answers go.</p></figcaption></figure>
 
-This option works with any form. Visibility conditions apply to both the button and the form, and your theme still supplies the fonts and colors. Save and publish to change the storefront.
+The form opens in the same place on the page, and its opening button or link changes to **Hide form**. Visitors can close and reopen it without losing their answers. For webhook forms, **Submit button text** under **Heading and text** controls the separate button that sends the completed form. Cart-saving forms save complete answers automatically and have no final Save button.
+
+For cart-saving forms, the **Introduction**, under **Heading and text**, appears beneath the button or link while the form is closed. Once opened, it appears beneath the form heading instead. Leave it empty if you only want the button or link.
+
+Existing forms keep their appearance until you choose a different display option. Changing where answers go does not change the selected style. Visibility conditions apply to both the opener and the form, and your theme still supplies the fonts and colors. Save and publish to change the storefront.
 
 ## Collect leads and inquiries
 
@@ -283,11 +287,11 @@ Other fields include text, email, phone, website, numbers, dates, time, date and
 
 ## Duplicate a form
 
-Save or discard any edits, then choose **Form actions → Duplicate form**. The copy starts as an unpublished draft in the same shop. It keeps the saved questions, data keys, steps, field conditions, visibility rules, button presentation, cart setting, text, and available webhook connection. Product, variant, and collection selections stay connected to this shop. It does not copy submissions or theme placements. The copy gets a new form ID, so it has separate cart attributes when using the cart destination. Select the copy in any order task that should read those answers. Review its webhook and tasks before publishing; using the same webhook means the same subscribed tasks can process both forms.
+Save or discard any edits, then choose **Form actions → Duplicate form**. The copy starts as an unpublished draft in the same shop. It keeps the saved questions, data keys, steps, field conditions, visibility rules, display settings, cart setting, text, and available webhook connection. Product, variant, and collection selections stay connected to this shop. It does not copy submissions or theme placements. The copy gets a new form ID, so it has separate cart attributes when using the cart destination. Select the copy in any order task that should read those answers. Review its webhook and tasks before publishing; using the same webhook means the same subscribed tasks can process both forms.
 
 ## Copy a form to another shop
 
-Choose **Export JSON** to download the current form, including any valid unsaved edits. Fields, data keys, settings, steps, field conditions, visibility rules, button presentation, cart setting, and text are included. Answers, files, tasks, webhook credentials, and theme placements are not included.
+Choose **Export JSON** to download the current form, including any valid unsaved edits. Fields, data keys, settings, steps, field conditions, visibility rules, display settings, cart setting, and text are included. Answers, files, tasks, webhook credentials, and theme placements are not included.
 
 In the destination shop, open **Forms → Import form** and upload or paste the JSON. Review it, select that shop’s webhook or **Choose later**, then choose **Import as draft**. The new form starts unpublished and gets a new form ID. Webhook forms need a webhook before publishing. Cart-saving forms keep that destination and do not ask for a webhook.
 
