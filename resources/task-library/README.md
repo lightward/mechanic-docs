@@ -38,6 +38,10 @@ When building a new task, it's often easier to start from an existing library ta
 Mechanic support covers **unmodified** tasks from the task library. Once you modify a library task's code, it becomes a custom task, and support is limited to platform-level issues. For help with custom tasks, see [Get help with a custom task](../../custom-help.md)
 {% endhint %}
 
+## Updating installed tasks
+
+Library changes aren't applied to your installed copies automatically. You can review an available update and apply it to one task or several eligible copies, keeping each copy's saved options. See [Updating library tasks](updating-tasks.md) for the steps and help with copies that need individual review.
+
 ## What's in the library
 
 The library includes hundreds of tasks covering common Shopify automation patterns, including:

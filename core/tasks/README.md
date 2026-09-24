@@ -16,6 +16,8 @@ Tasks may be written from scratch, or installed from the Mechanic library (avail
 Working on getting better at task-writing? See [Practicing writing tasks](../../resources/tutorials/practicing-writing-tasks.md), and [Writing a high-quality task](../../techniques/writing-a-high-quality-task.md).
 {% endhint %}
 
+For updates to tasks you've installed from the library, see [Updating library tasks](../../resources/task-library/updating-tasks.md).
+
 ## Example
 
 This very basic task subscribes to shopify/customers/create, and renders an [Email action](../actions/email.md), using an email subject and body taken from user-configured [options](options/).
