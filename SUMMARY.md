@@ -260,6 +260,7 @@
 * [Activity](app/activity.md)
 * [Task editor](app/task-editor.md)
 * [Forms](app/forms.md)
+  * [After-checkout forms](app/after-checkout-forms.md)
 * [Events](app/events.md)
 * [Settings](app/settings.md)
 * [Ask Mechanic](app/ask-mechanic.md)
