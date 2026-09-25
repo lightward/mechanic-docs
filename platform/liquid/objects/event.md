@@ -35,9 +35,9 @@ This identifies the customer Shopify rendered. It does not authenticate the ente
 
 The helper is evaluated only when task code reads it, after normal webhook delivery. No additional verification request to Shopify or a special event topic is required. In task previews, use an illustrative customer fixture and render the actions needed for permission discovery, as usual.
 
-## After-checkout form request
+## Thank you and Order status form request
 
-For an [after-checkout form](../../../app/after-checkout-forms.md), `event.order_status_request` provides the request covered by Mechanic's signed receipt. The extension delivers it through the form's ordinary webhook topic. Use this object for the checked order context; a similarly named property in `event.data` is customer-supplied and is not trusted.
+For an [Thank you and Order status form](../../../app/thank-you-and-order-status-forms.md), `event.order_status_request` provides the request covered by Mechanic's signed receipt. The extension delivers it through the form's ordinary webhook topic. Use this object for the checked order context; a similarly named property in `event.data` is customer-supplied and is not trusted.
 
 It includes the request ID, form ID/title/revision, order ID/name, customer ID, answer fields, selected line items, issue time and repeat policy. `placement` is `thank_you` or `order_status`. `verification.method` is `checkout` or `customer_account`, and `verification.customer_authenticated` states whether Mechanic verified a signed-in customer. Thank you can be a guest submission: the order-associated customer ID can be absent, and a present ID alone is not proof of customer authentication. Checkout tokens are not exposed in this object.
 

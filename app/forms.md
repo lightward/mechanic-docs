@@ -4,7 +4,7 @@ description: Collect quote requests, wholesale applications, service inquiries, 
 
 # Storefront forms
 
-The **Forms** workspace includes **Storefront** and **After checkout**. This guide covers forms placed in your online store theme. For post-purchase surveys and order requests on Thank you and Order status, see [After-checkout forms](after-checkout-forms.md).
+The **Forms** workspace includes **Storefront** and **Thank you & order status**. This guide covers forms placed in your online store theme. For post-purchase surveys and order requests on Thank you and Order status, see [Thank you and Order status forms](thank-you-and-order-status-forms.md).
 
 Storefront forms connect the people visiting your online store to your Mechanic tasks. Build a form for a quote request, wholesale application, warranty claim, or another workflow, and place it in your theme. When a visitor submits it, your tasks can email your team, save the answers, update Shopify, or connect to another service.
 

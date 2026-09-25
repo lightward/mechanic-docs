@@ -2,13 +2,13 @@
 description: Collect feedback and order requests on Thank you and Order status, then let your Mechanic tasks handle the next step.
 ---
 
-# After-checkout forms
+# Thank you and Order status forms
 
-Ask how someone found your store, collect delivery details, or let a customer report a problem with an item they purchased. After-checkout forms connect those responses to your Mechanic tasks.
+Ask how someone found your store, collect delivery details, or let a customer report a problem with an item they purchased. Thank you and Order status forms connect those responses to your Mechanic tasks.
 
-Open **Forms** in Mechanic and choose **After checkout**. The same form can appear on Thank you, Order status, or both. Your tasks decide what happens next: save a survey to Google Sheets, notify your team, or track a request and share a response with the customer.
+Open **Forms** in Mechanic and choose **Thank you & order status**. The same form can appear on Thank you, Order status, or both. Your tasks decide what happens next: save a survey to Google Sheets, notify your team, or track a request and share a response with the customer.
 
-<figure><img src="../.gitbook/assets/after-checkout-forms-home.png" alt="Mechanic Forms home with Storefront and After checkout categories and a shared list of forms"><figcaption><p>Choose where to reach customers. Both categories use the same Forms workspace.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/after-checkout-forms-home.png" alt="Mechanic Forms home with Storefront and Thank you &amp; order status categories and a shared list of forms"><figcaption><p>Choose where to reach customers. Both categories use the same Forms workspace.</p></figcaption></figure>
 
 ## Choose where the form appears
 
@@ -19,12 +19,12 @@ Open **Forms** in Mechanic and choose **After checkout**. The same form can appe
 
 Mechanic checks the order context before accepting a submission. Thank you forms are available during the first hour after the order is created. They do not show previous answers or staff replies. To read a saved reply later, the customer signs in on Order status, and the form must have that placement and saved request progress enabled.
 
-Adding the block to one Shopify page does not add it to the other. [Storefront forms](forms.md), placed in your theme, are a separate destination. After-checkout forms do not appear during the payment steps or change checkout requirements.
+Adding the block to one Shopify page does not add it to the other. [Storefront forms](forms.md), placed in your theme, are a separate destination. Thank you and Order status forms do not appear during the payment steps or change checkout requirements.
 
 ## Start with a template
 
-1. Open **Forms → Create form**, choose **After checkout**, and select a template or start from scratch.
-2. Under **Where this form appears**, select Thank you, Order status, or both.
+1. Open **Forms → Create form**, choose **Thank you & order status**, and select a template or start from scratch.
+2. Under **Where this form appears**, select **Thank you page**, **Order status page**, or both.
 3. Edit the questions and confirmation message. Use **Try form** to check the question flow without sending a submission.
 4. In **Submission settings**, choose a [Mechanic webhook](../platform/webhooks.md) and configure the tasks that will receive it.
 5. Save and publish when the questions, tasks and availability settings are ready. Publishing is separate from saving a draft.
@@ -41,7 +41,7 @@ These starters collect information. They do not automatically change, cancel, re
 
 <figure><img src="../.gitbook/assets/after-checkout-survey-builder.png" alt="Post-purchase survey builder with Thank you selected and a preview of its questions"><figcaption><p>Use the same questions and tasks on one page or both. Save and publish to apply placement changes.</p></figcaption></figure>
 
-Questions support steps, conditional fields and one-question-at-a-time layouts. **Items from the order** lets customers select from their purchased items; Mechanic checks that submitted item IDs belong to the order. Shopify provides the native controls and appearance on these pages. The builder preview illustrates the questions, rather than reproducing Shopify's final page. File uploads and saving answers to the cart are not available for after-checkout forms.
+Questions support steps, conditional fields and one-question-at-a-time layouts. **Items from the order** lets customers select from their purchased items; Mechanic checks that submitted item IDs belong to the order. Shopify provides the native controls and appearance on these pages. The builder preview illustrates the questions, rather than reproducing Shopify's final page. File uploads and saving answers to the cart are not available for Thank you and Order status forms.
 
 ## Send a survey to Google Sheets
 
