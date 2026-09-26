@@ -21,6 +21,7 @@ Options flagged with `__userform` will also appear on the **Run task** form for 
 {{ options.note }}
 {{ options.subject__required }}
 {{ options.body__multiline }}
+{{ options.email_template__emailtemplate }}
 {{ options.reply_to__email_required }}
 {{ options.channels__multiselect_o1_email_o2_sms }}
 {{ options.enabled__boolean }}
@@ -99,6 +100,7 @@ Shop configuration input types are also available:
 | --- | --- | --- | --- |
 | `global` | Dropdown of shop globals | selected global value | `options.shared_username__global_required` |
 | `secret` | Dropdown of shop secrets | opaque secret reference | `options.api_token__secret_required` |
+| `emailtemplate` | Dropdown of saved email templates | template name | `options.email_template__emailtemplate` |
 | `storefrontform` | Dropdown of published storefront forms | form ID string | `options.form__storefrontform_required` |
 
 See [Globals and secrets](../../../platform/globals-and-secrets.md) for setup, the supported actions and filters, and safety details.
@@ -155,13 +157,36 @@ Do not put modifiers before the input-type flag (e.g. `options.aggregate__userfo
 * Append `_array` for multi‑select.
 * Unsupported resources are rejected during validation.
 
+#### Email template picker
+
+Use `options.email_template__emailtemplate` to let the merchant choose a saved [email template](../../../platform/email/templates.md). It stores the template's **name**, and may only be combined with `required`; it cannot be used on a user form.
+
+The task must pass the selected value to the Email action's `template` option. Adding the flag doesn't change an action automatically. For a task that currently omits `template`, this pattern preserves its behavior when the optional selection is empty:
+
+```liquid
+{% action "email" %}
+  {
+    "to": "hello@example.com",
+    "subject": "Hello world",
+    "body": "It's a mighty fine day!"
+    {% if options.email_template__emailtemplate != nil %}
+      ,"template": {{ options.email_template__emailtemplate | json }}
+    {% endif %}
+  }
+{% endaction %}
+```
+
+An empty selection renders to `nil`, so the example omits `template` and preserves the normal `default` template behavior. The `!= nil` check also preserves a literal `false`, which disables wrapping. If your action already chooses a template, retain that choice as its fallback instead of removing it.
+
+A missing or renamed template is not replaced automatically. Each email action can share one option or use a separately named option. See [Demonstration: Send an email using a saved template](https://tasks.mechanic.dev/demonstration-send-an-email-using-a-saved-template) for a complete example with a required selection.
+
 ### 3.2 Form‑modifier flags
 
 | Flag       | Applies to | Effect                                                           |
 | ---------- | ---------- | ---------------------------------------------------------------- |
 | `required` | Any        | Field must be filled before Save.                                |
 | `email`    | `text`     | Adds email placeholder and basic email format check.             |
-| `userform` | Any        | Shows this option on **Run task** form (`mechanic/user/form`) and on Shopify admin action link runs.   |
+| `userform` | Supported input types | Shows this option on **Run task** form (`mechanic/user/form`) and on Shopify admin action link runs.   |
 
 ### 3.3 Auxiliary flags
 
@@ -178,6 +203,7 @@ Do not put modifiers before the input-type flag (e.g. `options.aggregate__userfo
 3. **Pickers** only allow `product`, `variant`, or `collection`.
 4. **Email** inputs are matched against a basic regex.
 5. **Secret** options cannot be combined with `userform`.
+6. **Email template** options can only be combined with `required`.
 
 Custom rules? Learn more about [custom validation](custom-validation.md).
 
@@ -203,6 +229,7 @@ Liquid code in task options have access to the same set of [environment variable
 | String list    | `options.tags__array`                           | `["vip","wholesale"]`          |
 | Global selector | `options.shared_username__global_required`     | `"matt"`                       |
 | Storefront form selector | `options.form__storefrontform` | form ID string |
+| Email template | `options.email_template__emailtemplate` | `"welcome"` |
 | Secret selector | `options.api_token__secret_required`           | secret reference               |
 | 0–100 slider   | `options.score__range_min0_max100`              | `42`                           |
 | Colour picker  | `options.bg__color`                             | `"#336699"`                    |

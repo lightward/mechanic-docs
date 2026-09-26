@@ -4,6 +4,10 @@ description: "Migrate Shopify notification templates to Mechanic for custom orde
 
 # Migrating templates from Shopify to Mechanic
 
+If you want your Mechanic emails to look like your existing store emails, start with the [visual email editor](../platform/email/templates.md#start-with-an-email-you-already-send). Forward one email or import a saved `.eml`/`.html` file, review its suggested appearance, and save a reusable layout. The task still supplies the message and order details.
+
+The manual process below is for adapting a template's full HTML/Liquid logic, including order details or PDF output.
+
 Shopify notification templates can be manually migrated over to Mechanic in order to generate order-related material on-demand in Mechanic. This could look like [triggering an order confirmation email](../faq/can-i-resend-order-confirmation-emails-with-mechanic.md), or [generating a PDF invoice](../core/actions/file-generators/pdf.md).
 
 Common sources for these templates include Shopify's email notification settings, Shopify's [Order Printer](https://apps.shopify.com/order-printer) app, and [OrderlyEmails](https://apps.shopify.com/email-templates).

@@ -22,7 +22,7 @@ Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provide
 | `reply_to`          | Optional; a single reply-to address                                                                                     |
 | `from_display_name` | Optional; a string controlling the name (but not the address) of the sender                                             |
 | `headers`           | Optional; a hash of email header strings and value strings                                                              |
-| `template`          | Optional; a string naming an email template from the current Mechanic account                                           |
+| `template`          | Optional; a saved email template name, or `false` for no template. Omitted or `null` uses `default` if present                                           |
 | `attachments`       | Optional; an object specifying files to attach, using [file generators](file-generators/)                               |
 | `...`               | Additional options may be provided, and will be made available to email templates as variables, named after each option |
 
@@ -37,6 +37,8 @@ If you're simply trying to add formatted text and aren't ready to dig into the c
 {% endhint %}
 
 ### Embedded images
+
+The [visual email editor](../../platform/email/templates.md#images-and-shopify-files) can select or upload images in Shopify Files. For images inside the task's message, see [How do I send images with my emails?](../../faq/how-do-i-send-images-with-my-emails.md).
 
 Images may be embedded using the `<img>` tag, but must be hosted independently. Shopify provides basic file hosting, appropriate for uploading images for use with Mechanic emails. To learn more, see [Uploading files to your website](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/file-uploads).
 
@@ -56,7 +58,13 @@ To achieve easily reusable headers and footers, Mechanic can be configured with 
 
 To use a specific email template with the Email action, use the `template` option to specify the name of the desired email template.
 
+Visual templates place the action's `body` in the **Task message** section. A task can expose a saved-template picker using the [`__emailtemplate` option flag](../tasks/options/README.md#email-template-picker); it must explicitly pass the selected name to this action. Existing tasks keep their current behavior.
+
+Use **Send test email** in the visual editor to check the layout with sample content. Use the task's email preview and **Send a copy** to check calculated task content. Neither test flow includes attachments.
+
 ### Creating email template variables
+
+This section applies to HTML/Liquid templates. Visual sections do not accept custom Liquid variables; put calculated values in the task's `body` instead.
 
 All options used with the Email action will be made available as Liquid variables for the email template. This means that standard options may be used, like `{{ subject }}` and `{{ body }}`, and also custom options: passing in an `"order_data"` option, containing order data, may allow the email template to show the order name via `{{ order_data.name }}`.
 
