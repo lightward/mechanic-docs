@@ -4,11 +4,23 @@ description: Collect feedback and order requests on Thank you and Order status, 
 
 # Thank you and Order status forms
 
-Ask how someone found your store, collect delivery details, or let a customer report a problem with an item they purchased. Thank you and Order status forms connect those responses to your Mechanic tasks.
+Let customers tell you what they need after checkout. Mechanic tasks can save their answers, notify your team, and keep them updated on their order.
 
 Open **Forms** in Mechanic and choose **Thank you & order status**. The same form can appear on Thank you, Order status, or both. Your tasks decide what happens next: save a survey to Google Sheets, notify your team, or track a request and share a response with the customer.
 
 <figure><img src="../.gitbook/assets/after-checkout-forms-home.png" alt="Mechanic Forms home with Storefront and Thank you &amp; order status categories and a shared list of forms"><figcaption><p>Choose where to reach customers. Both categories use the same Forms workspace.</p></figcaption></figure>
+
+## What can I use this for?
+
+| What you want to do | What the customer does | Tasks you connect |
+| --- | --- | --- |
+| Learn where buyers heard about you | Answers a short survey on Thank you | Google Sheets saves each answer as a row; no staff reply is needed |
+| Collect delivery instructions | Sends a request before the order is fulfilled | Save requests keeps the answers on the order; Email your team notifies staff; Update status lets staff share a response |
+| Handle an item problem | Selects a purchased item and describes the problem | Save requests records the request; Email your team notifies staff; Update status lets the customer check the next step |
+
+Start with [a survey sent to Google Sheets](#send-a-survey-to-google-sheets), or follow the [delivery-request walkthrough](respond-to-an-order-request.md) to see a customer request, the staff response, and what the customer sees afterward.
+
+Templates create the form's questions and starting settings. They do not install or connect tasks. In **Submission settings**, choose what happens after someone submits, then configure and enable those tasks.
 
 ## Choose where the form appears
 
@@ -26,8 +38,8 @@ Adding the block to one Shopify page does not add it to the other. [Storefront f
 1. Open **Forms → Create form**, choose **Thank you & order status**, and select a template or start from scratch.
 2. Under **Where this form appears**, select **Thank you page**, **Order status page**, or both.
 3. Edit the questions and confirmation message. Use **Try form** to check the question flow without sending a submission.
-4. In **Submission settings**, choose a [Mechanic webhook](../platform/webhooks.md) and configure the tasks that will receive it.
-5. Save and publish when the questions, tasks and availability settings are ready. Publishing is separate from saving a draft.
+4. In **Submission settings**, choose a [Mechanic webhook](../platform/webhooks.md). Save and publish the form so it appears in the companion tasks' **Form** picker.
+5. Configure and enable the receiving tasks before adding the block to your customer pages. Publishing the form does not connect its tasks. Later edits stay in your draft until you publish again.
 
 | Template | Starting placement | Use it for |
 | --- | --- | --- |
@@ -38,6 +50,8 @@ Adding the block to one Shopify page does not add it to the other. [Storefront f
 | Report an item problem | Order status | Let customers select a purchased item and describe the problem |
 
 These starters collect information. They do not automatically change, cancel, refund, or fulfill an order. Customers' requested changes still need the appropriate task or staff review.
+
+<figure><img src="../.gitbook/assets/after-checkout-form-templates.png" alt="Thank you and Order status templates, each showing its outcome and the tasks to connect"><figcaption><p>Choose an outcome, then connect the suggested tasks in Submission settings. The template creates the questions.</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/after-checkout-survey-builder.png" alt="Post-purchase survey builder with Thank you selected and a preview of its questions"><figcaption><p>Use the same questions and tasks on one page or both. Save and publish to apply placement changes.</p></figcaption></figure>
 
@@ -67,9 +81,11 @@ Use the companion tasks when a submission needs follow-up:
 
 Choose the published form in each task's **Form** option. For receiving tasks, use the form webhook's exact topic. Follow the save task's one-time setup instructions to create request storage, approve the required permissions, and enable the tasks.
 
-In **Submission settings**, turn on **Show saved request progress** if customers should see a saved status or reply. Thank you can confirm delivery of that submission; signed-in customers can read status and replies on Order status. Turning progress off hides those controls but does not disable the receiving tasks.
+In **Submission settings**, **Show saved request progress** means “let customers return to their order to check a status and response.” For example, a delivery request can start at **Received**, then show **Resolved** and your team's message once it has been handled. Connect the save task to keep that progress on the order, and the update task if staff will respond.
 
-<figure><img src="../.gitbook/assets/after-checkout-request-progress.png" alt="Submission settings with Show saved request progress turned off for a survey"><figcaption><p>Leave progress off for a simple survey. Enable it when customers need to check a saved request.</p></figcaption></figure>
+Leave progress off for a survey that only saves answers to a spreadsheet or emails your team. Thank you can confirm delivery of that submission; signed-in customers can read status and replies on Order status. Turning progress off hides those controls but does not disable the receiving tasks.
+
+<figure><img src="../.gitbook/assets/after-checkout-request-progress.png" alt="Delivery instructions request with Show saved request progress enabled and an explanation of the customer and staff experience"><figcaption><p>Enable progress for requests that need a customer-facing response. A simple survey can leave it off.</p></figcaption></figure>
 
 To respond today, open the order in Shopify, choose **More actions → Send to Mechanic**, select the configured update task, enter its **Status** and **Customer message**, and run it. See [Shopify admin action links](../core/shopify/admin-action-links.md). The task can optionally email the owning customer after a successful update; **Send customer email** is off by default. Never put private staff notes in the customer-facing message.
 
