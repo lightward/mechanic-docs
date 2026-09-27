@@ -21,7 +21,7 @@ By default, emails are sent from a Mechanic-managed address on your behalf. You 
 
 ### Features
 
-* [**Email templates**](templates.md) — create reusable email templates with Liquid, configurable in Mechanic's settings
+* [**Email templates**](templates.md) — forward or import an existing email, edit its layout visually, or work with HTML/Liquid
 * [**Custom email addresses**](custom-email-domain.md) — send from your own domain instead of Mechanic's default
 * [**DMARC**](dmarc.md) — configure DMARC alignment for improved deliverability
 * **Attachments** — attach [generated files](../../core/actions/file-generators/) (PDFs, CSVs, etc.) to outgoing emails
@@ -35,3 +35,5 @@ Common questions: [How do I send images with my emails?](../../faq/how-do-i-send
 Stores using Mechanic can receive email using the [mechanic/emails/received](receiving-email.md) event topic. When an email is received at your store's Mechanic email address, Mechanic creates an event containing the email's subject, body, sender, and any attachments.
 
 Learn more: [Receiving email](receiving-email.md)
+
+To reuse an email's appearance in a template, [start from the email template editor](templates.md#start-with-an-email-you-already-send). Its temporary forwarding addresses are separate from your store's incoming email address and do not trigger tasks.

@@ -1,5 +1,5 @@
 ---
-description: "Migrate Shopify notification templates to Mechanic for custom order emails, PDF invoices, and on-demand transactional messages."
+description: "Manually adapt Shopify template HTML and Liquid for custom order emails and PDFs, or import an existing email to reuse its appearance."
 ---
 
 # Migrating templates from Shopify to Mechanic
