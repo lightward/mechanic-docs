@@ -4,7 +4,7 @@ description: "Migrate Shopify notification templates to Mechanic for custom orde
 
 # Migrating templates from Shopify to Mechanic
 
-If you want your Mechanic emails to look like your existing store emails, start with the [visual email editor](../platform/email/templates.md#start-with-an-email-you-already-send). Forward one email or import a saved `.eml`/`.html` file, review its suggested appearance, and save a reusable layout. The task still supplies the message and order details.
+If you want your Mechanic emails to look like your existing store emails, start with the [visual email editor](../platform/email/templates.md#start-with-an-email-you-already-send). Forward one email or import a saved `.eml`/`.html` file, review the preserved layout, and save a reusable template. Supported imports keep the original layout while letting you edit text, images, links, and colors. The task still supplies the message and order details. If the layout can't be preserved, the importer explains the available alternatives.
 
 The manual process below is for adapting a template's full HTML/Liquid logic, including order details or PDF output.
 

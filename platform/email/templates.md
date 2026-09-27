@@ -1,5 +1,5 @@
 ---
-description: Create reusable email layouts, borrow the look of an existing email, send a test, and use the saved template in your Mechanic tasks.
+description: Reuse an existing email template, edit its content and branding, send a test, and use it in your Mechanic tasks.
 ---
 
 # Email templates
@@ -12,26 +12,32 @@ The template supplies the layout. The task supplies the recipient, subject, and 
 
 Open **Settings → Email templates**, then choose **New email template**. Give it a name you'll recognize when choosing it in a task.
 
-When the visual editor is available for your shop, you can arrange sections and preview the layout without writing HTML. Existing HTML/Liquid templates keep their code editor.
+When the visual editor is available for your shop, you can edit an imported template or arrange sections in a new layout without writing HTML. Existing HTML/Liquid templates keep their code editor.
 
 ### Start with an email you already send
 
 Forwarding an existing email is the quickest way to get a familiar look:
 
-1. Choose **Use an existing email** in the visual editor.
+1. Choose **Use an existing email** on the template page.
 2. Forward one store email to the temporary address shown in the dialog. Use this address, rather than your shop's usual Mechanic incoming email address.
-3. Review the original beside the suggested layout, and choose the logo you want to keep.
-4. Choose **Use this look** to apply it to your draft. Adjust the sections, colors, and spacing as needed.
+3. Keep **Keep the original template** selected. Review the original beside the reusable template, where a sample message replaces the original message area.
+4. Check that no customer or order details remain in the reusable header or footer, then choose **Use this template**. You can edit its text, images, links, and colors before saving.
 
 The address expires after 30 minutes. If it expires, start again to get a new one. These imports are separate from normal [incoming email](receiving-email.md): they do not trigger tasks.
 
 If forwarding isn't available, or you already have a saved copy, choose an `.eml` or `.html` file in the same dialog. Imports can be up to 5 MB.
 
-Importing borrows the email's appearance, such as its logo, colors, fonts, and width. It does not copy the original customer details, order content, or Shopify Liquid logic into your template. Review the suggested look before applying it; forwarding and importing never save the template automatically.
+For supported Shopify-style emails, importing preserves the original table layout, styling, responsive rules, and supported Outlook wrappers. The original message and order sections are replaced by the task message. Original link destinations are removed so private order or unsubscribe links aren't reused; add the links you want in the editor. Always review the remaining header and footer. Forwarding and importing never save automatically.
+
+Some emails don't have a recognizable message area, and some use custom markup the importer can't preserve. In that case, it tells you. Try forwarding the original as an attachment, use the HTML editor, or deliberately choose **Rebuild the look with editable blocks**. That option creates a new layout using the source's colors, fonts, width and selected logo; it doesn't preserve the original HTML.
 
 Images in the original preview load only when you choose to load them. Loading them contacts the original image host.
 
 ### Edit the layout
+
+An imported template offers **Content and colors** controls for its text, images, image descriptions, links, and supported colors. These edits keep the surrounding layout intact. Use **Edit HTML instead** for structural changes.
+
+For a new block layout, choose **Start a visual layout**.
 
 Add and arrange text, images, buttons, dividers, and spacing around the **Task message** section. This section marks where the task's message will appear. You can move it, but it must remain in the layout.
 
@@ -39,7 +45,7 @@ The sample message helps you judge the layout. It is replaced by the task's actu
 
 ### Send a test email
 
-Choose **Send test email** to see the current visual draft in your inbox before saving it.
+Choose **Send test email** to see the current imported or block-layout draft in your inbox before saving it.
 
 1. Check the recipient. It starts with your signed-in staff email address, and you can change it to one other address.
 2. Send the test, then look for **[Test] Email template** in that inbox.
@@ -47,13 +53,15 @@ Choose **Send test email** to see the current visual draft in your inbox before 
 
 The test uses a fixed sample message and your shop's configured sender. It includes your unsaved layout changes, but does not save the template or run a task. Up to ten template tests per shop per hour are allowed, in addition to the usual email sending limits.
 
+Check it in the email clients your recipients use. Fonts, rounded corners, and dark-mode colors can vary between clients; a browser preview can't establish inbox appearance.
+
 To check a task's actual calculated message, use that task's email preview and **Send a copy**. Neither preview copies nor layout tests include attachments; see [How do I preview email attachments?](../../faq/how-do-i-preview-email-attachments.md).
 
 If sending reports a problem, check your inbox before retrying: an uncertain response can occur after a message has been accepted for delivery.
 
 ### Images and Shopify Files
 
-For an image section or logo, you can:
+For an imported image, image section, or logo, you can:
 
 * **Choose from Shopify Files** to reuse an image from your shop. Shopify's picker also offers uploads.
 * **Upload to Shopify Files** using the editor's separate upload control.
@@ -110,10 +118,10 @@ Existing templates continue to work and can still be edited as HTML/Liquid. They
 
 **Start a visual layout** replaces the current draft with a visual layout; it does not convert arbitrary HTML into editable sections. The saved template stays unchanged until you save. From a visual layout, **Edit HTML instead** switches to code editing and leaves visual mode.
 
-To test an HTML/Liquid template with task data, use the task's email preview and **Send a copy**. The template-page **Send test email** control is for visual layouts.
+To test an HTML/Liquid template with task data, use the task's email preview and **Send a copy**. The template-page **Send test email** control is for imported and block layouts.
 
 For formatting task messages with HTML and CSS, see [Message formatting](../../core/actions/email.md#message-formatting).
 
 ## Migrating from Shopify
 
-To get a similar look, start by forwarding or importing an existing email in the visual editor. To reproduce the full notification logic or create a PDF from a Shopify template, see [Migrating templates from Shopify to Mechanic](../../techniques/migrating-templates-from-shopify-to-mechanic.md).
+Start by forwarding or importing an existing email to reuse its supported layout. Importing doesn't recover Shopify's original Liquid logic or turn old order details into live fields. To reproduce full notification logic or create a PDF from a Shopify template, see [Migrating templates from Shopify to Mechanic](../../techniques/migrating-templates-from-shopify-to-mechanic.md).
