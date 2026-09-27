@@ -39,7 +39,11 @@ An imported template offers **Content and colors** controls for its text, images
 
 **Start a new layout** is a separate action that replaces the current draft after confirmation.
 
-Add and arrange text, images, buttons, dividers, and spacing around the **Task message** section. This section marks where the task's message will appear. You can move it, but it must remain in the layout.
+Code editing also has a live, read-only preview. It updates as you type without changing your code. On smaller screens, use **Code** and **Preview** to switch panels. This works for existing HTML templates too, even when their code cannot be edited visually.
+
+The preview uses a sample task message and leaves other Liquid unevaluated. Use the task's email preview to see its actual values. Some email-client-specific markup may look different in the browser; check a delivered test before relying on the final appearance.
+
+In a block layout, add and arrange text, images, buttons, dividers, and spacing around the **Task message** section. This section marks where the task's message will appear. You can move it, but it must remain in the layout.
 
 The sample message helps you judge the layout. It is replaced by the task's actual message when the task sends an email. Visual sections don't accept Liquid variables or repeating product lists; calculate those details in the task and include them in its message. HTML/Liquid templates remain available for custom template variables.
 
