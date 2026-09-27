@@ -66,6 +66,8 @@ Saving a [storefront form](../../app/forms.md) adds `read_themes` so Mechanic ca
 
 Forms uses Mechanic’s app access for placement discovery and these resource checks. It does not add these scopes to a custom Shopify API token supplied for your tasks.
 
+Saving a [Customer accounts](../../app/customer-accounts.md) form, card, or page adds `read_customers` to Mechanic's required app access. Removing the last Customer accounts extension removes that feature's requirement unless another source still needs it. Tasks that save requests or card information request their own customer write permissions through the usual task preview. Showing a card does not by itself add customer write access.
+
 ## Troubleshooting
 
 If your task is failing because of a missing permission, see [My task is failing because of a permissions problem](../../faq/my-task-is-failing-because-of-a-permissions-problem.md) for debugging steps. For general questions about managing Shopify scopes, see [How do I add a Shopify access scope to my task?](../../faq/how-do-i-add-a-shopify-access-scope-to-my-task.md)

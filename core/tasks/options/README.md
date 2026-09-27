@@ -101,12 +101,16 @@ Shop configuration input types are also available:
 | `secret` | Dropdown of shop secrets | opaque secret reference | `options.api_token__secret_required` |
 | `storefrontform` | Dropdown of published storefront forms | form ID string | `options.form__storefrontform_required` |
 | `orderstatusform` | Dropdown of published Thank you and Order status forms | form ID string | `options.form__orderstatusform_required` |
+| `customeraccountform` | Dropdown of published Customer accounts request forms | form ID string | `options.form__customeraccountform_required` |
+| `customeraccountcard` | Dropdown of published Customer accounts information cards | card ID string | `options.card__customeraccountcard_required` |
 
 See [Globals and secrets](../../../platform/globals-and-secrets.md) for setup, the supported actions and filters, and safety details.
 
 A `storefrontform` option lets the merchant choose a published [storefront form](../../../app/forms.md) from their shop. It returns the selected form's ID. It can combine with `required`, but not array, key-value, or `userform` modifiers. If a selected form is later unpublished or deleted, its ID stays selected until the merchant changes it; this prevents a task filter from becoming empty unexpectedly. A plain option named `form` or an existing `__form` suffix keeps its previous meaning.
 
 An `orderstatusform` option selects a published [Thank you and Order status form](../../../app/thank-you-and-order-status-forms.md), whether it appears on Thank you, Order status, or both. It returns the form ID and supports `required`, with the same modifier restrictions and unavailable-selection behavior as `storefrontform`. Neither picker lists forms from the other destination.
+
+The `customeraccountform` and `customeraccountcard` options select published [Customer accounts](../../../app/customer-accounts.md) request forms and information cards, respectively. Both return the selected ID and support `required`, with the same modifier restrictions and unavailable-selection behavior as `storefrontform`. Customer pages are not task options: connect tasks to the forms and cards they contain. Publish the form or card before selecting it in a task. The **Extensions** menu name does not change these option flags or the IDs existing tasks use.
 
 When an option key uses a structured input type, that type wins before `global` or `secret` are considered. For example, `options.mode__select_o1_global_o2_secret_o3_local` is still a select dropdown whose choices are the literal strings `"global"`, `"secret"`, and `"local"`.
 

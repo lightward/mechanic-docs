@@ -41,7 +41,9 @@ These are multipart form submissions:
 
 Treat all submitted data as visitor input and validate what your task needs. [Form visibility](../app/forms.md#choose-when-a-form-appears) determines whether the theme shows a form; it does not authenticate requests to its public webhook. A submitted email address or identifier does not establish the visitor's identity. The browser's submission ID is useful for correlation; it does not make webhook delivery or task actions run exactly once.
 
-The form's confirmation acknowledges receipt, not completed task actions. See [Responses](#responses) for how queued processing works, and the [Forms guide](../app/forms.md#put-submissions-to-work) for email, Google Sheets/Drive, and Shopify metaobject tasks.
+The form's confirmation acknowledges receipt, not completed task actions. See [Responses](#responses) for how queued processing works, and the [Storefront forms guide](../app/forms.md#put-submissions-to-work) for email, Google Sheets/Drive, and Shopify metaobject tasks.
+
+[Customer accounts](../app/customer-accounts.md) and [Thank you and Order status forms](../app/thank-you-and-order-status-forms.md) also send through ordinary Mechanic webhooks. Their tasks use the [verified request objects](liquid/objects/event.md#customer-account-request) for customer or order context. Renaming the menu to **Extensions** does not change webhook topics or task subscriptions.
 
 ### Cart contents and customer context
 

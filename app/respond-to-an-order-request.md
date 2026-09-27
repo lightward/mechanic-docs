@@ -10,7 +10,7 @@ This walkthrough uses the **Delivery instructions request** template and the sav
 
 ## Set up the form
 
-1. In Mechanic, open **Forms → Create form → Thank you & order status** and choose **Delivery instructions request**.
+1. In Mechanic, open **Extensions → Create extension → Thank you & order status** and choose **Delivery instructions request**. If your menu still says **Forms**, use **Forms → Create form** instead. See [Extensions](extensions.md) for the menu change.
 2. Keep **Order status page** selected. You can also keep **Thank you page** selected to collect the request immediately after checkout. Replies are read on Order status after the customer signs in.
 3. Review the questions. The starter asks **What would you like us to know?** and is available while the order is unfulfilled.
 4. In **Submission settings**, choose a [Mechanic webhook](../platform/webhooks.md) for these requests. Keep **Show saved request progress** on so the customer can return to check your response.

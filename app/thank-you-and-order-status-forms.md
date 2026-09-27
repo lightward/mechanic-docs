@@ -6,9 +6,9 @@ description: Collect feedback and order requests on Thank you and Order status, 
 
 Let customers tell you what they need after checkout. Mechanic tasks can save their answers, notify your team, and keep them updated on their order.
 
-Open **Forms** in Mechanic and choose **Thank you & order status**. The same form can appear on Thank you, Order status, or both. Your tasks decide what happens next: save a survey to Google Sheets, notify your team, or track a request and share a response with the customer.
+Open [Extensions](extensions.md) in Mechanic and choose **Thank you & order status**. If Customer accounts is not enabled for your shop yet, the menu still says **Forms**. The same form can appear on Thank you, Order status, or both. Your tasks decide what happens next: save a survey to Google Sheets, notify your team, or track a request and share a response with the customer.
 
-<figure><img src="../.gitbook/assets/after-checkout-forms-home.png" alt="Mechanic Forms home with Storefront and Thank you &amp; order status categories and a shared list of forms"><figcaption><p>Choose where to reach customers. Both categories use the same Forms workspace.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/after-checkout-forms-home.png" alt="Mechanic Forms home before Customer accounts is enabled, with Storefront and Thank you &amp; order status categories"><figcaption><p>Choose where to reach customers. This shows the Forms workspace; shops with Customer accounts enabled see Extensions and a third destination.</p></figcaption></figure>
 
 ## What can I use this for?
 
@@ -35,7 +35,7 @@ Adding the block to one Shopify page does not add it to the other. [Storefront f
 
 ## Start with a template
 
-1. Open **Forms → Create form**, choose **Thank you & order status**, and select a template or start from scratch.
+1. Open **Extensions → Create extension** (or **Forms → Create form**), choose **Thank you & order status**, and select a template or start from scratch.
 2. Under **Where this form appears**, select **Thank you page**, **Order status page**, or both.
 3. Edit the questions and confirmation message. Use **Try form** to check the question flow without sending a submission.
 4. In **Submission settings**, choose a [Mechanic webhook](../platform/webhooks.md). Save and publish the form so it appears in the companion tasks' **Form** picker.

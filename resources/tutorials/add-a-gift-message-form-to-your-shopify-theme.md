@@ -20,7 +20,7 @@ This tutorial uses the full cart page. A form on that page does not appear insid
 
 ## 1. Create the gift form
 
-Open Mechanic, choose **Forms**, then **Create form**. Find **Add a gift message** and choose **Use template**.
+Open Mechanic, choose **Extensions → Create extension → Storefront**. If your menu still says **Forms**, use **Forms → Create form → Storefront** instead. Find **Add a gift message** and choose **Use template**. See [Extensions](../../app/extensions.md) for the menu change.
 
 The starter has four questions:
 
