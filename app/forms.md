@@ -4,7 +4,7 @@ description: Collect quote requests, wholesale applications, service inquiries, 
 
 # Storefront forms
 
-The **Forms** workspace includes **Storefront** and **Thank you & order status**. This guide covers forms placed in your online store theme. For post-purchase surveys and order requests on Thank you and Order status, see [Thank you and Order status forms](thank-you-and-order-status-forms.md).
+The [Extensions](extensions.md) workspace includes **Storefront**, **Thank you & order status**, and **Customer accounts**. If Customer accounts is not enabled for your shop yet, the menu still says **Forms**. This guide covers forms placed in your online store theme. For post-purchase surveys and order requests, see [Thank you and Order status forms](thank-you-and-order-status-forms.md); for account requests, cards, and a dedicated customer page, see [Customer accounts](customer-accounts.md).
 
 Storefront forms connect the people visiting your online store to your Mechanic tasks. Build a form for a quote request, wholesale application, warranty claim, or another workflow, and place it in your theme. When a visitor submits it, your tasks can email your team, save the answers, update Shopify, or connect to another service.
 
@@ -28,7 +28,7 @@ You can also [save answers to the cart](#save-answers-to-the-cart), for gift mes
 
 ## Build your form
 
-1. Open **Forms** in Mechanic’s app menu, below **Activity**, and choose **Create form → Storefront**.
+1. Open **Extensions** in Mechanic’s app menu, below **Activity**, and choose **Create extension → Storefront**. If your menu says **Forms**, choose **Create form → Storefront** instead.
 2. Choose a starter with **Use template**, **Start from scratch**, or **Import JSON**. A template creates an unpublished draft, ready to edit. **Preview** lets you try its questions and steps without saving or sending your answers.
 3. Add fields, then select each field to edit its label and settings. Reorder them with the drag handles or move controls.
 4. Under **Heading and text**, set the heading, introduction, and **Submit button text**. Choose a **Form name** you can recognize in Mechanic and Shopify’s form picker. Publishing makes this name publicly readable, so keep private information out of it. The heading visitors see can be different.
@@ -295,7 +295,7 @@ Save or discard any edits, then choose **Form actions → Duplicate form**. The 
 
 Choose **Export JSON** to download the current form, including any valid unsaved edits. Fields, data keys, settings, steps, field conditions, visibility rules, display settings, cart setting, and text are included. Answers, files, tasks, webhook credentials, and theme placements are not included.
 
-In the destination shop, open **Forms → Import form** and upload or paste the JSON. Review it, select that shop’s webhook or **Choose later**, then choose **Import as draft**. The new form starts unpublished and gets a new form ID. Webhook forms need a webhook before publishing. Cart-saving forms keep that destination and do not ask for a webhook.
+In the destination shop, open **Extensions → Import extension** (or **Forms → Import form** if Customer accounts is not enabled) and upload or paste the JSON. Review it, select that shop’s webhook or **Choose later**, then choose **Import as draft**. The new form starts unpublished and gets a new form ID. Webhook forms need a webhook before publishing. Cart-saving forms keep that destination and do not ask for a webhook.
 
 Imported visibility rules keep their conditions and readable resource names, but clear product, variant, and collection selections. Reselect those resources from the destination shop before publishing. This also applies when importing back into the same shop; use **Duplicate form** for a same-shop copy that keeps its selections.
 

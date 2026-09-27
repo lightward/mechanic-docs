@@ -5,7 +5,7 @@ description: >-
 
 # User Form
 
-User forms collect input from staff running tasks inside Mechanic or Shopify admin. To build a form for customers in your online store, use [Storefront forms](../../app/forms.md).
+User forms collect input from staff running tasks inside Mechanic or Shopify admin. For customer-facing forms on your storefront, after checkout, or in customer accounts, see [Extensions](../../app/extensions.md).
 
 When a task subscribes to the **mechanic/user/form** event topic a "Run task" button is added to the task.
 

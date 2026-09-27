@@ -37,8 +37,18 @@ The helper is evaluated only when task code reads it, after normal webhook deliv
 
 ## Thank you and Order status form request
 
-For an [Thank you and Order status form](../../../app/thank-you-and-order-status-forms.md), `event.order_status_request` provides the request covered by Mechanic's signed receipt. The extension delivers it through the form's ordinary webhook topic. Use this object for the checked order context; a similarly named property in `event.data` is customer-supplied and is not trusted.
+For a [Thank you and Order status form](../../../app/thank-you-and-order-status-forms.md), `event.order_status_request` provides the request covered by Mechanic's signed receipt. The extension delivers it through the form's ordinary webhook topic. Use this object for the checked order context; a similarly named property in `event.data` is customer-supplied and is not trusted.
 
 It includes the request ID, form ID/title/revision, order ID/name, customer ID, answer fields, selected line items, issue time and repeat policy. `placement` is `thank_you` or `order_status`. `verification.method` is `checkout` or `customer_account`, and `verification.customer_authenticated` states whether Mechanic verified a signed-in customer. Thank you can be a guest submission: the order-associated customer ID can be absent, and a present ID alone is not proof of customer authentication. Checkout tokens are not exposed in this object.
 
 A missing or invalid receipt does not provide a trusted request; task code must require this object before acting on it. Receipts must reach the webhook within five minutes of authorization. Verification uses the original event receipt time, so a queue delay or rerunning that event does not expire an on-time receipt. The authorization describes that moment: a task making a consequential change must recheck its current business rules. Replaying an event can repeat actions; the receipt does not make delivery single use.
+
+## Customer account request
+
+For a [Customer accounts request form](../../../app/customer-accounts.md), `event.customer_account_request` returns the verified request from Mechanic's signed receipt. Delivery uses the form's ordinary webhook topic. Read this object for the signed-in customer's identity and accepted answers; a customer ID or similarly named object in `event.data` is not trusted.
+
+The object contains `version`, `request_id`, `issued_at`, `extension` (`id`, `title`, `revision`), `customer.id`, `fields`, and `repeat_requests`. The customer ID comes from the verified Shopify session. It does not establish ownership of an order number or other reference entered in the answers.
+
+An absent or invalid receipt returns `nil`; require the verified object before acting. Verification binds it to the shop, webhook, topic, and original event receipt time. The receipt must reach the webhook within five minutes of authorization. A later queue delay or event rerun does not invalidate an on-time receipt, and rerunning an event can repeat actions. Tasks must check current business rules before making changes.
+
+Opening or refreshing a customer page only reads saved information. It does not create a request event or run a task.
