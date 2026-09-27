@@ -12,7 +12,7 @@ The template supplies the layout. The task supplies the recipient, subject, and 
 
 Open **Settings → Email templates**, then choose **New email template**. Give it a name you'll recognize when choosing it in a task.
 
-When the visual editor is available for your shop, you can edit an imported template or arrange sections in a new layout without writing HTML. Existing HTML/Liquid templates keep their code editor.
+When the visual editor is available for your shop, new templates open in it automatically. You can import an existing email or arrange sections in a new layout without writing HTML. Existing HTML/Liquid templates keep their code editor.
 
 ### Start with an email you already send
 
@@ -35,9 +35,9 @@ Images in the original preview load only when you choose to load them. Loading t
 
 ### Edit the layout
 
-An imported template offers **Content and colors** controls for its text, images, image descriptions, links, and supported colors. These edits keep the surrounding layout intact. Use **Edit HTML instead** for structural changes.
+An imported template offers **Content and colors** controls for its text, images, image descriptions, links, and supported colors. These edits keep the surrounding layout intact. Use **Edit code** for structural changes. Opening code and returning with **Edit visually** keeps the same email. Supported code edits return as a preserved layout with content and color controls; they are not rebuilt as blocks. If code uses unsupported markup or Liquid, it stays in the code editor without losing your changes.
 
-For a new block layout, choose **Start a visual layout**.
+**Start a new layout** is a separate action that replaces the current draft after confirmation.
 
 Add and arrange text, images, buttons, dividers, and spacing around the **Task message** section. This section marks where the task's message will appear. You can move it, but it must remain in the layout.
 
@@ -47,11 +47,13 @@ The sample message helps you judge the layout. It is replaced by the task's actu
 
 Choose **Send test email** to see the current imported or block-layout draft in your inbox before saving it.
 
-1. Check the recipient. It starts with your signed-in staff email address, and you can change it to one other address.
+1. Check the recipient. It starts with your signed-in staff email address. Before your shop is approved for sending email, tests can only go to that address. Approved shops can choose one other recipient.
 2. Send the test, then look for **[Test] Email template** in that inbox.
 3. Review the layout and images, adjust the draft, and save when you're happy with it.
 
 The test uses a fixed sample message and your shop's configured sender. It includes your unsaved layout changes, but does not save the template or run a task. Up to ten template tests per shop per hour are allowed, in addition to the usual email sending limits.
+
+A template test sent to your signed-in staff email does not require shop email approval. Normal task emails still require approval, and shop suspension, trial, fraud, and rate-limit restrictions still apply.
 
 Check it in the email clients your recipients use. Fonts, rounded corners, and dark-mode colors can vary between clients; a browser preview can't establish inbox appearance.
 
@@ -116,7 +118,7 @@ Existing templates continue to work and can still be edited as HTML/Liquid. They
 
 <figure><img src="../../.gitbook/assets/mechanic-email-templates.png" alt="Editing an HTML email template in Mechanic settings"><figcaption></figcaption></figure>
 
-**Start a visual layout** replaces the current draft with a visual layout; it does not convert arbitrary HTML into editable sections. The saved template stays unchanged until you save. From a visual layout, **Edit HTML instead** switches to code editing and leaves visual mode.
+**Edit visually** opens supported HTML as a preserved layout. Code that the visual editor cannot preserve stays in the code editor. **Start a new layout** separately replaces the current draft after confirmation. The saved template stays unchanged until you save.
 
 To test an HTML/Liquid template with task data, use the task's email preview and **Send a copy**. The template-page **Send test email** control is for imported and block layouts.
 
