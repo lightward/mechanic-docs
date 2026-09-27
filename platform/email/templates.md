@@ -12,13 +12,15 @@ The template supplies the layout. The task supplies the recipient, subject, and 
 
 Open **Settings → Email templates**, then choose **New email template**. Give it a name you'll recognize when choosing it in a task.
 
-When the visual editor is available for your shop, new templates open in it automatically. You can import an existing email or arrange sections in a new layout without writing HTML. Existing HTML/Liquid templates keep their code editor.
+When the visual editor is available for your shop, opening or creating a template opens a full-width workspace. Use the back arrow to return to **Email templates**. On desktop, the content list, preview, and editing controls appear together; smaller screens use panel buttons.
+
+New templates open in the visual editor automatically. You can import an existing email or arrange sections in a new layout without writing HTML. Existing HTML/Liquid templates keep their code editor.
 
 ### Start with an email you already send
 
 Forwarding an existing email is the quickest way to get a familiar look:
 
-1. Choose **Use an existing email** on the template page.
+1. Choose **Use an existing email** on a new template. To replace a saved template, choose **Template actions → Replace from email**.
 2. Forward one store email to the temporary address shown in the dialog. Use this address, rather than your shop's usual Mechanic incoming email address.
 3. Keep **Keep the original template** selected. Review the original beside the reusable template, where a sample message replaces the original message area.
 4. Check that no customer or order details remain in the reusable header or footer, then choose **Use this template**. You can edit its text, images, links, and colors before saving.
@@ -37,7 +39,7 @@ Images in the original preview load only when you choose to load them. Loading t
 
 An imported template offers **Content and colors** controls for its text, images, image descriptions, links, and supported colors. These edits keep the surrounding layout intact. Use **Edit code** for structural changes. Opening code and returning with **Edit visually** keeps the same email. Supported code edits return as a preserved layout with content and color controls; they are not rebuilt as blocks. If code uses unsupported markup or Liquid, it stays in the code editor without losing your changes.
 
-**Start a new layout** is a separate action that replaces the current draft after confirmation.
+**Template actions → Start a new layout** replaces the current draft after confirmation.
 
 Code editing also has a live, read-only preview. It updates as you type without changing your code. On smaller screens, use **Code** and **Preview** to switch panels. This works for existing HTML templates too, even when their code cannot be edited visually.
 
@@ -122,7 +124,7 @@ Existing templates continue to work and can still be edited as HTML/Liquid. They
 
 <figure><img src="../../.gitbook/assets/mechanic-email-templates.png" alt="Editing an HTML email template in Mechanic settings"><figcaption></figcaption></figure>
 
-**Edit visually** opens supported HTML as a preserved layout. Code that the visual editor cannot preserve stays in the code editor. **Start a new layout** separately replaces the current draft after confirmation. The saved template stays unchanged until you save.
+**Edit visually** opens supported HTML as a preserved layout. Code that the visual editor cannot preserve stays in the code editor. **Template actions → Start a new layout** separately replaces the current draft after confirmation. The saved template stays unchanged until you save.
 
 To test an HTML/Liquid template with task data, use the task's email preview and **Send a copy**. The template-page **Send test email** control is for imported and block layouts.
 
