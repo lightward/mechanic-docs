@@ -14,9 +14,9 @@ The screenshots below use an example store with several copies of **Maintain inv
 
 Each copy keeps its name, saved option values, enabled or disabled state, and tags. Its previous code, documentation, and settings remain in its version history.
 
-The update replaces the library's code, documentation, and related execution settings, such as subscriptions, JavaScript, sequencing settings, and preview definitions. It also sets the Shopify API version to the version Mechanic uses for newly installed tasks, so the updated code is previewed and saved using that version. Documentation and API version changes appear in the review alongside code changes.
+The update replaces the library's code, documentation, and related execution settings, such as subscriptions, JavaScript, sequencing settings, and preview definitions. It also upgrades older Shopify API versions to the version Mechanic uses for newly installed tasks. If you have selected a newer API version or `unstable`, that selection is kept. The updated code is previewed and saved using the resulting version. Documentation and API version changes appear in the review alongside code changes.
 
-Mechanic offers this update only when your copy's code and execution settings match a known library version and the new version uses the same option fields. An update can also be available when the code is already current but the documentation or API version differs.
+Mechanic offers this update only when your copy's code and execution settings match a known library version and the new version uses the same option fields. An update can also be available when the code is already current but the documentation differs or the API version needs upgrading.
 
 If you've added your own notes to the task's documentation, review the documentation changes before updating. The update replaces those notes with the library's documentation; the previous documentation remains in version history.
 
