@@ -21,11 +21,11 @@ New templates open in the visual editor automatically. You can import an existin
 Forwarding an existing email is the quickest way to get a familiar look:
 
 1. Choose **Use an existing email** on a new template. To replace a saved template, choose **Template actions → Replace from email**.
-2. Forward one store email to the temporary address shown in the dialog. Use this address, rather than your shop's usual Mechanic incoming email address.
+2. Choose **Get a forwarding address**, then forward one store email to the address shown. You do not need to save a template first. Keep the dialog open while you switch to your email app; **Waiting for your email…** means Mechanic is listening at that address. The preview appears automatically when it arrives, with an **Email received** confirmation.
 3. Keep **Keep the original template** selected. Review the original beside the reusable template, where a sample message replaces the original message area.
 4. Check that no customer or order details remain in the reusable header or footer, then choose **Use this template**. You can edit its text, images, links, and colors before saving.
 
-The address expires after 30 minutes. If it expires, start again to get a new one. These imports are separate from normal [incoming email](receiving-email.md): they do not trigger tasks.
+Use the generated address, rather than your shop's usual Mechanic incoming email address. It expires after 30 minutes. Closing the dialog or canceling forwarding asks whether you want to stop. Choose **Keep waiting** to continue with the same address. If you stop or the address expires, get a new address and forward the email again. These imports are separate from normal [incoming email](receiving-email.md): they do not trigger tasks.
 
 If forwarding isn't available, or you already have a saved copy, choose an `.eml` or `.html` file in the same dialog. Imports can be up to 5 MB.
 
