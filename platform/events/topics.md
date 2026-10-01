@@ -254,6 +254,9 @@ Need metaobject events, metafield filters, customized payloads, or custom routin
 * shopify/profiles/update
 * shopify/publications/delete
 * shopify/refunds/create
+* shopify/requested\_order\_edit/created
+* shopify/requested\_order\_edit/declined
+* shopify/requested\_order\_edit/resolved
 * shopify/returns/approve
 * shopify/returns/cancel
 * shopify/returns/close
@@ -264,6 +267,12 @@ Need metaobject events, metafield filters, customized payloads, or custom routin
 * shopify/returns/update
 * shopify/reverse\_deliveries/attach\_deliverable
 * shopify/reverse\_fulfillment\_orders/dispose
+* shopify/rollouts/create
+* shopify/rollouts/delete
+* shopify/rollouts/resource\_change\_added
+* shopify/rollouts/resource\_change\_removed
+* shopify/rollouts/resource\_change\_updated
+* shopify/rollouts/update
 * shopify/segments/create
 * shopify/segments/delete
 * shopify/segments/update
