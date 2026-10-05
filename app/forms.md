@@ -49,6 +49,18 @@ For a service, contact, or other dedicated page, choose that page in the theme e
 
 The underlying events, tasks and actions remain accessible. **How Mechanic handles this → Advanced setup** lets you choose a different outcome or connect your own tasks. Custom workflows can save answers, call an API, or connect your ERP or OMS.
 
+## Find templates in the library
+
+The in-app task library and [public Mechanic library](https://tasks.mechanic.dev/) include **All**, **Tasks**, and **Templates** filters. Individual tasks remain available. The first three complete templates cover team-email submissions, cart quote requests and gift messages.
+
+Choose **Use template** on the public detail page to open Mechanic for your store. These built-in entries go directly to the same form setup described above; you do not need to download a file, find the form again, or install its task separately. The team-email library entry starts with Basic form; the Forms picker also offers the six more specific team-email starters.
+
+Private template files and other custom packages still use a review-and-connect importer, so their supplied code, questions and connections can be reviewed before installation.
+
+## What happens when a template changes?
+
+A template creates your starting setup. You can then customize its ordinary form and tasks. New template versions apply to future setups and do not replace your existing questions or connections. Recognized library tasks use Mechanic’s normal task-update process and eligibility checks. Updating a task does not update the whole setup.
+
 ## Build or edit your form
 
 1. Open **Forms** in Mechanic’s app menu, below **Activity**, and choose **Create form**.
