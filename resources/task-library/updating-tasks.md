@@ -8,7 +8,7 @@ When you install a task from the [task library](README.md), you get your own cop
 
 You can update one task, all installed copies of a particular library task, or a selection from your task list. Mechanic checks each copy before updating it.
 
-The screenshots below use an example store with several copies of **Maintain inventory for a product bundle**.
+The screenshots below use an example store with several copies of library tasks.
 
 ## What an update changes and preserves
 
@@ -16,7 +16,7 @@ Each copy keeps its name, saved option values, enabled or disabled state, and ta
 
 The update replaces the library's code, documentation, and related execution settings, such as subscriptions, JavaScript, sequencing settings, and preview definitions. It also upgrades older Shopify API versions to the version Mechanic uses for newly installed tasks. If you have selected a newer API version or `unstable`, that selection is kept. The updated code is previewed and saved using the resulting version. Documentation and API version changes appear in the review alongside code changes.
 
-Mechanic offers this update only when your copy's code and execution settings match a known library version and the new version uses the same option fields. An update can also be available when the code is already current but the documentation differs or the API version needs upgrading.
+Mechanic offers this update only when your copy's code and execution settings match a known library version and the new version uses the same option fields. An update can also be available when the code is already current but the documentation differs. A newer default Shopify API version alone doesn't create a library update notice.
 
 If you've added your own notes to the task's documentation, review the documentation changes before updating. The update replaces those notes with the library's documentation; the previous documentation remains in version history.
 
@@ -64,7 +64,7 @@ In this example, **Spring gift set** was updated individually first. The bulk up
 
 The group includes all copies linked to that library task, including renamed and disabled copies, regardless of the current task-list search. It doesn't group unrelated tasks just because they have the same name. A copy Mechanic hasn't linked to the library won't appear in that group.
 
-Only ready copies are updated. Copies that need individual review are skipped, and disabled copies stay disabled. If no copies are eligible, the group's review button is disabled.
+Only ready copies are updated. Copies that need individual review are skipped, and disabled copies stay disabled. You can open the review even when all copies need individual attention. Automatic updates are available only for eligible copies.
 
 ## Update a selection of tasks
 
@@ -88,6 +88,14 @@ Mechanic may leave a copy unchanged for several reasons:
 * **The preview or permissions check couldn't complete.** Follow the message shown for that task before trying again.
 
 For a library task you haven't customized, [contact support](../../support.md) if you're unsure how to proceed. If you've changed its code, work with its author or see [Get help with a custom task](../../custom-help.md) to combine your changes with the library update.
+
+## Clear an update you've handled yourself
+
+After manually updating a customized copy, open **Review library updates**, choose its library task, and click **Dismiss this update** beneath that copy. This clears the current notice from the list and task editor for everyone using your store. It doesn't change the task's code or settings, or confirm that your custom code matches the library.
+
+Other copies keep their own notices. A different library version will appear again when its code, documentation, or related settings change. Changing your copy's name or option values doesn't bring back the dismissed notice.
+
+![A review with two customized copies shows a separate Dismiss this update action beneath each one.](../../.gitbook/assets/task-library-dismiss-update.png)
 
 ## If only some updates finish
 
