@@ -6,7 +6,7 @@ description: Add a gift message form to your Shopify cart with Mechanic, save gi
 
 Let shoppers add a recipient and personal message to their gift order, then send that message when the order has been fulfilled. This tutorial connects a Mechanic form in your Shopify theme with a ready-to-use email task.
 
-You will set up two pieces: the **Add a gift message** form starter on your cart page, and the **Add a gift message form to your Shopify theme and email recipients after fulfillment** task. Adding the task does not automatically install the form in your theme.
+The **Add a gift message** template guides you through the form and its connected email task. Mechanic creates the connection for you; you place the published form in your theme.
 
 **Shopper fills in the gift form → answers save to the cart → checkout carries them onto the order → full fulfillment starts the email task.**
 
@@ -20,7 +20,7 @@ This tutorial uses the full cart page. A form on that page does not appear insid
 
 ## 1. Create the gift form
 
-Open Mechanic, choose **Forms**, then **Create form**. Find **Add a gift message** and choose **Use template**.
+Open Mechanic, choose **Forms**, then **Create form**. Find **Add a gift message** and choose **Use this form**. The task setup opens with the gift form and email options together. Choose **Edit questions** to adjust the form, then apply your edits to task setup. You can also preview the gift task in the task library and choose **Install this task** to reach the same screen.
 
 The starter has four questions:
 
@@ -39,7 +39,7 @@ The introduction appears beneath the link before the form is opened: “We’ll 
 
 ## 2. Check automatic cart saving
 
-Open **Submission settings**. The starter selects **Automatically save to the cart** under **Save or send answers**. It does not need a webhook.
+To inspect this setting, choose **Edit questions → Submission settings** from task setup. The starter selects **Automatically save to the cart** under **Save or send answers**. It does not need a webhook.
 
 Complete answers save automatically after a short pause in typing. There is no separate Save button for the customer. The confirmation appears only after Shopify confirms the save. You can customize it; describe the saved gift details rather than saying an email has already been sent.
 
@@ -49,21 +49,23 @@ Customers can edit the saved details or choose **Remove answers**. An untouched 
 
 Accelerated payment buttons, Buy it now, and custom checkout behavior may bypass these checks. The form is not a checkout validation rule. Test the routes your store actually uses.
 
-## 3. Publish and add the form to the cart page
+## 3. Configure the task and publish
 
-Save your form, then choose **Publish form**. Open its **Theme** tab and use **Add to cart page** to open the theme editor. Add a **Mechanic form** block to a section that supports app blocks, select your published gift form in the block's **Form** picker, and save the theme.
+On the task setup screen, set the task name and **Enabled** state, then customize **Email subject** and **Email message**. Choose **Save task and publish form**. This connects the matching task to your existing form, saves its options, and publishes the form. Complete any requested Shopify access or email approval, return to the saved setup, and choose Save again. No webhook or separate task installation is needed. Publishing the form and enabling the task are separate states; you can change either later.
 
+<figure><img src="../../.gitbook/assets/forms-guided-placement.png" alt="Published gift form setup with an Add to cart page action and optional testing guidance"><figcaption><p>Once published, continue directly to the cart page in your theme editor.</p></figcaption></figure>
+
+Use **Add to cart page** to open the theme editor. Add a **Mechanic form** block to a section that supports app blocks, select your published gift form in its **Form** picker, and save the theme. When revisiting setup, **Open theme editor** lets you manage its existing placement.
 Place the form where shoppers will notice it before checkout. The starter's **Visibility** rule hides it while the cart is empty. Add a product when checking its appearance.
 
 Your theme supplies the form's fonts and colors. The theme editor shows a preview; use an actual storefront preview tab to test saving to a real cart. An unpublished theme preview still uses a real cart.
 
-## 4. Add the matching email task
+## 4. Customize the connected task
 
-In Mechanic, install [Add a gift message form to your Shopify theme and email recipients after fulfillment](https://tasks.mechanic.dev/add-a-gift-message-form-to-your-shopify-theme-and-email-recipients-after-fulfillment).
+Combined setup has already added [the gift email task](https://tasks.mechanic.dev/add-a-gift-message-form-to-your-shopify-theme-and-email-recipients-after-fulfillment). Do not add another copy. Reopen that task to change its email settings; **Advanced mode** opens the full task editor. The same task and form IDs remain in use.
 
-In the task's **Form** option, select the published gift form you just created. Leave the field key options at their defaults if you kept the starter's keys. If you changed a key, update its matching task option too.
-
-Customize **Email subject** and **Email body**. The body supports `RECIPIENT_NAME`, `SENDER_NAME`, `GIFT_MESSAGE`, and `SHOP_NAME`; the subject supports all except `GIFT_MESSAGE`. Replies go to your shop's customer email address.
+If you use a manually connected form instead, install the task yourself and choose your published form in its **Form** option. Keep the field key options aligned with your form.
+Customize **Email subject** and **Email message** (**Email body** in the standard task editor). The body supports `RECIPIENT_NAME`, `SENDER_NAME`, `GIFT_MESSAGE`, and `SHOP_NAME`; the subject supports all except `GIFT_MESSAGE`. Replies go to your shop's customer email address.
 
 For example, a body could say:
 
@@ -78,7 +80,7 @@ GIFT_MESSAGE
 
 Choose wording that fits your fulfillment process. Shopify marking an order fulfilled does not necessarily mean a carrier has collected or delivered it.
 
-Save and enable the task, and approve its requested Shopify access. It needs order-write access to record that a gift email has been claimed/sent and avoid sending again for repeated fulfillment events. It does not need a form webhook, shared secret, or Mechanic JavaScript embed for this cart-saving flow.
+The combined path asks for required access before enabling the task. If you use the manual path, save and enable the task and approve its requested Shopify access. It needs order-write access to record that a gift email has been claimed/sent and avoid sending again for repeated fulfillment events. It does not need a form webhook, shared secret, or Mechanic JavaScript embed for this cart-saving flow.
 
 The email goes to the recipient entered in the form, not automatically to the person paying for the order. The task does not include prices, billing details, or the buyer's order-status link.
 
