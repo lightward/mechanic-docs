@@ -26,12 +26,11 @@ You can also [save answers to the cart](#save-answers-to-the-cart), for gift mes
 
 ## Start with a template
 
-Choose **Forms → Create form → Use template**. Mechanic saves an ordinary draft and opens its setup:
+Choose **Forms → Create form**, then select a starter and **Use this form**. Mechanic saves an unpublished form draft and opens one task setup screen. To work on a form without the matching task, choose **Use form only** instead.
 
-1. **Review.** See the form and what its connected task will do. **Edit questions** opens the builder; save your changes and choose **Continue setup** (or **Return to setup** for a published form) to come back. **Edit email** changes the notification settings. For team notifications, enter **Send requests to**; use commas for multiple addresses.
-2. **Add to store.** **Continue to placement** only opens the next step. **Publish form** connects the required task and webhook for this form, enables the task, and publishes. If Shopify access or email-sending approval is needed, complete that first, return, and choose **Publish form** again. Then open the theme editor, place the form block, select your form, and save the theme.
+On that screen, set the task name and **Enabled** state, fill in its options, and use **Edit questions** to adjust the form. For team notifications, enter the recipient addresses and subject. The form preview shows the questions without sending a submission. Choose **Save task and publish form** to connect the required task and webhook, save settings, and publish the form. If Shopify access or email-sending approval is needed, complete it, return to the saved setup, and choose Save again. Then open the theme editor, place the form block, select your form, and save the theme.
 
-<figure><img src="../.gitbook/assets/forms-guided-review.png" alt="Gift template setup showing the form preview and example fulfillment email side by side"><figcaption><p>Review the form and its outcome together. Editing and continuing do not enable the task or publish the form.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/forms-guided-review.png" alt="Task setup with gift email options and controls to preview or edit the connected form"><figcaption><p>Configure the task and edit the form questions on one screen, then save the setup.</p></figcaption></figure>
 
 | Template | What setup connects |
 | --- | --- |
@@ -39,21 +38,21 @@ Choose **Forms → Create form → Use template**. Mechanic saves an ordinary dr
 | Request a quote from your cart | A webhook and task that create a draft order from the submitted cart. The task does not send an invoice. |
 | Warranty request, Service or repair request, Request a quote, Wholesale application, Customization request, Customer feedback, Basic form | A webhook and the shared email-submission task, addressed to your team. |
 
-You do not need to install a second task or create a webhook separately. The email templates send submitted answers to your team for follow-up; they do not automatically approve an application, book a service, or send a customer reply. File names and sizes appear in the email. To receive uploaded files as attachments, open **How Mechanic handles this → Edit task** and enable **Include uploaded files**.
+You do not need to install a second task or create a webhook separately. The email templates send submitted answers to your team for follow-up; they do not automatically approve an application, book a service, or send a customer reply. File names and sizes appear in the email. To receive uploaded files as attachments, reopen the task, choose **Task documentation, preview and library updates**, and enable **Include uploaded files** in the standard editor.
 
-Use **Back to Forms** to leave setup. Reopening the form’s **Setup** keeps the same form, task and connection. Editing its email settings updates the existing task; future runs use the saved settings. Question edits need **Publish changes** before customers see them. Existing theme blocks then use the updated form—you do not need to add another block.
+The task remains the home for this setup. Reopening it keeps the same form, task, and connection IDs. Editing email options updates that task; future runs use the saved settings. Publishing and task enablement remain separate: you can keep the task disabled or the form unpublished. Question edits need publication before customers see them. Existing theme blocks then use the updated form—you do not need to add another block.
 
 For a service, contact, or other dedicated page, choose that page in the theme editor. A separate page template keeps the form from appearing on other pages sharing the same template. Add a navigation link so customers can find it. Gift messages and cart quotes belong on the full cart page, not automatically inside a cart drawer.
 
-**Try your form** offers an optional delivery check after placement. Opening the theme editor does not verify placement or delivery. Use an actual storefront submission and inspect the event, task result, and destination inbox or draft order.
+After placement, test your form on the storefront. Opening the theme editor does not verify placement or delivery. Use an actual storefront submission and inspect the event, task result, and destination inbox or draft order.
 
-The underlying events, tasks and actions remain accessible. **How Mechanic handles this → Advanced setup** lets you choose a different outcome or connect your own tasks. Custom workflows can save answers, call an API, or connect your ERP or OMS.
+The underlying events, tasks and actions remain accessible. **Advanced mode** opens the full task editor. Custom workflows can save answers, call an API, or connect your ERP or OMS.
 
-## Find templates in the library
+## Find matching tasks in the library
 
-The in-app task library and [public Mechanic library](https://tasks.mechanic.dev/) include **All**, **Tasks**, and **Templates** filters. Individual tasks remain available. The first three complete templates cover team-email submissions, cart quote requests and gift messages.
+Find the matching gift email, cart-to-draft-order, and team-email tasks in the existing in-app task library or [public Mechanic library](https://tasks.mechanic.dev/). They use the same task listings and installation buttons as other tasks.
 
-Choose **Use template** on the public detail page to open Mechanic for your store. These built-in entries go directly to the same form setup described above; you do not need to download a file, find the form again, or install its task separately. The team-email library entry starts with Basic form; the Forms picker also offers the six more specific team-email starters.
+Preview a supported task in the in-app task library and choose **Install this task**. Its setup opens with a matching form draft; you do not need to download a file or install a second task. The team-email task starts with Basic form; the Forms picker also offers six more specific team-email starters.
 
 Private template files and other custom packages still use a review-and-connect importer, so their supplied code, questions and connections can be reviewed before installation.
 
@@ -64,7 +63,7 @@ A template creates your starting setup. You can then customize its ordinary form
 ## Build or edit your form
 
 1. Open **Forms** in Mechanic’s app menu, below **Activity**, and choose **Create form**.
-2. Choose a starter with **Use template**, **Start from scratch**, or **Import JSON**. A template creates an unpublished draft and opens the guided setup above. Choose **Edit questions** to open the builder. **Preview** lets you try its questions and steps without saving or sending your answers.
+2. Choose a starter with **Use this form**, **Start from scratch**, or **Import JSON**. A starter creates an unpublished draft and opens the task setup above; **Use form only** keeps the work in the form builder. Choose **Edit questions** to open the builder. **Preview** lets you try its questions and steps without saving or sending your answers.
 3. Add fields, then select each field to edit its label and settings. Reorder them with the drag handles or move controls.
 4. Under **Heading and text**, set the heading, introduction, and **Submit button text**. Choose a **Form name** you can recognize in Mechanic and Shopify’s form picker. Publishing makes this name publicly readable, so keep private information out of it. The heading visitors see can be different.
 5. Choose **Try form** to try the questions and validation. This preview does not send submissions or run tasks.
@@ -148,7 +147,7 @@ Follow the illustrated tutorial: [Add a gift message form to your Shopify theme 
 
 Start with **Add a gift message**. It collects the sender's name, recipient's name and email, and a personal note. Its optional **Add a gift message** link opens the form inline on the cart page, and its visibility condition requires at least one item in the cart. Shoppers who leave it untouched can check out normally without adding a gift message.
 
-In **Review**, customize the email if needed, then continue to **Add to store** and choose **Publish form**. Setup connects and enables [the gift email task](https://tasks.mechanic.dev/add-a-gift-message-form-to-your-shopify-theme-and-email-recipients-after-fulfillment) for this form. Complete any requested access or email approval, then click Publish again. Add the published form to your cart page and save the theme. No separate task installation is needed. Keep the starter’s field data keys or update the connected task’s field mappings.
+Choose **Use this form** and configure [the gift email task](https://tasks.mechanic.dev/add-a-gift-message-form-to-your-shopify-theme-and-email-recipients-after-fulfillment) on the task setup screen. Customize its subject and body, use **Edit questions** if needed, then choose **Save task and publish form**. Complete any requested access or email approval, return, and choose Save again. Add the published form to your cart page and save the theme. No separate task installation is needed. Keep the starter’s field data keys or update their mappings in task setup.
 
 This starter uses **one recipient and one message for the whole order**. It waits until Shopify marks the whole order fulfilled; split shipments wait for their final fulfillment. Saving the gift form does not trigger that email. The task checks the order's current status and records a send claim on the order before queuing the email, to prevent repeated fulfillment events from sending it again. See the task's recovery instructions if an action fails or its outcome is uncertain.
 
@@ -172,7 +171,7 @@ Writing your own task? See [Storefront form submissions](../platform/webhooks.md
 
 ## Put submissions to work
 
-Guided setup connects the task described in Review. You can add other tasks on the same webhook topic, or use these tasks when building a custom connection:
+The combined setup connects the task shown on its setup screen. You can add other tasks on the same webhook topic, or use these tasks when building a custom connection:
 
 - [Create a draft order from a storefront form](https://tasks.mechanic.dev/create-a-draft-order-from-a-storefront-form): turn a cart quote request into a Shopify draft order for review. Requires cart contents to be enabled on the form.
 - [Google Sheets task](https://tasks.mechanic.dev/save-mechanic-form-submissions-to-a-google-sheet): save answers as spreadsheet columns, with an option to upload files to Google Drive and save their links. Files are not automatically shared publicly.
@@ -198,8 +197,8 @@ Both file options are off by default. Email attachments do not require a Google 
 ### Example: collect and follow up on quote requests
 
 1. Create a form from **Request a quote**. Adapt the product, quantity, requirements, and date questions to what your team needs. Keep the name and email fields so your team can respond.
-2. In **Review**, enter your sales team’s addresses in **Send requests to**. Use **Edit email** to set the subject to “New quote request,” then continue to placement and choose **Publish form**. Complete any requested email approval and click Publish again. Setup creates the webhook and connects the email task.
-3. Open **How Mechanic handles this → Edit task** if you need more options. Set **Reply to email field key** to `email` so valid submitted addresses become the notification’s reply address. Enable **Include uploaded files** if the team should receive reference files as attachments.
+2. Choose **Use this form**. On task setup, enter your sales team’s addresses, set the subject to “New quote request,” and use **Edit questions** if needed. Choose **Save task and publish form**. Complete any requested email approval, return, and choose Save again. Setup creates the webhook and connects the email task.
+3. Reopen the task if you need more options. Set **Reply to email field key** to `email` so valid submitted addresses become the notification’s reply address. Enable **Include uploaded files** if the team should receive reference files as attachments.
 4. Open **Edit questions → Submission settings** to see the connected webhook and its event topic. Keep the receipt confirmation clear: “Thanks! We received your quote request.”
 5. To keep a shared list, install the **Google Sheets task** on the same topic and select the same **Form**. Complete its Google account and spreadsheet setup. In **Column headings and field keys**, map `Name → name`, `Email → email`, `Product or project → product_or_project`, `Quantity → quantity`, `Requirements → requirements`, and `Needed by → needed_by`. These keys match the starter; adjust them if you change the field data keys. The email and storage tasks can run together.
 6. Return to the form’s **Submission settings** and choose **Refresh connection**. Confirm your tasks are listed and enabled. Open **Theme** and [add the form to your theme](#add-the-form-to-your-theme).
@@ -209,7 +208,7 @@ The same setup works for wholesale and service inquiries: choose the relevant st
 
 ### Example: a warranty request
 
-1. Create a form from **Warranty request**, enter your team’s email addresses in Review, and follow guided setup to publish. This connects the email task. To add storage, open **Edit questions → Submission settings** and copy the connected webhook’s event topic.
+1. Create a form from **Warranty request → Use this form**, enter your team’s email addresses in task setup, and choose **Save task and publish form**. This connects the email task. To add storage, open the form’s **Submission settings** and copy the connected webhook’s event topic.
 2. Install the **Google Sheets task**. Set **Webhook event topic** to the chosen webhook’s exact topic and select the warranty form in **Form**. Connect your Google account under Mechanic's Settings → Authentication, then set the account and spreadsheet title in the task. Configure columns using the warranty form's data keys: `Name → name`, `Email → email`, `Product → product`, and `Request → issue`. Upload details appear in the fixed **File details and links** column. With **Save uploaded files to Google Drive** enabled, you can also map `Receipt → receipt` and `Photo → photo` to put the saved files' Drive links in their own columns.
 3. Save and run the task manually with Spreadsheet ID blank. Copy `spreadsheet_id` from the completed setup action into the task and save again. The sheet must be created through Mechanic. Headers and configured column order must stay aligned.
 4. Alternatively, install the **Shopify metaobjects task**. Set **Webhook event topic** to the same topic, choose the warranty form in **Form**, and set **Form name** to Warranty request. Grant its requested permissions and run it manually once. Wait for the definition setup action to succeed. Records will appear in Shopify under **Content → Metaobjects → Mechanic form submission**. Answers are stored as JSON so changing questions does not require a new definition.
@@ -220,9 +219,9 @@ Google Sheets appends may duplicate a row when an event is rerun or a visitor re
 ### Example: request a quote from the cart
 
 1. Create a form from **Request a quote from your cart**. Keep its contact email field. In **Submission settings**, **Include the cart with each submission** is already selected.
-2. Review the form and draft-order outcome, then choose **Continue to placement → Publish form**. Setup creates the webhook and connects the draft-order task. Complete any requested Shopify access and click Publish again.
-3. Keep the required email question’s field key as `email`, or use **Task settings** to select the replacement question. You do not need to install another task or copy a webhook topic.
-4. In **Add to store**, choose **Add to cart page**. Select the form in its block, position the Apps section near the cart summary, and save the theme. The cart page must support app blocks or an Apps section. This does not add the form to a cart drawer; that needs separate theme customization.
+2. Choose **Use this form**, check the required email question in task setup, and choose **Save task and publish form**. Setup creates the webhook and connects the draft-order task. Complete any requested Shopify access, return, and choose Save again.
+3. Keep the required email question’s field key as `email`, or select its replacement in the task’s options. You do not need to install another task or copy a webhook topic.
+4. Choose **Add to cart page** after publication. Select the form in its block, position the Apps section near the cart summary, and save the theme. The cart page must support app blocks or an Apps section. This does not add the form to a cart drawer; that needs separate theme customization.
 5. Add a product to the cart, open the form, and submit a test request. Inspect the Mechanic event, the task’s Shopify action, and the resulting draft order. Test as both a guest and a signed-in customer.
 
 The form includes products, variants, quantities, and line item properties from the cart when submitted. Shopify supplies current variant prices when the task creates the draft. Cart discounts, shipping rates, and displayed checkout totals are not copied. The task supports up to 100 ordinary variant lines; subscription and bundle items stop for separate review.
@@ -235,7 +234,7 @@ This is a separate task from [Create a draft order from the cart](https://tasks.
 
 ## Add the form to your theme
 
-1. Follow guided setup through **Publish form**, then use the placement instructions in **Add to store**. For manually configured forms, save and publish from the builder and open its **Theme** tab.
+1. Choose **Save task and publish form** in combined setup, then use the placement link shown after publication. For manually configured forms, save and publish from the builder and open its **Theme** tab.
 2. Choose **Add to cart page** for cart templates, or **Open theme editor** to choose the page where your form belongs.
 3. Add or select the **Mechanic form** block. Choose your published form in its **Form** picker and place the block where you want it. The picker shows the published **Form name**. A short ID appears only when published forms have the same name. Publishing makes that name publicly readable; keep private information out of it. The heading displayed inside the form can be different.
 4. Click **Save** in the theme editor.
