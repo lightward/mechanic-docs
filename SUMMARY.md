@@ -260,6 +260,8 @@
 * [Activity](app/activity.md)
 * [Task editor](app/task-editor.md)
 * [Forms](app/forms.md)
+  * [Thank you and Order status forms](app/thank-you-and-order-status-forms.md)
+    * [Respond to an order request](app/respond-to-an-order-request.md)
 * [Events](app/events.md)
 * [Settings](app/settings.md)
 * [Ask Mechanic](app/ask-mechanic.md)

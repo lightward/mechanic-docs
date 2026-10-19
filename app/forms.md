@@ -4,6 +4,8 @@ description: Collect quote requests, wholesale applications, service inquiries, 
 
 # Storefront forms
 
+The **Forms** workspace includes **Storefront** and **Thank you & order status**. This guide covers forms placed in your online store theme. For post-purchase surveys and order requests on Thank you and Order status, see [Thank you and Order status forms](thank-you-and-order-status-forms.md).
+
 Storefront forms connect the people visiting your online store to your Mechanic tasks. Build a form for a quote request, wholesale application, warranty claim, or another workflow, and place it in your theme. When a visitor submits it, your tasks can email your team, save the answers, update Shopify, or connect to another service.
 
 Place the form where it belongs in your theme, then use **Visibility** to choose when it appears there: for a particular customer, page, or cart.
@@ -26,7 +28,7 @@ You can also [save answers to the cart](#save-answers-to-the-cart), for gift mes
 
 ## Build your form
 
-1. Open **Forms** in Mechanic’s app menu, below **Activity**, and choose **Create form**.
+1. Open **Forms** in Mechanic’s app menu, below **Activity**, and choose **Create form → Storefront**.
 2. Choose a starter with **Use template**, **Start from scratch**, or **Import JSON**. A template creates an unpublished draft, ready to edit. **Preview** lets you try its questions and steps without saving or sending your answers.
 3. Add fields, then select each field to edit its label and settings. Reorder them with the drag handles or move controls.
 4. Under **Heading and text**, set the heading, introduction, and **Submit button text**. Choose a **Form name** you can recognize in Mechanic and Shopify’s form picker. Publishing makes this name publicly readable, so keep private information out of it. The heading visitors see can be different.
