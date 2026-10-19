@@ -2,13 +2,15 @@
 
 Every Shopify store that uses Mechanic has its own, dedicated email address, named after the store's myshopify.com subdomain and located at mail.usemechanic.com. A store at example.myshopify.com would be assigned the address example@mail.usemechanic.com.
 
+To use an existing email's appearance as a reusable template, [forward it from the email template editor](templates.md#start-with-an-email-you-already-send). Use the temporary address shown there. Template imports do not trigger tasks; this page describes your store's regular incoming mail.
+
 {% hint style="info" %}
 For a working example task from Mechanic's library, see [Forward incoming email to another address](https://tasks.mechanic.dev/forward-incoming-email-to-another-address)
 {% endhint %}
 
 ## Event
 
-Every incoming email message results in a new Mechanic event.
+Every email message received at your store's regular incoming address results in a new Mechanic event.
 
 ### Topic
 
