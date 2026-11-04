@@ -10,6 +10,8 @@ The **Email** action is for sending email. ✅ It supports the store's [**email 
 
 Mechanic sends email via [Postmark](https://postmarkapp.com/), our email provider. Currently, Mechanic only supports Postmark's transactional message stream, which means that marketing and other bulk mail may not be sent. To learn more about what is and isn't a transactional message, see Postmark's article: ["What are Transactional emails?"](https://postmarkapp.com/support/article/804-what-are-transactional-emails).
 
+Mechanic keeps this line where it's unambiguous. An email that is part transactional and part promotional (a welcome email that carries a discount code and a "Shop now" button, for example) isn't clearly transactional, so it shouldn't be sent with Mechanic, even when it goes to one customer right after their own signup. Send it with a marketing tool instead, like Shopify Messaging, which handles unsubscribes on its own. Mechanic can still do the work around it, like creating the discount code and saving it on the customer.
+
 ## Options
 
 | Option              | Description                                                                                                             |
