@@ -30,6 +30,16 @@ This occurs when an [event filter](events/filters.md) fails.
 
 This occurs when a task run fails. (Examples: a task run exceeds Mechanic's memory limits, a Liquid parsing or rendering failure, or encountering an [error object](../core/tasks/code/error-objects.md).)
 
+## Repeated errors
+
+When a task fails the same way over and over, Mechanic doesn't create an error event for every failure. Repeated identical errors only create error events at the 1st, 10th, 25th, 50th, 100th, and 200th occurrence, and then at every 1,000th occurrence after that.
+
+Two errors are identical when they have the same task, the same error topic, and the same message, ignoring any numbers in the message. (For example, "Product 123 not found" and "Product 456 not found" count as the same error.)
+
+Occurrences are counted within a 10-minute window. The window extends each time the error happens again, so an error that keeps happening keeps counting up. After 10 minutes without that error, the count resets, and the next occurrence creates an error event again.
+
+The failed runs themselves are still recorded, and you can see every one of them in the run history as usual. Only the error events are thinned out, so tasks subscribed to error topics (like an email alert) run less often during a burst of identical failures.
+
 ## Event data
 
 {% code lineNumbers="true" fullWidth="false" %}
@@ -149,4 +159,4 @@ This occurs when a task run fails. (Examples: a task run exceeds Mechanic's memo
 
 ## Example task
 
-You can install our error reporter task [here](https://tasks.mechanic.dev/error-reporter).
+You can install our error reporter task [here](https://tasks.mechanic.dev/error-reporter). Like any task subscribed to error topics, it receives error events according to the [repeated errors](error-handling.md#repeated-errors) rules above: if the same error keeps happening, it runs for the first occurrence and then only at the occurrences listed there.
