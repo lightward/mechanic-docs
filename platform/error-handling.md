@@ -30,13 +30,52 @@ This occurs when an [event filter](events/filters.md) fails.
 
 This occurs when a task run fails. (Examples: a task run exceeds Mechanic's memory limits, a Liquid parsing or rendering failure, or encountering an [error object](../core/tasks/code/error-objects.md).)
 
+## Repeated errors
+
+When a task fails the same way over and over, Mechanic doesn't create an error event for every failure. Repeated identical errors only create error events at the 1st, 10th, 25th, 50th, 100th, and 200th occurrence, and then at every 1,000th occurrence after that.
+
+Two errors are identical when they have the same task, the same error topic, and the same message, ignoring any numbers in the message. (For example, "Product 123 not found" and "Product 456 not found" count as the same error.)
+
+Occurrences are counted within a 10-minute window. The window extends each time the error happens again, so an error that keeps happening keeps counting up. After 10 minutes without that error, the count resets, and the next occurrence creates an error event again.
+
+The failed runs themselves are still recorded, and you can see every one of them in the run history as usual. Only the error events are thinned out, so tasks subscribed to error topics (like an email alert) run less often during a burst of identical failures.
+
+### Which tasks are affected
+
+These limits apply to tasks that subscribe _only_ to error topics, like the error reporter. These tasks are meant for notifications, and they receive error events from across your whole Mechanic account.
+
+A task that subscribes to error topics _and_ to other event topics only receives errors from its own runs and actions (see [Subscriptions](#subscriptions)). Those events are not limited: the task receives an error event for every failure, so it can handle each one.
+
+### Counting repeats with error.occurrences
+
+Every error event includes `error.occurrences`: how many times this same error has occurred in the current 10-minute window, counting this one. It's `1` the first time. A task that receives every error event sees it count up without gaps (1, 2, 3, ...). A task that subscribes only to error topics sees it jump between the occurrences listed above (1, 10, 25, 50, ...).
+
+A notification task can use this to say how many failures it's reporting, such as "this error has happened 10 times in the last 10 minutes", instead of leaving the gap unexplained.
+
+{% code title="Example" %}
+```liquid
+{% raw %}{% if error.occurrences > 1 %}
+  This error has now occurred {{ error.occurrences }} times in the last 10 minutes.
+{% endif %}{% endraw %}
+```
+{% endcode %}
+
 ## Event data
+
+The error event data is available in your task's Liquid code as the `error` object. It has the following fields:
+
+* `message` – the error message
+* `occurrences` – how many times this same error has occurred in the current 10-minute window, counting this one (see [Repeated errors](#repeated-errors))
+* `event` – the event that was being processed, including its run
+* `task` – the task that failed, including its run (for task and action errors)
+* `action` – the action that failed, including its run (for action errors)
 
 {% code lineNumbers="true" fullWidth="false" %}
 
 ```json
 {
   "message": "Received a Shopify error (resource invalid): Add at least 1 product",
+  "occurrences": 1,
   "event": {
     "id": "ebaa2ab5-fc48-4a5e-8591-11111",
     "topic": "mechanic/user/trigger",
@@ -149,4 +188,4 @@ This occurs when a task run fails. (Examples: a task run exceeds Mechanic's memo
 
 ## Example task
 
-You can install our error reporter task [here](https://tasks.mechanic.dev/error-reporter).
+You can install our error reporter task [here](https://tasks.mechanic.dev/error-reporter). It subscribes only to error topics, so it follows the [repeated errors](error-handling.md#repeated-errors) rules above: if the same error keeps happening, it runs for the first occurrence and then only at the occurrences listed there.
