@@ -22,9 +22,9 @@ To change the email address used for outgoing email, open the Mechanic email set
 
 Mechanic requires approval of custom email addresses before using them for outgoing mail.
 
-Custom email addresses must be manually approved by Mechanic staff.&#x20;
+Once your store is approved for email, some addresses are approved as soon as you save them: the store's own email address, exactly as Shopify has it, and addresses on the store's primary domain (or a subdomain of it), when that domain isn't the myshopify.com one.
 
-Contact [team@usemechanic.com](mailto:team@usemechanic.com) to have your address approved.
+Any other address must be manually approved by Mechanic staff. Contact [team@usemechanic.com](mailto:team@usemechanic.com) to have your address approved.
 
 ## Verification
 
