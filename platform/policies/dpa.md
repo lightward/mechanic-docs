@@ -62,7 +62,7 @@ Lightward will notify the customer without undue delay if Lightward becomes awar
 
 ## Appendix A: Sub-Processors for Mechanic
 
-*Last updated: April 30, 2026*
+*Last updated: November 20, 2026*
 
 Sub-processors are engaged only as necessary to provide Mechanic.
 
@@ -87,6 +87,11 @@ These providers are used only when the merchant enables specific features or int
 * Airtable — Airtable integration
 * GitBook — documentation and AI-powered assistance, used only when a user uses Ask Mechanic AI in app
 
-### Error Monitoring
+### Monitoring
 
 * Rollbar, Inc. — error monitoring and diagnostics
+* New Relic, Inc. — application performance monitoring and diagnostics
+
+### Customer Support
+
+* Help Scout PBC — customer support correspondence, when the customer contacts Mechanic support
