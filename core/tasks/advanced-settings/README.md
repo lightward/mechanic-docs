@@ -10,3 +10,4 @@ Advanced settings are per-task configuration options beyond the task's code and 
 * [Documentation](documentation.md) — add Markdown documentation that is displayed to users alongside the task
 * [JavaScript](javascript.md) — attach JavaScript to the online storefront or order status page
 * [Perform action runs in sequence](perform-action-runs-in-sequence.md) — force the task's actions to run one at a time, in order, instead of concurrently
+* [Background tasks](background-tasks.md) — have a task's runs wait until your other tasks are caught up, and/or cap how many of its runs may run at once
