@@ -70,6 +70,7 @@ Sub-processors are engaged only as necessary to provide Mechanic.
 
 * Fly.io — application hosting
 * Crunchy Data — managed PostgreSQL database hosting
+* Redis Ltd (Redis Cloud) — application cache, background job queue, and real-time update delivery
 * Amazon Web Services (AWS) — infrastructure services, including queueing and storage
 
 ### Platform Integrations
