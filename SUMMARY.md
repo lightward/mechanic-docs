@@ -123,6 +123,8 @@
   * [Shopify admin action links](core/shopify/admin-action-links.md)
   * [API rate limit](core/shopify/api-rate-limit.md)
   * [API versions](core/shopify/api-versions.md)
+* [Forms](app/forms.md)
+* [Functions](core/functions.md)
 
 ## Platform
 
@@ -259,7 +261,6 @@
 * [Task list](app/home.md)
 * [Activity](app/activity.md)
 * [Task editor](app/task-editor.md)
-* [Forms](app/forms.md)
 * [Events](app/events.md)
 * [Settings](app/settings.md)
 * [Ask Mechanic](app/ask-mechanic.md)
