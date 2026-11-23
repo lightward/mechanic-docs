@@ -4,7 +4,9 @@ description: Build, test, and publish Shopify rules for discounts, bundles, and 
 
 # Functions
 
-A function is a rule that Shopify applies while someone shops. Use a function to give a buyer a discount while their order is still in the cart. Use a [task](tasks/README.md) to act on an event, such as emailing your team after the order is placed. You can build a function on its own, without writing code or installing a task.
+Functions let you change what happens while a customer shops. Give a shopper three T-shirts for $30, split a two-pack into the items you’ll ship, or ask for a gift message before checkout. You can build and test a rule in Mechanic without writing code.
+
+Use a [task](tasks/README.md) when you want to respond to an event, such as sending an email after an order is fulfilled.
 
 {% hint style="info" %}
 Functions are in development for a limited pilot. The Mechanic team enables new function creation for individual pilot shops.
@@ -14,29 +16,58 @@ Functions are in development for a limited pilot. The Mechanic team enables new 
 
 | Function type | Example |
 | --- | --- |
-| Discount | Give a customer 15% off a mug when they buy three coffees. You can discount items, an order, or shipping. |
+| Discount | Sell any three eligible T-shirts for $30. Discounts can apply to items, an order, or shipping. |
 | Cart and checkout validation | Ask a buyer to place separate orders for preorder and regular items, and show them what to change. |
-| Cart Transform | Turn a tasting kit into its component items, or combine eligible items into a bundle. |
+| Cart Transform | Sell a T-shirt two-pack and show the black shirt and the white shirt as separate items in the order. |
 | Delivery customization | Hide express shipping for items that need extra preparation time. |
 | Payment customization | Rename a manual payment method so buyers recognize it, or change where it appears among eligible methods. |
 
-## Try a rule with a test cart
+## Try a discount with a test cart
 
-1. In Mechanic, open **Functions** and choose **Create function**. Pick a type to build from scratch, or choose a starting point. **View all starting points** opens the library.
-2. Open **Buy three coffees, save on a mug**. The rule counts one-time coffee purchases. When there are at least three, it takes 15% off one ceramic mug already in the cart.
-3. In **Test cart**, switch between the three example carts. Three coffees and a mug earn the discount. Two coffees and a mug earn nothing. Three coffees without a mug meet the condition, but there is no mug to discount. Open **Why this result?** to see which path ran.
-4. To try a more complex offer, choose **Add an otherwise outcome** and give 5% off the order. Test the same carts again. Two coffees and a mug now get 5% off. Three coffees without a mug still get no discount because the first path matched. To give that cart the fallback too, add a condition to the first path requiring a mug.
+Open **Functions** in Mechanic, choose **Create function**, then open **Three T-shirts for $30** under **Featured starting points**. To build your own discount, choose **Give a discount** and select **Create blank rule**.
 
-To test your own merchandise, choose the products or collections used by the rule, then select **Try with my products** in the test cart. With real, one-time variants in the cart, **Open in storefront** opens those items and quantities in a new tab. Shopify uses its current prices and published rules. Simulated customer tags, addresses and other test inputs stay in the builder.
+<figure><img src="images/functions-starting-points.png" alt="The function type chooser with Three T-shirts for $30 under Featured starting points"><figcaption><p>Choose a type to start from scratch, or start with a rule you can edit.</p></figcaption></figure>
 
-## Save, publish, and turn off a rule
+In **Test cart**, choose **3 qualifying T-shirts**. The two black shirts cost $18 each and the white shirt costs $14. Together they would cost $50. The rule takes $20 off, bringing the total to $30.
 
-**Save draft** keeps your work in Mechanic. You can save a test cart with its expected result and use it again after an edit. If an earlier version of the rule is live, shoppers continue to get that version.
+Switch to **2 qualifying T-shirts**. One black shirt and one white shirt cost $32. The buyer pays $32 because the offer needs a complete group of three. You can save either cart with its expected result and check it again after changing the rule.
+
+<figure><img src="images/functions-three-shirts.png" alt="The group-price rule beside a three-shirt cart showing a $50 subtotal, $20 discount, and $30 total"><figcaption><p>Only complete groups get the offer. A fourth eligible shirt keeps its regular price.</p></figcaption></figure>
+
+To try real items, choose **Try with my products** in the test cart. If every item is a one-time variant from your shop, **Open in storefront** opens those items and quantities in a new tab. The storefront uses published rules. Values you entered in the tester, such as customer tags, stay in the builder.
+
+## Offer a discount in store
+
+To offer three T-shirts for $30 at the register, open **Discount settings** and set **Where the discount applies** to **Shopify POS only**. The same three shirts now cost $30 in POS and $50 in a checkout outside POS. This setting covers every path in the rule.
+
+Choose **Specific POS locations** to run the offer at selected stores. Enter one location name per line, exactly as it appears in **Settings → Locations** in Shopify. Update the rule if you rename a location or import it into another shop. To run the offer everywhere Shopify supports it except at the register, choose **Exclude Shopify POS**.
+
+<figure><img src="images/functions-pos-location.png" alt="Specific POS locations selected, with Downtown entered as the eligible location"><figcaption><p>Enter Downtown to offer the discount at that register.</p></figcaption></figure>
+
+In **Test cart**, choose **Edit cart** and change **Test checkout**. For a location-specific offer, try a listed location and an unlisted one. Shopify requires POS Pro at a location for automatic discounts. [Discounts in Shopify POS](https://help.shopify.com/en/manual/sell-in-person/shopify-pos/discount-management)
+
+## Publish your rule
+
+**Save draft** keeps your work in Mechanic. If an earlier version of the rule is live, shoppers continue to get that version.
 
 Before publishing a starter, replace any sample products and collections with your shop’s selections and save the draft. If any are missing during review, choose **Choose missing resources**.
 
 When you’re ready, open **Live checkout**. Review any Shopify permissions the rule needs, then choose **Publish saved version** and **Confirm publish**. Wait for Shopify’s confirmation. If the change is still awaiting confirmation, use **Check publication again**. For a scheduled discount, its start and end dates determine when shoppers can receive it.
 
-If checkout gives a different result than your draft, choose **Test published version** under **Live checkout**. It runs the same test cart against the last confirmed rule. While Shopify is confirming a change, this button reads **Test last confirmed version**. To stop using a live rule, choose **Deactivate** and confirm. For a saved draft that has never had a publication attempt, open **Function actions** and choose **Delete draft**.
+## Check what shoppers are getting
+
+If checkout gives a different result than your draft, choose **Test published version** under **Live checkout**. It runs the same test cart against the last confirmed rule. While Shopify is confirming a change, this button reads **Test last confirmed version**.
+
+To stop using a live rule, choose **Deactivate** and confirm. For a saved draft that has never had a publication attempt, open **Function actions** and choose **Delete draft**.
 
 To reuse a rule in another shop, choose **Function actions → Export JSON**, then **Import function** in the destination shop. Select that shop’s products and collections, test the imported draft, and publish it when ready.
+
+## Connect a form and a function
+
+If you offer gift wrapping, a form can collect the gift message, a function can ask for it before checkout, and a task can email it after fulfillment. [Set up the gift message form and email task](../resources/tutorials/add-a-gift-message-form-to-your-shopify-theme.md).
+
+The **Require a gift message for wrapped items** starter checks that an item has the line item property `gift_wrap` set to `yes` and that the cart attribute `gift_message` is missing. Try **Message missing** and **Message added**. Open **Why this result?** to see which conditions matched.
+
+<figure><img src="images/functions-gift-message.png" alt="Both gift-wrapping conditions match and the test cart shows the message asking the buyer to add a gift note"><figcaption><p>The buyer sees this message only when an item is gift-wrapped and the cart has no gift note.</p></figcaption></figure>
+
+Before publishing, use your theme’s gift-wrap property and the actual key for the message. For a saved Mechanic cart form, choose **Try form**, fill in its required fields, and choose **View sample cart attributes**. Copy the full message key into the function’s cart attribute condition. Use **Edit cart** to test the same keys your shop will send.
