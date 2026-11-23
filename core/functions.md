@@ -22,13 +22,17 @@ Functions are in development for a limited pilot. The Mechanic team enables new 
 | Delivery customization | Hide express shipping for items that need extra preparation time. |
 | Payment customization | Rename a manual payment method so buyers recognize it, or change where it appears among eligible methods. |
 
+For a merged bundle, the kit costs the sum of its components. For a delivery or payment rule, copy the full option name from the buyer’s checkout, including capitalization and any text in parentheses.
+
 ## Try a discount with a test cart
 
-Open **Functions** in Mechanic, choose **Create function**, then open **Three T-shirts for $30** under **Featured starting points**. To build your own discount, choose **Give a discount** and select **Create blank rule**.
+Open **Functions** in Mechanic. If you already have functions, choose **Create function**. Open **Three T-shirts for $30** under **Featured starting points**. To build your own discount, choose **Give a discount** and select **Create blank rule**.
 
 <figure><img src="images/functions-starting-points.png" alt="The function type chooser with Three T-shirts for $30 under Featured starting points"><figcaption><p>Choose a type to start from scratch, or start with a rule you can edit.</p></figcaption></figure>
 
 In **Test cart**, choose **3 qualifying T-shirts**. The two black shirts cost $18 each and the white shirt costs $14. Together they would cost $50. The rule takes $20 off, bringing the total to $30.
+
+If a rule has several paths, the first path whose conditions match decides the outcome. If that path gives a discount on an item that is missing from the cart, the buyer gets no discount and later paths are skipped. To allow a later offer in that situation, add **Cart contains an item** to the first path and select the reward item.
 
 Switch to **2 qualifying T-shirts**. One black shirt and one white shirt cost $32. The buyer pays $32 because the offer needs a complete group of three. You can save either cart with its expected result and check it again after changing the rule.
 
@@ -44,7 +48,7 @@ If every item is a one-time variant from your shop, **Open in storefront** opens
 
 To offer three T-shirts for $30 at the register, open **Discount settings** and set **Where the discount applies** to **Shopify POS only**. The same three shirts now cost $30 in POS and $50 in a checkout outside POS. This setting covers every path in the rule.
 
-Choose **Specific POS locations** to run the offer at selected stores. Enter one location name per line, exactly as it appears in **Settings → Locations** in Shopify. Update the rule if you rename a location or import it into another shop. To run the offer everywhere Shopify supports it except at the register, choose **Exclude Shopify POS**.
+Choose **Specific POS locations** to run the offer at selected stores. Enter one location name per line, exactly as it appears in **Settings → Locations** in Shopify. Mechanic checks the names against active Shopify locations when you publish. Update the rule if you rename a location or import it into another shop. To run the offer everywhere Shopify supports it except at the register, choose **Exclude Shopify POS**.
 
 <figure><img src="images/functions-pos-location.png" alt="Specific POS locations selected, with Downtown entered as the eligible location"><figcaption><p>Enter Downtown to offer the discount at that register.</p></figcaption></figure>
 
