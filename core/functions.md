@@ -56,7 +56,9 @@ In **Test cart**, choose **Edit cart** and change **Test checkout**. For a locat
 
 Before publishing a starter, replace any sample products and collections with your shop’s selections and save the draft. If any are missing during review, choose **Choose missing resources**.
 
-When you’re ready, open **Live checkout**. Review any Shopify permissions the rule needs, then choose **Publish saved version** and **Confirm publish**. Wait for Shopify’s confirmation. If the change is still awaiting confirmation, use **Check publication again**. For a scheduled discount, its start and end dates determine when shoppers can receive it.
+If your saved rule needs more Shopify access, choose **Review Shopify permissions** above the test cart. You can keep testing while access is pending.
+
+When you’re ready, open **Live checkout** and choose **Publish saved version** and **Confirm publish**. Wait for Shopify’s confirmation. If the change is still awaiting confirmation, use **Check publication again**. For a scheduled discount, its start and end dates determine when shoppers can receive it.
 
 ## Check what shoppers are getting
 
