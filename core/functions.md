@@ -26,19 +26,19 @@ For a merged bundle, the kit costs the sum of its components. For a delivery or 
 
 ## Try a discount with a test cart
 
-Open **Functions** in Mechanic. If you already have functions, choose **Create function**. Open **Three T-shirts for $30** under **Featured starting points**. To build your own discount, choose **Give a discount** and select **Create blank rule**.
+Open **Functions** in Mechanic. If you already have functions, choose **Create function**. Open **Three items for $30** under **Featured starting points**. To build your own discount, choose **Give a discount** and select **Create blank rule**.
 
-<figure><img src="images/functions-starting-points.png" alt="The function type chooser with Three T-shirts for $30 under Featured starting points"><figcaption><p>Choose a type to start from scratch, or start with a rule you can edit.</p></figcaption></figure>
+<figure><img src="images/functions-starting-points.png" alt="The function type chooser with Three items for $30 under Featured starting points"><figcaption><p>Choose a type to start from scratch, or start with a rule you can edit.</p></figcaption></figure>
 
-In **Test cart**, choose **3 qualifying T-shirts**. The two black shirts cost $18 each and the white shirt costs $14. Together they would cost $50. The rule takes $20 off, bringing the total to $30.
+In **Test cart**, choose **3 qualifying items**. The sample cart uses clothing to illustrate the offer. The two black shirts cost $18 each and the white shirt costs $14. Together they would cost $50. The rule takes $20 off, bringing the total to $30.
 
 If a rule has several paths, the first path whose conditions match decides the outcome. If that path gives a discount on an item that is missing from the cart, the buyer gets no discount and later paths are skipped. To allow a later offer in that situation, add **Cart contains an item** to the first path and select the reward item.
 
-Switch to **2 qualifying T-shirts**. One black shirt and one white shirt cost $32. The buyer pays $32 because the offer needs a complete group of three. You can save either cart with its expected result and check it again after changing the rule.
+Switch to **2 qualifying items**. One black shirt and one white shirt cost $32. The buyer pays $32 because the offer needs a complete group of three. You can save either cart with its expected result and check it again after changing the rule.
 
 <figure><img src="images/functions-three-shirts.png" alt="The group-price rule beside a three-shirt cart showing a $50 subtotal, $20 discount, and $30 total"><figcaption><p>Only complete groups get the offer. A fourth eligible shirt keeps its regular price.</p></figcaption></figure>
 
-For a different offer, open **Every second T-shirt half price**. One $18 shirt stays at $18. Add a $14 shirt and the pair costs $25. With two of each, both $14 shirts get the discount.
+For a different offer, open **Every second item half price**. One $18 shirt stays at $18. Add a $14 shirt and the pair costs $25. With two of each, both $14 shirts get the discount.
 
 To try real items, choose **Try with my products** in the test cart. You can choose variants and test their selling prices before granting permission to publish. If the rule needs collection membership, product metafields, or other details the picker didn’t supply, Mechanic explains which product data it needs. You can keep testing with a sample cart.
 
@@ -58,7 +58,7 @@ In **Test cart**, choose **Edit cart** and change **Test checkout**. For a locat
 
 **Save draft** keeps your work in Mechanic. If an earlier version of the rule is live, shoppers continue to get that version.
 
-Before publishing a starter, choose the products or collections it should use in your shop. For an item discount, choose **Edit** beside **Discounted items** on the relevant path, select the variant or collection, and save the draft. If any are missing during review, choose **Choose missing resources**.
+Some starting points apply to all items. For an offer such as **Three items for $30**, choose the eligible collection from your shop before publishing. For an item discount, choose **Edit** beside **Discounted items** on the relevant path, select the variant or collection, and save the draft. If any are missing during review, choose **Choose missing resources**.
 
 If your saved rule needs more Shopify access, choose **Review Shopify permissions** above the test cart. You can keep testing while access is pending.
 
