@@ -34,6 +34,8 @@ Switch to **2 qualifying T-shirts**. One black shirt and one white shirt cost $3
 
 <figure><img src="images/functions-three-shirts.png" alt="The group-price rule beside a three-shirt cart showing a $50 subtotal, $20 discount, and $30 total"><figcaption><p>Only complete groups get the offer. A fourth eligible shirt keeps its regular price.</p></figcaption></figure>
 
+For a different offer, open **Every second T-shirt half price**. One $18 shirt stays at $18. Add a $14 shirt and the pair costs $25. With two of each, both $14 shirts get the discount.
+
 To try real items, choose **Try with my products** in the test cart. If every item is a one-time variant from your shop, **Open in storefront** opens those items and quantities in a new tab. The storefront uses published rules. Values you entered in the tester, such as customer tags, stay in the builder.
 
 ## Offer a discount in store
