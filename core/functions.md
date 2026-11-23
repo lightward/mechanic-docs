@@ -36,7 +36,9 @@ Switch to **2 qualifying T-shirts**. One black shirt and one white shirt cost $3
 
 For a different offer, open **Every second T-shirt half price**. One $18 shirt stays at $18. Add a $14 shirt and the pair costs $25. With two of each, both $14 shirts get the discount.
 
-To try real items, choose **Try with my products** in the test cart. If every item is a one-time variant from your shop, **Open in storefront** opens those items and quantities in a new tab. The storefront uses published rules. Values you entered in the tester, such as customer tags, stay in the builder.
+To try real items, choose **Try with my products** in the test cart. You can choose variants and test their selling prices before granting permission to publish. If the rule needs collection membership, product metafields, or other details the picker didn’t supply, Mechanic explains which product data it needs. You can keep testing with a sample cart.
+
+If every item is a one-time variant from your shop, **Open in storefront** opens those items and quantities in a new tab. The storefront uses published rules. Values you entered in the tester, such as customer tags, stay in the builder.
 
 ## Offer a discount in store
 
