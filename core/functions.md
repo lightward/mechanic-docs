@@ -42,11 +42,11 @@ For a different offer, open **Every second T-shirt half price**. One $18 shirt s
 
 To try real items, choose **Try with my products** in the test cart. You can choose variants and test their selling prices before granting permission to publish. If the rule needs collection membership, product metafields, or other details the picker didn’t supply, Mechanic explains which product data it needs. You can keep testing with a sample cart.
 
-If every item is a one-time variant from your shop, **Open in storefront** opens those items and quantities in a new tab. The storefront uses published rules. Values you entered in the tester, such as customer tags, stay in the builder.
+If every item is a one-time variant from your shop, **Open in storefront** opens those items and quantities in a new tab. For a code discount, the link also carries the code you entered in the test cart. If the code contains a comma, enter it at checkout. The storefront uses published rules. Values you entered in the tester, such as customer tags, stay in the builder.
 
 ## Offer a discount in store
 
-To offer three T-shirts for $30 at the register, open **Discount settings** and set **Where the discount applies** to **Shopify POS only**. The same three shirts now cost $30 in POS and $50 in a checkout outside POS. This setting covers every path in the rule.
+To offer three T-shirts for $30 at the register, open **Discount settings** and set **Eligible checkouts** to **Shopify POS only**. The same three shirts now cost $30 in POS and $50 in a checkout outside POS. This setting covers every path in the rule.
 
 Choose **Specific POS locations** to run the offer at selected stores. Enter one location name per line, exactly as it appears in **Settings → Locations** in Shopify. Mechanic checks the names against active Shopify locations when you publish. Update the rule if you rename a location or import it into another shop. To run the offer everywhere Shopify supports it except at the register, choose **Exclude Shopify POS**.
 
@@ -58,11 +58,11 @@ In **Test cart**, choose **Edit cart** and change **Test checkout**. For a locat
 
 **Save draft** keeps your work in Mechanic. If an earlier version of the rule is live, shoppers continue to get that version.
 
-Before publishing a starter, replace any sample products and collections with your shop’s selections and save the draft. If any are missing during review, choose **Choose missing resources**.
+Before publishing a starter, choose the products or collections it should use in your shop. For an item discount, choose **Edit** beside **Discounted items** on the relevant path, select the variant or collection, and save the draft. If any are missing during review, choose **Choose missing resources**.
 
 If your saved rule needs more Shopify access, choose **Review Shopify permissions** above the test cart. You can keep testing while access is pending.
 
-When you’re ready, open **Live checkout** and choose **Publish saved version** and **Confirm publish**. Wait for Shopify’s confirmation. If the change is still awaiting confirmation, use **Check publication again**. For a scheduled discount, its start and end dates determine when shoppers can receive it.
+When you’re ready, open **Live checkout** and choose **Publish saved version**. Review what each path will do, then choose **Confirm publish**. Wait for Shopify’s confirmation. If the change is still awaiting confirmation, use **Check publication again**. For a scheduled discount, its start and end dates determine when shoppers can receive it.
 
 ## Check what shoppers are getting
 
