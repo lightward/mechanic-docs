@@ -18,7 +18,7 @@ The Function commands require Mechanic CLI 0.2.0 or later. Use `mechanic functio
 
 ### Start with a new rule
 
-Save an [AI-authored rule](../resources/tutorials/write-a-function-with-ai.md) or a builder export as `functions/offer.json`. You can check its format and preview its saved carts offline. Look at the expected and actual outcomes for each cart. **Inputs only** means the cart has no expected result to compare.
+Save an [AI-authored rule](../resources/tutorials/write-a-function-with-ai.md) or a builder export as `functions/offer.json`. You can check its format and preview its saved carts offline. Look at the expected and actual outcomes for each cart. **Inputs only** means the cart has no expected result to compare. If an expected result changes or the engine cannot evaluate it, preview exits with a failure. Open the cart in the builder to inspect the conditions and inputs.
 
 In your local fish terminal:
 
@@ -57,7 +57,7 @@ The CLI keeps a link between the file path and the shop draft. Keep using that p
 
 ### Publish a saved revision
 
-Publish from the builder when you’re ready. On shops separately enabled for CLI publishing, `mechanic functions publish functions/offer.json --dry-run` checks the saved revision and its carts. Running the command without `--dry-run` sends that revision to Shopify. After an interrupted response, retry from the same project and file before editing the rule, or open its publication history in Mechanic to see what Shopify confirmed.
+Publish from the builder when you’re ready. On shops separately enabled for CLI publishing, `mechanic functions publish functions/offer.json --dry-run` checks the saved revision and its carts. Running the command without `--dry-run` checks the shop’s CLI publication access and Shopify permissions, then submits that revision to Shopify. After an interrupted response, retry from the same project and file before editing the rule, or open its publication history in Mechanic to see what Shopify confirmed. The **Live checkout** section shows whether that Function is active now.
 
 ## How it fits together
 
