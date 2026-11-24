@@ -66,7 +66,9 @@ For Cart Transform, or to share logs for a reported error, go to **Settings → 
 
 ## Deactivate, archive, or delete a function
 
-A shop can keep up to 100 Functions in **Current**, across all five types. Drafts, live rules, and deactivated rules each use one slot. Archiving a deactivated rule frees its slot and keeps its history. Restoring it uses a slot again. Shopify also limits how many rules of each type can be active across a store’s apps.
+A shop can keep up to 100 Functions in **Current**, across all five types. Drafts, live rules, and deactivated rules each use one slot. Archiving a deactivated rule frees its slot and keeps its history. Restoring it uses a slot again.
+
+Shopify also limits how many Functions can be active at once. Across all apps on your store, you can have up to 25 [discount Functions](https://shopify.dev/docs/api/functions/latest/discount) and up to 25 each of [cart and checkout validations, delivery customizations, and payment customizations](https://shopify.dev/changelog/posts/shopify-functions-25-functions-limit). Each app can have one active [Cart Transform](https://shopify.dev/docs/api/functions/latest/cart-transform) per store, so you can publish one through Mechanic.
 
 To stop a live rule, open **Live checkout**, choose **Deactivate**, and confirm. Once Shopify confirms, choose **Archive function** to remove it from **Current**. You can open it under **Functions → Archived** to see its publication history or test an earlier published version. **Restore to list** returns it to **Current** as inactive. Publishing it again is a separate step.
 
