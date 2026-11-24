@@ -2,9 +2,9 @@
 description: Use Mechanic API tokens with the v1 API for trusted scripts, agents, CI, and the Mechanic CLI.
 ---
 
-# API tokens and task sync API
+# API tokens and sync endpoints
 
-Mechanic API tokens authenticate v1 API workflows for one shop. They are used by the [Mechanic CLI](mechanic-cli.md), and may also be used by trusted scripts, agents, and CI jobs that need direct HTTP access to task sync, shop status, Shopify API deprecation visibility, and [globals and secrets](globals-and-secrets.md).
+Mechanic API tokens authenticate v1 API workflows for one shop. They are used by the [Mechanic CLI](mechanic-cli.md), and may also be used by trusted scripts, agents, and CI jobs that need direct HTTP access to tasks, Function drafts, shop status, Shopify API deprecation visibility, and [globals and secrets](globals-and-secrets.md).
 
 {% hint style="info" %}
 The CLI is the recommended client. It wraps this API with local task validation, content hashes, idempotency keys, preview commands, diff output, and safer publish flows. Direct HTTP use is for CLI-compatible automation, not a broad public API platform.
@@ -23,12 +23,12 @@ Tokens are:
 * accepted as `Authorization: Bearer <token>`
 * usable as `MECHANIC_API_TOKEN` for the CLI and CI jobs
 
-Treat tokens like passwords. A token can read task sync payloads, preview and publish tasks, read and write globals, and set, replace, or delete secrets for its shop until revoked.
+Treat tokens like passwords. A token can read task sync payloads, preview and publish tasks, read and write globals, and set, replace, or delete secrets for its shop until revoked. On a shop with Functions access, it can also read, check and save Function drafts. If the shop is separately enabled for API publication, every active token for that shop can submit saved revisions for live checkout. Shopify permissions are approved in Mechanic.
 
 Use one token per device, repository, or automation. Each shop can have up to five active API tokens. If a token is leaked, revoke it and create a replacement.
 
 {% hint style="warning" %}
-API tokens are not granularly scoped in this version. Do not share a token with untrusted repositories, third-party scripts, or agents you would not trust to read and publish tasks or manage globals and secrets for the shop.
+API tokens are not granularly scoped in this version. Do not share a token with untrusted repositories, third-party scripts, or agents you would not trust with those shop permissions.
 {% endhint %}
 
 ## Base URL and authentication
@@ -64,7 +64,7 @@ For CI jobs, store the token as a secret named `MECHANIC_API_TOKEN` and expose i
 
 ## Endpoints
 
-This API is intentionally narrow. It covers task sync, task preview, shop queue
+This API is intentionally narrow. It covers task sync, task preview, Function drafts and publication, shop queue
 status, Shopify API deprecation visibility, and shop globals and secrets for the authenticated shop. Use
 direct HTTP only for trusted automation that can safely store a shop API token.
 
@@ -79,6 +79,12 @@ direct HTTP only for trusted automation that can safely store a shop API token.
 | `POST` | `/v1/tasks/:id/preview` | Preview local draft content against an existing task, or preview the current saved task, without saving |
 | `POST` | `/v1/tasks` | Create a task from sync payload |
 | `PUT` | `/v1/tasks/:id` | Update a task from sync payload |
+| `GET` | `/v1/functions` | List the shop’s current Function drafts |
+| `GET` | `/v1/functions/:id` | Read one draft, including its saved definition and revision |
+| `POST` | `/v1/functions/check` | Check a proposed definition with the shop’s publication compiler |
+| `POST` | `/v1/functions` | Create a draft using a client-generated UUID |
+| `PUT` | `/v1/functions/:id` | Save a draft using its last known `lock_version` |
+| `POST` | `/v1/functions/:id/publish` | Submit a saved revision using its `lock_version` and a unique `request_id` |
 | `GET` | `/v1/globals` | List shop globals, including values |
 | `PUT` | `/v1/globals/:key` | Create or replace one shop global |
 | `DELETE` | `/v1/globals/:key` | Delete one shop global |
@@ -91,6 +97,8 @@ There is no `tasks new` API endpoint. `mechanic tasks new` is a local CLI comman
 
 `POST /v1/tasks` always creates a new task. It does not update an existing task by matching the task name or local slug. For direct HTTP creates, send an `Idempotency-Key` header with a UUID generated for the task you intend to create. Mechanic uses that UUID as the created task ID. Retrying with the same UUID returns the existing task instead of creating a duplicate, so use a different UUID for each intended task.
 {% endhint %}
+
+For portable Function JSON, use the [Function draft commands](mechanic-cli.md#function-drafts). The CLI translates the portable file into the shop’s saved definition and carries forward matching Shopify selections and existing test expectations.
 
 For most local task work, prefer the CLI commands that wrap these endpoints:
 

@@ -4,17 +4,21 @@ description: Edit Mechanic tasks and Function drafts locally, preview changes, a
 
 # Local development with the Mechanic CLI
 
-Use the Mechanic CLI when you want to keep a shop's tasks in local files, edit them in your own tools, preview changes with Mechanic, and publish them back when they are ready.
+Use the Mechanic CLI to keep tasks and Function drafts in local files. Edit them in your own tools, preview changes, and sync your work with the shop.
 
 This is the recommended path for task work that belongs in Git, needs review, or benefits from an editor, an AI coding tool, or a repeatable deployment process.
 
 {% hint style="info" %}
-The CLI uses Mechanic's task sync API, authenticated with an API token from your shop. If you are building custom scripts, see [API tokens and task sync API](mechanic-task-sync-api.md). For most users, start with the CLI.
+The CLI uses a shop API token for connected commands. If you are building custom scripts, see [API tokens and sync endpoints](mechanic-task-sync-api.md). For most users, start with the CLI.
 {% endhint %}
 
 ## Function drafts
 
-Use a CLI version that lists `functions` in `mechanic --help`. Start with a [Function JSON file](../resources/tutorials/write-a-function-with-ai.md). You can validate a file and preview its saved test carts offline.
+The Function commands require Mechanic CLI 0.2.0 or later. Use `mechanic functions --help` to see which commands your installed version supports.
+
+### Start with a new rule
+
+Save an [AI-authored rule](../resources/tutorials/write-a-function-with-ai.md) or a builder export as `functions/offer.json`. You can check its format and preview its saved carts offline. Look at the expected and actual outcomes for each cart. **Inputs only** means the cart has no expected result to compare.
 
 In your local fish terminal:
 
@@ -23,29 +27,37 @@ mechanic functions validate functions/offer.json
 mechanic functions preview functions/offer.json
 ```
 
-To edit an existing Function, run `mechanic functions list` in the shop’s CLI project. Copy the draft ID and replace `DRAFT_ID` below. Pulling to a new file leaves your existing edits available for comparison.
-
-In your local fish terminal:
+To save the rule to a shop, [create an API token](#create-an-api-token) and [initialize the project](#initialize-the-project) for a shop with Functions access. Run these commands from the folder containing `mechanic.json`:
 
 ```fish
-mechanic functions pull DRAFT_ID --out functions/offer.json
-```
-
-Edit the file, then compare it with the shop and save your draft.
-
-In your local fish terminal:
-
-```fish
-mechanic functions diff functions/offer.json
-mechanic functions preview functions/offer.json --shop
 mechanic functions save-draft functions/offer.json
 mechanic functions open functions/offer.json
 ```
 
-Saving a new file creates a draft. Open it to choose shop resources and grant any Shopify permissions. Use `validate --shop` with a file to check the proposed rule with the publication compiler. If someone changes the saved draft while you edit, pull it to a second file, reconcile your edits there, then diff and save that file.
+Saving a new file creates a draft. In Mechanic, select any required shop products or collections and check your results. Grant Shopify permissions there when you’re ready to publish.
 
-Publish from the builder when you’re ready. On shops separately enabled for CLI publishing, `mechanic functions publish functions/offer.json --dry-run` checks the saved revision. Running the command without `--dry-run` sends that revision to Shopify. If Shopify’s response is interrupted, retry from the same file to check the original request, or open the Function’s publication history in Mechanic.
+### Edit a rule that’s already in Mechanic
 
+In your local fish terminal, run `mechanic functions list` and copy the draft ID. Replace `DRAFT_ID` below and choose an unused destination filename:
+
+```fish
+mechanic functions pull DRAFT_ID --out functions/existing-offer.json
+```
+
+Edit the file, then compare the proposed change with the saved rule. The shop preview includes the draft’s selections and existing saved carts. Use the shop validation to check the publication compiler.
+
+```fish
+mechanic functions diff functions/existing-offer.json
+mechanic functions preview functions/existing-offer.json --shop
+mechanic functions validate functions/existing-offer.json --shop
+mechanic functions save-draft functions/existing-offer.json
+```
+
+The CLI keeps a link between the file path and the shop draft. Keep using that path for edits. To resolve a conflict with an edit made in the builder, pull the current version to a second file. Apply your intended edits there, then diff and save that file.
+
+### Publish a saved revision
+
+Publish from the builder when you’re ready. On shops separately enabled for CLI publishing, `mechanic functions publish functions/offer.json --dry-run` checks the saved revision and its carts. Running the command without `--dry-run` sends that revision to Shopify. After an interrupted response, retry from the same project and file before editing the rule, or open its publication history in Mechanic to see what Shopify confirmed.
 
 ## How it fits together
 

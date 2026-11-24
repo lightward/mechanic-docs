@@ -28,7 +28,7 @@ For a merged bundle, the kit costs the sum of its components. For a delivery or 
 
 Choose **Create function** to start from a blank rule or a starting point. Use the **Test cart** to check which items qualify and what the buyer pays. For a first walkthrough, [offer three items for $30](../resources/tutorials/offer-three-items-for-30.md).
 
-If a rule has several paths, the first path whose conditions match decides the outcome. If that path gives a discount on an item that is missing from the cart, the buyer gets no discount and later paths are skipped. To allow a later offer in that situation, add **Cart contains an item** to the first path and select the reward item.
+A rule can have up to 12 paths and 20 saved test carts. If a rule has several paths, the first path whose conditions match decides the outcome. If that path gives a discount on an item that is missing from the cart, the buyer gets no discount and later paths are skipped. To allow a later offer in that situation, add **Cart contains an item** to the first path and select the reward item.
 
 For a different offer, open **Every second item half price**. One $18 shirt stays at $18. Add a $14 shirt and the pair costs $25. With two of each, both $14 shirts get the discount.
 
@@ -54,7 +54,7 @@ Some starting points apply to all items. For an offer such as **Three items for 
 
 If your saved rule needs more Shopify access, choose **Review Shopify permissions** above the test cart. You can keep testing while access is pending.
 
-When you’re ready, open **Live checkout** and choose **Publish saved version**. Review what each path will do, then choose **Confirm publish**. Wait for Shopify’s confirmation. If the change is still awaiting confirmation, use **Check publication again**. For a scheduled discount, its start and end dates determine when shoppers can receive it.
+When you’re ready, open **Live checkout** and choose **Publish saved version**. Review what each path will do, then choose **Confirm publish**. Wait for Shopify’s confirmation. If Mechanic says the rule is too complex to publish, simplify the conditions or reuse the same item filters across paths, then check the test carts again. If the change is still awaiting confirmation, use **Check publication again**. For a scheduled discount, its start and end dates determine when shoppers can receive it.
 
 ## Check what shoppers are getting
 
@@ -65,6 +65,8 @@ When you open a published discount, validation, delivery, or payment function, M
 For Cart Transform, or to share logs for a reported error, go to **Settings → Apps** in Shopify admin, select **Mechanic**, and open **Functions**. When Shopify offers **Share logs**, you can send the previous 24 hours of activity to Mechanic support. Individual live runs are visible to developers in Shopify’s Dev Dashboard. [Shopify’s guide to sharing Function logs](https://help.shopify.com/en/manual/apps/managing-apps#share-function-logs)
 
 ## Deactivate, archive, or delete a function
+
+A shop can keep up to 100 Functions in **Current**, across all five types. Drafts, live rules, and deactivated rules each use one slot. Archiving a deactivated rule frees its slot and keeps its history. Restoring it uses a slot again. Shopify also limits how many rules of each type can be active across a store’s apps.
 
 To stop a live rule, open **Live checkout**, choose **Deactivate**, and confirm. Once Shopify confirms, choose **Archive function** to remove it from **Current**. You can open it under **Functions → Archived** to see its publication history or test an earlier published version. **Restore to list** returns it to **Current** as inactive. Publishing it again is a separate step.
 

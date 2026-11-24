@@ -4,7 +4,7 @@ description: Install Mechanic task-writing, Function-writing and CLI expertise i
 
 # 🤖 Mechanic Agent Skills
 
-Install Mechanic expertise directly into your AI coding tool. Mechanic's skills help an assistant write task code, work in a local task repo, preview changes, review diffs, and publish intentionally.
+Install Mechanic expertise directly into your AI coding tool. Mechanic's skills help an assistant write task code, work in a local task repo, write Shopify Function rules, and check examples against the builder’s test carts.
 
 ***
 
@@ -45,7 +45,7 @@ The `mechanic-cli` skill teaches your assistant how to work safely in a local ta
 
 ## Requirements
 
-* **Node.js 18 or higher** installed on your system for the skill installer. The Mechanic CLI itself requires Node.js 22 or higher.
+* **Node.js 22.20 or higher** installed on your system for the skill installer. The Mechanic CLI itself requires Node.js 22 or higher.
 * An **AI coding tool** that supports Agent Skills, such as Claude Code, Cursor, Codex CLI, or Gemini CLI.
 
 ***
@@ -74,7 +74,7 @@ npx skills add lightward/mechanic-skills --skill mechanic-function-writer
 npx skills add lightward/mechanic-skills --skill mechanic-cli
 ```
 
-The CLI is interactive — it will walk you through a few prompts:
+In an interactive terminal, the installer may ask where to install the skills:
 
 1. **Select agents.** The CLI shows a list of AI tools. Tools in the "Universal" group (Cursor, Codex, Gemini CLI, etc.) are always included. If your tool is under "Additional agents" (like Claude Code), use the arrow keys to find it and press **space** to select it, then **enter** to confirm.
 2. **Choose scope.** Select **Project** (installs to your current directory) or **Global** (available in all projects).
@@ -84,67 +84,17 @@ The CLI will then place the skill file in the correct directory for each selecte
 
 ### Step 2: Verify the install
 
-{% tabs %}
-{% tab title="Claude Code" %}
+Run the list command from the same project directory where you installed the skills. For a global installation, add `--global`.
 
-In Claude Code, type `/skills` to see your installed skills. You should see `mechanic-task-writer`, `mechanic-function-writer`, and `mechanic-cli` listed.
+In your local fish terminal:
 
-{% hint style="info" %}
-The `/skills` command requires the native Claude Code build. If you installed Claude Code via npm, run `claude install` first to switch to the native version.
-{% endhint %}
-
-You can also check the file directly:
-
-```bash
-ls ~/.claude/skills/
+```fish
+npx skills list
 ```
 
-If you installed at the project level, check `.claude/skills/` in your project directory instead.
+Look for the names you installed. For example, installing only the Function writer should list `mechanic-function-writer`. The output also identifies the installation directory and selected agents.
 
-{% endtab %}
-
-{% tab title="Cursor" %}
-
-Check that the skill file exists:
-
-```bash
-ls ~/.cursor/skills/
-```
-
-You should see `mechanic-task-writer`, `mechanic-function-writer`, and `mechanic-cli` files or directories. If you installed at the project level, check `.agents/skills/` in your project directory instead.
-
-{% endtab %}
-
-{% tab title="Codex CLI" %}
-
-In Codex, type `$skill` to see available skills. You should see `$mechanic-task-writer`, `$mechanic-function-writer`, and `$mechanic-cli` listed.
-
-You can also check the file directly:
-
-```bash
-ls ~/.codex/skills/
-```
-
-{% endtab %}
-
-{% tab title="Gemini CLI" %}
-
-Check that the skill file exists:
-
-```bash
-ls ~/.gemini/skills/
-```
-
-You should see `mechanic-task-writer`, `mechanic-function-writer`, and `mechanic-cli`. The skills may also be in `~/.agents/skills/`.
-
-{% endtab %}
-
-{% tab title="Manual install" %}
-
-If the CLI doesn't detect your tool, you can copy the skill file manually from the [GitHub repository](https://github.com/lightward/mechanic-skills). Download the `SKILL.md` file and place it in your tool's skills directory.
-
-{% endtab %}
-{% endtabs %}
+For a manual installation, copy the entire skill directory from the [Mechanic Skills repository](https://github.com/lightward/mechanic-skills) into the skills directory that your tool uses. Keep the `references/` folder with `SKILL.md`. It contains the Function schema and sample carts.
 
 ### Step 3: Restart your tool
 
@@ -165,13 +115,11 @@ For task-writing requests, your assistant will produce complete, importable task
 
 ## Troubleshooting
 
-**The command ran but nothing happened.** Check that Node.js 18+ is installed (`node --version`). The `npx skills add` command needs Node to run.
+**The command ran but nothing happened.** Check that Node.js 22.20+ is installed (`node --version`). The `npx skills add` command needs Node to run.
 
 **I don't see my tool in the agent list.** Look under "Additional agents" — not all tools are in the universal group. Use the arrow keys to scroll down, then press **space** to select your tool.
 
-**The skill file isn't in the expected directory.** The CLI places files based on which agents you selected during the interactive prompts. If it didn't detect your tool, use the manual install tab above.
-
-**Claude Code says `/skills` is not a command.** You're on the npm version of Claude Code. Run `claude install` to switch to the native build, which supports `/skills`.
+**The skill file isn't in the expected directory.** The CLI places files based on which agents you selected during the interactive prompts. Use `npx skills list` in the project to check its actual location, or follow the manual installation instructions above.
 
 **My AI assistant doesn't seem to know Mechanic patterns.** Make sure you restarted your tool after installing. Skills are loaded at session start. Also verify the file exists in the correct directory using the verification step above.
 
