@@ -43,6 +43,7 @@
     * [Auto-tag customers by sales channel](resources/video-walkthroughs/auto-tag-customers-by-sales-channel.md)
     * [Creating products in bulk](resources/video-walkthroughs/creating-products-in-bulk.md)
   * [Offer three items for $30](resources/tutorials/offer-three-items-for-30.md)
+  * [Write a Function with your AI assistant](resources/tutorials/write-a-function-with-ai.md)
   * [Require a gift message for wrapped items](resources/tutorials/require-a-gift-message-for-wrapped-items.md)
   * [Add a gift message form to your Shopify theme and email recipients after fulfillment](resources/tutorials/add-a-gift-message-form-to-your-shopify-theme.md)
   * [Your first custom task](resources/tutorials/your-first-custom-task.md)

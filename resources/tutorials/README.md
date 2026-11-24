@@ -8,6 +8,7 @@ Step-by-step guides for common Mechanic development patterns. These tutorials wa
 
 ## Written tutorials
 
+* [Write a Function with your AI assistant](write-a-function-with-ai.md)
 * [Offer three items for $30](offer-three-items-for-30.md)
 * [Require a gift message for wrapped items](require-a-gift-message-for-wrapped-items.md)
 * [Add a gift message form to your Shopify theme and email recipients after fulfillment](add-a-gift-message-form-to-your-shopify-theme.md) — collect gift details in the cart and email recipients after fulfillment

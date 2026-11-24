@@ -1,5 +1,5 @@
 ---
-description: Install Mechanic task-writing and CLI workflow expertise into your AI coding tool.
+description: Install Mechanic task-writing, Function-writing and CLI expertise into your AI coding tool.
 ---
 
 # 🤖 Mechanic Agent Skills
@@ -30,6 +30,8 @@ The `mechanic-task-writer` skill gives your assistant deep knowledge of Mechanic
 * Case-insensitive tag comparison
 * Task options with correct suffixes
 
+The `mechanic-function-writer` skill helps your assistant create a Function definition and test it against example carts. It includes examples for discounts, checkout validation, bundles, delivery options and payment methods. Follow [Write a Function with your AI assistant](../resources/tutorials/write-a-function-with-ai.md) to try an offer.
+
 The `mechanic-cli` skill teaches your assistant how to work safely in a local task repo:
 
 * Initialize a repo and authenticate with an API token
@@ -58,10 +60,14 @@ Open your terminal and run:
 npx skills add lightward/mechanic-skills
 ```
 
-This installs both Mechanic skills. To install only one skill, use:
+This installs the available Mechanic skills. To install only one skill, use:
 
 ```bash
 npx skills add lightward/mechanic-skills --skill mechanic-task-writer
+```
+
+```fish
+npx skills add lightward/mechanic-skills --skill mechanic-function-writer
 ```
 
 ```bash
@@ -81,7 +87,7 @@ The CLI will then place the skill file in the correct directory for each selecte
 {% tabs %}
 {% tab title="Claude Code" %}
 
-In Claude Code, type `/skills` to see your installed skills. You should see `mechanic-task-writer` and `mechanic-cli` listed.
+In Claude Code, type `/skills` to see your installed skills. You should see `mechanic-task-writer`, `mechanic-function-writer`, and `mechanic-cli` listed.
 
 {% hint style="info" %}
 The `/skills` command requires the native Claude Code build. If you installed Claude Code via npm, run `claude install` first to switch to the native version.
@@ -105,13 +111,13 @@ Check that the skill file exists:
 ls ~/.cursor/skills/
 ```
 
-You should see `mechanic-task-writer` and `mechanic-cli` files or directories. If you installed at the project level, check `.agents/skills/` in your project directory instead.
+You should see `mechanic-task-writer`, `mechanic-function-writer`, and `mechanic-cli` files or directories. If you installed at the project level, check `.agents/skills/` in your project directory instead.
 
 {% endtab %}
 
 {% tab title="Codex CLI" %}
 
-In Codex, type `$skill` to see available skills. You should see `$mechanic-task-writer` and `$mechanic-cli` listed.
+In Codex, type `$skill` to see available skills. You should see `$mechanic-task-writer`, `$mechanic-function-writer`, and `$mechanic-cli` listed.
 
 You can also check the file directly:
 
@@ -129,7 +135,7 @@ Check that the skill file exists:
 ls ~/.gemini/skills/
 ```
 
-You should see `mechanic-task-writer` and `mechanic-cli`. The skills may also be in `~/.agents/skills/`.
+You should see `mechanic-task-writer`, `mechanic-function-writer`, and `mechanic-cli`. The skills may also be in `~/.agents/skills/`.
 
 {% endtab %}
 

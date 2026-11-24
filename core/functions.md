@@ -79,3 +79,5 @@ To reuse a rule in another shop, choose **Function actions → Export JSON**, th
 ## Connect a form and a function
 
 A form can collect a gift message on the cart page, a function can require it for gift-wrapped items at checkout, and a task can email it after fulfillment. Follow the [gift-wrap checkout tutorial](../resources/tutorials/require-a-gift-message-for-wrapped-items.md) to connect all three.
+
+You can also [write a Function with your AI assistant](../resources/tutorials/write-a-function-with-ai.md) and review its test carts in the builder.
