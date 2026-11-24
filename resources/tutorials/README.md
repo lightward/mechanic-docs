@@ -1,5 +1,5 @@
 ---
-description: "Step-by-step guides for building Mechanic tasks — from your first automation to advanced patterns."
+description: "Step-by-step guides for building tasks, storefront forms, and checkout rules in Mechanic."
 ---
 
 # 🧠 Tutorials
@@ -8,6 +8,8 @@ Step-by-step guides for common Mechanic development patterns. These tutorials wa
 
 ## Written tutorials
 
+* [Offer three items for $30](offer-three-items-for-30.md)
+* [Require a gift message for wrapped items](require-a-gift-message-for-wrapped-items.md)
 * [Add a gift message form to your Shopify theme and email recipients after fulfillment](add-a-gift-message-form-to-your-shopify-theme.md) — collect gift details in the cart and email recipients after fulfillment
 
 * [Your first custom task](your-first-custom-task.md) — build a complete task from scratch

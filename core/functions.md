@@ -26,17 +26,9 @@ For a merged bundle, the kit costs the sum of its components. For a delivery or 
 
 ## Try a discount with a test cart
 
-Open **Functions** in Mechanic. If you already have functions, choose **Create function**. Open **Three items for $30** under **Featured starting points**. To build your own discount, choose **Give a discount** and select **Create blank rule**.
-
-<figure><img src="images/functions-starting-points.png" alt="The function type chooser with Three items for $30 under Featured starting points"><figcaption><p>Choose a type to start from scratch, or start with a rule you can edit.</p></figcaption></figure>
-
-In **Test cart**, choose **3 qualifying items**. The sample cart uses clothing to illustrate the offer. The two black shirts cost $18 each and the white shirt costs $14. Together they would cost $50. The rule takes $20 off, bringing the total to $30.
+Choose **Create function** to start from a blank rule or a starting point. Use the **Test cart** to check which items qualify and what the buyer pays. For a first walkthrough, [offer three items for $30](../resources/tutorials/offer-three-items-for-30.md).
 
 If a rule has several paths, the first path whose conditions match decides the outcome. If that path gives a discount on an item that is missing from the cart, the buyer gets no discount and later paths are skipped. To allow a later offer in that situation, add **Cart contains an item** to the first path and select the reward item.
-
-Switch to **2 qualifying items**. One black shirt and one white shirt cost $32. The buyer pays $32 because the offer needs a complete group of three. You can save either cart with its expected result and check it again after changing the rule.
-
-<figure><img src="images/functions-three-shirts.png" alt="The group-price rule beside a three-shirt cart showing a $50 subtotal, $20 discount, and $30 total"><figcaption><p>Only complete groups get the offer. A fourth eligible shirt keeps its regular price.</p></figcaption></figure>
 
 For a different offer, open **Every second item half price**. One $18 shirt stays at $18. Add a $14 shirt and the pair costs $25. With two of each, both $14 shirts get the discount.
 
@@ -68,16 +60,22 @@ When you’re ready, open **Live checkout** and choose **Publish saved version**
 
 If checkout gives a different result than your draft, choose **Test published version** under **Live checkout**. It runs the same test cart against the last confirmed rule. While Shopify is confirming a change, this button reads **Test last confirmed version**.
 
-To stop using a live rule, choose **Deactivate** and confirm. For a saved draft that has never had a publication attempt, open **Function actions** and choose **Delete draft**.
+When you open a published discount, validation, delivery, or payment function, Mechanic asks Shopify whether it has recorded a checkout error. **Live checkout** shows when Mechanic checked. If Shopify reports an error, you’ll see when it was first recorded for that function type. If the check is unavailable, you can still test the published version.
+
+For Cart Transform, or to share logs for a reported error, go to **Settings → Apps** in Shopify admin, select **Mechanic**, and open **Functions**. When Shopify offers **Share logs**, you can send the previous 24 hours of activity to Mechanic support. Individual live runs are visible to developers in Shopify’s Dev Dashboard. [Shopify’s guide to sharing Function logs](https://help.shopify.com/en/manual/apps/managing-apps#share-function-logs)
+
+## Deactivate, archive, or delete a function
+
+To stop a live rule, open **Live checkout**, choose **Deactivate**, and confirm. Once Shopify confirms, choose **Archive function** to remove it from **Current**. You can open it under **Functions → Archived** to see its publication history or test an earlier published version. **Restore to list** returns it to **Current** as inactive. Publishing it again is a separate step.
+
+<figure><img src="images/functions-archived.png" alt="An archived function with Restore to list above its retained publication history"></figure>
+
+If a saved draft has never had a publication attempt, you can delete it and its saved test carts. Save or discard pending edits, then choose **Function actions → Delete draft**.
+
+## Use a rule in another shop
 
 To reuse a rule in another shop, choose **Function actions → Export JSON**, then **Import function** in the destination shop. Select that shop’s products and collections, test the imported draft, and publish it when ready.
 
 ## Connect a form and a function
 
-If you offer gift wrapping, a form can collect the gift message, a function can ask for it before checkout, and a task can email it after fulfillment. [Set up the gift message form and email task](../resources/tutorials/add-a-gift-message-form-to-your-shopify-theme.md).
-
-The **Require a gift message for wrapped items** starter checks that an item has the line item property `gift_wrap` set to `yes` and that the cart attribute `gift_message` is missing. Try **Message missing** and **Message added**. Open **Why this result?** to see which conditions matched.
-
-<figure><img src="images/functions-gift-message.png" alt="Both gift-wrapping conditions match and the test cart shows the message asking the buyer to add a gift note"><figcaption><p>The buyer sees this message only when an item is gift-wrapped and the cart has no gift note.</p></figcaption></figure>
-
-Before publishing, use your theme’s gift-wrap property and the actual key for the message. For a saved Mechanic cart form, choose **Try form**, fill in its required fields, and choose **View sample cart attributes**. Copy the full message key into the function’s cart attribute condition. Use **Edit cart** to test the same keys your shop will send.
+A form can collect a gift message on the cart page, a function can require it for gift-wrapped items at checkout, and a task can email it after fulfillment. Follow the [gift-wrap checkout tutorial](../resources/tutorials/require-a-gift-message-for-wrapped-items.md) to connect all three.
