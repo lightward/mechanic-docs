@@ -1,10 +1,10 @@
 ---
-description: Install Mechanic task-writing and CLI skills in your AI coding tool.
+description: Install Mechanic skills for writing tasks and Functions and working with the CLI.
 ---
 
 # 🤖 Mechanic Agent Skills
 
-Install Mechanic expertise directly into your AI coding tool. Mechanic's skills help an assistant write task code and work in a local task repo.
+Install Mechanic expertise directly into your AI coding tool. Mechanic’s skills help an assistant write automation tasks, use the CLI, and build Functions with test carts.
 
 ***
 
@@ -30,7 +30,7 @@ The `mechanic-task-writer` skill gives your assistant deep knowledge of Mechanic
 * Case-insensitive tag comparison
 * Task options with correct suffixes
 
-A Function writer skill is in development. You can give an assistant the schema and example from the builder. Follow [Write a Function with your AI assistant](../resources/tutorials/write-a-function-with-ai.md) to try an offer.
+The `mechanic-function-writer` skill helps your assistant write an importable rule and test carts for discounts, validation, bundles, delivery, and payment options. Follow [Write a Function with your AI assistant](../resources/tutorials/write-a-function-with-ai.md) to try an offer.
 
 The `mechanic-cli` skill teaches your assistant how to work safely in a local task repo:
 
@@ -68,6 +68,10 @@ npx skills add lightward/mechanic-skills --skill mechanic-task-writer
 
 ```bash
 npx skills add lightward/mechanic-skills --skill mechanic-cli
+```
+
+```fish
+npx skills add lightward/mechanic-skills --skill mechanic-function-writer
 ```
 
 In an interactive terminal, the installer may ask where to install the skills:
