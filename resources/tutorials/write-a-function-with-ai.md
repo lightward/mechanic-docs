@@ -6,6 +6,10 @@ description: Create a discount with your AI assistant, test its example carts, a
 
 Suppose you want to offer three items from a collection for $30. You can describe the offer to your AI assistant, then review the rule and its test carts in Mechanic. You’ll need access to the [Functions pilot](../../core/functions.md) to import the rule. This walkthrough uses sample items priced in USD.
 
+In a shop with Function authoring enabled in Ask Mechanic, you can ask directly in the app. Describe the rule and the carts you want to test. After Ask Mechanic validates the definition, choose **Open in builder** to review it as a new unsaved Function. Choose **Save draft** to keep it. Publishing is a separate step.
+
+### Use an external AI assistant
+
 1. Install the [Mechanic Function writer skill](../../platform/agent-skills.md) in your AI tool. If you don’t have the skill yet, open a discount in the builder, choose **View definition**, and give your assistant the **JSON schema** and **Discount example** from that panel.
 2. Ask for the rule and its examples together:
 

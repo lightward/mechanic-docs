@@ -36,6 +36,12 @@ To try real items, choose **Try with my products** in the test cart. You can cho
 
 If every item is a one-time variant from your shop, **Open in storefront** opens those items and quantities in a new tab. For a code discount, the link also carries the code you entered in the test cart. If the code contains a comma, enter it at checkout. The storefront uses published rules. Values you entered in the tester, such as customer tags, stay in the builder.
 
+### Choose what shoppers see at checkout
+
+For an automatic discount, enter a **Label shown to shoppers** under **Discount settings**. You can keep a descriptive Function name for your team and show buyers a shorter label, such as “Bundle savings”. Leaving the label blank uses the Function name.
+
+To give one path its own label, open its **Then** step and choose **Customize label for this outcome**. When the discount applies, the test cart shows the matching path’s label beside the savings. A path with no override uses the discount’s default label. Code discounts show the code the buyer entered.
+
 ## Offer a discount in store
 
 To offer three T-shirts for $30 at the register, open **Discount settings** and set **Eligible checkouts** to **Shopify POS only**. The same three shirts now cost $30 in POS and $50 in a checkout outside POS. This setting covers every path in the rule.
@@ -54,6 +60,8 @@ Some starting points apply to all items. For an offer such as **Three items for 
 
 If your saved rule needs more Shopify access, choose **Review Shopify permissions** above the test cart. You can keep testing while access is pending.
 
+To see why Mechanic needs a permission, open **Settings → Permissions** in Mechanic. Each required permission links to the saved Functions that use it. For example, a discount appears under `write_discounts`. A condition based on the buyer’s previous order count uses data Shopify supplies to the Function during checkout.
+
 When you’re ready, open **Live checkout** and choose **Publish saved version**. Review what each path will do, then choose **Confirm publish**. Wait for Shopify’s confirmation. If Mechanic says the rule is too complex to publish, simplify the conditions or reuse the same item filters across paths, then check the test carts again. If the change is still awaiting confirmation, use **Check publication again**. For a scheduled discount, its start and end dates determine when shoppers can receive it.
 
 ## Check what shoppers are getting
@@ -63,6 +71,12 @@ If checkout gives a different result than your draft, choose **Test published ve
 When you open a published discount, validation, delivery, or payment function, Mechanic asks Shopify whether it has recorded a checkout error. **Live checkout** shows when Mechanic checked. If Shopify reports an error, you’ll see when it was first recorded for that function type. If the check is unavailable, you can still test the published version.
 
 For Cart Transform, or to share logs for a reported error, go to **Settings → Apps** in Shopify admin, select **Mechanic**, and open **Functions**. When Shopify offers **Share logs**, you can send the previous 24 hours of activity to Mechanic support. Individual live runs are visible to developers in Shopify’s Dev Dashboard. [Shopify’s guide to sharing Function logs](https://help.shopify.com/en/manual/apps/managing-apps#share-function-logs)
+
+## What happens if your subscription lapses?
+
+When Mechanic suspends your shop for billing, it pauses your published Functions. Checkout can continue applying a rule until Shopify confirms the pause. Discount codes, schedules, and usage history are preserved.
+
+When your subscription becomes active again, Mechanic automatically restores the last published version of each eligible Function it paused for billing. Rules you deactivated, archived Functions, and expired discounts stay off. Unpublished edits stay in the draft. You can check the pause and restore in the Function’s publication history.
 
 ## Deactivate, archive, or delete a function
 
