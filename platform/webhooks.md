@@ -51,6 +51,10 @@ Cart contents and answers remain visitor input. To link a Shopify customer, use 
 
 The [cart quote walkthrough](../app/forms.md#example-request-a-quote-from-the-cart) uses the **Create a draft order from a storefront form** task, which validates the cart and lets Shopify supply prices.
 
+## Look up a webhook by topic
+
+When reviewing a task subscription, use `mechanic webhooks list` to see which enabled webhooks can produce its event topic. For the command and its JSON output, see [Find incoming webhook topics](mechanic-cli.md#find-incoming-webhook-topics).
+
 ## Configuration
 
 <figure><img src="../.gitbook/assets/mechanic-webhooks.png" alt="The Mechanic webhooks section in Settings, showing webhook name, event topic, event data mode, and webhook URL fields"><figcaption></figcaption></figure>
