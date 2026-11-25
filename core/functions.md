@@ -22,7 +22,15 @@ Functions are included in your Mechanic subscription. In the app, open **Functio
 
 A merged kit costs the sum of its components. Use one-time purchases for bundles. Shopify rejects bundle operations on lines with a selling plan. [Shopify’s Cart Transform limits](https://shopify.dev/docs/api/functions/latest/cart-transform#invalid-scenarios)
 
-Delivery and payment rules can hide, rename, or reorder options Shopify already offers. In the rule, enter the full option name Shopify supplies to the Function, including capitalization and parentheses. A payment method’s name can differ from its label in checkout. Try the rule in your shop’s checkout because Shopify restricts which payment methods can be changed by plan, region, and checkout type. [Shopify’s payment customization restrictions](https://shopify.dev/docs/api/functions/latest/payment-customization#plan-and-geographical-restrictions)
+Delivery and payment rules can hide, rename, or reorder options Shopify already offers. In the rule, enter the full option name Shopify supplies to the Function, including capitalization and parentheses. A payment method’s name can differ from its label in checkout. Try the rule in your shop’s checkout. Shopify can ignore a change to a restricted payment method even when the rule matches in the test cart. [Shopify’s payment customization restrictions](https://shopify.dev/docs/api/functions/latest/payment-customization#plan-and-geographical-restrictions)
+
+## Shopify plan requirements
+
+All five Function types above are available through Mechanic on Shopify Basic, Grow, Advanced, and Plus. You can build a rule from scratch on any of these plans. [Shopify’s guide to checkout customization](https://shopify.dev/docs/apps/build/checkout/technologies)
+
+- **Payment methods in the United States and Canada.** On Basic, Grow, and Advanced, you can customize non-credit-card methods such as bank deposit. Changes to credit card options require Shopify Plus. Shopify also has rules for individual methods, such as wallets, that apply even on Plus. [Payment customization by plan and region](https://help.shopify.com/en/manual/checkout-settings/checkout-customization)
+- **Automatic discounts at the register.** Each location where you want the discount to apply needs POS Pro. This applies to in-person sales. You can offer an automatic discount online on Basic and up. [Discounts in Shopify POS](https://help.shopify.com/en/manual/sell-in-person/shopify-pos/discount-management)
+- **Bundles.** You can expand a bundle into components or merge items into a bundle on Basic and up. Shopify also offers a Plus-only operation for overriding a cart line’s price or appearance. Mechanic’s bundle builder supports expanding and merging only. [Shopify’s Cart Transform API](https://shopify.dev/docs/api/functions/latest/cart-transform)
 
 ## Try a discount with a test cart
 
@@ -46,11 +54,11 @@ To give one path its own label, open its **Then** step and choose **Customize la
 
 To offer three T-shirts for $30 at the register, open **Discount settings** and set **Eligible checkouts** to **Shopify POS only**. The same three shirts now cost $30 in POS and $50 in a checkout outside POS. This setting covers every path in the rule.
 
-Choose **Specific POS locations** to run the offer at selected stores. Enter one location name per line, exactly as it appears in **Settings → Locations** in Shopify. Mechanic checks the names against active Shopify locations when you publish. Update the rule if you rename a location or import it into another shop. To run the offer everywhere Shopify supports it except at the register, choose **Exclude Shopify POS**.
+Choose **Specific POS locations** to run the offer at selected stores. Enter one location name per line, exactly as it appears in **Settings → Locations** in Shopify. Update the rule if you rename a location or import it into another shop. To run the offer everywhere Shopify supports it except at the register, choose **Exclude Shopify POS**.
 
 <figure><img src="images/functions-pos-location.png" alt="Specific POS locations selected, with Downtown entered as the eligible location"><figcaption><p>Enter Downtown to offer the discount at that register.</p></figcaption></figure>
 
-In **Test cart**, choose **Edit cart** and change **Test checkout**. For a location-specific offer, try a listed location and an unlisted one. Shopify requires POS Pro at a location for automatic discounts. [Discounts in Shopify POS](https://help.shopify.com/en/manual/sell-in-person/shopify-pos/discount-management)
+In **Test cart**, choose **Edit cart** and change **Test checkout**. For a location-specific offer, try a listed location and an unlisted one. Mechanic verifies the location name when you publish. To confirm that the location has POS Pro for automatic discounts, open **Point of Sale → Settings → POS Pro Subscription** in Shopify admin. [Manage POS subscriptions by location](https://help.shopify.com/en/manual/sell-in-person/getting-started/shopify-pos-from-admin/add-locations)
 
 ## Publish your rule
 
