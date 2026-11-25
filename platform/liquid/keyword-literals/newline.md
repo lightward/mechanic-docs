@@ -6,9 +6,9 @@ The `newline` keyword literal represents the [newline control character](https:/
 
 Besides its natural uses in building strings, `newline` has a special purpose within these string filters:
 
-* [newline\_to\_br](../filters/#newline_to_br) – When used with `newline`, this filter will replace instances of `"\r\n"`, and then instances of `"\n"`.
-* [replace](../filters/#replace-replace_first) – When used with `newline` as its first argument, this filter will replace instances of `"\r\n"`, and then instances of `"\n"`.
-* [split](../filters/#split) – When used with `newline`, this filter will split by `"\r\n"` when present, and then by `"\n"`.
+* [newline\_to\_br](https://shopify.dev/docs/api/liquid/filters/newline_to_br) – When used with `newline`, this filter will replace instances of `"\r\n"`, and then instances of `"\n"`.
+* [replace](https://shopify.dev/docs/api/liquid/filters/replace) – When used with `newline` as its first argument, this filter will replace instances of `"\r\n"`, and then instances of `"\n"`.
+* [split](https://shopify.dev/docs/api/liquid/filters/split) – When used with `newline`, this filter will split by `"\r\n"` when present, and then by `"\n"`.
 
 Under the hood, each of these scenarios uses the regular expression `/\r?\n/`.
 

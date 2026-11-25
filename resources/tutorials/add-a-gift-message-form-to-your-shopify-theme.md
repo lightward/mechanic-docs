@@ -96,6 +96,8 @@ Use a development store or your normal Shopify test-order process, with a recipi
 
 Do not repeatedly retry a successful email action to test duplicates; that can send another email. The task prevents automatic repeat sends by recording a claim for the order and selected form. See the task's recovery instructions if an action fails or its outcome is uncertain.
 
+If shoppers choosing gift wrap must leave a note, you can also [require a gift message at checkout](require-a-gift-message-for-wrapped-items.md).
+
 ## Questions you might have
 
 ### Can each item have a different recipient?

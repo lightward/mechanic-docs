@@ -127,7 +127,7 @@ The `{% action "shopify" %}` tag defines a [Shopify action](../../core/actions/s
 The `| json` filter safely formats the order's GraphQL ID as a JSON string. Always include `userErrors` in your mutations — this is how Shopify reports problems.
 
 {% hint style="info" %}
-Actions are not performed immediately. Mechanic collects all actions from a task run, then performs them in sequence after the task finishes rendering. Learn more in [Actions](../../core/actions/).
+Actions are not performed immediately. Mechanic collects the actions from a task run and performs them after the task finishes rendering. If one action must finish before another starts, see [Perform action runs in sequence](../../core/tasks/advanced-settings/perform-action-runs-in-sequence.md). Learn more in [Actions](../../core/actions/).
 {% endhint %}
 
 ## Step 4: Check the preview
@@ -157,7 +157,7 @@ To see the results, open Mechanic's **Events** page. You'll see the incoming `sh
 
 ## What you've learned
 
-In this tutorial, you've worked with all of Mechanic's core concepts:
+You’ve used the core concepts of Mechanic automation to tag an order.
 
 * **Events** — things that happen (a new order being created)
 * **Subscriptions** — how a task declares interest in certain events

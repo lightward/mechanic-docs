@@ -4,7 +4,7 @@ description: Review Mechanic activity over time, spot failures, and drill into e
 
 # Activity
 
-The Activity page shows how Mechanic has been processing work for your store over time. Use it to spot busy periods, see which tasks and event topics are active, and find failures that need attention.
+The Activity page shows event, task, and action runs for your store over time. Use it to spot busy periods, see which tasks and event topics are active, and find failures that need attention.
 
 <figure><img src="../.gitbook/assets/activity_mechanic.jpg" alt="The Activity page showing event, task, action, and failure charts for a Mechanic store"><figcaption></figcaption></figure>
 

@@ -1,5 +1,5 @@
 ---
-description: "Step-by-step guides for building Mechanic tasks — from your first automation to advanced patterns."
+description: "Step-by-step guides for building tasks, storefront forms, and checkout rules in Mechanic."
 ---
 
 # 🧠 Tutorials
@@ -7,8 +7,6 @@ description: "Step-by-step guides for building Mechanic tasks — from your firs
 Step-by-step guides for common Mechanic development patterns. These tutorials walk through real-world scenarios, from setting up webhooks to building scheduled data feeds.
 
 ## Written tutorials
-
-* [Add a gift message form to your Shopify theme and email recipients after fulfillment](add-a-gift-message-form-to-your-shopify-theme.md) — collect gift details in the cart and email recipients after fulfillment
 
 * [Your first custom task](your-first-custom-task.md) — build a complete task from scratch
 * [Creating a Mechanic webhook](creating-a-mechanic-webhook.md) — set up an endpoint that triggers Mechanic tasks from external services
@@ -19,10 +17,20 @@ Step-by-step guides for common Mechanic development patterns. These tutorials wa
 * [Fetching data from a shared Google sheet](fetching-data-from-a-shared-google-sheet.md) — pull spreadsheet data into a task
 * [Query analytics data with ShopifyQL](query-analytics-data-with-shopifyql.md) — use ShopifyQL to access analytics in Mechanic
 
+## Cart and checkout tutorials
+
+* [Add a gift message form to your Shopify theme and email recipients after fulfillment](add-a-gift-message-form-to-your-shopify-theme.md) — collect gift details in the cart and email recipients after fulfillment
+
+If your shop is in the [Functions pilot](../../core/functions.md), try one of these checkout rules.
+
+* [Offer three items for $30](offer-three-items-for-30.md)
+* [Require a gift message for wrapped items](require-a-gift-message-for-wrapped-items.md)
+* [Write a Function with your AI assistant](write-a-function-with-ai.md)
+
 ## Video walkthroughs
 
 For visual learners, our [video walkthroughs](../video-walkthroughs/) cover common task patterns including auto-tagging, inventory sync, scheduled emails, and more.
 
 ## Getting started
 
-New to Mechanic? Start with the [Getting started](../../getting-started.md) guide to install Mechanic and find your first task from the library. When you're ready to build your own, work through [Your first custom task](your-first-custom-task.md), then try [Practicing writing tasks](practicing-writing-tasks.md) for more exercises. The [Core Concepts](../../core/events/) section of the docs covers the platform's execution model in detail.
+New to Mechanic? Start with the [Getting started](../../getting-started.md) guide to install Mechanic and find your first task from the library. When you're ready to build your own, work through [Your first custom task](your-first-custom-task.md), then try [Practicing writing tasks](practicing-writing-tasks.md) for more exercises. The [Core Concepts](../../core/events/) section explains how Mechanic runs tasks.

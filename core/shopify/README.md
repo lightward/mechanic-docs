@@ -4,7 +4,9 @@ description: "How Mechanic Shopify automation tasks read and write store data �
 
 # Interacting with Shopify
 
-Mechanic tasks have full access to the Shopify Admin API. Tasks can **read** data inline during execution — running GraphQL queries to fetch additional context beyond the triggering event — and **write** data via actions that run Shopify GraphQL mutations after the task completes. This gives tasks the same level of API access available to custom apps, without requiring you to build or host app infrastructure.
+Mechanic tasks use the Shopify Admin API with the [permissions](../tasks/permissions.md) granted for your shop. Tasks can **read** data inline during execution — running GraphQL queries to fetch additional context beyond the triggering event — and **write** data via actions that run Shopify GraphQL mutations after the task completes.
+
+Some Admin API operations are restricted in Mechanic. For example, the Shopify action cannot create a carrier service to calculate new shipping rates. If you want to hide an existing express rate for certain carts, a delivery customization can do that during checkout on a shop in the [Functions pilot](../functions.md#what-can-a-function-do).
 
 ## Reading data
 

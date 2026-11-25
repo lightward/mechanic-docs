@@ -91,7 +91,7 @@ Use this destination for details that should travel with the customer's order, s
 
 Saving succeeds only after Shopify confirms the answers. It does not create a Mechanic event or send email. The cart must contain an item. A failed save keeps the answers available for retry. If saved answers cannot be loaded, the form asks the customer to retry before editing.
 
-**Checkout routes that bypass the form also bypass these questions.** This includes Buy it now and cart drawers without the form. Accelerated payment buttons and custom theme checkout behavior may also bypass the save checks. These checks are a convenience on the cart page, not a checkout validation rule. Make the form easy to find and test the normal checkout button in your theme.
+**Checkout routes that bypass the form also bypass these questions.** This includes Buy it now and cart drawers without the form. Accelerated payment buttons and custom theme checkout behavior may also bypass the save checks. These checks are a convenience on the cart page, not a checkout validation rule. Make the form easy to find and test the normal checkout button in your theme. In the Functions pilot, you can also [require the saved gift message for wrapped items at checkout](../resources/tutorials/require-a-gift-message-for-wrapped-items.md).
 
 Answers are stored as cart attributes named `mechanic_form_<form ID>_<field key>` and become order custom attributes at checkout. The form changes only its own attributes, leaving the cart note and other apps' attributes alone. Conditional answers that are no longer visible are removed on the next save. Addresses and multiple selections are stored as JSON text. Saved answers are limited to 32 KiB per update, including attribute names; file uploads are not supported.
 

@@ -17,8 +17,8 @@
   * [Contributing](resources/task-library/contributing.md)
   * [Requesting](resources/task-library/requesting.md)
   * [Custom webhook imports](resources/task-library/custom-webhook-imports.md)
-* [🧑‍💻 Local task development](platform/mechanic-cli.md)
-  * [API tokens and task sync API](platform/mechanic-task-sync-api.md)
+* [🧑‍💻 Mechanic CLI](platform/mechanic-cli.md)
+  * [API tokens and sync endpoints](platform/mechanic-task-sync-api.md)
 * [🤖 Mechanic MCP Server](platform/mcp.md)
 * [🤖 Mechanic Agent Skills](platform/agent-skills.md)
 * [🚀 Slack community](resources/slack.md)
@@ -42,7 +42,6 @@
     * [Send an email when a product's price goes below its cost](resources/video-walkthroughs/send-an-email-when-a-products-price-goes-below-its-cost.md)
     * [Auto-tag customers by sales channel](resources/video-walkthroughs/auto-tag-customers-by-sales-channel.md)
     * [Creating products in bulk](resources/video-walkthroughs/creating-products-in-bulk.md)
-  * [Add a gift message form to your Shopify theme and email recipients after fulfillment](resources/tutorials/add-a-gift-message-form-to-your-shopify-theme.md)
   * [Your first custom task](resources/tutorials/your-first-custom-task.md)
   * [Creating a Mechanic webhook](resources/tutorials/creating-a-mechanic-webhook.md)
   * [Practicing writing tasks](resources/tutorials/practicing-writing-tasks.md)
@@ -51,6 +50,10 @@
   * [Running bulk operation mutations](resources/tutorials/bulk-operation-mutations.md)
   * [Fetching data from a shared Google sheet](resources/tutorials/fetching-data-from-a-shared-google-sheet.md)
   * [Query analytics data with ShopifyQL](resources/tutorials/query-analytics-data-with-shopifyql.md)
+  * [Offer three items for $30](resources/tutorials/offer-three-items-for-30.md)
+  * [Write a Function with your AI assistant](resources/tutorials/write-a-function-with-ai.md)
+  * [Require a gift message for wrapped items](resources/tutorials/require-a-gift-message-for-wrapped-items.md)
+  * [Add a gift message form to your Shopify theme and email recipients after fulfillment](resources/tutorials/add-a-gift-message-form-to-your-shopify-theme.md)
 * [🏆 Converting tasks from Shopify REST to GraphQL](resources/converting-tasks-from-shopify-rest-to-graphql/README.md)
   * [Conversion: Single resource lookups](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-single-resource-lookups.md)
   * [Conversion: Resource loops to paginated queries](resources/converting-tasks-from-shopify-rest-to-graphql/conversion-resource-loops-to-paginated-queries.md)
@@ -123,6 +126,8 @@
   * [Shopify admin action links](core/shopify/admin-action-links.md)
   * [API rate limit](core/shopify/api-rate-limit.md)
   * [API versions](core/shopify/api-versions.md)
+* [Forms](app/forms.md)
+* [Functions](core/functions.md)
 
 ## Platform
 
@@ -259,7 +264,6 @@
 * [Task list](app/home.md)
 * [Activity](app/activity.md)
 * [Task editor](app/task-editor.md)
-* [Forms](app/forms.md)
 * [Events](app/events.md)
 * [Settings](app/settings.md)
 * [Ask Mechanic](app/ask-mechanic.md)
@@ -269,6 +273,7 @@
 ***
 
 * [FAQ](faq/README.md)
+  * [Can Mechanic help before an order is placed?](faq/can-mechanic-help-before-an-order-is-placed.md)
   * [The app isn't loading. What do I do?](faq/app-not-loading.md)
   * [How do I stop a large batch of runs?](faq/how-do-i-stop-a-large-batch-of-runs.md)
   * [A Shopify event is missing. Where is it?](faq/a-shopify-event-is-missing-where-is-it.md)

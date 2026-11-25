@@ -8,6 +8,7 @@ Frequently asked questions about Mechanic. If you don't find your answer here, r
 
 ## Getting started
 
+* [Can Mechanic help before an order is placed?](can-mechanic-help-before-an-order-is-placed.md)
 * [The app isn't loading. What do I do?](app-not-loading.md)
 * [Can non-owners install Mechanic?](can-non-owners-install-mechanic.md)
 * [Does my theme need to be updated for Mechanic?](does-my-theme-need-to-be-updated-for-mechanic.md)

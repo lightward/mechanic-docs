@@ -33,6 +33,8 @@ For more data, use Shopify's GraphQL API.
 ```
 {% endhint %}
 
+## Processing modes
+
 Mechanic distinguishes between "individual" and "batch" modes to enable a greater variety of possible workflows. Some tasks may benefit from having knowledge of all selected resources at the same time within the same task run, while some tasks may be more suited to receiving a single resource at a time.
 
 For example, tasks that are created to print deliberately-sorted pick lists might benefit from batch mode, whereas tasks aimed at refunding specific orders might benefit from individual mode.

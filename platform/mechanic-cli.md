@@ -1,16 +1,63 @@
 ---
-description: Edit Mechanic tasks locally, preview and diff changes, and publish them safely with the Mechanic CLI.
+description: Edit Mechanic tasks locally, preview changes, and sync them with your shop.
 ---
 
-# Local task development with the Mechanic CLI
+# Local development with the Mechanic CLI
 
-Use the Mechanic CLI when you want to keep a shop's tasks in local files, edit them in your own tools, preview changes with Mechanic, and publish them back when they are ready.
+Use the Mechanic CLI to keep tasks in local files. Edit them in your own tools, preview changes, and sync your work with the shop.
 
 This is the recommended path for task work that belongs in Git, needs review, or benefits from an editor, an AI coding tool, or a repeatable deployment process.
 
 {% hint style="info" %}
-The CLI uses Mechanic's task sync API, authenticated with an API token from your shop. If you are building custom scripts, see [API tokens and task sync API](mechanic-task-sync-api.md). For most users, start with the CLI.
+The CLI uses a shop API token for connected commands. If you are building custom scripts, see [API tokens and sync endpoints](mechanic-task-sync-api.md). For most users, start with the CLI.
 {% endhint %}
+
+## Function drafts
+
+The commands in this section are for the upcoming CLI 0.2.0 release. Pilot shops using the public 0.1.x CLI can [import and test a Function in the builder](../resources/tutorials/write-a-function-with-ai.md).
+
+### Start with a new rule
+
+Save an [AI-authored rule](../resources/tutorials/write-a-function-with-ai.md) or a builder export as `functions/offer.json`. You can check its format and preview its saved carts offline. Look at the expected and actual outcomes for each cart. **Inputs only** means the cart has no expected result to compare. If an expected result changes or the engine cannot evaluate it, preview exits with a failure. Open the cart in the builder to inspect the conditions and inputs.
+
+In your local fish terminal:
+
+```fish
+mechanic functions validate functions/offer.json
+mechanic functions preview functions/offer.json
+```
+
+To save the rule to a shop, [create an API token](#create-an-api-token) and [initialize the project](#initialize-the-project) for a shop with Functions access. Run these commands from the folder containing `mechanic.json`:
+
+```fish
+mechanic functions save-draft functions/offer.json
+mechanic functions open functions/offer.json
+```
+
+Saving a new file creates a draft. In Mechanic, select any required shop products or collections and check your results. Grant Shopify permissions there when you’re ready to publish.
+
+### Edit a rule that’s already in Mechanic
+
+In your local fish terminal, run `mechanic functions list` and copy the draft ID. Replace `DRAFT_ID` below and choose an unused destination filename:
+
+```fish
+mechanic functions pull DRAFT_ID --out functions/existing-offer.json
+```
+
+Edit the file, then compare the proposed change with the saved rule. The shop preview includes the draft’s selections and existing saved carts. Use the shop validation to check the publication compiler.
+
+```fish
+mechanic functions diff functions/existing-offer.json
+mechanic functions preview functions/existing-offer.json --shop
+mechanic functions validate functions/existing-offer.json --shop
+mechanic functions save-draft functions/existing-offer.json
+```
+
+The CLI keeps a link between the file path and the shop draft. Keep using that path for edits. To resolve a conflict with an edit made in the builder, pull the current version to a second file. Apply your intended edits there, then diff and save that file.
+
+### Publish a saved revision
+
+Publish from the builder when you’re ready. On shops separately enabled for CLI publishing, `mechanic functions publish functions/offer.json --dry-run` checks the saved revision and its carts. Running the command without `--dry-run` checks the shop’s CLI publication access and Shopify permissions, then submits that revision to Shopify. After an interrupted response, retry from the same project and file before editing the rule, or open its publication history in Mechanic to see what Shopify confirmed. The **Live checkout** section shows whether that Function is active now.
 
 ## How it fits together
 
