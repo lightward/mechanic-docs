@@ -303,7 +303,7 @@ Before removing a task subscription such as `user/stock/received`, check whether
 mechanic webhooks list
 ```
 
-Look for the subscription's topic in the **Event topic** column. **Source name** is the name configured on the webhook. Use `mechanic webhooks list --json` in a script to get the configured `shop_domain` and a `webhooks` array.
+Look for the subscription's topic in the **Event topic** column. **Source name** is the name configured on the webhook. Use `mechanic webhooks list --json` in a script to get the configured `shop_domain` and a `webhooks` array. Both formats fetch every page before printing the list. The CLI escapes bidirectional text controls for display. A JSON parser recovers the original source name.
 
 The list covers enabled [incoming Mechanic webhooks](webhooks.md). A task or a [custom Shopify webhook](shopify/custom-webhooks.md) can also produce a `user/...` event, so a topic missing from this list can still be in use.
 

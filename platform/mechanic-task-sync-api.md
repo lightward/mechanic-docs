@@ -142,11 +142,16 @@ fetching or parsing the task JSON separately.
 {
   "webhooks": [
     { "event_source_name": "Warehouse", "event_topic": "user/stock/received" }
-  ]
+  ],
+  "next_cursor": null
 }
 ```
 
-A shop with no enabled incoming webhooks receives `{"webhooks":[]}`. To copy a receiving URL or manage the webhook, open **Settings > Mechanic webhooks** in Mechanic.
+Each page contains up to 100 webhooks. Start with `GET /v1/webhooks`. When `next_cursor` is a string, pass the entire value as the URL-encoded `cursor` query parameter on the next GET to the same endpoint. Keep the same shop and authentication headers. Continue until `next_cursor` is `null`, including when the final page contains exactly 100 webhooks.
+
+Cursors belong to one shop and expire after 24 hours. An invalid or expired cursor returns HTTP 400. Start again without a cursor to get a fresh list. Each page reflects the enabled webhooks at the time of the request, so changes made during listing can affect the results.
+
+A shop with no enabled incoming webhooks receives `{"webhooks":[],"next_cursor":null}`. To copy a receiving URL or manage the webhook, open **Settings > Mechanic webhooks** in Mechanic.
 
 ## Globals and secrets
 
