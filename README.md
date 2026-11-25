@@ -10,9 +10,9 @@ Mechanic is a Shopify automation and development platform. Write Liquid code tha
 
 * [Browse the task library](https://tasks.mechanic.dev/) — hundreds of ready-to-use automations for tagging, emails, inventory, fulfillment, and more
 * [Get started](getting-started.md) — install Mechanic and set up your first task in minutes
+* [Build something custom](custom.md) — create a task tailored to your store's workflow
 * [Build a storefront form](app/forms.md) — collect quote requests, wholesale applications, and other customer inquiries, then let your tasks handle the response
 * [Build a checkout rule](core/functions.md) — use Functions to offer a discount, build a bundle, or change a checkout option (limited pilot)
-* [Build something custom](custom.md) — create a task tailored to your store's workflow
 * [Join our Slack community](resources/slack.md) — get help and share ideas with other merchants and developers
 * [Read the changelog](https://mechanic.canny.io/changelog) — see what’s new in Mechanic
 

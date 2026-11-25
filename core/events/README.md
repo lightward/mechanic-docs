@@ -4,7 +4,7 @@ description: "Events are triggers that start Mechanic tasks — Shopify webhooks
 
 # Events
 
-An **event** represents something that happened — a new order, a product update, midnight rolling around, or a webhook arriving from an external service. When an event occurs, Mechanic checks which tasks are subscribed to it and runs them. Tasks can also emit new events, making it possible to build multi-step workflows where one task's output drives another.
+An **event** represents something that happened — a new order, a product update, midnight rolling around, or a webhook arriving from an external service. Events are the entry point to all Mechanic automation: when an event occurs, Mechanic checks which tasks are subscribed to it and runs them. Tasks can also emit new events, making it possible to build multi-step workflows where one task's output drives another.
 
 An event always has a [**topic**](topics.md) and **data** (even if the data is null/nil). Event attributes may be referenced in Liquid using the [**Event object**](../../platform/liquid/objects/event.md).
 

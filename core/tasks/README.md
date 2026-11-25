@@ -8,8 +8,6 @@ A task is an automation unit — it watches for something to happen in your stor
 
 Under the hood, a **task** combines Liquid code with user-configurable [**options**](options/) and a set of event [**subscriptions**](subscriptions.md). When an event matches a subscription, Mechanic executes the task's code with access to the event data. The code can query the Shopify Admin API, apply conditional logic, iterate over data, and render any number of [**actions**](../actions/) — Shopify mutations, emails, HTTP requests, file generation, and more.
 
-An order task can tag a high-value order when Shopify creates it. To give the buyer a discount on that same purchase, Shopify needs to apply the rule during checkout. See [Functions](../functions.md) for the limited pilot.
-
 A task uses its [**preview**](previews/) to communicate ahead of time the work it intends to do. Previews are important for users, and are also important for Mechanic itself – Mechanic looks to the task preview to understand what [**permissions**](permissions.md) a task requires. Tasks can also declare their permissions explicitly using the [`{% permissions %}` tag](../../platform/liquid/tags/permissions.md).
 
 Tasks may be written from scratch, or installed from the Mechanic library (available in-app and [on GitHub](https://github.com/lightward/mechanic-tasks)). Once installed, a task's code may be modified at any time.

@@ -157,7 +157,7 @@ To see the results, open Mechanic's **Events** page. You'll see the incoming `sh
 
 ## What you've learned
 
-Here’s how the pieces of your order-tagging task fit together.
+You’ve used the core concepts of Mechanic automation to tag an order.
 
 * **Events** — things that happen (a new order being created)
 * **Subscriptions** — how a task declares interest in certain events
