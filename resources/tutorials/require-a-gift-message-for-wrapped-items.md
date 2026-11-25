@@ -6,7 +6,7 @@ description: Collect a gift note on the cart page and ask for it at checkout onl
 
 A shopper buying a gift-wrapped shirt should have a chance to write a note. Someone buying a regular shirt should be able to check out immediately. This walkthrough adds that checkout rule to a gift message form. You can also send the note to the recipient after fulfillment.
 
-You’ll need access to the [Functions pilot](../../core/functions.md). To use the rule on your storefront, your theme must already identify gift-wrapped items with a line item property, and shoppers need a way to reach the form from their cart.
+To use the rule on your storefront, your theme must already identify gift-wrapped items with a line item property, and shoppers need a way to reach the form from their cart.
 
 ## 1. Find the two values your rule will check
 

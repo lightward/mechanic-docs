@@ -22,4 +22,4 @@ Each theme has its own block placements. If you change themes, place the form in
 
 ## Checkout rules
 
-Shopify runs published [Functions](../core/functions.md) for shops in the limited pilot. A discount or checkout rule works without a theme block or JavaScript embed. If your rule checks something the shopper enters, such as a gift message, give them a place to enter it. [See the gift-wrap walkthrough](../resources/tutorials/require-a-gift-message-for-wrapped-items.md).
+Shopify runs published [Functions](../core/functions.md). A discount or checkout rule works without a theme block or JavaScript embed. If your rule checks something the shopper enters, such as a gift message, give them a place to enter it. [See the gift-wrap walkthrough](../resources/tutorials/require-a-gift-message-for-wrapped-items.md).

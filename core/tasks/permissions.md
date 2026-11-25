@@ -66,7 +66,7 @@ Saving a [storefront form](../../app/forms.md) adds `read_themes` so Mechanic ca
 
 Forms uses Mechanic’s app access for placement discovery and these resource checks. It does not add these scopes to a custom Shopify API token supplied for your tasks.
 
-Saving a [Function](../functions.md#publish-your-rule) in a pilot shop adds the Shopify permission for its type. For example, a discount needs `write_discounts`. The saved rule can also need access to selected products or POS locations. Mechanic lists the Functions that need each scope in **Settings → Permissions**.
+Saving a [Function](../functions.md#publish-your-rule) adds the Shopify permission for its type. For example, a discount needs `write_discounts`. The saved rule can also need access to selected products or POS locations. Mechanic lists the Functions that need each scope in **Settings → Permissions**.
 
 ## Troubleshooting
 

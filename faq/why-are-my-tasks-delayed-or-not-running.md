@@ -13,7 +13,7 @@ In general, there are two reasons why a task might be delayed, or might not be a
 Using Mechanic for a business-critical purpose? Learn about [monitoring Mechanic](../techniques/monitoring.md).
 {% endhint %}
 
-If you’re troubleshooting a discount or another checkout rule from the Functions pilot, open the Function and check **Live checkout**. Shopify runs that rule without creating a task run. See [Check what shoppers are getting](../core/functions.md#check-what-shoppers-are-getting).
+If you’re troubleshooting a discount or another checkout rule in Mechanic, open the Function and check **Live checkout**. Shopify runs that rule without creating a task run. See [Check what shoppers are getting](../core/functions.md#check-what-shoppers-are-getting).
 
 ## If your Mechanic queue is backed up...
 

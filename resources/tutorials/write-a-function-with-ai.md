@@ -4,7 +4,7 @@ description: Create a discount with your AI assistant, test its example carts, a
 
 # Write a Function with your AI assistant
 
-Suppose you want to offer three items from a collection for $30. You can describe the offer to your AI assistant, then review the rule and its test carts in Mechanic. You’ll need access to the [Functions pilot](../../core/functions.md) to import the rule. This walkthrough uses sample items priced in USD.
+Suppose you want to offer three items from a collection for $30. You can describe the offer to your AI assistant, then review the rule and its test carts in Mechanic. This walkthrough uses sample items priced in USD.
 
 ## Use an external AI assistant
 
