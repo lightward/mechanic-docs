@@ -14,7 +14,7 @@ The CLI uses a shop API token for connected commands. If you are building custom
 
 ## Function drafts
 
-The commands in this section are for the upcoming CLI 0.2.0 release. Pilot shops using the public 0.1.x CLI can [import and test a Function in the builder](../resources/tutorials/write-a-function-with-ai.md).
+The commands in this section are for the upcoming CLI 0.2.0 release. If you use the public 0.1.x CLI, you can [import and test a Function in the builder](../resources/tutorials/write-a-function-with-ai.md).
 
 ### Start with a new rule
 

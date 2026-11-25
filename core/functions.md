@@ -8,9 +8,7 @@ Functions let you change what happens while a customer shops. Give a shopper thr
 
 In the builder, you choose the conditions to check and what should happen when they match. Shopify runs the published rule with the cart and checkout data it supplies. Use a [task](tasks/README.md) for work that responds to an event or a schedule, such as tagging the resulting order, emailing a customer, or sending fulfillment details to another service. Checkout does not wait for a task or its actions.
 
-{% hint style="info" %}
-Functions are available in a limited pilot. The Mechanic team enables creation for individual shops. If your shop leaves the pilot while a rule is live, you can still open the rule and deactivate it.
-{% endhint %}
+Functions are included in your Mechanic subscription. In the app, open **Functions** to create your first rule.
 
 ## What can a function do?
 

@@ -30,7 +30,7 @@ The `mechanic-task-writer` skill gives your assistant deep knowledge of Mechanic
 * Case-insensitive tag comparison
 * Task options with correct suffixes
 
-A Function writer skill is in development. If your shop has Functions pilot access, you can already give an assistant the schema and example from the builder. Follow [Write a Function with your AI assistant](../resources/tutorials/write-a-function-with-ai.md) to try an offer.
+A Function writer skill is in development. You can give an assistant the schema and example from the builder. Follow [Write a Function with your AI assistant](../resources/tutorials/write-a-function-with-ai.md) to try an offer.
 
 The `mechanic-cli` skill teaches your assistant how to work safely in a local task repo:
 

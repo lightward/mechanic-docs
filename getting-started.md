@@ -56,7 +56,7 @@ If the task library doesn't cover your use case, Mechanic is a full development 
 
 ## Working with the cart or checkout
 
-To collect a quote request before a customer orders, connect a [storefront form](app/forms.md) to a task. If you want Shopify to apply a rule while the customer shops, such as offering three shirts for $30, start with [Functions](core/functions.md). The Mechanic team enables Functions for individual shops in a limited pilot.
+To collect a quote request before a customer orders, connect a [storefront form](app/forms.md) to a task. If you want Shopify to apply a rule while the customer shops, such as offering three shirts for $30, start with [Functions](core/functions.md).
 
 ## Get help
 

@@ -4,7 +4,7 @@ description: Build a group-price discount and check the price a shopper pays wit
 
 # Offer three items for $30
 
-Suppose you want shoppers to mix and match three T-shirts for $30. You can try the offer with the sample shirts first, then choose the collection that qualifies in your shop. You’ll need access to the [Functions pilot](../../core/functions.md) to follow along.
+Suppose you want shoppers to mix and match three T-shirts for $30. You can try the offer with the sample shirts first, then choose the collection that qualifies in your shop.
 
 ## 1. Open the starting point
 

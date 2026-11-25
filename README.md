@@ -12,7 +12,7 @@ Mechanic is a Shopify automation and development platform. Write Liquid code tha
 * [Get started](getting-started.md) — install Mechanic and set up your first task in minutes
 * [Build something custom](custom.md) — create a task tailored to your store's workflow
 * [Build a storefront form](app/forms.md) — collect quote requests, wholesale applications, and other customer inquiries, then let your tasks handle the response
-* [Build a checkout rule](core/functions.md) — use Functions to offer a discount, build a bundle, or change a checkout option (limited pilot)
+* [Build a checkout rule](core/functions.md) — use Functions to offer a discount, build a bundle, or change a checkout option
 * [Join our Slack community](resources/slack.md) — get help and share ideas with other merchants and developers
 * [Read the changelog](https://mechanic.canny.io/changelog) — see what’s new in Mechanic
 
@@ -29,7 +29,7 @@ Mechanic gives you a task library with hundreds of ready-to-use automations — 
 2. Is what you're looking for already available from [Mechanic's task library](https://tasks.mechanic.dev/)?
    * We have hundreds of common scenarios already handled with pre-written, open-source, modifiable, off-the-shelf tasks.
 3. Is what you're trying to do something Shopify supports?
-   * Tasks can read and update the store data Shopify makes available to your shop through its [Admin API](core/shopify/). If you need a rule to take effect while the buyer is checking out, see [what Functions can do in the limited pilot](core/functions.md#what-can-a-function-do).
+   * Tasks can read and update the store data Shopify makes available to your shop through its [Admin API](core/shopify/). If you need a rule to take effect while the buyer is checking out, see [what Functions can do](core/functions.md#what-can-a-function-do).
 4. Need something tailored to your store?
    * You can [build a custom task](custom.md) yourself, or [hire a developer](hire-a-developer.md) to create one for you. Either way, the path is well-established.
 

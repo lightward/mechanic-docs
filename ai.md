@@ -28,7 +28,7 @@ Mechanic support covers the platform and tasks from the [task library](resources
 
 **Ask Mechanic** is Mechanic's built-in AI assistant, available directly inside the app. It has access to Mechanic's full documentation and the [Shopify Dev MCP](platform/shopify-dev-mcp.md) (Shopify's GraphQL schema and API documentation), so it can answer platform questions, help you find tasks, explain how features work, and assist with task code. Look for the **Ask Mechanic** button in the app to get started — no setup or external tools needed.
 
-For a cart or checkout rule in the Functions pilot, give an external assistant the schema from the builder, then import and test its draft in Mechanic. [Write a Function with your AI assistant](resources/tutorials/write-a-function-with-ai.md).
+For a cart or checkout rule in Mechanic, give an external assistant the schema from the builder, then import and test its draft in Mechanic. [Write a Function with your AI assistant](resources/tutorials/write-a-function-with-ai.md).
 
 ### For developers
 

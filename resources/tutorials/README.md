@@ -21,7 +21,7 @@ Step-by-step guides for common Mechanic development patterns. These tutorials wa
 
 * [Add a gift message form to your Shopify theme and email recipients after fulfillment](add-a-gift-message-form-to-your-shopify-theme.md) — collect gift details in the cart and email recipients after fulfillment
 
-If your shop is in the [Functions pilot](../../core/functions.md), try one of these checkout rules.
+Try one of these [Shopify Functions](../../core/functions.md) in Mechanic.
 
 * [Offer three items for $30](offer-three-items-for-30.md)
 * [Require a gift message for wrapped items](require-a-gift-message-for-wrapped-items.md)

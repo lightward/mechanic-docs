@@ -26,7 +26,7 @@ Most of the time, Mechanic figures out the Shopify API scopes your tasks need fr
 
 Saved [storefront forms](forms.md) also require permission to read themes, so Mechanic can show where each form is placed. Visibility conditions that select products, variants, or collections also require product read access. These requirements use the same access approval flow; theme read access does not allow Forms to change theme files. See [Permissions](../core/tasks/permissions.md) for the full model.
 
-On shops in the [Functions pilot](../core/functions.md#publish-your-rule), this page also lists the saved rules that need each scope.
+This page also lists the saved [Functions](../core/functions.md#publish-your-rule) that need each permission.
 
 <figure><img src="../.gitbook/assets/mechanic-permissions.png" alt="The Permissions section in Mechanic settings, showing required and available Shopify API scopes"><figcaption></figcaption></figure>
 
@@ -67,7 +67,7 @@ Tasks can read globals with `globals.some_key` and reference secrets with `secre
 
 ## API tokens
 
-Tokens let the [Mechanic CLI](../platform/mechanic-cli.md), scripts, and other tools work with this shop. A token can read, preview, and publish tasks and manage shop globals and secrets. On pilot shops with Functions access, it can also read, check, and save Function drafts. If publication via API is enabled separately for the shop, any of its active tokens can submit a saved rule for publication. Mechanic only shows a token once, when it is created; if a token is lost or exposed, revoke it and create a new one.
+Tokens let the [Mechanic CLI](../platform/mechanic-cli.md), scripts, and other tools work with this shop. A token can read, preview, and publish tasks and manage shop globals and secrets. It can also read, check, and save Function drafts. If publication via API is enabled separately for the shop, any of its active tokens can submit a saved rule for publication. Mechanic only shows a token once, when it is created; if a token is lost or exposed, revoke it and create a new one.
 
 Use a separate token for each device, repository, or automation. Each shop can have up to five active API tokens; revoke unused tokens before creating more.
 
