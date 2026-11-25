@@ -13,6 +13,8 @@ In general, there are two reasons why a task might be delayed, or might not be a
 Using Mechanic for a business-critical purpose? Learn about [monitoring Mechanic](../techniques/monitoring.md).
 {% endhint %}
 
+If you’re troubleshooting a discount or another checkout rule from the Functions pilot, open the Function and check **Live checkout**. Shopify runs that rule without creating a task run. See [Check what shoppers are getting](../core/functions.md#check-what-shoppers-are-getting).
+
 ## If your Mechanic queue is backed up...
 
 ... then you'll see a steady stream of incoming activity, in your account's activity log, but you might not see activity corresponding to the very latest events in your store. Mechanic has [some concurrency limits](../core/runs/concurrency.md) that determine how much can happen in your account at once, and if you reach those limits, processing of new events will be delayed until Mechanic catches up.

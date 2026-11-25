@@ -1,10 +1,10 @@
 ---
-description: Install Mechanic task-writing, Function-writing and CLI expertise into your AI coding tool.
+description: Install Mechanic task-writing and CLI skills in your AI coding tool.
 ---
 
 # 🤖 Mechanic Agent Skills
 
-Install Mechanic expertise directly into your AI coding tool. Mechanic's skills help an assistant write task code, work in a local task repo, write Shopify Function rules, and check examples against the builder’s test carts.
+Install Mechanic expertise directly into your AI coding tool. Mechanic's skills help an assistant write task code and work in a local task repo.
 
 ***
 
@@ -30,7 +30,7 @@ The `mechanic-task-writer` skill gives your assistant deep knowledge of Mechanic
 * Case-insensitive tag comparison
 * Task options with correct suffixes
 
-The `mechanic-function-writer` skill helps your assistant create a Function definition and test it against example carts. It includes examples for discounts, checkout validation, bundles, delivery options and payment methods. Follow [Write a Function with your AI assistant](../resources/tutorials/write-a-function-with-ai.md) to try an offer.
+A Function writer skill is in development. If your shop has Functions pilot access, you can already give an assistant the schema and example from the builder. Follow [Write a Function with your AI assistant](../resources/tutorials/write-a-function-with-ai.md) to try an offer.
 
 The `mechanic-cli` skill teaches your assistant how to work safely in a local task repo:
 
@@ -66,10 +66,6 @@ This installs the available Mechanic skills. To install only one skill, use:
 npx skills add lightward/mechanic-skills --skill mechanic-task-writer
 ```
 
-```fish
-npx skills add lightward/mechanic-skills --skill mechanic-function-writer
-```
-
 ```bash
 npx skills add lightward/mechanic-skills --skill mechanic-cli
 ```
@@ -92,9 +88,9 @@ In your local fish terminal:
 npx skills list
 ```
 
-Look for the names you installed. For example, installing only the Function writer should list `mechanic-function-writer`. The output also identifies the installation directory and selected agents.
+Look for the names you installed. For example, installing only the task writer should list `mechanic-task-writer`. The output also identifies the installation directory and selected agents.
 
-For a manual installation, copy the entire skill directory from the [Mechanic Skills repository](https://github.com/lightward/mechanic-skills) into the skills directory that your tool uses. Keep the `references/` folder with `SKILL.md`. It contains the Function schema and sample carts.
+For a manual installation, copy the entire skill directory from the [Mechanic Skills repository](https://github.com/lightward/mechanic-skills) into the skills directory that your tool uses. Keep the `references/` folder with `SKILL.md`. It contains the examples and references used by the skill.
 
 ### Step 3: Restart your tool
 

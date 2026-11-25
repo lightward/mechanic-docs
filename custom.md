@@ -4,7 +4,9 @@ description: "Build custom Shopify automations with Mechanic using Liquid, Graph
 
 # 🙋 I need something custom!
 
-Mechanic is a development platform – in the hands of a developer, it can be used to accomplish almost anything in Shopify. While our [task library](resources/task-library/) covers many use cases, Mechanic's true strength is in letting developers solve merchant problems quickly, giving merchants easy configuration forms for managing the resulting tasks.
+Start with the [task library](resources/task-library/) to see how other shops handle similar work. A developer can adapt a task or write one for your shop, with options your team can change later. Tasks are a good fit for jobs like tagging orders, syncing inventory, or sending a daily report.
+
+If the change needs to happen while the buyer is checking out, see [what Functions can do](core/functions.md#what-can-a-function-do). Functions are available to individual shops in a limited pilot.
 
 {% hint style="warning" %}
 Mechanic support covers the platform and tasks from the [task library](resources/task-library/). Custom tasks (including AI-generated tasks) are not covered by support — for help with custom task logic, ask in the [Mechanic Slack community](resources/slack.md) or [hire a developer](hire-a-developer.md).

@@ -98,7 +98,7 @@ There is no `tasks new` API endpoint. `mechanic tasks new` is a local CLI comman
 `POST /v1/tasks` always creates a new task. It does not update an existing task by matching the task name or local slug. For direct HTTP creates, send an `Idempotency-Key` header with a UUID generated for the task you intend to create. Mechanic uses that UUID as the created task ID. Retrying with the same UUID returns the existing task instead of creating a duplicate, so use a different UUID for each intended task.
 {% endhint %}
 
-For portable Function JSON, use the [Function draft commands](mechanic-cli.md#function-drafts). The CLI translates the portable file into the shop’s saved definition and carries forward matching Shopify selections and existing test expectations.
+You can import portable Function JSON in the builder. The [Function draft commands in the upcoming CLI 0.2.0](mechanic-cli.md#function-drafts) translate the portable file into the shop’s saved definition and carry forward matching Shopify selections and existing test expectations.
 
 For most local task work, prefer the CLI commands that wrap these endpoints:
 

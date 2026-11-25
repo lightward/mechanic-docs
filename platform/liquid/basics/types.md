@@ -80,7 +80,7 @@ An array is a value that itself contains an ordered list of other values. Each v
 
 ### Creating an array
 
-Liquid supports creating arrays of strings using the [split](../filters/#split) filter. In Mechanic, arrays can be created using the [array literal](types.md).
+Liquid supports creating arrays of strings using the [split](https://shopify.dev/docs/api/liquid/filters/split) filter. In Mechanic, arrays can be created using the [array literal](types.md).
 
 {% hint style="info" %}
 The array literal is unique to Mechanic Liquid. Arrays cannot be created in this way using Shopify Liquid.

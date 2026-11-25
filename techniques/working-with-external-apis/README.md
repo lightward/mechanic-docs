@@ -12,7 +12,7 @@ For a higher-level overview of connecting Mechanic to third-party services — i
 
 ## Loading data into Mechanic
 
-Mechanic is an event-driven platform. This means that all data _used_ by Mechanic needs to arrive in the form of an event. (The only exception here is Shopify itself: see [Interacting with Shopify](../../core/shopify/)).
+A task can receive data that another service sends to Mechanic, or request the data itself. When a task makes an HTTP request, the response is available in a later task run.
 
 To create events using third-party data, use one of these techniques:
 

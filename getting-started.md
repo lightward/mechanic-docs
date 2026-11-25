@@ -54,6 +54,10 @@ If the task library doesn't cover your use case, Mechanic is a full development 
 * [Your first custom task](resources/tutorials/your-first-custom-task.md) — a step-by-step tutorial for building a task from scratch
 * [Local task development with the Mechanic CLI](platform/mechanic-cli.md) — edit, preview, diff, and publish tasks from your own editor
 
+## Working with the cart or checkout
+
+To collect a quote request before a customer orders, connect a [storefront form](app/forms.md) to a task. If you want Shopify to apply a rule while the customer shops, such as offering three shirts for $30, start with [Functions](core/functions.md). The Mechanic team enables Functions for individual shops in a limited pilot.
+
 ## Get help
 
 * [Slack community](resources/slack.md) — ask questions and share solutions with other Mechanic users

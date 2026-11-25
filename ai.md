@@ -28,6 +28,8 @@ Mechanic support covers the platform and tasks from the [task library](resources
 
 **Ask Mechanic** is Mechanic's built-in AI assistant, available directly inside the app. It has access to Mechanic's full documentation and the [Shopify Dev MCP](platform/shopify-dev-mcp.md) (Shopify's GraphQL schema and API documentation), so it can answer platform questions, help you find tasks, explain how features work, and assist with task code. Look for the **Ask Mechanic** button in the app to get started — no setup or external tools needed.
 
+For a cart or checkout rule in the Functions pilot, give an external assistant the schema from the builder, then import and test its draft in Mechanic. [Write a Function with your AI assistant](resources/tutorials/write-a-function-with-ai.md).
+
 ### For developers
 
 The **[Mechanic CLI](platform/mechanic-cli.md)** gives AI and agent workflows a safe local loop: pull task files, edit them in a repo, preview local changes, review diffs, and publish intentionally. Use it when an assistant is making changes that should be checked before they reach Mechanic.
@@ -48,7 +50,7 @@ The **[Mechanic GPT](platform/chatgpt.md)** has access to Mechanic's full docume
 
 ## Tips for working with AI
 
-These apply regardless of which AI tool you're using:
+When you’re writing a task with an AI assistant, check the following.
 
 * **Start from the task library.** Search [tasks.mechanic.dev](https://tasks.mechanic.dev/) for an existing task that's close to what you need. Modifying a working task is faster and more reliable than starting from scratch.
 * **Check subscriptions.** Make sure the task subscribes to the right event topics. A task that listens to `shopify/orders/create` won't fire on order updates.
@@ -56,5 +58,5 @@ These apply regardless of which AI tool you're using:
 * **Prefer GraphQL.** Shopify REST is deprecated in Mechanic. Use the GraphQL Admin API for reading and writing Shopify data.
 * **Verify the output format.** A complete Mechanic task is a JSON object with `name`, `script`, `subscriptions`, `subscriptions_template`, `options`, and other fields. If your AI produces only the Liquid code, it's missing the structure needed for import.
 * **Watch for async vs sync confusion.** This is the most common AI mistake. `query | shopify` returns data immediately. `{% action "shopify" %}` queues a mutation that runs *after* the task code finishes. If the AI tries to use a mutation result in the same task run, the task will silently fail.
-* **Check for preview mode.** Every event topic the task subscribes to needs an `{% if event.preview %}` block with mock data. If the task subscribes to 3 topics, there should be 3 preview blocks. Missing previews mean Mechanic can't verify the task will produce valid actions.
+* **Check for preview mode.** Preview each event topic the task subscribes to. Use [preview events and stub data](core/tasks/previews/) to exercise branches that need Shopify data and check the actions the task produces.
 * **Webhook orders need `admin_graphql_api_id`.** When an order arrives via webhook (like `shopify/orders/create`), the order ID is REST-style. The task needs to use `order.admin_graphql_api_id` to get the full GraphQL ID for mutations. Using `order.id` directly will fail.

@@ -19,3 +19,7 @@ If your tasks already use Mechanic's older JavaScript integration, follow the sa
 [Storefront forms](../app/forms.md) connect customer submissions to your tasks. Build the form in Mechanic, publish it, then add a **Mechanic form** block to a template in the theme editor. Select the form in the block's picker and save the theme. You do not need to write JavaScript or enable the **Online store JavaScript** app embed to use the form block.
 
 Each theme has its own block placements. If you change themes, place the form in the new theme too; the saved questions and connected tasks remain in Mechanic. Use the form's **Theme** tab to see saved placements. [Follow the placement guide](../app/forms.md#add-the-form-to-your-theme).
+
+## Checkout rules
+
+Shopify runs published [Functions](../core/functions.md) for shops in the limited pilot. A discount or checkout rule works without a theme block or JavaScript embed. If your rule checks something the shopper enters, such as a gift message, give them a place to enter it. [See the gift-wrap walkthrough](../resources/tutorials/require-a-gift-message-for-wrapped-items.md).

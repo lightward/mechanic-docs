@@ -1,10 +1,10 @@
 ---
-description: Edit Mechanic tasks and Function drafts locally, preview changes, and sync them with your shop.
+description: Edit Mechanic tasks locally, preview changes, and sync them with your shop.
 ---
 
 # Local development with the Mechanic CLI
 
-Use the Mechanic CLI to keep tasks and Function drafts in local files. Edit them in your own tools, preview changes, and sync your work with the shop.
+Use the Mechanic CLI to keep tasks in local files. Edit them in your own tools, preview changes, and sync your work with the shop.
 
 This is the recommended path for task work that belongs in Git, needs review, or benefits from an editor, an AI coding tool, or a repeatable deployment process.
 
@@ -14,7 +14,7 @@ The CLI uses a shop API token for connected commands. If you are building custom
 
 ## Function drafts
 
-The Function commands require Mechanic CLI 0.2.0 or later. Use `mechanic functions --help` to see which commands your installed version supports.
+The commands in this section are for the upcoming CLI 0.2.0 release. Pilot shops using the public 0.1.x CLI can [import and test a Function in the builder](../resources/tutorials/write-a-function-with-ai.md).
 
 ### Start with a new rule
 

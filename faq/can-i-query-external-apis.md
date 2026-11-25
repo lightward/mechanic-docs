@@ -4,7 +4,7 @@
 For more general information on third-party APIs, including more options for reading and writing data, see [Working with external APIs](../techniques/working-with-external-apis/).
 {% endhint %}
 
-Mechanic only has first-class API support for Shopify. However, you can use the [HTTP](../core/actions/http.md) action to fetch data from any source that's accessible with an HTTP URL. (APIs that require authentication via query param or header - basic auth, for example - are all supported. APIs that require authentication via OAuth are generally not supported.)
+Yes. A task can use the [HTTP action](../core/actions/http.md) to request data from an external API, then use the result in a later task run. For services that require an interactive OAuth connection, see Mechanic’s [built-in integrations](../platform/integrations/).
 
 For API keys, passwords, signing keys, and other reusable credentials, store the value as a [shop secret](../platform/globals-and-secrets.md) and reference it from the HTTP action with `secrets.some_key`.
 

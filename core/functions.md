@@ -6,23 +6,25 @@ description: Build, test, and publish Shopify rules for discounts, bundles, and 
 
 Functions let you change what happens while a customer shops. Give a shopper three T-shirts for $30, split a two-pack into the items you’ll ship, or ask for a gift message before checkout. You can build and test a rule in Mechanic without writing code.
 
-Use a [task](tasks/README.md) when you want to respond to an event, such as sending an email after an order is fulfilled.
+In the builder, you choose the conditions to check and what should happen when they match. Shopify runs the published rule with the cart and checkout data it supplies. Use a [task](tasks/README.md) for work that responds to an event or a schedule, such as tagging the resulting order, emailing a customer, or sending fulfillment details to another service. Checkout does not wait for a task or its actions.
 
 {% hint style="info" %}
-Functions are in development for a limited pilot. The Mechanic team enables new function creation for individual pilot shops.
+Functions are available in a limited pilot. The Mechanic team enables creation for individual shops. If your shop leaves the pilot while a rule is live, you can still open the rule and deactivate it.
 {% endhint %}
 
 ## What can a function do?
 
 | Function type | Example |
 | --- | --- |
-| Discount | Sell any three eligible T-shirts for $30. Discounts can apply to items, an order, or shipping. |
-| Cart and checkout validation | Ask a buyer to place separate orders for preorder and regular items, and show them what to change. |
-| Cart Transform | Sell a T-shirt two-pack and show the black shirt and the white shirt as separate items in the order. |
+| Discount | Offer three eligible T-shirts for $30 when they would otherwise cost more. Discounts can apply to items, an order, or shipping. |
+| Cart and checkout validation | When the cart mixes products tagged `preorder` with regular items, block checkout and ask the buyer to order them separately. |
+| Cart Transform | Expand a two-pack into a black shirt and a white shirt, or merge matching cart lines into a kit. |
 | Delivery customization | Hide express shipping for items that need extra preparation time. |
-| Payment customization | Rename a manual payment method so buyers recognize it, or change where it appears among eligible methods. |
+| Payment customization | Show “Bank deposit” as “Wholesale transfer” and move it to the top of the list for wholesale buyers. |
 
-For a merged bundle, the kit costs the sum of its components. For a delivery or payment rule, copy the full option name from the buyer’s checkout, including capitalization and any text in parentheses.
+A merged kit costs the sum of its components. Use one-time purchases for bundles. Shopify rejects bundle operations on lines with a selling plan. [Shopify’s Cart Transform limits](https://shopify.dev/docs/api/functions/latest/cart-transform#invalid-scenarios)
+
+Delivery and payment rules can hide, rename, or reorder options Shopify already offers. In the rule, enter the full option name Shopify supplies to the Function, including capitalization and parentheses. A payment method’s name can differ from its label in checkout. Try the rule in your shop’s checkout because Shopify restricts which payment methods can be changed by plan, region, and checkout type. [Shopify’s payment customization restrictions](https://shopify.dev/docs/api/functions/latest/payment-customization#plan-and-geographical-restrictions)
 
 ## Try a discount with a test cart
 

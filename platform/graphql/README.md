@@ -4,7 +4,7 @@ description: "Use Shopify's GraphQL Admin API in Mechanic Shopify automation tas
 
 # GraphQL in Mechanic
 
-Mechanic tasks have direct inline access to Shopify's GraphQL Admin API. Run queries during task execution to read data, and use GraphQL mutations via the Shopify action to write data — giving you the same level of API access you'd have in a custom app, without the infrastructure.
+Mechanic tasks have direct inline access to Shopify's GraphQL Admin API. Run queries during task execution to read data, and use GraphQL mutations via the Shopify action to write data. The available operations depend on Shopify’s API and the [permissions granted to Mechanic](../../core/tasks/permissions.md).
 
 {% hint style="warning" %}
 Shopify REST is deprecated in Mechanic. All new tasks should use the GraphQL Admin API. See [Converting tasks from Shopify REST to GraphQL](../../resources/converting-tasks-from-shopify-rest-to-graphql/) for migration guidance.

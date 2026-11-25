@@ -5,7 +5,7 @@ description: >-
 
 # Events
 
-In Mechanic, an [event](../../core/events/) represents something that happened — a new order, a scheduled timer firing, an incoming email, or a custom trigger. Events are the starting point for all automation: every task run begins with an event.
+In Mechanic, an [event](../../core/events/) represents something that happened — a new order, a scheduled timer firing, an incoming email, or a custom trigger. Every task run begins with an event.
 
 ## How events work
 

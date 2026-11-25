@@ -1,6 +1,6 @@
 # Custom authentication
 
-In extraordinary cases, Mechanic can be configured to route Shopify API requests through a custom Shopify app, instead of Mechanic's own installation. This may be necessary when a store's Mechanic tasks need to perform work in a way that is only possible via a custom app (e.g. accessing select Shopify APIs, or working with a Shopify API rate limit negotiated for a specific custom app).
+In extraordinary cases, Mechanic can be configured to route task requests to the Shopify Admin API through a custom Shopify app, instead of Mechanic's own installation. This may be necessary when a store's Mechanic tasks need to perform work in a way that is only possible via a custom app (e.g. accessing select Shopify APIs, or working with a Shopify API rate limit negotiated for a specific custom app).
 
 {% hint style="info" %}
 Most stores never need this. Mechanic's own installation covers the Shopify APIs that tasks use, and options like ["Read all orders"](read-all-orders.md) are available natively. Custom authentication exists for the exceptions.
@@ -10,10 +10,10 @@ Most stores never need this. Mechanic's own installation covers the Shopify APIs
 
 Shopify Plus accounts can configure this in the Permissions section of the store's Mechanic settings, by saving a custom Shopify Admin API access token.
 
-Before saving a new access token, you must ensure that the custom app has every access scope that Mechanic requires.
+Before saving a new access token, you must ensure that the custom app has the access scopes your tasks require. Mechanic uses its own app permissions for [Functions](../../core/functions.md#publish-your-rule) and [storefront form placement](../../core/tasks/permissions.md#permissions-for-other-mechanic-features).
 
 {% hint style="warning" %}
-While a custom access token is saved, Mechanic routes **all** of the store's Shopify API activity through it. If the token becomes invalid (for example, if the custom app is deleted, or its token is rotated), task runs will fail with 401 errors from Shopify — even for work that Mechanic's own authentication could perform.
+While a custom access token is saved, Mechanic uses it for your tasks’ Shopify API requests wherever supported. If the token becomes invalid (for example, if the custom app is deleted, or its token is rotated), task runs will fail with 401 errors from Shopify — even for work that Mechanic's own authentication could perform.
 
 To return to Mechanic's own authentication, clear the custom access token field and save.
 {% endhint %}
