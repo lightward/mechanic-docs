@@ -4,7 +4,7 @@ description: Use Mechanic API tokens with the v1 API for trusted scripts, agents
 
 # API tokens and sync endpoints
 
-Mechanic API tokens authenticate v1 API workflows for one shop. They are used by the [Mechanic CLI](mechanic-cli.md), and may also be used by trusted scripts, agents, and CI jobs that need direct HTTP access to tasks, Function drafts, shop status, Shopify API deprecation visibility, and [globals and secrets](globals-and-secrets.md).
+Mechanic API tokens authenticate v1 API workflows for one shop. They are used by the [Mechanic CLI](mechanic-cli.md), and may also be used by trusted scripts, agents, and CI jobs that need direct HTTP access to tasks, Function drafts, shop status, incoming webhook topics, Shopify API deprecation visibility, and [globals and secrets](globals-and-secrets.md).
 
 {% hint style="info" %}
 The CLI is the recommended client. It wraps this API with local task validation, content hashes, idempotency keys, preview commands, diff output, and safer publish flows. Direct HTTP use is for CLI-compatible automation, not a broad public API platform.
@@ -23,7 +23,7 @@ Tokens are:
 * accepted as `Authorization: Bearer <token>`
 * usable as `MECHANIC_API_TOKEN` for the CLI and CI jobs
 
-Treat tokens like passwords. A token can read task sync payloads, preview and publish tasks, read and write globals, and set, replace, or delete secrets for its shop until revoked. On a shop with Functions access, it can also read, check and save Function drafts. If the shop is separately enabled for API publication, every active token for that shop can submit saved revisions for live checkout. Shopify permissions are approved in Mechanic.
+Treat tokens like passwords. A token can list incoming webhook topics, read task sync payloads, preview and publish tasks, read and write globals, and set, replace, or delete secrets for its shop until revoked. On a shop with Functions access, it can also read, check and save Function drafts. If the shop is separately enabled for API publication, every active token for that shop can submit saved revisions for live checkout. Shopify permissions are approved in Mechanic.
 
 Use one token per device, repository, or automation. Each shop can have up to five active API tokens. If a token is leaked, revoke it and create a replacement.
 
@@ -65,7 +65,7 @@ For CI jobs, store the token as a secret named `MECHANIC_API_TOKEN` and expose i
 ## Endpoints
 
 This API is intentionally narrow. It covers task sync, task preview, Function drafts and publication, shop queue
-status, Shopify API deprecation visibility, and shop globals and secrets for the authenticated shop. Use
+status, incoming webhook topics, Shopify API deprecation visibility, and shop globals and secrets for the authenticated shop. Use
 direct HTTP only for trusted automation that can safely store a shop API token.
 
 | Method | Path | Purpose |
@@ -73,6 +73,7 @@ direct HTTP only for trusted automation that can safely store a shop API token.
 | `GET` | `/v1/auth/verify` | Verify the API token; include an expected shop so mismatched tokens are rejected without revealing another shop |
 | `GET` | `/v1/shop/status` | Read current queue, backlog, and lag status |
 | `GET` | `/v1/shop/deprecations` | Read unresolved Shopify API deprecations reported by the shop's tasks |
+| `GET` | `/v1/webhooks` | List enabled incoming Mechanic webhooks for the authenticated shop |
 | `GET` | `/v1/tasks` | List tasks available to sync |
 | `GET` | `/v1/tasks/:id` | Read one task for sync |
 | `POST` | `/v1/tasks/preview` | Preview local task content without saving |
@@ -132,6 +133,25 @@ other raw payload data.
 `GET /v1/tasks` and `GET /v1/tasks/:id` also include `shopify_api_version` in
 task sync envelopes, so scripts can see the configured API version without
 fetching or parsing the task JSON separately.
+
+## Incoming webhook topics
+
+`GET /v1/webhooks` returns the configured source name and event topic for each enabled [Mechanic webhook](webhooks.md) in the token's shop. Send the bearer token and the expected shop domain as shown under [authentication](#base-url-and-authentication).
+
+```json
+{
+  "webhooks": [
+    { "event_source_name": "Warehouse", "event_topic": "user/stock/received" }
+  ],
+  "next_cursor": null
+}
+```
+
+Each page contains up to 100 webhooks. Start with `GET /v1/webhooks`. When `next_cursor` is a string, pass the entire value as the URL-encoded `cursor` query parameter on the next GET to the same endpoint. Keep the same shop and authentication headers. Continue until `next_cursor` is `null`, including when the final page contains exactly 100 webhooks.
+
+Cursors belong to one shop and expire after 24 hours. An invalid or expired cursor returns HTTP 400. Start again without a cursor to get a fresh list. Each page reflects the enabled webhooks at the time of the request, so changes made during listing can affect the results.
+
+A shop with no enabled incoming webhooks receives `{"webhooks":[],"next_cursor":null}`. To copy a receiving URL or manage the webhook, open **Settings > Mechanic webhooks** in Mechanic.
 
 ## Globals and secrets
 
@@ -238,6 +258,6 @@ Use deploy and sync workflows only in trusted repositories. Consider GitHub envi
 
 ## What is not included yet
 
-This is not a general-purpose Mechanic API reference. This version does not document SDKs, token scopes, task deletion, task enabling/disabling, event APIs, run APIs, webhook management APIs, fleet management, or formal public API versioning beyond the documented v1 surface.
+This is not a general-purpose Mechanic API reference. This version does not document SDKs, token scopes, task deletion, task enabling/disabling, event APIs, run APIs, webhook creation, editing or deletion, fleet management, or formal public API versioning beyond the documented v1 surface.
 
 Start with [Local task development with the Mechanic CLI](mechanic-cli.md) unless you specifically need direct HTTP automation.
