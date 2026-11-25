@@ -8,6 +8,8 @@ Suppose you want to offer three items from a collection for $30. You can describ
 
 ## Use an external AI assistant
 
+If your assistant supports agent skills, install the [Mechanic Function writer](../../platform/agent-skills.md#install-the-skills) for the schema and examples. You can also copy them from the builder as shown below.
+
 1. Open a discount in the builder and choose **View definition**. Give your AI assistant the **JSON schema** and **Discount example** from that panel so it can write a rule Mechanic can import.
 2. Ask for the rule and its examples together:
 
