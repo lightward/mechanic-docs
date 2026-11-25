@@ -348,7 +348,7 @@ Function commands require Mechanic CLI 0.2.0 or later. Run `mechanic --version` 
 
 ### Start with a new rule
 
-Save an [AI-authored rule](../resources/tutorials/write-a-function-with-ai.md) or a builder export as `functions/offer.json`. You can check its format and preview its saved carts offline. Look at the expected and actual outcomes for each cart. **Inputs only** means the cart has no expected result to compare. If an expected result changes or the engine cannot evaluate it, preview exits with a failure. Open the cart in the builder to inspect the conditions and inputs.
+Save an [AI-authored rule](../resources/tutorials/write-a-function-with-ai.md) or a builder export as a JSON file in your project. These examples use `functions/offer.json`. You can choose your own filename and use that path in the commands below. You can check its format and preview its saved carts offline. Look at the expected and actual outcomes for each cart. **Inputs only** means the cart has no expected result to compare. If an expected result changes or the engine cannot evaluate it, preview exits with a failure. Open the cart in the builder to inspect the conditions and inputs.
 
 In your local fish terminal:
 
@@ -368,19 +368,25 @@ Saving a new file creates a draft. In Mechanic, select any required shop product
 
 ### Edit a rule that’s already in Mechanic
 
-In your local fish terminal, run `mechanic functions list` and copy the draft ID. Replace `DRAFT_ID` below and choose an unused destination filename:
+In your local fish terminal, run `mechanic functions list` and copy the ID of the draft you want to edit. Replace `DRAFT_ID` with that ID:
 
 ```fish
-mechanic functions pull DRAFT_ID --out functions/existing-offer.json
+mechanic functions pull DRAFT_ID
 ```
 
-Edit the file, then compare the proposed change with the saved rule. The shop preview includes the draft’s selections and existing saved carts. Use the shop validation to check the publication compiler.
+By default, the CLI saves the draft as `functions/<draft-id>.json` and prints the path. To choose your own folder and filename instead, use the optional `--out` flag with an unused path inside your project:
 
 ```fish
-mechanic functions diff functions/existing-offer.json
-mechanic functions preview functions/existing-offer.json --shop
-mechanic functions validate functions/existing-offer.json --shop
-mechanic functions save-draft functions/existing-offer.json
+mechanic functions pull DRAFT_ID --out functions/wholesale-payments.json
+```
+
+Edit the file you pulled. In the commands below, replace `functions/DRAFT_ID.json` with the path the CLI printed. Compare your edits with the saved draft, preview them with the shop’s selections and saved carts, then validate and save.
+
+```fish
+mechanic functions diff functions/DRAFT_ID.json
+mechanic functions preview functions/DRAFT_ID.json --shop
+mechanic functions validate functions/DRAFT_ID.json --shop
+mechanic functions save-draft functions/DRAFT_ID.json
 ```
 
 The CLI keeps a link between the file path and the shop draft. Keep using that path for edits. To resolve a conflict with an edit made in the builder, pull the current version to a second file. Apply your intended edits there, then diff and save that file.
